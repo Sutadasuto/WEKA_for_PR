@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,6 +12,21 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
@@ -33,7 +49,11 @@ import junit.framework.TestSuite;
  * java weka.filters.unsupervised.attribute.MathExpressionTest
  *
  * @author FracPete (fracpete at waikato dot ac dot nz)
+<<<<<<< HEAD
  * @version $Revision: 11497 $
+=======
+ * @version $Revision: 1.2 $
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 public class MathExpressionTest 
   extends AbstractFilterTest {
@@ -53,11 +73,15 @@ public class MathExpressionTest
   /** Creates a MathExpression filter with the given expression */
   protected Filter getFilter(String expression) {
     MathExpression f = new MathExpression();
+<<<<<<< HEAD
     try {
       f.setExpression(expression);
     } catch (Exception e) {
       throw new RuntimeException("Error during compilation of expression!", e);
     }
+=======
+    f.setExpression(expression);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     f.setIgnoreRange("" + (m_AttIndex + 1));
     f.setInvertSelection(true);
     return f;
@@ -81,6 +105,7 @@ public class MathExpressionTest
     assertEquals(m_Instances.numAttributes(), result.numAttributes());
     assertEquals(m_Instances.numInstances(), result.numInstances());
     // check statistics
+<<<<<<< HEAD
     for (int i = 0; i < result.numInstances(); i++) {
       if (!Utils.eq(stats, result.instance(i).value(m_AttIndex))) {
         fail("Filter and Attribute statistics differ ('" + expr +
@@ -89,6 +114,17 @@ public class MathExpressionTest
         break;
       }
     }
+=======
+    boolean equal = true;
+    for (int i = 0; i < result.numInstances(); i++) {
+      if (!Utils.eq(stats, result.instance(i).value(m_AttIndex))) {
+        equal = false;
+        break;
+      }
+    }
+    if (!equal)
+      fail("Filter and Attribute statistics differ ('" + expr + "')!");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**

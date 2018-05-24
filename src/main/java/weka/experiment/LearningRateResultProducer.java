@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,17 +12,39 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
  *    LearningRateResultProducer.java
+<<<<<<< HEAD
  *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 1999 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  *
  */
 
 package weka.experiment;
 
+<<<<<<< HEAD
 import java.util.Collections;
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 import java.util.Enumeration;
 import java.util.Random;
 import java.util.Vector;
@@ -161,10 +184,18 @@ import weka.core.Utils;
  * All options after -- will be passed to the result producer.
  * 
  * @author Len Trigg (trigg@cs.waikato.ac.nz)
+<<<<<<< HEAD
  * @version $Revision: 10203 $
  */
 public class LearningRateResultProducer implements ResultListener,
   ResultProducer, OptionHandler, AdditionalMeasureProducer, RevisionHandler {
+=======
+ * @version $Revision: 11198 $
+ */
+public class LearningRateResultProducer
+  implements ResultListener, ResultProducer, OptionHandler,
+  AdditionalMeasureProducer, RevisionHandler {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
   /** for serialization */
   static final long serialVersionUID = -3841159673490861331L;
@@ -264,8 +295,14 @@ public class LearningRateResultProducer implements ResultListener,
     } else {
       m_CurrentSize = m_LowerSize;
     }
+<<<<<<< HEAD
     while (m_CurrentSize <= m_Instances.numInstances()
       && ((m_UpperSize == -1) || (m_CurrentSize <= m_UpperSize))) {
+=======
+    while (m_CurrentSize <= m_Instances.numInstances() &&
+      ((m_UpperSize == -1) ||
+      (m_CurrentSize <= m_UpperSize))) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       m_ResultProducer.doRunKeys(run);
       m_CurrentSize += m_StepSize;
     }
@@ -295,11 +332,17 @@ public class LearningRateResultProducer implements ResultListener,
     // Randomize on a copy of the original dataset
     Instances runInstances = new Instances(m_Instances);
     runInstances.randomize(new Random(run));
+<<<<<<< HEAD
 
     /*
      * if (runInstances.classAttribute().isNominal() &&
      * (m_Instances.numInstances() / m_StepSize >= 1)) { //
      * runInstances.stratify(m_Instances.numInstances() / m_StepSize); }
+=======
+    /*
+     * if (runInstances.classAttribute().isNominal()) {
+     * runInstances.stratify(m_StepSize); }
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
      */
 
     // Tell the resultproducer to send results to us
@@ -311,8 +354,14 @@ public class LearningRateResultProducer implements ResultListener,
     } else {
       m_CurrentSize = m_LowerSize;
     }
+<<<<<<< HEAD
     while (m_CurrentSize <= m_Instances.numInstances()
       && ((m_UpperSize == -1) || (m_CurrentSize <= m_UpperSize))) {
+=======
+    while (m_CurrentSize <= m_Instances.numInstances() &&
+      ((m_UpperSize == -1) ||
+      (m_CurrentSize <= m_UpperSize))) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       m_ResultProducer.setInstances(new Instances(runInstances, 0,
         m_CurrentSize));
       m_ResultProducer.doRun(run);
@@ -529,6 +578,7 @@ public class LearningRateResultProducer implements ResultListener,
    * @return an enumeration of all the available options.
    */
   @Override
+<<<<<<< HEAD
   public Enumeration<Option> listOptions() {
 
     Vector<Option> newVector = new Vector<Option>(2);
@@ -548,6 +598,33 @@ public class LearningRateResultProducer implements ResultListener,
           + m_ResultProducer.getClass().getName() + ":"));
       newVector.addAll(Collections.list(((OptionHandler) m_ResultProducer)
         .listOptions()));
+=======
+  public Enumeration listOptions() {
+
+    Vector newVector = new Vector(2);
+
+    newVector.addElement(new Option(
+      "\tThe number of steps in the learning rate curve.\n"
+        + "\t(default 10)",
+      "X", 1,
+      "-X <num steps>"));
+    newVector.addElement(new Option(
+      "\tThe full class name of a ResultProducer.\n"
+        + "\teg: weka.experiment.CrossValidationResultProducer",
+      "W", 1,
+      "-W <class name>"));
+
+    if ((m_ResultProducer != null) &&
+      (m_ResultProducer instanceof OptionHandler)) {
+      newVector.addElement(new Option(
+        "",
+        "", 0, "\nOptions specific to result producer "
+          + m_ResultProducer.getClass().getName() + ":"));
+      Enumeration enu = ((OptionHandler) m_ResultProducer).listOptions();
+      while (enu.hasMoreElements()) {
+        newVector.addElement(enu.nextElement());
+      }
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     }
     return newVector.elements();
   }
@@ -701,6 +778,7 @@ public class LearningRateResultProducer implements ResultListener,
     }
 
     String rpName = Utils.getOption('W', options);
+<<<<<<< HEAD
     if (rpName.length() == 0) {
       throw new Exception("A ResultProducer must be specified with"
         + " the -W option.");
@@ -713,6 +791,21 @@ public class LearningRateResultProducer implements ResultListener,
     if (getResultProducer() instanceof OptionHandler) {
       ((OptionHandler) getResultProducer()).setOptions(Utils
         .partitionOptions(options));
+=======
+    if (rpName.length() > 0) {
+
+      // Do it first without options, so if an exception is thrown during
+      // the option setting, listOptions will contain options for the actual
+      // RP.
+      setResultProducer((ResultProducer) Utils.forName(
+        ResultProducer.class,
+        rpName,
+        null));
+    }
+    if (getResultProducer() instanceof OptionHandler) {
+      ((OptionHandler) getResultProducer())
+        .setOptions(Utils.partitionOptions(options));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     }
   }
 
@@ -725,8 +818,13 @@ public class LearningRateResultProducer implements ResultListener,
   public String[] getOptions() {
 
     String[] seOptions = new String[0];
+<<<<<<< HEAD
     if ((m_ResultProducer != null)
       && (m_ResultProducer instanceof OptionHandler)) {
+=======
+    if ((m_ResultProducer != null) &&
+      (m_ResultProducer instanceof OptionHandler)) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       seOptions = ((OptionHandler) m_ResultProducer).getOptions();
     }
 
@@ -745,7 +843,12 @@ public class LearningRateResultProducer implements ResultListener,
     }
     options[current++] = "--";
 
+<<<<<<< HEAD
     System.arraycopy(seOptions, 0, options, current, seOptions.length);
+=======
+    System.arraycopy(seOptions, 0, options, current,
+      seOptions.length);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     current += seOptions.length;
     while (current < options.length) {
       options[current++] = "";
@@ -767,7 +870,12 @@ public class LearningRateResultProducer implements ResultListener,
 
     if (m_ResultProducer != null) {
       System.err.println("LearningRateResultProducer: setting additional "
+<<<<<<< HEAD
         + "measures for " + "ResultProducer");
+=======
+        + "measures for "
+        + "ResultProducer");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       m_ResultProducer.setAdditionalMeasures(m_AdditionalMeasures);
     }
   }
@@ -779,6 +887,7 @@ public class LearningRateResultProducer implements ResultListener,
    * @return an enumeration of the measure names
    */
   @Override
+<<<<<<< HEAD
   public Enumeration<String> enumerateMeasures() {
     Vector<String> newVector = new Vector<String>();
     if (m_ResultProducer instanceof AdditionalMeasureProducer) {
@@ -787,6 +896,16 @@ public class LearningRateResultProducer implements ResultListener,
       while (en.hasMoreElements()) {
         String mname = en.nextElement();
         newVector.add(mname);
+=======
+  public Enumeration enumerateMeasures() {
+    Vector newVector = new Vector();
+    if (m_ResultProducer instanceof AdditionalMeasureProducer) {
+      Enumeration en = ((AdditionalMeasureProducer) m_ResultProducer).
+        enumerateMeasures();
+      while (en.hasMoreElements()) {
+        String mname = (String) en.nextElement();
+        newVector.addElement(mname);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       }
     }
     return newVector.elements();
@@ -802,12 +921,21 @@ public class LearningRateResultProducer implements ResultListener,
   @Override
   public double getMeasure(String additionalMeasureName) {
     if (m_ResultProducer instanceof AdditionalMeasureProducer) {
+<<<<<<< HEAD
       return ((AdditionalMeasureProducer) m_ResultProducer)
         .getMeasure(additionalMeasureName);
     } else {
       throw new IllegalArgumentException("LearningRateResultProducer: "
         + "Can't return value for : " + additionalMeasureName + ". "
         + m_ResultProducer.getClass().getName() + " "
+=======
+      return ((AdditionalMeasureProducer) m_ResultProducer).
+        getMeasure(additionalMeasureName);
+    } else {
+      throw new IllegalArgumentException("LearningRateResultProducer: "
+        + "Can't return value for : " + additionalMeasureName
+        + ". " + m_ResultProducer.getClass().getName() + " "
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
         + "is not an AdditionalMeasureProducer");
     }
   }
@@ -985,6 +1113,10 @@ public class LearningRateResultProducer implements ResultListener,
    */
   @Override
   public String getRevision() {
+<<<<<<< HEAD
     return RevisionUtils.extract("$Revision: 10203 $");
+=======
+    return RevisionUtils.extract("$Revision: 11198 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 } // LearningRateResultProducer

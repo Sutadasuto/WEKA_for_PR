@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,16 +12,40 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
  * InfoPanel.java
+<<<<<<< HEAD
  * Copyright (C) 2005-2012 University of Waikato, Hamilton, New Zealand
+=======
+ * Copyright (C) 2005 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  *
  */
 
 package weka.gui.sql;
 
+<<<<<<< HEAD
+=======
+import weka.gui.ComponentHelper;
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -39,13 +64,20 @@ import javax.swing.JScrollPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+<<<<<<< HEAD
 import weka.gui.ComponentHelper;
 
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 /**
  * A simple panel for displaying information, e.g. progress information etc.
  *
  * @author      FracPete (fracpete at waikato dot ac dot nz)
+<<<<<<< HEAD
  * @version     $Revision: 8034 $
+=======
+ * @version     $Revision: 7059 $
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 public class InfoPanel
@@ -103,7 +135,11 @@ public class InfoPanel
     // clear button
     panel = new JPanel(new BorderLayout());
     add(panel, BorderLayout.EAST);
+<<<<<<< HEAD
     m_ButtonClear = new JButton("Clear");
+=======
+    m_ButtonClear = new JButton(Messages.getInstance().getString("InfoPanel_CreatePanel_ButtonClear_JButton_Text"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     m_ButtonClear.addActionListener(new ActionListener() {
 	public void actionPerformed(ActionEvent e) {
 	  clear();
@@ -114,7 +150,11 @@ public class InfoPanel
     // clear button
     panel2 = new JPanel(new BorderLayout());
     panel.add(panel2, BorderLayout.CENTER);
+<<<<<<< HEAD
     m_ButtonCopy = new JButton("Copy");
+=======
+    m_ButtonCopy = new JButton(Messages.getInstance().getString("InfoPanel_CreatePanel_ButtonCopy_JButton_Text"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     m_ButtonCopy.addActionListener(new ActionListener() {
 	public void actionPerformed(ActionEvent e) {
 	  copyToClipboard();

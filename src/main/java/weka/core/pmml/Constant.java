@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,23 +12,49 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
  *    Constant.java
+<<<<<<< HEAD
  *    Copyright (C) 2008-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 2008 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  *
  */
 
 package weka.core.pmml;
 
 import java.util.ArrayList;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import weka.core.Attribute;
+<<<<<<< HEAD
+=======
+import weka.core.FastVector;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
 /**
  * Class encapsulating a Constant Expression.
@@ -88,8 +115,13 @@ public class Constant extends Expression {
       return new Attribute("Constant: " + m_continuousConst);
     }
     
+<<<<<<< HEAD
     ArrayList<String> nom = new ArrayList<String>();
     nom.add(m_categoricalConst);
+=======
+    FastVector nom = new FastVector();
+    nom.addElement(m_categoricalConst);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     return new Attribute("Constant: " + m_categoricalConst, nom);
   }
   

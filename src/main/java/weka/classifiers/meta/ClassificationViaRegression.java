@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,30 +12,63 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
  *    ClassificationViaRegression.java
+<<<<<<< HEAD
  *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 1999 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  *
  */
 
 package weka.classifiers.meta;
 
+<<<<<<< HEAD
 import weka.classifiers.AbstractClassifier;
 import weka.classifiers.Classifier;
 import weka.classifiers.SingleClassifierEnhancer;
 import weka.core.Capabilities;
 import weka.core.Capabilities.Capability;
+=======
+import weka.classifiers.Classifier;
+import weka.classifiers.SingleClassifierEnhancer;
+import weka.core.Capabilities;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.RevisionUtils;
 import weka.core.TechnicalInformation;
+<<<<<<< HEAD
 import weka.core.TechnicalInformation.Field;
 import weka.core.TechnicalInformation.Type;
 import weka.core.TechnicalInformationHandler;
 import weka.core.Utils;
 import weka.core.UnassignedClassException;
+=======
+import weka.core.TechnicalInformationHandler;
+import weka.core.Utils;
+import weka.core.Capabilities.Capability;
+import weka.core.TechnicalInformation.Field;
+import weka.core.TechnicalInformation.Type;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 import weka.filters.Filter;
 import weka.filters.unsupervised.attribute.MakeIndicator;
 
@@ -98,7 +132,11 @@ import weka.filters.unsupervised.attribute.MakeIndicator;
  *
  * @author Eibe Frank (eibe@cs.waikato.ac.nz)
  * @author Len Trigg (trigg@cs.waikato.ac.nz)
+<<<<<<< HEAD
  * @version $Revision: 10470 $ 
+=======
+ * @version $Revision: 1.27 $ 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 */
 public class ClassificationViaRegression 
   extends SingleClassifierEnhancer
@@ -199,7 +237,11 @@ public class ClassificationViaRegression
     insts = new Instances(insts);
     insts.deleteWithMissingClass();
     
+<<<<<<< HEAD
     m_Classifiers = AbstractClassifier.makeCopies(m_Classifier, insts.numClasses());
+=======
+    m_Classifiers = Classifier.makeCopies(m_Classifier, insts.numClasses());
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     m_ClassFilters = new MakeIndicator[insts.numClasses()];
     for (int i = 0; i < insts.numClasses(); i++) {
       m_ClassFilters[i] = new MakeIndicator();
@@ -230,9 +272,12 @@ public class ClassificationViaRegression
       m_ClassFilters[i].batchFinished();
       newInst = m_ClassFilters[i].output();
       probs[i] = m_Classifiers[i].classifyInstance(newInst);
+<<<<<<< HEAD
       if (Utils.isMissingValue(probs[i])) {
         throw new UnassignedClassException("ClassificationViaRegression: base learner predicted missing value.");
       }
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       if (probs[i] > 1) {
         probs[i] = 1;
       }
@@ -272,7 +317,11 @@ public class ClassificationViaRegression
    * @return		the revision
    */
   public String getRevision() {
+<<<<<<< HEAD
     return RevisionUtils.extract("$Revision: 10470 $");
+=======
+    return RevisionUtils.extract("$Revision: 1.27 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**

@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,10 +12,26 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
  *    Copy.java
+<<<<<<< HEAD
  *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
  *
  */
@@ -25,11 +42,31 @@ import java.util.Enumeration;
 import java.util.Vector;
 
 import weka.core.*;
+=======
+ *    Copyright (C) 1999 University of Waikato, Hamilton, New Zealand
+ *
+ */
+
+
+package weka.filters.unsupervised.attribute;
+
+import weka.core.Attribute;
+import weka.core.Capabilities;
+import weka.core.Instance;
+import weka.core.Instances;
+import weka.core.Option;
+import weka.core.OptionHandler;
+import weka.core.Range;
+import weka.core.RevisionUtils;
+import weka.core.SparseInstance;
+import weka.core.Utils;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 import weka.core.Capabilities.Capability;
 import weka.filters.Filter;
 import weka.filters.StreamableFilter;
 import weka.filters.UnsupervisedFilter;
 
+<<<<<<< HEAD
 /**
  * <!-- globalinfo-start --> An instance filter that copies a range of
  * attributes in the dataset. This is used in conjunction with other filters
@@ -60,6 +97,35 @@ import weka.filters.UnsupervisedFilter;
  */
 public class Copy extends Filter implements UnsupervisedFilter,
   StreamableFilter, OptionHandler, WeightedInstancesHandler, WeightedAttributesHandler {
+=======
+import java.util.Enumeration;
+import java.util.Vector;
+
+/**
+ <!-- globalinfo-start -->
+ * An instance filter that copies a range of attributes in the dataset. This is used in conjunction with other filters that overwrite attribute values during the course of their operation -- this filter allows the original attributes to be kept as well as the new attributes.
+ * <p/>
+ <!-- globalinfo-end -->
+ *
+ <!-- options-start -->
+ * Valid options are: <p/>
+ *
+ * <pre> -R &lt;index1,index2-index4,...&gt;
+ *  Specify list of columns to copy. First and last are valid
+ *  indexes. (default none)</pre>
+ *
+ * <pre> -V
+ *  Invert matching sense (i.e. copy all non-specified columns)</pre>
+ *
+ <!-- options-end -->
+ *
+ * @author Len Trigg (trigg@cs.waikato.ac.nz)
+ * @version $Revision: 6996 $
+ */
+public class Copy
+  extends Filter
+  implements UnsupervisedFilter, StreamableFilter, OptionHandler {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
   /** for serialization */
   static final long serialVersionUID = -8543707493627441566L;
@@ -68,6 +134,7 @@ public class Copy extends Filter implements UnsupervisedFilter,
   protected Range m_CopyCols = new Range();
 
   /**
+<<<<<<< HEAD
    * Stores the indexes of the selected attributes in order, once the dataset is
    * seen
    */
@@ -91,11 +158,35 @@ public class Copy extends Filter implements UnsupervisedFilter,
     newVector.addElement(new Option(
       "\tInvert matching sense (i.e. copy all non-specified columns)", "V", 0,
       "-V"));
+=======
+   * Stores the indexes of the selected attributes in order, once the
+   * dataset is seen
+   */
+  protected int [] m_SelectedAttributes;
+
+  /**
+   * Returns an enumeration describing the available options.
+   *
+   * @return an enumeration of all the available options.
+   */
+  public Enumeration listOptions() {
+
+    Vector newVector = new Vector(2);
+
+    newVector.addElement(new Option(
+              "\tSpecify list of columns to copy. First and last are valid\n"
+	      +"\tindexes. (default none)",
+              "R", 1, "-R <index1,index2-index4,...>"));
+    newVector.addElement(new Option(
+	      "\tInvert matching sense (i.e. copy all non-specified columns)",
+              "V", 0, "-V"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
     return newVector.elements();
   }
 
   /**
+<<<<<<< HEAD
    * Parses a given list of options.
    * <p/>
    * 
@@ -119,6 +210,25 @@ public class Copy extends Filter implements UnsupervisedFilter,
    * @throws Exception if an option is not supported
    */
   @Override
+=======
+   * Parses a given list of options. <p/>
+   *
+   <!-- options-start -->
+   * Valid options are: <p/>
+   *
+   * <pre> -R &lt;index1,index2-index4,...&gt;
+   *  Specify list of columns to copy. First and last are valid
+   *  indexes. (default none)</pre>
+   *
+   * <pre> -V
+   *  Invert matching sense (i.e. copy all non-specified columns)</pre>
+   *
+   <!-- options-end -->
+   *
+   * @param options the list of options as an array of strings
+   * @throws Exception if an option is not supported
+   */
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   public void setOptions(String[] options) throws Exception {
 
     String copyList = Utils.getOption('R', options);
@@ -134,6 +244,7 @@ public class Copy extends Filter implements UnsupervisedFilter,
 
   /**
    * Gets the current settings of the filter.
+<<<<<<< HEAD
    * 
    * @return an array of strings suitable for passing to setOptions
    */
@@ -151,15 +262,43 @@ public class Copy extends Filter implements UnsupervisedFilter,
     }
 
     return options.toArray(new String[0]);
+=======
+   *
+   * @return an array of strings suitable for passing to setOptions
+   */
+  public String [] getOptions() {
+
+    String [] options = new String [3];
+    int current = 0;
+
+    if (getInvertSelection()) {
+      options[current++] = "-V";
+    }
+    if (!getAttributeIndices().equals("")) {
+      options[current++] = "-R"; options[current++] = getAttributeIndices();
+    }
+
+    while (current < options.length) {
+      options[current++] = "";
+    }
+    return options;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**
    * Returns the Capabilities of this filter.
+<<<<<<< HEAD
    * 
    * @return the capabilities of this object
    * @see Capabilities
    */
   @Override
+=======
+   *
+   * @return            the capabilities of this object
+   * @see               Capabilities
+   */
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   public Capabilities getCapabilities() {
     Capabilities result = super.getCapabilities();
     result.disableAll();
@@ -178,6 +317,7 @@ public class Copy extends Filter implements UnsupervisedFilter,
 
   /**
    * Sets the format of the input instances.
+<<<<<<< HEAD
    * 
    * @param instanceInfo an Instances object containing the input instance
    *          structure (any instances contained in the object are ignored -
@@ -186,6 +326,15 @@ public class Copy extends Filter implements UnsupervisedFilter,
    * @throws Exception if a problem occurs setting the input format
    */
   @Override
+=======
+   *
+   * @param instanceInfo an Instances object containing the input instance
+   * structure (any instances contained in the object are ignored - only the
+   * structure is required).
+   * @return true if the outputFormat may be collected immediately
+   * @throws Exception if a problem occurs setting the input format
+   */
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   public boolean setInputFormat(Instances instanceInfo) throws Exception {
 
     super.setInputFormat(instanceInfo);
@@ -195,6 +344,7 @@ public class Copy extends Filter implements UnsupervisedFilter,
     // Create the output buffer
     Instances outputFormat = new Instances(instanceInfo, 0);
     m_SelectedAttributes = m_CopyCols.getSelection();
+<<<<<<< HEAD
     for (int current : m_SelectedAttributes) {
       // Create a copy of the attribute with a different name
       Attribute origAttribute = instanceInfo.attribute(current);
@@ -202,16 +352,31 @@ public class Copy extends Filter implements UnsupervisedFilter,
         origAttribute.copy("Copy of " + origAttribute.name()),
         outputFormat.numAttributes());
 
+=======
+    for (int i = 0; i < m_SelectedAttributes.length; i++) {
+      int current = m_SelectedAttributes[i];
+      // Create a copy of the attribute with a different name
+      Attribute origAttribute = instanceInfo.attribute(current);
+      outputFormat.insertAttributeAt((Attribute)origAttribute.copy("Copy of " + origAttribute.name()),
+				     outputFormat.numAttributes());
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     }
 
     // adapt locators
     int[] newIndices = new int[instanceInfo.numAttributes() + m_SelectedAttributes.length];
+<<<<<<< HEAD
     for (int i = 0; i < instanceInfo.numAttributes(); i++) {
       newIndices[i] = i;
     }
     for (int i = 0; i < m_SelectedAttributes.length; i++) {
       newIndices[instanceInfo.numAttributes() + i] = m_SelectedAttributes[i];
     }
+=======
+    for (int i = 0; i < instanceInfo.numAttributes(); i++)
+      newIndices[i] = i;
+    for (int i = 0; i < m_SelectedAttributes.length; i++)
+      newIndices[instanceInfo.numAttributes() + i] = m_SelectedAttributes[i];
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     initInputLocators(instanceInfo, newIndices);
 
     setOutputFormat(outputFormat);
@@ -219,6 +384,7 @@ public class Copy extends Filter implements UnsupervisedFilter,
     return true;
   }
 
+<<<<<<< HEAD
   /**
    * Input an instance for filtering. Ordinarily the instance is processed and
    * made available for output immediately. Some filters require all instances
@@ -229,6 +395,19 @@ public class Copy extends Filter implements UnsupervisedFilter,
    * @throws IllegalStateException if no input format has been defined.
    */
   @Override
+=======
+
+  /**
+   * Input an instance for filtering. Ordinarily the instance is processed
+   * and made available for output immediately. Some filters require all
+   * instances be read before producing output.
+   *
+   * @param instance the input instance
+   * @return true if the filtered instance may now be
+   * collected with output().
+   * @throws IllegalStateException if no input format has been defined.
+   */
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   public boolean input(Instance instance) {
 
     if (getInputFormat() == null) {
@@ -240,7 +419,11 @@ public class Copy extends Filter implements UnsupervisedFilter,
     }
 
     double[] vals = new double[outputFormatPeek().numAttributes()];
+<<<<<<< HEAD
     for (int i = 0; i < getInputFormat().numAttributes(); i++) {
+=======
+    for(int i = 0; i < getInputFormat().numAttributes(); i++) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       vals[i] = instance.value(i);
     }
     int j = getInputFormat().numAttributes();
@@ -252,20 +435,36 @@ public class Copy extends Filter implements UnsupervisedFilter,
     if (instance instanceof SparseInstance) {
       inst = new SparseInstance(instance.weight(), vals);
     } else {
+<<<<<<< HEAD
       inst = new DenseInstance(instance.weight(), vals);
     }
 
     copyValues(inst, false, instance.dataset(), outputFormatPeek());
 
     push(inst); // No need to copy instance
+=======
+      inst = new Instance(instance.weight(), vals);
+    }
+
+    inst.setDataset(getOutputFormat());
+    copyValues(inst, false, instance.dataset(), getOutputFormat());
+    inst.setDataset(getOutputFormat());
+    push(inst);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     return true;
   }
 
   /**
    * Returns a string describing this filter
+<<<<<<< HEAD
    * 
    * @return a description of the filter suitable for displaying in the
    *         explorer/experimenter gui
+=======
+   *
+   * @return a description of the filter suitable for
+   * displaying in the explorer/experimenter gui
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    */
   public String globalInfo() {
 
@@ -278,9 +477,15 @@ public class Copy extends Filter implements UnsupervisedFilter,
 
   /**
    * Returns the tip text for this property
+<<<<<<< HEAD
    * 
    * @return tip text for this property suitable for displaying in the
    *         explorer/experimenter gui
+=======
+   *
+   * @return tip text for this property suitable for
+   * displaying in the explorer/experimenter gui
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    */
   public String invertSelectionTipText() {
     return "Sets copy selected vs unselected action."
@@ -290,7 +495,11 @@ public class Copy extends Filter implements UnsupervisedFilter,
 
   /**
    * Get whether the supplied columns are to be removed or kept
+<<<<<<< HEAD
    * 
+=======
+   *
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @return true if the supplied columns will be kept
    */
   public boolean getInvertSelection() {
@@ -305,7 +514,11 @@ public class Copy extends Filter implements UnsupervisedFilter,
    * Note: use this method before you call
    * <code>setInputFormat(Instances)</code>, since the output format is
    * determined in that method.
+<<<<<<< HEAD
    * 
+=======
+   *
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @param invert the new invert setting
    */
   public void setInvertSelection(boolean invert) {
@@ -315,7 +528,11 @@ public class Copy extends Filter implements UnsupervisedFilter,
 
   /**
    * Get the current range selection
+<<<<<<< HEAD
    * 
+=======
+   *
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @return a string containing a comma separated list of ranges
    */
   public String getAttributeIndices() {
@@ -325,9 +542,15 @@ public class Copy extends Filter implements UnsupervisedFilter,
 
   /**
    * Returns the tip text for this property
+<<<<<<< HEAD
    * 
    * @return tip text for this property suitable for displaying in the
    *         explorer/experimenter gui
+=======
+   *
+   * @return tip text for this property suitable for
+   * displaying in the explorer/experimenter gui
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    */
   public String attributeIndicesTipText() {
     return "Specify range of attributes to act on."
@@ -338,6 +561,7 @@ public class Copy extends Filter implements UnsupervisedFilter,
 
   /**
    * Set which attributes are to be copied (or kept if invert is true)
+<<<<<<< HEAD
    * 
    * @param rangeList a string representing the list of attributes. Since the
    *          string will typically come from a user, attributes are indexed
@@ -346,6 +570,16 @@ public class Copy extends Filter implements UnsupervisedFilter,
    *          Note: use this method before you call
    *          <code>setInputFormat(Instances)</code>, since the output format is
    *          determined in that method.
+=======
+   *
+   * @param rangeList a string representing the list of attributes.  Since
+   * the string will typically come from a user, attributes are indexed from
+   * 1. <br>
+   * eg: first-3,5,6-last<br>
+   * Note: use this method before you call
+   * <code>setInputFormat(Instances)</code>, since the output format is
+   * determined in that method.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @throws Exception if an invalid range list is supplied
    */
   public void setAttributeIndices(String rangeList) throws Exception {
@@ -355,6 +589,7 @@ public class Copy extends Filter implements UnsupervisedFilter,
 
   /**
    * Set which attributes are to be copied (or kept if invert is true)
+<<<<<<< HEAD
    * 
    * @param attributes an array containing indexes of attributes to select.
    *          Since the array will typically come from a program, attributes are
@@ -365,26 +600,53 @@ public class Copy extends Filter implements UnsupervisedFilter,
    * @throws Exception if an invalid set of ranges is supplied
    */
   public void setAttributeIndicesArray(int[] attributes) throws Exception {
+=======
+   *
+   * @param attributes an array containing indexes of attributes to select.
+   * Since the array will typically come from a program, attributes are indexed
+   * from 0.<br>
+   * Note: use this method before you call
+   * <code>setInputFormat(Instances)</code>, since the output format is
+   * determined in that method.
+   * @throws Exception if an invalid set of ranges is supplied
+   */
+  public void setAttributeIndicesArray(int [] attributes) throws Exception {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
     setAttributeIndices(Range.indicesToRangeList(attributes));
   }
 
   /**
    * Returns the revision string.
+<<<<<<< HEAD
    * 
    * @return the revision
    */
   @Override
   public String getRevision() {
     return RevisionUtils.extract("$Revision: 14534 $");
+=======
+   *
+   * @return		the revision
+   */
+  public String getRevision() {
+    return RevisionUtils.extract("$Revision: 6996 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**
    * Main method for testing this class.
+<<<<<<< HEAD
    * 
    * @param argv should contain arguments to the filter: use -h for help
    */
   public static void main(String[] argv) {
+=======
+   *
+   * @param argv should contain arguments to the filter: use -h for help
+   */
+  public static void main(String [] argv) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     runFilter(new Copy(), argv);
   }
 }

@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,16 +12,36 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
  *    RandomSubSpace.java
+<<<<<<< HEAD
  *    Copyright (C) 2006-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 2006 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  *
  */
 
 package weka.classifiers.meta;
 
+<<<<<<< HEAD
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Enumeration;
@@ -29,18 +50,37 @@ import java.util.Vector;
 
 import weka.classifiers.Classifier;
 import weka.classifiers.RandomizableParallelIteratedSingleClassifierEnhancer;
+=======
+import weka.filters.unsupervised.attribute.Remove;
+import weka.classifiers.Classifier;
+import weka.classifiers.RandomizableIteratedSingleClassifierEnhancer;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.Option;
 import weka.core.Randomizable;
 import weka.core.RevisionUtils;
 import weka.core.TechnicalInformation;
+<<<<<<< HEAD
 import weka.core.TechnicalInformation.Field;
 import weka.core.TechnicalInformation.Type;
 import weka.core.TechnicalInformationHandler;
 import weka.core.Utils;
 import weka.core.WeightedInstancesHandler;
 import weka.filters.unsupervised.attribute.Remove;
+=======
+import weka.core.TechnicalInformationHandler;
+import weka.core.Utils;
+import weka.core.WeightedInstancesHandler;
+import weka.core.TechnicalInformation.Field;
+import weka.core.TechnicalInformation.Type;
+
+import java.util.Enumeration;
+import java.util.Random;
+import java.util.Vector;
+import java.util.Arrays;
+import java.util.Collections;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
 /**
  <!-- globalinfo-start -->
@@ -124,10 +164,17 @@ import weka.filters.unsupervised.attribute.Remove;
  *
  * @author Bernhard Pfahringer (bernhard@cs.waikato.ac.nz)
  * @author Peter Reutemann (fracpete@cs.waikato.ac.nz)
+<<<<<<< HEAD
  * @version $Revision: 14620 $
  */
 public class RandomSubSpace
   extends RandomizableParallelIteratedSingleClassifierEnhancer 
+=======
+ * @version $Revision: 1.4 $
+ */
+public class RandomSubSpace
+  extends RandomizableIteratedSingleClassifierEnhancer 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   implements WeightedInstancesHandler, TechnicalInformationHandler {
 
   /** for serialization */
@@ -138,9 +185,12 @@ public class RandomSubSpace
 
   /** a ZeroR model in case no model can be built from the data */
   protected Classifier m_ZeroR;
+<<<<<<< HEAD
   
   /** Training data */
   protected Instances m_data;
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     
   /**
    * Constructor.
@@ -207,8 +257,13 @@ public class RandomSubSpace
    *
    * @return 		an enumeration of all the available options.
    */
+<<<<<<< HEAD
   public Enumeration<Option> listOptions() {
     Vector<Option> result = new Vector<Option>();
+=======
+  public Enumeration listOptions() {
+    Vector result = new Vector();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
     result.addElement(new Option(
 	"\tSize of each subspace:\n"
@@ -216,7 +271,14 @@ public class RandomSubSpace
 	+ "\t\t>=1: absolute number of attributes\n",
 	"P", 1, "-P"));
 
+<<<<<<< HEAD
     result.addAll(Collections.list(super.listOptions()));
+=======
+    Enumeration enu = super.listOptions();
+    while (enu.hasMoreElements()) {
+      result.addElement(enu.nextElement());
+    }
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     
     return result.elements();
   }
@@ -289,8 +351,11 @@ public class RandomSubSpace
       setSubSpaceSize(0.5);
 
     super.setOptions(options);
+<<<<<<< HEAD
     
     Utils.checkForRemainingOptions(options);
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**
@@ -299,12 +364,26 @@ public class RandomSubSpace
    * @return 		an array of strings suitable for passing to setOptions
    */
   public String [] getOptions() {
+<<<<<<< HEAD
     Vector<String>        result = new Vector<String>();
+=======
+    Vector        result;
+    String[]      options;
+    int           i;
+    
+    result  = new Vector();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
     result.add("-P");
     result.add("" + getSubSpaceSize());
     
+<<<<<<< HEAD
     Collections.addAll(result, super.getOptions());
+=======
+    options = super.getOptions();
+    for (i = 0; i < options.length; i++)
+      result.add(options[i]);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
     return (String[]) result.toArray(new String[result.size()]);
   }
@@ -394,6 +473,7 @@ public class RandomSubSpace
     // can classifier handle the data?
     getCapabilities().testWithFail(data);
 
+<<<<<<< HEAD
     // get fresh Instances object
     m_data = new Instances(data);
 
@@ -417,10 +497,38 @@ public class RandomSubSpace
     for (int i = 0; i < indices.length + 1; i++) {
       if (i != classIndex) {
         indices[offset++] = i + 1;
+=======
+    // remove instances with missing class
+    data = new Instances(data);
+    data.deleteWithMissingClass();
+    
+    // only class? -> build ZeroR model
+    if (data.numAttributes() == 1) {
+      System.err.println(
+	  "Cannot build model (only class attribute present in data!), "
+	  + "using ZeroR model instead!");
+      m_ZeroR = new weka.classifiers.rules.ZeroR();
+      m_ZeroR.buildClassifier(data);
+      return;
+    }
+    else {
+      m_ZeroR = null;
+    }
+    
+    super.buildClassifier(data);
+
+    Integer[] indices = new Integer[data.numAttributes()-1];
+    int classIndex = data.classIndex();
+    int offset = 0;
+    for(int i = 0; i < indices.length+1; i++) {
+      if (i != classIndex) {
+	indices[offset++] = i+1;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       }
     }
     int subSpaceSize = numberOfAttributes(indices.length, getSubSpaceSize());
     Random random = data.getRandomNumberGenerator(m_Seed);
+<<<<<<< HEAD
 
     for (int j = 0; j < m_Classifiers.length; j++) {
       FilteredClassifier fc = new FilteredClassifier();
@@ -450,6 +558,24 @@ public class RandomSubSpace
     // We don't manipulate the training data in any way. The FilteredClassifiers
     // take care of generating the sub-spaces.
     return m_data;
+=======
+    
+    for (int j = 0; j < m_Classifiers.length; j++) {
+      if (m_Classifier instanceof Randomizable) {
+	((Randomizable) m_Classifiers[j]).setSeed(random.nextInt());
+      }
+      FilteredClassifier fc = new FilteredClassifier();
+      fc.setClassifier(m_Classifiers[j]);
+      m_Classifiers[j] = fc;
+      Remove rm = new Remove();
+      rm.setOptions(new String[]{"-V", "-R", randomSubSpace(indices,subSpaceSize,classIndex+1,random)});
+      fc.setFilter(rm);
+
+      // build the classifier
+      m_Classifiers[j].buildClassifier(data);
+    }
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**
@@ -466,6 +592,7 @@ public class RandomSubSpace
     if (m_ZeroR != null) {
       return m_ZeroR.distributionForInstance(instance);
     }
+<<<<<<< HEAD
 
     double[] sums = new double[instance.numClasses()], newProbs;
 
@@ -489,6 +616,22 @@ public class RandomSubSpace
       } else {
         sums[0] /= numPreds;
       }
+=======
+    
+    double[] sums = new double [instance.numClasses()], newProbs; 
+    
+    for (int i = 0; i < m_NumIterations; i++) {
+      if (instance.classAttribute().isNumeric() == true) {
+	sums[0] += m_Classifiers[i].classifyInstance(instance);
+      } else {
+	newProbs = m_Classifiers[i].distributionForInstance(instance);
+	for (int j = 0; j < newProbs.length; j++)
+	  sums[j] += newProbs[j];
+      }
+    }
+    if (instance.classAttribute().isNumeric() == true) {
+      sums[0] /= (double)m_NumIterations;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       return sums;
     } else if (Utils.eq(Utils.sum(sums), 0)) {
       return sums;
@@ -532,7 +675,11 @@ public class RandomSubSpace
    * @return		the revision
    */
   public String getRevision() {
+<<<<<<< HEAD
     return RevisionUtils.extract("$Revision: 14620 $");
+=======
+    return RevisionUtils.extract("$Revision: 1.4 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**

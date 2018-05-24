@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,11 +12,30 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
  *    TextViewer.java
+<<<<<<< HEAD
  *    Copyright (C) 2002-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 2002 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  *
  */
 
@@ -23,7 +43,10 @@ package weka.gui.beans;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
+<<<<<<< HEAD
 import java.awt.GraphicsEnvironment;
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
@@ -36,6 +59,7 @@ import java.beans.beancontext.BeanContext;
 import java.beans.beancontext.BeanContextChild;
 import java.beans.beancontext.BeanContextChildSupport;
 import java.text.SimpleDateFormat;
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Enumeration;
@@ -46,6 +70,21 @@ import java.util.Vector;
 import javax.swing.*;
 
 import weka.core.Utils;
+=======
+import java.util.Date;
+import java.util.Enumeration;
+import java.util.Vector;
+
+import javax.swing.BorderFactory;
+import javax.swing.JFrame;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
+import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
+import javax.swing.JTextArea;
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 import weka.gui.Logger;
 import weka.gui.ResultHistoryPanel;
 import weka.gui.SaveBuffer;
@@ -54,12 +93,20 @@ import weka.gui.SaveBuffer;
  * Bean that collects and displays pieces of text
  * 
  * @author <a href="mailto:mhall@cs.waikato.ac.nz">Mark Hall</a>
+<<<<<<< HEAD
  * @version $Revision: 14497 $
  */
 public class TextViewer extends JPanel implements TextListener,
   DataSourceListener, TrainingSetListener, TestSetListener, Visible,
   UserRequestAcceptor, BeanContextChild, BeanCommon, EventConstraints,
   HeadlessEventCollector {
+=======
+ * @version $Revision: 10820 $
+ */
+public class TextViewer extends JPanel implements TextListener,
+  DataSourceListener, TrainingSetListener, TestSetListener, Visible,
+  UserRequestAcceptor, BeanContextChild, BeanCommon, EventConstraints {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
   /** for serialization */
   private static final long serialVersionUID = 104838186352536832L;
@@ -68,8 +115,11 @@ public class TextViewer extends JPanel implements TextListener,
 
   private transient JFrame m_resultsFrame = null;
 
+<<<<<<< HEAD
   protected List<EventObject> m_headlessEvents;
 
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   /**
    * Output area for a piece of text
    */
@@ -99,6 +149,7 @@ public class TextViewer extends JPanel implements TextListener,
   /**
    * Objects listening for text events
    */
+<<<<<<< HEAD
   private final Vector<TextListener> m_textListeners =
     new Vector<TextListener>();
 
@@ -108,17 +159,36 @@ public class TextViewer extends JPanel implements TextListener,
       appearanceFinal();
     } else {
       m_headlessEvents = new ArrayList<EventObject>();
+=======
+  private final Vector m_textListeners = new Vector();
+
+  public TextViewer() {
+    /*
+     * setUpResultHistory(); setLayout(new BorderLayout()); add(m_visual,
+     * BorderLayout.CENTER);
+     */
+    java.awt.GraphicsEnvironment ge =
+      java.awt.GraphicsEnvironment.getLocalGraphicsEnvironment();
+    if (!ge.isHeadless()) {
+      appearanceFinal();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     }
   }
 
   protected void appearanceDesign() {
     setUpResultHistory();
     removeAll();
+<<<<<<< HEAD
     if (m_visual == null) {
       m_visual =
         new BeanVisual("TextViewer", BeanVisual.ICON_PATH + "DefaultText.gif",
           BeanVisual.ICON_PATH + "DefaultText_animated.gif");
     }
+=======
+    m_visual =
+      new BeanVisual("TextViewer", BeanVisual.ICON_PATH + "DefaultText.gif",
+        BeanVisual.ICON_PATH + "DefaultText_animated.gif");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     setLayout(new BorderLayout());
     add(m_visual, BorderLayout.CENTER);
   }
@@ -134,7 +204,15 @@ public class TextViewer extends JPanel implements TextListener,
     JPanel holder = new JPanel();
     holder.setLayout(new BorderLayout());
     JScrollPane js = new JScrollPane(m_outText);
+<<<<<<< HEAD
     js.setBorder(BorderFactory.createTitledBorder("Text"));
+=======
+    js.setBorder(BorderFactory
+      .createTitledBorder(Messages
+        .getInstance()
+        .getString(
+          "TextViewer_SetUpFinal_JScrollPane_BorderFactoryCreateTitledBorder_Text")));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     holder.add(js, BorderLayout.CENTER);
     holder.add(m_history, BorderLayout.WEST);
 
@@ -147,12 +225,22 @@ public class TextViewer extends JPanel implements TextListener,
    * @return a <code>String</code> value
    */
   public String globalInfo() {
+<<<<<<< HEAD
     return "General purpose text display.";
   }
 
   private void setUpResultHistory() {
     java.awt.GraphicsEnvironment.getLocalGraphicsEnvironment();
     if (!GraphicsEnvironment.isHeadless()) {
+=======
+    return Messages.getInstance().getString("TextViewer_GlobalInfo_Text");
+  }
+
+  private void setUpResultHistory() {
+    java.awt.GraphicsEnvironment ge =
+      java.awt.GraphicsEnvironment.getLocalGraphicsEnvironment();
+    if (!ge.isHeadless()) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       if (m_outText == null) {
         m_outText = new JTextArea(20, 80);
         m_history = new ResultHistoryPanel(m_outText);
@@ -160,7 +248,16 @@ public class TextViewer extends JPanel implements TextListener,
       m_outText.setEditable(false);
       m_outText.setFont(new Font("Monospaced", Font.PLAIN, 12));
       m_outText.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+<<<<<<< HEAD
       m_history.setBorder(BorderFactory.createTitledBorder("Result list"));
+=======
+      m_history
+        .setBorder(BorderFactory
+          .createTitledBorder(Messages
+            .getInstance()
+            .getString(
+              "TextViewer_SetUpResultHistory_BorderFactoryCreateTitledBorder_Text")));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       m_history.setHandleRightClicks(false);
       m_history.getList().addMouseListener(new MouseAdapter() {
         @Override
@@ -193,7 +290,13 @@ public class TextViewer extends JPanel implements TextListener,
     final String selectedName = name;
     JPopupMenu resultListMenu = new JPopupMenu();
 
+<<<<<<< HEAD
     JMenuItem visMainBuffer = new JMenuItem("View in main window");
+=======
+    JMenuItem visMainBuffer =
+      new JMenuItem(Messages.getInstance().getString(
+        "TextViewer_Visualize_VisMainBuffer_JMenuItem_Text"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     if (selectedName != null) {
       visMainBuffer.addActionListener(new ActionListener() {
         @Override
@@ -206,7 +309,13 @@ public class TextViewer extends JPanel implements TextListener,
     }
     resultListMenu.add(visMainBuffer);
 
+<<<<<<< HEAD
     JMenuItem visSepBuffer = new JMenuItem("View in separate window");
+=======
+    JMenuItem visSepBuffer =
+      new JMenuItem(Messages.getInstance().getString(
+        "TextViewer_Visualize_VisSepBuffer_JMenuItem_Text"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     if (selectedName != null) {
       visSepBuffer.addActionListener(new ActionListener() {
         @Override
@@ -219,7 +328,13 @@ public class TextViewer extends JPanel implements TextListener,
     }
     resultListMenu.add(visSepBuffer);
 
+<<<<<<< HEAD
     JMenuItem saveOutput = new JMenuItem("Save result buffer");
+=======
+    JMenuItem saveOutput =
+      new JMenuItem(Messages.getInstance().getString(
+        "TextViewer_Visualize_SaveOutput_JMenuItem_Text"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     if (selectedName != null) {
       saveOutput.addActionListener(new ActionListener() {
         @Override
@@ -236,7 +351,13 @@ public class TextViewer extends JPanel implements TextListener,
     }
     resultListMenu.add(saveOutput);
 
+<<<<<<< HEAD
     JMenuItem deleteOutput = new JMenuItem("Delete result buffer");
+=======
+    JMenuItem deleteOutput =
+      new JMenuItem(Messages.getInstance().getString(
+        "TextViewer_Visualize_DeleteOutput_JMenuItem_Text"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     if (selectedName != null) {
       deleteOutput.addActionListener(new ActionListener() {
         @Override
@@ -321,15 +442,19 @@ public class TextViewer extends JPanel implements TextListener,
       m_history.setSingle(name);
     }
 
+<<<<<<< HEAD
     if (m_headlessEvents != null) {
       m_headlessEvents.add(e);
     }
 
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     // pass on the event to any listeners
     notifyTextListeners(e);
   }
 
   /**
+<<<<<<< HEAD
    * Get the list of events processed in headless mode. May return null or an
    * empty list if not running in headless mode or no events were processed
    * 
@@ -359,6 +484,8 @@ public class TextViewer extends JPanel implements TextListener,
   }
 
   /**
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * Describe <code>setVisual</code> method here.
    * 
    * @param newVisual a <code>BeanVisual</code> value
@@ -393,10 +520,23 @@ public class TextViewer extends JPanel implements TextListener,
       if (m_outText == null) {
         setUpResultHistory();
       }
+<<<<<<< HEAD
       m_resultsFrame = Utils.getWekaJFrame("Text Viewer", m_visual);
       m_resultsFrame.getContentPane().setLayout(new BorderLayout());
       final JScrollPane js = new JScrollPane(m_outText);
       js.setBorder(BorderFactory.createTitledBorder("Text"));
+=======
+      m_resultsFrame =
+        new JFrame(Messages.getInstance().getString(
+          "TextViewer_ShowResults_ResultsFrame_JFrame_Text"));
+      m_resultsFrame.getContentPane().setLayout(new BorderLayout());
+      final JScrollPane js = new JScrollPane(m_outText);
+      js.setBorder(BorderFactory
+        .createTitledBorder(Messages
+          .getInstance()
+          .getString(
+            "TextViewer_ShowResults_Js_SetBorder_BorderFactoryCreateTitledBorder_Text")));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
       JSplitPane p2 =
         new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, m_history, js);
@@ -411,7 +551,10 @@ public class TextViewer extends JPanel implements TextListener,
         }
       });
       m_resultsFrame.pack();
+<<<<<<< HEAD
       m_resultsFrame.setLocationRelativeTo(SwingUtilities.getWindowAncestor(m_visual));
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       m_resultsFrame.setVisible(true);
     } else {
       m_resultsFrame.toFront();
@@ -424,8 +567,13 @@ public class TextViewer extends JPanel implements TextListener,
    * @return an <code>Enumeration</code> value
    */
   @Override
+<<<<<<< HEAD
   public Enumeration<String> enumerateRequests() {
     Vector<String> newVector = new Vector<String>(0);
+=======
+  public Enumeration enumerateRequests() {
+    Vector newVector = new Vector(0);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
     newVector.addElement("Show results");
 
@@ -448,7 +596,12 @@ public class TextViewer extends JPanel implements TextListener,
       m_history.clearResults();
     } else {
       throw new IllegalArgumentException(request
+<<<<<<< HEAD
         + " not supported (TextViewer)");
+=======
+        + Messages.getInstance().getString(
+          "TextViewer_PerformRequest_IllegalArgumentException_Text"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     }
   }
 
@@ -510,8 +663,14 @@ public class TextViewer extends JPanel implements TextListener,
     if (m_design) {
       appearanceDesign();
     } else {
+<<<<<<< HEAD
       java.awt.GraphicsEnvironment.getLocalGraphicsEnvironment();
       if (!GraphicsEnvironment.isHeadless()) {
+=======
+      java.awt.GraphicsEnvironment ge =
+        java.awt.GraphicsEnvironment.getLocalGraphicsEnvironment();
+      if (!ge.isHeadless()) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
         appearanceFinal();
       }
     }
@@ -522,6 +681,7 @@ public class TextViewer extends JPanel implements TextListener,
    * 
    * @param ge a <code>TextEvent</code> value
    */
+<<<<<<< HEAD
   @SuppressWarnings("unchecked")
   private void notifyTextListeners(TextEvent ge) {
     Vector<TextListener> l;
@@ -531,6 +691,16 @@ public class TextViewer extends JPanel implements TextListener,
     if (l.size() > 0) {
       for (int i = 0; i < l.size(); i++) {
         l.elementAt(i).acceptText(ge);
+=======
+  private void notifyTextListeners(TextEvent ge) {
+    Vector l;
+    synchronized (this) {
+      l = (Vector) m_textListeners.clone();
+    }
+    if (l.size() > 0) {
+      for (int i = 0; i < l.size(); i++) {
+        ((TextListener) l.elementAt(i)).acceptText(ge);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       }
     }
   }
@@ -682,8 +852,14 @@ public class TextViewer extends JPanel implements TextListener,
 
       final TextViewer tv = new TextViewer();
 
+<<<<<<< HEAD
       tv.acceptText(new TextEvent(tv, "Here is some test text from the main "
         + "method of this class.", "The Title"));
+=======
+      tv.acceptText(new TextEvent(tv, Messages.getInstance().getString(
+        "TextViewer_Main_TextEvent_Text_First"), Messages.getInstance()
+        .getString("TextViewer_Main_TextEvent_Text_Second")));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       jf.getContentPane().add(tv, java.awt.BorderLayout.CENTER);
       jf.addWindowListener(new java.awt.event.WindowAdapter() {
         @Override

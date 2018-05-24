@@ -2,7 +2,11 @@
 # in this file.
 #
 # author:  Fracpete (fracpete at waikato dot ac dot nz)
+<<<<<<< HEAD
 # version: $Revision: 14534 $
+=======
+# version: $Revision: 1.1 $
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
 # are Capabilities tests enabled at all?
 Test=true
@@ -26,6 +30,7 @@ MissingClassValuesTest=true
 # test for minimum number of instances
 # see weka.core.Capabilities.test(Instances,int,int)
 MinimumNumberInstancesTest=true
+<<<<<<< HEAD
 
 # Capabilities defined by interfaces
 WeightedInstancesHandlerInterfaceCapability=weka.core.WeightedInstancesHandler
@@ -40,3 +45,5 @@ SourcableClassifierInterfaceCapability=weka.classifiers.Sourcable
 StreamableFilterInterfaceCapability=weka.filters.StreamableFilter
 UnsupervisedFilterInterfaceCapability=weka.filters.UnsupervisedFilter
 SupervisedFilterInterfaceCapability=weka.filters.SupervisedFilter
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb

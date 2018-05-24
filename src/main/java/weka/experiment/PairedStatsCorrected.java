@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,19 +12,43 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
  *    PairedStatsCorrected.java
+<<<<<<< HEAD
  *    Copyright (C) 2003-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 2003 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  *
  */
 
 package weka.experiment;
 
 import weka.core.RevisionUtils;
+<<<<<<< HEAD
 import weka.core.Statistics;
 import weka.core.Utils;
+=======
+import weka.core.Utils;
+import weka.core.Statistics;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
 /**
  * A class for storing stats on a paired comparison. This version is
@@ -36,12 +61,20 @@ import weka.core.Utils;
  * Machine Learning, 2001.
  *
  * @author Richard Kirkby (rkirkby@cs.waikato.ac.nz)
+<<<<<<< HEAD
  * @version $Revision: 14315 $
+=======
+ * @version $Revision: 1.5 $
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 public class PairedStatsCorrected
   extends PairedStats {
 
+<<<<<<< HEAD
   /** The ratio used to correct the significance test */
+=======
+  /** The ratio used to correct the significane test */
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   protected double m_testTrainRatio;
 
   /**
@@ -68,6 +101,7 @@ public class PairedStatsCorrected
 
     correlation = Double.NaN;
     if (!Double.isNaN(xStats.stdDev) && !Double.isNaN(yStats.stdDev)
+<<<<<<< HEAD
             && (xStats.stdDev > 0) && (yStats.stdDev > 0) && (count > 1)) {
       correlation = (xySum - xStats.sum * yStats.sum / count)
               / ((count - 1) * xStats.stdDev * yStats.stdDev);
@@ -88,14 +122,47 @@ public class PairedStatsCorrected
         differencesProbability = 1.0;
       } else {
         differencesProbability = 0.0;
+=======
+	&& !Utils.eq(xStats.stdDev, 0)) {
+      double slope = (xySum - xStats.sum * yStats.sum / count)
+	/ (xStats.sumSq - xStats.sum * xStats.mean);
+      if (!Utils.eq(yStats.stdDev, 0)) {
+	correlation = slope * xStats.stdDev / yStats.stdDev;
+      } else {
+	correlation = 1.0;
+      }
+    }
+
+    if (Utils.gr(differencesStats.stdDev, 0)) {
+
+      double tval = differencesStats.mean
+	/ Math.sqrt((1 / count + m_testTrainRatio)
+		    * differencesStats.stdDev * differencesStats.stdDev);
+      
+      if (count > 1) {
+	differencesProbability = Statistics.FProbability(tval * tval, 1,
+							 (int) count - 1);
+      } else differencesProbability = 1;
+    } else {
+      if (differencesStats.sumSq == 0) {
+	differencesProbability = 1.0;
+      } else {
+	differencesProbability = 0.0;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       }
     }
     differencesSignificance = 0;
     if (differencesProbability <= sigLevel) {
       if (xStats.mean > yStats.mean) {
+<<<<<<< HEAD
         differencesSignificance = 1;
       } else {
         differencesSignificance = -1;
+=======
+	differencesSignificance = 1;
+      } else {
+	differencesSignificance = -1;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       }
     }
   }
@@ -106,6 +173,7 @@ public class PairedStatsCorrected
    * @return		the revision
    */
   public String getRevision() {
+<<<<<<< HEAD
     return RevisionUtils.extract("$Revision: 14315 $");
   }
 
@@ -155,3 +223,8 @@ public class PairedStatsCorrected
       System.err.println(ex.getMessage());
     }
   }}
+=======
+    return RevisionUtils.extract("$Revision: 1.5 $");
+  }
+}
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb

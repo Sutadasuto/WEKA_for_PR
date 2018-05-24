@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,21 +12,43 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
  *    MultiScheme.java
+<<<<<<< HEAD
  *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 1999 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  *
  */
 
 package weka.classifiers.meta;
 
+<<<<<<< HEAD
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.Random;
 import java.util.Vector;
 
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 import weka.classifiers.Classifier;
 import weka.classifiers.Evaluation;
 import weka.classifiers.RandomizableMultipleClassifiersCombiner;
@@ -36,6 +59,13 @@ import weka.core.OptionHandler;
 import weka.core.RevisionUtils;
 import weka.core.Utils;
 
+<<<<<<< HEAD
+=======
+import java.util.Enumeration;
+import java.util.Random;
+import java.util.Vector;
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 /**
  <!-- globalinfo-start -->
  * Class for selecting a classifier from among several using cross validation on the training data or the performance on the training data. Performance is measured based on percent correct (classification) or mean-squared error (regression).
@@ -66,7 +96,11 @@ import weka.core.Utils;
  <!-- options-end -->
  *
  * @author Len Trigg (trigg@cs.waikato.ac.nz)
+<<<<<<< HEAD
  * @version $Revision: 10141 $
+=======
+ * @version $Revision: 1.25 $
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 public class MultiScheme 
   extends RandomizableMultipleClassifiersCombiner {
@@ -104,17 +138,30 @@ public class MultiScheme
    *
    * @return an enumeration of all the available options.
    */
+<<<<<<< HEAD
   public Enumeration<Option> listOptions() {
 
     Vector<Option> newVector = new Vector<Option>(1);
+=======
+  public Enumeration listOptions() {
+
+    Vector newVector = new Vector(1);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     newVector.addElement(new Option(
 	      "\tUse cross validation for model selection using the\n"
 	      + "\tgiven number of folds. (default 0, is to\n"
 	      + "\tuse training error)",
 	      "X", 1, "-X <number of folds>"));
 
+<<<<<<< HEAD
     newVector.addAll(Collections.list(super.listOptions()));
     
+=======
+    Enumeration enu = super.listOptions();
+    while (enu.hasMoreElements()) {
+      newVector.addElement(enu.nextElement());
+    }
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     return newVector.elements();
   }
 
@@ -461,7 +508,11 @@ public class MultiScheme
    * @return		the revision
    */
   public String getRevision() {
+<<<<<<< HEAD
     return RevisionUtils.extract("$Revision: 10141 $");
+=======
+    return RevisionUtils.extract("$Revision: 1.25 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**

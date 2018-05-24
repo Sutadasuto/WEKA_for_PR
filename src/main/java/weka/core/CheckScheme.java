@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,17 +12,39 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
  * CheckScheme.java
+<<<<<<< HEAD
  * Copyright (C) 2006-2012 University of Waikato, Hamilton, New Zealand
+=======
+ * Copyright (C) 2006 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  *
  */
 
 package weka.core;
 
+<<<<<<< HEAD
 import java.util.Collections;
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 import java.util.Enumeration;
 import java.util.Random;
 import java.util.StringTokenizer;
@@ -32,7 +55,11 @@ import java.util.Vector;
  * also used for JUnit tests.
  *
  * @author FracPete (fracpete at waikato dot ac dot nz)
+<<<<<<< HEAD
  * @version $Revision: 11247 $
+=======
+ * @version $Revision: 1.4 $
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  * @see TestInstances
  */
 public abstract class CheckScheme
@@ -59,7 +86,11 @@ public abstract class CheckScheme
      * @return		the revision
      */
     public String getRevision() {
+<<<<<<< HEAD
       return RevisionUtils.extract("$Revision: 11247 $");
+=======
+      return RevisionUtils.extract("$Revision: 1.4 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     }
   }
   
@@ -102,10 +133,19 @@ public abstract class CheckScheme
    *
    * @return an enumeration of all the available options.
    */
+<<<<<<< HEAD
   public Enumeration<Option> listOptions() {
     Vector<Option> result = new Vector<Option>();
     
     result.addAll(Collections.list(super.listOptions()));
+=======
+  public Enumeration listOptions() {
+    Vector result = new Vector();
+    
+    Enumeration en = super.listOptions();
+    while (en.hasMoreElements())
+      result.addElement(en.nextElement());
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     
     result.addElement(new Option(
         "\tThe number of instances in the datasets (default 20).",
@@ -224,11 +264,19 @@ public abstract class CheckScheme
    * @return an array of strings suitable for passing to setOptions
    */
   public String[] getOptions() {
+<<<<<<< HEAD
     Vector<String>        result;
     String[]      options;
     int           i;
     
     result = new Vector<String>();
+=======
+    Vector        result;
+    String[]      options;
+    int           i;
+    
+    result = new Vector();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     
     options = super.getOptions();
     for (i = 0; i < options.length; i++)
@@ -429,9 +477,15 @@ public abstract class CheckScheme
    */
   protected static String[] listToArray(String value) {
     StringTokenizer	tok;
+<<<<<<< HEAD
     Vector<String>		list;
     
     list = new Vector<String>();
+=======
+    Vector		list;
+    
+    list = new Vector();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     tok = new StringTokenizer(value, ",");
     while (tok.hasMoreTokens())
       list.add(tok.nextToken());
@@ -549,7 +603,11 @@ public abstract class CheckScheme
     throws Exception {
     
     if (!data2.equalHeaders(data1)) {
+<<<<<<< HEAD
       throw new Exception("header has been modified\n" + data2.equalHeadersMsg(data1));
+=======
+      throw new Exception("header has been modified");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     }
     if (!(data2.numInstances() == data1.numInstances())) {
       throw new Exception("number of instances has changed");
@@ -592,7 +650,11 @@ public abstract class CheckScheme
       for (int j = 0; j < data.numAttributes(); j++) {
         if (((j == classIndex) && classMissing) ||
             ((j != classIndex) && predictorMissing)) {
+<<<<<<< HEAD
           if (random.nextInt(100) < level)
+=======
+          if (Math.abs(random.nextInt()) % 100 < level)
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
             current.setMissing(j);
         }
       }

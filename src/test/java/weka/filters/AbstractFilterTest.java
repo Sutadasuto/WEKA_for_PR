@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -15,15 +16,39 @@
 
 /*
  * Copyright (C) 2002-2016 University of Waikato
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ */
+
+/*
+ * Copyright (C) 2002 University of Waikato 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 package weka.filters;
 
+<<<<<<< HEAD
 import junit.framework.TestCase;
 import weka.classifiers.Classifier;
 import weka.classifiers.meta.FilteredClassifier;
 import weka.core.Attribute;
 import weka.core.Capabilities.Capability;
+=======
+import weka.classifiers.Classifier;
+import weka.classifiers.meta.FilteredClassifier;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 import weka.core.CheckGOE;
 import weka.core.CheckOptionHandler;
 import weka.core.Instance;
@@ -31,18 +56,31 @@ import weka.core.Instances;
 import weka.core.OptionHandler;
 import weka.core.SerializationHelper;
 import weka.core.TestInstances;
+<<<<<<< HEAD
+=======
+import weka.core.Capabilities.Capability;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 import weka.test.Regression;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.StringWriter;
 
+<<<<<<< HEAD
+=======
+import junit.framework.TestCase;
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 /**
  * Abstract Test class for Filters.
  *
  * @author <a href="mailto:len@reeltwo.com">Len Trigg</a>
  * @authro FracPete (fracpete at waikato dot ac dot nz)
+<<<<<<< HEAD
  * @version $Revision: 12375 $
+=======
+ * @version $Revision: 1.14 $
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 public abstract class AbstractFilterTest
   extends TestCase {
@@ -586,12 +624,15 @@ public abstract class AbstractFilterTest
     Instances		data;
     int			i;
     
+<<<<<<< HEAD
     // skip this test if a subclass has set the
     // filtered classifier to null
     if (m_FilteredClassifier == null) {
       return;
     }
     
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     try {
       // generate data
       data = getFilteredClassifierData();
@@ -871,6 +912,7 @@ public abstract class AbstractFilterTest
     if (!m_GOETester.checkToolTips())
       fail("Tool tips inconsistent");
   }
+<<<<<<< HEAD
 
   /**
    * Compares the two datasets.
@@ -970,4 +1012,6 @@ public abstract class AbstractFilterTest
       fail("Failed to apply filter for 2nd time: " + e);
     }
   }
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 }

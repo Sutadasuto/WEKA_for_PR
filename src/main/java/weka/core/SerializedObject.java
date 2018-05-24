@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,23 +12,46 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
  *    SerializedObject.java
+<<<<<<< HEAD
  *    Copyright (C) 2001-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 2001 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  *
  */
 
 package weka.core;
 
+<<<<<<< HEAD
 import weka.core.scripting.Jython;
 import weka.core.scripting.JythonSerializableObject;
 
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+<<<<<<< HEAD
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -36,10 +60,17 @@ import java.io.OutputStream;
 import java.io.Serializable;
 import java.util.LinkedHashSet;
 import java.util.Set;
+=======
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
+import java.io.Serializable;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
 /**
+<<<<<<< HEAD
  * Class for storing an object in serialized form in memory. It can be used to
  * make deep copies of objects, and also allows compression to conserve memory.
  * <p>
@@ -48,6 +79,17 @@ import java.util.zip.GZIPOutputStream;
  * @version $Revision: 13986 $
  */
 public class SerializedObject implements Serializable, RevisionHandler {
+=======
+ * Class for storing an object in serialized form in memory. It can be used 
+ * to make deep copies of objects, and also allows compression to conserve
+ * memory. <p>
+ *
+ * @author Richard Kirkby (rbk1@cs.waikato.ac.nz)
+ * @version $Revision: 1.12 $ 
+ */
+public class SerializedObject
+  implements Serializable, RevisionHandler {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
   /** for serialization */
   private static final long serialVersionUID = 6635502953928860434L;
@@ -60,13 +102,21 @@ public class SerializedObject implements Serializable, RevisionHandler {
 
   /** Whether it is a Jython object or not */
   private boolean m_isJython;
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   /**
    * Creates a new serialized object (without compression).
    *
    * @param toStore the object to store
    * @exception Exception if the object couldn't be serialized
+<<<<<<< HEAD
    */
+=======
+   */ 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   public SerializedObject(Object toStore) throws Exception {
 
     this(toStore, false);
@@ -78,7 +128,11 @@ public class SerializedObject implements Serializable, RevisionHandler {
    * @param toStore the object to store
    * @param compress whether or not to use compression
    * @exception Exception if the object couldn't be serialized
+<<<<<<< HEAD
    */
+=======
+   */ 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   public SerializedObject(Object toStore, boolean compress) throws Exception {
 
     ByteArrayOutputStream ostream = new ByteArrayOutputStream();
@@ -87,27 +141,41 @@ public class SerializedObject implements Serializable, RevisionHandler {
     if (!compress)
       p = new ObjectOutputStream(new BufferedOutputStream(os));
     else
+<<<<<<< HEAD
       p =
         new ObjectOutputStream(new BufferedOutputStream(
           new GZIPOutputStream(os)));
+=======
+      p = new ObjectOutputStream(new BufferedOutputStream(new GZIPOutputStream(os)));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     p.writeObject(toStore);
     p.flush();
     p.close(); // used to be ostream.close() !
     m_storedObjectArray = ostream.toByteArray();
 
     m_isCompressed = compress;
+<<<<<<< HEAD
     m_isJython = (toStore instanceof JythonSerializableObject);
+=======
+    m_isJython     = (toStore instanceof JythonSerializableObject);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /*
    * Checks to see whether this object is equal to another.
+<<<<<<< HEAD
    * 
    * @param compareTo the object to compare to
    * 
+=======
+   *
+   * @param compareTo the object to compare to
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @return whether or not the objects are equal
    */
   public final boolean equals(Object compareTo) {
 
+<<<<<<< HEAD
     if (compareTo == null)
       return false;
     if (!compareTo.getClass().equals(this.getClass()))
@@ -118,6 +186,14 @@ public class SerializedObject implements Serializable, RevisionHandler {
     for (int i = 0; i < compareArray.length; i++) {
       if (compareArray[i] != m_storedObjectArray[i])
         return false;
+=======
+    if (compareTo == null) return false;
+    if (!compareTo.getClass().equals(this.getClass())) return false;
+    byte[] compareArray = ((SerializedObject)compareTo).m_storedObjectArray;
+    if (compareArray.length != m_storedObjectArray.length) return false;
+    for (int i=0; i<compareArray.length; i++) {
+      if (compareArray[i] != m_storedObjectArray[i]) return false;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     }
     return true;
   }
@@ -133,6 +209,7 @@ public class SerializedObject implements Serializable, RevisionHandler {
   }
 
   /**
+<<<<<<< HEAD
    * Returns a serialized object. Uses org.python.util.PythonObjectInputStream
    * for Jython objects (read <a
    * href="http://aspn.activestate.com/ASPN/Mail/Message/Jython-users/1001401"
@@ -251,6 +328,34 @@ public class SerializedObject implements Serializable, RevisionHandler {
               }
             };
         toReturn = p.readObject();
+=======
+   * Returns a serialized object. Uses org.python.util.PythonObjectInputStream 
+   * for Jython objects (read 
+   * <a href="http://aspn.activestate.com/ASPN/Mail/Message/Jython-users/1001401">here</a>
+   * for more details).
+   *
+   * @return the restored object
+   * @exception Exception if the object couldn't be restored
+   */ 
+  public Object getObject() {
+
+    try {
+      ByteArrayInputStream istream = new ByteArrayInputStream(m_storedObjectArray);
+      ObjectInputStream p;
+      Object toReturn = null;
+      if (m_isJython) {
+	if (!m_isCompressed)
+	  toReturn = Jython.deserialize(new BufferedInputStream(istream));
+	else 
+	  toReturn = Jython.deserialize(new BufferedInputStream(new GZIPInputStream(istream)));
+      }
+      else {
+	if (!m_isCompressed)
+	  p = new ObjectInputStream(new BufferedInputStream(istream));
+	else 
+	  p = new ObjectInputStream(new BufferedInputStream(new GZIPInputStream(istream)));
+	toReturn = p.readObject();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       }
       istream.close();
       return toReturn;
@@ -259,6 +364,7 @@ public class SerializedObject implements Serializable, RevisionHandler {
       return null;
     }
   }
+<<<<<<< HEAD
 
   /**
    * Returns the revision string.
@@ -267,5 +373,15 @@ public class SerializedObject implements Serializable, RevisionHandler {
    */
   public String getRevision() {
     return RevisionUtils.extract("$Revision: 13986 $");
+=======
+  
+  /**
+   * Returns the revision string.
+   * 
+   * @return		the revision
+   */
+  public String getRevision() {
+    return RevisionUtils.extract("$Revision: 1.12 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 }

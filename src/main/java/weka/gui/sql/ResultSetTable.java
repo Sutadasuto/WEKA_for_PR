@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,30 +12,61 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
  * ResultSetTable.java
+<<<<<<< HEAD
  * Copyright (C) 2005-2012 University of Waikato, Hamilton, New Zealand
+=======
+ * Copyright (C) 2005 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  *
  */
 
 package weka.gui.sql;
 
+<<<<<<< HEAD
+=======
+import weka.gui.JTableHelper;
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JTable;
 import javax.swing.table.TableColumnModel;
 
+<<<<<<< HEAD
 import weka.gui.JTableHelper;
 
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 /**
  * Represents an extended JTable, containing a table model based on a ResultSet
  * and the corresponding query.
  *
  * @author      FracPete (fracpete at waikato dot ac dot nz)
+<<<<<<< HEAD
  * @version     $Revision: 8034 $
+=======
+ * @version     $Revision: 7059 $
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 public class ResultSetTable
   extends JTable {
@@ -92,7 +124,11 @@ public class ResultSetTable
           JTableHelper.setOptimalColumnWidth(table, column);
       }
     });
+<<<<<<< HEAD
     getTableHeader().setToolTipText("double left click on column displays the column with optimal width");
+=======
+    getTableHeader().setToolTipText(Messages.getInstance().getString("ResultSetTable_GetTableHeader_SetToolTipText_Text"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**

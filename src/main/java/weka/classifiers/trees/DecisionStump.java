@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,28 +12,57 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
  *    DecisionStump.java
+<<<<<<< HEAD
  *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 1999 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  *
  */
 
 package weka.classifiers.trees;
 
+<<<<<<< HEAD
 import weka.classifiers.AbstractClassifier;
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 import weka.classifiers.Classifier;
 import weka.classifiers.Sourcable;
 import weka.core.Attribute;
 import weka.core.Capabilities;
+<<<<<<< HEAD
 import weka.core.Capabilities.Capability;
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 import weka.core.ContingencyTables;
 import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.RevisionUtils;
 import weka.core.Utils;
 import weka.core.WeightedInstancesHandler;
+<<<<<<< HEAD
+=======
+import weka.core.Capabilities.Capability;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
 /**
  <!-- globalinfo-start -->
@@ -54,16 +84,24 @@ import weka.core.WeightedInstancesHandler;
  <!-- options-end -->
  * 
  * @author Eibe Frank (eibe@cs.waikato.ac.nz)
+<<<<<<< HEAD
  * @version $Revision: 9171 $
  */
 public class DecisionStump 
   extends AbstractClassifier 
+=======
+ * @version $Revision: 5535 $
+ */
+public class DecisionStump 
+  extends Classifier 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   implements WeightedInstancesHandler, Sourcable {
 
   /** for serialization */
   static final long serialVersionUID = 1618384535950391L;
   
   /** The attribute used for classification. */
+<<<<<<< HEAD
   protected int m_AttIndex;
 
   /** The split point (index respectively). */
@@ -77,6 +115,21 @@ public class DecisionStump
 
   /** a ZeroR model in case no model can be built from the data */
   protected Classifier m_ZeroR;
+=======
+  private int m_AttIndex;
+
+  /** The split point (index respectively). */
+  private double m_SplitPoint;
+
+  /** The distribution of class values or the means in each subset. */
+  private double[][] m_Distribution;
+
+  /** The instances used for training. */
+  private Instances m_Instances;
+
+  /** a ZeroR model in case no model can be built from the data */
+  private Classifier m_ZeroR;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     
   /**
    * Returns a string describing classifier
@@ -266,7 +319,11 @@ public class DecisionStump
    * @param dist the distribution to extract the value
    * @return the value
    */
+<<<<<<< HEAD
   protected String sourceClass(Attribute c, double []dist) {
+=======
+  private String sourceClass(Attribute c, double []dist) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
     if (c.isNominal()) {
       return Integer.toString(Utils.maxIndex(dist));
@@ -349,7 +406,11 @@ public class DecisionStump
    * @return the distribution as a string
    * @throws Exception if distribution can't be printed
    */
+<<<<<<< HEAD
   protected String printDist(double[] dist) throws Exception {
+=======
+  private String printDist(double[] dist) throws Exception {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
     StringBuffer text = new StringBuffer();
     
@@ -374,7 +435,11 @@ public class DecisionStump
    * @return the classificationn as a string
    * @throws Exception if the classification can't be printed
    */
+<<<<<<< HEAD
   protected String printClass(double[] dist) throws Exception {
+=======
+  private String printClass(double[] dist) throws Exception {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
     StringBuffer text = new StringBuffer();
     
@@ -394,7 +459,11 @@ public class DecisionStump
    * @return value of criterion for the best split
    * @throws Exception if something goes wrong
    */
+<<<<<<< HEAD
   protected double findSplitNominal(int index) throws Exception {
+=======
+  private double findSplitNominal(int index) throws Exception {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
     if (m_Instances.classAttribute().isNominal()) {
       return findSplitNominalNominal(index);
@@ -411,7 +480,11 @@ public class DecisionStump
    * @return value of criterion for the best split
    * @throws Exception if something goes wrong
    */
+<<<<<<< HEAD
   protected double findSplitNominalNominal(int index) throws Exception {
+=======
+  private double findSplitNominalNominal(int index) throws Exception {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
     double bestVal = Double.MAX_VALUE, currVal;
     double[][] counts = new double[m_Instances.attribute(index).numValues() 
@@ -477,7 +550,11 @@ public class DecisionStump
    * @return value of criterion for the best split
    * @throws Exception if something goes wrong
    */
+<<<<<<< HEAD
   protected double findSplitNominalNumeric(int index) throws Exception {
+=======
+  private double findSplitNominalNumeric(int index) throws Exception {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
     double bestVal = Double.MAX_VALUE, currVal;
     double[] sumsSquaresPerValue = 
@@ -556,7 +633,11 @@ public class DecisionStump
    * @return value of criterion for the best split
    * @throws Exception if something goes wrong
    */
+<<<<<<< HEAD
   protected double findSplitNumeric(int index) throws Exception {
+=======
+  private double findSplitNumeric(int index) throws Exception {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
     if (m_Instances.classAttribute().isNominal()) {
       return findSplitNumericNominal(index);
@@ -573,7 +654,11 @@ public class DecisionStump
    * @return value of criterion for the best split
    * @throws Exception if something goes wrong
    */
+<<<<<<< HEAD
   protected double findSplitNumericNominal(int index) throws Exception {
+=======
+  private double findSplitNumericNominal(int index) throws Exception {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
     double bestVal = Double.MAX_VALUE, currVal, currCutPoint;
     int numMissing = 0;
@@ -638,7 +723,11 @@ public class DecisionStump
    * @return value of criterion for the best split
    * @throws Exception if something goes wrong
    */
+<<<<<<< HEAD
   protected double findSplitNumericNumeric(int index) throws Exception {
+=======
+  private double findSplitNumericNumeric(int index) throws Exception {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
     double bestVal = Double.MAX_VALUE, currVal, currCutPoint;
     int numMissing = 0;
@@ -712,7 +801,11 @@ public class DecisionStump
    * @param sumOfWeights
    * @return the variance
    */
+<<<<<<< HEAD
   protected double variance(double[][] s,double[] sS,double[] sumOfWeights) {
+=======
+  private double variance(double[][] s,double[] sS,double[] sumOfWeights) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
     double var = 0;
 
@@ -732,7 +825,11 @@ public class DecisionStump
    * @return the subset the instance falls into
    * @throws Exception if something goes wrong
    */
+<<<<<<< HEAD
   protected int whichSubset(Instance instance) throws Exception {
+=======
+  private int whichSubset(Instance instance) throws Exception {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
     if (instance.isMissing(m_AttIndex)) {
       return 2;
@@ -757,7 +854,11 @@ public class DecisionStump
    * @return		the revision
    */
   public String getRevision() {
+<<<<<<< HEAD
     return RevisionUtils.extract("$Revision: 9171 $");
+=======
+    return RevisionUtils.extract("$Revision: 5535 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
  
   /**

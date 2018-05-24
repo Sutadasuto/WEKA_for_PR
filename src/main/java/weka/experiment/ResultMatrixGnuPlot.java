@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -16,6 +17,26 @@
 /*
  * ResultMatrixGnuPlot.java
  * Copyright (C) 2005-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ */
+
+/*
+ * ResultMatrixCSV.java
+ * Copyright (C) 2005 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  *
  */
 
@@ -26,6 +47,7 @@ import weka.core.Utils;
 import weka.core.Version;
 
 /**
+<<<<<<< HEAD
  <!-- globalinfo-start -->
  * Generates output for a data and script file for GnuPlot.
  * <p/>
@@ -101,38 +123,63 @@ import weka.core.Version;
  *
  * @author FracPete (fracpete at waikato dot ac dot nz)
  * @version $Revision: 8034 $
+=======
+ * This matrix is a container for the datasets and classifier setups and 
+ * their statistics. It outputs the data in CSV format.
+ *
+ *
+ * @author FracPete (fracpete at waikato dot ac dot nz)
+ * @version $Revision: 1.5 $
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 public class ResultMatrixGnuPlot
   extends ResultMatrix {
 
+<<<<<<< HEAD
   /** for serialization. */
   private static final long serialVersionUID = -234648254944790097L;
   
   /**
    * initializes the matrix as 1x1 matrix.
+=======
+  /** for serialization */
+  private static final long serialVersionUID = -234648254944790097L;
+  
+  /**
+   * initializes the matrix as 1x1 matrix
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    */
   public ResultMatrixGnuPlot() {
     this(1, 1);
   }
 
   /**
+<<<<<<< HEAD
    * initializes the matrix with the given dimensions.
    * 
    * @param cols	the number of columns
    * @param rows	the number of rows
+=======
+   * initializes the matrix with the given dimensions
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    */
   public ResultMatrixGnuPlot(int cols, int rows) {
     super(cols, rows);
   }
 
   /**
+<<<<<<< HEAD
    * initializes the matrix with the values from the given matrix.
    * 
+=======
+   * initializes the matrix with the values from the given matrix
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @param matrix      the matrix to get the values from
    */
   public ResultMatrixGnuPlot(ResultMatrix matrix) {
     super(matrix);
   }
+<<<<<<< HEAD
   
   /**
    * Returns a string describing the matrix.
@@ -148,12 +195,18 @@ public class ResultMatrixGnuPlot
    * returns the name of the output format.
    * 
    * @return		the display name
+=======
+
+  /**
+   * returns the name of the output format
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    */
   public String getDisplayName() {
     return "GNUPlot";
   }
 
   /**
+<<<<<<< HEAD
    * removes the stored data but retains the dimensions of the matrix.
    */
   public void clear() {
@@ -204,15 +257,37 @@ public class ResultMatrixGnuPlot
    * @return		the header
    * @see 		#m_HeaderKeys
    * @see 		#m_HeaderValues
+=======
+   * removes the stored data but retains the dimensions of the matrix
+   */
+  public void clear() {
+    super.clear();
+    setRowNameWidth(50);
+    setColNameWidth(50);
+    setEnumerateRowNames(false);
+    setEnumerateColNames(false);
+    LEFT_PARENTHESES = "";
+    RIGHT_PARENTHESES = "";
+  }
+  
+  /**
+   * returns the header of the matrix as a string
+   * @see #m_HeaderKeys
+   * @see #m_HeaderValues
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    */
   public String toStringHeader() {
     return new ResultMatrixPlainText(this).toStringHeader();
   }
 
   /**
+<<<<<<< HEAD
    * returns the matrix in CSV format.
    * 
    * @return		the matrix
+=======
+   * returns the matrix in CSV format
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    */
   public String toStringMatrix() {
     StringBuffer        result;
@@ -339,27 +414,39 @@ public class ResultMatrixGnuPlot
 
   /**
    * returns returns a key for all the col names, for better readability if
+<<<<<<< HEAD
    * the names got cut off.
    * 
    * @return		the key
+=======
+   * the names got cut off
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    */
   public String toStringKey() {
     return new ResultMatrixPlainText(this).toStringKey();
   }
 
   /**
+<<<<<<< HEAD
    * returns the summary as string.
    * 
    * @return		the summary
+=======
+   * returns the summary as string
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    */
   public String toStringSummary() {
     return new ResultMatrixPlainText(this).toStringSummary();
   }
 
   /**
+<<<<<<< HEAD
    * returns the ranking in a string representation.
    * 
    * @return		the ranking
+=======
+   * returns the ranking in a string representation
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    */
   public String toStringRanking() {
     return new ResultMatrixPlainText(this).toStringRanking();
@@ -371,6 +458,7 @@ public class ResultMatrixGnuPlot
    * @return		the revision
    */
   public String getRevision() {
+<<<<<<< HEAD
     return RevisionUtils.extract("$Revision: 8034 $");
   }
 
@@ -378,6 +466,13 @@ public class ResultMatrixGnuPlot
    * for testing only.
    * 
    * @param args	ignored
+=======
+    return RevisionUtils.extract("$Revision: 1.5 $");
+  }
+
+  /**
+   * for testing only
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    */
   public static void main(String[] args) {
     ResultMatrix        matrix;

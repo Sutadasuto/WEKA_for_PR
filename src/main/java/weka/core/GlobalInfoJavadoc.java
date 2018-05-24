@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,11 +12,30 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
  * GlobalInfoJavadoc.java
+<<<<<<< HEAD
  * Copyright (C) 2006-2012,2015 University of Waikato, Hamilton, New Zealand
+=======
+ * Copyright (C) 2006 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 package weka.core;
@@ -26,10 +46,17 @@ import java.lang.reflect.Method;
  * Generates Javadoc comments from the class's globalInfo method. Can 
  * automatically update the comments if they're surrounded by
  * the GLOBALINFO_STARTTAG and GLOBALINFO_ENDTAG (the indention is determined via
+<<<<<<< HEAD
  * the GLOBALINFO_STARTTAG). <br><br>
  * 
  <!-- options-start -->
  * Valid options are: <br>
+=======
+ * the GLOBALINFO_STARTTAG). <p/>
+ * 
+ <!-- options-start -->
+ * Valid options are: <p/>
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  * 
  * <pre> -W &lt;classname&gt;
  *  The class to load.</pre>
@@ -46,7 +73,11 @@ import java.lang.reflect.Method;
  <!-- options-end -->
  * 
  * @author  fracpete (fracpete at waikato dot ac dot nz)
+<<<<<<< HEAD
  * @version $Revision: 11736 $
+=======
+ * @version $Revision: 1.7 $
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  * @see #GLOBALINFO_METHOD
  * @see #GLOBALINFO_STARTTAG
  * @see #GLOBALINFO_ENDTAG
@@ -102,7 +133,11 @@ public class GlobalInfoJavadoc
       
       // retrieve global info
       result = toHTML((String) method.invoke(getInstance(), (Object[]) null));
+<<<<<<< HEAD
       result = result.trim() + "\n<br><br>\n";
+=======
+      result = result.trim() + "\n<p/>\n";
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       
       // stars?
       if (getUseStars()) 
@@ -118,7 +153,11 @@ public class GlobalInfoJavadoc
    * @return		the revision
    */
   public String getRevision() {
+<<<<<<< HEAD
     return RevisionUtils.extract("$Revision: 11736 $");
+=======
+    return RevisionUtils.extract("$Revision: 1.7 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
   
   /**

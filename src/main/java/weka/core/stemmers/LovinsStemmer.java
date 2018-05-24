@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,16 +12,36 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
  * LovinsStemmer.java
+<<<<<<< HEAD
  * Copyright (C) 2001-2012 University of Waikato, Hamilton, New Zealand
+=======
+ * Copyright (C) 2001 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  *
  */
 
 package weka.core.stemmers;
 
+<<<<<<< HEAD
 import java.util.HashMap;
 
 import weka.core.RevisionUtils;
@@ -29,6 +50,16 @@ import weka.core.TechnicalInformation.Field;
 import weka.core.TechnicalInformation.Type;
 import weka.core.TechnicalInformationHandler;
 
+=======
+import weka.core.RevisionUtils;
+import weka.core.TechnicalInformation;
+import weka.core.TechnicalInformation.Type;
+import weka.core.TechnicalInformation.Field;
+import weka.core.TechnicalInformationHandler;
+
+import java.util.HashMap;
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 /**
  <!-- globalinfo-start -->
  * A stemmer based on the Lovins stemmer, described here:<br/>
@@ -53,7 +84,11 @@ import weka.core.TechnicalInformationHandler;
  <!-- technical-bibtex-end -->
  *
  * @author  Eibe Frank (eibe at cs dot waikato dot ac dot nz)
+<<<<<<< HEAD
  * @version $Revision: 8034 $
+=======
+ * @version $Revision: 1.7 $
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 public class LovinsStemmer 
   implements Stemmer, TechnicalInformationHandler {
@@ -67,6 +102,7 @@ public class LovinsStemmer
   private static boolean m_CompMode = false;
 
   /** The hash tables containing the list of endings. */
+<<<<<<< HEAD
   private static HashMap<String,String> m_l11 = null;
   private static HashMap<String,String> m_l10 = null;
   private static HashMap<String,String> m_l9 = null;
@@ -86,11 +122,36 @@ public class LovinsStemmer
     m_l11.put("arizability", "A");
     m_l11.put("izationally", "B");
     m_l10 = new HashMap<String,String>();
+=======
+  private static HashMap m_l11 = null;
+  private static HashMap m_l10 = null;
+  private static HashMap m_l9 = null;
+  private static HashMap m_l8 = null;
+  private static HashMap m_l7 = null;
+  private static HashMap m_l6 = null;
+  private static HashMap m_l5 = null;
+  private static HashMap m_l4 = null;
+  private static HashMap m_l3 = null;
+  private static HashMap m_l2 = null;
+  private static HashMap m_l1 = null;
+
+  static {
+
+    m_l11 = new HashMap();
+    m_l11.put("alistically", "B");
+    m_l11.put("arizability", "A");
+    m_l11.put("izationally", "B");
+    m_l10 = new HashMap();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     m_l10.put("antialness", "A");
     m_l10.put("arisations", "A");
     m_l10.put("arizations", "A");
     m_l10.put("entialness", "A");
+<<<<<<< HEAD
     m_l9 = new HashMap<String,String>();
+=======
+    m_l9 = new HashMap();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     m_l9.put("allically", "C");
     m_l9.put("antaneous", "A");
     m_l9.put("antiality", "A");
@@ -108,7 +169,11 @@ public class LovinsStemmer
     m_l9.put("itousness", "A");
     m_l9.put("izability", "A");
     m_l9.put("izational", "A");
+<<<<<<< HEAD
     m_l8 = new HashMap<String,String>();
+=======
+    m_l8 = new HashMap();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     m_l8.put("ableness", "A");
     m_l8.put("arizable", "A");
     m_l8.put("entation", "A");
@@ -122,7 +187,11 @@ public class LovinsStemmer
     m_l8.put("iousness", "A");
     m_l8.put("izations", "A");
     m_l8.put("lessness", "A");
+<<<<<<< HEAD
     m_l7 = new HashMap<String,String>();
+=======
+    m_l7 = new HashMap();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     m_l7.put("ability", "A");
     m_l7.put("aically", "A");
     m_l7.put("alistic", "B");
@@ -163,7 +232,11 @@ public class LovinsStemmer
     m_l7.put("izement", "A");
     m_l7.put("oidally", "A");
     m_l7.put("ousness", "A");
+<<<<<<< HEAD
     m_l6 = new HashMap<String,String>();
+=======
+    m_l6 = new HashMap();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     m_l6.put("aceous", "A");
     m_l6.put("acious", "B");
     m_l6.put("action", "G");
@@ -203,7 +276,11 @@ public class LovinsStemmer
     m_l6.put("lessly", "A");
     m_l6.put("nesses", "A");
     m_l6.put("oidism", "A");
+<<<<<<< HEAD
     m_l5 = new HashMap<String,String>();
+=======
+    m_l5 = new HashMap();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     m_l5.put("acies", "A");
     m_l5.put("acity", "A");
     m_l5.put("aging", "B");
@@ -277,7 +354,11 @@ public class LovinsStemmer
     m_l5.put("oides", "A");
     m_l5.put("otide", "A");
     m_l5.put("ously", "A");
+<<<<<<< HEAD
     m_l4 = new HashMap<String,String>();
+=======
+    m_l4 = new HashMap();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     m_l4.put("able", "A");
     m_l4.put("ably", "A");
     m_l4.put("ages", "B");
@@ -326,7 +407,11 @@ public class LovinsStemmer
     m_l4.put("wise", "A");
     m_l4.put("ying", "B");
     m_l4.put("yish", "A");
+<<<<<<< HEAD
     m_l3 = new HashMap<String,String>();
+=======
+    m_l3 = new HashMap();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     m_l3.put("acy", "A");
     m_l3.put("age", "B");
     m_l3.put("aic", "A");
@@ -366,7 +451,11 @@ public class LovinsStemmer
     m_l3.put("oid", "A");
     m_l3.put("one", "R");
     m_l3.put("ous", "A");
+<<<<<<< HEAD
     m_l2 = new HashMap<String,String>();
+=======
+    m_l2 = new HashMap();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     m_l2.put("ae", "A"); 
     m_l2.put("al", "b");
     m_l2.put("ar", "X");
@@ -385,7 +474,11 @@ public class LovinsStemmer
     m_l2.put("yl", "R");
     m_l2.put("s\'", "A");
     m_l2.put("\'s", "A");
+<<<<<<< HEAD
     m_l1 = new HashMap<String,String>();
+=======
+    m_l1 = new HashMap();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     m_l1.put("a", "A");
     m_l1.put("e", "A");
     m_l1.put("i", "A");
@@ -981,7 +1074,11 @@ public class LovinsStemmer
    * @return		the revision
    */
   public String getRevision() {
+<<<<<<< HEAD
     return RevisionUtils.extract("$Revision: 8034 $");
+=======
+    return RevisionUtils.extract("$Revision: 1.7 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**

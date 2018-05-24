@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,11 +12,30 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
  * SubspaceClusterDefinition.java
+<<<<<<< HEAD
  * Copyright (C) 2005-2012 University of Waikato, Hamilton, New Zealand
+=======
+ * Copyright (C) 2005 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  *
  */
 
@@ -78,10 +98,18 @@ import weka.datagenerators.ClusterGenerator;
  * 
  * @author Gabi Schmidberger (gabi@cs.waikato.ac.nz)
  * @author FracPete (fracpete at waikato dot ac dot nz)
+<<<<<<< HEAD
  * @version $Revision: 12478 $
  * @see SubspaceCluster
  */
 public class SubspaceClusterDefinition extends ClusterDefinition {
+=======
+ * @version $Revision: 1.5 $
+ * @see SubspaceCluster
+ */
+public class SubspaceClusterDefinition
+  extends ClusterDefinition {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
   /** for serialization */
   static final long serialVersionUID = 3135678125044007231L;
@@ -113,11 +141,25 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
   /** global indices of the attributes of the cluster */
   protected int[] m_attrIndices;
 
+<<<<<<< HEAD
   /** min or mean */
   protected double[] m_valueA;
 
   /** max or stddev */
   protected double[] m_valueB;
+=======
+  /** ranges of each attribute (min); not used if gaussian */
+  protected double[] m_minValue;
+
+  /** ranges of each attribute (max); not used if gaussian */
+  protected double[] m_maxValue;
+
+  /** mean ; only used if gaussian */
+  protected double[] m_meanValue;
+
+  /** standarddev; only used if gaussian */
+  protected double[] m_stddevValue;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
   /**
    * initializes the cluster, without a parent cluster (necessary for GOE)
@@ -168,6 +210,7 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
    * @return an enumeration of all the available options
    */
   @Override
+<<<<<<< HEAD
   public Enumeration<Option> listOptions() {
     Vector<Option> result = new Vector<Option>();
 
@@ -195,6 +238,36 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
     result.addElement(new Option(
       "\tUses integer instead of continuous values (default continuous).", "I",
       0, "-I"));
+=======
+  public Enumeration listOptions() {
+    Vector result = new Vector();
+
+    result.addElement(new Option(
+      "\tGenerates randomly distributed instances in the cluster.",
+      "A", 1, "-A <range>"));
+
+    result.addElement(new Option(
+      "\tGenerates uniformly distributed instances in the cluster.",
+      "U", 1, "-U <range>"));
+
+    result.addElement(new Option(
+      "\tGenerates gaussian distributed instances in the cluster.",
+      "G", 1, "-G <range>"));
+
+    result.addElement(new Option(
+      "\tThe attribute min/max (-A and -U) or mean/stddev (-G) for\n"
+        + "\tthe cluster.",
+      "D", 1, "-D <num>,<num>"));
+
+    result.addElement(new Option(
+      "\tThe range of number of instances per cluster (default "
+        + defaultMinInstNum() + ".." + defaultMaxInstNum() + ").",
+      "N", 1, "-N <num>..<num>"));
+
+    result.addElement(new Option(
+      "\tUses integer instead of continuous values (default continuous).",
+      "I", 0, "-I"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
     return result.elements();
   }
@@ -254,35 +327,56 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
     tmpStr = Utils.getOption('A', options);
     if (tmpStr.length() != 0) {
       fromToStr = tmpStr;
+<<<<<<< HEAD
       setClusterType(new SelectedTag(SubspaceCluster.UNIFORM_RANDOM,
         SubspaceCluster.TAGS_CLUSTERTYPE));
+=======
+      setClusterType(new SelectedTag(
+        SubspaceCluster.UNIFORM_RANDOM, SubspaceCluster.TAGS_CLUSTERTYPE));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       typeCount++;
     }
 
     tmpStr = Utils.getOption('U', options);
     if (tmpStr.length() != 0) {
       fromToStr = tmpStr;
+<<<<<<< HEAD
       setClusterType(new SelectedTag(SubspaceCluster.TOTAL_UNIFORM,
         SubspaceCluster.TAGS_CLUSTERTYPE));
+=======
+      setClusterType(new SelectedTag(
+        SubspaceCluster.TOTAL_UNIFORM, SubspaceCluster.TAGS_CLUSTERTYPE));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       typeCount++;
     }
 
     tmpStr = Utils.getOption('G', options);
     if (tmpStr.length() != 0) {
       fromToStr = tmpStr;
+<<<<<<< HEAD
       setClusterType(new SelectedTag(SubspaceCluster.GAUSSIAN,
         SubspaceCluster.TAGS_CLUSTERTYPE));
+=======
+      setClusterType(new SelectedTag(
+        SubspaceCluster.GAUSSIAN, SubspaceCluster.TAGS_CLUSTERTYPE));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       typeCount++;
     }
 
     // default is uniform/random
     if (typeCount == 0) {
+<<<<<<< HEAD
       setClusterType(new SelectedTag(SubspaceCluster.UNIFORM_RANDOM,
         SubspaceCluster.TAGS_CLUSTERTYPE));
+=======
+      setClusterType(new SelectedTag(
+        SubspaceCluster.UNIFORM_RANDOM, SubspaceCluster.TAGS_CLUSTERTYPE));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     } else if (typeCount > 1) {
       throw new Exception("Only one cluster type can be specified!");
     }
 
+<<<<<<< HEAD
     setAttrIndexRange(fromToStr);
 
     tmpStr = Utils.getOption('D', options);
@@ -293,6 +387,29 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
     }
 
 
+=======
+    if (getParent() != null) {
+      setAttrIndexRange(fromToStr);
+    }
+
+    tmpStr = Utils.getOption('D', options);
+    if (isGaussian()) {
+      if (tmpStr.length() != 0) {
+        setMeanStddev(tmpStr);
+      } else {
+        setMeanStddev(defaultMeanStddev());
+      }
+    }
+    else {
+      if (tmpStr.length() != 0) {
+        setValuesList(tmpStr);
+      } else {
+        m_numClusterAttributes = 1;
+        setValuesList(defaultValuesList());
+      }
+    }
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     tmpStr = Utils.getOption('N', options);
     if (tmpStr.length() != 0) {
       setInstNums(tmpStr);
@@ -301,11 +418,19 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
     }
 
     if (Utils.getFlag('I', options)) {
+<<<<<<< HEAD
       setClusterSubType(new SelectedTag(SubspaceCluster.INTEGER,
         SubspaceCluster.TAGS_CLUSTERSUBTYPE));
     } else {
       setClusterSubType(new SelectedTag(SubspaceCluster.CONTINUOUS,
         SubspaceCluster.TAGS_CLUSTERSUBTYPE));
+=======
+      setClusterSubType(new SelectedTag(
+        SubspaceCluster.INTEGER, SubspaceCluster.TAGS_CLUSTERSUBTYPE));
+    } else {
+      setClusterSubType(new SelectedTag(
+        SubspaceCluster.CONTINUOUS, SubspaceCluster.TAGS_CLUSTERSUBTYPE));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     }
   }
 
@@ -316,6 +441,7 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
    */
   @Override
   public String[] getOptions() {
+<<<<<<< HEAD
     Vector<String> result;
 
     result = new Vector<String>();
@@ -333,6 +459,42 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
  
     result.add("-D");
     result.add("" + getValuesList());
+=======
+    Vector result;
+
+    result = new Vector();
+
+    if (isRandom()) {
+      if (getAttrIndexRange().length() > 0) {
+        result.add("-A");
+        result.add("" + getAttrIndexRange());
+      }
+      if (getValuesList().length() > 0) {
+        result.add("-D");
+        result.add("" + getValuesList());
+      }
+    }
+    else if (isUniform()) {
+      if (getAttrIndexRange().length() > 0) {
+        result.add("-U");
+        result.add("" + getAttrIndexRange());
+      }
+      if (getValuesList().length() > 0) {
+        result.add("-D");
+        result.add("" + getValuesList());
+      }
+    }
+    else if (isGaussian()) {
+      if (getAttrIndexRange().length() > 0) {
+        result.add("-G");
+        result.add("" + getAttrIndexRange());
+      }
+      if (getValuesList().length() > 0) {
+        result.add("-D");
+        result.add("" + getMeanStddev());
+      }
+    }
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
     result.add("-N");
     result.add("" + getInstNums());
@@ -341,7 +503,11 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
       result.add("-I");
     }
 
+<<<<<<< HEAD
     return result.toArray(new String[result.size()]);
+=======
+    return (String[]) result.toArray(new String[result.size()]);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**
@@ -356,12 +522,22 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
       if (m_attributes[i]) {
         if (isGaussian()) {
           text.append(" Attribute: " + i);
+<<<<<<< HEAD
           text.append(" Mean: " + m_valueA[j]);
           text.append(" StdDev: " + m_valueB[j] + "\n%");
         } else {
           text.append(" Attribute: " + i);
           text.append(" Range: " + m_valueA[j]);
           text.append(" - " + m_valueB[j] + "\n%");
+=======
+          text.append(" Mean: " + m_meanValue[j]);
+          text.append(" StdDev: " + m_stddevValue[j] + "\n%");
+        }
+        else {
+          text.append(" Attribute: " + i);
+          text.append(" Range: " + m_minValue[j]);
+          text.append(" - " + m_maxValue[j] + "\n%");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
         }
         j++;
       }
@@ -371,7 +547,11 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
 
   /**
    * Make a string from the cluster features.
+<<<<<<< HEAD
    *
+=======
+   * 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @return the cluster features as string
    */
   @Override
@@ -384,7 +564,11 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
 
   /**
    * sets the parent datagenerator this cluster belongs to
+<<<<<<< HEAD
    *
+=======
+   * 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @param parent the parent datagenerator
    */
   public void setParent(SubspaceCluster parent) {
@@ -394,7 +578,11 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
 
   /**
    * returns the default attribute index range
+<<<<<<< HEAD
    *
+=======
+   * 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @return the default attribute index range
    */
   protected String defaultAttrIndexRange() {
@@ -404,7 +592,11 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
   /**
    * Sets which attributes are used in the cluster attributes among the
    * selection will be discretized.
+<<<<<<< HEAD
    *
+=======
+   * 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @param rangeList a string representing the list of attributes. Since the
    *          string will typically come from a user, attributes are indexed
    *          from 1. <br/>
@@ -424,7 +616,12 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
         if (m_AttrIndexRange.isInRange(i)) {
           m_numClusterAttributes++;
           m_attributes[i] = true;
+<<<<<<< HEAD
         } else {
+=======
+        }
+        else {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
           m_attributes[i] = false;
         }
       }
@@ -443,7 +640,11 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
 
   /**
    * returns the attribute range(s).
+<<<<<<< HEAD
    *
+=======
+   * 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @return the attribute range(s).
    */
   public String getAttrIndexRange() {
@@ -452,7 +653,11 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
 
   /**
    * Returns the tip text for this property
+<<<<<<< HEAD
    *
+=======
+   * 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @return tip text for this property suitable for displaying in the
    *         explorer/experimenter gui
    */
@@ -465,6 +670,7 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
   }
 
   public double[] getMinValue() {
+<<<<<<< HEAD
     return m_valueA;
   }
 
@@ -478,6 +684,21 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
 
   public double[] getStddevValue() {
     return m_valueB;
+=======
+    return m_minValue;
+  }
+
+  public double[] getMaxValue() {
+    return m_maxValue;
+  }
+
+  public double[] getMeanValue() {
+    return m_meanValue;
+  }
+
+  public double[] getStddevValue() {
+    return m_stddevValue;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   public int getNumInstances() {
@@ -486,17 +707,30 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
 
   /**
    * returns the default cluster type
+<<<<<<< HEAD
    *
    * @return the default cluster type
    */
   protected SelectedTag defaultClusterType() {
     return new SelectedTag(SubspaceCluster.UNIFORM_RANDOM,
       SubspaceCluster.TAGS_CLUSTERTYPE);
+=======
+   * 
+   * @return the default cluster type
+   */
+  protected SelectedTag defaultClusterType() {
+    return new SelectedTag(
+      SubspaceCluster.UNIFORM_RANDOM, SubspaceCluster.TAGS_CLUSTERTYPE);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**
    * Gets the cluster type.
+<<<<<<< HEAD
    *
+=======
+   * 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @return the cluster type
    * @see SubspaceCluster#TAGS_CLUSTERTYPE
    */
@@ -506,7 +740,11 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
 
   /**
    * Sets the cluster type.
+<<<<<<< HEAD
    *
+=======
+   * 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @param value the new cluster type.
    * @see SubspaceCluster#TAGS_CLUSTERTYPE
    */
@@ -518,7 +756,11 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
 
   /**
    * Returns the tip text for this property
+<<<<<<< HEAD
    *
+=======
+   * 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @return tip text for this property suitable for displaying in the
    *         explorer/experimenter gui
    */
@@ -528,28 +770,50 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
 
   /**
    * returns the default cluster sub type
+<<<<<<< HEAD
    *
    * @return the default cluster sub type
    */
   protected SelectedTag defaultClusterSubType() {
     return new SelectedTag(SubspaceCluster.CONTINUOUS,
       SubspaceCluster.TAGS_CLUSTERSUBTYPE);
+=======
+   * 
+   * @return the default cluster sub type
+   */
+  protected SelectedTag defaultClusterSubType() {
+    return new SelectedTag(
+      SubspaceCluster.CONTINUOUS, SubspaceCluster.TAGS_CLUSTERSUBTYPE);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**
    * Gets the cluster sub type.
+<<<<<<< HEAD
    *
+=======
+   * 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @return the cluster sub type
    * @see SubspaceCluster#TAGS_CLUSTERSUBTYPE
    */
   public SelectedTag getClusterSubType() {
+<<<<<<< HEAD
     return new SelectedTag(m_clustersubtype,
       SubspaceCluster.TAGS_CLUSTERSUBTYPE);
+=======
+    return new SelectedTag(
+      m_clustersubtype, SubspaceCluster.TAGS_CLUSTERSUBTYPE);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**
    * Sets the cluster sub type.
+<<<<<<< HEAD
    *
+=======
+   * 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @param value the new cluster sub type.
    * @see SubspaceCluster#TAGS_CLUSTERSUBTYPE
    */
@@ -561,7 +825,11 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
 
   /**
    * Returns the tip text for this property
+<<<<<<< HEAD
    *
+=======
+   * 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @return tip text for this property suitable for displaying in the
    *         explorer/experimenter gui
    */
@@ -571,7 +839,11 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
 
   /**
    * checks, whether cluster type is random
+<<<<<<< HEAD
    *
+=======
+   * 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @return true if cluster type is random
    */
   public boolean isRandom() {
@@ -580,7 +852,11 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
 
   /**
    * checks, whether cluster type is uniform
+<<<<<<< HEAD
    *
+=======
+   * 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @return true if cluster type is uniform
    */
   public boolean isUniform() {
@@ -589,7 +865,11 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
 
   /**
    * checks, whether cluster type is gaussian
+<<<<<<< HEAD
    *
+=======
+   * 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @return true if cluster type is gaussian
    */
   public boolean isGaussian() {
@@ -598,7 +878,11 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
 
   /**
    * checks, whether cluster sub type is continuous
+<<<<<<< HEAD
    *
+=======
+   * 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @return true if cluster sub type is continuous
    */
   public boolean isContinuous() {
@@ -607,16 +891,28 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
 
   /**
    * checks, whether cluster sub type is integer
+<<<<<<< HEAD
    *
    * @return true if cluster sub type is integer
    */
   public boolean isInteger() {
     return (m_clustersubtype == SubspaceCluster.INTEGER);
+=======
+   * 
+   * @return true if cluster sub type is integer
+   */
+  public boolean isInteger() {
+    return (m_clustertype == SubspaceCluster.INTEGER);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**
    * Sets the upper and lower boundary for instances for this cluster.
+<<<<<<< HEAD
    *
+=======
+   * 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @param fromTo the string containing the upper and lower boundary for
    *          instances per cluster separated by ..
    */
@@ -630,7 +926,12 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
     if (i < fromTo.length()) {
       String to = fromTo.substring(i + 2, fromTo.length());
       m_MaxInstNum = Integer.parseInt(to);
+<<<<<<< HEAD
     } else {
+=======
+    }
+    else {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       m_MaxInstNum = m_MinInstNum;
     }
   }
@@ -638,7 +939,11 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
   /**
    * Get a string with the upper and lower boundary for the number of instances
    * for this cluster.
+<<<<<<< HEAD
    *
+=======
+   * 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @return the string containing the upper and lower boundary for instances
    *         per cluster separated by ..
    */
@@ -649,7 +954,11 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
 
   /**
    * Returns the tip text for this property
+<<<<<<< HEAD
    *
+=======
+   * 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @return tip text for this property suitable for displaying in the
    *         explorer/experimenter gui
    */
@@ -659,7 +968,11 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
 
   /**
    * returns the default min number of instances
+<<<<<<< HEAD
    *
+=======
+   * 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @return the default min number of instances
    */
   protected int defaultMinInstNum() {
@@ -668,7 +981,11 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
 
   /**
    * Gets the lower boundary for instances per cluster.
+<<<<<<< HEAD
    *
+=======
+   * 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @return the the lower boundary for instances per cluster
    */
   public int getMinInstNum() {
@@ -677,7 +994,11 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
 
   /**
    * Sets the lower boundary for instances per cluster.
+<<<<<<< HEAD
    *
+=======
+   * 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @param newMinInstNum new lower boundary for instances per cluster
    */
   public void setMinInstNum(int newMinInstNum) {
@@ -686,7 +1007,11 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
 
   /**
    * Returns the tip text for this property
+<<<<<<< HEAD
    *
+=======
+   * 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @return tip text for this property suitable for displaying in the
    *         explorer/experimenter gui
    */
@@ -696,7 +1021,11 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
 
   /**
    * returns the default max number of instances
+<<<<<<< HEAD
    *
+=======
+   * 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @return the default max number of instances
    */
   protected int defaultMaxInstNum() {
@@ -705,7 +1034,11 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
 
   /**
    * Gets the upper boundary for instances per cluster.
+<<<<<<< HEAD
    *
+=======
+   * 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @return the upper boundary for instances per cluster
    */
   public int getMaxInstNum() {
@@ -714,7 +1047,11 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
 
   /**
    * Sets the upper boundary for instances per cluster.
+<<<<<<< HEAD
    *
+=======
+   * 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @param newMaxInstNum new upper boundary for instances per cluster
    */
   public void setMaxInstNum(int newMaxInstNum) {
@@ -723,7 +1060,11 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
 
   /**
    * Returns the tip text for this property
+<<<<<<< HEAD
    *
+=======
+   * 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @return tip text for this property suitable for displaying in the
    *         explorer/experimenter gui
    */
@@ -733,12 +1074,21 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
 
   /**
    * Sets the real number of instances for this cluster.
+<<<<<<< HEAD
    *
+=======
+   * 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @param r random number generator
    */
   public void setNumInstances(Random r) {
     if (m_MaxInstNum > m_MinInstNum) {
+<<<<<<< HEAD
       m_numInstances = (int) (r.nextDouble() * (m_MaxInstNum - m_MinInstNum) + m_MinInstNum);
+=======
+      m_numInstances = (int) (r.nextDouble()
+        * (m_MaxInstNum - m_MinInstNum) + m_MinInstNum);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     } else {
       m_numInstances = m_MinInstNum;
     }
@@ -746,7 +1096,11 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
 
   /**
    * returns the default values list
+<<<<<<< HEAD
    *
+=======
+   * 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @return the default values list
    */
   protected String defaultValuesList() {
@@ -755,12 +1109,17 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
 
   /**
    * Sets the ranges for each attribute.
+<<<<<<< HEAD
    *
+=======
+   * 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @param fromToList the string containing the upper and lower boundary for
    *          instances per cluster separated by ..
    * @throws Exception if values are not correct in number or value
    */
   public void setValuesList(String fromToList) throws Exception {
+<<<<<<< HEAD
     m_valueA = new double[m_numClusterAttributes];
     m_valueB = new double[m_numClusterAttributes];
     setValuesList(fromToList, m_valueA, m_valueB, "D");
@@ -768,6 +1127,15 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
 
     for (int i = 0; i < m_numClusterAttributes; i++) {
       if ((!isGaussian()) && (m_valueA[i] > m_valueB[i])) {
+=======
+    m_minValue = new double[m_numClusterAttributes];
+    m_maxValue = new double[m_numClusterAttributes];
+    setValuesList(fromToList, m_minValue, m_maxValue, "D");
+    SubspaceCluster parent = (SubspaceCluster) getParent();
+
+    for (int i = 0; i < m_numClusterAttributes; i++) {
+      if (m_minValue[i] > m_maxValue[i]) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
         throw new Exception("Min must be smaller than max.");
       }
 
@@ -775,14 +1143,20 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
         // boolean values are only 0.0 and 1.0
         if (parent.isBoolean(m_attrIndices[i])) {
           parent.getNumValues()[m_attrIndices[i]] = 2;
+<<<<<<< HEAD
           if (((m_valueA[i] != 0.0) && (m_valueA[i] != 1.0))
             || ((m_valueB[i] != 0.0) && (m_valueB[i] != 1.0))) {
+=======
+          if (((m_minValue[i] != 0.0) && (m_minValue[i] != 1.0)) ||
+            ((m_maxValue[i] != 0.0) && (m_maxValue[i] != 1.0))) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
             throw new Exception("Ranges for boolean must be 0 or 1 only.");
           }
         }
 
         if (parent.isNominal(m_attrIndices[i])) {
           // nominal values: attributes range might have to be enlarged
+<<<<<<< HEAD
           double rest = m_valueA[i] - Math.rint(m_valueA[i]);
           if (rest != 0.0) {
             throw new Exception(" Ranges for nominal must be integer");
@@ -799,6 +1173,24 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
             // add new values to attribute
             // (actual format is not yet defined)
             parent.getNumValues()[m_attrIndices[i]] = (int) m_valueB[i] + 1;
+=======
+          double rest = m_minValue[i] - Math.rint(m_minValue[i]);
+          if (rest != 0.0) {
+            throw new Exception(" Ranges for nominal must be integer");
+          }
+          rest = m_maxValue[i] - Math.rint(m_maxValue[i]);
+          if (rest != 0.0) {
+            throw new Exception("Ranges for nominal must be integer");
+          }
+          if (m_minValue[i] < 0.0) {
+            throw new Exception(
+              "Range for nominal must start with number 0.0 or higher");
+          }
+          if (m_maxValue[i] + 1 > parent.getNumValues()[m_attrIndices[i]]) {
+            // add new values to attribute
+            // (actual format is not yet defined)
+            parent.getNumValues()[m_attrIndices[i]] = (int) m_maxValue[i] + 1;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
           }
         }
       }
@@ -814,12 +1206,21 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
 
     result = "";
 
+<<<<<<< HEAD
     if (m_valueA != null) {
       for (i = 0; i < m_valueA.length; i++) {
         if (i > 0) {
           result += ",";
         }
         result += "" + m_valueA[i] + "," + m_valueB[i];
+=======
+    if (m_minValue != null) {
+      for (i = 0; i < m_minValue.length; i++) {
+        if (i > 0) {
+          result += ",";
+        }
+        result += "" + m_minValue[i] + "," + m_maxValue[i];
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       }
     }
 
@@ -828,12 +1229,71 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
 
   /**
    * Returns the tip text for this property
+<<<<<<< HEAD
    *
+=======
+   * 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @return tip text for this property suitable for displaying in the
    *         explorer/experimenter gui
    */
   public String valuesListTipText() {
+<<<<<<< HEAD
     return "The min (mean) and max (standard deviation) for each attribute as a comma-separated string.";
+=======
+    return "The range for each each attribute as string.";
+  }
+
+  /**
+   * returns the default mean/stddev list
+   */
+  protected String defaultMeanStddev() {
+    return "0,1.0";
+  }
+
+  /**
+   * Sets mean and standarddeviation.
+   * 
+   * @param meanstddev the string containing the upper and lower boundary for
+   *          instances per cluster separated by ..
+   * @throws Exception if values are not correct in number or value
+   */
+  public void setMeanStddev(String meanstddev) throws Exception {
+    m_meanValue = new double[m_numClusterAttributes];
+    m_stddevValue = new double[m_numClusterAttributes];
+    setValuesList(meanstddev, m_meanValue, m_stddevValue, "D");
+  }
+
+  /**
+   * returns the current mean/stddev setup
+   */
+  public String getMeanStddev() {
+    String result;
+    int i;
+
+    result = "";
+
+    if (m_meanValue != null) {
+      for (i = 0; i < m_meanValue.length; i++) {
+        if (i > 0) {
+          result += ",";
+        }
+        result += "" + m_meanValue[i] + "," + m_stddevValue[i];
+      }
+    }
+
+    return result;
+  }
+
+  /**
+   * Returns the tip text for this property
+   * 
+   * @return tip text for this property suitable for displaying in the
+   *         explorer/experimenter gui
+   */
+  public String meanStddevTipText() {
+    return "The mean and stddev, in case of gaussian.";
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**
@@ -854,8 +1314,13 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
 
     tok = new StringTokenizer(fromToList, ",");
     if (tok.countTokens() != first.length + second.length) {
+<<<<<<< HEAD
       throw new Exception("Wrong number of values for option '-" + optionLetter
         + "'.");
+=======
+      throw new Exception(
+        "Wrong number of values for option '-" + optionLetter + "'.");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     }
 
     index = 0;
@@ -873,6 +1338,10 @@ public class SubspaceClusterDefinition extends ClusterDefinition {
    */
   @Override
   public String getRevision() {
+<<<<<<< HEAD
     return RevisionUtils.extract("$Revision: 12478 $");
+=======
+    return RevisionUtils.extract("$Revision: 1.5 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 }

@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,26 +12,55 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
  * BottomUpConstructor.java
+<<<<<<< HEAD
  * Copyright (C) 2007-2012 University of Waikato, Hamilton, New Zealand
+=======
+ * Copyright (C) 2007 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 package weka.core.neighboursearch.balltrees;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 
 import weka.core.DenseInstance;
+=======
+import weka.core.FastVector;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.RevisionHandler;
 import weka.core.RevisionUtils;
 import weka.core.TechnicalInformation;
+<<<<<<< HEAD
 import weka.core.TechnicalInformation.Field;
 import weka.core.TechnicalInformation.Type;
 import weka.core.TechnicalInformationHandler;
+=======
+import weka.core.TechnicalInformationHandler;
+import weka.core.TechnicalInformation.Field;
+import weka.core.TechnicalInformation.Type;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
 /**
  <!-- globalinfo-start -->
@@ -68,7 +98,11 @@ import weka.core.TechnicalInformationHandler;
  <!-- options-end --> 
  *
  * @author Ashraf M. Kibriya (amk14[at-the-rate]cs[dot]waikato[dot]ac[dot]nz)
+<<<<<<< HEAD
  * @version $Revision: 8034 $
+=======
+ * @version $Revision: 1.3 $
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 public class BottomUpConstructor
   extends BallTreeConstructor 
@@ -121,14 +155,22 @@ public class BottomUpConstructor
    * the tree.
    */
   public BallNode buildTree() throws Exception {
+<<<<<<< HEAD
     ArrayList<TempNode> list = new ArrayList<TempNode>();
+=======
+    FastVector list = new FastVector();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     
     for(int i=0; i<m_InstList.length; i++) {
       TempNode n = new TempNode();
       n.points = new int[1]; n.points[0] = m_InstList[i];
       n.anchor = m_Instances.instance(m_InstList[i]);
       n.radius = 0.0;
+<<<<<<< HEAD
       list.add(n);
+=======
+      list.addElement(n);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     }
     
     return mergeNodes(list, 0, m_InstList.length-1, m_InstList);
@@ -151,7 +193,11 @@ public class BottomUpConstructor
    * @throws Exception If there is some problem
    * merging the nodes. 
    */
+<<<<<<< HEAD
   protected BallNode mergeNodes(ArrayList<TempNode> list, int startIdx, int endIdx, 
+=======
+  protected BallNode mergeNodes(FastVector list, int startIdx, int endIdx, 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
                                 int[] instList) throws Exception {
     double minRadius=Double.POSITIVE_INFINITY, tmpRadius;
     Instance pivot, minPivot=null; int min1=-1, min2=-1;
@@ -164,9 +210,15 @@ public class BottomUpConstructor
       min1 = -1; min2 = -1; 
    
       for(int i=0; i<list.size(); i++) {
+<<<<<<< HEAD
         TempNode first = (TempNode) list.get(i);
         for(int j=i+1; j<list.size(); j++) {
           TempNode second = (TempNode) list.get(j);
+=======
+        TempNode first = (TempNode) list.elementAt(i);
+        for(int j=i+1; j<list.size(); j++) {
+          TempNode second = (TempNode) list.elementAt(j);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
           pivot = calcPivot(first, second, m_Instances);
           tmpRadius = calcRadius(first, second); 
           if(tmpRadius < minRadius) {
@@ -177,8 +229,13 @@ public class BottomUpConstructor
         }//end for(j)
       }//end for(i)
       parent = new TempNode();
+<<<<<<< HEAD
       parent.left  = (TempNode) list.get(min1);
       parent.right = (TempNode) list.get(min2);
+=======
+      parent.left  = (TempNode) list.elementAt(min1);
+      parent.right = (TempNode) list.elementAt(min2);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       minInstList = new int[parent.left.points.length+parent.right.points.length]; 
       System.arraycopy(parent.left.points, 0, minInstList, 0, parent.left.points.length);
       System.arraycopy(parent.right.points, 0, minInstList, parent.left.points.length, 
@@ -186,11 +243,19 @@ public class BottomUpConstructor
       parent.points = minInstList;
       parent.anchor = minPivot;
       parent.radius = BallNode.calcRadius(parent.points, m_Instances, minPivot, m_DistanceFunction);
+<<<<<<< HEAD
       list.remove(min1); list.remove(min2-1);
       list.add(parent);
     }//end while
     System.err.println("");
     TempNode tmpRoot = (TempNode)list.get(0);
+=======
+      list.removeElementAt(min1); list.removeElementAt(min2-1);
+      list.addElement(parent);
+    }//end while
+    System.err.println("");
+    TempNode tmpRoot = (TempNode)list.elementAt(0);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     
     if(m_InstList.length != tmpRoot.points.length)
       throw new Exception("Root nodes instance list is of irregular length. " +
@@ -300,7 +365,11 @@ public class BottomUpConstructor
 	continue;
       attrVals[k] += node2.anchor.valueSparse(k)*anchr2Ratio;
     }
+<<<<<<< HEAD
     temp = new DenseInstance(1.0, attrVals);
+=======
+    temp = new Instance(1.0, attrVals);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     return temp;
   }
   
@@ -325,7 +394,11 @@ public class BottomUpConstructor
    * other another node).
    *
    * @author Ashraf M. Kibriya (amk14[at-the-rate]cs[dot]waikato[dot]ac[dot]nz)
+<<<<<<< HEAD
    * @version $Revision: 8034 $
+=======
+   * @version $Revision: 1.3 $
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    */
   protected class TempNode
     implements RevisionHandler {
@@ -362,7 +435,11 @@ public class BottomUpConstructor
      * @return		the revision
      */
     public String getRevision() {
+<<<<<<< HEAD
       return RevisionUtils.extract("$Revision: 8034 $");
+=======
+      return RevisionUtils.extract("$Revision: 1.3 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     }
   }
   
@@ -372,6 +449,10 @@ public class BottomUpConstructor
    * @return		the revision
    */
   public String getRevision() {
+<<<<<<< HEAD
     return RevisionUtils.extract("$Revision: 8034 $");
+=======
+    return RevisionUtils.extract("$Revision: 1.3 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 }

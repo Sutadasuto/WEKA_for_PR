@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -16,6 +17,27 @@
  /*
   *    PostscriptWriter.java
   *    Copyright (C) 2005-2012 University of Waikato, Hamilton, New Zealand
+=======
+ /*
+  *    This program is free software; you can redistribute it and/or modify
+  *    it under the terms of the GNU General Public License as published by
+  *    the Free Software Foundation; either version 2 of the License, or
+  *    (at your option) any later version.
+  *
+  *    This program is distributed in the hope that it will be useful,
+  *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+  *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  *    GNU General Public License for more details.
+  *
+  *    You should have received a copy of the GNU General Public License
+  *    along with this program; if not, write to the Free Software
+  *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+  */
+
+ /*
+  *    PostscriptWriter.java
+  *    Copyright (C) 2005 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   *
   */
 
@@ -37,7 +59,11 @@ import javax.swing.JComponent;
  * this issue. :-(
  *
  * @author FracPete (fracpete at waikato dot ac dot nz)
+<<<<<<< HEAD
  * @version $Revision: 8034 $
+=======
+ * @version $Revision: 7059 $
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  * @see PostscriptGraphics
  */
 public class PostscriptWriter
@@ -74,7 +100,11 @@ public class PostscriptWriter
    * must be overridden in the derived class.
    */
   public String getDescription() {
+<<<<<<< HEAD
     return "Postscript-File";
+=======
+    return Messages.getInstance().getString("PostscriptWriter_GetDescription_Text");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
   
   /**
@@ -123,17 +153,31 @@ public class PostscriptWriter
    * for testing only
    */
   public static void main(String[] args) throws Exception {
+<<<<<<< HEAD
     System.out.println("building TreeVisualizer...");
     weka.gui.treevisualizer.TreeBuild builder = new weka.gui.treevisualizer.TreeBuild();
     weka.gui.treevisualizer.NodePlace arrange = new weka.gui.treevisualizer.PlaceNode2();
     weka.gui.treevisualizer.Node top = builder.create(new java.io.StringReader("digraph atree { top [label=\"the top\"] a [label=\"the first node\"] b [label=\"the second nodes\"] c [label=\"comes off of first\"] top->a top->b b->c }"));
+=======
+    System.out.println(Messages.getInstance().getString("PostscriptWriter_Main_Text_First"));
+    weka.gui.treevisualizer.TreeBuild builder = new weka.gui.treevisualizer.TreeBuild();
+    weka.gui.treevisualizer.NodePlace arrange = new weka.gui.treevisualizer.PlaceNode2();
+    weka.gui.treevisualizer.Node top = builder.create(new java.io.StringReader(Messages.getInstance().getString("PostscriptWriter_Main_Text_Second")));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     weka.gui.treevisualizer.TreeVisualizer tv = new weka.gui.treevisualizer.TreeVisualizer(null, top, arrange);
     tv.setSize(800 ,600);
     
     String filename = System.getProperty("java.io.tmpdir") + "test.eps";
+<<<<<<< HEAD
     System.out.println("outputting to '" + filename + "'...");
     toOutput(new PostscriptWriter(), tv, new File(filename));
 
     System.out.println("done!");
+=======
+    System.out.println(Messages.getInstance().getString("PostscriptWriter_Main_Text_Third") + filename + Messages.getInstance().getString("PostscriptWriter_Main_Text_Fourth"));
+    toOutput(new PostscriptWriter(), tv, new File(filename));
+
+    System.out.println(Messages.getInstance().getString("PostscriptWriter_Main_Text_Fifth"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 }

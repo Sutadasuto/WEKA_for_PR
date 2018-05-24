@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,20 +12,42 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
  *    NearestNeighbourSearch.java
+<<<<<<< HEAD
  *    Copyright (C) 1999-2012 University of Waikato
+=======
+ *    Copyright (C) 1999-2007 University of Waikato
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 package weka.core.neighboursearch;
 
+<<<<<<< HEAD
 import java.io.Serializable;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.Vector;
 
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 import weka.core.AdditionalMeasureProducer;
 import weka.core.DistanceFunction;
 import weka.core.EuclideanDistance;
@@ -36,6 +59,7 @@ import weka.core.RevisionHandler;
 import weka.core.RevisionUtils;
 import weka.core.Utils;
 
+<<<<<<< HEAD
 /**
  * Abstract class for nearest neighbour search. All algorithms (classes) that do
  * nearest neighbour search should extend this class.
@@ -80,19 +104,77 @@ public abstract class NearestNeighbourSearch implements Serializable,
      * returns the size of the heap.
      * 
      * @return the size
+=======
+import java.io.Serializable;
+import java.util.Enumeration;
+import java.util.Vector;
+
+/**
+ * Abstract class for nearest neighbour search. All algorithms (classes) that
+ * do nearest neighbour search should extend this class.
+ *
+ * @author Ashraf M. Kibriya (amk14[at-the-rate]cs[dot]waikato[dot]ac[dot]nz)
+ * @version $Revision: 1.2 $
+ */
+public abstract class NearestNeighbourSearch
+  implements Serializable, OptionHandler, AdditionalMeasureProducer,
+             RevisionHandler {
+
+  /**
+   * A class for a heap to store the nearest k neighbours to an instance. 
+   * The heap also takes care of cases where multiple neighbours are the same 
+   * distance away.
+   * i.e. the minimum size of the heap is k.
+   *
+   * @author Ashraf M. Kibriya (amk14[at-the-rate]cs[dot]waikato[dot]ac[dot]nz)
+   * @version $Revision: 1.2 $
+   */
+  protected class MyHeap
+    implements RevisionHandler {
+    
+    /** the heap. */
+    MyHeapElement m_heap[] = null;
+    
+    /**
+     * constructor.
+     * 
+     * @param maxSize		the maximum size of the heap
+     */
+    public MyHeap(int maxSize) {
+      if((maxSize%2)==0)
+        maxSize++;
+      
+      m_heap = new MyHeapElement[maxSize+1];
+      m_heap[0] = new MyHeapElement(0, 0);
+    }
+    
+    /**
+     * returns the size of the heap.
+     * 
+     * @return			the size
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
      */
     public int size() {
       return m_heap[0].index;
     }
+<<<<<<< HEAD
 
     /**
      * peeks at the first element.
      * 
      * @return the first element
+=======
+    
+    /**
+     * peeks at the first element.
+     * 
+     * @return			the first element
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
      */
     public MyHeapElement peek() {
       return m_heap[1];
     }
+<<<<<<< HEAD
 
     /**
      * returns the first element and removes it from the heap.
@@ -104,12 +186,25 @@ public abstract class NearestNeighbourSearch implements Serializable,
       if (m_heap[0].index == 0) {
         throw new Exception("No elements present in the heap");
       }
+=======
+    
+    /**
+     * returns the first element and removes it from the heap.
+     * 
+     * @return			the first element
+     * @throws Exception	if no elements in heap
+     */
+    public MyHeapElement get() throws Exception  {
+      if(m_heap[0].index==0)
+        throw new Exception("No elements present in the heap");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       MyHeapElement r = m_heap[1];
       m_heap[1] = m_heap[m_heap[0].index];
       m_heap[0].index--;
       downheap();
       return r;
     }
+<<<<<<< HEAD
 
     /**
      * adds the value to the heap.
@@ -123,10 +218,25 @@ public abstract class NearestNeighbourSearch implements Serializable,
         throw new Exception("the number of elements cannot exceed the "
           + "initially set maximum limit");
       }
+=======
+    
+    /**
+     * adds the value to the heap.
+     * 
+     * @param i			the index
+     * @param d			the distance
+     * @throws Exception	if the heap gets too large
+     */
+    public void put(int i, double d) throws Exception {
+      if((m_heap[0].index+1)>(m_heap.length-1))
+        throw new Exception("the number of elements cannot exceed the "+
+        "initially set maximum limit");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       m_heap[0].index++;
       m_heap[m_heap[0].index] = new MyHeapElement(i, d);
       upheap();
     }
+<<<<<<< HEAD
 
     /**
      * Puts an element by substituting it in place of the top most element.
@@ -134,10 +244,22 @@ public abstract class NearestNeighbourSearch implements Serializable,
      * @param i the index
      * @param d the distance
      * @throws Exception if distance is smaller than that of the head element
+=======
+    
+    /**
+     * Puts an element by substituting it in place of 
+     * the top most element.
+     * 
+     * @param i			the index
+     * @param d			the distance
+     * @throws Exception	if distance is smaller than that of the head
+     * 				element
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
      */
     public void putBySubstitute(int i, double d) throws Exception {
       MyHeapElement head = get();
       put(i, d);
+<<<<<<< HEAD
       // System.out.println("previous: "+head.distance+" current: "+m_heap[1].distance);
       if (head.distance == m_heap[1].distance) { // Utils.eq(head.distance,
                                                  // m_heap[1].distance)) {
@@ -162,16 +284,47 @@ public abstract class NearestNeighbourSearch implements Serializable,
 
     /** the initial size of the heap. */
     int initSize = 10;
+=======
+      //      System.out.println("previous: "+head.distance+" current: "+m_heap[1].distance);
+      if(head.distance == m_heap[1].distance) { //Utils.eq(head.distance, m_heap[1].distance)) {
+        putKthNearest(head.index, head.distance);
+      }
+      else if(head.distance > m_heap[1].distance) { //Utils.gr(head.distance, m_heap[1].distance)) {
+        m_KthNearest = null;
+        m_KthNearestSize = 0;
+        initSize = 10;
+      }
+      else if(head.distance < m_heap[1].distance) {
+        throw new Exception("The substituted element is smaller than the "+
+        "head element. put() should have been called "+
+        "in place of putBySubstitute()");
+      }
+    }
+    
+    /** the kth nearest ones. */
+    MyHeapElement m_KthNearest[] = null;
+    
+    /** The number of kth nearest elements. */
+    int m_KthNearestSize = 0;
+    
+    /** the initial size of the heap. */
+    int initSize=10;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
     /**
      * returns the number of k nearest.
      * 
      * @return the number of k nearest
+<<<<<<< HEAD
      * @see #m_KthNearestSize
+=======
+     * @see			#m_KthNearestSize
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
      */
     public int noOfKthNearest() {
       return m_KthNearestSize;
     }
+<<<<<<< HEAD
 
     /**
      * Stores kth nearest elements (if there are more than one).
@@ -184,6 +337,20 @@ public abstract class NearestNeighbourSearch implements Serializable,
         m_KthNearest = new MyHeapElement[initSize];
       }
       if (m_KthNearestSize >= m_KthNearest.length) {
+=======
+    
+    /**
+     * Stores kth nearest elements (if there are 
+     * more than one).
+     * @param i			the index
+     * @param d			the distance
+     */
+    public void putKthNearest(int i,  double d) {
+      if(m_KthNearest==null) {
+        m_KthNearest = new MyHeapElement[initSize];
+      }
+      if(m_KthNearestSize>=m_KthNearest.length) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
         initSize += initSize;
         MyHeapElement temp[] = new MyHeapElement[initSize];
         System.arraycopy(m_KthNearest, 0, temp, 0, m_KthNearest.length);
@@ -191,6 +358,7 @@ public abstract class NearestNeighbourSearch implements Serializable,
       }
       m_KthNearest[m_KthNearestSize++] = new MyHeapElement(i, d);
     }
+<<<<<<< HEAD
 
     /**
      * returns the kth nearest element or null if none there.
@@ -207,10 +375,29 @@ public abstract class NearestNeighbourSearch implements Serializable,
 
     /**
      * performs upheap operation for the heap to maintian its properties.
+=======
+    
+    /**
+     * returns the kth nearest element or null if none there.
+     * 
+     * @return			the kth nearest element
+     */
+    public MyHeapElement getKthNearest() {
+      if(m_KthNearestSize==0)
+        return null;
+      m_KthNearestSize--;
+      return m_KthNearest[m_KthNearestSize];
+    }
+    
+    /** 
+     * performs upheap operation for the heap 
+     * to maintian its properties. 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
      */
     protected void upheap() {
       int i = m_heap[0].index;
       MyHeapElement temp;
+<<<<<<< HEAD
       while (i > 1 && m_heap[i].distance > m_heap[i / 2].distance) {
         temp = m_heap[i];
         m_heap[i] = m_heap[i / 2];
@@ -221,10 +408,24 @@ public abstract class NearestNeighbourSearch implements Serializable,
 
     /**
      * performs downheap operation for the heap to maintian its properties.
+=======
+      while( i > 1  && m_heap[i].distance>m_heap[i/2].distance) {
+        temp = m_heap[i];
+        m_heap[i] = m_heap[i/2];
+        i = i/2;
+        m_heap[i] = temp; //this is i/2 done here to avoid another division.
+      }
+    }
+    
+    /** 
+     * performs downheap operation for the heap 
+     * to maintian its properties. 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
      */
     protected void downheap() {
       int i = 1;
       MyHeapElement temp;
+<<<<<<< HEAD
       while (((2 * i) <= m_heap[0].index && m_heap[i].distance < m_heap[2 * i].distance)
         || ((2 * i + 1) <= m_heap[0].index && m_heap[i].distance < m_heap[2 * i + 1].distance)) {
         if ((2 * i + 1) <= m_heap[0].index) {
@@ -243,10 +444,36 @@ public abstract class NearestNeighbourSearch implements Serializable,
           temp = m_heap[i];
           m_heap[i] = m_heap[2 * i];
           i = 2 * i;
+=======
+      while( ( (2*i) <= m_heap[0].index &&
+      m_heap[i].distance < m_heap[2*i].distance )
+      ||
+      ( (2*i+1) <= m_heap[0].index &&
+      m_heap[i].distance < m_heap[2*i+1].distance) ) {
+        if((2*i+1)<=m_heap[0].index) {
+          if(m_heap[2*i].distance>m_heap[2*i+1].distance) {
+            temp = m_heap[i];
+            m_heap[i] = m_heap[2*i];
+            i = 2*i;
+            m_heap[i] = temp;
+          }
+          else {
+            temp = m_heap[i];
+            m_heap[i] = m_heap[2*i+1];
+            i = 2*i+1;
+            m_heap[i] = temp;
+          }
+        }
+        else {
+          temp = m_heap[i];
+          m_heap[i] = m_heap[2*i];
+          i = 2*i;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
           m_heap[i] = temp;
         }
       }
     }
+<<<<<<< HEAD
 
     /**
      * returns the total size.
@@ -287,11 +514,54 @@ public abstract class NearestNeighbourSearch implements Serializable,
      * 
      * @param i the index
      * @param d the distance
+=======
+    
+    /**
+     * returns the total size.
+     * 
+     * @return			the total size
+     */
+    public int totalSize() {
+      return size()+noOfKthNearest();
+    }
+    
+    /**
+     * Returns the revision string.
+     * 
+     * @return		the revision
+     */
+    public String getRevision() {
+      return RevisionUtils.extract("$Revision: 1.2 $");
+    }
+  }
+  
+  /**
+   * A class for storing data about a neighboring instance.
+   *
+   * @author Ashraf M. Kibriya (amk14[at-the-rate]cs[dot]waikato[dot]ac[dot]nz)
+   * @version $Revision: 1.2 $
+   */
+  protected class MyHeapElement
+    implements RevisionHandler {
+    
+    /** the index of this element. */
+    public int index;
+    
+    /** the distance of this element. */
+    public double distance;
+    
+    /**
+     * constructor.
+     * 
+     * @param i		the index
+     * @param d		the distance
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
      */
     public MyHeapElement(int i, double d) {
       distance = d;
       index = i;
     }
+<<<<<<< HEAD
 
     /**
      * Returns the revision string.
@@ -312,6 +582,27 @@ public abstract class NearestNeighbourSearch implements Serializable,
    */
   // better to change this into a heap element
   protected class NeighborNode implements RevisionHandler {
+=======
+    
+    /**
+     * Returns the revision string.
+     * 
+     * @return		the revision
+     */
+    public String getRevision() {
+      return RevisionUtils.extract("$Revision: 1.2 $");
+    }
+  }
+  
+  /**
+   * A class for storing data about a neighboring instance.
+   *
+   * @author Ashraf M. Kibriya (amk14[at-the-rate]cs[dot]waikato[dot]ac[dot]nz)
+   * @version $Revision: 1.2 $
+   */ //better to change this into a heap element
+  protected class NeighborNode
+    implements RevisionHandler {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
     /** The neighbor instance. */
     public Instance m_Instance;
@@ -321,6 +612,7 @@ public abstract class NearestNeighbourSearch implements Serializable,
 
     /** A link to the next neighbor instance. */
     public NeighborNode m_Next;
+<<<<<<< HEAD
 
     /**
      * Create a new neighbor node.
@@ -328,6 +620,15 @@ public abstract class NearestNeighbourSearch implements Serializable,
      * @param distance the distance to the neighbor
      * @param instance the neighbor instance
      * @param next the next neighbor node
+=======
+    
+    /**
+     * Create a new neighbor node.
+     *
+     * @param distance 		the distance to the neighbor
+     * @param instance 		the neighbor instance
+     * @param next 		the next neighbor node
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
      */
     public NeighborNode(double distance, Instance instance, NeighborNode next) {
       m_Distance = distance;
@@ -337,14 +638,21 @@ public abstract class NearestNeighbourSearch implements Serializable,
 
     /**
      * Create a new neighbor node that doesn't link to any other nodes.
+<<<<<<< HEAD
      * 
      * @param distance the distance to the neighbor
      * @param instance the neighbor instance
+=======
+     *
+     * @param distance 		the distance to the neighbor
+     * @param instance 		the neighbor instance
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
      */
     public NeighborNode(double distance, Instance instance) {
 
       this(distance, instance, null);
     }
+<<<<<<< HEAD
 
     /**
      * Returns the revision string.
@@ -367,6 +675,30 @@ public abstract class NearestNeighbourSearch implements Serializable,
    */
   // better to change this into a heap
   protected class NeighborList implements RevisionHandler {
+=======
+    
+    /**
+     * Returns the revision string.
+     * 
+     * @return		the revision
+     */
+    public String getRevision() {
+      return RevisionUtils.extract("$Revision: 1.2 $");
+    }
+  } 
+
+  /**
+   * A class for a linked list to store the nearest k neighbours
+   * to an instance. We use a list so that we can take care of
+   * cases where multiple neighbours are the same distance away.
+   * i.e. the minimum length of the list is k.
+   *
+   * @author Ashraf M. Kibriya (amk14[at-the-rate]cs[dot]waikato[dot]ac[dot]nz)
+   * @version $Revision: 1.2 $
+   */ //better to change this into a heap
+  protected class NeighborList
+    implements RevisionHandler {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
     /** The first node in the list. */
     protected NeighborNode m_First;
@@ -376,11 +708,19 @@ public abstract class NearestNeighbourSearch implements Serializable,
 
     /** The number of nodes to attempt to maintain in the list. */
     protected int m_Length = 1;
+<<<<<<< HEAD
 
     /**
      * Creates the neighborlist with a desired length.
      * 
      * @param length the length of list to attempt to maintain
+=======
+        
+    /**
+     * Creates the neighborlist with a desired length.
+     *
+     * @param length 		the length of list to attempt to maintain
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
      */
     public NeighborList(int length) {
       m_Length = length;
@@ -388,8 +728,13 @@ public abstract class NearestNeighbourSearch implements Serializable,
 
     /**
      * Gets whether the list is empty.
+<<<<<<< HEAD
      * 
      * @return true if list is empty
+=======
+     *
+     * @return 			true if list is empty
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
      */
     public boolean isEmpty() {
       return (m_First == null);
@@ -397,8 +742,13 @@ public abstract class NearestNeighbourSearch implements Serializable,
 
     /**
      * Gets the current length of the list.
+<<<<<<< HEAD
      * 
      * @return the current length of the list
+=======
+     *
+     * @return 			the current length of the list
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
      */
     public int currentLength() {
       int i = 0;
@@ -411,6 +761,7 @@ public abstract class NearestNeighbourSearch implements Serializable,
     }
 
     /**
+<<<<<<< HEAD
      * Inserts an instance neighbor into the list, maintaining the list sorted
      * by distance.
      * 
@@ -419,6 +770,16 @@ public abstract class NearestNeighbourSearch implements Serializable,
      */
     public void insertSorted(double distance, Instance instance) {
 
+=======
+     * Inserts an instance neighbor into the list, maintaining the list
+     * sorted by distance.
+     *
+     * @param distance 		the distance to the instance
+     * @param instance 		the neighboring instance
+     */
+    public void insertSorted(double distance, Instance instance) {
+      
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       if (isEmpty()) {
         m_First = m_Last = new NeighborNode(distance, instance);
       } else {
@@ -426,15 +787,24 @@ public abstract class NearestNeighbourSearch implements Serializable,
         if (distance < m_First.m_Distance) {// Insert at head
           m_First = new NeighborNode(distance, instance, m_First);
         } else { // Insert further down the list
+<<<<<<< HEAD
           for (; (current.m_Next != null)
             && (current.m_Next.m_Distance < distance); current = current.m_Next) {
             ;
           }
           current.m_Next = new NeighborNode(distance, instance, current.m_Next);
+=======
+          for( ;(current.m_Next != null) &&
+          (current.m_Next.m_Distance < distance);
+          current = current.m_Next);
+          current.m_Next = new NeighborNode(distance, instance,
+          current.m_Next);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
           if (current.equals(m_Last)) {
             m_Last = current.m_Next;
           }
         }
+<<<<<<< HEAD
 
         // Trip down the list until we've got k list elements (or more if the
         // distance to the last elements is the same).
@@ -443,6 +813,17 @@ public abstract class NearestNeighbourSearch implements Serializable,
           valcount++;
           if ((valcount >= m_Length)
             && (current.m_Distance != current.m_Next.m_Distance)) {
+=======
+        
+        // Trip down the list until we've got k list elements (or more if the
+        // distance to the last elements is the same).
+        int valcount = 0;
+        for(current = m_First; current.m_Next != null;
+        current = current.m_Next) {
+          valcount++;
+          if ((valcount >= m_Length) && (current.m_Distance !=
+          current.m_Next.m_Distance)) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
             m_Last = current;
             current.m_Next = null;
             break;
@@ -452,6 +833,7 @@ public abstract class NearestNeighbourSearch implements Serializable,
     }
 
     /**
+<<<<<<< HEAD
      * Prunes the list to contain the k nearest neighbors. If there are multiple
      * neighbors at the k'th distance, all will be kept.
      * 
@@ -459,6 +841,15 @@ public abstract class NearestNeighbourSearch implements Serializable,
      */
     public void pruneToK(int k) {
 
+=======
+     * Prunes the list to contain the k nearest neighbors. If there are
+     * multiple neighbors at the k'th distance, all will be kept.
+     *
+     * @param k 		the number of neighbors to keep in the list.
+     */
+    public void pruneToK(int k) {
+      
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       if (isEmpty()) {
         return;
       }
@@ -468,7 +859,11 @@ public abstract class NearestNeighbourSearch implements Serializable,
       int currentK = 0;
       double currentDist = m_First.m_Distance;
       NeighborNode current = m_First;
+<<<<<<< HEAD
       for (; current.m_Next != null; current = current.m_Next) {
+=======
+      for(; current.m_Next != null; current = current.m_Next) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
         currentK++;
         currentDist = current.m_Distance;
         if ((currentK >= k) && (currentDist != current.m_Next.m_Distance)) {
@@ -478,42 +873,71 @@ public abstract class NearestNeighbourSearch implements Serializable,
         }
       }
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     /**
      * Prints out the contents of the neighborlist.
      */
     public void printList() {
+<<<<<<< HEAD
 
+=======
+      
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       if (isEmpty()) {
         System.out.println("Empty list");
       } else {
         NeighborNode current = m_First;
         while (current != null) {
           System.out.println("Node: instance " + current.m_Instance
+<<<<<<< HEAD
             + ", distance " + current.m_Distance);
+=======
+          + ", distance " + current.m_Distance);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
           current = current.m_Next;
         }
         System.out.println();
       }
     }
+<<<<<<< HEAD
 
     /**
      * returns the first element in the list.
      * 
      * @return the first element
+=======
+    
+    /**
+     * returns the first element in the list.
+     * 
+     * @return			the first element
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
      */
     public NeighborNode getFirst() {
       return m_First;
     }
+<<<<<<< HEAD
 
     /**
      * returns the last element in the list.
      * 
      * @return the last element
+=======
+    
+    /**
+     * returns the last element in the list.
+     * 
+     * @return			the last element
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
      */
     public NeighborNode getLast() {
       return m_Last;
     }
+<<<<<<< HEAD
 
     /**
      * Returns the revision string.
@@ -529,6 +953,22 @@ public abstract class NearestNeighbourSearch implements Serializable,
   /** The neighbourhood of instances to find neighbours in. */
   protected Instances m_Instances;
 
+=======
+    
+    /**
+     * Returns the revision string.
+     * 
+     * @return		the revision
+     */
+    public String getRevision() {
+      return RevisionUtils.extract("$Revision: 1.2 $");
+    }
+  }
+  
+  /** The neighbourhood of instances to find neighbours in. */
+  protected Instances m_Instances;
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   /** The number of neighbours to find. */
   protected int m_kNN;
 
@@ -537,14 +977,22 @@ public abstract class NearestNeighbourSearch implements Serializable,
 
   /** Performance statistics. */
   protected PerformanceStats m_Stats = null;
+<<<<<<< HEAD
 
   /** Should we measure Performance. */
   protected boolean m_MeasurePerformance = false;
 
+=======
+  
+  /** Should we measure Performance. */
+  protected boolean m_MeasurePerformance = false;
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   /**
    * Constructor.
    */
   public NearestNeighbourSearch() {
+<<<<<<< HEAD
     if (m_MeasurePerformance) {
       m_Stats = new PerformanceStats();
     }
@@ -554,11 +1002,22 @@ public abstract class NearestNeighbourSearch implements Serializable,
    * Constructor.
    * 
    * @param insts The set of instances that constitute the neighbourhood.
+=======
+    if(m_MeasurePerformance)
+      m_Stats = new PerformanceStats();
+  }
+  
+  /**
+   * Constructor. 
+   * 
+   * @param insts 	The set of instances that constitute the neighbourhood.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    */
   public NearestNeighbourSearch(Instances insts) {
     this();
     m_Instances = insts;
   }
+<<<<<<< HEAD
 
   /**
    * Returns a string describing this nearest neighbour search algorithm.
@@ -568,11 +1027,24 @@ public abstract class NearestNeighbourSearch implements Serializable,
    */
   public String globalInfo() {
     return "Abstract class for nearest neighbour search. All algorithms (classes) that "
+=======
+  
+  /**
+   * Returns a string describing this nearest neighbour search algorithm.
+   * 
+   * @return 		a description of the algorithm for displaying in the 
+   * 			explorer/experimenter gui
+   */
+  public String globalInfo() {
+    return 
+        "Abstract class for nearest neighbour search. All algorithms (classes) that "
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       + "do nearest neighbour search should extend this class.";
   }
 
   /**
    * Returns an enumeration describing the available options.
+<<<<<<< HEAD
    * 
    * @return an enumeration of all the available options.
    */
@@ -605,10 +1077,46 @@ public abstract class NearestNeighbourSearch implements Serializable,
       String nnSearchClassSpec[] = Utils.splitOptions(nnSearchClass);
       if (nnSearchClassSpec.length == 0) {
         throw new Exception("Invalid DistanceFunction specification string.");
+=======
+   *
+   * @return 		an enumeration of all the available options.
+   */
+  public Enumeration listOptions() {
+    Vector newVector = new Vector();
+
+    newVector.add(new Option(
+	"\tDistance function to use.\n"
+	+ "\t(default: weka.core.EuclideanDistance)",
+	"A", 1,"-A <classname and options>"));
+    
+    newVector.add(new Option(
+	"\tCalculate performance statistics.",
+	"P", 0,"-P"));
+    
+    return newVector.elements();
+  }
+  
+  /**
+   * Parses a given list of options. Valid options are:
+   *
+   <!-- options-start -->
+   <!-- options-end -->
+   *
+   * @param options 	the list of options as an array of strings
+   * @throws Exception 	if an option is not supported
+   */
+  public void setOptions(String[] options) throws Exception {
+    String nnSearchClass = Utils.getOption('A', options);
+    if(nnSearchClass.length() != 0) {
+      String nnSearchClassSpec[] = Utils.splitOptions(nnSearchClass);
+      if(nnSearchClassSpec.length == 0) { 
+        throw new Exception("Invalid DistanceFunction specification string."); 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       }
       String className = nnSearchClassSpec[0];
       nnSearchClassSpec[0] = "";
 
+<<<<<<< HEAD
       setDistanceFunction((DistanceFunction) Utils.forName(
         DistanceFunction.class, className, nnSearchClassSpec));
     } else {
@@ -616,10 +1124,22 @@ public abstract class NearestNeighbourSearch implements Serializable,
     }
 
     setMeasurePerformance(Utils.getFlag('P', options));
+=======
+      setDistanceFunction( (DistanceFunction)
+                            Utils.forName( DistanceFunction.class, 
+                                           className, nnSearchClassSpec) );
+    }
+    else {
+      setDistanceFunction(new EuclideanDistance());
+    }
+    
+    setMeasurePerformance(Utils.getFlag('P',options));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**
    * Gets the current settings.
+<<<<<<< HEAD
    * 
    * @return an array of strings suitable for passing to setOptions()
    */
@@ -655,21 +1175,66 @@ public abstract class NearestNeighbourSearch implements Serializable,
    * returns the distance function currently in use.
    * 
    * @return the distance function
+=======
+   *
+   * @return 		an array of strings suitable for passing to setOptions()
+   */
+  public String [] getOptions() {
+    Vector<String>	result;
+    
+    result = new Vector<String>();
+
+    result.add("-A");
+    result.add((m_DistanceFunction.getClass().getName() + " " +
+                   Utils.joinOptions(m_DistanceFunction.getOptions())).trim());
+    
+    if(getMeasurePerformance())
+      result.add("-P");
+    
+    return result.toArray(new String[result.size()]);
+  }
+
+  /** 
+   * Returns the tip text for this property.
+   * 
+   * @return 		tip text for this property suitable for
+   *         		displaying in the explorer/experimenter gui
+   */
+  public String distanceFunctionTipText() {
+    return "The distance function to use for finding neighbours " +
+           "(default: weka.core.EuclideanDistance). ";
+  }
+  
+  /**
+   * returns the distance function currently in use.
+   * 
+   * @return		the distance function
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    */
   public DistanceFunction getDistanceFunction() {
     return m_DistanceFunction;
   }
+<<<<<<< HEAD
 
   /**
    * sets the distance function to use for nearest neighbour search.
    * 
    * @param df the new distance function to use
    * @throws Exception if instances cannot be processed
+=======
+  
+  /**
+   * sets the distance function to use for nearest neighbour search.
+   * 
+   * @param df		the new distance function to use
+   * @throws Exception	if instances cannot be processed
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    */
   public void setDistanceFunction(DistanceFunction df) throws Exception {
     m_DistanceFunction = df;
   }
 
+<<<<<<< HEAD
   /**
    * Returns the tip text for this property.
    * 
@@ -685,10 +1250,28 @@ public abstract class NearestNeighbourSearch implements Serializable,
    * Gets whether performance statistics are being calculated or not.
    * 
    * @return true if the measure performance is calculated
+=======
+  /** 
+   * Returns the tip text for this property.
+   * 
+   * @return 		tip text for this property suitable for
+   *         		displaying in the explorer/experimenter gui
+   */
+  public String measurePerformanceTipText() {
+    return "Whether to calculate performance statistics " +
+           "for the NN search or not";
+  }
+  
+  /**
+   * Gets whether performance statistics are being calculated or not.
+   * 
+   * @return		true if the measure performance is calculated
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    */
   public boolean getMeasurePerformance() {
     return m_MeasurePerformance;
   }
+<<<<<<< HEAD
 
   /**
    * Sets whether to calculate the performance statistics or not.
@@ -762,25 +1345,114 @@ public abstract class NearestNeighbourSearch implements Serializable,
    * 
    * @param insts the instances to use
    * @throws Exception if setting fails
+=======
+  
+  /**
+   * Sets whether to calculate the performance statistics or not.
+   * 
+   * @param measurePerformance	if true then the performance is calculated
+   */
+  public void setMeasurePerformance(boolean measurePerformance) {
+    m_MeasurePerformance = measurePerformance;
+    if(m_MeasurePerformance) {
+      if(m_Stats==null)
+        m_Stats = new PerformanceStats();
+    }
+    else
+      m_Stats = null;
+  }
+    
+  /** 
+   * Returns the nearest instance in the current neighbourhood to the supplied
+   * instance.
+   * 
+   * @param target 	The instance to find the nearest neighbour for.
+   * @return		the nearest neighbor
+   * @throws Exception 	if the nearest neighbour could not be found.
+   */
+  public abstract Instance nearestNeighbour(Instance target) throws Exception;
+  
+  /**
+   * Returns k nearest instances in the current neighbourhood to the supplied
+   * instance.
+   *  
+   * @param target 	The instance to find the k nearest neighbours for.
+   * @param k		The number of nearest neighbours to find.
+   * @return		the k nearest neighbors
+   * @throws Exception 	if the neighbours could not be found.
+   */
+  public abstract Instances kNearestNeighbours(Instance target, int k) throws Exception;
+ 
+  /**
+   * Returns the distances of the k nearest neighbours. The kNearestNeighbours
+   * or nearestNeighbour needs to be called first for this to work.
+   *
+   * @return		the distances
+   * @throws Exception 	if called before calling kNearestNeighbours
+   *            	or nearestNeighbours.
+   */
+  public abstract double[] getDistances() throws Exception;
+  
+  /**
+   * Updates the NearNeighbourSearch algorithm for the new added instance.
+   * P.S.: The method assumes the instance has already been added to the 
+   * m_Instances object by the caller.
+   * 
+   * @param ins		the instance to add
+   * @throws Exception	if updating fails
+   */
+  public abstract void update(Instance ins) throws Exception;
+
+  /** 
+   * Adds information from the given instance without modifying the 
+   * datastructure a lot.
+   * 
+   * @param ins		the instance to add the information from
+   */
+  public void addInstanceInfo(Instance ins) {
+  }
+  
+  /**
+   * Sets the instances.
+   * 
+   * @param insts	the instances to use
+   * @throws Exception	if setting fails
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    */
   public void setInstances(Instances insts) throws Exception {
     m_Instances = insts;
   }
+<<<<<<< HEAD
 
   /**
    * returns the instances currently set.
    * 
    * @return the current instances
+=======
+  
+  /** 
+   * returns the instances currently set.
+   * 
+   * @return		the current instances
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    */
   public Instances getInstances() {
     return m_Instances;
   }
 
+<<<<<<< HEAD
   /**
    * Gets the class object that contains the performance statistics of the
    * search method.
    * 
    * @return the performance statistics
+=======
+  /** 
+   * Gets the class object that contains the performance statistics of
+   * the search method. 
+   * 
+   * @return		the performance statistics
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    */
   public PerformanceStats getPerformanceStats() {
     return m_Stats;
@@ -789,6 +1461,7 @@ public abstract class NearestNeighbourSearch implements Serializable,
   /**
    * Returns an enumeration of the additional measure names.
    * 
+<<<<<<< HEAD
    * @return an enumeration of the measure names
    */
   @Override
@@ -875,6 +1548,92 @@ public abstract class NearestNeighbourSearch implements Serializable,
    */
   protected static int partition(double[] arrayToSort, double[] linkedArray,
     int l, int r) {
+=======
+   * @return 		an enumeration of the measure names
+   */
+  public Enumeration enumerateMeasures() {
+    Vector newVector; 
+    if(m_Stats == null) {
+      newVector = new Vector(0);
+    }
+    else {
+      newVector = new Vector();
+      Enumeration en = m_Stats.enumerateMeasures();
+      while(en.hasMoreElements())
+        newVector.add(en.nextElement());
+    }
+    return newVector.elements();
+  }
+  
+  /**
+   * Returns the value of the named measure.
+   * 
+   * @param additionalMeasureName 	the name of the measure to query for 
+   * 					its value
+   * @return 				the value of the named measure
+   * @throws IllegalArgumentException 	if the named measure is not supported
+   */
+  public double getMeasure(String additionalMeasureName) {
+    if(m_Stats==null)
+      throw new IllegalArgumentException(additionalMeasureName 
+        + " not supported (NearestNeighbourSearch)");
+    else
+      return m_Stats.getMeasure(additionalMeasureName);
+  }
+
+  /** 
+   * sorts the two given arrays.
+   * 
+   * @param arrayToSort 	The array sorting should be based on.
+   * @param linkedArray		The array that should have the same ordering as 
+   * 				arrayToSort.
+   */
+  public static void combSort11(double arrayToSort[], int linkedArray[]) {
+    int switches, j, top, gap;
+    double hold1; int hold2;
+    gap = arrayToSort.length;
+    do {
+      gap=(int)(gap/1.3);
+      switch(gap) {
+        case 0:
+          gap = 1;
+          break;
+        case 9:
+        case 10:
+          gap=11;
+          break;
+        default:
+          break;
+      }
+      switches=0;
+      top = arrayToSort.length-gap;
+      for(int i=0; i<top; i++) {
+        j=i+gap;
+        if(arrayToSort[i] > arrayToSort[j]) {
+          hold1=arrayToSort[i];
+          hold2=linkedArray[i];
+          arrayToSort[i]=arrayToSort[j];
+          linkedArray[i]=linkedArray[j];
+          arrayToSort[j]=hold1;
+          linkedArray[j]=hold2;
+          switches++;
+        }//endif
+      }//endfor
+    } while(switches>0 || gap>1);
+  }
+   
+  /**
+   * Partitions the instances around a pivot. Used by quicksort and
+   * kthSmallestValue.
+   *
+   * @param arrayToSort 	the array of doubles to be sorted
+   * @param linkedArray		the linked array
+   * @param l 			the first index of the subset 
+   * @param r 			the last index of the subset 
+   * @return 			the index of the middle element
+   */
+  protected static int partition(double[] arrayToSort, double[] linkedArray, int l, int r) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     double pivot = arrayToSort[(l + r) / 2];
     double help;
 
@@ -898,6 +1657,7 @@ public abstract class NearestNeighbourSearch implements Serializable,
     }
     if ((l == r) && (arrayToSort[r] > pivot)) {
       r--;
+<<<<<<< HEAD
     }
 
     return r;
@@ -913,6 +1673,22 @@ public abstract class NearestNeighbourSearch implements Serializable,
    */
   public static void quickSort(double[] arrayToSort, double[] linkedArray,
     int left, int right) {
+=======
+    } 
+
+    return r;
+  }
+  
+  /**
+   * performs quicksort.
+   * 
+   * @param arrayToSort		the array to sort
+   * @param linkedArray		the linked array
+   * @param left 		the first index of the subset 
+   * @param right		the last index of the subset 
+   */
+  public static void quickSort(double[] arrayToSort, double[] linkedArray, int left, int right) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     if (left < right) {
       int middle = partition(arrayToSort, linkedArray, left, right);
       quickSort(arrayToSort, linkedArray, left, middle);

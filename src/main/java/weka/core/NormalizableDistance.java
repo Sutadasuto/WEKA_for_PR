@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,11 +12,30 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
  *    NormalizableDistance.java
+<<<<<<< HEAD
  *    Copyright (C) 2007-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 2007 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  *
  */
 
@@ -36,14 +56,21 @@ import weka.core.neighboursearch.PerformanceStats;
  *         weka.core.EuclideanDistance
  * @author Ashraf M. Kibriya (amk14@cs.waikato.ac.nz) -- original code from
  *         weka.core.EuclideanDistance
+<<<<<<< HEAD
  * @version $Revision: 10535 $
+=======
+ * @version $Revision: 1.2 $
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 public abstract class NormalizableDistance implements DistanceFunction,
   OptionHandler, Serializable, RevisionHandler {
 
+<<<<<<< HEAD
   /** Serial version id to avoid warning */
   private static final long serialVersionUID = -2806520224161351708L;
 
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   /** Index in ranges for MIN. */
   public static final int R_MIN = 0;
 
@@ -102,8 +129,13 @@ public abstract class NormalizableDistance implements DistanceFunction,
    * @return an enumeration of all the available options.
    */
   @Override
+<<<<<<< HEAD
   public Enumeration<Option> listOptions() {
     Vector<Option> result = new Vector<Option>();
+=======
+  public Enumeration listOptions() {
+    Vector result = new Vector();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
     result.add(new Option("\tTurns off the normalization of attribute \n"
       + "\tvalues in distance calculation.", "D", 0, "-D"));
@@ -515,7 +547,11 @@ public abstract class NormalizableDistance implements DistanceFunction,
   protected double difference(int index, double val1, double val2) {
     switch (m_Data.attribute(index).type()) {
     case Attribute.NOMINAL:
+<<<<<<< HEAD
       if (Utils.isMissingValue(val1) || Utils.isMissingValue(val2)
+=======
+      if (Instance.isMissingValue(val1) || Instance.isMissingValue(val2)
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
         || ((int) val1 != (int) val2)) {
         return 1;
       } else {
@@ -523,8 +559,13 @@ public abstract class NormalizableDistance implements DistanceFunction,
       }
 
     case Attribute.NUMERIC:
+<<<<<<< HEAD
       if (Utils.isMissingValue(val1) || Utils.isMissingValue(val2)) {
         if (Utils.isMissingValue(val1) && Utils.isMissingValue(val2)) {
+=======
+      if (Instance.isMissingValue(val1) || Instance.isMissingValue(val2)) {
+        if (Instance.isMissingValue(val1) && Instance.isMissingValue(val2)) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
           if (!m_DontNormalize) {
             return 1;
           } else {
@@ -532,7 +573,11 @@ public abstract class NormalizableDistance implements DistanceFunction,
           }
         } else {
           double diff;
+<<<<<<< HEAD
           if (Utils.isMissingValue(val2)) {
+=======
+          if (Instance.isMissingValue(val2)) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
             diff = (!m_DontNormalize) ? norm(val1, index) : val1;
           } else {
             diff = (!m_DontNormalize) ? norm(val2, index) : val2;
@@ -787,6 +832,17 @@ public abstract class NormalizableDistance implements DistanceFunction,
   }
 
   /**
+<<<<<<< HEAD
+=======
+   * Free any references to training instances
+   */
+  @Override
+  public void clean() {
+    m_Data = new Instances(m_Data, 0);
+  }
+
+  /**
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * Check if ranges are set.
    * 
    * @return true if ranges are set
@@ -811,11 +867,14 @@ public abstract class NormalizableDistance implements DistanceFunction,
     return m_Ranges;
   }
 
+<<<<<<< HEAD
   @Override
   public void clean() {
     m_Data = new Instances(m_Data, 0);
   }
 
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   /**
    * Returns an empty string.
    * 

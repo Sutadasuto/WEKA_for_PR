@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,6 +12,21 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
@@ -21,6 +37,7 @@
 
 package weka.attributeSelection;
 
+<<<<<<< HEAD
 import java.io.File;
 import java.util.BitSet;
 import java.util.Collections;
@@ -37,11 +54,18 @@ import weka.classifiers.evaluation.InformationRetrievalEvaluationMetric;
 import weka.classifiers.rules.ZeroR;
 import weka.core.Capabilities;
 import weka.core.Capabilities.Capability;
+=======
+import weka.classifiers.Classifier;
+import weka.classifiers.Evaluation;
+import weka.classifiers.rules.ZeroR;
+import weka.core.Capabilities;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.Option;
 import weka.core.OptionHandler;
 import weka.core.RevisionUtils;
+<<<<<<< HEAD
 import weka.core.SelectedTag;
 import weka.core.Tag;
 import weka.core.Utils;
@@ -58,6 +82,29 @@ import weka.filters.unsupervised.attribute.Remove;
  * 
  <!-- options-start -->
  * Valid options are: <p>
+=======
+import weka.core.Utils;
+import weka.core.Capabilities.Capability;
+import weka.filters.Filter;
+import weka.filters.unsupervised.attribute.Remove;
+
+import java.io.File;
+import java.util.BitSet;
+import java.util.Enumeration;
+import java.util.Vector;
+
+
+/**
+ <!-- globalinfo-start -->
+ * Classifier subset evaluator:<br/>
+ * <br/>
+ * Evaluates attribute subsets on training data or a seperate hold out testing set. Uses a classifier to estimate the 'merit' of a set of attributes.
+ * <p/>
+ <!-- globalinfo-end -->
+ *
+ <!-- options-start -->
+ * Valid options are: <p/>
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  * 
  * <pre> -B &lt;classifier&gt;
  *  class name of the classifier to use for accuracy estimation.
@@ -73,6 +120,7 @@ import weka.filters.unsupervised.attribute.Remove;
  *  Name of the hold out/test set to 
  *  estimate accuracy on.</pre>
  * 
+<<<<<<< HEAD
  * <pre> -percentage-split
  *  Perform a percentage split on the training data.
  *  Use in conjunction with -T.</pre>
@@ -92,10 +140,13 @@ import weka.filters.unsupervised.attribute.Remove;
  *  IR statistics (f-meas, auc or auprc). Omitting this option will use
  *  the class-weighted average.</pre>
  * 
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  * <pre> 
  * Options specific to scheme weka.classifiers.rules.ZeroR:
  * </pre>
  * 
+<<<<<<< HEAD
  * <pre> -output-debug-info
  *  If set, classifier is run in debug mode and
  *  may output additional info to the console</pre>
@@ -118,6 +169,21 @@ import weka.filters.unsupervised.attribute.Remove;
 public class ClassifierSubsetEval extends HoldOutSubsetEvaluator implements
   OptionHandler, ErrorBasedMeritEvaluator {
 
+=======
+ * <pre> -D
+ *  If set, classifier is run in debug mode and
+ *  may output additional info to the console</pre>
+ * 
+ <!-- options-end -->
+ *
+ * @author Mark Hall (mhall@cs.waikato.ac.nz)
+ * @version $Revision: 5511 $
+ */
+public class ClassifierSubsetEval 
+  extends HoldOutSubsetEvaluator
+  implements OptionHandler, ErrorBasedMeritEvaluator {
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   /** for serialization */
   static final long serialVersionUID = 7532217899385278710L;
 
@@ -129,6 +195,7 @@ public class ClassifierSubsetEval extends HoldOutSubsetEvaluator implements
 
   /** number of attributes in the training data */
   private int m_numAttribs;
+<<<<<<< HEAD
 
   /** number of training instances */
   // private int m_numInstances; NOT USED
@@ -241,11 +308,42 @@ public class ClassifierSubsetEval extends HoldOutSubsetEvaluator implements
    */
   public String globalInfo() {
     return "Classifier subset evaluator:\n\nEvaluates attribute subsets on training data or a seperate "
+=======
+  
+  /** number of training instances */
+  private int m_numInstances;
+
+  /** holds the classifier to use for error estimates */
+  private Classifier m_Classifier = new ZeroR();
+
+  /** holds the evaluation object to use for evaluating the classifier */
+  private Evaluation m_Evaluation;
+
+  /** the file that containts hold out/test instances */
+  private File m_holdOutFile = new File("Click to set hold out or "
+					+"test instances");
+
+  /** the instances to test on */
+  private Instances m_holdOutInstances = null;
+
+  /** evaluate on training data rather than seperate hold out/test set */
+  private boolean m_useTraining = true;
+
+  /**
+   * Returns a string describing this attribute evaluator
+   * @return a description of the evaluator suitable for
+   * displaying in the explorer/experimenter gui
+   */
+  public String globalInfo() {
+    return 
+        "Classifier subset evaluator:\n\nEvaluates attribute subsets on training data or a seperate "
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       + "hold out testing set. Uses a classifier to estimate the 'merit' of a set of attributes.";
   }
 
   /**
    * Returns an enumeration describing the available options.
+<<<<<<< HEAD
    * 
    * @return an enumeration of all the available options.
    **/
@@ -307,6 +405,53 @@ public class ClassifierSubsetEval extends HoldOutSubsetEvaluator implements
    * 
    <!-- options-start -->
    * Valid options are: <p>
+=======
+   *
+   * @return an enumeration of all the available options.
+   **/
+  public Enumeration listOptions () {
+    Vector newVector = new Vector(3);
+    
+    newVector.addElement(new Option(
+	"\tclass name of the classifier to use for accuracy estimation.\n"
+	+ "\tPlace any classifier options LAST on the command line\n"
+	+ "\tfollowing a \"--\". eg.:\n"
+	+ "\t\t-B weka.classifiers.bayes.NaiveBayes ... -- -K\n"
+	+ "\t(default: weka.classifiers.rules.ZeroR)", 
+	"B", 1, "-B <classifier>"));
+    
+    newVector.addElement(new Option(
+	"\tUse the training data to estimate"
+	+" accuracy.",
+	"T",0,"-T"));
+    
+    newVector.addElement(new Option(
+	"\tName of the hold out/test set to "
+	+"\n\testimate accuracy on.",
+	"H", 1,"-H <filename>"));
+
+    if ((m_Classifier != null) && 
+	(m_Classifier instanceof OptionHandler)) {
+      newVector.addElement(new Option("", "", 0, "\nOptions specific to " 
+				      + "scheme " 
+				      + m_Classifier.getClass().getName() 
+				      + ":"));
+      Enumeration enu = ((OptionHandler)m_Classifier).listOptions();
+
+      while (enu.hasMoreElements()) {
+        newVector.addElement(enu.nextElement());
+      }
+    }
+
+    return  newVector.elements();
+  }
+
+  /**
+   * Parses a given list of options. <p/>
+   *
+   <!-- options-start -->
+   * Valid options are: <p/>
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * 
    * <pre> -B &lt;classifier&gt;
    *  class name of the classifier to use for accuracy estimation.
@@ -322,6 +467,7 @@ public class ClassifierSubsetEval extends HoldOutSubsetEvaluator implements
    *  Name of the hold out/test set to 
    *  estimate accuracy on.</pre>
    * 
+<<<<<<< HEAD
    * <pre> -percentage-split
    *  Perform a percentage split on the training data.
    *  Use in conjunction with -T.</pre>
@@ -341,10 +487,13 @@ public class ClassifierSubsetEval extends HoldOutSubsetEvaluator implements
    *  IR statistics (f-meas, auc or auprc). Omitting this option will use
    *  the class-weighted average.</pre>
    * 
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * <pre> 
    * Options specific to scheme weka.classifiers.rules.ZeroR:
    * </pre>
    * 
+<<<<<<< HEAD
    * <pre> -output-debug-info
    *  If set, classifier is run in debug mode and
    *  may output additional info to the console</pre>
@@ -366,10 +515,24 @@ public class ClassifierSubsetEval extends HoldOutSubsetEvaluator implements
    */
   @Override
   public void setOptions(String[] options) throws Exception {
+=======
+   * <pre> -D
+   *  If set, classifier is run in debug mode and
+   *  may output additional info to the console</pre>
+   * 
+   <!-- options-end -->
+   *
+   * @param options the list of options as an array of strings
+   * @throws Exception if an option is not supported
+   */
+  public void setOptions (String[] options)
+    throws Exception {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     String optionString;
     resetOptions();
 
     optionString = Utils.getOption('B', options);
+<<<<<<< HEAD
     if (optionString.length() == 0) {
       optionString = ZeroR.class.getName();
     }
@@ -377,10 +540,19 @@ public class ClassifierSubsetEval extends HoldOutSubsetEvaluator implements
       Utils.partitionOptions(options)));
 
     optionString = Utils.getOption('H', options);
+=======
+    if (optionString.length() == 0)
+      optionString = ZeroR.class.getName();
+    setClassifier(Classifier.forName(optionString,
+				     Utils.partitionOptions(options)));
+
+    optionString = Utils.getOption('H',options);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     if (optionString.length() != 0) {
       setHoldOutFile(new File(optionString));
     }
 
+<<<<<<< HEAD
     setUsePercentageSplit(Utils.getFlag("percentage-split", options));
 
     optionString = Utils.getOption('P', options);
@@ -574,6 +746,15 @@ public class ClassifierSubsetEval extends HoldOutSubsetEvaluator implements
    * 
    * @return tip text for this property suitable for displaying in the
    *         explorer/experimenter gui
+=======
+    setUseTraining(Utils.getFlag('T',options));
+  }
+
+    /**
+   * Returns the tip text for this property
+   * @return tip text for this property suitable for
+   * displaying in the explorer/experimenter gui
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    */
   public String classifierTipText() {
     return "Classifier to use for estimating the accuracy of subsets";
@@ -581,6 +762,7 @@ public class ClassifierSubsetEval extends HoldOutSubsetEvaluator implements
 
   /**
    * Set the classifier to use for accuracy estimation
+<<<<<<< HEAD
    * 
    * @param newClassifier the Classifier to use.
    */
@@ -596,13 +778,35 @@ public class ClassifierSubsetEval extends HoldOutSubsetEvaluator implements
    */
   public Classifier getClassifier() {
     return m_ClassifierTemplate;
+=======
+   *
+   * @param newClassifier the Classifier to use.
+   */
+  public void setClassifier (Classifier newClassifier) {
+    m_Classifier = newClassifier;
+  }
+
+
+  /**
+   * Get the classifier used as the base learner.
+   *
+   * @return the classifier used as the classifier
+   */
+  public Classifier getClassifier () {
+    return  m_Classifier;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**
    * Returns the tip text for this property
+<<<<<<< HEAD
    * 
    * @return tip text for this property suitable for displaying in the
    *         explorer/experimenter gui
+=======
+   * @return tip text for this property suitable for
+   * displaying in the explorer/experimenter gui
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    */
   public String holdOutFileTipText() {
     return "File containing hold out/test instances.";
@@ -610,16 +814,25 @@ public class ClassifierSubsetEval extends HoldOutSubsetEvaluator implements
 
   /**
    * Gets the file that holds hold out/test instances.
+<<<<<<< HEAD
    * 
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @return File that contains hold out instances
    */
   public File getHoldOutFile() {
     return m_holdOutFile;
   }
 
+<<<<<<< HEAD
   /**
    * Set the file that contains hold out/test instances
    * 
+=======
+
+  /**
+   * Set the file that contains hold out/test instances
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @param h the hold out file
    */
   public void setHoldOutFile(File h) {
@@ -628,9 +841,14 @@ public class ClassifierSubsetEval extends HoldOutSubsetEvaluator implements
 
   /**
    * Returns the tip text for this property
+<<<<<<< HEAD
    * 
    * @return tip text for this property suitable for displaying in the
    *         explorer/experimenter gui
+=======
+   * @return tip text for this property suitable for
+   * displaying in the explorer/experimenter gui
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    */
   public String useTrainingTipText() {
     return "Use training data instead of hold out/test instances.";
@@ -638,7 +856,10 @@ public class ClassifierSubsetEval extends HoldOutSubsetEvaluator implements
 
   /**
    * Get if training data is to be used instead of hold out/test data
+<<<<<<< HEAD
    * 
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @return true if training data is to be used instead of hold out data
    */
   public boolean getUseTraining() {
@@ -647,7 +868,10 @@ public class ClassifierSubsetEval extends HoldOutSubsetEvaluator implements
 
   /**
    * Set if training data is to be used instead of hold out/test data
+<<<<<<< HEAD
    * 
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @param t true if training data is to be used instead of hold out data
    */
   public void setUseTraining(boolean t) {
@@ -656,6 +880,7 @@ public class ClassifierSubsetEval extends HoldOutSubsetEvaluator implements
 
   /**
    * Gets the current settings of ClassifierSubsetEval
+<<<<<<< HEAD
    * 
    * @return an array of strings suitable for passing to setOptions()
    */
@@ -702,10 +927,49 @@ public class ClassifierSubsetEval extends HoldOutSubsetEvaluator implements
     }
 
     return options.toArray(new String[0]);
+=======
+   *
+   * @return an array of strings suitable for passing to setOptions()
+   */
+  public String[] getOptions () {
+    String[] classifierOptions = new String[0];
+
+    if ((m_Classifier != null) && 
+	(m_Classifier instanceof OptionHandler)) {
+      classifierOptions = ((OptionHandler)m_Classifier).getOptions();
+    }
+
+    String[] options = new String[6 + classifierOptions.length];
+    int current = 0;
+
+    if (getClassifier() != null) {
+      options[current++] = "-B";
+      options[current++] = getClassifier().getClass().getName();
+    }
+
+    if (getUseTraining()) {
+      options[current++] = "-T";
+    }
+    options[current++] = "-H"; options[current++] = getHoldOutFile().getPath();
+
+    if (classifierOptions.length > 0) {
+      options[current++] = "--";
+      System.arraycopy(classifierOptions, 0, options, current, 
+	  classifierOptions.length);
+      current += classifierOptions.length;
+    }
+
+    while (current < options.length) {
+	options[current++] = "";
+    }
+
+    return  options;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**
    * Returns the capabilities of this evaluator.
+<<<<<<< HEAD
    * 
    * @return the capabilities of this evaluator
    * @see Capabilities
@@ -714,22 +978,40 @@ public class ClassifierSubsetEval extends HoldOutSubsetEvaluator implements
   public Capabilities getCapabilities() {
     Capabilities result;
 
+=======
+   *
+   * @return            the capabilities of this evaluator
+   * @see               Capabilities
+   */
+  public Capabilities getCapabilities() {
+    Capabilities	result;
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     if (getClassifier() == null) {
       result = super.getCapabilities();
       result.disableAll();
     } else {
       result = getClassifier().getCapabilities();
     }
+<<<<<<< HEAD
 
     // set dependencies
     for (Capability cap : Capability.values()) {
       result.enableDependency(cap);
     }
 
+=======
+    
+    // set dependencies
+    for (Capability cap: Capability.values())
+      result.enableDependency(cap);
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     return result;
   }
 
   /**
+<<<<<<< HEAD
    * Generates a attribute evaluator. Has to initialize all fields of the
    * evaluator that are not being set via options.
    * 
@@ -788,11 +1070,43 @@ public class ClassifierSubsetEval extends HoldOutSubsetEvaluator implements
         m_IRClassVal =
           m_trainingInstances.classAttribute().indexOfValue(m_IRClassValS);
       }
+=======
+   * Generates a attribute evaluator. Has to initialize all fields of the 
+   * evaluator that are not being set via options.
+   *
+   * @param data set of instances serving as training data 
+   * @throws Exception if the evaluator has not been 
+   * generated successfully
+   */
+  public void buildEvaluator (Instances data)
+    throws Exception {
+    
+    // can evaluator handle data?
+    getCapabilities().testWithFail(data);
+
+    m_trainingInstances = data;
+    m_classIndex = m_trainingInstances.classIndex();
+    m_numAttribs = m_trainingInstances.numAttributes();
+    m_numInstances = m_trainingInstances.numInstances();
+
+    // load the testing data
+    if (!m_useTraining && 
+	(!getHoldOutFile().getPath().startsWith("Click to set"))) {
+      java.io.Reader r = new java.io.BufferedReader(
+			 new java.io.FileReader(getHoldOutFile().getPath()));
+	m_holdOutInstances = new Instances(r);
+	m_holdOutInstances.setClassIndex(m_trainingInstances.classIndex());
+	if (m_trainingInstances.equalHeaders(m_holdOutInstances) == false) {
+	  throw new Exception("Hold out/test set is not compatable with "
+			      +"training data.");
+	}
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     }
   }
 
   /**
    * Evaluates a subset of attributes
+<<<<<<< HEAD
    * 
    * @param subset a bitset representing the attribute subset to be evaluated
    * @return the error rate
@@ -813,11 +1127,27 @@ public class ClassifierSubsetEval extends HoldOutSubsetEvaluator implements
     Classifier classifier =
       AbstractClassifier.forName(m_ClassifierTemplate.getClass().getName(),
         cOpts);
+=======
+   *
+   * @param subset a bitset representing the attribute subset to be 
+   * evaluated 
+   * @return the error rate
+   * @throws Exception if the subset could not be evaluated
+   */
+  public double evaluateSubset (BitSet subset)
+    throws Exception {
+    int i,j;
+    double errorRate = 0;
+    int numAttributes = 0;
+    Instances trainCopy=null;
+    Instances testCopy=null;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
     Remove delTransform = new Remove();
     delTransform.setInvertSelection(true);
     // copy the training instances
     trainCopy = new Instances(m_trainingInstances);
+<<<<<<< HEAD
 
     if (!m_useTraining) {
       if (m_holdOutInstances == null) {
@@ -830,31 +1160,59 @@ public class ClassifierSubsetEval extends HoldOutSubsetEvaluator implements
       testCopy = new Instances(m_holdOutInstances);
     }
 
+=======
+    
+    if (!m_useTraining) {
+      if (m_holdOutInstances == null) {
+	throw new Exception("Must specify a set of hold out/test instances "
+			    +"with -H");
+      } 
+      // copy the test instances
+      testCopy = new Instances(m_holdOutInstances);
+    }
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     // count attributes set in the BitSet
     for (i = 0; i < m_numAttribs; i++) {
       if (subset.get(i)) {
         numAttributes++;
       }
     }
+<<<<<<< HEAD
 
     // set up an array of attribute indexes for the filter (+1 for the class)
     int[] featArray = new int[numAttributes + 1];
 
+=======
+    
+    // set up an array of attribute indexes for the filter (+1 for the class)
+    int[] featArray = new int[numAttributes + 1];
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     for (i = 0, j = 0; i < m_numAttribs; i++) {
       if (subset.get(i)) {
         featArray[j++] = i;
       }
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     featArray[j] = m_classIndex;
     delTransform.setAttributeIndicesArray(featArray);
     delTransform.setInputFormat(trainCopy);
     trainCopy = Filter.useFilter(trainCopy, delTransform);
+<<<<<<< HEAD
     if (!m_useTraining || m_usePercentageSplit) {
+=======
+    if (!m_useTraining) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       testCopy = Filter.useFilter(testCopy, delTransform);
     }
 
     // build the classifier
+<<<<<<< HEAD
     classifier.buildClassifier(trainCopy);
 
     evaluation = new Evaluation(trainCopy);
@@ -958,10 +1316,32 @@ public class ClassifierSubsetEval extends HoldOutSubsetEvaluator implements
     }
 
     return evalMetric;
+=======
+    m_Classifier.buildClassifier(trainCopy);
+
+    m_Evaluation = new Evaluation(trainCopy);
+    if (!m_useTraining) {
+      m_Evaluation.evaluateModel(m_Classifier, testCopy);
+    } else {
+      m_Evaluation.evaluateModel(m_Classifier, trainCopy);
+    }
+
+    if (m_trainingInstances.classAttribute().isNominal()) {
+      errorRate = m_Evaluation.errorRate();
+    } else {
+      errorRate = m_Evaluation.meanAbsoluteError();
+    }
+
+    m_Evaluation = null;
+    // return the negative of the error rate as search methods  need to
+    // maximize something
+    return -errorRate;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**
    * Evaluates a subset of attributes with respect to a set of instances.
+<<<<<<< HEAD
    * Calling this function overrides any test/hold out instances set from
    * setHoldOutFile.
    * 
@@ -991,13 +1371,39 @@ public class ClassifierSubsetEval extends HoldOutSubsetEvaluator implements
     if (m_trainingInstances.equalHeaders(holdOut) == false) {
       throw new Exception("evaluateSubset : Incompatable instance types.\n"
         + m_trainingInstances.equalHeadersMsg(holdOut));
+=======
+   * Calling this function overides any test/hold out instancs set from
+   * setHoldOutFile.
+   * @param subset a bitset representing the attribute subset to be
+   * evaluated
+   * @param holdOut a set of instances (possibly seperate and distinct
+   * from those use to build/train the evaluator) with which to
+   * evaluate the merit of the subset
+   * @return the "merit" of the subset on the holdOut data
+   * @throws Exception if the subset cannot be evaluated
+   */
+  public double evaluateSubset(BitSet subset, Instances holdOut) 
+    throws Exception {
+    int i,j;
+    double errorRate;
+    int numAttributes = 0;
+    Instances trainCopy=null;
+    Instances testCopy=null;
+
+    if (m_trainingInstances.equalHeaders(holdOut) == false) {
+      throw new Exception("evaluateSubset : Incompatable instance types.");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     }
 
     Remove delTransform = new Remove();
     delTransform.setInvertSelection(true);
     // copy the training instances
     trainCopy = new Instances(m_trainingInstances);
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     testCopy = new Instances(holdOut);
 
     // count attributes set in the BitSet
@@ -1006,16 +1412,27 @@ public class ClassifierSubsetEval extends HoldOutSubsetEvaluator implements
         numAttributes++;
       }
     }
+<<<<<<< HEAD
 
     // set up an array of attribute indexes for the filter (+1 for the class)
     int[] featArray = new int[numAttributes + 1];
 
+=======
+    
+    // set up an array of attribute indexes for the filter (+1 for the class)
+    int[] featArray = new int[numAttributes + 1];
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     for (i = 0, j = 0; i < m_numAttribs; i++) {
       if (subset.get(i)) {
         featArray[j++] = i;
       }
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     featArray[j] = m_classIndex;
     delTransform.setAttributeIndicesArray(featArray);
     delTransform.setInputFormat(trainCopy);
@@ -1023,6 +1440,7 @@ public class ClassifierSubsetEval extends HoldOutSubsetEvaluator implements
     testCopy = Filter.useFilter(testCopy, delTransform);
 
     // build the classifier
+<<<<<<< HEAD
     classifier.buildClassifier(trainCopy);
 
     evaluation = new Evaluation(trainCopy);
@@ -1155,14 +1573,62 @@ public class ClassifierSubsetEval extends HoldOutSubsetEvaluator implements
     if (m_trainingInstances.equalHeaders(holdOut.dataset()) == false) {
       throw new Exception("evaluateSubset : Incompatable instance types.\n"
         + m_trainingInstances.equalHeadersMsg(holdOut.dataset()));
+=======
+    m_Classifier.buildClassifier(trainCopy);
+
+    m_Evaluation = new Evaluation(trainCopy);
+    m_Evaluation.evaluateModel(m_Classifier, testCopy);
+
+    if (m_trainingInstances.classAttribute().isNominal()) {
+      errorRate = m_Evaluation.errorRate();
+    } else {
+      errorRate = m_Evaluation.meanAbsoluteError();
+    }
+
+    m_Evaluation = null;
+    // return the negative of the error as search methods need to
+    // maximize something
+   return -errorRate;
+  }
+
+  /**
+   * Evaluates a subset of attributes with respect to a single instance.
+   * Calling this function overides any hold out/test instances set
+   * through setHoldOutFile.
+   * @param subset a bitset representing the attribute subset to be
+   * evaluated
+   * @param holdOut a single instance (possibly not one of those used to
+   * build/train the evaluator) with which to evaluate the merit of the subset
+   * @param retrain true if the classifier should be retrained with respect
+   * to the new subset before testing on the holdOut instance.
+   * @return the "merit" of the subset on the holdOut instance
+   * @throws Exception if the subset cannot be evaluated
+   */
+  public double evaluateSubset(BitSet subset, Instance holdOut,
+			       boolean retrain) 
+    throws Exception {
+    int i,j;
+    double error;
+    int numAttributes = 0;
+    Instances trainCopy=null;
+    Instance testCopy=null;
+
+    if (m_trainingInstances.equalHeaders(holdOut.dataset()) == false) {
+      throw new Exception("evaluateSubset : Incompatable instance types.");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     }
 
     Remove delTransform = new Remove();
     delTransform.setInvertSelection(true);
     // copy the training instances
     trainCopy = new Instances(m_trainingInstances);
+<<<<<<< HEAD
 
     testCopy = (Instance) holdOut.copy();
+=======
+    
+    testCopy = (Instance)holdOut.copy();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
     // count attributes set in the BitSet
     for (i = 0; i < m_numAttribs; i++) {
@@ -1170,10 +1636,17 @@ public class ClassifierSubsetEval extends HoldOutSubsetEvaluator implements
         numAttributes++;
       }
     }
+<<<<<<< HEAD
 
     // set up an array of attribute indexes for the filter (+1 for the class)
     int[] featArray = new int[numAttributes + 1];
 
+=======
+    
+    // set up an array of attribute indexes for the filter (+1 for the class)
+    int[] featArray = new int[numAttributes + 1];
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     for (i = 0, j = 0; i < m_numAttribs; i++) {
       if (subset.get(i)) {
         featArray[j++] = i;
@@ -1193,10 +1666,17 @@ public class ClassifierSubsetEval extends HoldOutSubsetEvaluator implements
     testCopy = delTransform.output();
 
     double pred;
+<<<<<<< HEAD
     double[] distrib;
     distrib = m_Classifier.distributionForInstance(testCopy);
     if (m_trainingInstances.classAttribute().isNominal()) {
       pred = distrib[(int) testCopy.classValue()];
+=======
+    double [] distrib;
+    distrib = m_Classifier.distributionForInstance(testCopy);
+    if (m_trainingInstances.classAttribute().isNominal()) {
+      pred = distrib[(int)testCopy.classValue()];
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     } else {
       pred = distrib[0];
     }
@@ -1214,6 +1694,7 @@ public class ClassifierSubsetEval extends HoldOutSubsetEvaluator implements
 
   /**
    * Returns a string describing classifierSubsetEval
+<<<<<<< HEAD
    * 
    * @return the description as a string
    */
@@ -1235,12 +1716,36 @@ public class ClassifierSubsetEval extends HoldOutSubsetEvaluator implements
 
         for (String classifierOption : classifierOptions) {
           text.append(classifierOption + " ");
+=======
+   *
+   * @return the description as a string
+   */
+  public String toString() {
+    StringBuffer text = new StringBuffer();
+    
+    if (m_trainingInstances == null) {
+      text.append("\tClassifier subset evaluator has not been built yet\n");
+    }
+    else {
+      text.append("\tClassifier Subset Evaluator\n");
+      text.append("\tLearning scheme: " 
+		  + getClassifier().getClass().getName() + "\n");
+      text.append("\tScheme options: ");
+      String[] classifierOptions = new String[0];
+
+      if (m_Classifier instanceof OptionHandler) {
+        classifierOptions = ((OptionHandler)m_Classifier).getOptions();
+
+        for (int i = 0; i < classifierOptions.length; i++) {
+          text.append(classifierOptions[i] + " ");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
         }
       }
 
       text.append("\n");
       text.append("\tHold out/test set: ");
       if (!m_useTraining) {
+<<<<<<< HEAD
         if (getHoldOutFile().getPath().startsWith("Click to set")) {
           text.append("none\n");
         } else {
@@ -1306,10 +1811,25 @@ public class ClassifierSubsetEval extends HoldOutSubsetEvaluator implements
         }
         text.append("\n");
         break;
+=======
+	if (getHoldOutFile().getPath().startsWith("Click to set")) {
+	  text.append("none\n");
+	} else {
+	  text.append(getHoldOutFile().getPath()+'\n');
+	}
+      } else {
+	text.append("Training data\n");
+      }
+      if (m_trainingInstances.attribute(m_classIndex).isNumeric()) {
+	text.append("\tAccuracy estimation: MAE\n");
+      } else {
+	text.append("\tAccuracy estimation: classification error\n");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       }
     }
     return text.toString();
   }
+<<<<<<< HEAD
 
   /**
    * reset to defaults
@@ -1346,3 +1866,36 @@ public class ClassifierSubsetEval extends HoldOutSubsetEvaluator implements
   }
 }
 
+=======
+  
+  /**
+   * reset to defaults
+   */
+  protected void resetOptions () {
+    m_trainingInstances = null;
+    m_Evaluation = null;
+    m_Classifier = new ZeroR();
+    m_holdOutFile = new File("Click to set hold out or test instances");
+    m_holdOutInstances = null;
+    m_useTraining = false;
+  }
+  
+  /**
+   * Returns the revision string.
+   * 
+   * @return		the revision
+   */
+  public String getRevision() {
+    return RevisionUtils.extract("$Revision: 5511 $");
+  }
+  
+  /**
+   * Main method for testing this class.
+   *
+   * @param args the options
+   */
+  public static void main (String[] args) {
+    runEvaluator(new ClassifierSubsetEval(), args);
+  }
+}
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb

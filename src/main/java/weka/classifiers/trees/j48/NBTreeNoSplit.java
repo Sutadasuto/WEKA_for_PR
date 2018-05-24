@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,19 +12,41 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
  *    NBTreeNoSplit.java
+<<<<<<< HEAD
  *    Copyright (C) 2004-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 2004 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  *
  */
 
 package weka.classifiers.trees.j48;
 
+<<<<<<< HEAD
 import java.util.Random;
 
 import weka.classifiers.AbstractClassifier;
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 import weka.classifiers.Classifier;
 import weka.classifiers.Evaluation;
 import weka.classifiers.bayes.NaiveBayesUpdateable;
@@ -33,12 +56,21 @@ import weka.core.RevisionUtils;
 import weka.filters.Filter;
 import weka.filters.supervised.attribute.Discretize;
 
+<<<<<<< HEAD
+=======
+import java.util.Random;
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 /**
  * Class implementing a "no-split"-split (leaf node) for naive bayes
  * trees.
  *
  * @author Mark Hall (mhall@cs.waikato.ac.nz)
+<<<<<<< HEAD
  * @version $Revision: 10531 $
+=======
+ * @version $Revision: 1.4 $
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 public final class NBTreeNoSplit
   extends ClassifierSplitModel {
@@ -47,6 +79,7 @@ public final class NBTreeNoSplit
   private static final long serialVersionUID = 7824804381545259618L;
 
   /** the naive bayes classifier */
+<<<<<<< HEAD
   protected NaiveBayesUpdateable m_nb;
 
   /** the discretizer used */
@@ -54,6 +87,15 @@ public final class NBTreeNoSplit
 
   /** errors on the training data at this node */
   protected double m_errors;
+=======
+  private NaiveBayesUpdateable m_nb;
+
+  /** the discretizer used */
+  private Discretize m_disc;
+
+  /** errors on the training data at this node */
+  private double m_errors;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
   public NBTreeNoSplit() {
     m_numSubsets = 1;
@@ -188,7 +230,11 @@ public final class NBTreeNoSplit
 			       Instances trainingSet,
 			       Random r) throws Exception {
     // make some copies for fast evaluation of 5-fold xval
+<<<<<<< HEAD
     Classifier [] copies = AbstractClassifier.makeCopies(fullModel, 5);
+=======
+    Classifier [] copies = Classifier.makeCopies(fullModel, 5);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     Evaluation eval = new Evaluation(trainingSet);
     // make some splits
     for (int j = 0; j < 5; j++) {
@@ -211,6 +257,10 @@ public final class NBTreeNoSplit
    * @return		the revision
    */
   public String getRevision() {
+<<<<<<< HEAD
     return RevisionUtils.extract("$Revision: 10531 $");
+=======
+    return RevisionUtils.extract("$Revision: 1.4 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 }

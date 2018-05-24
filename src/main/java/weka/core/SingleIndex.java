@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,11 +12,30 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
  *    SingleIndex.java
+<<<<<<< HEAD
  *    Copyright (C) 2003-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 2003 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  *
  */
 
@@ -37,6 +57,7 @@ import java.io.Serializable;
  * set or get numbers not in string format should use 0-based numbers).
  *
  * @author Eibe Frank (eibe@cs.waikato.ac.nz)
+<<<<<<< HEAD
  * @version $Revision: 8034 $
  */
 public class SingleIndex
@@ -49,6 +70,20 @@ public class SingleIndex
   protected /*@non_null spec_public@*/ String m_IndexString = "";
 
   /** The selected index. */
+=======
+ * @version $Revision: 1.8 $
+ */
+public class SingleIndex
+  implements Serializable, RevisionHandler {
+  
+  /** for serialization */
+  static final long serialVersionUID = 5285169134430839303L;
+
+  /** Record the string representation of the number */
+  protected /*@non_null spec_public@*/ String m_IndexString = "";
+
+  /** The selected index */
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   protected /*@ spec_public @*/ int m_SelectedIndex = -1;
 
   /** Store the maximum value permitted. -1 indicates that no upper
@@ -97,7 +132,11 @@ public class SingleIndex
   }
 
   /**
+<<<<<<< HEAD
    * Gets the string representing the selected range of values.
+=======
+   * Gets the string representing the selected range of values
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    *
    * @return the range selection string
    */
@@ -143,7 +182,11 @@ public class SingleIndex
   }
 
   /**
+<<<<<<< HEAD
    * Gets the selected index.
+=======
+   * Gets the selected index
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    *
    * @return the selected index
    * @throws RuntimeException if the upper limit of the index hasn't been defined
@@ -177,7 +220,11 @@ public class SingleIndex
   }
 
   /**
+<<<<<<< HEAD
    * Translates a single string selection into it's internal 0-based equivalent.
+=======
+   * Translates a single string selection into it's internal 0-based equivalent
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    */
   //@ assignable m_SelectedIndex, m_IndexString;
   protected void setValue() {
@@ -208,6 +255,7 @@ public class SingleIndex
    * @return		the revision
    */
   public String getRevision() {
+<<<<<<< HEAD
     return RevisionUtils.extract("$Revision: 8034 $");
   }
 
@@ -218,6 +266,9 @@ public class SingleIndex
    */
   public String toDisplay() {
     return getSingleIndex();
+=======
+    return RevisionUtils.extract("$Revision: 1.8 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**

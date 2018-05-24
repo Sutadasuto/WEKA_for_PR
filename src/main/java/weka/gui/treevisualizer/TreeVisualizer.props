@@ -1,7 +1,11 @@
 # A properties file for customizing the Weka's TreeVisualizer.
 #
 # Author: FracPete (fracpete at waikato dot ac dot nz)
+<<<<<<< HEAD
 # Version: $Revision: 14490 $
+=======
+# Version: $Revision: 4961 $
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
 # the font color (can use R,G,B format)
 FontColor=black
@@ -14,7 +18,11 @@ FontColor=black
 BackgroundColor=
 
 # the node color (can use R,G,B format)
+<<<<<<< HEAD
 NodeColor=lightGray
+=======
+NodeColor=gray
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
 # the line color (can use R,G,B format)
 LineColor=black

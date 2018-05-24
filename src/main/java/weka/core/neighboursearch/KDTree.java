@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,20 +12,42 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
  *    KDTree.java
+<<<<<<< HEAD
  *    Copyright (C) 2000-2012 University of Waikato
+=======
+ *    Copyright (C) 2000-2007 University of Waikato
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  *    
  */
 
 package weka.core.neighboursearch;
 
+<<<<<<< HEAD
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.Vector;
 
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 import weka.core.DistanceFunction;
 import weka.core.EuclideanDistance;
 import weka.core.Instance;
@@ -32,14 +55,27 @@ import weka.core.Instances;
 import weka.core.Option;
 import weka.core.RevisionUtils;
 import weka.core.TechnicalInformation;
+<<<<<<< HEAD
 import weka.core.TechnicalInformation.Field;
 import weka.core.TechnicalInformation.Type;
 import weka.core.TechnicalInformationHandler;
 import weka.core.Utils;
+=======
+import weka.core.TechnicalInformationHandler;
+import weka.core.Utils;
+import weka.core.TechnicalInformation.Field;
+import weka.core.TechnicalInformation.Type;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 import weka.core.neighboursearch.kdtrees.KDTreeNode;
 import weka.core.neighboursearch.kdtrees.KDTreeNodeSplitter;
 import weka.core.neighboursearch.kdtrees.SlidingMidPointOfWidestSide;
 
+<<<<<<< HEAD
+=======
+import java.util.Enumeration;
+import java.util.Vector;
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 /**
  <!-- globalinfo-start -->
  * Class implementing the KDTree search algorithm for nearest neighbour search.<br/>
@@ -106,7 +142,11 @@ import weka.core.neighboursearch.kdtrees.SlidingMidPointOfWidestSide;
  * @author Gabi Schmidberger (gabi[at-the-rate]cs[dot]waikato[dot]ac[dot]nz)
  * @author Malcolm Ware (mfw4[at-the-rate]cs[dot]waikato[dot]ac[dot]nz)
  * @author Ashraf M. Kibriya (amk14[at-the-rate]cs[dot]waikato[dot]ac[dot]nz)
+<<<<<<< HEAD
  * @version $Revision: 12479 $
+=======
+ * @version $Revision: 1.3 $
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 public class KDTree
   extends NearestNeighbourSearch
@@ -711,13 +751,24 @@ public class KDTree
    * 
    * @return 		an enumeration of the measure names
    */
+<<<<<<< HEAD
   public Enumeration<String> enumerateMeasures() {
     Vector<String> newVector = new Vector<String>();
+=======
+  public Enumeration enumerateMeasures() {
+    Vector newVector = new Vector();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     newVector.addElement("measureTreeSize");
     newVector.addElement("measureNumLeaves");
     newVector.addElement("measureMaxDepth");
     if (m_Stats != null) {
+<<<<<<< HEAD
       newVector.addAll(Collections.list(m_Stats.enumerateMeasures()));
+=======
+      for (Enumeration e = m_Stats.enumerateMeasures(); e.hasMoreElements();) {
+        newVector.addElement(e.nextElement());
+      }
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     }
     return newVector.elements();
   }
@@ -841,7 +892,11 @@ public class KDTree
         ownerIndex = i;
       }
     }
+<<<<<<< HEAD
     owner = (Instance)centers.instance(candidates[ownerIndex]).copy();
+=======
+    owner = new Instance(centers.instance(candidates[ownerIndex]));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
     // are there other owners
     // loop also goes over already found owner, keeps order
@@ -858,7 +913,11 @@ public class KDTree
         owners[index++] = candidates[i];
       } else {
 
+<<<<<<< HEAD
         Instance competitor = (Instance)centers.instance(candidates[i]).copy();
+=======
+        Instance competitor = new Instance(centers.instance(candidates[i]));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
         if
 
         // 3. point has larger distance to rectangle but still can compete
@@ -890,7 +949,11 @@ public class KDTree
   protected double distanceToHrect(KDTreeNode node, Instance x) throws Exception {
     double distance = 0.0;
 
+<<<<<<< HEAD
     Instance closestPoint = (Instance)x.copy();
+=======
+    Instance closestPoint = new Instance(x);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     boolean inside;
     inside = clipToInsideHrect(node, closestPoint);
     if (!inside)
@@ -954,6 +1017,7 @@ public class KDTree
   protected boolean candidateIsFullOwner(KDTreeNode node, Instance candidate,
       Instance competitor) throws Exception {
     // get extreme point
+<<<<<<< HEAD
     double[] extreme = new double[m_Instances.numAttributes()];
     for (int i = 0; i < m_Instances.numAttributes(); i++) {
       if ((competitor.value(i) - candidate.value(i)) > 0) {
@@ -965,6 +1029,18 @@ public class KDTree
     Instance extremeI = candidate.copy(extreme);
     boolean isFullOwner = m_EuclideanDistance.distance(extremeI, candidate) < m_EuclideanDistance
         .distance(extremeI, competitor);
+=======
+    Instance extreme = new Instance(candidate);
+    for (int i = 0; i < m_Instances.numAttributes(); i++) {
+      if ((competitor.value(i) - candidate.value(i)) > 0) {
+        extreme.setValue(i, node.m_NodeRanges[i][MAX]);
+      } else {
+        extreme.setValue(i, node.m_NodeRanges[i][MIN]);
+      }
+    }
+    boolean isFullOwner = m_EuclideanDistance.distance(extreme, candidate) < m_EuclideanDistance
+        .distance(extreme, competitor);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
     return isFullOwner;
   }
@@ -982,7 +1058,12 @@ public class KDTree
   public void assignSubToCenters(KDTreeNode node, Instances centers,
       int[] centList, int[] assignments) throws Exception {
     // todo: undecided situations
+<<<<<<< HEAD
     
+=======
+    int numCent = centList.length;
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     // WARNING: assignments is "input/output-parameter"
     // should not be null and the following should not happen
     if (assignments == null) {
@@ -1200,8 +1281,13 @@ public class KDTree
    * 
    * @return an enumeration of all the available options.
    */
+<<<<<<< HEAD
   public Enumeration<Option> listOptions() {
     Vector<Option> newVector = new Vector<Option>();
+=======
+  public Enumeration listOptions() {
+    Vector newVector = new Vector();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     
     newVector.add(new Option(
 	"\tNode splitting method to use.\n"
@@ -1223,8 +1309,11 @@ public class KDTree
         + "\t(Select dimension for split, with normalising to universe).",
         "N", 0, "-N"));
     
+<<<<<<< HEAD
     newVector.addAll(Collections.list(super.listOptions()));
     
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     return newVector.elements();
   }
 
@@ -1287,8 +1376,11 @@ public class KDTree
       setMaxInstInLeaf(40);
 
     setNormalizeNodeWidth(Utils.getFlag('N', options));
+<<<<<<< HEAD
     
     Utils.checkForRemainingOptions(options);
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**
@@ -1330,6 +1422,10 @@ public class KDTree
    * @return		the revision
    */
   public String getRevision() {
+<<<<<<< HEAD
     return RevisionUtils.extract("$Revision: 12479 $");
+=======
+    return RevisionUtils.extract("$Revision: 1.3 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 }

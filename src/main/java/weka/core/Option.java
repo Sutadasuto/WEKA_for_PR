@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,16 +12,36 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
  *    Option.java
+<<<<<<< HEAD
  *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 1999 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  *
  */
 
 package weka.core;
 
+<<<<<<< HEAD
 import java.beans.BeanInfo;
 import java.beans.IntrospectionException;
 import java.beans.Introspector;
@@ -49,6 +70,20 @@ public class Option implements RevisionHandler {
   /** A cache of property descriptors */
   private static final Map<Class<?>, PropertyDescriptor[]> s_descriptorCache =
     new HashMap<Class<?>, PropertyDescriptor[]>();
+=======
+/** 
+ * Class to store information about an option. <p>
+ *
+ * Typical usage: <p>
+ *
+ * <code>Option myOption = new Option("Uses extended mode.", "E", 0, "-E")); </code><p>
+ *
+ * @author Eibe Frank (eibe@cs.waikato.ac.nz)
+ * @version $Revision: 1.7 $
+ */
+public class Option
+  implements RevisionHandler {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
   /** What does this option do? */
   private String m_Description;
@@ -68,11 +103,18 @@ public class Option implements RevisionHandler {
    * @param description the option's description
    * @param name the option's name
    * @param numArguments the number of arguments
+<<<<<<< HEAD
    * @param synopsis the option's synopsis
    */
   public Option(String description, String name, int numArguments,
     String synopsis) {
 
+=======
+   */
+  public Option(String description, String name, 
+		int numArguments, String synopsis) {
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     m_Description = description;
     m_Name = name;
     m_NumArguments = numArguments;
@@ -80,6 +122,7 @@ public class Option implements RevisionHandler {
   }
 
   /**
+<<<<<<< HEAD
    * Get a list of options for a class. Options identified by this method are
    * bean properties (with get/set methods) annotated using the OptionMetadata
    * annotation. All options from the class up to, but not including, the
@@ -643,12 +686,18 @@ public class Option implements RevisionHandler {
   }
 
   /**
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * Returns the option's description.
    *
    * @return the option's description
    */
   public String description() {
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     return m_Description;
   }
 
@@ -668,7 +717,11 @@ public class Option implements RevisionHandler {
    * @return the option's number of arguments
    */
   public int numArguments() {
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     return m_NumArguments;
   }
 
@@ -678,6 +731,7 @@ public class Option implements RevisionHandler {
    * @return the option's synopsis
    */
   public String synopsis() {
+<<<<<<< HEAD
 
     return m_Synopsis;
   }
@@ -691,3 +745,19 @@ public class Option implements RevisionHandler {
     return RevisionUtils.extract("$Revision: 13659 $");
   }
 }
+=======
+  
+    return m_Synopsis;
+  }
+  
+  /**
+   * Returns the revision string.
+   * 
+   * @return		the revision
+   */
+  public String getRevision() {
+    return RevisionUtils.extract("$Revision: 1.7 $");
+  }
+}
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb

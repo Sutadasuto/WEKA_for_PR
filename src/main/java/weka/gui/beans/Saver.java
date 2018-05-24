@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,11 +12,30 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
  *    Saver.java
+<<<<<<< HEAD
  *    Copyright (C) 2004-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 2004 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  *
  */
 
@@ -38,11 +58,19 @@ import weka.core.converters.DatabaseSaver;
  * Saves data sets using weka.core.converter classes
  * 
  * @author <a href="mailto:mutter@cs.waikato.ac.nz">Stefan Mutter</a>
+<<<<<<< HEAD
  * @version $Revision: 10221 $
  * 
  */
 public class Saver extends AbstractDataSink implements WekaWrapper,
   EnvironmentHandler {
+=======
+ * @version $Revision: 9217 $
+ * 
+ */
+public class Saver extends AbstractDataSink implements WekaWrapper,
+    EnvironmentHandler {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
   /** for serialization */
   private static final long serialVersionUID = 5371716690308950755L;
@@ -105,6 +133,7 @@ public class Saver extends AbstractDataSink implements WekaWrapper,
 
   private weka.core.converters.Saver makeCopy() throws Exception {
     return (weka.core.converters.Saver) new SerializedObject(m_SaverTemplate)
+<<<<<<< HEAD
       .getObject();
   }
 
@@ -113,6 +142,18 @@ public class Saver extends AbstractDataSink implements WekaWrapper,
     }
 
     @SuppressWarnings("deprecation")
+=======
+        .getObject();
+  }
+
+  private class SaveBatchThread extends Thread {
+    private final DataSink m_DS;
+
+    public SaveBatchThread(DataSink ds) {
+      m_DS = ds;
+    }
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     @Override
     public void run() {
       try {
@@ -120,6 +161,7 @@ public class Saver extends AbstractDataSink implements WekaWrapper,
 
         m_Saver.setInstances(m_dataSet);
         if (m_logger != null) {
+<<<<<<< HEAD
           m_logger.statusMessage(statusMessagePrefix() + "Saving "
             + m_dataSet.relationName() + "...");
         }
@@ -127,25 +169,66 @@ public class Saver extends AbstractDataSink implements WekaWrapper,
         if (m_logger != null) {
           m_logger.logMessage("[Saver] " + statusMessagePrefix()
             + "Save successful.");
+=======
+          m_logger.statusMessage(statusMessagePrefix()
+              + Messages.getInstance().getString(
+                  "Saver_SaveBatchThread_Run_StatusMessage_Text_First")
+              + m_dataSet.relationName()
+              + Messages.getInstance().getString(
+                  "Saver_SaveBatchThread_Run_StatusMessage_Text_Second"));
+        }
+        m_Saver.writeBatch();
+        if (m_logger != null) {
+          m_logger.logMessage(Messages.getInstance().getString(
+              "Saver_SaveBatchThread_Run_LogMessage_Text_First")
+              + statusMessagePrefix()
+              + Messages.getInstance().getString(
+                  "Saver_SaveBatchThread_Run_LogMessage_Text_Second"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
         }
 
       } catch (Exception ex) {
         if (m_logger != null) {
           m_logger.statusMessage(statusMessagePrefix()
+<<<<<<< HEAD
             + "ERROR (See log for details)");
           m_logger.logMessage("[Saver] " + statusMessagePrefix()
             + " problem saving. " + ex.getMessage());
+=======
+              + Messages.getInstance().getString(
+                  "Saver_SaveBatchThread_Run_StatusMessage_Text_Third"));
+          m_logger.logMessage(Messages.getInstance().getString(
+              "Saver_SaveBatchThread_Run_LogMessage_Text_Third")
+              + statusMessagePrefix()
+              + Messages.getInstance().getString(
+                  "Saver_SaveBatchThread_Run_LogMessage_Text_Fourth")
+              + ex.getMessage());
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
         }
         ex.printStackTrace();
       } finally {
         if (Thread.currentThread().isInterrupted()) {
           if (m_logger != null) {
+<<<<<<< HEAD
             m_logger.logMessage("[Saver] " + statusMessagePrefix()
               + " Saving interrupted!!");
           }
         }
         if (m_logger != null) {
           m_logger.statusMessage(statusMessagePrefix() + "Finished.");
+=======
+            m_logger.logMessage(Messages.getInstance().getString(
+                "Saver_SaveBatchThread_Run_LogMessage_Text_Fifth")
+                + statusMessagePrefix()
+                + Messages.getInstance().getString(
+                    "Saver_SaveBatchThread_Run_LogMessage_Text_Sixth"));
+          }
+        }
+        if (m_logger != null) {
+          m_logger.statusMessage(statusMessagePrefix()
+              + Messages.getInstance().getString(
+                  "Saver_SaveBatchThread_Run_StatusMessage_Text_Fourth"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
         }
         block(false);
         m_visual.setStatic();
@@ -180,7 +263,10 @@ public class Saver extends AbstractDataSink implements WekaWrapper,
    * 
    * @return true if the bean is busy.
    */
+<<<<<<< HEAD
   @Override
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   public boolean isBusy() {
     return (m_ioThread != null);
   }
@@ -209,7 +295,10 @@ public class Saver extends AbstractDataSink implements WekaWrapper,
    * 
    * @param name the name to use
    */
+<<<<<<< HEAD
   @Override
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   public void setCustomName(String name) {
     m_visual.setText(name);
   }
@@ -219,7 +308,10 @@ public class Saver extends AbstractDataSink implements WekaWrapper,
    * 
    * @return the custom name (or the default name)
    */
+<<<<<<< HEAD
   @Override
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   public String getCustomName() {
     return m_visual.getText();
   }
@@ -229,7 +321,10 @@ public class Saver extends AbstractDataSink implements WekaWrapper,
    * 
    * @param env the environment variables to use
    */
+<<<<<<< HEAD
   @Override
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   public void setEnvironment(Environment env) {
     m_env = env;
   }
@@ -252,17 +347,29 @@ public class Saver extends AbstractDataSink implements WekaWrapper,
   public void setSaverTemplate(weka.core.converters.Saver saver) {
     boolean loadImages = true;
     if (saver.getClass().getName()
+<<<<<<< HEAD
       .compareTo(m_SaverTemplate.getClass().getName()) == 0) {
+=======
+        .compareTo(m_SaverTemplate.getClass().getName()) == 0) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       loadImages = false;
     }
     m_SaverTemplate = saver;
     String saverName = saver.getClass().toString();
     saverName = saverName.substring(saverName.lastIndexOf('.') + 1,
+<<<<<<< HEAD
       saverName.length());
     if (loadImages) {
 
       if (!m_visual.loadIcons(BeanVisual.ICON_PATH + saverName + ".gif",
         BeanVisual.ICON_PATH + saverName + "_animated.gif")) {
+=======
+        saverName.length());
+    if (loadImages) {
+
+      if (!m_visual.loadIcons(BeanVisual.ICON_PATH + saverName + ".gif",
+          BeanVisual.ICON_PATH + saverName + "_animated.gif")) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
         useDefaultVisual();
       }
     }
@@ -270,11 +377,18 @@ public class Saver extends AbstractDataSink implements WekaWrapper,
 
     // get global info
     m_globalInfo = KnowledgeFlowApp.getGlobalInfo(m_SaverTemplate);
+<<<<<<< HEAD
     if (m_SaverTemplate instanceof DatabaseConverter) {
       m_isDBSaver = true;
     } else {
       m_isDBSaver = false;
     }
+=======
+    if (m_SaverTemplate instanceof DatabaseConverter)
+      m_isDBSaver = true;
+    else
+      m_isDBSaver = false;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**
@@ -287,6 +401,7 @@ public class Saver extends AbstractDataSink implements WekaWrapper,
    */
   protected String sanitizeFilename(String filename) {
     filename = filename.replaceAll("\\\\", "_").replaceAll(":", "_")
+<<<<<<< HEAD
       .replaceAll("/", "_");
     filename = Utils.removeSubstring(filename,
       "weka.filters.supervised.instance.");
@@ -296,6 +411,17 @@ public class Saver extends AbstractDataSink implements WekaWrapper,
       "weka.filters.unsupervised.instance.");
     filename = Utils.removeSubstring(filename,
       "weka.filters.unsupervised.attribute.");
+=======
+        .replaceAll("/", "_");
+    filename = Utils.removeSubstring(filename,
+        "weka.filters.supervised.instance.");
+    filename = Utils.removeSubstring(filename,
+        "weka.filters.supervised.attribute.");
+    filename = Utils.removeSubstring(filename,
+        "weka.filters.unsupervised.instance.");
+    filename = Utils.removeSubstring(filename,
+        "weka.filters.unsupervised.attribute.");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     filename = Utils.removeSubstring(filename, "weka.clusterers.");
     filename = Utils.removeSubstring(filename, "weka.associations.");
     filename = Utils.removeSubstring(filename, "weka.attributeSelection.");
@@ -330,16 +456,32 @@ public class Saver extends AbstractDataSink implements WekaWrapper,
     } catch (Exception ex) {
       if (m_logger != null) {
         m_logger.statusMessage(statusMessagePrefix()
+<<<<<<< HEAD
           + "ERROR (See log for details)");
         m_logger.logMessage("[Saver] " + statusMessagePrefix()
           + " unable to copy saver. " + ex.getMessage());
+=======
+            + Messages.getInstance().getString(
+                "Saver_AcceptDataSet_StatusMessage_Text_First"));
+        m_logger
+            .logMessage(Messages.getInstance().getString(
+                "Saver_AcceptDataSet_LogMessage_Text_First")
+                + statusMessagePrefix()
+                + Messages.getInstance().getString(
+                    "Saver_AcceptDataSet_LogMessage_Text_Second")
+                + ex.getMessage());
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       }
     }
     passEnvOnToSaver();
     m_fileName = sanitizeFilename(e.getDataSet().relationName());
     m_dataSet = e.getDataSet();
     if (e.isStructureOnly() && m_isDBSaver
+<<<<<<< HEAD
       && ((DatabaseSaver) m_SaverTemplate).getRelationForTableName()) {//
+=======
+        && ((DatabaseSaver) m_SaverTemplate).getRelationForTableName()) {//
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       ((DatabaseSaver) m_Saver).setTableName(m_fileName);
     }
     if (!e.isStructureOnly()) {
@@ -351,7 +493,16 @@ public class Saver extends AbstractDataSink implements WekaWrapper,
         }
       }
       saveBatch();
+<<<<<<< HEAD
       System.out.println("...relation " + m_fileName + " saved.");
+=======
+      System.out
+          .println(Messages.getInstance().getString(
+              "Saver_AcceptDataSet_Text_First")
+              + m_fileName
+              + Messages.getInstance().getString(
+                  "Saver_AcceptDataSet_Text_Second"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     }
   }
 
@@ -368,19 +519,39 @@ public class Saver extends AbstractDataSink implements WekaWrapper,
     } catch (Exception ex) {
       if (m_logger != null) {
         m_logger.statusMessage(statusMessagePrefix()
+<<<<<<< HEAD
           + "ERROR (See log for details)");
         m_logger.logMessage("[Saver] " + statusMessagePrefix()
           + " unable to copy saver. " + ex.getMessage());
+=======
+            + Messages.getInstance().getString(
+                "Saver_AcceptDataSet_StatusMessage_Text_Second"));
+        m_logger
+            .logMessage(Messages.getInstance().getString(
+                "Saver_AcceptDataSet_LogMessage_Text_Third")
+                + statusMessagePrefix()
+                + Messages.getInstance().getString(
+                    "Saver_AcceptDataSet_LogMessage_Text_Fourth")
+                + ex.getMessage());
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       }
     }
 
     passEnvOnToSaver();
     m_fileName = sanitizeFilename(e.getDataSet().getPlotInstances()
+<<<<<<< HEAD
       .relationName());
     m_dataSet = e.getDataSet().getPlotInstances();
 
     if (m_isDBSaver
       && ((DatabaseSaver) m_SaverTemplate).getRelationForTableName()) {//
+=======
+        .relationName());
+    m_dataSet = e.getDataSet().getPlotInstances();
+
+    if (m_isDBSaver
+        && ((DatabaseSaver) m_SaverTemplate).getRelationForTableName()) {//
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       ((DatabaseSaver) m_Saver).setTableName(m_fileName);
       ((DatabaseSaver) m_Saver).setRelationForTableName(false);
     }
@@ -393,7 +564,14 @@ public class Saver extends AbstractDataSink implements WekaWrapper,
       }
     }
     saveBatch();
+<<<<<<< HEAD
     System.out.println("...relation " + m_fileName + " saved.");
+=======
+    System.out.println(Messages.getInstance().getString(
+        "Saver_AcceptDataSet_Text_Third")
+        + m_fileName
+        + Messages.getInstance().getString("Saver_AcceptDataSet_Text_Fourth"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**
@@ -410,9 +588,21 @@ public class Saver extends AbstractDataSink implements WekaWrapper,
     } catch (Exception ex) {
       if (m_logger != null) {
         m_logger.statusMessage(statusMessagePrefix()
+<<<<<<< HEAD
           + "ERROR (See log for details)");
         m_logger.logMessage("[Saver] " + statusMessagePrefix()
           + " unable to copy saver. " + ex.getMessage());
+=======
+            + Messages.getInstance().getString(
+                "Saver_AcceptTestSet_StatusMessage_Text_First"));
+        m_logger
+            .logMessage(Messages.getInstance().getString(
+                "Saver_AcceptTestSet_LogMessage_Text_First")
+                + statusMessagePrefix()
+                + Messages.getInstance().getString(
+                    "Saver_AcceptTestSet_LogMessage_Text_Second")
+                + ex.getMessage());
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       }
     }
 
@@ -420,14 +610,22 @@ public class Saver extends AbstractDataSink implements WekaWrapper,
     m_fileName = sanitizeFilename(e.getTestSet().relationName());
     m_dataSet = e.getTestSet();
     if (e.isStructureOnly() && m_isDBSaver
+<<<<<<< HEAD
       && ((DatabaseSaver) m_SaverTemplate).getRelationForTableName()) {
+=======
+        && ((DatabaseSaver) m_SaverTemplate).getRelationForTableName()) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       ((DatabaseSaver) m_Saver).setTableName(m_fileName);
     }
     if (!e.isStructureOnly()) {
       if (!m_isDBSaver) {
         try {
           m_Saver.setDirAndPrefix(m_fileName, "_test_" + e.getSetNumber()
+<<<<<<< HEAD
             + "_of_" + e.getMaxSetNumber());
+=======
+              + "_of_" + e.getMaxSetNumber());
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
         } catch (Exception ex) {
           System.out.println(ex);
         }
@@ -435,6 +633,7 @@ public class Saver extends AbstractDataSink implements WekaWrapper,
         ((DatabaseSaver) m_Saver).setRelationForTableName(false);
         String setName = ((DatabaseSaver) m_Saver).getTableName();
         setName = setName.replaceFirst(
+<<<<<<< HEAD
           "_[tT][eE][sS][tT]_[0-9]+_[oO][fF]_[0-9]+", "");
         ((DatabaseSaver) m_Saver).setTableName(setName + "_test_"
           + e.getSetNumber() + "_of_" + e.getMaxSetNumber());
@@ -442,6 +641,25 @@ public class Saver extends AbstractDataSink implements WekaWrapper,
       saveBatch();
       System.out.println("... test set " + e.getSetNumber() + " of "
         + e.getMaxSetNumber() + " for relation " + m_fileName + " saved.");
+=======
+            "_[tT][eE][sS][tT]_[0-9]+_[oO][fF]_[0-9]+", "");
+        ((DatabaseSaver) m_Saver).setTableName(setName + "_test_"
+            + e.getSetNumber() + "_of_" + e.getMaxSetNumber());
+      }
+      saveBatch();
+      System.out
+          .println(Messages.getInstance().getString(
+              "Saver_AcceptTestSet_Text_First")
+              + e.getSetNumber()
+              + Messages.getInstance().getString(
+                  "Saver_AcceptTestSet_Text_Second")
+              + e.getMaxSetNumber()
+              + Messages.getInstance().getString(
+                  "Saver_AcceptTestSet_Text_Third")
+              + m_fileName
+              + Messages.getInstance().getString(
+                  "Saver_AcceptTestSet_Text_Fourth"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     }
   }
 
@@ -453,14 +671,29 @@ public class Saver extends AbstractDataSink implements WekaWrapper,
    */
   @Override
   public synchronized void acceptTrainingSet(TrainingSetEvent e) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     try {
       m_Saver = makeCopy();
     } catch (Exception ex) {
       if (m_logger != null) {
         m_logger.statusMessage(statusMessagePrefix()
+<<<<<<< HEAD
           + "ERROR (See log for details)");
         m_logger.logMessage("[Saver] " + statusMessagePrefix()
           + " unable to copy saver. " + ex.getMessage());
+=======
+            + Messages.getInstance().getString(
+                "Saver_AcceptTrainingSet_StatusMessage_Text_First"));
+        m_logger.logMessage(Messages.getInstance().getString(
+            "Saver_AcceptTrainingSet_LogMessage_Text_First")
+            + statusMessagePrefix()
+            + Messages.getInstance().getString(
+                "Saver_AcceptTrainingSet_LogMessage_Text_Second")
+            + ex.getMessage());
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       }
     }
 
@@ -468,14 +701,22 @@ public class Saver extends AbstractDataSink implements WekaWrapper,
     m_fileName = sanitizeFilename(e.getTrainingSet().relationName());
     m_dataSet = e.getTrainingSet();
     if (e.isStructureOnly() && m_isDBSaver
+<<<<<<< HEAD
       && ((DatabaseSaver) m_SaverTemplate).getRelationForTableName()) {
+=======
+        && ((DatabaseSaver) m_SaverTemplate).getRelationForTableName()) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       ((DatabaseSaver) m_Saver).setTableName(m_fileName);
     }
     if (!e.isStructureOnly()) {
       if (!m_isDBSaver) {
         try {
           m_Saver.setDirAndPrefix(m_fileName, "_training_" + e.getSetNumber()
+<<<<<<< HEAD
             + "_of_" + e.getMaxSetNumber());
+=======
+              + "_of_" + e.getMaxSetNumber());
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
         } catch (Exception ex) {
           System.out.println(ex);
         }
@@ -483,6 +724,7 @@ public class Saver extends AbstractDataSink implements WekaWrapper,
         ((DatabaseSaver) m_Saver).setRelationForTableName(false);
         String setName = ((DatabaseSaver) m_Saver).getTableName();
         setName = setName.replaceFirst(
+<<<<<<< HEAD
           "_[tT][rR][aA][iI][nN][iI][nN][gG]_[0-9]+_[oO][fF]_[0-9]+", "");
         ((DatabaseSaver) m_Saver).setTableName(setName + "_training_"
           + e.getSetNumber() + "_of_" + e.getMaxSetNumber());
@@ -490,13 +732,35 @@ public class Saver extends AbstractDataSink implements WekaWrapper,
       saveBatch();
       System.out.println("... training set " + e.getSetNumber() + " of "
         + e.getMaxSetNumber() + " for relation " + m_fileName + " saved.");
+=======
+            "_[tT][rR][aA][iI][nN][iI][nN][gG]_[0-9]+_[oO][fF]_[0-9]+", "");
+        ((DatabaseSaver) m_Saver).setTableName(setName + "_training_"
+            + e.getSetNumber() + "_of_" + e.getMaxSetNumber());
+      }
+      saveBatch();
+      System.out.println(Messages.getInstance().getString(
+          "Saver_AcceptTrainingSet_Text_First")
+          + e.getSetNumber()
+          + Messages.getInstance().getString(
+              "Saver_AcceptTrainingSet_Text_Second")
+          + e.getMaxSetNumber()
+          + Messages.getInstance().getString(
+              "Saver_AcceptTrainingSet_Text_Third")
+          + m_fileName
+          + Messages.getInstance().getString(
+              "Saver_AcceptTrainingSet_Text_Fourth"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     }
   }
 
   /** Saves instances in batch mode */
   public synchronized void saveBatch() {
 
+<<<<<<< HEAD
     m_Saver.setRetrieval(weka.core.converters.Saver.BATCH);
+=======
+    m_Saver.setRetrieval(m_Saver.BATCH);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     /*
      * String visText = this.getName(); try { visText = (m_fileName.length() >
      * 0) ? m_fileName : m_Saver.filePrefix(); } catch (Exception ex) { }
@@ -508,8 +772,11 @@ public class Saver extends AbstractDataSink implements WekaWrapper,
     block(true);
   }
 
+<<<<<<< HEAD
   protected transient StreamThroughput m_throughput;
 
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   /**
    * Methods reacts to instance events and saves instances incrementally. If the
    * instance to save is null, the file is closed and the saving process is
@@ -517,18 +784,26 @@ public class Saver extends AbstractDataSink implements WekaWrapper,
    * 
    * @param e instance event
    */
+<<<<<<< HEAD
   @SuppressWarnings("deprecation")
   @Override
   public synchronized void acceptInstance(InstanceEvent e) {
 
     if (e.getStatus() == InstanceEvent.FORMAT_AVAILABLE) {
       m_throughput = new StreamThroughput(statusMessagePrefix());
+=======
+  @Override
+  public synchronized void acceptInstance(InstanceEvent e) {
+
+    if (e.getStatus() == e.FORMAT_AVAILABLE) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       // start of a new stream
       try {
         m_Saver = makeCopy();
       } catch (Exception ex) {
         if (m_logger != null) {
           m_logger.statusMessage(statusMessagePrefix()
+<<<<<<< HEAD
             + "ERROR (See log for details)");
           m_logger.logMessage("[Saver] " + statusMessagePrefix()
             + " unable to copy saver. " + ex.getMessage());
@@ -539,15 +814,38 @@ public class Saver extends AbstractDataSink implements WekaWrapper,
       m_fileName = sanitizeFilename(m_structure.relationName());
       m_Saver.setInstances(m_structure);
       if (m_isDBSaver) {
+=======
+              + Messages.getInstance().getString(
+                  "Saver_AcceptInstance_StatusMessage_Text_First"));
+          m_logger.logMessage(Messages.getInstance().getString(
+              "Saver_AcceptInstance_LogMessage_Text_First")
+              + statusMessagePrefix()
+              + Messages.getInstance().getString(
+                  "Saver_AcceptInstance_LogMessage_Text_Second")
+              + ex.getMessage());
+        }
+      }
+      m_Saver.setRetrieval(m_Saver.INCREMENTAL);
+      m_structure = e.getStructure();
+      m_fileName = sanitizeFilename(m_structure.relationName());
+      m_Saver.setInstances(m_structure);
+      if (m_isDBSaver)
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
         if (((DatabaseSaver) m_SaverTemplate).getRelationForTableName()) {
           ((DatabaseSaver) m_Saver).setTableName(m_fileName);
           ((DatabaseSaver) m_Saver).setRelationForTableName(false);
         }
+<<<<<<< HEAD
       }
     }
     if (e.getStatus() == InstanceEvent.INSTANCE_AVAILABLE) {
       m_visual.setAnimated();
       m_throughput.updateStart();
+=======
+    }
+    if (e.getStatus() == e.INSTANCE_AVAILABLE) {
+      m_visual.setAnimated();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       if (m_count == 0) {
         passEnvOnToSaver();
         if (!m_isDBSaver) {
@@ -566,6 +864,7 @@ public class Saver extends AbstractDataSink implements WekaWrapper,
          * ? m_fileName : m_Saver.filePrefix(); m_visual.setText(m_fileName);
          */
         m_Saver.writeIncremental(e.getInstance());
+<<<<<<< HEAD
         m_throughput.updateEnd(m_logger);
       } catch (Exception ex) {
         m_visual.setStatic();
@@ -575,6 +874,19 @@ public class Saver extends AbstractDataSink implements WekaWrapper,
       }
     }
     if (e.getStatus() == InstanceEvent.BATCH_FINISHED) {
+=======
+      } catch (Exception ex) {
+        m_visual.setStatic();
+        System.err.println(Messages.getInstance().getString(
+            "Saver_AcceptInstance_Error_Text_First")
+            + e.getInstance()
+            + Messages.getInstance().getString(
+                "Saver_AcceptInstance_Error_Text_Second"));
+        ex.printStackTrace();
+      }
+    }
+    if (e.getStatus() == e.BATCH_FINISHED) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       try {
         if (m_count == 0) {
           passEnvOnToSaver();
@@ -590,6 +902,7 @@ public class Saver extends AbstractDataSink implements WekaWrapper,
         }
         m_Saver.writeIncremental(e.getInstance());
         if (e.getInstance() != null) {
+<<<<<<< HEAD
           m_throughput.updateStart();
           m_Saver.writeIncremental(null);
           m_throughput.updateEnd(m_logger);
@@ -597,15 +910,33 @@ public class Saver extends AbstractDataSink implements WekaWrapper,
         // m_firstNotice = true;
         m_visual.setStatic();
         // System.out.println("...relation " + m_fileName + " saved.");
+=======
+          m_Saver.writeIncremental(null);
+        }
+        // m_firstNotice = true;
+        m_visual.setStatic();
+        System.out.println(Messages.getInstance().getString(
+            "Saver_AcceptInstance_Text_First")
+            + m_fileName
+            + Messages.getInstance().getString(
+                "Saver_AcceptInstance_Text_Second"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
         /*
          * String visText = this.getName(); visText = (m_fileName.length() > 0)
          * ? m_fileName : m_Saver.filePrefix(); m_visual.setText(visText);
          */
         m_count = 0;
+<<<<<<< HEAD
         m_throughput.finished(m_logger);
       } catch (Exception ex) {
         m_visual.setStatic();
         System.err.println("File could not have been closed.");
+=======
+      } catch (Exception ex) {
+        m_visual.setStatic();
+        System.err.println(Messages.getInstance().getString(
+            "Saver_AcceptInstance_Text_Third"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
         ex.printStackTrace();
       }
     }
@@ -625,11 +956,19 @@ public class Saver extends AbstractDataSink implements WekaWrapper,
    * 
    * @param algorithm a Saver
    */
+<<<<<<< HEAD
   @Override
   public void setWrappedAlgorithm(Object algorithm) {
     if (!(algorithm instanceof weka.core.converters.Saver)) {
       throw new IllegalArgumentException(algorithm.getClass() + " : incorrect "
         + "type of algorithm (Loader)");
+=======
+  public void setWrappedAlgorithm(Object algorithm) {
+    if (!(algorithm instanceof weka.core.converters.Saver)) {
+      throw new IllegalArgumentException(algorithm.getClass()
+          + Messages.getInstance().getString(
+              "Saver_SetWrappedAlgorithm_IllegalArgumentException_Text"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     }
     setSaverTemplate((weka.core.converters.Saver) algorithm);
   }
@@ -639,7 +978,10 @@ public class Saver extends AbstractDataSink implements WekaWrapper,
    * 
    * @return a Saver
    */
+<<<<<<< HEAD
   @Override
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   public Object getWrappedAlgorithm() {
     return getSaverTemplate();
   }
@@ -664,10 +1006,15 @@ public class Saver extends AbstractDataSink implements WekaWrapper,
   }
 
   /** Stops the bean */
+<<<<<<< HEAD
   @SuppressWarnings("deprecation")
   @Override
   public void stop() {
 
+=======
+  @Override
+  public void stop() {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     // tell the listenee (upstream bean) to stop
     if (m_listenee instanceof BeanCommon) {
       ((BeanCommon) m_listenee).stop();
@@ -678,26 +1025,43 @@ public class Saver extends AbstractDataSink implements WekaWrapper,
       m_ioThread.interrupt();
       m_ioThread.stop();
       m_ioThread = null;
+<<<<<<< HEAD
     }
 
     m_count = 0;
 
     m_visual.setStatic();
+=======
+      m_visual.setStatic();
+    }
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   private String statusMessagePrefix() {
     return getCustomName()
+<<<<<<< HEAD
       + "$"
       + hashCode()
       + "|"
       + ((m_Saver instanceof OptionHandler) ? Utils
         .joinOptions(((OptionHandler) m_Saver).getOptions()) + "|" : "");
+=======
+        + "$"
+        + hashCode()
+        + "|"
+        + ((m_Saver instanceof OptionHandler) ? Utils
+            .joinOptions(((OptionHandler) m_Saver).getOptions()) + "|" : "");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   // Custom de-serialization in order to set default
   // environment variables on de-serialization
   private void readObject(ObjectInputStream aStream) throws IOException,
+<<<<<<< HEAD
     ClassNotFoundException {
+=======
+      ClassNotFoundException {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     aStream.defaultReadObject();
 
     // set a default environment to use

@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,16 +12,36 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
  *    ZeroR.java
+<<<<<<< HEAD
  *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 1999 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  *
  */
 
 package weka.classifiers.rules;
 
+<<<<<<< HEAD
 import java.util.Enumeration;
 
 import weka.classifiers.AbstractClassifier;
@@ -28,11 +49,18 @@ import weka.classifiers.Sourcable;
 import weka.core.Attribute;
 import weka.core.Capabilities;
 import weka.core.Capabilities.Capability;
+=======
+import weka.classifiers.Classifier;
+import weka.classifiers.Sourcable;
+import weka.core.Attribute;
+import weka.core.Capabilities;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.RevisionUtils;
 import weka.core.Utils;
 import weka.core.WeightedInstancesHandler;
+<<<<<<< HEAD
 
 /**
  * <!-- globalinfo-start --> Class for building and using a 0-R classifier.
@@ -60,10 +88,42 @@ public class ZeroR extends AbstractClassifier implements
   /** for serialization */
   static final long serialVersionUID = 48055541465867954L;
 
+=======
+import weka.core.Capabilities.Capability;
+
+import java.util.Enumeration;
+
+/**
+ <!-- globalinfo-start -->
+ * Class for building and using a 0-R classifier. Predicts the mean (for a numeric class) or the mode (for a nominal class).
+ * <p/>
+ <!-- globalinfo-end -->
+ *
+ <!-- options-start -->
+ * Valid options are: <p/>
+ * 
+ * <pre> -D
+ *  If set, classifier is run in debug mode and
+ *  may output additional info to the console</pre>
+ * 
+ <!-- options-end -->
+ *
+ * @author Eibe Frank (eibe@cs.waikato.ac.nz)
+ * @version $Revision: 5529 $
+ */
+public class ZeroR 
+  extends Classifier 
+  implements WeightedInstancesHandler, Sourcable {
+
+  /** for serialization */
+  static final long serialVersionUID = 48055541465867954L;
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   /** The class value 0R predicts. */
   private double m_ClassValue;
 
   /** The number of instances in each class (null if class numeric). */
+<<<<<<< HEAD
   private double[] m_Counts;
 
   /** The class attribute. */
@@ -78,14 +138,35 @@ public class ZeroR extends AbstractClassifier implements
   public String globalInfo() {
     return "Class for building and using a 0-R classifier. Predicts the mean "
       + "(for a numeric class) or the mode (for a nominal class).";
+=======
+  private double [] m_Counts;
+  
+  /** The class attribute. */
+  private Attribute m_Class;
+    
+  /**
+   * Returns a string describing classifier
+   * @return a description suitable for
+   * displaying in the explorer/experimenter gui
+   */
+  public String globalInfo() {
+    return "Class for building and using a 0-R classifier. Predicts the mean " 
+      + "(for a numeric class) or the mode (for a nominal class).";	    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**
    * Returns default capabilities of the classifier.
+<<<<<<< HEAD
    * 
    * @return the capabilities of this classifier
    */
   @Override
+=======
+   *
+   * @return      the capabilities of this classifier
+   */
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   public Capabilities getCapabilities() {
     Capabilities result = super.getCapabilities();
     result.disableAll();
@@ -106,26 +187,45 @@ public class ZeroR extends AbstractClassifier implements
 
     // instances
     result.setMinimumNumberInstances(0);
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     return result;
   }
 
   /**
    * Generates the classifier.
+<<<<<<< HEAD
    * 
    * @param instances set of instances serving as training data
    * @throws Exception if the classifier has not been generated successfully
    */
   @Override
+=======
+   *
+   * @param instances set of instances serving as training data 
+   * @throws Exception if the classifier has not been generated successfully
+   */
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   public void buildClassifier(Instances instances) throws Exception {
     // can classifier handle the data?
     getCapabilities().testWithFail(instances);
 
+<<<<<<< HEAD
+=======
+    // remove instances with missing class
+    instances = new Instances(instances);
+    instances.deleteWithMissingClass();
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     double sumOfWeights = 0;
 
     m_Class = instances.classAttribute();
     m_ClassValue = 0;
     switch (instances.classAttribute().type()) {
+<<<<<<< HEAD
     case Attribute.NUMERIC:
       m_Counts = null;
       break;
@@ -146,11 +246,38 @@ public class ZeroR extends AbstractClassifier implements
           m_ClassValue += instance.weight() * classValue;
         }
         sumOfWeights += instance.weight();
+=======
+      case Attribute.NUMERIC:
+        m_Counts = null;
+        break;
+      case Attribute.NOMINAL:
+        m_Counts = new double [instances.numClasses()];
+        for (int i = 0; i < m_Counts.length; i++) {
+          m_Counts[i] = 1;
+        }
+        sumOfWeights = instances.numClasses();
+        break;
+    }
+    Enumeration enu = instances.enumerateInstances();
+    while (enu.hasMoreElements()) {
+      Instance instance = (Instance) enu.nextElement();
+      if (!instance.classIsMissing()) {
+	if (instances.classAttribute().isNominal()) {
+	  m_Counts[(int)instance.classValue()] += instance.weight();
+	} else {
+	  m_ClassValue += instance.weight() * instance.classValue();
+	}
+	sumOfWeights += instance.weight();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       }
     }
     if (instances.classAttribute().isNumeric()) {
       if (Utils.gr(sumOfWeights, 0)) {
+<<<<<<< HEAD
         m_ClassValue /= sumOfWeights;
+=======
+	m_ClassValue /= sumOfWeights;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       }
     } else {
       m_ClassValue = Utils.maxIndex(m_Counts);
@@ -160,11 +287,18 @@ public class ZeroR extends AbstractClassifier implements
 
   /**
    * Classifies a given instance.
+<<<<<<< HEAD
    * 
    * @param instance the instance to be classified
    * @return index of the predicted class
    */
   @Override
+=======
+   *
+   * @param instance the instance to be classified
+   * @return index of the predicted class
+   */
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   public double classifyInstance(Instance instance) {
 
     return m_ClassValue;
@@ -172,24 +306,39 @@ public class ZeroR extends AbstractClassifier implements
 
   /**
    * Calculates the class membership probabilities for the given test instance.
+<<<<<<< HEAD
    * 
+=======
+   *
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @param instance the instance to be classified
    * @return predicted class probability distribution
    * @throws Exception if class is numeric
    */
+<<<<<<< HEAD
   @Override
   public double[] distributionForInstance(Instance instance) throws Exception {
 
+=======
+  public double [] distributionForInstance(Instance instance) 
+       throws Exception {
+	 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     if (m_Counts == null) {
       double[] result = new double[1];
       result[0] = m_ClassValue;
       return result;
     } else {
+<<<<<<< HEAD
       return m_Counts.clone();
+=======
+      return (double []) m_Counts.clone();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     }
   }
 
   /**
+<<<<<<< HEAD
    * Returns a string that describes the classifier as source. The classifier
    * will be contained in a class with the given name (there may be auxiliary
    * classes), and will contain a method with the signature:
@@ -204,10 +353,24 @@ public class ZeroR extends AbstractClassifier implements
    * String, with missing values represented as null. The generated code is
    * public domain and comes with no warranty.
    * 
+=======
+   * Returns a string that describes the classifier as source. The
+   * classifier will be contained in a class with the given name (there may
+   * be auxiliary classes),
+   * and will contain a method with the signature:
+   * <pre><code>
+   * public static double classify(Object[] i);
+   * </code></pre>
+   * where the array <code>i</code> contains elements that are either
+   * Double, String, with missing values represented as null. The generated
+   * code is public domain and comes with no warranty.
+   *
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @param className the name that should be given to the source class.
    * @return the object source described by a string
    * @throws Exception if the souce can't be computed
    */
+<<<<<<< HEAD
   @Override
   public String toSource(String className) throws Exception {
     StringBuffer result;
@@ -236,6 +399,32 @@ public class ZeroR extends AbstractClassifier implements
   public String toString() {
 
     if (m_Class == null) {
+=======
+  public String toSource(String className) throws Exception {
+    StringBuffer        result;
+    
+    result = new StringBuffer();
+    
+    result.append("class " + className + " {\n");
+    result.append("  public static double classify(Object[] i) {\n");
+    if (m_Counts != null)
+      result.append("    // always predicts label '" + m_Class.value((int) m_ClassValue) + "'\n");
+    result.append("    return " + m_ClassValue + ";\n");
+    result.append("  }\n");
+    result.append("}\n");
+    
+    return result.toString();
+  }
+ 
+  /**
+   * Returns a description of the classifier.
+   *
+   * @return a description of the classifier as a string.
+   */
+  public String toString() {
+
+    if (m_Class ==  null) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       return "ZeroR: No model built yet.";
     }
     if (m_Counts == null) {
@@ -244,6 +433,7 @@ public class ZeroR extends AbstractClassifier implements
       return "ZeroR predicts class value: " + m_Class.value((int) m_ClassValue);
     }
   }
+<<<<<<< HEAD
 
   /**
    * Returns the revision string.
@@ -253,14 +443,31 @@ public class ZeroR extends AbstractClassifier implements
   @Override
   public String getRevision() {
     return RevisionUtils.extract("$Revision: 12024 $");
+=======
+  
+  /**
+   * Returns the revision string.
+   * 
+   * @return		the revision
+   */
+  public String getRevision() {
+    return RevisionUtils.extract("$Revision: 5529 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**
    * Main method for testing this class.
+<<<<<<< HEAD
    * 
    * @param argv the options
    */
   public static void main(String[] argv) {
+=======
+   *
+   * @param argv the options
+   */
+  public static void main(String [] argv) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     runClassifier(new ZeroR(), argv);
   }
 }

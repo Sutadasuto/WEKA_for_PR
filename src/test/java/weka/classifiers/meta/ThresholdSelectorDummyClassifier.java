@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,6 +12,21 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
@@ -19,12 +35,16 @@
 
 package weka.classifiers.meta;
 
+<<<<<<< HEAD
 import weka.classifiers.AbstractClassifier;
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 import weka.core.Capabilities;
 import weka.core.Capabilities.Capability;
 import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.RevisionUtils;
+<<<<<<< HEAD
 
 /**
  * Dummy classifier - used in ThresholdSelectorTest.
@@ -50,14 +70,45 @@ public class ThresholdSelectorDummyClassifier
     for (int i = 0; i < preds.length; i++) {
       m_Preds[i] = preds[i];
     }
+=======
+import weka.classifiers.Classifier;
+
+/**
+ * Dummy classifier - used in ThresholdSelectorTest.
+ *
+ * @author <a href="mailto:len@reeltwo.com">Len Trigg</a>
+ * @author FracPete (fracpet at waikato dor ac dot nz)
+ * @version $Revision: 1.4 $
+ * @see ThresholdSelectorTest
+ */
+public class ThresholdSelectorDummyClassifier 
+  extends Classifier {
+
+  /** for serialization */
+  private static final long serialVersionUID = -2040984810834943903L;
+  
+  private double[] m_Preds;
+  private int m_Pos;
+
+  public ThresholdSelectorDummyClassifier(double[] preds) {
+    m_Preds = new double[preds.length];
+    for (int i = 0; i < preds.length; i++)
+      m_Preds[i] = preds[i];
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**
    * Returns default capabilities of the classifier.
+<<<<<<< HEAD
    * 
    * @return the capabilities of this classifier
    */
   @Override
+=======
+   *
+   * @return      the capabilities of this classifier
+   */
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   public Capabilities getCapabilities() {
     Capabilities result = super.getCapabilities();
 
@@ -68,6 +119,7 @@ public class ThresholdSelectorDummyClassifier
 
     // class
     result.enable(Capability.NOMINAL_CLASS);
+<<<<<<< HEAD
 
     return result;
   }
@@ -78,6 +130,15 @@ public class ThresholdSelectorDummyClassifier
   }
 
   @Override
+=======
+    
+    return result;
+  }
+
+  public void buildClassifier(Instances train) { 
+  }
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   public double[] distributionForInstance(Instance test) throws Exception {
     double[] result = new double[test.numClasses()];
     int pred = 0;
@@ -91,6 +152,7 @@ public class ThresholdSelectorDummyClassifier
     m_Pos = (m_Pos + 1) % m_Preds.length;
     return result;
   }
+<<<<<<< HEAD
 
   @Override
   public String toString() {
@@ -112,3 +174,16 @@ public class ThresholdSelectorDummyClassifier
     return RevisionUtils.extract("$Revision: 11263 $");
   }
 }
+=======
+  
+  /**
+   * Returns the revision string.
+   * 
+   * @return		the revision
+   */
+  public String getRevision() {
+    return RevisionUtils.extract("$Revision: 1.4 $");
+  }
+}
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb

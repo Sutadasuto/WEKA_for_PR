@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -15,24 +16,57 @@
 
 /*
  * Copyright (C) 2008-2014 University of Waikato 
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ */
+
+/*
+ * Copyright (C) 2008 University of Waikato 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 package weka.filters.unsupervised.instance;
 
+<<<<<<< HEAD
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 import weka.core.Attribute;
 import weka.core.Instances;
 import weka.filters.AbstractFilterTest;
 import weka.filters.Filter;
 
+<<<<<<< HEAD
+=======
+import junit.framework.Test;
+import junit.framework.TestSuite;
+import junit.textui.TestRunner;
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 /**
  * Tests SubsetByExpression. Run from the command line with: <p/>
  * java weka.filters.unsupervised.instance.SubsetByExpressionTest
  *
  * @author FracPete (fracpete at waikato dot ac dot nz)
+<<<<<<< HEAD
  * @version $Revision: 11497 $
+=======
+ * @version $Revision: 1.1 $
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 public class SubsetByExpressionTest
   extends AbstractFilterTest {
@@ -54,7 +88,10 @@ public class SubsetByExpressionTest
    *
    * @throws Exception 	if an error occurs reading the example instances.
    */
+<<<<<<< HEAD
   @Override
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   protected void setUp() throws Exception {
     super.setUp();
     
@@ -67,7 +104,10 @@ public class SubsetByExpressionTest
    * 
    * @return		the filter
    */
+<<<<<<< HEAD
   @Override
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   public Filter getFilter() {
     return new SubsetByExpression();
   }
@@ -83,7 +123,11 @@ public class SubsetByExpressionTest
     result.setExpression(expr);
     return result;
   }
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   /**
    * Tests the "ismissing" functionality.
    */
@@ -115,6 +159,7 @@ public class SubsetByExpressionTest
   }
   
   /**
+<<<<<<< HEAD
    * Tests the "CLASS" shortcut with 'regexp'.
    */
   public void testClassRegexp() {
@@ -125,6 +170,8 @@ public class SubsetByExpressionTest
   }
   
   /**
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * Tests the "CLASS" shortcut with 'is' over all class labels, using ' or '.
    */
   public void testClassIs2() {
@@ -135,7 +182,11 @@ public class SubsetByExpressionTest
   }
   
   /**
+<<<<<<< HEAD
    * Tests the "ATT1" placeholder with 'is'.
+=======
+   * Tests the "ATT1" shortcut with 'is'.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    */
   public void testAttIs() {
     m_Filter = getFilter("ATT1 is 'r'");
@@ -145,6 +196,7 @@ public class SubsetByExpressionTest
   }
   
   /**
+<<<<<<< HEAD
    * Tests the "ATT1" placeholder with 'regexp'.
    */
   public void testAttRegexp() {
@@ -155,6 +207,8 @@ public class SubsetByExpressionTest
   }
   
   /**
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * Tests the "&gt;" functionality.
    */
   public void testGreater() {

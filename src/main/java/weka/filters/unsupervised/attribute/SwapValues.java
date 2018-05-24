@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,10 +12,26 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
  *    SwapValues.java
+<<<<<<< HEAD
  *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
  *
  */
@@ -26,11 +43,32 @@ import java.util.Enumeration;
 import java.util.Vector;
 
 import weka.core.*;
+=======
+ *    Copyright (C) 1999 University of Waikato, Hamilton, New Zealand
+ *
+ */
+
+
+package weka.filters.unsupervised.attribute;
+
+import weka.core.Attribute;
+import weka.core.Capabilities;
+import weka.core.FastVector;
+import weka.core.Instance;
+import weka.core.Instances;
+import weka.core.Option;
+import weka.core.OptionHandler;
+import weka.core.RevisionUtils;
+import weka.core.SingleIndex;
+import weka.core.UnsupportedAttributeTypeException;
+import weka.core.Utils;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 import weka.core.Capabilities.Capability;
 import weka.filters.Filter;
 import weka.filters.StreamableFilter;
 import weka.filters.UnsupervisedFilter;
 
+<<<<<<< HEAD
 /**
  * <!-- globalinfo-start --> Swaps two values of a nominal attribute.
  * <p/>
@@ -62,10 +100,44 @@ import weka.filters.UnsupervisedFilter;
 public class SwapValues extends Filter implements UnsupervisedFilter,
   StreamableFilter, OptionHandler, WeightedInstancesHandler, WeightedAttributesHandler {
 
+=======
+import java.util.Enumeration;
+import java.util.Vector;
+
+
+/** 
+ <!-- globalinfo-start -->
+ * Swaps two values of a nominal attribute.
+ * <p/>
+ <!-- globalinfo-end -->
+ * 
+ <!-- options-start -->
+ * Valid options are: <p/>
+ * 
+ * <pre> -C &lt;col&gt;
+ *  Sets the attribute index (default last).</pre>
+ * 
+ * <pre> -F &lt;value index&gt;
+ *  Sets the first value's index (default first).</pre>
+ * 
+ * <pre> -S &lt;value index&gt;
+ *  Sets the second value's index (default last).</pre>
+ * 
+ <!-- options-end -->
+ *
+ * @author Eibe Frank (eibe@cs.waikato.ac.nz) 
+ * @version $Revision: 8585 $
+ */
+public class SwapValues 
+  extends Filter 
+  implements UnsupervisedFilter, StreamableFilter, OptionHandler {
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   /** for serialization */
   static final long serialVersionUID = 6155834679414275855L;
 
   /** The attribute's index setting. */
+<<<<<<< HEAD
   private final SingleIndex m_AttIndex = new SingleIndex("last");
 
   /** The first value's index setting. */
@@ -92,6 +164,33 @@ public class SwapValues extends Filter implements UnsupervisedFilter,
    * @see Capabilities
    */
   @Override
+=======
+  private SingleIndex m_AttIndex = new SingleIndex("last"); 
+
+  /** The first value's index setting. */
+  private SingleIndex m_FirstIndex = new SingleIndex("first");
+
+  /** The second value's index setting. */
+  private SingleIndex m_SecondIndex = new SingleIndex("last");
+
+  /**
+   * Returns a string describing this filter
+   *
+   * @return a description of the filter suitable for
+   * displaying in the explorer/experimenter gui
+   */
+  public String globalInfo() {
+
+    return  "Swaps two values of a nominal attribute.";
+  }
+
+  /** 
+   * Returns the Capabilities of this filter.
+   *
+   * @return            the capabilities of this object
+   * @see               Capabilities
+   */
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   public Capabilities getCapabilities() {
     Capabilities result = super.getCapabilities();
     result.disableAll();
@@ -99,17 +198,26 @@ public class SwapValues extends Filter implements UnsupervisedFilter,
     // attributes
     result.enableAllAttributes();
     result.enable(Capability.MISSING_VALUES);
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     // class
     result.enableAllClasses();
     result.enable(Capability.MISSING_CLASS_VALUES);
     result.enable(Capability.NO_CLASS);
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     return result;
   }
 
   /**
    * Sets the format of the input instances.
+<<<<<<< HEAD
    * 
    * @param instanceInfo an Instances object containing the input instance
    *          structure (any instances contained in the object are ignored -
@@ -135,12 +243,40 @@ public class SwapValues extends Filter implements UnsupervisedFilter,
     if (instanceInfo.attribute(m_AttIndex.getIndex()).numValues() < 2) {
       throw new UnsupportedAttributeTypeException(
         "Chosen attribute has less than " + "two values.");
+=======
+   *
+   * @param instanceInfo an Instances object containing the input 
+   * instance structure (any instances contained in the object are 
+   * ignored - only the structure is required).
+   * @return true if the outputFormat may be collected immediately
+   * @throws UnsupportedAttributeTypeException if the selected attribute
+   * is not nominal or if it only has one value.
+   * @throws Exception if the input format can't be set 
+   * successfully
+   */
+  public boolean setInputFormat(Instances instanceInfo) 
+       throws Exception {
+
+    super.setInputFormat(instanceInfo);
+    m_AttIndex.setUpper(instanceInfo.numAttributes() - 1);
+    m_FirstIndex.setUpper(instanceInfo.
+			  attribute(m_AttIndex.getIndex()).numValues() - 1);
+    m_SecondIndex.setUpper(instanceInfo.
+			   attribute(m_AttIndex.getIndex()).numValues() - 1);
+    if (!instanceInfo.attribute(m_AttIndex.getIndex()).isNominal()) {
+      throw new UnsupportedAttributeTypeException("Chosen attribute not nominal.");
+    }
+    if (instanceInfo.attribute(m_AttIndex.getIndex()).numValues() < 2) {
+      throw new UnsupportedAttributeTypeException("Chosen attribute has less than " 
+						  + "two values.");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     }
     setOutputFormat();
     return true;
   }
 
   /**
+<<<<<<< HEAD
    * Input an instance for filtering. The instance is processed and made
    * available for output immediately.
    * 
@@ -149,6 +285,16 @@ public class SwapValues extends Filter implements UnsupervisedFilter,
    * @throws IllegalStateException if no input structure has been defined.
    */
   @Override
+=======
+   * Input an instance for filtering. The instance is processed
+   * and made available for output immediately.
+   *
+   * @param instance the input instance
+   * @return true if the filtered instance may now be
+   * collected with output().
+   * @throws IllegalStateException if no input structure has been defined.
+   */
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   public boolean input(Instance instance) {
 
     if (getInputFormat() == null) {
@@ -158,6 +304,7 @@ public class SwapValues extends Filter implements UnsupervisedFilter,
       resetQueue();
       m_NewBatch = false;
     }
+<<<<<<< HEAD
     Instance newInstance = (Instance) instance.copy();
     if (!newInstance.isMissing(m_AttIndex.getIndex())) {
       if ((int) newInstance.value(m_AttIndex.getIndex()) == m_SecondIndex.getIndex()) {
@@ -167,11 +314,24 @@ public class SwapValues extends Filter implements UnsupervisedFilter,
       }
     }
     push(newInstance, false); // No need to copy
+=======
+    Instance newInstance = (Instance)instance.copy();
+    if (!newInstance.isMissing(m_AttIndex.getIndex())) {
+      if ((int)newInstance.value(m_AttIndex.getIndex()) == m_SecondIndex.getIndex()) {
+        newInstance.setValue(m_AttIndex.getIndex(), (double)m_FirstIndex.getIndex());
+      } else if ((int)newInstance.value(m_AttIndex.getIndex()) == 
+		 m_FirstIndex.getIndex()) {
+        newInstance.setValue(m_AttIndex.getIndex(), (double)m_SecondIndex.getIndex());
+      }
+    }
+    push(newInstance);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     return true;
   }
 
   /**
    * Returns an enumeration describing the available options.
+<<<<<<< HEAD
    * 
    * @return an enumeration of all the available options.
    */
@@ -190,10 +350,31 @@ public class SwapValues extends Filter implements UnsupervisedFilter,
     newVector.addElement(new Option(
       "\tSets the second value's index (default last).", "S", 1,
       "-S <value index>"));
+=======
+   *
+   * @return an enumeration of all the available options.
+   */
+  public Enumeration listOptions() {
+
+    Vector newVector = new Vector(3);
+
+    newVector.addElement(new Option(
+              "\tSets the attribute index (default last).",
+              "C", 1, "-C <col>"));
+
+    newVector.addElement(new Option(
+              "\tSets the first value's index (default first).",
+              "F", 1, "-F <value index>"));
+
+    newVector.addElement(new Option(
+              "\tSets the second value's index (default last).",
+              "S", 1, "-S <value index>"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
     return newVector.elements();
   }
 
+<<<<<<< HEAD
   /**
    * Parses a given list of options.
    * <p/>
@@ -224,6 +405,31 @@ public class SwapValues extends Filter implements UnsupervisedFilter,
   @Override
   public void setOptions(String[] options) throws Exception {
 
+=======
+
+  /**
+   * Parses a given list of options. <p/>
+   * 
+   <!-- options-start -->
+   * Valid options are: <p/>
+   * 
+   * <pre> -C &lt;col&gt;
+   *  Sets the attribute index (default last).</pre>
+   * 
+   * <pre> -F &lt;value index&gt;
+   *  Sets the first value's index (default first).</pre>
+   * 
+   * <pre> -S &lt;value index&gt;
+   *  Sets the second value's index (default last).</pre>
+   * 
+   <!-- options-end -->
+   *
+   * @param options the list of options as an array of strings
+   * @throws Exception if an option is not supported
+   */
+  public void setOptions(String[] options) throws Exception {
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     String attIndex = Utils.getOption('C', options);
     if (attIndex.length() != 0) {
       setAttributeIndex(attIndex);
@@ -244,16 +450,24 @@ public class SwapValues extends Filter implements UnsupervisedFilter,
     } else {
       setSecondValueIndex("last");
     }
+<<<<<<< HEAD
 
     if (getInputFormat() != null) {
       setInputFormat(getInputFormat());
     }
 
     Utils.checkForRemainingOptions(options);
+=======
+   
+    if (getInputFormat() != null) {
+      setInputFormat(getInputFormat());
+    }
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**
    * Gets the current settings of the filter.
+<<<<<<< HEAD
    * 
    * @return an array of strings suitable for passing to setOptions
    */
@@ -275,6 +489,31 @@ public class SwapValues extends Filter implements UnsupervisedFilter,
   /**
    * @return tip text for this property suitable for displaying in the
    *         explorer/experimenter gui
+=======
+   *
+   * @return an array of strings suitable for passing to setOptions
+   */
+  public String [] getOptions() {
+
+    String [] options = new String [6];
+    int current = 0;
+
+    options[current++] = "-C";
+    options[current++] = "" + (getAttributeIndex());
+    options[current++] = "-F"; 
+    options[current++] = "" + (getFirstValueIndex());
+    options[current++] = "-S"; 
+    options[current++] = "" + (getSecondValueIndex());
+    while (current < options.length) {
+      options[current++] = "";
+    }
+    return options;
+  }
+
+  /**
+   * @return tip text for this property suitable for
+   * displaying in the explorer/experimenter gui
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    */
   public String attributeIndexTipText() {
 
@@ -284,7 +523,11 @@ public class SwapValues extends Filter implements UnsupervisedFilter,
 
   /**
    * Get the index of the attribute used.
+<<<<<<< HEAD
    * 
+=======
+   *
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @return the index of the attribute
    */
   public String getAttributeIndex() {
@@ -294,15 +537,24 @@ public class SwapValues extends Filter implements UnsupervisedFilter,
 
   /**
    * Sets index of the attribute used.
+<<<<<<< HEAD
    * 
    * @param attIndex the index of the attribute
    */
   public void setAttributeIndex(String attIndex) {
 
+=======
+   *
+   * @param attIndex the index of the attribute
+   */
+  public void setAttributeIndex(String attIndex) {
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     m_AttIndex.setSingleIndex(attIndex);
   }
 
   /**
+<<<<<<< HEAD
    * @return tip text for this property suitable for displaying in the
    *         explorer/experimenter gui
    */
@@ -310,11 +562,24 @@ public class SwapValues extends Filter implements UnsupervisedFilter,
 
     return "The index of the first value "
       + "(\"first\" and \"last\" are valid values).";
+=======
+   * @return tip text for this property suitable for
+   * displaying in the explorer/experimenter gui
+   */
+  public String firstValueIndexTipText() {
+
+    return "The index of the first value."
+      + "(\"first\" and \"last\" are valid values)";
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**
    * Get the index of the first value used.
+<<<<<<< HEAD
    * 
+=======
+   *
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @return the index of the first value
    */
   public String getFirstValueIndex() {
@@ -324,15 +589,24 @@ public class SwapValues extends Filter implements UnsupervisedFilter,
 
   /**
    * Sets index of the first value used.
+<<<<<<< HEAD
    * 
    * @param firstIndex the index of the first value
    */
   public void setFirstValueIndex(String firstIndex) {
 
+=======
+   *
+   * @param firstIndex the index of the first value
+   */
+  public void setFirstValueIndex(String firstIndex) {
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     m_FirstIndex.setSingleIndex(firstIndex);
   }
 
   /**
+<<<<<<< HEAD
    * @return tip text for this property suitable for displaying in the
    *         explorer/experimenter gui
    */
@@ -340,11 +614,24 @@ public class SwapValues extends Filter implements UnsupervisedFilter,
 
     return "The index of the second value "
       + "(\"first\" and \"last\" are valid values).";
+=======
+   * @return tip text for this property suitable for
+   * displaying in the explorer/experimenter gui
+   */
+  public String secondValueIndexTipText() {
+
+    return "The index of the second value."
+      + "(\"first\" and \"last\" are valid values)";
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**
    * Get the index of the second value used.
+<<<<<<< HEAD
    * 
+=======
+   *
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @return the index of the second value
    */
   public String getSecondValueIndex() {
@@ -354,15 +641,24 @@ public class SwapValues extends Filter implements UnsupervisedFilter,
 
   /**
    * Sets index of the second value used.
+<<<<<<< HEAD
    * 
    * @param secondIndex the index of the second value
    */
   public void setSecondValueIndex(String secondIndex) {
 
+=======
+   *
+   * @param secondIndex the index of the second value
+   */
+  public void setSecondValueIndex(String secondIndex) {
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     m_SecondIndex.setSingleIndex(secondIndex);
   }
 
   /**
+<<<<<<< HEAD
    * Set the output format. Swapss the desired nominal attribute values in the
    * header and calls setOutputFormat(Instances) appropriately.
    */
@@ -401,10 +697,50 @@ public class SwapValues extends Filter implements UnsupervisedFilter,
 
     // Construct new header
 
+=======
+   * Set the output format. Swapss the desired nominal attribute values in
+   * the header and calls setOutputFormat(Instances) appropriately.
+   */
+  private void setOutputFormat() {
+    
+    Instances newData;
+    FastVector newAtts, newVals;
+      
+    // Compute new attributes
+      
+    newAtts = new FastVector(getInputFormat().numAttributes());
+    for (int j = 0; j < getInputFormat().numAttributes(); j++) {
+      Attribute att = getInputFormat().attribute(j);
+      if (j != m_AttIndex.getIndex()) {
+	newAtts.addElement(att.copy()); 
+      } else {
+	  
+	// Compute list of attribute values
+	  
+	newVals = new FastVector(att.numValues());
+	for (int i = 0; i < att.numValues(); i++) {
+	  if (i == m_FirstIndex.getIndex()) {
+	    newVals.addElement(att.value(m_SecondIndex.getIndex()));
+	  } else if (i == m_SecondIndex.getIndex()) {
+	    newVals.addElement(att.value(m_FirstIndex.getIndex()));
+	  } else {
+	    newVals.addElement(att.value(i)); 
+	  }
+	}
+	Attribute newAtt = new Attribute(att.name(), newVals);
+	newAtt.setWeight(att.weight());
+	newAtts.addElement(newAtt);
+      }
+    }
+      
+    // Construct new header
+      
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     newData = new Instances(getInputFormat().relationName(), newAtts, 0);
     newData.setClassIndex(getInputFormat().classIndex());
     setOutputFormat(newData);
   }
+<<<<<<< HEAD
 
   /**
    * Returns the revision string.
@@ -422,6 +758,25 @@ public class SwapValues extends Filter implements UnsupervisedFilter,
    * @param argv should contain arguments to the filter: use -h for help
    */
   public static void main(String[] argv) {
+=======
+  
+  /**
+   * Returns the revision string.
+   * 
+   * @return		the revision
+   */
+  public String getRevision() {
+    return RevisionUtils.extract("$Revision: 8585 $");
+  }
+  
+  /**
+   * Main method for testing this class.
+   *
+   * @param argv should contain arguments to the filter: 
+   * use -h for help
+   */
+  public static void main(String [] argv) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     runFilter(new SwapValues(), argv);
   }
 }

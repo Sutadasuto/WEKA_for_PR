@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,25 +12,53 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
  *    LinearNNSearch.java
+<<<<<<< HEAD
  *    Copyright (C) 1999-2012 University of Waikato
+=======
+ *    Copyright (C) 1999-2007 University of Waikato
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 package weka.core.neighboursearch;
 
+<<<<<<< HEAD
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.Vector;
 
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.Option;
 import weka.core.RevisionUtils;
 import weka.core.Utils;
 
+<<<<<<< HEAD
+=======
+import java.util.Enumeration;
+import java.util.Vector;
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 /**
  <!-- globalinfo-start -->
  * Class implementing the brute force search algorithm for nearest neighbour search.
@@ -46,7 +75,11 @@ import weka.core.Utils;
  <!-- options-end -->
  *
  * @author Ashraf M. Kibriya (amk14[at-the-rate]cs[dot]waikato[dot]ac[dot]nz)
+<<<<<<< HEAD
  * @version $Revision: 10141 $
+=======
+ * @version $Revision: 1.2 $
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 public class LinearNNSearch
   extends NearestNeighbourSearch {
@@ -98,15 +131,23 @@ public class LinearNNSearch
    *
    * @return 		an enumeration of all the available options.
    */
+<<<<<<< HEAD
   public Enumeration<Option> listOptions() {
     Vector<Option> result = new Vector<Option>();
+=======
+  public Enumeration listOptions() {
+    Vector result = new Vector();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     
     result.add(new Option(
 	"\tSkip identical instances (distances equal to zero).\n",
 	"S", 1,"-S"));
     
+<<<<<<< HEAD
     result.addAll(Collections.list(super.listOptions()));
     
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     return result.elements();
   }
   
@@ -129,8 +170,11 @@ public class LinearNNSearch
     super.setOptions(options);
 
     setSkipIdentical(Utils.getFlag('S', options));
+<<<<<<< HEAD
     
     Utils.checkForRemainingOptions(options);
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**
@@ -139,9 +183,21 @@ public class LinearNNSearch
    * @return 		an array of strings suitable for passing to setOptions()
    */
   public String[] getOptions() {
+<<<<<<< HEAD
     Vector<String>	result = new Vector<String>();
     
     Collections.addAll(result, super.getOptions());
+=======
+    Vector<String>	result;
+    String[]		options;
+    int			i;
+    
+    result = new Vector<String>();
+    
+    options = super.getOptions();
+    for (i = 0; i < options.length; i++)
+      result.add(options[i]);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     
     if (getSkipIdentical())
       result.add("-S");
@@ -348,6 +404,10 @@ public class LinearNNSearch
    * @return		the revision
    */
   public String getRevision() {
+<<<<<<< HEAD
     return RevisionUtils.extract("$Revision: 10141 $");
+=======
+    return RevisionUtils.extract("$Revision: 1.2 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 }

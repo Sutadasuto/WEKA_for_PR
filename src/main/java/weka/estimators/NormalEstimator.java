@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,23 +12,48 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
  *    NormalEstimator.java
+<<<<<<< HEAD
  *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 1999 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  *
  */
 
 package weka.estimators;
 
+<<<<<<< HEAD
 import weka.core.Capabilities;
 import weka.core.Capabilities.Capability;
 import weka.core.Aggregateable;
+=======
+import weka.core.Capabilities.Capability;
+import weka.core.Capabilities;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 import weka.core.RevisionUtils;
 import weka.core.Statistics;
 import weka.core.Utils;
 
+<<<<<<< HEAD
 /**
  * Simple probability estimator that places a single normal distribution over
  * the observed values.
@@ -37,6 +63,18 @@ import weka.core.Utils;
  */
 public class NormalEstimator extends Estimator implements IncrementalEstimator,
     Aggregateable<NormalEstimator> {
+=======
+/** 
+ * Simple probability estimator that places a single normal distribution
+ * over the observed values.
+ *
+ * @author Len Trigg (trigg@cs.waikato.ac.nz)
+ * @version $Revision: 5540 $
+ */
+public class NormalEstimator
+  extends Estimator
+  implements IncrementalEstimator {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
   /** for serialization */
   private static final long serialVersionUID = 93584379632315841L;
@@ -61,7 +99,11 @@ public class NormalEstimator extends Estimator implements IncrementalEstimator,
 
   /**
    * Round a data value using the defined precision for this estimator
+<<<<<<< HEAD
    * 
+=======
+   *
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @param data the value to round
    * @return the rounded data value
    */
@@ -69,6 +111,7 @@ public class NormalEstimator extends Estimator implements IncrementalEstimator,
 
     return Math.rint(data / m_Precision) * m_Precision;
   }
+<<<<<<< HEAD
 
   // ===============
   // Public methods.
@@ -80,6 +123,19 @@ public class NormalEstimator extends Estimator implements IncrementalEstimator,
    * @param precision the precision to which numeric values are given. For
    *          example, if the precision is stated to be 0.1, the values in the
    *          interval (0.25,0.35] are all treated as 0.3.
+=======
+  
+  // ===============
+  // Public methods.
+  // ===============
+  
+  /**
+   * Constructor that takes a precision argument.
+   *
+   * @param precision the precision to which numeric values are given. For
+   * example, if the precision is stated to be 0.1, the values in the
+   * interval (0.25,0.35] are all treated as 0.3. 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    */
   public NormalEstimator(double precision) {
 
@@ -91,11 +147,18 @@ public class NormalEstimator extends Estimator implements IncrementalEstimator,
 
   /**
    * Add a new data value to the current estimator.
+<<<<<<< HEAD
    * 
    * @param data the new data value
    * @param weight the weight assigned to the data value
    */
   @Override
+=======
+   *
+   * @param data the new data value 
+   * @param weight the weight assigned to the data value 
+   */
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   public void addValue(double data, double weight) {
 
     if (weight == 0) {
@@ -106,6 +169,7 @@ public class NormalEstimator extends Estimator implements IncrementalEstimator,
     m_SumOfValues += data * weight;
     m_SumOfValuesSq += data * data * weight;
 
+<<<<<<< HEAD
     computeParameters();
   }
 
@@ -124,23 +188,47 @@ public class NormalEstimator extends Estimator implements IncrementalEstimator,
         m_StandardDev = Math.max(m_Precision / (2 * 3),
         // allow at most 3sd's within one interval
             stdDev);
+=======
+    if (m_SumOfWeights > 0) {
+      m_Mean = m_SumOfValues / m_SumOfWeights;
+      double stdDev = Math.sqrt(Math.abs(m_SumOfValuesSq 
+					  - m_Mean * m_SumOfValues) 
+					 / m_SumOfWeights);
+      // If the stdDev ~= 0, we really have no idea of scale yet, 
+      // so stick with the default. Otherwise...
+      if (stdDev > 1e-10) {
+	m_StandardDev = Math.max(m_Precision / (2 * 3), 
+				 // allow at most 3sd's within one interval 
+				 stdDev);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       }
     }
   }
 
   /**
    * Get a probability estimate for a value
+<<<<<<< HEAD
    * 
    * @param data the value to estimate the probability of
    * @return the estimated probability of the supplied value
    */
   @Override
+=======
+   *
+   * @param data the value to estimate the probability of
+   * @return the estimated probability of the supplied value
+   */
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   public double getProbability(double data) {
 
     data = round(data);
     double zLower = (data - m_Mean - (m_Precision / 2)) / m_StandardDev;
     double zUpper = (data - m_Mean + (m_Precision / 2)) / m_StandardDev;
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     double pLower = Statistics.normalProbability(zLower);
     double pUpper = Statistics.normalProbability(zUpper);
     return pUpper - pLower;
@@ -149,6 +237,7 @@ public class NormalEstimator extends Estimator implements IncrementalEstimator,
   /**
    * Display a representation of this estimator
    */
+<<<<<<< HEAD
   @Override
   public String toString() {
 
@@ -156,10 +245,19 @@ public class NormalEstimator extends Estimator implements IncrementalEstimator,
         + " StandardDev = " + Utils.doubleToString(m_StandardDev, 4)
         + " WeightSum = " + Utils.doubleToString(m_SumOfWeights, 4)
         + " Precision = " + m_Precision + "\n";
+=======
+  public String toString() {
+
+    return "Normal Distribution. Mean = " + Utils.doubleToString(m_Mean, 4)
+      + " StandardDev = " + Utils.doubleToString(m_StandardDev, 4)
+      + " WeightSum = " + Utils.doubleToString(m_SumOfWeights, 4)
+      + " Precision = " + m_Precision + "\n";
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**
    * Returns default capabilities of the classifier.
+<<<<<<< HEAD
    * 
    * @return the capabilities of this classifier
    */
@@ -168,6 +266,14 @@ public class NormalEstimator extends Estimator implements IncrementalEstimator,
     Capabilities result = super.getCapabilities();
     result.disableAll();
 
+=======
+   *
+   * @return      the capabilities of this classifier
+   */
+  public Capabilities getCapabilities() {
+    Capabilities result = super.getCapabilities();
+    result.disableAll();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     // class
     if (!m_noClass) {
       result.enable(Capability.NOMINAL_CLASS);
@@ -175,7 +281,11 @@ public class NormalEstimator extends Estimator implements IncrementalEstimator,
     } else {
       result.enable(Capability.NO_CLASS);
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     // attributes
     result.enable(Capability.NUMERIC_ATTRIBUTES);
     return result;
@@ -183,7 +293,11 @@ public class NormalEstimator extends Estimator implements IncrementalEstimator,
 
   /**
    * Return the value of the mean of this normal estimator.
+<<<<<<< HEAD
    * 
+=======
+   *
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @return the mean
    */
   public double getMean() {
@@ -192,7 +306,11 @@ public class NormalEstimator extends Estimator implements IncrementalEstimator,
 
   /**
    * Return the value of the standard deviation of this normal estimator.
+<<<<<<< HEAD
    * 
+=======
+   *
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @return the standard deviation
    */
   public double getStdDev() {
@@ -201,7 +319,11 @@ public class NormalEstimator extends Estimator implements IncrementalEstimator,
 
   /**
    * Return the value of the precision of this normal estimator.
+<<<<<<< HEAD
    * 
+=======
+   *
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @return the precision
    */
   public double getPrecision() {
@@ -210,12 +332,17 @@ public class NormalEstimator extends Estimator implements IncrementalEstimator,
 
   /**
    * Return the sum of the weights for this normal estimator.
+<<<<<<< HEAD
    * 
+=======
+   *
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @return the sum of the weights
    */
   public double getSumOfWeights() {
     return m_SumOfWeights;
   }
+<<<<<<< HEAD
 
   /**
    * Returns the revision string.
@@ -286,18 +413,36 @@ public class NormalEstimator extends Estimator implements IncrementalEstimator,
     } catch (Exception ex) {
       ex.printStackTrace();
     }
+=======
+  
+  /**
+   * Returns the revision string.
+   * 
+   * @return		the revision
+   */
+  public String getRevision() {
+    return RevisionUtils.extract("$Revision: 5540 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**
    * Main method for testing this class.
+<<<<<<< HEAD
    * 
    * @param argv should contain a sequence of numeric values
    */
   public static void main(String[] argv) {
+=======
+   *
+   * @param argv should contain a sequence of numeric values
+   */
+  public static void main(String [] argv) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
     try {
 
       if (argv.length == 0) {
+<<<<<<< HEAD
         System.out.println("Please specify a set of instances.");
         return;
       }
@@ -311,6 +456,19 @@ public class NormalEstimator extends Estimator implements IncrementalEstimator,
       }
 
       NormalEstimator.testAggregation();
+=======
+	System.out.println("Please specify a set of instances.");
+	return;
+      }
+      NormalEstimator newEst = new NormalEstimator(0.01);
+      for(int i = 0; i < argv.length; i++) {
+	double current = Double.valueOf(argv[i]).doubleValue();
+	System.out.println(newEst);
+	System.out.println("Prediction for " + current 
+			   + " = " + newEst.getProbability(current));
+	newEst.addValue(current, 1);
+      }
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     } catch (Exception e) {
       System.out.println(e.getMessage());
     }

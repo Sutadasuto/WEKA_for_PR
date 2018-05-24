@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,11 +12,30 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
  * Tee.java
+<<<<<<< HEAD
  * Copyright (C) 2005-2012 University of Waikato, Hamilton, New Zealand
+=======
+ * Copyright (C) 2005 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  *
  */
 
@@ -47,7 +67,11 @@ import java.util.Vector;
 * </pre>
 *
 * @author   FracPete (fracpete at waikato dot ac dot nz)
+<<<<<<< HEAD
 * @version  $Revision: 11247 $
+=======
+* @version  $Revision: 5057 $
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 */
 
 public class Tee
@@ -55,6 +79,7 @@ public class Tee
   implements RevisionHandler {
   
   /** the different PrintStreams. */
+<<<<<<< HEAD
   protected Vector<PrintStream> m_Streams = new Vector<PrintStream>();
   
   /** whether to add timestamps or not. */
@@ -62,6 +87,15 @@ public class Tee
   
   /** whether to add a prefix or not. */
   protected Vector<String> m_Prefixes = new Vector<String>();
+=======
+  protected Vector m_Streams = new Vector();
+  
+  /** whether to add timestamps or not. */
+  protected Vector m_Timestamps = new Vector();
+  
+  /** whether to add a prefix or not. */
+  protected Vector m_Prefixes = new Vector();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   
   /** the default printstream. */
   protected PrintStream m_Default = null;
@@ -70,7 +104,11 @@ public class Tee
    * initializes the object, with a default printstream.
    */
   public Tee() {
+<<<<<<< HEAD
     this(System.out);
+=======
+    this(null);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**
@@ -542,6 +580,10 @@ public class Tee
    * @return		the revision
    */
   public String getRevision() {
+<<<<<<< HEAD
     return RevisionUtils.extract("$Revision: 11247 $");
+=======
+    return RevisionUtils.extract("$Revision: 5057 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 }

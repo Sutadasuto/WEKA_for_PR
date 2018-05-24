@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,11 +12,30 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
  *    NeuralNetwork.java
+<<<<<<< HEAD
  *    Copyright (C) 2008-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 2008 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  *
  */
 
@@ -34,11 +54,15 @@ import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.RevisionUtils;
 import weka.core.Utils;
+<<<<<<< HEAD
 import weka.core.pmml.DerivedFieldMetaInfo;
 import weka.core.pmml.FieldMetaInfo;
 import weka.core.pmml.MiningSchema;
 import weka.core.pmml.NormContinuous;
 import weka.core.pmml.TargetMetaInfo;
+=======
+import weka.core.pmml.*;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
 /**
  * Class implementing import of PMML Neural Network model. Can be used as a Weka
@@ -818,7 +842,11 @@ public class NeuralNetwork extends PMMLClassifier {
    * @see weka.core.RevisionHandler#getRevision()
    */
   public String getRevision() {
+<<<<<<< HEAD
     return RevisionUtils.extract("$Revision: 8034 $");
+=======
+    return RevisionUtils.extract("$Revision: 5562 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
   
   /**                                                                                                             
@@ -827,7 +855,11 @@ public class NeuralNetwork extends PMMLClassifier {
    *                                                                                                              
    * @param inst the instance to be classified                                                                
    * @return the predicted most likely class for the instance or                                                  
+<<<<<<< HEAD
    * Utils.missingValue() if no prediction is made                                                             
+=======
+   * Instance.missingValue() if no prediction is made                                                             
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @exception Exception if an error occurred during the prediction                                              
    */
   public double[] distributionForInstance(Instance inst) throws Exception {
@@ -871,7 +903,11 @@ public class NeuralNetwork extends PMMLClassifier {
         }
         
         if (m_miningSchema.getFieldsAsInstances().classAttribute().isNumeric()) {
+<<<<<<< HEAD
           preds[0] = Utils.missingValue();
+=======
+          preds[0] = Instance.missingValue();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
         }
         return preds;
       } else {

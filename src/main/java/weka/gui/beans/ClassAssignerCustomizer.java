@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,21 +12,51 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
  *    ClassAssignerCustomizer.java
+<<<<<<< HEAD
  *    Copyright (C) 2002-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 2002 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  *
  */
 
 package weka.gui.beans;
 
+<<<<<<< HEAD
+=======
+import weka.core.Attribute;
+import weka.core.Instances;
+import weka.gui.PropertySheetPanel;
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+<<<<<<< HEAD
+=======
+import java.beans.Customizer;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
@@ -33,21 +64,35 @@ import javax.swing.BorderFactory;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+<<<<<<< HEAD
 import javax.swing.JPanel;
 
 import weka.core.Attribute;
 import weka.core.Instances;
 import weka.gui.PropertySheetPanel;
 
+=======
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 /**
  * GUI customizer for the class assigner bean
  *
  * @author <a href="mailto:mhall@cs.waikato.ac.nz">Mark Hall</a>
+<<<<<<< HEAD
  * @version $Revision: 8034 $
  */
 public class ClassAssignerCustomizer
   extends JPanel
   implements BeanCustomizer, CustomizerClosingListener, 
+=======
+ * @version $Revision: 7444 $
+ */
+public class ClassAssignerCustomizer
+  extends JPanel
+  implements Customizer, CustomizerClosingListener, 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   CustomizerCloseRequester, DataFormatListener {
 
   /** for serialization */
@@ -55,6 +100,7 @@ public class ClassAssignerCustomizer
 
   private boolean m_displayColNames = false;
 
+<<<<<<< HEAD
   private transient ClassAssigner m_classAssigner;
 
   private transient PropertyChangeSupport m_pcSupport = 
@@ -69,6 +115,20 @@ public class ClassAssignerCustomizer
   private transient ModifyListener m_modifyListener;
   
   private transient Window m_parent;
+=======
+  private ClassAssigner m_classAssigner;
+
+  private PropertyChangeSupport m_pcSupport = 
+    new PropertyChangeSupport(this);
+
+  private PropertySheetPanel m_caEditor = 
+    new PropertySheetPanel();
+
+  private JComboBox m_ClassCombo = new JComboBox();
+  private JPanel m_holderP = new JPanel();
+  
+  private transient JFrame m_parent;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   
   private transient String m_backup;
 
@@ -76,6 +136,7 @@ public class ClassAssignerCustomizer
     setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 5, 5, 5));
 
     setLayout(new BorderLayout());
+<<<<<<< HEAD
     add(new javax.swing.JLabel("ClassAssignerCustomizer"), 
 	BorderLayout.NORTH);
     m_holderP.setLayout(new BorderLayout());
@@ -97,6 +158,17 @@ public class ClassAssignerCustomizer
 	    }
 	    
 	    m_classAssigner.setClassColumn(selectedI);
+=======
+    add(new javax.swing.JLabel(Messages.getInstance().getString("ClassAssignerCustomizer_JLabel_Text")), 
+	BorderLayout.NORTH);
+    m_holderP.setLayout(new BorderLayout());
+    m_holderP.setBorder(BorderFactory.createTitledBorder(Messages.getInstance().getString("ClassAssignerCustomizer_HolderP_SetBorder_BorderFactoryCreateTitledBorder_Text")));
+    m_holderP.add(m_ClassCombo, BorderLayout.CENTER);
+    m_ClassCombo.addActionListener(new ActionListener() {
+	public void actionPerformed(ActionEvent e) {
+	  if (m_classAssigner != null && m_displayColNames == true) {
+	    m_classAssigner.setClassColumn(""+(m_ClassCombo.getSelectedIndex()));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 	  }
 	}
       });
@@ -115,7 +187,10 @@ public class ClassAssignerCustomizer
     
     okBut.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
+<<<<<<< HEAD
         m_modifyListener.setModifiedStatus(ClassAssignerCustomizer.this, true);
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
         if (m_parent != null) {
           m_parent.dispose();
         }
@@ -146,7 +221,11 @@ public class ClassAssignerCustomizer
     if (m_displayColNames == false) {
       remove(m_caEditor);
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     int existingClassCol = 0;
     
     String classColString = m_classAssigner.getClassColumn();
@@ -163,12 +242,16 @@ public class ClassAssignerCustomizer
         existingClassCol = classAtt.index();
       } else {
         // parse it as a number
+<<<<<<< HEAD
         try {
           existingClassCol = Integer.parseInt(classColString);
         } catch (NumberFormatException ex) {
           System.err.println("Warning : can't parse '" + classColString + "' as a number "
               +" or find it as an attribute in the incoming data (ClassAssigner)");
         }
+=======
+        existingClassCol = Integer.parseInt(classColString);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
         if (existingClassCol < 0) {
           existingClassCol = -1; // no class
         } else if (existingClassCol > format.numAttributes() - 1) {
@@ -179,6 +262,7 @@ public class ClassAssignerCustomizer
       }
     }
     
+<<<<<<< HEAD
     //int existingClassCol = format.classIndex();
 
 /*    if (existingClassCol < 0) {
@@ -188,6 +272,35 @@ public class ClassAssignerCustomizer
     attribNames[0] = "NO CLASS";
     for (int i = 1; i < attribNames.length; i++) {
       String type = "(" + Attribute.typeToStringShort(format.attribute(i-1)) + ") ";
+=======
+    /*int existingClassCol = format.classIndex();
+    if (existingClassCol < 0) {
+      existingClassCol = 0;
+    } */
+    String [] attribNames = new String [format.numAttributes()+1];
+    attribNames[0] = Messages.getInstance().getString("ClassAssignerCustomizer_SetUpColumnSelection_AttribNames0_Text");
+    for (int i = 1; i < attribNames.length; i++) {
+      String type = "";
+      switch (format.attribute(i-1).type()) {
+      case Attribute.NOMINAL:
+	type = Messages.getInstance().getString("ClassAssignerCustomizer_SetUpColumnSelection_AttributeNOMINAL_Text");
+	break;
+      case Attribute.NUMERIC:
+	type = Messages.getInstance().getString("ClassAssignerCustomizer_SetUpColumnSelection_AttributeNUMERIC_Text");
+	break;
+      case Attribute.STRING:
+	type = Messages.getInstance().getString("ClassAssignerCustomizer_SetUpColumnSelection_AttributeSTRING_Text");
+	break;
+      case Attribute.DATE:
+	type = Messages.getInstance().getString("ClassAssignerCustomizer_SetUpColumnSelection_AttributeDATE_Text");
+	break;
+      case Attribute.RELATIONAL:
+	type = Messages.getInstance().getString("ClassAssignerCustomizer_SetUpColumnSelection_AttributeRELATIONAL_Text");
+	break;
+      default:
+	type = Messages.getInstance().getString("ClassAssignerCustomizer_SetUpColumnSelection_AttributeDEFAULT_Text");
+      }
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       attribNames[i] = type + format.attribute(i-1).name();
     }
     m_ClassCombo.setModel(new DefaultComboBoxModel(attribNames));
@@ -208,6 +321,7 @@ public class ClassAssignerCustomizer
    */
   public void setObject(Object object) {
     if (m_classAssigner != (ClassAssigner)object) {
+<<<<<<< HEAD
       m_classAssigner = (ClassAssigner)object;
       // remove ourselves as a listener from the old ClassAssigner (if necessary)
 /*      if (m_classAssigner != null) {
@@ -216,6 +330,15 @@ public class ClassAssignerCustomizer
 
       // add ourselves as a data format listener
       m_classAssigner.addDataFormatListener(this); */
+=======
+      // remove ourselves as a listener from the old ClassAssigner (if necessary)
+/*      if (m_classAssigner != null) {
+	m_classAssigner.removeDataFormatListener(this);
+      } */
+      m_classAssigner = (ClassAssigner)object;
+      // add ourselves as a data format listener
+//      m_classAssigner.addDataFormatListener(this);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       m_caEditor.setTarget(m_classAssigner);
       if (m_classAssigner.getConnectedFormat() != null) {
 	setUpColumnSelection(m_classAssigner.getConnectedFormat());
@@ -227,7 +350,11 @@ public class ClassAssignerCustomizer
   public void customizerClosing() {
     // remove ourselves as a listener from the ClassAssigner (if necessary)
     if (m_classAssigner != null) {
+<<<<<<< HEAD
       //System.out.println("Customizer deregistering with class assigner");
+=======
+      System.err.println(Messages.getInstance().getString("ClassAssignerCustomizer_CustomizerClosing_Error_Text"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       m_classAssigner.removeDataFormatListener(this);
     }
     
@@ -262,6 +389,7 @@ public class ClassAssignerCustomizer
   public void removePropertyChangeListener(PropertyChangeListener pcl) {
     m_pcSupport.removePropertyChangeListener(pcl);
   }
+<<<<<<< HEAD
 
   @Override
   public void setModifiedListener(ModifyListener l) {
@@ -270,6 +398,10 @@ public class ClassAssignerCustomizer
 
   @Override
   public void setParentWindow(Window parent) {
+=======
+  
+  public void setParentFrame(JFrame parent) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     m_parent = parent;
   }
 }

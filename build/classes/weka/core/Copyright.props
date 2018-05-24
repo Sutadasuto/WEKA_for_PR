@@ -1,10 +1,17 @@
 # central copyright information
 #
 # Author:  FracPete (fracpete at waikato dot ac dot nz)
+<<<<<<< HEAD
 # Version: $Revision: 14027 $
 
 FromYear=1999
 ToYear=2017
+=======
+# Version: $Revision: 11860 $
+
+FromYear=1999
+ToYear=2015
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 Owner=The University of Waikato
 Address=Hamilton, New Zealand
 URL=http://www.cs.waikato.ac.nz/~ml/weka/

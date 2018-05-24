@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,17 +12,39 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
  *    SelectedTag.java
+<<<<<<< HEAD
  *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 1999 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  *
  */
 
 package weka.core;
 
+<<<<<<< HEAD
 import java.io.Serializable;
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 import java.util.HashSet;
 
 /**
@@ -31,6 +54,7 @@ import java.util.HashSet;
  * associating names with the alternative behaviours.
  *
  * @author <a href="mailto:len@reeltwo.com">Len Trigg</a> 
+<<<<<<< HEAD
  * @version $Revision: 11718 $
  */
 public class SelectedTag
@@ -38,6 +62,13 @@ public class SelectedTag
 
   private static final long serialVersionUID = 6947341624626504975L;
 
+=======
+ * @version $Revision: 1.11 $
+ */
+public class SelectedTag
+  implements RevisionHandler {
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   /** The index of the selected tag */
   protected int m_Selected;
   
@@ -54,6 +85,7 @@ public class SelectedTag
    */
   public SelectedTag(int tagID, Tag[] tags) {
     // are IDs unique?
+<<<<<<< HEAD
     HashSet<Integer> ID = new HashSet<Integer>();
     HashSet<String> IDStr = new HashSet<String>();
     for (int i = 0; i < tags.length; i++) {
@@ -70,6 +102,18 @@ public class SelectedTag
         throw new IllegalArgumentException("The ID strings are not unique: " + IDstring + "!");
       }
     }
+=======
+    HashSet ID = new HashSet();
+    HashSet IDStr = new HashSet();
+    for (int i = 0; i < tags.length; i++) {
+      ID.add(new Integer(tags[i].getID()));
+      IDStr.add(tags[i].getIDStr());
+    }
+    if (ID.size() != tags.length)
+      throw new IllegalArgumentException("The IDs are not unique!");
+    if (IDStr.size() != tags.length)
+      throw new IllegalArgumentException("The ID strings are not unique!");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
     for (int i = 0; i < tags.length; i++) {
       if (tags[i].getID() == tagID) {
@@ -155,6 +199,10 @@ public class SelectedTag
    * @return		the revision
    */
   public String getRevision() {
+<<<<<<< HEAD
     return RevisionUtils.extract("$Revision: 11718 $");
+=======
+    return RevisionUtils.extract("$Revision: 1.11 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 }

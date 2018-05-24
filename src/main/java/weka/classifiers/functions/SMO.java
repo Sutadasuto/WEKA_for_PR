@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,31 +12,58 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
  *    SMO.java
+<<<<<<< HEAD
  *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 1999 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  *
  */
 
 package weka.classifiers.functions;
 
+<<<<<<< HEAD
 import weka.classifiers.AbstractClassifier;
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 import weka.classifiers.Classifier;
 import weka.classifiers.functions.supportVector.Kernel;
 import weka.classifiers.functions.supportVector.PolyKernel;
 import weka.classifiers.functions.supportVector.SMOset;
 import weka.core.Attribute;
 import weka.core.Capabilities;
+<<<<<<< HEAD
 import weka.core.Capabilities.Capability;
 import weka.core.DenseInstance;
+=======
+import weka.core.FastVector;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.Option;
 import weka.core.OptionHandler;
 import weka.core.RevisionUtils;
 import weka.core.SelectedTag;
+<<<<<<< HEAD
 import weka.core.Tag;
 import weka.core.TechnicalInformation;
 import weka.core.TechnicalInformation.Field;
@@ -43,6 +71,17 @@ import weka.core.TechnicalInformation.Type;
 import weka.core.TechnicalInformationHandler;
 import weka.core.Utils;
 import weka.core.WeightedInstancesHandler;
+=======
+import weka.core.SerializedObject;
+import weka.core.Tag;
+import weka.core.TechnicalInformation;
+import weka.core.TechnicalInformationHandler;
+import weka.core.Utils;
+import weka.core.WeightedInstancesHandler;
+import weka.core.Capabilities.Capability;
+import weka.core.TechnicalInformation.Field;
+import weka.core.TechnicalInformation.Type;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 import weka.filters.Filter;
 import weka.filters.unsupervised.attribute.NominalToBinary;
 import weka.filters.unsupervised.attribute.Normalize;
@@ -50,14 +89,18 @@ import weka.filters.unsupervised.attribute.ReplaceMissingValues;
 import weka.filters.unsupervised.attribute.Standardize;
 
 import java.io.Serializable;
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.Collections;
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 import java.util.Enumeration;
 import java.util.Random;
 import java.util.Vector;
 
 /**
  <!-- globalinfo-start -->
+<<<<<<< HEAD
  Implements John Platt's sequential minimal optimization algorithm for training a support vector classifier.<br>
  <br>
  This implementation globally replaces all missing values and transforms nominal attributes into binary ones. It also normalizes all attributes by default. (In that case the coefficients in the output are based on the normalized data, not the original data --- this is important for interpreting the classifier.)<br>
@@ -220,15 +263,151 @@ import java.util.Vector;
  <pre> -num-decimal-places
   The number of decimal places for the output of numbers in the model (default 2).</pre>
  
+=======
+ * Implements John Platt's sequential minimal optimization algorithm for training a support vector classifier.<br/>
+ * <br/>
+ * This implementation globally replaces all missing values and transforms nominal attributes into binary ones. It also normalizes all attributes by default. (In that case the coefficients in the output are based on the normalized data, not the original data --- this is important for interpreting the classifier.)<br/>
+ * <br/>
+ * Multi-class problems are solved using pairwise classification (1-vs-1 and if logistic models are built pairwise coupling according to Hastie and Tibshirani, 1998).<br/>
+ * <br/>
+ * To obtain proper probability estimates, use the option that fits logistic regression models to the outputs of the support vector machine. In the multi-class case the predicted probabilities are coupled using Hastie and Tibshirani's pairwise coupling method.<br/>
+ * <br/>
+ * Note: for improved speed normalization should be turned off when operating on SparseInstances.<br/>
+ * <br/>
+ * For more information on the SMO algorithm, see<br/>
+ * <br/>
+ * J. Platt: Fast Training of Support Vector Machines using Sequential Minimal Optimization. In B. Schoelkopf and C. Burges and A. Smola, editors, Advances in Kernel Methods - Support Vector Learning, 1998.<br/>
+ * <br/>
+ * S.S. Keerthi, S.K. Shevade, C. Bhattacharyya, K.R.K. Murthy (2001). Improvements to Platt's SMO Algorithm for SVM Classifier Design. Neural Computation. 13(3):637-649.<br/>
+ * <br/>
+ * Trevor Hastie, Robert Tibshirani: Classification by Pairwise Coupling. In: Advances in Neural Information Processing Systems, 1998.
+ * <p/>
+ <!-- globalinfo-end -->
+ *
+ <!-- technical-bibtex-start -->
+ * BibTeX:
+ * <pre>
+ * &#64;incollection{Platt1998,
+ *    author = {J. Platt},
+ *    booktitle = {Advances in Kernel Methods - Support Vector Learning},
+ *    editor = {B. Schoelkopf and C. Burges and A. Smola},
+ *    publisher = {MIT Press},
+ *    title = {Fast Training of Support Vector Machines using Sequential Minimal Optimization},
+ *    year = {1998},
+ *    URL = {http://research.microsoft.com/\~jplatt/smo.html},
+ *    PS = {http://research.microsoft.com/\~jplatt/smo-book.ps.gz},
+ *    PDF = {http://research.microsoft.com/\~jplatt/smo-book.pdf}
+ * }
+ * 
+ * &#64;article{Keerthi2001,
+ *    author = {S.S. Keerthi and S.K. Shevade and C. Bhattacharyya and K.R.K. Murthy},
+ *    journal = {Neural Computation},
+ *    number = {3},
+ *    pages = {637-649},
+ *    title = {Improvements to Platt's SMO Algorithm for SVM Classifier Design},
+ *    volume = {13},
+ *    year = {2001},
+ *    PS = {http://guppy.mpe.nus.edu.sg/\~mpessk/svm/smo_mod_nc.ps.gz}
+ * }
+ * 
+ * &#64;inproceedings{Hastie1998,
+ *    author = {Trevor Hastie and Robert Tibshirani},
+ *    booktitle = {Advances in Neural Information Processing Systems},
+ *    editor = {Michael I. Jordan and Michael J. Kearns and Sara A. Solla},
+ *    publisher = {MIT Press},
+ *    title = {Classification by Pairwise Coupling},
+ *    volume = {10},
+ *    year = {1998},
+ *    PS = {http://www-stat.stanford.edu/\~hastie/Papers/2class.ps}
+ * }
+ * </pre>
+ * <p/>
+ <!-- technical-bibtex-end -->
+ *
+ <!-- options-start -->
+ * Valid options are: <p/>
+ * 
+ * <pre> -D
+ *  If set, classifier is run in debug mode and
+ *  may output additional info to the console</pre>
+ * 
+ * <pre> -no-checks
+ *  Turns off all checks - use with caution!
+ *  Turning them off assumes that data is purely numeric, doesn't
+ *  contain any missing values, and has a nominal class. Turning them
+ *  off also means that no header information will be stored if the
+ *  machine is linear. Finally, it also assumes that no instance has
+ *  a weight equal to 0.
+ *  (default: checks on)</pre>
+ * 
+ * <pre> -C &lt;double&gt;
+ *  The complexity constant C. (default 1)</pre>
+ * 
+ * <pre> -N
+ *  Whether to 0=normalize/1=standardize/2=neither. (default 0=normalize)</pre>
+ * 
+ * <pre> -L &lt;double&gt;
+ *  The tolerance parameter. (default 1.0e-3)</pre>
+ * 
+ * <pre> -P &lt;double&gt;
+ *  The epsilon for round-off error. (default 1.0e-12)</pre>
+ * 
+ * <pre> -M
+ *  Fit logistic models to SVM outputs. </pre>
+ * 
+ * <pre> -V &lt;double&gt;
+ *  The number of folds for the internal
+ *  cross-validation. (default -1, use training data)</pre>
+ * 
+ * <pre> -W &lt;double&gt;
+ *  The random number seed. (default 1)</pre>
+ * 
+ * <pre> -K &lt;classname and parameters&gt;
+ *  The Kernel to use.
+ *  (default: weka.classifiers.functions.supportVector.PolyKernel)</pre>
+ * 
+ * <pre> 
+ * Options specific to kernel weka.classifiers.functions.supportVector.PolyKernel:
+ * </pre>
+ * 
+ * <pre> -D
+ *  Enables debugging output (if available) to be printed.
+ *  (default: off)</pre>
+ * 
+ * <pre> -no-checks
+ *  Turns off all checks - use with caution!
+ *  (default: checks on)</pre>
+ * 
+ * <pre> -C &lt;num&gt;
+ *  The size of the cache (a prime number), 0 for full cache and 
+ *  -1 to turn it off.
+ *  (default: 250007)</pre>
+ * 
+ * <pre> -E &lt;num&gt;
+ *  The Exponent to use.
+ *  (default: 1.0)</pre>
+ * 
+ * <pre> -L
+ *  Use lower-order terms.
+ *  (default: no)</pre>
+ * 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  <!-- options-end -->
  *
  * @author Eibe Frank (eibe@cs.waikato.ac.nz)
  * @author Shane Legg (shane@intelligenesis.net) (sparse vector code)
  * @author Stuart Inglis (stuart@reeltwo.com) (sparse vector code)
+<<<<<<< HEAD
  * @version $Revision: 12558 $
  */
 public class SMO 
   extends AbstractClassifier 
+=======
+ * @version $Revision: 6025 $
+ */
+public class SMO 
+  extends Classifier 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   implements WeightedInstancesHandler, TechnicalInformationHandler {
 
   /** for serialization */
@@ -248,10 +427,19 @@ public class SMO
       + "normalizes all attributes by default. (In that case the coefficients "
       + "in the output are based on the normalized data, not the "
       + "original data --- this is important for interpreting the classifier.)\n\n"
+<<<<<<< HEAD
       + "Multi-class problems are solved using pairwise classification (aka 1-vs-1).\n\n"
       + "To obtain proper probability estimates, use the option that fits "
       + "calibration models to the outputs of the support vector "
       + "machine. In the multi-class case, the predicted probabilities "
+=======
+      + "Multi-class problems are solved using pairwise classification "
+      + "(1-vs-1 and if logistic models are built pairwise coupling "
+      + "according to Hastie and Tibshirani, 1998).\n\n"
+      + "To obtain proper probability estimates, use the option that fits "
+      + "logistic regression models to the outputs of the support vector "
+      + "machine. In the multi-class case the predicted probabilities "
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       + "are coupled using Hastie and Tibshirani's pairwise coupling "
       + "method.\n\n"
       + "Note: for improved speed normalization should be turned off when "
@@ -329,7 +517,12 @@ public class SMO
     /** Weight vector for linear machine. */
     protected double[] m_weights;
 
+<<<<<<< HEAD
     /** Variables to hold weight vector in sparse form. (To reduce storage requirements.) */
+=======
+    /** Variables to hold weight vector in sparse form.
+	(To reduce storage requirements.) */
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     protected double[] m_sparseWeights;
     protected int[] m_sparseIndices;
 
@@ -357,15 +550,21 @@ public class SMO
     /** The set of support vectors */
     protected SMOset m_supportVectors; // {i: 0 < m_alpha[i]}
 
+<<<<<<< HEAD
     /** Stores calibrator model for probability estimate */
     protected Classifier m_calibrator = null;
 
     /** Reference to the header information for the calibration data */
     protected Instances m_calibrationDataHeader = null;
+=======
+    /** Stores logistic regression model for probability estimate */
+    protected Logistic m_logistic = null;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
     /** Stores the weight of the training instances */
     protected double m_sumOfWeights = 0;
 
+<<<<<<< HEAD
     /** number of kernel evaluations, used for printing statistics only **/
     protected long m_nEvals = -1;
 
@@ -375,6 +574,11 @@ public class SMO
     /**
      * Fits calibrator model to SVM's output, so that reasonable probability estimates can be produced.
      * If numFolds > 0, cross-validation is used to generate the training data for the calibrator.
+=======
+    /**
+     * Fits logistic regression model to SVM outputs analogue
+     * to John Platt's method.  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
      *
      * @param insts the set of training instances
      * @param cl1 the first class' index
@@ -383,6 +587,7 @@ public class SMO
      * @param random for randomizing the data
      * @throws Exception if the sigmoid can't be fit successfully
      */
+<<<<<<< HEAD
     protected void fitCalibrator(Instances insts, int cl1, int cl2, int numFolds, Random random) throws Exception {
 
       // Create header of instances object
@@ -425,11 +630,57 @@ public class SMO
         insts.stratify(numFolds);
         for (int i = 0; i < numFolds; i++) {
           Instances train = insts.trainCV(numFolds, i, random);
+=======
+    protected void fitLogistic(Instances insts, int cl1, int cl2,
+			     int numFolds, Random random) 
+      throws Exception {
+
+      // Create header of instances object
+      FastVector atts = new FastVector(2);
+      atts.addElement(new Attribute("pred"));
+      FastVector attVals = new FastVector(2);
+      attVals.addElement(insts.classAttribute().value(cl1));
+      attVals.addElement(insts.classAttribute().value(cl2));
+      atts.addElement(new Attribute("class", attVals));
+      Instances data = new Instances("data", atts, insts.numInstances());
+      data.setClassIndex(1);
+
+      // Collect data for fitting the logistic model
+      if (numFolds <= 0) {
+
+	// Use training data
+	for (int j = 0; j < insts.numInstances(); j++) {
+	  Instance inst = insts.instance(j);
+	  double[] vals = new double[2];
+	  vals[0] = SVMOutput(-1, inst);
+	  if (inst.classValue() == cl2) {
+	    vals[1] = 1;
+	  }
+	  data.add(new Instance(inst.weight(), vals));
+	}
+      } else {
+
+	// Check whether number of folds too large
+	if (numFolds > insts.numInstances()) {
+	  numFolds = insts.numInstances();
+	}
+
+	// Make copy of instances because we will shuffle them around
+	insts = new Instances(insts);
+	
+	// Perform three-fold cross-validation to collect
+	// unbiased predictions
+	insts.randomize(random);
+	insts.stratify(numFolds);
+	for (int i = 0; i < numFolds; i++) {
+	  Instances train = insts.trainCV(numFolds, i, random);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
           /*	  SerializedObject so = new SerializedObject(this);
                   BinarySMO smo = (BinarySMO)so.getObject(); */
           BinarySMO smo = new BinarySMO();
           smo.setKernel(Kernel.makeCopy(SMO.this.m_kernel));
           smo.buildClassifier(train, cl1, cl2, false, -1, -1);
+<<<<<<< HEAD
           Instances test = insts.testCV(numFolds, i);
           for (int j = 0; j < test.numInstances(); j++) {
             double[] vals = new double[2];
@@ -445,6 +696,23 @@ public class SMO
       // Build calibration model
       m_calibrator = AbstractClassifier.makeCopy(getCalibrator());
       m_calibrator.buildClassifier(data);
+=======
+	  Instances test = insts.testCV(numFolds, i);
+	  for (int j = 0; j < test.numInstances(); j++) {
+	    double[] vals = new double[2];
+	    vals[0] = smo.SVMOutput(-1, test.instance(j));
+	    if (test.instance(j).classValue() == cl2) {
+	      vals[1] = 1;
+	    }
+	    data.add(new Instance(test.instance(j).weight(), vals));
+	  }
+	}
+      }
+
+      // Build logistic regression model
+      m_logistic = new Logistic();
+      m_logistic.buildClassifier(data);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     }
     
     /**
@@ -471,11 +739,16 @@ public class SMO
      * @param insts the set of training instances
      * @param cl1 the first class' index
      * @param cl2 the second class' index
+<<<<<<< HEAD
      * @param fitCalibrator true if calibrator model is to be fit
+=======
+     * @param fitLogistic true if logistic model is to be fit
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
      * @param numFolds number of folds for internal cross-validation
      * @param randomSeed random number generator for cross-validation
      * @throws Exception if the classifier can't be built successfully
      */
+<<<<<<< HEAD
     protected void buildClassifier(Instances insts, int cl1, int cl2, boolean fitCalibrator, int numFolds,
 				 int randomSeed) throws Exception {
 
@@ -513,10 +786,37 @@ public class SMO
         } else {
           throw new Exception("This should never happen!");
         }
+=======
+    protected void buildClassifier(Instances insts, int cl1, int cl2,
+				 boolean fitLogistic, int numFolds,
+				 int randomSeed) throws Exception {
+      
+      // Initialize some variables
+      m_bUp = -1; m_bLow = 1; m_b = 0; 
+      m_alpha = null; m_data = null; m_weights = null; m_errors = null;
+      m_logistic = null; m_I0 = null; m_I1 = null; m_I2 = null;
+      m_I3 = null; m_I4 = null;	m_sparseWeights = null; m_sparseIndices = null;
+
+      // Store the sum of weights
+      m_sumOfWeights = insts.sumOfWeights();
+      
+      // Set class values
+      m_class = new double[insts.numInstances()];
+      m_iUp = -1; m_iLow = -1;
+      for (int i = 0; i < m_class.length; i++) {
+	if ((int) insts.instance(i).classValue() == cl1) {
+	  m_class[i] = -1; m_iLow = i;
+	} else if ((int) insts.instance(i).classValue() == cl2) {
+	  m_class[i] = 1; m_iUp = i;
+	} else {
+	  throw new Exception ("This should never happen!");
+	}
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       }
 
       // Check whether one or both classes are missing
       if ((m_iUp == -1) || (m_iLow == -1)) {
+<<<<<<< HEAD
         if (m_iUp != -1) {
           m_b = -1;
         } else if (m_iLow != -1) {
@@ -542,11 +842,39 @@ public class SMO
         return;
       }
 
+=======
+	if (m_iUp != -1) {
+	  m_b = -1;
+	} else if (m_iLow != -1) {
+	  m_b = 1;
+	} else {
+	  m_class = null;
+	  return;
+	}
+	if (m_KernelIsLinear) {
+	  m_sparseWeights = new double[0];
+	  m_sparseIndices = new int[0];
+	  m_class = null;
+	} else {
+	  m_supportVectors = new SMOset(0);
+	  m_alpha = new double[0];
+	  m_class = new double[0];
+	}
+
+	// Fit sigmoid if requested
+	if (fitLogistic) {
+	  fitLogistic(insts, cl1, cl2, numFolds, new Random(randomSeed));
+	}
+	return;
+      }
+      
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       // Set the reference to the data
       m_data = insts;
 
       // If machine is linear, reserve space for weights
       if (m_KernelIsLinear) {
+<<<<<<< HEAD
         m_weights = new double[m_data.numAttributes()];
       } else {
         m_weights = null;
@@ -555,6 +883,16 @@ public class SMO
       // Initialize alpha array to zero
       m_alpha = new double[m_data.numInstances()];
 
+=======
+	m_weights = new double[m_data.numAttributes()];
+      } else {
+	m_weights = null;
+      }
+      
+      // Initialize alpha array to zero
+      m_alpha = new double[m_data.numInstances()];
+      
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       // Initialize sets
       m_supportVectors = new SMOset(m_data.numInstances());
       m_I0 = new SMOset(m_data.numInstances());
@@ -566,6 +904,7 @@ public class SMO
       // Clean out some instance variables
       m_sparseWeights = null;
       m_sparseIndices = null;
+<<<<<<< HEAD
 
       // init kernel
       m_kernel.buildKernel(m_data);
@@ -584,10 +923,30 @@ public class SMO
         }
       }
 
+=======
+      
+      // init kernel
+      m_kernel.buildKernel(m_data);
+      
+      // Initialize error cache
+      m_errors = new double[m_data.numInstances()];
+      m_errors[m_iLow] = 1; m_errors[m_iUp] = -1;
+     
+      // Build up I1 and I4
+      for (int i = 0; i < m_class.length; i++ ) {
+	if (m_class[i] == 1) {
+	  m_I1.insert(i);
+	} else {
+	  m_I4.insert(i);
+	}
+      }
+      
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       // Loop to find all the support vectors
       int numChanged = 0;
       boolean examineAll = true;
       while ((numChanged > 0) || examineAll) {
+<<<<<<< HEAD
         numChanged = 0;
         if (examineAll) {
           for (int i = 0; i < m_alpha.length; i++) {
@@ -689,6 +1048,102 @@ public class SMO
       if (fitCalibrator) {
         fitCalibrator(insts, cl1, cl2, numFolds, new Random(randomSeed));
       }
+=======
+	numChanged = 0;
+	if (examineAll) {
+	  for (int i = 0; i < m_alpha.length; i++) {
+	    if (examineExample(i)) {
+	      numChanged++;
+	    }
+	  }
+	} else {
+	  
+	  // This code implements Modification 1 from Keerthi et al.'s paper
+	  for (int i = 0; i < m_alpha.length; i++) {
+	    if ((m_alpha[i] > 0) &&  
+		(m_alpha[i] < m_C * m_data.instance(i).weight())) {
+	      if (examineExample(i)) {
+		numChanged++;
+	      }
+	      
+	      // Is optimality on unbound vectors obtained?
+	      if (m_bUp > m_bLow - 2 * m_tol) {
+		numChanged = 0;
+		break;
+	      }
+	    }
+	  }
+	  
+	  //This is the code for Modification 2 from Keerthi et al.'s paper
+	  /*boolean innerLoopSuccess = true; 
+	    numChanged = 0;
+	    while ((m_bUp < m_bLow - 2 * m_tol) && (innerLoopSuccess == true)) {
+	    innerLoopSuccess = takeStep(m_iUp, m_iLow, m_errors[m_iLow]);
+	    }*/
+	}
+	
+	if (examineAll) {
+	  examineAll = false;
+	} else if (numChanged == 0) {
+	  examineAll = true;
+	}
+      }
+      
+      // Set threshold
+      m_b = (m_bLow + m_bUp) / 2.0;
+      
+      // Save memory
+      m_kernel.clean(); 
+      
+      m_errors = null;
+      m_I0 = m_I1 = m_I2 = m_I3 = m_I4 = null;
+      
+      // If machine is linear, delete training data
+      // and store weight vector in sparse format
+      if (m_KernelIsLinear) {
+	
+	// We don't need to store the set of support vectors
+	m_supportVectors = null;
+
+	// We don't need to store the class values either
+	m_class = null;
+	
+	// Clean out training data
+	if (!m_checksTurnedOff) {
+	  m_data = new Instances(m_data, 0);
+	} else {
+	  m_data = null;
+	}
+	
+	// Convert weight vector
+	double[] sparseWeights = new double[m_weights.length];
+	int[] sparseIndices = new int[m_weights.length];
+	int counter = 0;
+	for (int i = 0; i < m_weights.length; i++) {
+	  if (m_weights[i] != 0.0) {
+	    sparseWeights[counter] = m_weights[i];
+	    sparseIndices[counter] = i;
+	    counter++;
+	  }
+	}
+	m_sparseWeights = new double[counter];
+	m_sparseIndices = new int[counter];
+	System.arraycopy(sparseWeights, 0, m_sparseWeights, 0, counter);
+	System.arraycopy(sparseIndices, 0, m_sparseIndices, 0, counter);
+	
+	// Clean out weight vector
+	m_weights = null;
+	
+	// We don't need the alphas in the linear case
+	m_alpha = null;
+      }
+      
+      // Fit sigmoid if requested
+      if (fitLogistic) {
+	fitLogistic(insts, cl1, cl2, numFolds, new Random(randomSeed));
+      }
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     }
     
     /**
@@ -700,6 +1155,7 @@ public class SMO
      * @throws Exception in case of an error
      */
     public double SVMOutput(int index, Instance inst) throws Exception {
+<<<<<<< HEAD
 
       double result = 0;
 
@@ -741,6 +1197,47 @@ public class SMO
       }
       result -= m_b;
 
+=======
+      
+      double result = 0;
+      
+      // Is the machine linear?
+      if (m_KernelIsLinear) {
+	
+	// Is weight vector stored in sparse format?
+	if (m_sparseWeights == null) {
+	  int n1 = inst.numValues(); 
+	  for (int p = 0; p < n1; p++) {
+	    if (inst.index(p) != m_classIndex) {
+	      result += m_weights[inst.index(p)] * inst.valueSparse(p);
+	    }
+	  }
+	} else {
+	  int n1 = inst.numValues(); int n2 = m_sparseWeights.length;
+	  for (int p1 = 0, p2 = 0; p1 < n1 && p2 < n2;) {
+	    int ind1 = inst.index(p1); 
+	    int ind2 = m_sparseIndices[p2];
+	    if (ind1 == ind2) {
+	      if (ind1 != m_classIndex) {
+		result += inst.valueSparse(p1) * m_sparseWeights[p2];
+	      }
+	      p1++; p2++;
+	    } else if (ind1 > ind2) {
+	      p2++;
+	    } else { 
+	      p1++;
+	    }
+	  }
+	}
+      } else {
+	for (int i = m_supportVectors.getNext(-1); i != -1; 
+	     i = m_supportVectors.getNext(i)) {
+	  result += m_class[i] * m_alpha[i] * m_kernel.eval(index, i, inst);
+	}
+      }
+      result -= m_b;
+      
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       return result;
     }
 
@@ -755,6 +1252,7 @@ public class SMO
       int printed = 0;
 
       if ((m_alpha == null) && (m_sparseWeights == null)) {
+<<<<<<< HEAD
         return "BinarySMO: No model built yet.\n";
       }
       try {
@@ -841,6 +1339,97 @@ public class SMO
         return "Can't print BinarySMO classifier.";
       }
 
+=======
+	return "BinarySMO: No model built yet.\n";
+      }
+      try {
+	text.append("BinarySMO\n\n");
+
+	// If machine linear, print weight vector
+	if (m_KernelIsLinear) {
+	  text.append("Machine linear: showing attribute weights, ");
+	  text.append("not support vectors.\n\n");
+
+	  // We can assume that the weight vector is stored in sparse
+	  // format because the classifier has been built
+	  for (int i = 0; i < m_sparseWeights.length; i++) {
+	    if (m_sparseIndices[i] != (int)m_classIndex) {
+	      if (printed > 0) {
+		text.append(" + ");
+	      } else {
+		text.append("   ");
+	      }
+	      text.append(Utils.doubleToString(m_sparseWeights[i], 12, 4) +
+			  " * ");
+	      if (m_filterType == FILTER_STANDARDIZE) {
+		text.append("(standardized) ");
+	      } else if (m_filterType == FILTER_NORMALIZE) {
+		text.append("(normalized) ");
+	      }
+	      if (!m_checksTurnedOff) {
+		text.append(m_data.attribute(m_sparseIndices[i]).name()+"\n");
+	      } else {
+		text.append("attribute with index " + 
+			    m_sparseIndices[i] +"\n");
+	      }
+	      printed++;
+	    }
+	  }
+	} else {
+	  for (int i = 0; i < m_alpha.length; i++) {
+	    if (m_supportVectors.contains(i)) {
+	      double val = m_alpha[i];
+	      if (m_class[i] == 1) {
+		if (printed > 0) {
+		  text.append(" + ");
+		}
+	      } else {
+		text.append(" - ");
+	      }
+	      text.append(Utils.doubleToString(val, 12, 4) 
+			  + " * <");
+	      for (int j = 0; j < m_data.numAttributes(); j++) {
+		if (j != m_data.classIndex()) {
+		  text.append(m_data.instance(i).toString(j));
+		}
+		if (j != m_data.numAttributes() - 1) {
+		  text.append(" ");
+		}
+	      }
+	      text.append("> * X]\n");
+	      printed++;
+	    }
+	  }
+	}
+	if (m_b > 0) {
+	  text.append(" - " + Utils.doubleToString(m_b, 12, 4));
+	} else {
+	  text.append(" + " + Utils.doubleToString(-m_b, 12, 4));
+	}
+
+	if (!m_KernelIsLinear) {
+	  text.append("\n\nNumber of support vectors: " + 
+		      m_supportVectors.numElements());
+	}
+	int numEval = 0;
+	int numCacheHits = -1;
+	if (m_kernel != null) {
+	  numEval = m_kernel.numEvals();
+	  numCacheHits = m_kernel.numCacheHits();
+	}
+	text.append("\n\nNumber of kernel evaluations: " + numEval);
+	if (numCacheHits >= 0 && numEval > 0) {
+	  double hitRatio = 1 - numEval*1.0/(numCacheHits+numEval);
+	  text.append(" (" + Utils.doubleToString(hitRatio*100, 7, 3).trim() + "% cached)");
+	}
+
+      } catch (Exception e) {
+	e.printStackTrace();
+
+	return "Can't print BinarySMO classifier.";
+      }
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       return text.toString();
     }
 
@@ -852,6 +1441,7 @@ public class SMO
      * @throws Exception if something goes wrong
      */
     protected boolean examineExample(int i2) throws Exception {
+<<<<<<< HEAD
 
       double y2, F2;
       int i1 = -1;
@@ -871,6 +1461,25 @@ public class SMO
           m_bLow = F2;
           m_iLow = i2;
         }
+=======
+    
+      double y2, F2;
+      int i1 = -1;
+    
+      y2 = m_class[i2];
+      if (m_I0.contains(i2)) {
+	F2 = m_errors[i2];
+      } else {
+	F2 = SVMOutput(i2, m_data.instance(i2)) + m_b - y2;
+	m_errors[i2] = F2;
+      
+	// Update thresholds
+	if ((m_I1.contains(i2) || m_I2.contains(i2)) && (F2 < m_bUp)) {
+	  m_bUp = F2; m_iUp = i2;
+	} else if ((m_I3.contains(i2) || m_I4.contains(i2)) && (F2 > m_bLow)) {
+	  m_bLow = F2; m_iLow = i2;
+	}
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       }
 
       // Check optimality using current bLow and bUp and, if
@@ -878,6 +1487,7 @@ public class SMO
       // with i2...
       boolean optimal = true;
       if (m_I0.contains(i2) || m_I1.contains(i2) || m_I2.contains(i2)) {
+<<<<<<< HEAD
         if (m_bLow - F2 > 2 * m_tol) {
           optimal = false;
           i1 = m_iLow;
@@ -891,10 +1501,24 @@ public class SMO
       }
       if (optimal) {
         return false;
+=======
+	if (m_bLow - F2 > 2 * m_tol) {
+	  optimal = false; i1 = m_iLow;
+	}
+      }
+      if (m_I0.contains(i2) || m_I3.contains(i2) || m_I4.contains(i2)) {
+	if (F2 - m_bUp > 2 * m_tol) {
+	  optimal = false; i1 = m_iUp;
+	}
+      }
+      if (optimal) {
+	return false;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       }
 
       // For i2 unbound choose the better i1...
       if (m_I0.contains(i2)) {
+<<<<<<< HEAD
         if (m_bLow - F2 > F2 - m_bUp) {
           i1 = m_iLow;
         } else {
@@ -903,6 +1527,16 @@ public class SMO
       }
       if (i1 == -1) {
         throw new Exception("This should never happen!");
+=======
+	if (m_bLow - F2 > F2 - m_bUp) {
+	  i1 = m_iLow;
+	} else {
+	  i1 = m_iUp;
+	}
+      }
+      if (i1 == -1) {
+	throw new Exception("This should never happen!");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       }
       return takeStep(i1, i2, F2);
     }
@@ -920,12 +1554,17 @@ public class SMO
     protected boolean takeStep(int i1, int i2, double F2) throws Exception {
 
       double alph1, alph2, y1, y2, F1, s, L, H, k11, k12, k22, eta,
+<<<<<<< HEAD
               a1, a2, f1, f2, v1, v2, Lobj, Hobj;
+=======
+	a1, a2, f1, f2, v1, v2, Lobj, Hobj;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       double C1 = m_C * m_data.instance(i1).weight();
       double C2 = m_C * m_data.instance(i2).weight();
 
       // Don't do anything if the two instances are the same
       if (i1 == i2) {
+<<<<<<< HEAD
         return false;
       }
 
@@ -934,11 +1573,20 @@ public class SMO
       alph2 = m_alpha[i2];
       y1 = m_class[i1];
       y2 = m_class[i2];
+=======
+	return false;
+      }
+
+      // Initialize variables
+      alph1 = m_alpha[i1]; alph2 = m_alpha[i2];
+      y1 = m_class[i1]; y2 = m_class[i2];
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       F1 = m_errors[i1];
       s = y1 * y2;
 
       // Find the constraints on a2
       if (y1 != y2) {
+<<<<<<< HEAD
         L = Math.max(0, alph2 - alph1);
         H = Math.min(C2, C1 + alph2 - alph1);
       } else {
@@ -947,6 +1595,16 @@ public class SMO
       }
       if (L >= H) {
         return false;
+=======
+	L = Math.max(0, alph2 - alph1); 
+	H = Math.min(C2, C1 + alph2 - alph1);
+      } else {
+	L = Math.max(0, alph1 + alph2 - C1);
+	H = Math.min(C2, alph1 + alph2);
+      }
+      if (L >= H) {
+	return false;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       }
 
       // Compute second derivative of objective function
@@ -958,6 +1616,7 @@ public class SMO
       // Check if second derivative is negative
       if (eta < 0) {
 
+<<<<<<< HEAD
         // Compute unconstrained maximum
         a2 = alph2 - y2 * (F1 - F2) / eta;
 
@@ -1150,6 +1809,192 @@ public class SMO
       }
       if ((m_iLow == -1) || (m_iUp == -1)) {
         throw new Exception("This should never happen!");
+=======
+	// Compute unconstrained maximum
+	a2 = alph2 - y2 * (F1 - F2) / eta;
+
+	// Compute constrained maximum
+	if (a2 < L) {
+	  a2 = L;
+	} else if (a2 > H) {
+	  a2 = H;
+	}
+      } else {
+
+	// Look at endpoints of diagonal
+	f1 = SVMOutput(i1, m_data.instance(i1));
+	f2 = SVMOutput(i2, m_data.instance(i2));
+	v1 = f1 + m_b - y1 * alph1 * k11 - y2 * alph2 * k12; 
+	v2 = f2 + m_b - y1 * alph1 * k12 - y2 * alph2 * k22; 
+	double gamma = alph1 + s * alph2;
+	Lobj = (gamma - s * L) + L - 0.5 * k11 * (gamma - s * L) * (gamma - s * L) - 
+	  0.5 * k22 * L * L - s * k12 * (gamma - s * L) * L - 
+	  y1 * (gamma - s * L) * v1 - y2 * L * v2;
+	Hobj = (gamma - s * H) + H - 0.5 * k11 * (gamma - s * H) * (gamma - s * H) - 
+	  0.5 * k22 * H * H - s * k12 * (gamma - s * H) * H - 
+	  y1 * (gamma - s * H) * v1 - y2 * H * v2;
+	if (Lobj > Hobj + m_eps) {
+	  a2 = L;
+	} else if (Lobj < Hobj - m_eps) {
+	  a2 = H;
+	} else {
+	  a2 = alph2;
+	}
+      }
+      if (Math.abs(a2 - alph2) < m_eps * (a2 + alph2 + m_eps)) {
+	return false;
+      }
+      
+      // To prevent precision problems
+      if (a2 > C2 - m_Del * C2) {
+	a2 = C2;
+      } else if (a2 <= m_Del * C2) {
+	a2 = 0;
+      }
+      
+      // Recompute a1
+      a1 = alph1 + s * (alph2 - a2);
+      
+      // To prevent precision problems
+      if (a1 > C1 - m_Del * C1) {
+	a1 = C1;
+      } else if (a1 <= m_Del * C1) {
+	a1 = 0;
+      }
+      
+      // Update sets
+      if (a1 > 0) {
+	m_supportVectors.insert(i1);
+      } else {
+	m_supportVectors.delete(i1);
+      }
+      if ((a1 > 0) && (a1 < C1)) {
+	m_I0.insert(i1);
+      } else {
+	m_I0.delete(i1);
+      }
+      if ((y1 == 1) && (a1 == 0)) {
+	m_I1.insert(i1);
+      } else {
+	m_I1.delete(i1);
+      }
+      if ((y1 == -1) && (a1 == C1)) {
+	m_I2.insert(i1);
+      } else {
+	m_I2.delete(i1);
+      }
+      if ((y1 == 1) && (a1 == C1)) {
+	m_I3.insert(i1);
+      } else {
+	m_I3.delete(i1);
+      }
+      if ((y1 == -1) && (a1 == 0)) {
+	m_I4.insert(i1);
+      } else {
+	m_I4.delete(i1);
+      }
+      if (a2 > 0) {
+	m_supportVectors.insert(i2);
+      } else {
+	m_supportVectors.delete(i2);
+      }
+      if ((a2 > 0) && (a2 < C2)) {
+	m_I0.insert(i2);
+      } else {
+	m_I0.delete(i2);
+      }
+      if ((y2 == 1) && (a2 == 0)) {
+	m_I1.insert(i2);
+      } else {
+	m_I1.delete(i2);
+      }
+      if ((y2 == -1) && (a2 == C2)) {
+	m_I2.insert(i2);
+      } else {
+	m_I2.delete(i2);
+      }
+      if ((y2 == 1) && (a2 == C2)) {
+	m_I3.insert(i2);
+      } else {
+	m_I3.delete(i2);
+      }
+      if ((y2 == -1) && (a2 == 0)) {
+	m_I4.insert(i2);
+      } else {
+	m_I4.delete(i2);
+      }
+      
+      // Update weight vector to reflect change a1 and a2, if linear SVM
+      if (m_KernelIsLinear) {
+	Instance inst1 = m_data.instance(i1);
+	for (int p1 = 0; p1 < inst1.numValues(); p1++) {
+	  if (inst1.index(p1) != m_data.classIndex()) {
+	    m_weights[inst1.index(p1)] += 
+	      y1 * (a1 - alph1) * inst1.valueSparse(p1);
+	  }
+	}
+	Instance inst2 = m_data.instance(i2);
+	for (int p2 = 0; p2 < inst2.numValues(); p2++) {
+	  if (inst2.index(p2) != m_data.classIndex()) {
+	    m_weights[inst2.index(p2)] += 
+	      y2 * (a2 - alph2) * inst2.valueSparse(p2);
+	  }
+	}
+      }
+      
+      // Update error cache using new Lagrange multipliers
+      for (int j = m_I0.getNext(-1); j != -1; j = m_I0.getNext(j)) {
+	if ((j != i1) && (j != i2)) {
+	  m_errors[j] += 
+	    y1 * (a1 - alph1) * m_kernel.eval(i1, j, m_data.instance(i1)) + 
+	    y2 * (a2 - alph2) * m_kernel.eval(i2, j, m_data.instance(i2));
+	}
+      }
+      
+      // Update error cache for i1 and i2
+      m_errors[i1] += y1 * (a1 - alph1) * k11 + y2 * (a2 - alph2) * k12;
+      m_errors[i2] += y1 * (a1 - alph1) * k12 + y2 * (a2 - alph2) * k22;
+      
+      // Update array with Lagrange multipliers
+      m_alpha[i1] = a1;
+      m_alpha[i2] = a2;
+      
+      // Update thresholds
+      m_bLow = -Double.MAX_VALUE; m_bUp = Double.MAX_VALUE;
+      m_iLow = -1; m_iUp = -1;
+      for (int j = m_I0.getNext(-1); j != -1; j = m_I0.getNext(j)) {
+	if (m_errors[j] < m_bUp) {
+	  m_bUp = m_errors[j]; m_iUp = j;
+	}
+	if (m_errors[j] > m_bLow) {
+	  m_bLow = m_errors[j]; m_iLow = j;
+	}
+      }
+      if (!m_I0.contains(i1)) {
+	if (m_I3.contains(i1) || m_I4.contains(i1)) {
+	  if (m_errors[i1] > m_bLow) {
+	    m_bLow = m_errors[i1]; m_iLow = i1;
+	  } 
+	} else {
+	  if (m_errors[i1] < m_bUp) {
+	    m_bUp = m_errors[i1]; m_iUp = i1;
+	  }
+	}
+      }
+      if (!m_I0.contains(i2)) {
+	if (m_I3.contains(i2) || m_I4.contains(i2)) {
+	  if (m_errors[i2] > m_bLow) {
+	    m_bLow = m_errors[i2]; m_iLow = i2;
+	  }
+	} else {
+	  if (m_errors[i2] < m_bUp) {
+	    m_bUp = m_errors[i2]; m_iUp = i2;
+	  }
+	}
+      }
+      if ((m_iLow == -1) || (m_iUp == -1)) {
+	throw new Exception("This should never happen!");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       }
 
       // Made some progress.
@@ -1165,13 +2010,20 @@ public class SMO
 
       double sum = 0;
       for (int i = 0; i < m_alpha.length; i++) {
+<<<<<<< HEAD
         if (m_alpha[i] > 0) {
           sum += m_class[i] * m_alpha[i];
         }
+=======
+	if (m_alpha[i] > 0) {
+	  sum += m_class[i] * m_alpha[i];
+	}
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       }
       System.err.println("Sum of y(i) * alpha(i): " + sum);
 
       for (int i = 0; i < m_alpha.length; i++) {
+<<<<<<< HEAD
         double output = SVMOutput(i, m_data.instance(i));
         if (Utils.eq(m_alpha[i], 0)) {
           if (Utils.sm(m_class[i] * output, 1)) {
@@ -1191,6 +2043,27 @@ public class SMO
         }
       }
     }
+=======
+	double output = SVMOutput(i, m_data.instance(i));
+	if (Utils.eq(m_alpha[i], 0)) {
+	  if (Utils.sm(m_class[i] * output, 1)) {
+	    System.err.println("KKT condition 1 violated: " + m_class[i] * output);
+	  }
+	} 
+	if (Utils.gr(m_alpha[i], 0) && 
+	    Utils.sm(m_alpha[i], m_C * m_data.instance(i).weight())) {
+	  if (!Utils.eq(m_class[i] * output, 1)) {
+	    System.err.println("KKT condition 2 violated: " + m_class[i] * output);
+	  }
+	} 
+	if (Utils.eq(m_alpha[i], m_C * m_data.instance(i).weight())) {
+	  if (Utils.gr(m_class[i] * output, 1)) {
+	    System.err.println("KKT condition 3 violated: " + m_class[i] * output);
+	  }
+	} 
+      }
+    }  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     
     /**
      * Returns the revision string.
@@ -1198,7 +2071,11 @@ public class SMO
      * @return		the revision
      */
     public String getRevision() {
+<<<<<<< HEAD
       return RevisionUtils.extract("$Revision: 12558 $");
+=======
+      return RevisionUtils.extract("$Revision: 6025 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     }
   }
 
@@ -1258,11 +2135,16 @@ public class SMO
   /** Precision constant for updating sets */
   protected static double m_Del = 1000 * Double.MIN_VALUE;
 
+<<<<<<< HEAD
   /** Whether calibrator models are to be fit */
   protected boolean m_fitCalibratorModels = false;
 
   /** Determines the calibrator model to use for probability estimate */
   protected Classifier m_calibrator = new Logistic();
+=======
+  /** Whether logistic models are to be fit */
+  protected boolean m_fitLogisticModels = false;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
   /** The number of folds for the internal cross-validation */
   protected int m_numFolds = -1;
@@ -1309,7 +2191,10 @@ public class SMO
     // class
     result.disableAllClasses();
     result.disableAllClassDependencies();
+<<<<<<< HEAD
     result.disable(Capability.NO_CLASS);
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     result.enable(Capability.NOMINAL_CLASS);
     result.enable(Capability.MISSING_CLASS_VALUES);
     
@@ -1337,6 +2222,7 @@ public class SMO
        MUST be done since condition (8) of Keerthi's paper 
        is made with the assertion Ci > 0 (See equation (3a). */
       Instances data = new Instances(insts, insts.numInstances());
+<<<<<<< HEAD
       for (int i = 0; i < insts.numInstances(); i++) {
         if (insts.instance(i).weight() > 0)
           data.add(insts.instance(i));
@@ -1344,6 +2230,15 @@ public class SMO
       if (data.numInstances() == 0) {
         throw new Exception("No training instances left after removing " +
                 "instances with weight 0!");
+=======
+      for(int i = 0; i < insts.numInstances(); i++){
+        if(insts.instance(i).weight() > 0)
+          data.add(insts.instance(i));
+      }
+      if (data.numInstances() == 0) {
+        throw new Exception("No training instances left after removing " + 
+        "instances with weight 0!");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       }
       insts = data;
     }
@@ -1351,7 +2246,11 @@ public class SMO
     if (!m_checksTurnedOff) {
       m_Missing = new ReplaceMissingValues();
       m_Missing.setInputFormat(insts);
+<<<<<<< HEAD
       insts = Filter.useFilter(insts, m_Missing);
+=======
+      insts = Filter.useFilter(insts, m_Missing); 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     } else {
       m_Missing = null;
     }
@@ -1359,6 +2258,7 @@ public class SMO
     if (getCapabilities().handles(Capability.NUMERIC_ATTRIBUTES)) {
       boolean onlyNumeric = true;
       if (!m_checksTurnedOff) {
+<<<<<<< HEAD
         for (int i = 0; i < insts.numAttributes(); i++) {
           if (i != insts.classIndex()) {
             if (!insts.attribute(i).isNumeric()) {
@@ -1377,17 +2277,47 @@ public class SMO
         m_NominalToBinary = null;
       }
     } else {
+=======
+	for (int i = 0; i < insts.numAttributes(); i++) {
+	  if (i != insts.classIndex()) {
+	    if (!insts.attribute(i).isNumeric()) {
+	      onlyNumeric = false;
+	      break;
+	    }
+	  }
+	}
+      }
+      
+      if (!onlyNumeric) {
+	m_NominalToBinary = new NominalToBinary();
+	m_NominalToBinary.setInputFormat(insts);
+	insts = Filter.useFilter(insts, m_NominalToBinary);
+      } 
+      else {
+	m_NominalToBinary = null;
+      }
+    }
+    else {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       m_NominalToBinary = null;
     }
 
     if (m_filterType == FILTER_STANDARDIZE) {
       m_Filter = new Standardize();
       m_Filter.setInputFormat(insts);
+<<<<<<< HEAD
       insts = Filter.useFilter(insts, m_Filter);
     } else if (m_filterType == FILTER_NORMALIZE) {
       m_Filter = new Normalize();
       m_Filter.setInputFormat(insts);
       insts = Filter.useFilter(insts, m_Filter);
+=======
+      insts = Filter.useFilter(insts, m_Filter); 
+    } else if (m_filterType == FILTER_NORMALIZE) {
+      m_Filter = new Normalize();
+      m_Filter.setInputFormat(insts);
+      insts = Filter.useFilter(insts, m_Filter); 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     } else {
       m_Filter = null;
     }
@@ -1395,7 +2325,11 @@ public class SMO
     m_classIndex = insts.classIndex();
     m_classAttribute = insts.classAttribute();
     m_KernelIsLinear = (m_kernel instanceof PolyKernel) && (((PolyKernel) m_kernel).getExponent() == 1.0);
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     // Generate subsets representing each class
     Instances[] subsets = new Instances[insts.numClasses()];
     for (int i = 0; i < insts.numClasses(); i++) {
@@ -1403,7 +2337,11 @@ public class SMO
     }
     for (int j = 0; j < insts.numInstances(); j++) {
       Instance inst = insts.instance(j);
+<<<<<<< HEAD
       subsets[(int) inst.classValue()].add(inst);
+=======
+      subsets[(int)inst.classValue()].add(inst);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     }
     for (int i = 0; i < insts.numClasses(); i++) {
       subsets[i].compactify();
@@ -1414,6 +2352,7 @@ public class SMO
     m_classifiers = new BinarySMO[insts.numClasses()][insts.numClasses()];
     for (int i = 0; i < insts.numClasses(); i++) {
       for (int j = i + 1; j < insts.numClasses(); j++) {
+<<<<<<< HEAD
         m_classifiers[i][j] = new BinarySMO();
         m_classifiers[i][j].setKernel(Kernel.makeCopy(getKernel()));
         Instances data = new Instances(insts, insts.numInstances());
@@ -1428,6 +2367,22 @@ public class SMO
         m_classifiers[i][j].buildClassifier(data, i, j,
                 m_fitCalibratorModels,
                 m_numFolds, m_randomSeed);
+=======
+	m_classifiers[i][j] = new BinarySMO();
+	m_classifiers[i][j].setKernel(Kernel.makeCopy(getKernel()));
+	Instances data = new Instances(insts, insts.numInstances());
+	for (int k = 0; k < subsets[i].numInstances(); k++) {
+	  data.add(subsets[i].instance(k));
+	}
+	for (int k = 0; k < subsets[j].numInstances(); k++) {
+	  data.add(subsets[j].instance(k));
+	}
+	data.compactify();
+	data.randomize(rand);
+	m_classifiers[i][j].buildClassifier(data, i, j, 
+					    m_fitLogisticModels,
+					    m_numFolds, m_randomSeed);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       }
     }
   }
@@ -1452,12 +2407,17 @@ public class SMO
       m_NominalToBinary.batchFinished();
       inst = m_NominalToBinary.output();
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     if (m_Filter != null) {
       m_Filter.input(inst);
       m_Filter.batchFinished();
       inst = m_Filter.output();
     }
+<<<<<<< HEAD
 
     if (!m_fitCalibratorModels) {
       double[] result = new double[inst.numClasses()];
@@ -1473,6 +2433,23 @@ public class SMO
             }
           }
         }
+=======
+    
+    if (!m_fitLogisticModels) {
+      double[] result = new double[inst.numClasses()];
+      for (int i = 0; i < inst.numClasses(); i++) {
+	for (int j = i + 1; j < inst.numClasses(); j++) {
+	  if ((m_classifiers[i][j].m_alpha != null) || 
+	      (m_classifiers[i][j].m_sparseWeights != null)) {
+	    double output = m_classifiers[i][j].SVMOutput(-1, inst);
+	    if (output > 0) {
+	      result[j] += 1;
+	    } else {
+	      result[i] += 1;
+	    }
+	  }
+	} 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       }
       Utils.normalize(result);
       return result;
@@ -1481,16 +2458,25 @@ public class SMO
       // We only need to do pairwise coupling if there are more
       // then two classes.
       if (inst.numClasses() == 2) {
+<<<<<<< HEAD
         double[] newInst = new double[2];
         newInst[0] = m_classifiers[0][1].SVMOutput(-1, inst);
         newInst[1] = Utils.missingValue();
         DenseInstance d = new DenseInstance(1, newInst);
         d.setDataset(m_classifiers[0][1].m_calibrationDataHeader);
         return m_classifiers[0][1].m_calibrator.distributionForInstance(d);
+=======
+	double[] newInst = new double[2];
+	newInst[0] = m_classifiers[0][1].SVMOutput(-1, inst);
+	newInst[1] = Instance.missingValue();
+	return m_classifiers[0][1].m_logistic.
+	  distributionForInstance(new Instance(1, newInst));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       }
       double[][] r = new double[inst.numClasses()][inst.numClasses()];
       double[][] n = new double[inst.numClasses()][inst.numClasses()];
       for (int i = 0; i < inst.numClasses(); i++) {
+<<<<<<< HEAD
         for (int j = i + 1; j < inst.numClasses(); j++) {
           if ((m_classifiers[i][j].m_alpha != null) ||
                   (m_classifiers[i][j].m_sparseWeights != null)) {
@@ -1503,6 +2489,19 @@ public class SMO
             n[i][j] = m_classifiers[i][j].m_sumOfWeights;
           }
         }
+=======
+	for (int j = i + 1; j < inst.numClasses(); j++) {
+	  if ((m_classifiers[i][j].m_alpha != null) || 
+	      (m_classifiers[i][j].m_sparseWeights != null)) {
+	    double[] newInst = new double[2];
+	    newInst[0] = m_classifiers[i][j].SVMOutput(-1, inst);
+	    newInst[1] = Instance.missingValue();
+	    r[i][j] = m_classifiers[i][j].m_logistic.
+	      distributionForInstance(new Instance(1, newInst))[0];
+	    n[i][j] = m_classifiers[i][j].m_sumOfWeights;
+	  }
+	}
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       }
       return weka.classifiers.meta.MultiClassClassifier.pairwiseCoupling(n, r);
     }
@@ -1528,7 +2527,11 @@ public class SMO
       m_NominalToBinary.batchFinished();
       inst = m_NominalToBinary.output();
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     if (m_Filter != null) {
       m_Filter.input(inst);
       m_Filter.batchFinished();
@@ -1538,12 +2541,21 @@ public class SMO
     int[] votes = new int[inst.numClasses()];
     for (int i = 0; i < inst.numClasses(); i++) {
       for (int j = i + 1; j < inst.numClasses(); j++) {
+<<<<<<< HEAD
         double output = m_classifiers[i][j].SVMOutput(-1, inst);
         if (output > 0) {
           votes[j] += 1;
         } else {
           votes[i] += 1;
         }
+=======
+	double output = m_classifiers[i][j].SVMOutput(-1, inst);
+	if (output > 0) {
+	  votes[j] += 1;
+	} else {
+	  votes[i] += 1;
+	}
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       }
     }
     return votes;
@@ -1553,6 +2565,7 @@ public class SMO
    * Returns the weights in sparse format.
    */
   public double [][][] sparseWeights() {
+<<<<<<< HEAD
 
     int numValues = m_classAttribute.numValues();
     double[][][] sparseWeights = new double[numValues][numValues][];
@@ -1563,6 +2576,18 @@ public class SMO
       }
     }
 
+=======
+    
+    int numValues = m_classAttribute.numValues();
+    double [][][] sparseWeights = new double[numValues][numValues][];
+    
+    for (int i = 0; i < numValues; i++) {
+      for (int j = i + 1; j < numValues; j++) {
+	sparseWeights[i][j] = m_classifiers[i][j].m_sparseWeights;
+      }
+    }
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     return sparseWeights;
   }
   
@@ -1570,6 +2595,7 @@ public class SMO
    * Returns the indices in sparse format.
    */
   public int [][][] sparseIndices() {
+<<<<<<< HEAD
 
     int numValues = m_classAttribute.numValues();
     int[][][] sparseIndices = new int[numValues][numValues][];
@@ -1580,6 +2606,18 @@ public class SMO
       }
     }
 
+=======
+    
+    int numValues = m_classAttribute.numValues();
+    int [][][] sparseIndices = new int[numValues][numValues][];
+
+    for (int i = 0; i < numValues; i++) {
+      for (int j = i + 1; j < numValues; j++) {
+	sparseIndices[i][j] = m_classifiers[i][j].m_sparseIndices;
+      }
+    }
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     return sparseIndices;
   }
   
@@ -1587,6 +2625,7 @@ public class SMO
    * Returns the bias of each binary SMO.
    */
   public double [][] bias() {
+<<<<<<< HEAD
 
     int numValues = m_classAttribute.numValues();
     double[][] bias = new double[numValues][numValues];
@@ -1597,6 +2636,18 @@ public class SMO
       }
     }
 
+=======
+    
+    int numValues = m_classAttribute.numValues();
+    double [][] bias = new double[numValues][numValues];
+
+    for (int i = 0; i < numValues; i++) {
+      for (int j = i + 1; j < numValues; j++) {
+	bias[i][j] = m_classifiers[i][j].m_b;
+      }
+    }
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     return bias;
   }
   
@@ -1628,6 +2679,7 @@ public class SMO
    * Returns the attribute names.
    */
   public String [][][] attributeNames() {
+<<<<<<< HEAD
 
     int numValues = m_classAttribute.numValues();
     String[][][] attributeNames = new String[numValues][numValues][];
@@ -1642,6 +2694,22 @@ public class SMO
                   m_data.attribute(m_classifiers[i][j].m_sparseIndices[k]).name();
         }
         attributeNames[i][j] = attrNames;
+=======
+    
+    int numValues = m_classAttribute.numValues();
+    String [][][] attributeNames = new String[numValues][numValues][];
+    
+    for (int i = 0; i < numValues; i++) {
+      for (int j = i + 1; j < numValues; j++) {
+        //	int numAttributes = m_classifiers[i][j].m_data.numAttributes();
+	int numAttributes = m_classifiers[i][j].m_sparseIndices.length;
+	String [] attrNames = new String[numAttributes];
+	for (int k = 0; k < numAttributes; k++) {
+	  attrNames[k] = m_classifiers[i][j].
+            m_data.attribute(m_classifiers[i][j].m_sparseIndices[k]).name();
+	}
+	attributeNames[i][j] = attrNames;          
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       }
     }
     return attributeNames;
@@ -1652,6 +2720,7 @@ public class SMO
    *
    * @return an enumeration of all the available options.
    */
+<<<<<<< HEAD
   public Enumeration<Option> listOptions() {
 
     Vector<Option> result = new Vector<Option>();
@@ -1726,6 +2795,74 @@ public class SMO
               + getCalibrator().getClass().getName() + ":"));
       result.addAll(Collections.list(((OptionHandler)getCalibrator()).listOptions()));
     }
+=======
+  public Enumeration listOptions() {
+
+    Vector result = new Vector();
+
+    Enumeration enm = super.listOptions();
+    while (enm.hasMoreElements())
+      result.addElement(enm.nextElement());
+
+    result.addElement(new Option(
+	"\tTurns off all checks - use with caution!\n"
+	+ "\tTurning them off assumes that data is purely numeric, doesn't\n"
+	+ "\tcontain any missing values, and has a nominal class. Turning them\n"
+	+ "\toff also means that no header information will be stored if the\n"
+	+ "\tmachine is linear. Finally, it also assumes that no instance has\n"
+	+ "\ta weight equal to 0.\n"
+	+ "\t(default: checks on)",
+	"no-checks", 0, "-no-checks"));
+
+    result.addElement(new Option(
+	"\tThe complexity constant C. (default 1)",
+	"C", 1, "-C <double>"));
+    
+    result.addElement(new Option(
+	"\tWhether to 0=normalize/1=standardize/2=neither. " +
+	"(default 0=normalize)",
+	"N", 1, "-N"));
+    
+    result.addElement(new Option(
+	"\tThe tolerance parameter. " +
+	"(default 1.0e-3)",
+	"L", 1, "-L <double>"));
+    
+    result.addElement(new Option(
+	"\tThe epsilon for round-off error. " +
+	"(default 1.0e-12)",
+	"P", 1, "-P <double>"));
+    
+    result.addElement(new Option(
+	"\tFit logistic models to SVM outputs. ",
+	"M", 0, "-M"));
+    
+    result.addElement(new Option(
+	"\tThe number of folds for the internal\n" +
+	"\tcross-validation. " +
+	"(default -1, use training data)",
+	"V", 1, "-V <double>"));
+    
+    result.addElement(new Option(
+	"\tThe random number seed. " +
+	"(default 1)",
+	"W", 1, "-W <double>"));
+    
+    result.addElement(new Option(
+	"\tThe Kernel to use.\n"
+	+ "\t(default: weka.classifiers.functions.supportVector.PolyKernel)",
+	"K", 1, "-K <classname and parameters>"));
+
+    result.addElement(new Option(
+	"",
+	"", 0, "\nOptions specific to kernel "
+	+ getKernel().getClass().getName() + ":"));
+    
+    enm = ((OptionHandler) getKernel()).listOptions();
+    while (enm.hasMoreElements())
+      result.addElement(enm.nextElement());
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     return result.elements();
   }
 
@@ -1733,6 +2870,7 @@ public class SMO
    * Parses a given list of options. <p/>
    *
    <!-- options-start -->
+<<<<<<< HEAD
    Valid options are: <p>
    
    <pre> -no-checks
@@ -1834,6 +2972,74 @@ public class SMO
    <pre> -num-decimal-places
     The number of decimal places for the output of numbers in the model (default 2).</pre>
    
+=======
+   * Valid options are: <p/>
+   * 
+   * <pre> -D
+   *  If set, classifier is run in debug mode and
+   *  may output additional info to the console</pre>
+   * 
+   * <pre> -no-checks
+   *  Turns off all checks - use with caution!
+   *  Turning them off assumes that data is purely numeric, doesn't
+   *  contain any missing values, and has a nominal class. Turning them
+   *  off also means that no header information will be stored if the
+   *  machine is linear. Finally, it also assumes that no instance has
+   *  a weight equal to 0.
+   *  (default: checks on)</pre>
+   * 
+   * <pre> -C &lt;double&gt;
+   *  The complexity constant C. (default 1)</pre>
+   * 
+   * <pre> -N
+   *  Whether to 0=normalize/1=standardize/2=neither. (default 0=normalize)</pre>
+   * 
+   * <pre> -L &lt;double&gt;
+   *  The tolerance parameter. (default 1.0e-3)</pre>
+   * 
+   * <pre> -P &lt;double&gt;
+   *  The epsilon for round-off error. (default 1.0e-12)</pre>
+   * 
+   * <pre> -M
+   *  Fit logistic models to SVM outputs. </pre>
+   * 
+   * <pre> -V &lt;double&gt;
+   *  The number of folds for the internal
+   *  cross-validation. (default -1, use training data)</pre>
+   * 
+   * <pre> -W &lt;double&gt;
+   *  The random number seed. (default 1)</pre>
+   * 
+   * <pre> -K &lt;classname and parameters&gt;
+   *  The Kernel to use.
+   *  (default: weka.classifiers.functions.supportVector.PolyKernel)</pre>
+   * 
+   * <pre> 
+   * Options specific to kernel weka.classifiers.functions.supportVector.PolyKernel:
+   * </pre>
+   * 
+   * <pre> -D
+   *  Enables debugging output (if available) to be printed.
+   *  (default: off)</pre>
+   * 
+   * <pre> -no-checks
+   *  Turns off all checks - use with caution!
+   *  (default: checks on)</pre>
+   * 
+   * <pre> -C &lt;num&gt;
+   *  The size of the cache (a prime number), 0 for full cache and 
+   *  -1 to turn it off.
+   *  (default: 250007)</pre>
+   * 
+   * <pre> -E &lt;num&gt;
+   *  The Exponent to use.
+   *  (default: 1.0)</pre>
+   * 
+   * <pre> -L
+   *  Use lower-order terms.
+   *  (default: no)</pre>
+   * 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    <!-- options-end -->
    *
    * @param options the list of options as an array of strings
@@ -1869,7 +3075,11 @@ public class SMO
     else
       setFilterType(new SelectedTag(FILTER_NORMALIZE, TAGS_FILTER));
     
+<<<<<<< HEAD
     setBuildCalibrationModels(Utils.getFlag('M', options));
+=======
+    setBuildLogisticModels(Utils.getFlag('M', options));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     
     tmpStr = Utils.getOption('V', options);
     if (tmpStr.length() != 0)
@@ -1890,6 +3100,7 @@ public class SMO
       tmpOptions[0] = "";
       setKernel(Kernel.forName(tmpStr, tmpOptions));
     }
+<<<<<<< HEAD
 
     String classifierString = Utils.getOption("calibrator", options);
     String [] classifierSpec = Utils.splitOptions(classifierString);
@@ -1905,6 +3116,10 @@ public class SMO
     super.setOptions(options);
     
     Utils.checkForRemainingOptions(options);
+=======
+    
+    super.setOptions(options);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**
@@ -1913,8 +3128,19 @@ public class SMO
    * @return an array of strings suitable for passing to setOptions
    */
   public String[] getOptions() {
+<<<<<<< HEAD
     
     Vector<String> result = new Vector<String>();
+=======
+    int       i;
+    Vector    result;
+    String[]  options;
+
+    result = new Vector();
+    options = super.getOptions();
+    for (i = 0; i < options.length; i++)
+      result.add(options[i]);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
     if (getChecksTurnedOff())
       result.add("-no-checks");
@@ -1931,7 +3157,11 @@ public class SMO
     result.add("-N");
     result.add("" + m_filterType);
     
+<<<<<<< HEAD
     if (getBuildCalibrationModels())
+=======
+    if (getBuildLogisticModels())
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       result.add("-M");
     
     result.add("-V");
@@ -1942,12 +3172,15 @@ public class SMO
 
     result.add("-K");
     result.add("" + getKernel().getClass().getName() + " " + Utils.joinOptions(getKernel().getOptions()));
+<<<<<<< HEAD
 
     result.add("-calibrator");
     result.add(getCalibrator().getClass().getName() + " "
             + Utils.joinOptions(((OptionHandler)getCalibrator()).getOptions()));
 
     Collections.addAll(result, super.getOptions());
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     
     return (String[]) result.toArray(new String[result.size()]);	  
   }
@@ -2011,6 +3244,7 @@ public class SMO
   public Kernel getKernel() {
     return m_kernel;
   }
+<<<<<<< HEAD
 
   /**
    * Returns the tip text for this property
@@ -2040,6 +3274,9 @@ public class SMO
     return m_calibrator;
   }
 
+=======
+     
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   /**
    * Returns the tip text for this property
    * @return tip text for this property suitable for
@@ -2161,6 +3398,7 @@ public class SMO
    * @return tip text for this property suitable for
    * displaying in the explorer/experimenter gui
    */
+<<<<<<< HEAD
   public String buildCalibrationModelsTipText() {
     return "Whether to fit calibration models to the SVM's outputs (for proper probability estimates).";
   }
@@ -2183,6 +3421,31 @@ public class SMO
   public void setBuildCalibrationModels(boolean newbuildCalibrationModels) {
     
     m_fitCalibratorModels = newbuildCalibrationModels;
+=======
+  public String buildLogisticModelsTipText() {
+    return "Whether to fit logistic models to the outputs (for proper "
+      + "probability estimates).";
+  }
+
+  /**
+   * Get the value of buildLogisticModels.
+   *
+   * @return Value of buildLogisticModels.
+   */
+  public boolean getBuildLogisticModels() {
+    
+    return m_fitLogisticModels;
+  }
+  
+  /**
+   * Set the value of buildLogisticModels.
+   *
+   * @param newbuildLogisticModels Value to assign to buildLogisticModels.
+   */
+  public void setBuildLogisticModels(boolean newbuildLogisticModels) {
+    
+    m_fitLogisticModels = newbuildLogisticModels;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
      
   /**
@@ -2192,7 +3455,11 @@ public class SMO
    */
   public String numFoldsTipText() {
     return "The number of folds for cross-validation used to generate "
+<<<<<<< HEAD
       + "training data for calibration models (-1 means use training data).";
+=======
+      + "training data for logistic models (-1 means use training data).";
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
   
   /**
@@ -2250,15 +3517,22 @@ public class SMO
    * @return a description of the classifier as a string
    */
   public String toString() {
+<<<<<<< HEAD
 
     StringBuffer text = new StringBuffer();
 
+=======
+    
+    StringBuffer text = new StringBuffer();
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     if ((m_classAttribute == null)) {
       return "SMO: No model built yet.";
     }
     try {
       text.append("SMO\n\n");
       text.append("Kernel used:\n  " + m_kernel.toString() + "\n\n");
+<<<<<<< HEAD
 
       for (int i = 0; i < m_classAttribute.numValues(); i++) {
         for (int j = i + 1; j < m_classAttribute.numValues(); j++) {
@@ -2277,11 +3551,34 @@ public class SMO
           }
           text.append("\n\n");
         }
+=======
+      
+      for (int i = 0; i < m_classAttribute.numValues(); i++) {
+	for (int j = i + 1; j < m_classAttribute.numValues(); j++) {
+	  text.append("Classifier for classes: " + 
+		      m_classAttribute.value(i) + ", " +
+		      m_classAttribute.value(j) + "\n\n");
+	  text.append(m_classifiers[i][j]);
+	  if (m_fitLogisticModels) {
+	    text.append("\n\n");
+	    if ( m_classifiers[i][j].m_logistic == null) {
+	      text.append("No logistic model has been fit.\n");
+	    } else {
+	      text.append(m_classifiers[i][j].m_logistic);
+	    }
+	  }
+	  text.append("\n\n");
+	}
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       }
     } catch (Exception e) {
       return "Can't print SMO classifier.";
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     return text.toString();
   }
   
@@ -2291,7 +3588,11 @@ public class SMO
    * @return		the revision
    */
   public String getRevision() {
+<<<<<<< HEAD
     return RevisionUtils.extract("$Revision: 12558 $");
+=======
+    return RevisionUtils.extract("$Revision: 6025 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
   
   /**

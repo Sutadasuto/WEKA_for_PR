@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,11 +12,30 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
  *    CostBenefitAnalysis.java
+<<<<<<< HEAD
  *    Copyright (C) 2009-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 2009 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  *
  */
 
@@ -25,9 +45,15 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+<<<<<<< HEAD
 import java.awt.Graphics;
 import java.awt.GraphicsEnvironment;
 import java.awt.GridLayout;
+=======
+import java.awt.GraphicsEnvironment;
+import java.awt.GridLayout;
+import java.awt.Graphics;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
@@ -39,10 +65,14 @@ import java.beans.beancontext.BeanContext;
 import java.beans.beancontext.BeanContextChild;
 import java.beans.beancontext.BeanContextChildSupport;
 import java.io.Serializable;
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.EventObject;
 import java.util.List;
+=======
+import java.util.Enumeration;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 import java.util.Vector;
 
 import javax.swing.BorderFactory;
@@ -58,21 +88,35 @@ import javax.swing.SwingConstants;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+<<<<<<< HEAD
 import weka.classifiers.evaluation.Prediction;
 import weka.classifiers.evaluation.ThresholdCurve;
 import weka.core.Attribute;
 import weka.core.DenseInstance;
+=======
+import weka.classifiers.evaluation.ThresholdCurve;
+import weka.core.Attribute;
+import weka.core.FastVector;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.Utils;
 import weka.gui.Logger;
+<<<<<<< HEAD
 import weka.gui.visualize.PlotData2D;
 import weka.gui.visualize.VisualizePanel;
+=======
+import weka.gui.visualize.VisualizePanel;
+import weka.gui.visualize.Plot2D;
+import weka.gui.visualize.PlotData2D;
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
 /**
  * Bean that aids in analyzing cost/benefit tradeoffs.
  * 
  * @author Mark Hall (mhall{[at]}pentaho{[dot]}com)
+<<<<<<< HEAD
  * @version $Revision: 10220 $
  */
 @KFStep(category = "Visualize", toolTipText = "Interactive cost/benefit analysis")
@@ -93,6 +137,25 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
 
   private transient AnalysisPanel m_analysisPanel;
 
+=======
+ * @version $Revision: 8896 $
+ */
+public class CostBenefitAnalysis extends JPanel 
+  implements BeanCommon, ThresholdDataListener, Visible, UserRequestAcceptor,
+  Serializable, BeanContextChild {
+  
+  /** For serialization */
+  private static final long serialVersionUID = 8647471654613320469L;
+
+  protected BeanVisual m_visual;
+  
+  protected transient JFrame m_popupFrame;
+
+  protected boolean m_framePoppedUp = false;
+  
+  private transient AnalysisPanel m_analysisPanel;
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   /**
    * True if this bean's appearance is the design mode appearance
    */
@@ -102,6 +165,7 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
    * BeanContex that this bean might be contained within
    */
   protected transient BeanContext m_beanContext = null;
+<<<<<<< HEAD
 
   /**
    * BeanContextChild support
@@ -109,25 +173,43 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
   protected BeanContextChildSupport m_bcSupport = new BeanContextChildSupport(
     this);
 
+=======
+  
+  /**
+   * BeanContextChild support
+   */
+  protected BeanContextChildSupport m_bcSupport = 
+    new BeanContextChildSupport(this);
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   /**
    * The object sending us data (we allow only one connection at any one time)
    */
   protected Object m_listenee;
+<<<<<<< HEAD
 
   protected List<EventObject> m_headlessEvents;
 
+=======
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   /**
    * Inner class for displaying the plots and all control widgets.
    * 
    * @author Mark Hall (mhall{[at]}pentaho{[dot]}com)
    */
   protected static class AnalysisPanel extends JPanel {
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     /** For serialization */
     private static final long serialVersionUID = 5364871945448769003L;
 
     /** Displays the performance graphs(s) */
     protected VisualizePanel m_performancePanel = new VisualizePanel();
+<<<<<<< HEAD
 
     /** Displays the cost/benefit (profit/loss) graph */
     protected VisualizePanel m_costBenefitPanel = new VisualizePanel();
@@ -169,10 +251,51 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
       SwingConstants.RIGHT);
     protected JLabel m_conf_actualA = new JLabel(" Actual (a):");
     protected JLabel m_conf_actualB = new JLabel(" Actual (b):");
+=======
+    
+    /** Displays the cost/benefit (profit/loss) graph */
+    protected VisualizePanel m_costBenefitPanel = new VisualizePanel();
+    
+    /** 
+     * The class attribute from the data that was used to generate
+     * the threshold curve
+     */
+    protected Attribute m_classAttribute;
+    
+    /** Data for the threshold curve */
+    protected PlotData2D m_masterPlot;
+    
+    /** Data for the cost/benefit curve */
+    protected PlotData2D m_costBenefit;
+    
+    /** The size of the points being plotted */
+    protected int[] m_shapeSizes;
+    
+    /** The index of the previous plotted point that was highlighted */
+    protected int m_previousShapeIndex = -1;
+        
+    /** The slider for adjusting the threshold */
+    protected JSlider m_thresholdSlider = new JSlider(0,100,0);
+    
+    protected JRadioButton m_percPop = new JRadioButton(Messages.getInstance().getString("CostBenefitAnalysis_PpercPop_JRadioButton_Text"));
+    protected JRadioButton m_percOfTarget = new JRadioButton(Messages.getInstance().getString("CostBenefitAnalysis_PercOfTarget_JRadioButton_Text"));
+    protected JRadioButton m_threshold = new JRadioButton(Messages.getInstance().getString("CostBenefitAnalysis_Threshold_JRadioButton_Text"));
+    
+    protected JLabel m_percPopLab = new JLabel();
+    protected JLabel m_percOfTargetLab = new JLabel();
+    protected JLabel m_thresholdLab = new JLabel();
+    
+    // Confusion matrix stuff
+    protected JLabel m_conf_predictedA = new JLabel(Messages.getInstance().getString("CostBenefitAnalysis_Conf_PredictedA_JLabel_Text"), SwingConstants.RIGHT);
+    protected JLabel m_conf_predictedB = new JLabel(Messages.getInstance().getString("CostBenefitAnalysis_Conf_PredictedB_JLabel_Text"), SwingConstants.RIGHT);
+    protected JLabel m_conf_actualA = new JLabel(Messages.getInstance().getString("CostBenefitAnalysis_Conf_ActualA_JLabel_Text"));
+    protected JLabel m_conf_actualB = new JLabel(Messages.getInstance().getString("CostBenefitAnalysis_Conf_ActualB_JLabel_Text"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     protected ConfusionCell m_conf_aa = new ConfusionCell();
     protected ConfusionCell m_conf_ab = new ConfusionCell();
     protected ConfusionCell m_conf_ba = new ConfusionCell();
     protected ConfusionCell m_conf_bb = new ConfusionCell();
+<<<<<<< HEAD
 
     // Cost matrix stuff
     protected JLabel m_cost_predictedA = new JLabel("Predicted (a)",
@@ -181,10 +304,19 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
       SwingConstants.RIGHT);
     protected JLabel m_cost_actualA = new JLabel(" Actual (a)");
     protected JLabel m_cost_actualB = new JLabel(" Actual (b)");
+=======
+    
+    // Cost matrix stuff
+    protected JLabel m_cost_predictedA = new JLabel(Messages.getInstance().getString("CostBenefitAnalysis_Cost_PredictedA_JLabel_Text"), SwingConstants.RIGHT);
+    protected JLabel m_cost_predictedB = new JLabel(Messages.getInstance().getString("CostBenefitAnalysis_Cost_PredictedB_JLabel_Text"), SwingConstants.RIGHT);
+    protected JLabel m_cost_actualA = new JLabel(Messages.getInstance().getString("CostBenefitAnalysis_Cost_ActualA_JLabel_Text"));
+    protected JLabel m_cost_actualB = new JLabel(Messages.getInstance().getString("CostBenefitAnalysis_Cost_ActualB_JLabel_Text"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     protected JTextField m_cost_aa = new JTextField("0.0", 5);
     protected JTextField m_cost_ab = new JTextField("1.0", 5);
     protected JTextField m_cost_ba = new JTextField("1.0", 5);
     protected JTextField m_cost_bb = new JTextField("0.0", 5);
+<<<<<<< HEAD
     protected JButton m_maximizeCB = new JButton("Maximize Cost/Benefit");
     protected JButton m_minimizeCB = new JButton("Minimize Cost/Benefit");
     protected JRadioButton m_costR = new JRadioButton("Cost");
@@ -203,16 +335,44 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
     /** Classification accuracy */
     protected JLabel m_classificationAccV = new JLabel("-");
 
+=======
+    protected JButton m_maximizeCB = new JButton(Messages.getInstance().getString("CostBenefitAnalysis_MaximizeCB_JButton_Text"));
+    protected JButton m_minimizeCB = new JButton(Messages.getInstance().getString("CostBenefitAnalysis_MinimizeCB_JButton_Text"));
+    protected JRadioButton m_costR = new JRadioButton(Messages.getInstance().getString("CostBenefitAnalysis_CostR_JRadioButton_Text"));
+    protected JRadioButton m_benefitR = new JRadioButton(Messages.getInstance().getString("CostBenefitAnalysis_BenefitR_JRadioButton_Text"));
+    protected JLabel m_costBenefitL = new JLabel(Messages.getInstance().getString("CostBenefitAnalysis_CostBenefitL_JLabel_Text"), SwingConstants.RIGHT);
+    protected JLabel m_costBenefitV = new JLabel("0");
+    protected JLabel m_randomV = new JLabel("0");
+    protected JLabel m_gainV = new JLabel("0");
+    
+    protected int m_originalPopSize;
+    
+    /** Population text field */
+    protected JTextField m_totalPopField = new JTextField(6);
+    protected int m_totalPopPrevious;
+    
+    /** Classification accuracy */
+    protected JLabel m_classificationAccV = new JLabel("-");
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     // Only update curve & stats if values in cost matrix have changed
     protected double m_tpPrevious;
     protected double m_fpPrevious;
     protected double m_tnPrevious;
     protected double m_fnPrevious;
+<<<<<<< HEAD
 
     /**
      * Inner class for handling a single cell in the confusion matrix. Displays
      * the value, value as a percentage of total population and graphical
      * depiction of percentage.
+=======
+    
+    /**
+     * Inner class for handling a single cell in the confusion matrix.
+     * Displays the value, value as a percentage of total population and
+     * graphical depiction of percentage.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
      * 
      * @author Mark Hall (mhall{[at]}pentaho{[dot]}com)
      */
@@ -220,6 +380,7 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
 
       /** For serialization */
       private static final long serialVersionUID = 6148640235434494767L;
+<<<<<<< HEAD
 
       private final JLabel m_conf_cell = new JLabel("-", SwingConstants.RIGHT);
       JLabel m_conf_perc = new JLabel("-", SwingConstants.RIGHT);
@@ -240,27 +401,63 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
           public void paintComponent(Graphics gx) {
             super.paintComponent(gx);
 
+=======
+      
+      private JLabel m_conf_cell = new JLabel("-", SwingConstants.RIGHT);
+      JLabel m_conf_perc = new JLabel("-", SwingConstants.RIGHT);
+      
+      private JPanel m_percentageP;
+      
+      protected double m_percentage = 0;
+      
+      public ConfusionCell() {
+        setLayout(new BorderLayout());
+        setBorder(BorderFactory.createEtchedBorder());
+        
+        add(m_conf_cell, BorderLayout.NORTH);
+        
+        m_percentageP = new JPanel() {
+          public void paintComponent(Graphics gx) {
+            super.paintComponent(gx);
+            
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
             if (m_percentage > 0) {
               gx.setColor(Color.BLUE);
               int height = this.getHeight();
               double width = this.getWidth();
+<<<<<<< HEAD
               int barWidth = (int) (m_percentage * width);
+=======
+              int barWidth = (int)(m_percentage * width); 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
               gx.fillRect(0, 0, barWidth, height);
             }
           }
         };
+<<<<<<< HEAD
 
         Dimension d = new Dimension(30, 5);
+=======
+        
+        Dimension d = new Dimension(30,5);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
         m_percentageP.setMinimumSize(d);
         m_percentageP.setPreferredSize(d);
         JPanel percHolder = new JPanel();
         percHolder.setLayout(new BorderLayout());
         percHolder.add(m_percentageP, BorderLayout.CENTER);
         percHolder.add(m_conf_perc, BorderLayout.EAST);
+<<<<<<< HEAD
 
         add(percHolder, BorderLayout.SOUTH);
       }
 
+=======
+        
+        add(percHolder, BorderLayout.SOUTH);
+      }
+      
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       /**
        * Set the value of a cell.
        * 
@@ -269,29 +466,46 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
        * @param scaleFactor scale the value by this amount
        * @param precision precision for the percentage value
        */
+<<<<<<< HEAD
       public void setCellValue(double cellValue, double max,
         double scaleFactor, int precision) {
         if (!Utils.isMissingValue(cellValue)) {
+=======
+      public void setCellValue(double cellValue, double max, double scaleFactor, int precision) {
+        if (!Instance.isMissingValue(cellValue)) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
           m_percentage = cellValue / max;
         } else {
           m_percentage = 0;
         }
+<<<<<<< HEAD
 
         m_conf_cell.setText(Utils.doubleToString((cellValue * scaleFactor), 0));
         m_conf_perc.setText(Utils.doubleToString(m_percentage * 100.0,
           precision) + "%");
 
+=======
+        
+        m_conf_cell.setText(Utils.doubleToString((cellValue * scaleFactor), 0));
+        m_conf_perc.setText(Utils.doubleToString(m_percentage * 100.0, precision) + "%");
+        
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
         // refresh the percentage bar
         m_percentageP.repaint();
       }
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     public AnalysisPanel() {
       setLayout(new BorderLayout());
       m_performancePanel.setShowAttBars(false);
       m_performancePanel.setShowClassPanel(false);
       m_costBenefitPanel.setShowAttBars(false);
       m_costBenefitPanel.setShowClassPanel(false);
+<<<<<<< HEAD
 
       Dimension size = new Dimension(500, 400);
       m_performancePanel.setPreferredSize(size);
@@ -317,21 +531,59 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
       JPanel lowerPanel = new JPanel();
       lowerPanel.setLayout(new BorderLayout());
 
+=======
+      
+      Dimension size = new Dimension(500, 400);
+      m_performancePanel.setPreferredSize(size);
+      m_performancePanel.setMinimumSize(size);
+      
+      size = new Dimension(500, 400);
+      m_costBenefitPanel.setMinimumSize(size);
+      m_costBenefitPanel.setPreferredSize(size);
+      
+      m_thresholdSlider.addChangeListener(new ChangeListener() {
+        public void stateChanged(ChangeEvent e) {
+          updateInfoForSliderValue((double)m_thresholdSlider.getValue() / 100.0);
+        }
+      });
+      
+      JPanel plotHolder = new JPanel();
+      plotHolder.setLayout(new GridLayout(1,2));      
+      plotHolder.add(m_performancePanel);
+      plotHolder.add(m_costBenefitPanel);
+      add(plotHolder, BorderLayout.CENTER);
+      
+      JPanel lowerPanel = new JPanel();
+      lowerPanel.setLayout(new BorderLayout());
+      
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       ButtonGroup bGroup = new ButtonGroup();
       bGroup.add(m_percPop);
       bGroup.add(m_percOfTarget);
       bGroup.add(m_threshold);
+<<<<<<< HEAD
 
+=======
+      
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       ButtonGroup bGroup2 = new ButtonGroup();
       bGroup2.add(m_costR);
       bGroup2.add(m_benefitR);
       ActionListener rl = new ActionListener() {
+<<<<<<< HEAD
         @Override
         public void actionPerformed(ActionEvent e) {
           if (m_costR.isSelected()) {
             m_costBenefitL.setText("Cost: ");
           } else {
             m_costBenefitL.setText("Benefit: ");
+=======
+        public void actionPerformed(ActionEvent e) {
+          if (m_costR.isSelected()) {
+            m_costBenefitL.setText(Messages.getInstance().getString("CostBenefitAnalysis_AnalysisPanel_CostBenefitL_SetText_Text_First"));
+          } else {
+            m_costBenefitL.setText(Messages.getInstance().getString("CostBenefitAnalysis_AnalysisPanel_CostBenefitL_SetText_Text_Second"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
           }
 
           double gain = Double.parseDouble(m_gainV.getText());
@@ -342,7 +594,11 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
       m_costR.addActionListener(rl);
       m_benefitR.addActionListener(rl);
       m_costR.setSelected(true);
+<<<<<<< HEAD
 
+=======
+      
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       m_percPop.setSelected(true);
       JPanel threshPanel = new JPanel();
       threshPanel.setLayout(new BorderLayout());
@@ -353,6 +609,7 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
       radioHolder.add(m_threshold);
       threshPanel.add(radioHolder, BorderLayout.NORTH);
       threshPanel.add(m_thresholdSlider, BorderLayout.SOUTH);
+<<<<<<< HEAD
 
       JPanel threshInfoPanel = new JPanel();
       threshInfoPanel.setLayout(new GridLayout(3, 2));
@@ -380,6 +637,33 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
       // confusion matrix
       JPanel confusionPanel = new JPanel();
       confusionPanel.setLayout(new GridLayout(3, 3));
+=======
+      
+      JPanel threshInfoPanel = new JPanel();
+      threshInfoPanel.setLayout(new GridLayout(3,2));
+      threshInfoPanel.add(new JLabel(Messages.getInstance().getString("CostBenefitAnalysis_AnalysisPanel_ThreshInfoPanel_JLabel_Text_First"), SwingConstants.RIGHT));
+      threshInfoPanel.add(m_percPopLab);
+      threshInfoPanel.add(new JLabel(Messages.getInstance().getString("CostBenefitAnalysis_AnalysisPanel_ThreshInfoPanel_JLabel_Text_Second"), SwingConstants.RIGHT));
+      threshInfoPanel.add(m_percOfTargetLab);
+      threshInfoPanel.add(new JLabel(Messages.getInstance().getString("CostBenefitAnalysis_AnalysisPanel_ThreshInfoPanel_JLabel_Text_Third"), SwingConstants.RIGHT));
+      threshInfoPanel.add(m_thresholdLab);
+      
+      JPanel threshHolder = new JPanel();
+      threshHolder.setBorder(BorderFactory.createTitledBorder(Messages.getInstance().getString("CostBenefitAnalysis_AnalysisPanel_ThreshInfoPanel_ThreshHolder_SetBorder_BorderFactory_CreateTitledBorder_Text")));
+      threshHolder.setLayout(new BorderLayout());
+      threshHolder.add(threshPanel, BorderLayout.CENTER);
+      threshHolder.add(threshInfoPanel, BorderLayout.EAST);
+      
+      lowerPanel.add(threshHolder, BorderLayout.NORTH);
+      
+      // holder for the two matrixes
+      JPanel matrixHolder = new JPanel();
+      matrixHolder.setLayout(new GridLayout(1,2));
+      
+      // confusion matrix
+      JPanel confusionPanel = new JPanel();
+      confusionPanel.setLayout(new GridLayout(3,3));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       confusionPanel.add(m_conf_predictedA);
       confusionPanel.add(m_conf_predictedB);
       confusionPanel.add(new JLabel()); // dummy
@@ -391,6 +675,7 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
       confusionPanel.add(m_conf_actualB);
       JPanel tempHolderCA = new JPanel();
       tempHolderCA.setLayout(new BorderLayout());
+<<<<<<< HEAD
       tempHolderCA.setBorder(BorderFactory
         .createTitledBorder("Confusion Matrix"));
       tempHolderCA.add(confusionPanel, BorderLayout.CENTER);
@@ -411,6 +696,27 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
       JPanel cmHolder = new JPanel();
       cmHolder.setLayout(new GridLayout(3, 3));
       cmHolder.add(m_cost_predictedA);
+=======
+      tempHolderCA.setBorder(BorderFactory.createTitledBorder(Messages.getInstance().getString("CostBenefitAnalysis_AnalysisPanel_ThreshInfoPanel_TempHolderCA_SetBorder_BorderFactory_CreateTitledBorder_Text")));
+      tempHolderCA.add(confusionPanel, BorderLayout.CENTER);
+      
+      JPanel accHolder = new JPanel();
+      accHolder.setLayout(new FlowLayout(FlowLayout.LEFT));
+      accHolder.add(new JLabel(Messages.getInstance().getString("CostBenefitAnalysis_AnalysisPanel_ThreshInfoPanel_AccHolder_Add_JLabel_Text")));
+      accHolder.add(m_classificationAccV);
+      tempHolderCA.add(accHolder, BorderLayout.SOUTH);
+      
+      matrixHolder.add(tempHolderCA);
+      
+      // cost matrix
+      JPanel costPanel = new JPanel();
+      costPanel.setBorder(BorderFactory.createTitledBorder(Messages.getInstance().getString("CostBenefitAnalysis_AnalysisPanel_CostPanel_SetBorder_BorderFactory_CcreateTitledBorder_Text")));
+      costPanel.setLayout(new BorderLayout());
+      
+      JPanel cmHolder = new JPanel();
+      cmHolder.setLayout(new GridLayout(3, 3));
+      cmHolder.add(m_cost_predictedA);      
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       cmHolder.add(m_cost_predictedB);
       cmHolder.add(new JLabel()); // dummy
       cmHolder.add(m_cost_aa);
@@ -420,6 +726,7 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
       cmHolder.add(m_cost_bb);
       cmHolder.add(m_cost_actualB);
       costPanel.add(cmHolder, BorderLayout.CENTER);
+<<<<<<< HEAD
 
       FocusListener fl = new FocusListener() {
         @Override
@@ -428,12 +735,24 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
         }
 
         @Override
+=======
+      
+      FocusListener fl = new FocusListener() {
+        public void focusGained(FocusEvent e) {
+          
+        }
+        
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
         public void focusLost(FocusEvent e) {
           if (constructCostBenefitData()) {
             try {
               m_costBenefitPanel.setMasterPlot(m_costBenefit);
+<<<<<<< HEAD
               m_costBenefitPanel.validate();
               m_costBenefitPanel.repaint();
+=======
+              m_costBenefitPanel.validate(); m_costBenefitPanel.repaint();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
             } catch (Exception ex) {
               ex.printStackTrace();
             }
@@ -441,15 +760,24 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
           }
         }
       };
+<<<<<<< HEAD
 
       ActionListener al = new ActionListener() {
         @Override
+=======
+      
+      ActionListener al = new ActionListener() {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
         public void actionPerformed(ActionEvent e) {
           if (constructCostBenefitData()) {
             try {
               m_costBenefitPanel.setMasterPlot(m_costBenefit);
+<<<<<<< HEAD
               m_costBenefitPanel.validate();
               m_costBenefitPanel.repaint();
+=======
+              m_costBenefitPanel.validate(); m_costBenefitPanel.repaint();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
             } catch (Exception ex) {
               ex.printStackTrace();
             }
@@ -457,7 +785,11 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
           }
         }
       };
+<<<<<<< HEAD
 
+=======
+            
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       m_cost_aa.addFocusListener(fl);
       m_cost_aa.addActionListener(al);
       m_cost_ab.addFocusListener(fl);
@@ -466,19 +798,32 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
       m_cost_ba.addActionListener(al);
       m_cost_bb.addFocusListener(fl);
       m_cost_bb.addActionListener(al);
+<<<<<<< HEAD
 
       m_totalPopField.addFocusListener(fl);
       m_totalPopField.addActionListener(al);
 
+=======
+      
+      m_totalPopField.addFocusListener(fl);
+      m_totalPopField.addActionListener(al);
+      
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       JPanel cbHolder = new JPanel();
       cbHolder.setLayout(new BorderLayout());
       JPanel tempP = new JPanel();
       tempP.setLayout(new GridLayout(3, 2));
       tempP.add(m_costBenefitL);
       tempP.add(m_costBenefitV);
+<<<<<<< HEAD
       tempP.add(new JLabel("Random: ", SwingConstants.RIGHT));
       tempP.add(m_randomV);
       tempP.add(new JLabel("Gain: ", SwingConstants.RIGHT));
+=======
+      tempP.add(new JLabel(Messages.getInstance().getString("CostBenefitAnalysis_AnalysisPanel_CbHolder_TempP_JPanel_Add_JLabel_Text_First"), SwingConstants.RIGHT));
+      tempP.add(m_randomV);
+      tempP.add(new JLabel(Messages.getInstance().getString("CostBenefitAnalysis_AnalysisPanel_CbHolder_TempP_JPanel_Add_JLabel_Text_Second"), SwingConstants.RIGHT));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       tempP.add(m_gainV);
       cbHolder.add(tempP, BorderLayout.NORTH);
       JPanel butHolder = new JPanel();
@@ -486,35 +831,57 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
       butHolder.add(m_maximizeCB);
       butHolder.add(m_minimizeCB);
       m_maximizeCB.addActionListener(new ActionListener() {
+<<<<<<< HEAD
         @Override
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
         public void actionPerformed(ActionEvent e) {
           findMaxMinCB(true);
         }
       });
+<<<<<<< HEAD
 
       m_minimizeCB.addActionListener(new ActionListener() {
         @Override
+=======
+      
+      m_minimizeCB.addActionListener(new ActionListener() {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
         public void actionPerformed(ActionEvent e) {
           findMaxMinCB(false);
         }
       });
+<<<<<<< HEAD
 
       cbHolder.add(butHolder, BorderLayout.SOUTH);
       costPanel.add(cbHolder, BorderLayout.EAST);
 
+=======
+      
+      cbHolder.add(butHolder, BorderLayout.SOUTH);
+      costPanel.add(cbHolder, BorderLayout.EAST);
+      
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       JPanel popCBR = new JPanel();
       popCBR.setLayout(new GridLayout(1, 2));
       JPanel popHolder = new JPanel();
       popHolder.setLayout(new FlowLayout(FlowLayout.LEFT));
+<<<<<<< HEAD
       popHolder.add(new JLabel("Total Population: "));
       popHolder.add(m_totalPopField);
 
+=======
+      popHolder.add(new JLabel(Messages.getInstance().getString("CostBenefitAnalysis_AnalysisPanel_PopHolder_Add_JLabel_Text")));
+      popHolder.add(m_totalPopField);
+      
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       JPanel radioHolder2 = new JPanel();
       radioHolder2.setLayout(new FlowLayout(FlowLayout.RIGHT));
       radioHolder2.add(m_costR);
       radioHolder2.add(m_benefitR);
       popCBR.add(popHolder);
       popCBR.add(radioHolder2);
+<<<<<<< HEAD
 
       costPanel.add(popCBR, BorderLayout.SOUTH);
 
@@ -543,6 +910,39 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
       Instances cBCurve = m_costBenefit.getPlotInstances();
       int maxMinIndex = 0;
 
+=======
+      
+      costPanel.add(popCBR, BorderLayout.SOUTH);
+      
+      matrixHolder.add(costPanel);
+      
+      
+      lowerPanel.add(matrixHolder, BorderLayout.SOUTH);
+      
+
+
+//      popAccHolder.add(popHolder);
+      
+      //popAccHolder.add(accHolder);
+      
+      /*JPanel lowerPanel2 = new JPanel();
+      lowerPanel2.setLayout(new BorderLayout());
+      lowerPanel2.add(lowerPanel, BorderLayout.NORTH);
+      lowerPanel2.add(popAccHolder, BorderLayout.SOUTH); */
+      
+      add(lowerPanel, BorderLayout.SOUTH);
+      
+    }
+    
+    private void findMaxMinCB(boolean max) {
+      double maxMin = (max) 
+      ? Double.NEGATIVE_INFINITY 
+          : Double.POSITIVE_INFINITY;
+      
+      Instances cBCurve = m_costBenefit.getPlotInstances();
+      int maxMinIndex = 0;
+      
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       for (int i = 0; i < cBCurve.numInstances(); i++) {
         Instance current = cBCurve.instance(i);
         if (max) {
@@ -557,6 +957,7 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
           }
         }
       }
+<<<<<<< HEAD
 
       // set the slider to the correct position
       int indexOfSampleSize = m_masterPlot.getPlotInstances()
@@ -569,11 +970,27 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
 
       if (m_percPop.isSelected()) {
         indexOfMetric = indexOfSampleSize;
+=======
+      
+      
+      // set the slider to the correct position
+      int indexOfSampleSize = 
+        m_masterPlot.getPlotInstances().attribute(ThresholdCurve.SAMPLE_SIZE_NAME).index();
+      int indexOfPercOfTarget = 
+        m_masterPlot.getPlotInstances().attribute(ThresholdCurve.RECALL_NAME).index();
+      int indexOfThreshold =
+        m_masterPlot.getPlotInstances().attribute(ThresholdCurve.THRESHOLD_NAME).index();
+      int indexOfMetric;
+      
+      if (m_percPop.isSelected()) {
+        indexOfMetric = indexOfSampleSize;           
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       } else if (m_percOfTarget.isSelected()) {
         indexOfMetric = indexOfPercOfTarget;
       } else {
         indexOfMetric = indexOfThreshold;
       }
+<<<<<<< HEAD
 
       double valueOfMetric = m_masterPlot.getPlotInstances()
         .instance(maxMinIndex).value(indexOfMetric);
@@ -582,10 +999,20 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
       // set the approximate location of the slider
       m_thresholdSlider.setValue((int) valueOfMetric);
 
+=======
+      
+      double valueOfMetric = m_masterPlot.getPlotInstances().instance(maxMinIndex).value(indexOfMetric);
+      valueOfMetric *= 100.0;
+      
+      // set the approximate location of the slider
+      m_thresholdSlider.setValue((int)valueOfMetric);
+      
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       // make sure the actual values relate to the true min/max rather
       // than being off due to slider location error.
       updateInfoGivenIndex(maxMinIndex);
     }
+<<<<<<< HEAD
 
     private void updateCostBenefit() {
       double value = m_thresholdSlider.getValue() / 100.0;
@@ -600,20 +1027,45 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
 
       if (m_percPop.isSelected()) {
         indexOfMetric = indexOfSampleSize;
+=======
+    
+    private void updateCostBenefit() {
+      double value = (double)m_thresholdSlider.getValue() / 100.0;
+      Instances plotInstances = m_masterPlot.getPlotInstances();
+      int indexOfSampleSize = 
+        m_masterPlot.getPlotInstances().attribute(ThresholdCurve.SAMPLE_SIZE_NAME).index();
+      int indexOfPercOfTarget = 
+        m_masterPlot.getPlotInstances().attribute(ThresholdCurve.RECALL_NAME).index();
+      int indexOfThreshold =
+        m_masterPlot.getPlotInstances().attribute(ThresholdCurve.THRESHOLD_NAME).index();
+      int indexOfMetric;
+      
+      if (m_percPop.isSelected()) {
+        indexOfMetric = indexOfSampleSize;           
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       } else if (m_percOfTarget.isSelected()) {
         indexOfMetric = indexOfPercOfTarget;
       } else {
         indexOfMetric = indexOfThreshold;
       }
+<<<<<<< HEAD
 
       int index = findIndexForValue(value, plotInstances, indexOfMetric);
       updateCBRandomGainInfo(index);
     }
 
+=======
+      
+      int index = findIndexForValue(value, plotInstances, indexOfMetric);
+      updateCBRandomGainInfo(index);
+    }
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     private void updateCBRandomGainInfo(int index) {
       double requestedPopSize = m_originalPopSize;
       try {
         requestedPopSize = Double.parseDouble(m_totalPopField.getText());
+<<<<<<< HEAD
       } catch (NumberFormatException e) {
       }
       double scaleFactor = requestedPopSize / m_originalPopSize;
@@ -658,10 +1110,49 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
       } catch (NumberFormatException n) {
       }
 
+=======
+      } catch (NumberFormatException e) {}
+      double scaleFactor = requestedPopSize / m_originalPopSize;
+      
+      double CB = m_costBenefit.
+        getPlotInstances().instance(index).value(1);
+      m_costBenefitV.setText(Utils.doubleToString(CB,2));
+      
+      double totalRandomCB = 0.0;
+      Instance first = m_masterPlot.getPlotInstances().instance(0);
+      double totalPos = first.value(m_masterPlot.getPlotInstances().
+          attribute(ThresholdCurve.TRUE_POS_NAME).index()) * scaleFactor;
+      double totalNeg = first.value(m_masterPlot.getPlotInstances().
+          attribute(ThresholdCurve.FALSE_POS_NAME)) * scaleFactor;
+
+      double posInSample = (totalPos * (Double.parseDouble(m_percPopLab.getText()) / 100.0));
+      double negInSample = (totalNeg * (Double.parseDouble(m_percPopLab.getText()) / 100.0));
+      double posOutSample = totalPos - posInSample;
+      double negOutSample = totalNeg - negInSample;
+      
+      double tpCost = 0.0;
+      try {
+        tpCost = Double.parseDouble(m_cost_aa.getText());
+      } catch (NumberFormatException n) {}
+      double fpCost = 0.0;
+      try {
+        fpCost = Double.parseDouble(m_cost_ba.getText());
+      } catch (NumberFormatException n) {}
+      double tnCost = 0.0;
+      try {
+        tnCost = Double.parseDouble(m_cost_bb.getText());
+      } catch (NumberFormatException n) {}
+      double fnCost = 0.0;
+      try {
+        fnCost = Double.parseDouble(m_cost_ab.getText());
+      } catch (NumberFormatException n) {}
+      
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       totalRandomCB += posInSample * tpCost;
       totalRandomCB += negInSample * fpCost;
       totalRandomCB += posOutSample * fnCost;
       totalRandomCB += negOutSample * tnCost;
+<<<<<<< HEAD
 
       m_randomV.setText(Utils.doubleToString(totalRandomCB, 2));
       double gain = (m_costR.isSelected()) ? totalRandomCB - CB : CB
@@ -703,27 +1194,83 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
        * else { m_thresholdLab.setText(Utils.doubleToString(value, 4)); }
        */
 
+=======
+      
+      m_randomV.setText(Utils.doubleToString(totalRandomCB, 2));
+      double gain = (m_costR.isSelected()) 
+      ? totalRandomCB - CB
+          : CB - totalRandomCB;
+      m_gainV.setText(Utils.doubleToString(gain, 2));
+      
+      // update classification rate
+      Instance currentInst = m_masterPlot.getPlotInstances().instance(index);
+      double tp = currentInst.value(m_masterPlot.getPlotInstances().
+          attribute(ThresholdCurve.TRUE_POS_NAME).index());
+      double tn = currentInst.value(m_masterPlot.getPlotInstances().
+          attribute(ThresholdCurve.TRUE_NEG_NAME).index());
+      m_classificationAccV.
+        setText(Utils.doubleToString((tp + tn) / (totalPos + totalNeg) * 100.0, 4) + "%");      
+    }
+    
+    private void updateInfoGivenIndex(int index) {
+      Instances plotInstances = m_masterPlot.getPlotInstances();
+      int indexOfSampleSize = 
+        m_masterPlot.getPlotInstances().attribute(ThresholdCurve.SAMPLE_SIZE_NAME).index();
+      int indexOfPercOfTarget = 
+        m_masterPlot.getPlotInstances().attribute(ThresholdCurve.RECALL_NAME).index();
+      int indexOfThreshold =
+        m_masterPlot.getPlotInstances().attribute(ThresholdCurve.THRESHOLD_NAME).index();
+      
+      // update labels
+      m_percPopLab.setText(Utils.
+          doubleToString(100.0 * plotInstances.instance(index).value(indexOfSampleSize), 4));
+      m_percOfTargetLab.setText(Utils.doubleToString(
+          100.0 * plotInstances.instance(index).value(indexOfPercOfTarget), 4));
+      m_thresholdLab.setText(Utils.doubleToString(plotInstances.instance(index).value(indexOfThreshold), 4));
+      /*if (m_percPop.isSelected()) {
+        m_percPopLab.setText(Utils.doubleToString(100.0 * value, 4));
+      } else if (m_percOfTarget.isSelected()) {
+        m_percOfTargetLab.setText(Utils.doubleToString(100.0 * value, 4));
+      } else {
+        m_thresholdLab.setText(Utils.doubleToString(value, 4));
+      }*/
+      
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       // Update the highlighted point on the graphs */
       if (m_previousShapeIndex >= 0) {
         m_shapeSizes[m_previousShapeIndex] = 1;
       }
+<<<<<<< HEAD
 
       m_shapeSizes[index] = 10;
       m_previousShapeIndex = index;
 
       // Update the confusion matrix
       // double totalInstances =
+=======
+     
+      m_shapeSizes[index] = 10;
+      m_previousShapeIndex = index;
+      
+      // Update the confusion matrix
+//      double totalInstances = 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       int tp = plotInstances.attribute(ThresholdCurve.TRUE_POS_NAME).index();
       int fp = plotInstances.attribute(ThresholdCurve.FALSE_POS_NAME).index();
       int tn = plotInstances.attribute(ThresholdCurve.TRUE_NEG_NAME).index();
       int fn = plotInstances.attribute(ThresholdCurve.FALSE_NEG_NAME).index();
       Instance temp = plotInstances.instance(index);
+<<<<<<< HEAD
       double totalInstances = temp.value(tp) + temp.value(fp) + temp.value(tn)
         + temp.value(fn);
+=======
+      double totalInstances = temp.value(tp) + temp.value(fp) + temp.value(tn) + temp.value(fn);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       // get the value out of the total pop field (if possible)
       double requestedPopSize = totalInstances;
       try {
         requestedPopSize = Double.parseDouble(m_totalPopField.getText());
+<<<<<<< HEAD
       } catch (NumberFormatException e) {
       }
 
@@ -752,19 +1299,57 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
 
       if (m_percPop.isSelected()) {
         indexOfMetric = indexOfSampleSize;
+=======
+      } catch (NumberFormatException e) {}
+      
+      m_conf_aa.setCellValue(temp.value(tp), totalInstances, 
+          requestedPopSize / totalInstances, 2);
+      m_conf_ab.setCellValue(temp.value(fn), totalInstances, 
+          requestedPopSize / totalInstances, 2);
+      m_conf_ba.setCellValue(temp.value(fp), totalInstances, 
+          requestedPopSize / totalInstances, 2);
+      m_conf_bb.setCellValue(temp.value(tn), totalInstances, 
+            requestedPopSize / totalInstances, 2);
+      
+      updateCBRandomGainInfo(index);
+      
+      repaint();
+    }
+    
+    private void updateInfoForSliderValue(double value) {
+      int indexOfSampleSize = 
+        m_masterPlot.getPlotInstances().attribute(ThresholdCurve.SAMPLE_SIZE_NAME).index();
+      int indexOfPercOfTarget = 
+        m_masterPlot.getPlotInstances().attribute(ThresholdCurve.RECALL_NAME).index();
+      int indexOfThreshold =
+        m_masterPlot.getPlotInstances().attribute(ThresholdCurve.THRESHOLD_NAME).index();
+      int indexOfMetric;
+      
+      if (m_percPop.isSelected()) {
+        indexOfMetric = indexOfSampleSize;           
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       } else if (m_percOfTarget.isSelected()) {
         indexOfMetric = indexOfPercOfTarget;
       } else {
         indexOfMetric = indexOfThreshold;
       }
+<<<<<<< HEAD
 
+=======
+      
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       Instances plotInstances = m_masterPlot.getPlotInstances();
       int index = findIndexForValue(value, plotInstances, indexOfMetric);
       updateInfoGivenIndex(index);
     }
+<<<<<<< HEAD
 
     private int findIndexForValue(double value, Instances plotInstances,
       int indexOfMetric) {
+=======
+    
+    private int findIndexForValue(double value, Instances plotInstances, int indexOfMetric) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       // binary search
       // threshold curve is sorted ascending in the threshold (thus
       // descending for recall and pop size)
@@ -775,7 +1360,11 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
       boolean done = false;
       while (!done) {
         if (upper - lower <= 1) {
+<<<<<<< HEAD
 
+=======
+          
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
           // choose the one closest to the value
           double comp1 = plotInstances.instance(upper).value(indexOfMetric);
           double comp2 = plotInstances.instance(lower).value(indexOfMetric);
@@ -784,7 +1373,11 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
           } else {
             index = lower;
           }
+<<<<<<< HEAD
 
+=======
+          
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
           break;
         }
         double comparisonVal = plotInstances.instance(mid).value(indexOfMetric);
@@ -809,12 +1402,21 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
           done = true;
         }
       }
+<<<<<<< HEAD
 
       // now check for ties in the appropriate direction
       if (!m_threshold.isSelected()) {
         while (index + 1 < plotInstances.numInstances()) {
           if (plotInstances.instance(index + 1).value(indexOfMetric) == plotInstances
             .instance(index).value(indexOfMetric)) {
+=======
+      
+      // now check for ties in the appropriate direction
+      if (!m_threshold.isSelected()) {
+        while (index + 1 < plotInstances.numInstances()) {
+          if (plotInstances.instance(index + 1).value(indexOfMetric) == 
+            plotInstances.instance(index).value(indexOfMetric)) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
             index++;
           } else {
             break;
@@ -822,21 +1424,35 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
         }
       } else {
         while (index - 1 >= 0) {
+<<<<<<< HEAD
           if (plotInstances.instance(index - 1).value(indexOfMetric) == plotInstances
             .instance(index).value(indexOfMetric)) {
             index--;
           } else {
             break;
           }
+=======
+          if (plotInstances.instance(index - 1).value(indexOfMetric) == 
+            plotInstances.instance(index).value(indexOfMetric)) {
+            index--;
+          } else {
+            break;
+          } 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
         }
       }
       return index;
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     /**
      * Set the threshold data for the panel to use.
      * 
      * @param data PlotData2D object encapsulating the threshold data.
+<<<<<<< HEAD
      * @param classAtt the class attribute from the original data used to
      *          generate the threshold data.
      * @throws Exception if something goes wrong.
@@ -847,6 +1463,16 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
       m_masterPlot = new PlotData2D(data.getPlotInstances());
       boolean[] connectPoints = new boolean[m_masterPlot.getPlotInstances()
         .numInstances()];
+=======
+     * @param classAtt the class attribute from the original data used to generate
+     * the threshold data.
+     * @throws Exception if something goes wrong.
+     */
+    public synchronized void setDataSet(PlotData2D data, Attribute classAtt) throws Exception {      
+      // make a copy of the PlotData2D object
+      m_masterPlot = new PlotData2D(data.getPlotInstances());
+      boolean[] connectPoints = new boolean[m_masterPlot.getPlotInstances().numInstances()];
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       for (int i = 1; i < connectPoints.length; i++) {
         connectPoints[i] = true;
       }
@@ -855,8 +1481,12 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
       m_masterPlot.m_alwaysDisplayPointsOfThisSize = 10;
       setClassForConfusionMatrix(classAtt);
       m_performancePanel.setMasterPlot(m_masterPlot);
+<<<<<<< HEAD
       m_performancePanel.validate();
       m_performancePanel.repaint();
+=======
+      m_performancePanel.validate(); m_performancePanel.repaint();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
       m_shapeSizes = new int[m_masterPlot.getPlotInstances().numInstances()];
       for (int i = 0; i < m_shapeSizes.length; i++) {
@@ -865,8 +1495,12 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
       m_masterPlot.setShapeSize(m_shapeSizes);
       constructCostBenefitData();
       m_costBenefitPanel.setMasterPlot(m_costBenefit);
+<<<<<<< HEAD
       m_costBenefitPanel.validate();
       m_costBenefitPanel.repaint();
+=======
+      m_costBenefitPanel.validate(); m_costBenefitPanel.repaint();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
       m_totalPopPrevious = 0;
       m_fpPrevious = 0;
@@ -877,17 +1511,26 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
 
       // set the total population size
       Instance first = m_masterPlot.getPlotInstances().instance(0);
+<<<<<<< HEAD
       double totalPos = first.value(m_masterPlot.getPlotInstances()
         .attribute(ThresholdCurve.TRUE_POS_NAME).index());
       double totalNeg = first.value(m_masterPlot.getPlotInstances().attribute(
         ThresholdCurve.FALSE_POS_NAME));
       m_originalPopSize = (int) (totalPos + totalNeg);
+=======
+      double totalPos = first.value(m_masterPlot.getPlotInstances().
+          attribute(ThresholdCurve.TRUE_POS_NAME).index());
+      double totalNeg = first.value(m_masterPlot.getPlotInstances().
+          attribute(ThresholdCurve.FALSE_POS_NAME));
+      m_originalPopSize = (int)(totalPos + totalNeg);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       m_totalPopField.setText("" + m_originalPopSize);
 
       m_performancePanel.setYIndex(5);
       m_performancePanel.setXIndex(10);
       m_costBenefitPanel.setXIndex(0);
       m_costBenefitPanel.setYIndex(1);
+<<<<<<< HEAD
       // System.err.println(m_masterPlot.getPlotInstances());
       updateInfoForSliderValue(m_thresholdSlider.getValue() / 100.0);
     }
@@ -895,6 +1538,15 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
     private void setClassForConfusionMatrix(Attribute classAtt) {
       m_classAttribute = classAtt;
       m_conf_actualA.setText(" Actual (a): " + classAtt.value(0));
+=======
+      //      System.err.println(m_masterPlot.getPlotInstances());
+      updateInfoForSliderValue((double)m_thresholdSlider.getValue() / 100.0);
+    }
+    
+    private void setClassForConfusionMatrix(Attribute classAtt) {
+      m_classAttribute = classAtt;
+      m_conf_actualA.setText(Messages.getInstance().getString("CostBenefitAnalysis_AnalysisPanel_SetClassForConfusionMatrix_Conf_ActualA_SetText_Text") + classAtt.value(0));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       m_conf_actualA.setToolTipText(classAtt.value(0));
       String negClasses = "";
       for (int i = 1; i < classAtt.numValues(); i++) {
@@ -903,14 +1555,22 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
           negClasses += ",";
         }
       }
+<<<<<<< HEAD
       m_conf_actualB.setText(" Actual (b): " + negClasses);
       m_conf_actualB.setToolTipText(negClasses);
     }
 
+=======
+      m_conf_actualB.setText(Messages.getInstance().getString("CostBenefitAnalysis_AnalysisPanel_SetClassForConfusionMatrix_Conf_ActualB_SetText_Text") + negClasses);
+      m_conf_actualB.setToolTipText(negClasses);
+    }
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     private boolean constructCostBenefitData() {
       double tpCost = 0.0;
       try {
         tpCost = Double.parseDouble(m_cost_aa.getText());
+<<<<<<< HEAD
       } catch (NumberFormatException n) {
       }
       double fpCost = 0.0;
@@ -935,10 +1595,32 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
       } catch (NumberFormatException e) {
       }
 
+=======
+      } catch (NumberFormatException n) {}
+      double fpCost = 0.0;
+      try {
+        fpCost = Double.parseDouble(m_cost_ba.getText());
+      } catch (NumberFormatException n) {}
+      double tnCost = 0.0;
+      try {
+        tnCost = Double.parseDouble(m_cost_bb.getText());
+      } catch (NumberFormatException n) {}
+      double fnCost = 0.0;
+      try {
+        fnCost = Double.parseDouble(m_cost_ab.getText());
+      } catch (NumberFormatException n) {}
+      
+      double requestedPopSize = m_originalPopSize;
+      try {
+        requestedPopSize = Double.parseDouble(m_totalPopField.getText());
+      } catch (NumberFormatException e) {}
+      
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       double scaleFactor = 1.0;
       if (m_originalPopSize != 0) {
         scaleFactor = requestedPopSize / m_originalPopSize;
       }
+<<<<<<< HEAD
 
       if (tpCost == m_tpPrevious && fpCost == m_fpPrevious
         && tnCost == m_tnPrevious && fnCost == m_fnPrevious
@@ -971,12 +1653,51 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
 
       costBenefitI.compactify();
 
+=======
+      
+      if (tpCost == m_tpPrevious && fpCost == m_fpPrevious &&
+          tnCost == m_tnPrevious && fnCost == m_fnPrevious &&
+          requestedPopSize == m_totalPopPrevious) {
+        return false;
+      }
+      
+      // First construct some Instances for the curve
+      FastVector fv = new FastVector();
+      fv.addElement(new Attribute("Sample Size"));
+      fv.addElement(new Attribute("Cost/Benefit"));
+      fv.addElement(new Attribute("Threshold"));
+      Instances costBenefitI = new Instances("Cost/Benefit Curve", fv, 100);
+      
+      // process the performance data to make this curve
+      Instances performanceI = m_masterPlot.getPlotInstances();
+      
+      for (int i = 0; i < performanceI.numInstances(); i++) {
+        Instance current = performanceI.instance(i);
+        
+        double[] vals = new double[3];
+        vals[0] = current.value(10); // sample size
+        vals[1] = (current.value(0) * tpCost
+            + current.value(1) * fnCost
+            + current.value(2) * fpCost
+            + current.value(3) * tnCost) * scaleFactor;
+        vals[2] = current.value(current.numAttributes() - 1);
+        Instance newInst = new Instance(1.0, vals);
+        costBenefitI.add(newInst);
+      }
+      
+      costBenefitI.compactify();
+      
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       // now set up the plot data
       m_costBenefit = new PlotData2D(costBenefitI);
       m_costBenefit.m_alwaysDisplayPointsOfThisSize = 10;
       m_costBenefit.setPlotName("Cost/benefit curve");
       boolean[] connectPoints = new boolean[costBenefitI.numInstances()];
+<<<<<<< HEAD
 
+=======
+      
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       for (int i = 0; i < connectPoints.length; i++) {
         connectPoints[i] = true;
       }
@@ -986,20 +1707,33 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
       } catch (Exception ex) {
         // ignore
       }
+<<<<<<< HEAD
 
+=======
+      
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       m_tpPrevious = tpCost;
       m_fpPrevious = fpCost;
       m_tnPrevious = tnCost;
       m_fnPrevious = fnCost;
+<<<<<<< HEAD
 
       return true;
     }
   }
 
+=======
+      
+      return true;
+    }
+  }
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   /**
    * Constructor.
    */
   public CostBenefitAnalysis() {
+<<<<<<< HEAD
 
     if (!GraphicsEnvironment.isHeadless()) {
       appearanceFinal();
@@ -1015,19 +1749,41 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
    */
   public String globalInfo() {
     return "Visualize performance charts (such as ROC).";
+=======
+    java.awt.GraphicsEnvironment ge = 
+      java.awt.GraphicsEnvironment.getLocalGraphicsEnvironment();
+    if (!ge.isHeadless()) {
+      appearanceFinal();
+    }
+  }
+  
+  /**
+   * Global info for this bean
+   *
+   * @return a <code>String</code> value
+   */
+  public String globalInfo() {
+    return Messages.getInstance().getString("CostBenefitAnalysis_GlobalInfo_Text");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**
    * Accept a threshold data event and set up the visualization.
+<<<<<<< HEAD
    * 
    * @param e a threshold data event
    */
   @Override
+=======
+   * @param e a threshold data event
+   */
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   public void acceptDataSet(ThresholdDataEvent e) {
     if (!GraphicsEnvironment.isHeadless()) {
       try {
         setCurveData(e.getDataSet(), e.getClassAttribute());
       } catch (Exception ex) {
+<<<<<<< HEAD
         System.err
           .println("[CostBenefitAnalysis] Problem setting up visualization.");
         ex.printStackTrace();
@@ -1038,33 +1794,56 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
     }
   }
 
+=======
+        System.err.println(Messages.getInstance().getString("CostBenefitAnalysis_AcceptDataSet_Error_Text"));
+        ex.printStackTrace();
+      }
+    }
+  }
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   /**
    * Set the threshold curve data to use.
    * 
    * @param curveData a PlotData2D object set up with the curve data.
    * @param origClassAtt the class attribute from the original data used to
+<<<<<<< HEAD
    *          generate the curve.
    * @throws Exception if somthing goes wrong during the setup process.
    */
   public void setCurveData(PlotData2D curveData, Attribute origClassAtt)
     throws Exception {
 
+=======
+   * generate the curve.
+   * @throws Exception if somthing goes wrong during the setup process.
+   */
+  public void setCurveData(PlotData2D curveData, Attribute origClassAtt) 
+    throws Exception {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     if (m_analysisPanel == null) {
       m_analysisPanel = new AnalysisPanel();
     }
     m_analysisPanel.setDataSet(curveData, origClassAtt);
   }
 
+<<<<<<< HEAD
   @Override
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   public BeanVisual getVisual() {
     return m_visual;
   }
 
+<<<<<<< HEAD
   @Override
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   public void setVisual(BeanVisual newVisual) {
     m_visual = newVisual;
   }
 
+<<<<<<< HEAD
   @Override
   public void useDefaultVisual() {
     m_visual.loadIcons(BeanVisual.ICON_PATH + "DefaultDataVisualizer.gif",
@@ -1074,6 +1853,15 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
   @Override
   public Enumeration<String> enumerateRequests() {
     Vector<String> newVector = new Vector<String>(0);
+=======
+  public void useDefaultVisual() {
+    m_visual.loadIcons(BeanVisual.ICON_PATH+"DefaultDataVisualizer.gif",
+        BeanVisual.ICON_PATH+"DefaultDataVisualizer_animated.gif");
+  }
+
+  public Enumeration enumerateRequests() {
+    Vector newVector = new Vector(0);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     if (m_analysisPanel != null) {
       if (m_analysisPanel.m_masterPlot != null) {
         newVector.addElement("Show analysis");
@@ -1082,7 +1870,10 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
     return newVector.elements();
   }
 
+<<<<<<< HEAD
   @Override
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   public void performRequest(String request) {
     if (request.compareTo("Show analysis") == 0) {
       try {
@@ -1090,6 +1881,7 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
         if (!m_framePoppedUp) {
           m_framePoppedUp = true;
 
+<<<<<<< HEAD
           final javax.swing.JFrame jf = new javax.swing.JFrame(
             "Cost/Benefit Analysis");
           jf.setSize(1000, 600);
@@ -1102,6 +1894,19 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
               m_framePoppedUp = false;
             }
           });
+=======
+          final javax.swing.JFrame jf = 
+            new javax.swing.JFrame(Messages.getInstance().getString("CostBenefitAnalysis_PerformRequest_Jf_JFrame_Text"));
+          jf.setSize(1000,600);
+          jf.getContentPane().setLayout(new BorderLayout());
+          jf.getContentPane().add(m_analysisPanel, BorderLayout.CENTER);
+          jf.addWindowListener(new java.awt.event.WindowAdapter() {
+              public void windowClosing(java.awt.event.WindowEvent e) {
+                jf.dispose();
+                m_framePoppedUp = false;
+              }
+            });
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
           jf.setVisible(true);
           m_popupFrame = jf;
         } else {
@@ -1113,58 +1918,100 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
       }
     } else {
       throw new IllegalArgumentException(request
+<<<<<<< HEAD
         + " not supported (Cost/Benefit Analysis");
     }
   }
 
   @Override
+=======
+          + Messages.getInstance().getString("CostBenefitAnalysis_PerformRequest_IllegalArgumentException_Text"));
+    }
+  }
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   public void addVetoableChangeListener(String name, VetoableChangeListener vcl) {
     m_bcSupport.addVetoableChangeListener(name, vcl);
   }
 
+<<<<<<< HEAD
   @Override
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   public BeanContext getBeanContext() {
     return m_beanContext;
   }
 
+<<<<<<< HEAD
   @Override
   public void removeVetoableChangeListener(String name,
     VetoableChangeListener vcl) {
     m_bcSupport.removeVetoableChangeListener(name, vcl);
   }
 
+=======
+  public void removeVetoableChangeListener(String name,
+      VetoableChangeListener vcl) {
+    m_bcSupport.removeVetoableChangeListener(name, vcl);
+  }
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   protected void appearanceFinal() {
     removeAll();
     setLayout(new BorderLayout());
     setUpFinal();
   }
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   protected void setUpFinal() {
     if (m_analysisPanel == null) {
       m_analysisPanel = new AnalysisPanel();
     }
     add(m_analysisPanel, BorderLayout.CENTER);
   }
+<<<<<<< HEAD
 
   protected void appearanceDesign() {
     removeAll();
     useDefaultVisual();
+=======
+  
+  protected void appearanceDesign() {
+    removeAll();
+    m_visual = new BeanVisual("CostBenefitAnalysis", 
+                              BeanVisual.ICON_PATH+"ModelPerformanceChart.gif",
+                              BeanVisual.ICON_PATH
+                              +"ModelPerformanceChart_animated.gif");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     setLayout(new BorderLayout());
     add(m_visual, BorderLayout.CENTER);
   }
 
+<<<<<<< HEAD
   @Override
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   public void setBeanContext(BeanContext bc) throws PropertyVetoException {
     m_beanContext = bc;
     m_design = m_beanContext.isDesignTime();
     if (m_design) {
       appearanceDesign();
     } else {
+<<<<<<< HEAD
       if (!GraphicsEnvironment.isHeadless()) {
+=======
+      java.awt.GraphicsEnvironment ge = 
+        java.awt.GraphicsEnvironment.getLocalGraphicsEnvironment(); 
+      if (!ge.isHeadless()) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
         appearanceFinal();
       }
     }
   }
+<<<<<<< HEAD
 
   /**
    * Returns true if, at this time, the object will accept a connection via the
@@ -1174,11 +2021,22 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
    * @return true if the object will accept a connection
    */
   @Override
+=======
+  
+  /**
+   * Returns true if, at this time, 
+   * the object will accept a connection via the named event
+   *
+   * @param eventName the name of the event in question
+   * @return true if the object will accept a connection
+   */
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   public boolean connectionAllowed(String eventName) {
     return (m_listenee == null);
   }
 
   /**
+<<<<<<< HEAD
    * Notify this object that it has been registered as a listener with a source
    * for recieving events described by the named event This object is
    * responsible for recording this fact.
@@ -1188,11 +2046,22 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
    *          listener
    */
   @Override
+=======
+   * Notify this object that it has been registered as a listener with
+   * a source for recieving events described by the named event
+   * This object is responsible for recording this fact.
+   *
+   * @param eventName the event
+   * @param source the source with which this object has been registered as
+   * a listener
+   */
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   public void connectionNotification(String eventName, Object source) {
     if (connectionAllowed(eventName)) {
       m_listenee = source;
     }
   }
+<<<<<<< HEAD
 
   /**
    * Returns true if, at this time, the object will accept a connection
@@ -1202,11 +2071,23 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
    * @return true if the object will accept a connection
    */
   @Override
+=======
+  
+  /**
+   * Returns true if, at this time, 
+   * the object will accept a connection according to the supplied
+   * EventSetDescriptor
+   *
+   * @param esd the EventSetDescriptor
+   * @return true if the object will accept a connection
+   */
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   public boolean connectionAllowed(EventSetDescriptor esd) {
     return connectionAllowed(esd.getName());
   }
 
   /**
+<<<<<<< HEAD
    * Notify this object that it has been deregistered as a listener with a
    * source for named event. This object is responsible for recording this fact.
    * 
@@ -1215,11 +2096,25 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
    *          listener
    */
   @Override
+=======
+   * Notify this object that it has been deregistered as a listener with
+   * a source for named event. This object is responsible
+   * for recording this fact.
+   *
+   * @param eventName the event
+   * @param source the source with which this object has been registered as
+   * a listener
+   */
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   public void disconnectionNotification(String eventName, Object source) {
     if (m_listenee == source) {
       m_listenee = null;
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**
@@ -1227,18 +2122,29 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
    * 
    * @return the custom name (or the default name)
    */
+<<<<<<< HEAD
   @Override
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   public String getCustomName() {
     return m_visual.getText();
   }
 
   /**
+<<<<<<< HEAD
    * Returns true if. at this time, the bean is busy with some (i.e. perhaps a
    * worker thread is performing some calculation).
    * 
    * @return true if the bean is busy.
    */
   @Override
+=======
+   * Returns true if. at this time, the bean is busy with some
+   * (i.e. perhaps a worker thread is performing some calculation).
+   * 
+   * @return true if the bean is busy.
+   */
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   public boolean isBusy() {
     return false;
   }
@@ -1248,24 +2154,36 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
    * 
    * @param name the name to use
    */
+<<<<<<< HEAD
   @Override
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   public void setCustomName(String name) {
     m_visual.setText(name);
   }
 
   /**
    * Set a logger
+<<<<<<< HEAD
    * 
    * @param logger a <code>weka.gui.Logger</code> value
    */
   @Override
   public void setLog(Logger logger) {
     // we don't need to do any logging
+=======
+   *
+   * @param logger a <code>weka.gui.Logger</code> value
+   */
+  public void setLog(Logger logger) {
+    // we don't need to do any logging    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**
    * Stop any processing that the bean might be doing.
    */
+<<<<<<< HEAD
   @Override
   public void stop() {
     // nothing to do here
@@ -1284,6 +2202,25 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
       ArrayList<Prediction> predictions = new ArrayList<Prediction>();
       eu.setSeed(1);
       predictions.addAll(eu.getCVPredictions(classifier, train, 10));
+=======
+  public void stop() {
+    // nothing to do here
+  }
+    
+  public static void main(String[] args) {
+    try {
+      Instances train = new Instances(new java.io.BufferedReader(new java.io.FileReader(args[0])));
+      train.setClassIndex(train.numAttributes() - 1);
+      weka.classifiers.evaluation.ThresholdCurve tc = 
+        new weka.classifiers.evaluation.ThresholdCurve();
+      weka.classifiers.evaluation.EvaluationUtils eu = 
+        new weka.classifiers.evaluation.EvaluationUtils();
+      //weka.classifiers.Classifier classifier = new weka.classifiers.functions.Logistic();
+      weka.classifiers.Classifier classifier = new weka.classifiers.bayes.NaiveBayes();
+      FastVector predictions = new FastVector();
+      eu.setSeed(1);
+      predictions.appendElements(eu.getCVPredictions(classifier, train, 10));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       Instances result = tc.getCurve(predictions, 0);
       PlotData2D pd = new PlotData2D(result);
       pd.m_alwaysDisplayPointsOfThisSize = 10;
@@ -1293,6 +2230,7 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
         connectPoints[i] = true;
       }
       pd.setConnectPoints(connectPoints);
+<<<<<<< HEAD
       final javax.swing.JFrame jf = new javax.swing.JFrame("CostBenefitTest");
       jf.setSize(1000, 600);
       // jf.pack();
@@ -1302,11 +2240,24 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
       jf.getContentPane().add(analysisPanel, BorderLayout.CENTER);
       jf.addWindowListener(new java.awt.event.WindowAdapter() {
         @Override
+=======
+      final javax.swing.JFrame jf = 
+        new javax.swing.JFrame(Messages.getInstance().getString("CostBenefitAnalysis_PerformRequest_Main_JF_JFrame_Text"));
+      jf.setSize(1000,600);
+      //jf.pack();
+      jf.getContentPane().setLayout(new BorderLayout());
+      final CostBenefitAnalysis.AnalysisPanel analysisPanel = 
+        new CostBenefitAnalysis.AnalysisPanel();
+      
+      jf.getContentPane().add(analysisPanel, BorderLayout.CENTER);
+      jf.addWindowListener(new java.awt.event.WindowAdapter() {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
         public void windowClosing(java.awt.event.WindowEvent e) {
           jf.dispose();
           System.exit(0);
         }
       });
+<<<<<<< HEAD
 
       jf.setVisible(true);
 
@@ -1347,3 +2298,16 @@ public class CostBenefitAnalysis extends JPanel implements BeanCommon,
     }
   }
 }
+=======
+      
+      jf.setVisible(true);
+      
+      analysisPanel.setDataSet(pd, train.classAttribute());
+      
+    } catch (Exception ex) {
+      ex.printStackTrace();
+    }
+ 
+  }
+}
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb

@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,28 +12,58 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
  *    C45PruneableClassifierTree.java
+<<<<<<< HEAD
  *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 1999 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  *
  */
 
 package weka.classifiers.trees.j48;
 
 import weka.core.Capabilities;
+<<<<<<< HEAD
 import weka.core.Capabilities.Capability;
 import weka.core.Instances;
 import weka.core.RevisionUtils;
 import weka.core.Utils;
+=======
+import weka.core.Instances;
+import weka.core.RevisionUtils;
+import weka.core.Utils;
+import weka.core.Capabilities.Capability;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
 /**
  * Class for handling a tree structure that can
  * be pruned using C4.5 procedures.
  *
  * @author Eibe Frank (eibe@cs.waikato.ac.nz)
+<<<<<<< HEAD
  * @version $Revision: 14534 $
+=======
+ * @version $Revision: 8986 $
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 public class C45PruneableClassifierTree 
@@ -42,6 +73,7 @@ public class C45PruneableClassifierTree
   static final long serialVersionUID = -4813820170260388194L;
   
   /** True if the tree is to be pruned. */
+<<<<<<< HEAD
   protected boolean m_pruneTheTree = false;
   
   /** True if the tree is to be collapsed. */
@@ -55,6 +87,18 @@ public class C45PruneableClassifierTree
 
   /** Cleanup after the tree has been built. */
   protected boolean m_cleanup = true;
+=======
+  boolean m_pruneTheTree = false;
+
+  /** The confidence factor for pruning. */
+  float m_CF = 0.25f;
+
+  /** Is subtree raising to be performed? */
+  boolean m_subtreeRaising = true;
+
+  /** Cleanup after the tree has been built. */
+  boolean m_cleanup = true;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
   /**
    * Constructor for pruneable tree structure. Stores reference
@@ -70,8 +114,12 @@ public class C45PruneableClassifierTree
   public C45PruneableClassifierTree(ModelSelection toSelectLocModel,
 				    boolean pruneTree,float cf,
 				    boolean raiseTree,
+<<<<<<< HEAD
 				    boolean cleanup,
                                     boolean collapseTree)
+=======
+				    boolean cleanup)
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
        throws Exception {
 
     super(toSelectLocModel);
@@ -80,7 +128,35 @@ public class C45PruneableClassifierTree
     m_CF = cf;
     m_subtreeRaising = raiseTree;
     m_cleanup = cleanup;
+<<<<<<< HEAD
     m_collapseTheTree = collapseTree;
+=======
+  }
+
+  /**
+   * Returns default capabilities of the classifier tree.
+   *
+   * @return      the capabilities of this classifier tree
+   */
+  public Capabilities getCapabilities() {
+    Capabilities result = super.getCapabilities();
+    result.disableAll();
+
+    // attributes
+    result.enable(Capability.NOMINAL_ATTRIBUTES);
+    result.enable(Capability.NUMERIC_ATTRIBUTES);
+    result.enable(Capability.DATE_ATTRIBUTES);
+    result.enable(Capability.MISSING_VALUES);
+
+    // class
+    result.enable(Capability.NOMINAL_CLASS);
+    result.enable(Capability.MISSING_CLASS_VALUES);
+
+    // instances
+    result.setMinimumNumberInstances(0);
+    
+    return result;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**
@@ -91,14 +167,24 @@ public class C45PruneableClassifierTree
    */
   public void buildClassifier(Instances data) throws Exception {
 
+<<<<<<< HEAD
+=======
+    // can classifier tree handle the data?
+    getCapabilities().testWithFail(data);
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     // remove instances with missing class
     data = new Instances(data);
     data.deleteWithMissingClass();
     
    buildTree(data, m_subtreeRaising || !m_cleanup);
+<<<<<<< HEAD
    if (m_collapseTheTree) {
      collapse();
    }
+=======
+   collapse();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    if (m_pruneTheTree) {
      prune();
    }
@@ -206,7 +292,11 @@ public class C45PruneableClassifierTree
     
     C45PruneableClassifierTree newTree = 
       new C45PruneableClassifierTree(m_toSelectModel, m_pruneTheTree, m_CF,
+<<<<<<< HEAD
 				     m_subtreeRaising, m_cleanup, m_collapseTheTree);
+=======
+				     m_subtreeRaising, m_cleanup);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     newTree.buildTree((Instances)data, m_subtreeRaising || !m_cleanup);
 
     return newTree;
@@ -346,6 +436,10 @@ public class C45PruneableClassifierTree
    * @return		the revision
    */
   public String getRevision() {
+<<<<<<< HEAD
     return RevisionUtils.extract("$Revision: 14534 $");
+=======
+    return RevisionUtils.extract("$Revision: 8986 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 }

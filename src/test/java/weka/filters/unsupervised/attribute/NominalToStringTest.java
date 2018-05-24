@@ -35,7 +35,11 @@ import junit.framework.TestSuite;
  * java weka.filters.unsupervised.attribute.NominalToStringTest
  *
  * @author FracPete (fracpete at waikato dot ac dot nz)
+<<<<<<< HEAD
  * @version $Revision: 11506 $
+=======
+ * @version $Revision: 9180 $
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 public class NominalToStringTest
   extends AbstractFilterTest {
@@ -94,7 +98,11 @@ public class NominalToStringTest
     assertEquals("Attribute type should now be STRING",
                  Attribute.STRING, result.attribute(1).type());
 
+<<<<<<< HEAD
     assertEquals(3, result.attribute(1).numValues());
+=======
+    assertEquals(4, result.attribute(1).numValues());
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   public void testMissing() {
@@ -105,7 +113,12 @@ public class NominalToStringTest
     assertEquals(m_Instances.numInstances(),  result.numInstances());
     assertEquals("Attribute type should now be STRING",
                  Attribute.STRING, result.attribute(4).type());
+<<<<<<< HEAD
     assertEquals(4, result.attribute(4).numValues());
+=======
+
+    assertEquals(5, result.attribute(4).numValues());
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     for (int i = 0; i < result.numInstances(); i++) {
       assertTrue("Missing values should be preserved",
              m_Instances.instance(i).isMissing(4) ==

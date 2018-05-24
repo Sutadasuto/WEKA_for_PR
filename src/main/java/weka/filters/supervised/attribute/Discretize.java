@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,10 +12,26 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
  *    Discretize.java
+<<<<<<< HEAD
  *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
  *
  */
@@ -24,13 +41,46 @@ package weka.filters.supervised.attribute;
 import java.util.*;
 
 import weka.core.*;
+=======
+ *    Copyright (C) 1999 University of Waikato, Hamilton, New Zealand
+ *
+ */
+
+
+package weka.filters.supervised.attribute;
+
+import weka.core.Attribute;
+import weka.core.Capabilities;
+import weka.core.ContingencyTables;
+import weka.core.FastVector;
+import weka.core.Instance;
+import weka.core.Instances;
+import weka.core.Option;
+import weka.core.OptionHandler;
+import weka.core.ProtectedProperties;
+import weka.core.Range;
+import weka.core.RevisionUtils;
+import weka.core.SparseInstance;
+import weka.core.SpecialFunctions;
+import weka.core.TechnicalInformation;
+import weka.core.TechnicalInformationHandler;
+import weka.core.Utils;
+import weka.core.WeightedInstancesHandler;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 import weka.core.Capabilities.Capability;
 import weka.core.TechnicalInformation.Field;
 import weka.core.TechnicalInformation.Type;
 import weka.filters.Filter;
 import weka.filters.SupervisedFilter;
 
+<<<<<<< HEAD
 /**
+=======
+import java.util.Enumeration;
+import java.util.Vector;
+
+/** 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  <!-- globalinfo-start -->
  * An instance filter that discretizes a range of numeric attributes in the dataset into nominal attributes. Discretization is by Fayyad &amp; Irani's MDL method (the default).<br/>
  * <br/>
@@ -66,7 +116,11 @@ import weka.filters.SupervisedFilter;
  * </pre>
  * <p/>
  <!-- technical-bibtex-end -->
+<<<<<<< HEAD
  * 
+=======
+ *
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  <!-- options-start -->
  * Valid options are: <p/>
  * 
@@ -80,15 +134,19 @@ import weka.filters.SupervisedFilter;
  * <pre> -D
  *  Output binary attributes for discretized attributes.</pre>
  * 
+<<<<<<< HEAD
  * <pre> -Y
  *  Use bin numbers rather than ranges for discretized attributes.</pre>
  * 
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  * <pre> -E
  *  Use better encoding of split point for MDL.</pre>
  * 
  * <pre> -K
  *  Use Kononenko's MDL criterion.</pre>
  * 
+<<<<<<< HEAD
  * <pre> -precision &lt;integer&gt;
  *  Precision for bin boundary labels.
  *  (default = 6 decimal places).</pre>
@@ -106,6 +164,19 @@ import weka.filters.SupervisedFilter;
 public class Discretize extends Filter implements SupervisedFilter,
   OptionHandler, WeightedInstancesHandler, WeightedAttributesHandler, TechnicalInformationHandler {
 
+=======
+ <!-- options-end -->
+ *
+ * @author Len Trigg (trigg@cs.waikato.ac.nz)
+ * @author Eibe Frank (eibe@cs.waikato.ac.nz)
+ * @version $Revision: 9090 $
+ */
+public class Discretize 
+  extends Filter 
+  implements SupervisedFilter, OptionHandler, WeightedInstancesHandler, 
+  	     TechnicalInformationHandler {
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   /** for serialization */
   static final long serialVersionUID = -3141006402280129097L;
 
@@ -113,32 +184,43 @@ public class Discretize extends Filter implements SupervisedFilter,
   protected Range m_DiscretizeCols = new Range();
 
   /** Store the current cutpoints */
+<<<<<<< HEAD
   protected double[][] m_CutPoints = null;
+=======
+  protected double [][] m_CutPoints = null;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
   /** Output binary attributes for discretized attributes. */
   protected boolean m_MakeBinary = false;
 
+<<<<<<< HEAD
   /** Use bin numbers rather than ranges for discretized attributes. */
   protected boolean m_UseBinNumbers = false;
 
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   /** Use better encoding of split point for MDL. */
   protected boolean m_UseBetterEncoding = false;
 
   /** Use Kononenko's MDL criterion instead of Fayyad et al.'s */
   protected boolean m_UseKononenko = false;
 
+<<<<<<< HEAD
   /** Precision for bin range labels */
   protected int m_BinRangePrecision = 6;
 
   /** Whether to spread attribute weight when creating binary attributes */
   protected boolean m_SpreadAttributeWeight = false;
 
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   /** Constructor - initialises the filter */
   public Discretize() {
 
     setAttributeIndices("first-last");
   }
 
+<<<<<<< HEAD
   /**
    * Gets an enumeration describing the available options.
    * 
@@ -177,13 +259,52 @@ public class Discretize extends Filter implements SupervisedFilter,
     newVector.addElement(new Option("\tWhen generating binary attributes, spread weight of old "
                     + "attribute across new attributes. Do not give each new attribute the old weight.\n\t",
                     "spread-attribute-weight", 0, "-spread-attribute-weight"));
+=======
+
+  /**
+   * Gets an enumeration describing the available options.
+   *
+   * @return an enumeration of all the available options.
+   */
+  public Enumeration listOptions() {
+
+    Vector newVector = new Vector(7);
+
+    newVector.addElement(new Option(
+              "\tSpecifies list of columns to Discretize. First"
+	      + " and last are valid indexes.\n"
+	      + "\t(default none)",
+              "R", 1, "-R <col1,col2-col4,...>"));
+
+    newVector.addElement(new Option(
+              "\tInvert matching sense of column indexes.",
+              "V", 0, "-V"));
+
+    newVector.addElement(new Option(
+              "\tOutput binary attributes for discretized attributes.",
+              "D", 0, "-D"));
+
+    newVector.addElement(new Option(
+              "\tUse better encoding of split point for MDL.",
+              "E", 0, "-E"));
+
+    newVector.addElement(new Option(
+              "\tUse Kononenko's MDL criterion.",
+              "K", 0, "-K"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
     return newVector.elements();
   }
 
+<<<<<<< HEAD
   /**
    * Parses a given list of options.
    * <p/>
+=======
+
+  /**
+   * Parses a given list of options. <p/>
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * 
    <!-- options-start -->
    * Valid options are: <p/>
@@ -198,15 +319,19 @@ public class Discretize extends Filter implements SupervisedFilter,
    * <pre> -D
    *  Output binary attributes for discretized attributes.</pre>
    * 
+<<<<<<< HEAD
    * <pre> -Y
    *  Use bin numbers rather than ranges for discretized attributes.</pre>
    * 
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * <pre> -E
    *  Use better encoding of split point for MDL.</pre>
    * 
    * <pre> -K
    *  Use Kononenko's MDL criterion.</pre>
    * 
+<<<<<<< HEAD
    * <pre> -precision &lt;integer&gt;
    *  Precision for bin boundary labels.
    *  (default = 6 decimal places).</pre>
@@ -229,6 +354,20 @@ public class Discretize extends Filter implements SupervisedFilter,
     setUseKononenko(Utils.getFlag('K', options));
     setInvertSelection(Utils.getFlag('V', options));
 
+=======
+   <!-- options-end -->
+   *
+   * @param options the list of options as an array of strings
+   * @throws Exception if an option is not supported
+   */
+  public void setOptions(String[] options) throws Exception {
+
+    setMakeBinary(Utils.getFlag('D', options));
+    setUseBetterEncoding(Utils.getFlag('E', options));
+    setUseKononenko(Utils.getFlag('K', options));
+    setInvertSelection(Utils.getFlag('V', options));
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     String convertList = Utils.getOption('R', options);
     if (convertList.length() != 0) {
       setAttributeIndices(convertList);
@@ -236,6 +375,7 @@ public class Discretize extends Filter implements SupervisedFilter,
       setAttributeIndices("first-last");
     }
 
+<<<<<<< HEAD
     String precisionS = Utils.getOption("precision", options);
     if (precisionS.length() > 0) {
       setBinRangePrecision(Integer.parseInt(precisionS));
@@ -297,6 +437,49 @@ public class Discretize extends Filter implements SupervisedFilter,
    * @see Capabilities
    */
   @Override
+=======
+    if (getInputFormat() != null) {
+      setInputFormat(getInputFormat());
+    }
+  }
+  /**
+   * Gets the current settings of the filter.
+   *
+   * @return an array of strings suitable for passing to setOptions
+   */
+  public String [] getOptions() {
+
+    String [] options = new String [12];
+    int current = 0;
+
+    if (getMakeBinary()) {
+      options[current++] = "-D";
+    }
+    if (getUseBetterEncoding()) {
+      options[current++] = "-E";
+    }
+    if (getUseKononenko()) {
+      options[current++] = "-K";
+    }
+    if (getInvertSelection()) {
+      options[current++] = "-V";
+    }
+    if (!getAttributeIndices().equals("")) {
+      options[current++] = "-R"; options[current++] = getAttributeIndices();
+    }
+    while (current < options.length) {
+      options[current++] = "";
+    }
+    return options;
+  }
+
+  /** 
+   * Returns the Capabilities of this filter.
+   *
+   * @return            the capabilities of this object
+   * @see               Capabilities
+   */
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   public Capabilities getCapabilities() {
     Capabilities result = super.getCapabilities();
     result.disableAll();
@@ -304,15 +487,23 @@ public class Discretize extends Filter implements SupervisedFilter,
     // attributes
     result.enableAllAttributes();
     result.enable(Capability.MISSING_VALUES);
+<<<<<<< HEAD
 
     // class
     result.enable(Capability.NOMINAL_CLASS);
 
+=======
+    
+    // class
+    result.enable(Capability.NOMINAL_CLASS);
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     return result;
   }
 
   /**
    * Sets the format of the input instances.
+<<<<<<< HEAD
    * 
    * @param instanceInfo an Instances object containing the input instance
    *          structure (any instances contained in the object are ignored -
@@ -321,12 +512,22 @@ public class Discretize extends Filter implements SupervisedFilter,
    * @throws Exception if the input format can't be set successfully
    */
   @Override
+=======
+   *
+   * @param instanceInfo an Instances object containing the input instance
+   * structure (any instances contained in the object are ignored - only the
+   * structure is required).
+   * @return true if the outputFormat may be collected immediately
+   * @throws Exception if the input format can't be set successfully
+   */
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   public boolean setInputFormat(Instances instanceInfo) throws Exception {
 
     super.setInputFormat(instanceInfo);
 
     m_DiscretizeCols.setUpper(instanceInfo.numAttributes() - 1);
     m_CutPoints = null;
+<<<<<<< HEAD
 
     // If we implement loading cutfiles, then load
     // them here and set the output format
@@ -343,6 +544,26 @@ public class Discretize extends Filter implements SupervisedFilter,
    * @throws IllegalStateException if no input format has been defined.
    */
   @Override
+=======
+    
+    // If we implement loading cutfiles, then load 
+    //them here and set the output format
+    return false;
+  }
+
+  
+
+  /**
+   * Input an instance for filtering. Ordinarily the instance is processed
+   * and made available for output immediately. Some filters require all
+   * instances be read before producing output.
+   *
+   * @param instance the input instance
+   * @return true if the filtered instance may now be
+   * collected with output().
+   * @throws IllegalStateException if no input format has been defined.
+   */
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   public boolean input(Instance instance) {
 
     if (getInputFormat() == null) {
@@ -352,7 +573,11 @@ public class Discretize extends Filter implements SupervisedFilter,
       resetQueue();
       m_NewBatch = false;
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     if (m_CutPoints != null) {
       convertInstance(instance);
       return true;
@@ -362,6 +587,7 @@ public class Discretize extends Filter implements SupervisedFilter,
     return false;
   }
 
+<<<<<<< HEAD
   /**
    * Signifies that this batch of input to the filter is finished. If the filter
    * requires all instances prior to filtering, output() may now be called to
@@ -371,6 +597,17 @@ public class Discretize extends Filter implements SupervisedFilter,
    * @throws IllegalStateException if no input structure has been defined
    */
   @Override
+=======
+
+  /**
+   * Signifies that this batch of input to the filter is finished. If the 
+   * filter requires all instances prior to filtering, output() may now 
+   * be called to retrieve the filtered instances.
+   *
+   * @return true if there are instances pending output
+   * @throws IllegalStateException if no input structure has been defined
+   */
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   public boolean batchFinished() {
 
     if (getInputFormat() == null) {
@@ -384,10 +621,17 @@ public class Discretize extends Filter implements SupervisedFilter,
       // If we implement saving cutfiles, save the cuts here
 
       // Convert pending input instances
+<<<<<<< HEAD
       for (int i = 0; i < getInputFormat().numInstances(); i++) {
         convertInstance(getInputFormat().instance(i));
       }
     }
+=======
+      for(int i = 0; i < getInputFormat().numInstances(); i++) {
+	convertInstance(getInputFormat().instance(i));
+      }
+    } 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     flushInput();
 
     m_NewBatch = true;
@@ -396,15 +640,22 @@ public class Discretize extends Filter implements SupervisedFilter,
 
   /**
    * Returns a string describing this filter
+<<<<<<< HEAD
    * 
    * @return a description of the filter suitable for displaying in the
    *         explorer/experimenter gui
+=======
+   *
+   * @return a description of the filter suitable for
+   * displaying in the explorer/experimenter gui
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    */
   public String globalInfo() {
 
     return "An instance filter that discretizes a range of numeric"
       + " attributes in the dataset into nominal attributes."
       + " Discretization is by Fayyad & Irani's MDL method (the default).\n\n"
+<<<<<<< HEAD
       + "For more information, see:\n\n" + getTechnicalInformation().toString();
   }
 
@@ -428,10 +679,32 @@ public class Discretize extends Filter implements SupervisedFilter,
         "Multi-interval discretization of continuousvalued attributes for classification learning");
     result.setValue(Field.BOOKTITLE,
       "Thirteenth International Joint Conference on Articial Intelligence");
+=======
+      + "For more information, see:\n\n"
+      + getTechnicalInformation().toString();
+  }
+
+  /**
+   * Returns an instance of a TechnicalInformation object, containing 
+   * detailed information about the technical background of this class,
+   * e.g., paper reference or book this class is based on.
+   * 
+   * @return the technical information about this class
+   */
+  public TechnicalInformation getTechnicalInformation() {
+    TechnicalInformation 	result;
+    TechnicalInformation 	additional;
+    
+    result = new TechnicalInformation(Type.INPROCEEDINGS);
+    result.setValue(Field.AUTHOR, "Usama M. Fayyad and Keki B. Irani");
+    result.setValue(Field.TITLE, "Multi-interval discretization of continuousvalued attributes for classification learning");
+    result.setValue(Field.BOOKTITLE, "Thirteenth International Joint Conference on Articial Intelligence");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     result.setValue(Field.YEAR, "1993");
     result.setValue(Field.VOLUME, "2");
     result.setValue(Field.PAGES, "1022-1027");
     result.setValue(Field.PUBLISHER, "Morgan Kaufmann Publishers");
+<<<<<<< HEAD
 
     additional = result.add(Type.INPROCEEDINGS);
     additional.setValue(Field.AUTHOR, "Igor Kononenko");
@@ -515,6 +788,25 @@ public class Discretize extends Filter implements SupervisedFilter,
    * 
    * @return tip text for this property suitable for displaying in the
    *         explorer/experimenter gui
+=======
+    
+    additional = result.add(Type.INPROCEEDINGS);
+    additional.setValue(Field.AUTHOR, "Igor Kononenko");
+    additional.setValue(Field.TITLE, "On Biases in Estimating Multi-Valued Attributes");
+    additional.setValue(Field.BOOKTITLE, "14th International Joint Conference on Articial Intelligence");
+    additional.setValue(Field.YEAR, "1995");
+    additional.setValue(Field.PAGES, "1034-1040");
+    additional.setValue(Field.PS, "http://ai.fri.uni-lj.si/papers/kononenko95-ijcai.ps.gz");
+    
+    return result;
+  }
+  
+  /**
+   * Returns the tip text for this property
+   *
+   * @return tip text for this property suitable for
+   * displaying in the explorer/experimenter gui
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    */
   public String makeBinaryTipText() {
 
@@ -523,7 +815,11 @@ public class Discretize extends Filter implements SupervisedFilter,
 
   /**
    * Gets whether binary attributes should be made for discretized ones.
+<<<<<<< HEAD
    * 
+=======
+   *
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @return true if attributes will be binarized
    */
   public boolean getMakeBinary() {
@@ -531,9 +827,15 @@ public class Discretize extends Filter implements SupervisedFilter,
     return m_MakeBinary;
   }
 
+<<<<<<< HEAD
   /**
    * Sets whether binary attributes should be made for discretized ones.
    * 
+=======
+  /** 
+   * Sets whether binary attributes should be made for discretized ones.
+   *
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @param makeBinary if binary attributes are to be made
    */
   public void setMakeBinary(boolean makeBinary) {
@@ -543,6 +845,7 @@ public class Discretize extends Filter implements SupervisedFilter,
 
   /**
    * Returns the tip text for this property
+<<<<<<< HEAD
    * 
    * @return tip text for this property suitable for displaying in the
    *         explorer/experimenter gui
@@ -578,16 +881,28 @@ public class Discretize extends Filter implements SupervisedFilter,
    * 
    * @return tip text for this property suitable for displaying in the
    *         explorer/experimenter gui
+=======
+   *
+   * @return tip text for this property suitable for
+   * displaying in the explorer/experimenter gui
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    */
   public String useKononenkoTipText() {
 
     return "Use Kononenko's MDL criterion. If set to false"
       + " uses the Fayyad & Irani criterion.";
   }
+<<<<<<< HEAD
 
   /**
    * Gets whether Kononenko's MDL criterion is to be used.
    * 
+=======
+  
+  /**
+   * Gets whether Kononenko's MDL criterion is to be used.
+   *
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @return true if Kononenko's criterion will be used.
    */
   public boolean getUseKononenko() {
@@ -595,9 +910,15 @@ public class Discretize extends Filter implements SupervisedFilter,
     return m_UseKononenko;
   }
 
+<<<<<<< HEAD
   /**
    * Sets whether Kononenko's MDL criterion is to be used.
    * 
+=======
+  /** 
+   * Sets whether Kononenko's MDL criterion is to be used.
+   *
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @param useKon true if Kononenko's one is to be used
    */
   public void setUseKononenko(boolean useKon) {
@@ -607,9 +928,15 @@ public class Discretize extends Filter implements SupervisedFilter,
 
   /**
    * Returns the tip text for this property
+<<<<<<< HEAD
    * 
    * @return tip text for this property suitable for displaying in the
    *         explorer/experimenter gui
+=======
+   *
+   * @return tip text for this property suitable for
+   * displaying in the explorer/experimenter gui
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    */
   public String useBetterEncodingTipText() {
 
@@ -618,7 +945,11 @@ public class Discretize extends Filter implements SupervisedFilter,
 
   /**
    * Gets whether better encoding is to be used for MDL.
+<<<<<<< HEAD
    * 
+=======
+   *
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @return true if the better MDL encoding will be used
    */
   public boolean getUseBetterEncoding() {
@@ -626,9 +957,15 @@ public class Discretize extends Filter implements SupervisedFilter,
     return m_UseBetterEncoding;
   }
 
+<<<<<<< HEAD
   /**
    * Sets whether better encoding is to be used for MDL.
    * 
+=======
+  /** 
+   * Sets whether better encoding is to be used for MDL.
+   *
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @param useBetterEncoding true if better encoding to be used.
    */
   public void setUseBetterEncoding(boolean useBetterEncoding) {
@@ -638,9 +975,15 @@ public class Discretize extends Filter implements SupervisedFilter,
 
   /**
    * Returns the tip text for this property
+<<<<<<< HEAD
    * 
    * @return tip text for this property suitable for displaying in the
    *         explorer/experimenter gui
+=======
+   *
+   * @return tip text for this property suitable for
+   * displaying in the explorer/experimenter gui
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    */
   public String invertSelectionTipText() {
 
@@ -651,7 +994,11 @@ public class Discretize extends Filter implements SupervisedFilter,
 
   /**
    * Gets whether the supplied columns are to be removed or kept
+<<<<<<< HEAD
    * 
+=======
+   *
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @return true if the supplied columns will be kept
    */
   public boolean getInvertSelection() {
@@ -660,10 +1007,17 @@ public class Discretize extends Filter implements SupervisedFilter,
   }
 
   /**
+<<<<<<< HEAD
    * Sets whether selected columns should be removed or kept. If true the
    * selected columns are kept and unselected columns are deleted. If false
    * selected columns are deleted and unselected columns are kept.
    * 
+=======
+   * Sets whether selected columns should be removed or kept. If true the 
+   * selected columns are kept and unselected columns are deleted. If false
+   * selected columns are deleted and unselected columns are kept.
+   *
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @param invert the new invert setting
    */
   public void setInvertSelection(boolean invert) {
@@ -673,9 +1027,15 @@ public class Discretize extends Filter implements SupervisedFilter,
 
   /**
    * Returns the tip text for this property
+<<<<<<< HEAD
    * 
    * @return tip text for this property suitable for displaying in the
    *         explorer/experimenter gui
+=======
+   *
+   * @return tip text for this property suitable for
+   * displaying in the explorer/experimenter gui
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    */
   public String attributeIndicesTipText() {
     return "Specify range of attributes to act on."
@@ -686,7 +1046,11 @@ public class Discretize extends Filter implements SupervisedFilter,
 
   /**
    * Gets the current range selection
+<<<<<<< HEAD
    * 
+=======
+   *
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @return a string containing a comma separated list of ranges
    */
   public String getAttributeIndices() {
@@ -695,6 +1059,7 @@ public class Discretize extends Filter implements SupervisedFilter,
   }
 
   /**
+<<<<<<< HEAD
    * Sets which attributes are to be Discretized (only numeric attributes among
    * the selection will be Discretized).
    * 
@@ -703,6 +1068,16 @@ public class Discretize extends Filter implements SupervisedFilter,
    *          from 1. <br>
    *          eg: first-3,5,6-last
    * @throws IllegalArgumentException if an invalid range list is supplied
+=======
+   * Sets which attributes are to be Discretized (only numeric
+   * attributes among the selection will be Discretized).
+   *
+   * @param rangeList a string representing the list of attributes. Since
+   * the string will typically come from a user, attributes are indexed from
+   * 1. <br>
+   * eg: first-3,5,6-last
+   * @throws IllegalArgumentException if an invalid range list is supplied 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    */
   public void setAttributeIndices(String rangeList) {
 
@@ -710,6 +1085,7 @@ public class Discretize extends Filter implements SupervisedFilter,
   }
 
   /**
+<<<<<<< HEAD
    * Sets which attributes are to be Discretized (only numeric attributes among
    * the selection will be Discretized).
    * 
@@ -719,12 +1095,25 @@ public class Discretize extends Filter implements SupervisedFilter,
    * @throws IllegalArgumentException if an invalid set of ranges is supplied
    */
   public void setAttributeIndicesArray(int[] attributes) {
+=======
+   * Sets which attributes are to be Discretized (only numeric
+   * attributes among the selection will be Discretized).
+   *
+   * @param attributes an array containing indexes of attributes to Discretize.
+   * Since the array will typically come from a program, attributes are indexed
+   * from 0.
+   * @throws IllegalArgumentException if an invalid set of ranges
+   * is supplied 
+   */
+  public void setAttributeIndicesArray(int [] attributes) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
     setAttributeIndices(Range.indicesToRangeList(attributes));
   }
 
   /**
    * Gets the cut points for an attribute
+<<<<<<< HEAD
    * 
    * @param attributeIndex the index (from 0) of the attribute to get the cut
    *          points of
@@ -732,6 +1121,14 @@ public class Discretize extends Filter implements SupervisedFilter,
    *         requested isn't being Discretized
    */
   public double[] getCutPoints(int attributeIndex) {
+=======
+   *
+   * @param attributeIndex the index (from 0) of the attribute to get the cut points of
+   * @return an array containing the cutpoints (or null if the
+   * attribute requested isn't being Discretized
+   */
+  public double [] getCutPoints(int attributeIndex) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
     if (m_CutPoints == null) {
       return null;
@@ -739,6 +1136,7 @@ public class Discretize extends Filter implements SupervisedFilter,
     return m_CutPoints[attributeIndex];
   }
 
+<<<<<<< HEAD
   /**
    * Gets the bin ranges string for an attribute
    * 
@@ -797,11 +1195,14 @@ public class Discretize extends Filter implements SupervisedFilter,
         + Utils.doubleToString(cutPoints[j], precision) + "]";
   }
 
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   /** Generate the cutpoints for each attribute */
   protected void calculateCutPoints() {
 
     Instances copy = null;
 
+<<<<<<< HEAD
     m_CutPoints = new double[getInputFormat().numAttributes()][];
     for (int i = getInputFormat().numAttributes() - 1; i >= 0; i--) {
       if ((m_DiscretizeCols.isInRange(i))
@@ -812,17 +1213,38 @@ public class Discretize extends Filter implements SupervisedFilter,
           copy = new Instances(getInputFormat());
         }
         calculateCutPointsByMDL(i, copy);
+=======
+    m_CutPoints = new double [getInputFormat().numAttributes()] [];
+    for(int i = getInputFormat().numAttributes() - 1; i >= 0; i--) {
+      if ((m_DiscretizeCols.isInRange(i)) && 
+	  (getInputFormat().attribute(i).isNumeric())) {
+
+	// Use copy to preserve order
+	if (copy == null) {
+	  copy = new Instances(getInputFormat());
+	}
+	calculateCutPointsByMDL(i, copy);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       }
     }
   }
 
   /**
    * Set cutpoints for a single attribute using MDL.
+<<<<<<< HEAD
    * 
    * @param index the index of the attribute to set cutpoints for
    * @param data the data to work with
    */
   protected void calculateCutPointsByMDL(int index, Instances data) {
+=======
+   *
+   * @param index the index of the attribute to set cutpoints for
+   * @param data the data to work with
+   */
+  protected void calculateCutPointsByMDL(int index,
+					 Instances data) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
     // Sort instances
     data.sort(data.attribute(index));
@@ -838,7 +1260,11 @@ public class Discretize extends Filter implements SupervisedFilter,
     m_CutPoints[index] = cutPointsForSubset(data, index, 0, firstMissing);
   }
 
+<<<<<<< HEAD
   /**
+=======
+  /** 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * Test using Kononenko's MDL criterion.
    * 
    * @param priorCounts
@@ -847,8 +1273,15 @@ public class Discretize extends Filter implements SupervisedFilter,
    * @param numCutPoints
    * @return true if the split is acceptable
    */
+<<<<<<< HEAD
   private boolean KononenkosMDL(double[] priorCounts, double[][] bestCounts,
     double numInstances, int numCutPoints) {
+=======
+  private boolean KononenkosMDL(double[] priorCounts,
+				double[][] bestCounts,
+				double numInstances,
+				int numCutPoints) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
     double distPrior, instPrior, distAfter = 0, sum, instAfter = 0;
     double before, after;
@@ -856,27 +1289,52 @@ public class Discretize extends Filter implements SupervisedFilter,
 
     // Number of classes occuring in the set
     numClassesTotal = 0;
+<<<<<<< HEAD
     for (double priorCount : priorCounts) {
       if (priorCount > 0) {
         numClassesTotal++;
+=======
+    for (int i = 0; i < priorCounts.length; i++) {
+      if (priorCounts[i] > 0) {
+	numClassesTotal++;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       }
     }
 
     // Encode distribution prior to split
+<<<<<<< HEAD
     distPrior = SpecialFunctions.log2Binomial(numInstances + numClassesTotal
       - 1, numClassesTotal - 1);
 
     // Encode instances prior to split.
     instPrior = SpecialFunctions.log2Multinomial(numInstances, priorCounts);
+=======
+    distPrior = SpecialFunctions.log2Binomial(numInstances 
+					      + numClassesTotal - 1,
+					      numClassesTotal - 1);
+
+    // Encode instances prior to split.
+    instPrior = SpecialFunctions.log2Multinomial(numInstances,
+						 priorCounts);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
     before = instPrior + distPrior;
 
     // Encode distributions and instances after split.
+<<<<<<< HEAD
     for (double[] bestCount : bestCounts) {
       sum = Utils.sum(bestCount);
       distAfter += SpecialFunctions.log2Binomial(sum + numClassesTotal - 1,
         numClassesTotal - 1);
       instAfter += SpecialFunctions.log2Multinomial(sum, bestCount);
+=======
+    for (int i = 0; i < bestCounts.length; i++) {
+      sum = Utils.sum(bestCounts[i]);
+      distAfter += SpecialFunctions.log2Binomial(sum + numClassesTotal - 1,
+						 numClassesTotal - 1);
+      instAfter += SpecialFunctions.log2Multinomial(sum,
+						    bestCounts[i]);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     }
 
     // Coding cost after split
@@ -886,7 +1344,12 @@ public class Discretize extends Filter implements SupervisedFilter,
     return (before > after);
   }
 
+<<<<<<< HEAD
   /**
+=======
+
+  /** 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * Test using Fayyad and Irani's MDL criterion.
    * 
    * @param priorCounts
@@ -896,9 +1359,17 @@ public class Discretize extends Filter implements SupervisedFilter,
    * @return true if the splits is acceptable
    */
   private boolean FayyadAndIranisMDL(double[] priorCounts,
+<<<<<<< HEAD
     double[][] bestCounts, double numInstances, int numCutPoints) {
 
     double priorEntropy, entropy, gain;
+=======
+				     double[][] bestCounts,
+				     double numInstances,
+				     int numCutPoints) {
+
+    double priorEntropy, entropy, gain; 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     double entropyLeft, entropyRight, delta;
     int numClassesTotal, numClassesRight, numClassesLeft;
 
@@ -913,9 +1384,15 @@ public class Discretize extends Filter implements SupervisedFilter,
 
     // Number of classes occuring in the set
     numClassesTotal = 0;
+<<<<<<< HEAD
     for (double priorCount : priorCounts) {
       if (priorCount > 0) {
         numClassesTotal++;
+=======
+    for (int i = 0; i < priorCounts.length; i++) {
+      if (priorCounts[i] > 0) {
+	numClassesTotal++;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       }
     }
 
@@ -923,7 +1400,11 @@ public class Discretize extends Filter implements SupervisedFilter,
     numClassesLeft = 0;
     for (int i = 0; i < bestCounts[0].length; i++) {
       if (bestCounts[0][i] > 0) {
+<<<<<<< HEAD
         numClassesLeft++;
+=======
+	numClassesLeft++;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       }
     }
 
@@ -931,7 +1412,11 @@ public class Discretize extends Filter implements SupervisedFilter,
     numClassesRight = 0;
     for (int i = 0; i < bestCounts[1].length; i++) {
       if (bestCounts[1][i] > 0) {
+<<<<<<< HEAD
         numClassesRight++;
+=======
+	numClassesRight++;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       }
     }
 
@@ -940,6 +1425,7 @@ public class Discretize extends Filter implements SupervisedFilter,
     entropyRight = ContingencyTables.entropy(bestCounts[1]);
 
     // Compute terms for MDL formula
+<<<<<<< HEAD
     delta = Utils.log2(Math.pow(3, numClassesTotal) - 2)
       - ((numClassesTotal * priorEntropy) - (numClassesRight * entropyRight) - (numClassesLeft * entropyLeft));
 
@@ -948,6 +1434,19 @@ public class Discretize extends Filter implements SupervisedFilter,
   }
 
   /**
+=======
+    delta = Utils.log2(Math.pow(3, numClassesTotal) - 2) - 
+      (((double) numClassesTotal * priorEntropy) - 
+       (numClassesRight * entropyRight) - 
+       (numClassesLeft * entropyLeft));
+
+    // Check if split is to be accepted
+    return (gain > (Utils.log2(numCutPoints) + delta) / (double)numInstances);
+  }
+    
+
+  /** 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * Selects cutpoints for sorted subset.
    * 
    * @param instances
@@ -956,12 +1455,22 @@ public class Discretize extends Filter implements SupervisedFilter,
    * @param lastPlusOne
    * @return
    */
+<<<<<<< HEAD
   private double[] cutPointsForSubset(Instances instances, int attIndex,
     int first, int lastPlusOne) {
 
     double[][] counts, bestCounts;
     double[] priorCounts, left, right, cutPoints;
     double currentCutPoint = -Double.MAX_VALUE, bestCutPoint = -1, currentEntropy, bestEntropy, priorEntropy, gain;
+=======
+  private double[] cutPointsForSubset(Instances instances, int attIndex, 
+				      int first, int lastPlusOne) { 
+
+    double[][] counts, bestCounts;
+    double[] priorCounts, left, right, cutPoints;
+    double currentCutPoint = -Double.MAX_VALUE, bestCutPoint = -1, 
+      currentEntropy, bestEntropy, priorEntropy, gain;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     int bestIndex = -1, numCutPoints = 0;
     double numInstances = 0;
 
@@ -974,17 +1483,28 @@ public class Discretize extends Filter implements SupervisedFilter,
     counts = new double[2][instances.numClasses()];
     for (int i = first; i < lastPlusOne; i++) {
       numInstances += instances.instance(i).weight();
+<<<<<<< HEAD
       counts[1][(int) instances.instance(i).classValue()] += instances
         .instance(i).weight();
+=======
+      counts[1][(int)instances.instance(i).classValue()] +=
+	instances.instance(i).weight();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     }
 
     // Save prior counts
     priorCounts = new double[instances.numClasses()];
+<<<<<<< HEAD
     System.arraycopy(counts[1], 0, priorCounts, 0, instances.numClasses());
+=======
+    System.arraycopy(counts[1], 0, priorCounts, 0, 
+		     instances.numClasses());
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
     // Entropy of the full set
     priorEntropy = ContingencyTables.entropy(priorCounts);
     bestEntropy = priorEntropy;
+<<<<<<< HEAD
 
     // Find best entropy.
     bestCounts = new double[2][instances.numClasses()];
@@ -1008,6 +1528,31 @@ public class Discretize extends Filter implements SupervisedFilter,
             instances.numClasses());
         }
         numCutPoints++;
+=======
+    
+    // Find best entropy.
+    bestCounts = new double[2][instances.numClasses()];
+    for (int i = first; i < (lastPlusOne - 1); i++) {
+      counts[0][(int)instances.instance(i).classValue()] +=
+	instances.instance(i).weight();
+      counts[1][(int)instances.instance(i).classValue()] -=
+	instances.instance(i).weight();
+      if (instances.instance(i).value(attIndex) < 
+	  instances.instance(i + 1).value(attIndex)) {
+	currentCutPoint = (instances.instance(i).value(attIndex) + 
+	  instances.instance(i + 1).value(attIndex)) / 2.0;
+	currentEntropy = ContingencyTables.entropyConditionedOnRows(counts);
+	if (currentEntropy < bestEntropy) {
+	  bestCutPoint = currentCutPoint;
+	  bestEntropy = currentEntropy;
+	  bestIndex = i;
+	  System.arraycopy(counts[0], 0, 
+			   bestCounts[0], 0, instances.numClasses());
+	  System.arraycopy(counts[1], 0, 
+			   bestCounts[1], 0, instances.numClasses()); 
+	}
+	numCutPoints++;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       }
     }
 
@@ -1023,6 +1568,7 @@ public class Discretize extends Filter implements SupervisedFilter,
     }
 
     // Check if split is to be accepted
+<<<<<<< HEAD
     if ((m_UseKononenko && KononenkosMDL(priorCounts, bestCounts, numInstances,
       numCutPoints))
       || (!m_UseKononenko && FayyadAndIranisMDL(priorCounts, bestCounts,
@@ -1060,6 +1606,44 @@ public class Discretize extends Filter implements SupervisedFilter,
 
   /**
    * Set the output format. Takes the currently defined cutpoints and
+=======
+    if ((m_UseKononenko && KononenkosMDL(priorCounts, bestCounts,
+					 numInstances, numCutPoints)) ||
+	(!m_UseKononenko && FayyadAndIranisMDL(priorCounts, bestCounts,
+					       numInstances, numCutPoints))) {
+      
+      // Select split points for the left and right subsets
+      left = cutPointsForSubset(instances, attIndex, first, bestIndex + 1);
+      right = cutPointsForSubset(instances, attIndex, 
+				 bestIndex + 1, lastPlusOne);
+      
+      // Merge cutpoints and return them
+      if ((left == null) && (right) == null) {
+	cutPoints = new double[1];
+	cutPoints[0] = bestCutPoint;
+      } else if (right == null) {
+	cutPoints = new double[left.length + 1];
+	System.arraycopy(left, 0, cutPoints, 0, left.length);
+	cutPoints[left.length] = bestCutPoint;
+      } else if (left == null) {
+	cutPoints = new double[1 + right.length];
+	cutPoints[0] = bestCutPoint;
+	System.arraycopy(right, 0, cutPoints, 1, right.length);
+      } else {
+	cutPoints = new double[left.length + right.length + 1];
+	System.arraycopy(left, 0, cutPoints, 0, left.length);
+	cutPoints[left.length] = bestCutPoint;
+	System.arraycopy(right, 0, cutPoints, left.length + 1, right.length);
+      }
+      
+      return cutPoints;
+    } else
+      return null;
+  }
+ 
+  /**
+   * Set the output format. Takes the currently defined cutpoints and 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * m_InputFormat and calls setOutputFormat(Instances) appropriately.
    */
   protected void setOutputFormat() {
@@ -1068,6 +1652,7 @@ public class Discretize extends Filter implements SupervisedFilter,
       setOutputFormat(null);
       return;
     }
+<<<<<<< HEAD
     ArrayList<Attribute> attributes = new ArrayList<Attribute>(getInputFormat()
       .numAttributes());
     int classIndex = getInputFormat().classIndex();
@@ -1146,19 +1731,92 @@ public class Discretize extends Filter implements SupervisedFilter,
     }
     Instances outputFormat = new Instances(getInputFormat().relationName(),
       attributes, 0);
+=======
+    FastVector attributes = new FastVector(getInputFormat().numAttributes());
+    int classIndex = getInputFormat().classIndex();
+    for(int i = 0; i < getInputFormat().numAttributes(); i++) {
+      if ((m_DiscretizeCols.isInRange(i)) 
+	  && (getInputFormat().attribute(i).isNumeric())) {
+	if (!m_MakeBinary) {
+	  FastVector attribValues = new FastVector(1);
+	  if (m_CutPoints[i] == null) {
+	    attribValues.addElement("'All'");
+	  } else {
+	    for(int j = 0; j <= m_CutPoints[i].length; j++) {
+	      if (j == 0) {
+		attribValues.addElement("'(-inf-"
+			+ Utils.doubleToString(m_CutPoints[i][j], 6) + "]'");
+	      } else if (j == m_CutPoints[i].length) {
+		attribValues.addElement("'("
+			+ Utils.doubleToString(m_CutPoints[i][j - 1], 6) 
+					+ "-inf)'");
+	      } else {
+		attribValues.addElement("'("
+			+ Utils.doubleToString(m_CutPoints[i][j - 1], 6) + "-"
+			+ Utils.doubleToString(m_CutPoints[i][j], 6) + "]'");
+	      }
+	    }
+	  }
+	  Attribute newA = new Attribute(getInputFormat().
+              attribute(i).name(),
+              attribValues);
+	  newA.setWeight(getInputFormat().attribute(i).weight());
+	  attributes.addElement(newA);
+	      
+	} else {
+	  if (m_CutPoints[i] == null) {
+	    FastVector attribValues = new FastVector(1);
+	    attribValues.addElement("'All'");
+	    Attribute newA = new Attribute(getInputFormat().
+                attribute(i).name(),
+                attribValues);
+	    newA.setWeight(getInputFormat().attribute(i).weight());
+	    attributes.addElement(newA);
+	  } else {
+	    if (i < getInputFormat().classIndex()) {
+	      classIndex += m_CutPoints[i].length - 1;
+	    }
+	    for(int j = 0; j < m_CutPoints[i].length; j++) {
+	      FastVector attribValues = new FastVector(2);
+	      attribValues.addElement("'(-inf-"
+		      + Utils.doubleToString(m_CutPoints[i][j], 6) + "]'");
+	      attribValues.addElement("'("
+		      + Utils.doubleToString(m_CutPoints[i][j], 6) + "-inf)'");
+	      Attribute newA = new Attribute(getInputFormat().
+                  attribute(i).name() + "_" + (j+1),
+                  attribValues);
+	      newA.setWeight(getInputFormat().attribute(i).weight());
+	      attributes.addElement(newA);
+	    }
+	  }
+	}
+      } else {
+	attributes.addElement(getInputFormat().attribute(i).copy());
+      }
+    }
+    Instances outputFormat = 
+      new Instances(getInputFormat().relationName(), attributes, 0);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     outputFormat.setClassIndex(classIndex);
     setOutputFormat(outputFormat);
   }
 
   /**
+<<<<<<< HEAD
    * Convert a single instance over. The converted instance is added to the end
    * of the output queue.
    * 
+=======
+   * Convert a single instance over. The converted instance is added to 
+   * the end of the output queue.
+   *
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @param instance the instance to convert
    */
   protected void convertInstance(Instance instance) {
 
     int index = 0;
+<<<<<<< HEAD
     double[] vals = new double[outputFormatPeek().numAttributes()];
     // Copy and convert the values
     for (int i = 0; i < getInputFormat().numAttributes(); i++) {
@@ -1205,10 +1863,59 @@ public class Discretize extends Filter implements SupervisedFilter,
       }
     }
 
+=======
+    double [] vals = new double [outputFormatPeek().numAttributes()];
+    // Copy and convert the values
+    for(int i = 0; i < getInputFormat().numAttributes(); i++) {
+      if (m_DiscretizeCols.isInRange(i) && 
+	  getInputFormat().attribute(i).isNumeric()) {
+	int j;
+	double currentVal = instance.value(i);
+	if (m_CutPoints[i] == null) {
+	  if (instance.isMissing(i)) {
+	    vals[index] = Instance.missingValue();
+	  } else {
+	    vals[index] = 0;
+	  }
+	  index++;
+	} else {
+	  if (!m_MakeBinary) {
+	    if (instance.isMissing(i)) {
+	      vals[index] = Instance.missingValue();
+	    } else {
+	      for (j = 0; j < m_CutPoints[i].length; j++) {
+		if (currentVal <= m_CutPoints[i][j]) {
+		  break;
+		}
+	      }
+              vals[index] = j;
+	    }
+	    index++;
+	  } else {
+	    for (j = 0; j < m_CutPoints[i].length; j++) {
+	      if (instance.isMissing(i)) {
+                vals[index] = Instance.missingValue();
+	      } else if (currentVal <= m_CutPoints[i][j]) {
+                vals[index] = 0;
+	      } else {
+                vals[index] = 1;
+	      }
+	      index++;
+	    }
+	  }   
+	}
+      } else {
+        vals[index] = instance.value(i);
+	index++;
+      }
+    }
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     Instance inst = null;
     if (instance instanceof SparseInstance) {
       inst = new SparseInstance(instance.weight(), vals);
     } else {
+<<<<<<< HEAD
       inst = new DenseInstance(instance.weight(), vals);
     }
 
@@ -1225,10 +1932,28 @@ public class Discretize extends Filter implements SupervisedFilter,
   @Override
   public String getRevision() {
     return RevisionUtils.extract("$Revision: 14534 $");
+=======
+      inst = new Instance(instance.weight(), vals);
+    }
+    inst.setDataset(getOutputFormat());
+    copyValues(inst, false, instance.dataset(), getOutputFormat());
+    inst.setDataset(getOutputFormat());
+    push(inst);
+  }
+  
+  /**
+   * Returns the revision string.
+   * 
+   * @return		the revision
+   */
+  public String getRevision() {
+    return RevisionUtils.extract("$Revision: 9090 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**
    * Main method for testing this class.
+<<<<<<< HEAD
    * 
    * @param argv should contain arguments to the filter: use -h for help
    */
@@ -1237,3 +1962,12 @@ public class Discretize extends Filter implements SupervisedFilter,
   }
 }
 
+=======
+   *
+   * @param argv should contain arguments to the filter: use -h for help
+   */
+  public static void main(String [] argv) {
+    runFilter(new Discretize(), argv);
+  }
+}
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb

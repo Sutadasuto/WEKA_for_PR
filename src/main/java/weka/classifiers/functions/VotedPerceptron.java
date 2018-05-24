@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,17 +12,37 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
  *    VotedPerceptron.java
+<<<<<<< HEAD
  *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 1999 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  *
  */
 
 
 package weka.classifiers.functions;
 
+<<<<<<< HEAD
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.Random;
@@ -30,20 +51,39 @@ import java.util.Vector;
 import weka.classifiers.AbstractClassifier;
 import weka.core.Capabilities;
 import weka.core.Capabilities.Capability;
+=======
+import weka.classifiers.Classifier;
+import weka.core.Capabilities;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.Option;
 import weka.core.OptionHandler;
 import weka.core.RevisionUtils;
 import weka.core.TechnicalInformation;
+<<<<<<< HEAD
 import weka.core.TechnicalInformation.Field;
 import weka.core.TechnicalInformation.Type;
 import weka.core.TechnicalInformationHandler;
 import weka.core.Utils;
+=======
+import weka.core.TechnicalInformationHandler;
+import weka.core.Utils;
+import weka.core.Capabilities.Capability;
+import weka.core.TechnicalInformation.Field;
+import weka.core.TechnicalInformation.Type;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 import weka.filters.Filter;
 import weka.filters.unsupervised.attribute.NominalToBinary;
 import weka.filters.unsupervised.attribute.ReplaceMissingValues;
 
+<<<<<<< HEAD
+=======
+import java.util.Enumeration;
+import java.util.Random;
+import java.util.Vector;
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 /**
  <!-- globalinfo-start -->
  * Implementation of the voted perceptron algorithm by Freund and Schapire. Globally replaces all missing values, and transforms nominal attributes into binary ones.<br/>
@@ -92,10 +132,17 @@ import weka.filters.unsupervised.attribute.ReplaceMissingValues;
  <!-- options-end -->
  *
  * @author Eibe Frank (eibe@cs.waikato.ac.nz)
+<<<<<<< HEAD
  * @version $Revision: 10141 $ 
  */
 public class VotedPerceptron 
   extends AbstractClassifier 
+=======
+ * @version $Revision: 5523 $ 
+ */
+public class VotedPerceptron 
+  extends Classifier 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   implements OptionHandler, TechnicalInformationHandler {
   
   /** for serialization */
@@ -175,9 +222,15 @@ public class VotedPerceptron
    *
    * @return an enumeration of all the available options.
    */
+<<<<<<< HEAD
   public Enumeration<Option> listOptions() {
 
     Vector<Option> newVector = new Vector<Option>(4);
+=======
+  public Enumeration listOptions() {
+
+    Vector newVector = new Vector(4);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
     newVector.addElement(new Option("\tThe number of iterations to be performed.\n"
 				    + "\t(default 1)",
@@ -192,8 +245,11 @@ public class VotedPerceptron
 				    + "\t(default 10000)",
 				    "M", 1, "-M <int>"));
 
+<<<<<<< HEAD
     newVector.addAll(Collections.list(super.listOptions()));
     
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     return newVector.elements();
   }
 
@@ -250,10 +306,13 @@ public class VotedPerceptron
     } else {
       m_MaxK = 10000;
     }
+<<<<<<< HEAD
     
     super.setOptions(options);
     
     Utils.checkForRemainingOptions(options);
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**
@@ -263,6 +322,7 @@ public class VotedPerceptron
    */
   public String[] getOptions() {
 
+<<<<<<< HEAD
     Vector<String> options = new Vector<String>();
 
     options.add("-I"); options.add("" + m_NumIterations);
@@ -273,6 +333,19 @@ public class VotedPerceptron
     Collections.addAll(options, super.getOptions());
     
     return options.toArray(new String[0]);
+=======
+    String[] options = new String [8];
+    int current = 0;
+
+    options[current++] = "-I"; options[current++] = "" + m_NumIterations;
+    options[current++] = "-E"; options[current++] = "" + m_Exponent;
+    options[current++] = "-S"; options[current++] = "" + m_Seed;
+    options[current++] = "-M"; options[current++] = "" + m_MaxK;
+    while (current < options.length) {
+      options[current++] = "";
+    }
+    return options;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**
@@ -595,7 +668,11 @@ public class VotedPerceptron
    * @return		the revision
    */
   public String getRevision() {
+<<<<<<< HEAD
     return RevisionUtils.extract("$Revision: 10141 $");
+=======
+    return RevisionUtils.extract("$Revision: 5523 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**

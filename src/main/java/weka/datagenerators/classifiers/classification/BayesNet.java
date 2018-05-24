@@ -661,7 +661,10 @@ public class BayesNet extends ClassificationGenerator {
    * 
    * @return the revision
    */
+<<<<<<< HEAD
   @Override
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   public String getRevision() {
     return RevisionUtils.extract("$Revision: 11753 $");
   }

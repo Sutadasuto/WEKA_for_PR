@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,16 +12,36 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
  *    MultipleClassifiersCombiner.java
+<<<<<<< HEAD
  *    Copyright (C) 2004-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 2004 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  *
  */
 
 package weka.classifiers;
 
+<<<<<<< HEAD
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.Vector;
@@ -40,6 +61,29 @@ public abstract class MultipleClassifiersCombiner extends AbstractClassifier {
   /** for serialization */
   private static final long serialVersionUID = 2776436621129422119L;
 
+=======
+import weka.core.Capabilities;
+import weka.core.Option;
+import weka.core.OptionHandler;
+import weka.core.Utils;
+import weka.core.Capabilities.Capability;
+
+import java.util.Enumeration;
+import java.util.Vector;
+
+/**
+ * Abstract utility class for handling settings common to
+ * meta classifiers that build an ensemble from multiple classifiers.  
+ *
+ * @author Eibe Frank (eibe@cs.waikato.ac.nz)
+ * @version $Revision: 5905 $
+ */
+public abstract class MultipleClassifiersCombiner extends Classifier {
+
+  /** for serialization */
+  private static final long serialVersionUID = 2776436621129422119L;
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   /** Array for storing the generated base classifiers. */
   protected Classifier[] m_Classifiers = {
     new weka.classifiers.rules.ZeroR()
@@ -50,6 +94,7 @@ public abstract class MultipleClassifiersCombiner extends AbstractClassifier {
    *
    * @return an enumeration of all the available options
    */
+<<<<<<< HEAD
   public Enumeration<Option> listOptions() {
 
     Vector<Option> newVector = new Vector<Option>(1);
@@ -72,6 +117,22 @@ public abstract class MultipleClassifiersCombiner extends AbstractClassifier {
       }
     }
     
+=======
+  public Enumeration listOptions() {
+
+    Vector newVector = new Vector(1);
+
+    newVector.addElement(new Option(
+	      "\tFull class name of classifier to include, followed\n"
+	      + "\tby scheme options. May be specified multiple times.\n"
+	      + "\t(default: \"weka.classifiers.rules.ZeroR\")",
+	      "B", 1, "-B <classifier specification>"));
+
+    Enumeration enu = super.listOptions();
+    while (enu.hasMoreElements()) {
+      newVector.addElement(enu.nextElement());
+    }
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     return newVector.elements();
   }
 
@@ -89,6 +150,7 @@ public abstract class MultipleClassifiersCombiner extends AbstractClassifier {
   public void setOptions(String[] options) throws Exception {
 
     // Iterate through the schemes
+<<<<<<< HEAD
     Vector<Classifier> classifiers = new Vector<Classifier>();
     while (true) {
       String classifierString = Utils.getOption('B', options);
@@ -103,6 +165,22 @@ public abstract class MultipleClassifiersCombiner extends AbstractClassifier {
       classifierSpec[0] = "";
       classifiers.addElement(AbstractClassifier.forName(classifierName,
             classifierSpec));
+=======
+    Vector classifiers = new Vector();
+    while (true) {
+      String classifierString = Utils.getOption('B', options);
+      if (classifierString.length() == 0) {
+	break;
+      }
+      String [] classifierSpec = Utils.splitOptions(classifierString);
+      if (classifierSpec.length == 0) {
+	throw new IllegalArgumentException("Invalid classifier specification string");
+      }
+      String classifierName = classifierSpec[0];
+      classifierSpec[0] = "";
+      classifiers.addElement(Classifier.forName(classifierName,
+						classifierSpec));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     }
     if (classifiers.size() == 0) {
       classifiers.addElement(new weka.classifiers.rules.ZeroR());
@@ -112,7 +190,11 @@ public abstract class MultipleClassifiersCombiner extends AbstractClassifier {
       classifiersArray[i] = (Classifier) classifiers.elementAt(i);
     }
     setClassifiers(classifiersArray);
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     super.setOptions(options);
   }
 
@@ -123,6 +205,7 @@ public abstract class MultipleClassifiersCombiner extends AbstractClassifier {
    */
   public String [] getOptions() {
 
+<<<<<<< HEAD
     Vector<String> options = new Vector<String>();
     for (int i = 0; i < m_Classifiers.length; i++) {
       options.add("-B");
@@ -133,6 +216,20 @@ public abstract class MultipleClassifiersCombiner extends AbstractClassifier {
     return options.toArray(new String[0]);
   }
 
+=======
+    String [] superOptions = super.getOptions();
+    int current = 0;
+    String[] options = new String [superOptions.length + m_Classifiers.length * 2];
+    for (int i = 0; i < m_Classifiers.length; i++) {
+      options[current++] = "-B";
+      options[current++] = "" + getClassifierSpec(i);
+    }
+    System.arraycopy(superOptions, 0, options, current, 
+		     superOptions.length);
+    return options;
+  }
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   /**
    * Returns the tip text for this property
    * @return tip text for this property suitable for
@@ -161,7 +258,11 @@ public abstract class MultipleClassifiersCombiner extends AbstractClassifier {
 
     return m_Classifiers;
   }
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   /**
    * Gets a single classifier from the set of available classifiers.
    *
@@ -172,7 +273,11 @@ public abstract class MultipleClassifiersCombiner extends AbstractClassifier {
 
     return m_Classifiers[index];
   }
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   /**
    * Gets the classifier specification string, which contains the class name of
    * the classifier and any options to the classifier
@@ -183,7 +288,11 @@ public abstract class MultipleClassifiersCombiner extends AbstractClassifier {
    * has been assigned (or the index given is out of range).
    */
   protected String getClassifierSpec(int index) {
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     if (m_Classifiers.length < index) {
       return "";
     }
@@ -201,7 +310,11 @@ public abstract class MultipleClassifiersCombiner extends AbstractClassifier {
   public Capabilities getCapabilities() {
     Capabilities      result;
     int               i;
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     if (getClassifiers().length == 0) {
       result = new Capabilities(this);
       result.disableAll();
@@ -211,7 +324,11 @@ public abstract class MultipleClassifiersCombiner extends AbstractClassifier {
       for (i = 1; i < getClassifiers().length; i++)
         result.and(getClassifier(i).getCapabilities());
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     // set dependencies
     for (Capability cap: Capability.values())
       result.enableDependency(cap);
@@ -220,6 +337,7 @@ public abstract class MultipleClassifiersCombiner extends AbstractClassifier {
 
     return result;
   }
+<<<<<<< HEAD
 
   @Override
   public void preExecution() throws Exception {
@@ -238,4 +356,6 @@ public abstract class MultipleClassifiersCombiner extends AbstractClassifier {
       }
     }
   }
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 }

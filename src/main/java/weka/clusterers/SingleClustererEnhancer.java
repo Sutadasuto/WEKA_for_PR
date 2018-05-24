@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,16 +12,36 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
  * SingleClustererEnhancer.java
+<<<<<<< HEAD
  * Copyright (C) 2006-2012 University of Waikato, Hamilton, New Zealand
+=======
+ * Copyright (C) 2006 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  *
  */
 
 package weka.clusterers;
 
+<<<<<<< HEAD
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.Vector;
@@ -38,6 +59,25 @@ import weka.core.Utils;
  * @version $Revision: 10203 $
  */
 public abstract class SingleClustererEnhancer extends AbstractClusterer
+=======
+import weka.core.Capabilities;
+import weka.core.Option;
+import weka.core.OptionHandler;
+import weka.core.Utils;
+import weka.core.Capabilities.Capability;
+
+import java.util.Enumeration;
+import java.util.Vector;
+
+/**
+ * Meta-clusterer for enhancing a base clusterer.
+ *
+ * @author FracPete (fracpete at waikato dot ac dot nz)
+ * @version $Revision: 1.4 $
+ */
+public abstract class SingleClustererEnhancer
+  extends AbstractClusterer
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   implements OptionHandler {
 
   /** for serialization */
@@ -49,7 +89,11 @@ public abstract class SingleClustererEnhancer extends AbstractClusterer
   /**
    * String describing default clusterer.
    * 
+<<<<<<< HEAD
    * @return the default clusterer classname
+=======
+   * @return 		the default clusterer classname
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    */
   protected String defaultClustererString() {
     return SimpleKMeans.class.getName();
@@ -57,6 +101,7 @@ public abstract class SingleClustererEnhancer extends AbstractClusterer
 
   /**
    * Returns an enumeration describing the available options.
+<<<<<<< HEAD
    * 
    * @return an enumeration of all the available options.
    */
@@ -76,6 +121,28 @@ public abstract class SingleClustererEnhancer extends AbstractClusterer
 
       result.addAll(Collections.list(((OptionHandler) m_Clusterer)
         .listOptions()));
+=======
+   *
+   * @return 		an enumeration of all the available options.
+   */
+  public Enumeration listOptions() {
+    Vector result = new Vector();
+
+    result.addElement(new Option(
+	"\tFull name of base clusterer.\n"
+	+ "\t(default: " + defaultClustererString() +")",
+	"W", 1, "-W"));
+
+    if (m_Clusterer instanceof OptionHandler) {
+      result.addElement(new Option(
+	  "",
+	  "", 0, "\nOptions specific to clusterer "
+	  + m_Clusterer.getClass().getName() + ":"));
+      Enumeration enu = ((OptionHandler) m_Clusterer).listOptions();
+      while (enu.hasMoreElements()) {
+	result.addElement(enu.nextElement());
+      }
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     }
 
     return result.elements();
@@ -83,6 +150,7 @@ public abstract class SingleClustererEnhancer extends AbstractClusterer
 
   /**
    * Parses a given list of options.
+<<<<<<< HEAD
    * 
    * @param options the list of options as an array of strings
    * @throws Exception if an option is not supported
@@ -101,11 +169,33 @@ public abstract class SingleClustererEnhancer extends AbstractClusterer
       setClusterer(AbstractClusterer.forName(defaultClustererString(), null));
       setClusterer(AbstractClusterer.forName(defaultClustererString(),
         Utils.partitionOptions(options)));
+=======
+   *
+   * @param options 	the list of options as an array of strings
+   * @throws Exception 	if an option is not supported
+   */
+  public void setOptions(String[] options) throws Exception {
+    String	tmpStr;
+    
+    tmpStr = Utils.getOption('W', options);
+    if (tmpStr.length() > 0) { 
+      // This is just to set the classifier in case the option 
+      // parsing fails.
+      setClusterer(AbstractClusterer.forName(tmpStr, null));
+      setClusterer(AbstractClusterer.forName(tmpStr, Utils.partitionOptions(options)));
+    } 
+    else {
+      // This is just to set the classifier in case the option 
+      // parsing fails.
+      setClusterer(AbstractClusterer.forName(defaultClustererString(), null));
+      setClusterer(AbstractClusterer.forName(defaultClustererString(), Utils.partitionOptions(options)));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     }
   }
 
   /**
    * Gets the current settings of the clusterer.
+<<<<<<< HEAD
    * 
    * @return an array of strings suitable for passing to setOptions
    */
@@ -135,6 +225,36 @@ public abstract class SingleClustererEnhancer extends AbstractClusterer
    * 
    * @return tip text for this property suitable for displaying in the
    *         explorer/experimenter gui
+=======
+   *
+   * @return 		an array of strings suitable for passing to setOptions
+   */
+  public String[] getOptions() {
+    Vector	result;
+    String[]	options;
+    int		i;
+    
+    result = new Vector();
+
+    result.add("-W");
+    result.add(getClusterer().getClass().getName());
+    
+    if (getClusterer() instanceof OptionHandler) {
+      result.add("--");
+      options = ((OptionHandler) getClusterer()).getOptions();
+      for (i = 0; i < options.length; i++)
+	result.add(options[i]);
+    }
+    
+    return (String[]) result.toArray(new String[result.size()]);
+  }
+  
+  /**
+   * Returns the tip text for this property
+   * 
+   * @return 		tip text for this property suitable for
+   * 			displaying in the explorer/experimenter gui
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    */
   public String clustererTipText() {
     return "The base clusterer to be used.";
@@ -142,8 +262,13 @@ public abstract class SingleClustererEnhancer extends AbstractClusterer
 
   /**
    * Set the base clusterer.
+<<<<<<< HEAD
    * 
    * @param value the classifier to use.
+=======
+   *
+   * @param value 	the classifier to use.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    */
   public void setClusterer(Clusterer value) {
     m_Clusterer = value;
@@ -151,12 +276,18 @@ public abstract class SingleClustererEnhancer extends AbstractClusterer
 
   /**
    * Get the clusterer used as the base clusterer.
+<<<<<<< HEAD
    * 
    * @return the base clusterer
+=======
+   *
+   * @return 		the base clusterer
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    */
   public Clusterer getClusterer() {
     return m_Clusterer;
   }
+<<<<<<< HEAD
 
   /**
    * Gets the clusterer specification string, which contains the class name of
@@ -176,11 +307,31 @@ public abstract class SingleClustererEnhancer extends AbstractClusterer
         + Utils.joinOptions(((OptionHandler) clusterer).getOptions());
     }
 
+=======
+  
+  /**
+   * Gets the clusterer specification string, which contains the class name of
+   * the clusterer and any options to the clusterer
+   *
+   * @return 		the clusterer string
+   */
+  protected String getClustererSpec() {
+    String	result;
+    Clusterer 	clusterer;
+    
+    clusterer = getClusterer();
+    result    = clusterer.getClass().getName();
+    
+    if (clusterer instanceof OptionHandler)
+      result += " " + Utils.joinOptions(((OptionHandler) clusterer).getOptions());
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     return result;
   }
 
   /**
    * Returns default capabilities of the clusterer.
+<<<<<<< HEAD
    * 
    * @return the capabilities of this clusterer
    */
@@ -199,16 +350,41 @@ public abstract class SingleClustererEnhancer extends AbstractClusterer
       result.enableDependency(cap);
     }
 
+=======
+   *
+   * @return		the capabilities of this clusterer
+   */
+  public Capabilities getCapabilities() {
+    Capabilities	result;
+    
+    if (getClusterer() == null)
+      result = super.getCapabilities();
+    else
+      result = getClusterer().getCapabilities();
+    
+    // set dependencies
+    for (Capability cap: Capability.values())
+      result.enableDependency(cap);
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     return result;
   }
 
   /**
    * Returns the number of clusters.
+<<<<<<< HEAD
    * 
    * @return the number of clusters generated for a training dataset.
    * @throws Exception if number of clusters could not be returned successfully
    */
   @Override
+=======
+   *
+   * @return 		the number of clusters generated for a training dataset.
+   * @throws Exception 	if number of clusters could not be returned
+   * 			successfully
+   */
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   public int numberOfClusters() throws Exception {
     return m_Clusterer.numberOfClusters();
   }

@@ -3,6 +3,10 @@ package weka.core.pmml;
 import java.util.ArrayList;
 
 import weka.core.Attribute;
+<<<<<<< HEAD
+=======
+import weka.core.FastVector;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
 /**
  * Built-in function for uppercase, substring and trimblanks.
@@ -102,6 +106,7 @@ public class BuiltInString extends Function {
       if (m_func == StringFunc.SUBSTRING) {
         // there is no way we can compute the legal values for this attribute
         // in advance of the application of this function. So return a string attribute
+<<<<<<< HEAD
         m_outputDef = new Attribute("BuiltInStringResult:substring", (ArrayList<String>)null);
       }
       // for the other functions we can compute the resulting set of values
@@ -110,6 +115,16 @@ public class BuiltInString extends Function {
       for (int i = 0; i < inputVals.numValues(); i++) {
         String inVal = inputVals.value(i);
         newVals.add(m_func.eval(new Object[] {inVal}));
+=======
+        m_outputDef = new Attribute("BuiltInStringResult:substring", (weka.core.FastVector)null);
+      }
+      // for the other functions we can compute the resulting set of values
+      Attribute inputVals = m_parameterDefs.get(0);
+      FastVector newVals = new FastVector();
+      for (int i = 0; i < inputVals.numValues(); i++) {
+        String inVal = inputVals.value(i);
+        newVals.addElement(m_func.eval(new Object[] {inVal}));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       }
       m_outputDef = new Attribute("BuiltInStringResult:" + m_func.toString(), newVals); 
     }

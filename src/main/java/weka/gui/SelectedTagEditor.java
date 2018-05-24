@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,11 +12,30 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
  *    SelectedTagEditor.java
+<<<<<<< HEAD
  *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 1999 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  *
  */
 
@@ -23,6 +43,7 @@
 package weka.gui;
 
 
+<<<<<<< HEAD
 import java.awt.BorderLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -32,13 +53,29 @@ import javax.swing.JFrame;
 
 import weka.core.SelectedTag;
 import weka.core.Tag;
+=======
+import weka.core.Tag;
+import weka.core.SelectedTag;
+
+import java.awt.BorderLayout;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.beans.PropertyEditor;
+import java.beans.PropertyEditorSupport;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
 /** 
  * A PropertyEditor that uses tags, where the tags are obtained from a
  * weka.core.SelectedTag object.
  *
  * @author Len Trigg (trigg@cs.waikato.ac.nz)
+<<<<<<< HEAD
  * @version $Revision: 8034 $
+=======
+ * @version $Revision: 7059 $
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 public class SelectedTagEditor extends PropertyEditorSupport {
 
@@ -126,11 +163,19 @@ public class SelectedTagEditor extends PropertyEditorSupport {
     try {
       GenericObjectEditor.registerEditors();
       Tag [] tags =  {
+<<<<<<< HEAD
 	new Tag(1, "First option"),
 	new Tag(2, "Second option"),
 	new Tag(3, "Third option"),
 	new Tag(4, "Fourth option"),
 	new Tag(5, "Fifth option"),
+=======
+	new Tag(1, Messages.getInstance().getString("SelectedTagEditor_Main_Tags_Text_First")),
+	new Tag(2, Messages.getInstance().getString("SelectedTagEditor_Main_Tags_Text_Second")),
+	new Tag(3, Messages.getInstance().getString("SelectedTagEditor_Main_Tags_Text_Third")),
+	new Tag(4, Messages.getInstance().getString("SelectedTagEditor_Main_Tags_Text_Fourth")),
+	new Tag(5, Messages.getInstance().getString("SelectedTagEditor_Main_Tags_Text_Fifth")),
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       };
       SelectedTag initial = new SelectedTag(1, tags);
       SelectedTagEditor ce = new SelectedTagEditor();

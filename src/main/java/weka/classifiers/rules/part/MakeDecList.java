@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,16 +12,36 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
  *    MakeDecList.java
+<<<<<<< HEAD
  *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 1999 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  *
  */
 
 package weka.classifiers.rules.part;
 
+<<<<<<< HEAD
 import java.io.Serializable;
 import java.util.Enumeration;
 import java.util.Random;
@@ -29,12 +50,17 @@ import java.util.Vector;
 import weka.classifiers.trees.j48.ModelSelection;
 import weka.core.Capabilities;
 import weka.core.Capabilities.Capability;
+=======
+import weka.classifiers.trees.j48.ModelSelection;
+import weka.core.Capabilities;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 import weka.core.CapabilitiesHandler;
 import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.RevisionHandler;
 import weka.core.RevisionUtils;
 import weka.core.Utils;
+<<<<<<< HEAD
 
 /**
  * Class for handling a decision list.
@@ -43,17 +69,39 @@ import weka.core.Utils;
  * @version $Revision: 14534 $
  */
 public class MakeDecList implements Serializable, RevisionHandler {
+=======
+import weka.core.Capabilities.Capability;
+
+import java.io.Serializable;
+import java.util.Enumeration;
+import java.util.Random;
+import java.util.Vector;
+
+/**
+ * Class for handling a decision list.
+ *
+ * @author Eibe Frank (eibe@cs.waikato.ac.nz)
+ * @version $Revision: 5529 $
+ */
+public class MakeDecList
+  implements Serializable, CapabilitiesHandler, RevisionHandler {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
   /** for serialization */
   private static final long serialVersionUID = -1427481323245079123L;
 
   /** Vector storing the rules. */
+<<<<<<< HEAD
   private Vector<ClassifierDecList> theRules;
+=======
+  private Vector theRules;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
   /** The confidence for C45-type pruning. */
   private double CF = 0.25f;
 
   /** Minimum number of objects */
+<<<<<<< HEAD
   private final int minNumObj;
 
   /** The model selection method. */
@@ -63,6 +111,14 @@ public class MakeDecList implements Serializable, RevisionHandler {
    * How many subsets of equal size? One used for pruning, the rest for
    * training.
    */
+=======
+  private int minNumObj;
+
+  /** The model selection method. */
+  private ModelSelection toSelectModeL;
+
+  /** How many subsets of equal size? One used for pruning, the rest for training. */
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   private int numSetS = 3;
 
   /** Use reduced error pruning? */
@@ -77,7 +133,12 @@ public class MakeDecList implements Serializable, RevisionHandler {
   /**
    * Constructor for unpruned dec list.
    */
+<<<<<<< HEAD
   public MakeDecList(ModelSelection toSelectLocModel, int minNum) {
+=======
+  public MakeDecList(ModelSelection toSelectLocModel,
+		     int minNum){
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
     toSelectModeL = toSelectLocModel;
     reducedErrorPruning = false;
@@ -88,7 +149,12 @@ public class MakeDecList implements Serializable, RevisionHandler {
   /**
    * Constructor for dec list pruned using C4.5 pruning.
    */
+<<<<<<< HEAD
   public MakeDecList(ModelSelection toSelectLocModel, double cf, int minNum) {
+=======
+  public MakeDecList(ModelSelection toSelectLocModel, double cf,
+		     int minNum){
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
     toSelectModeL = toSelectLocModel;
     CF = cf;
@@ -100,8 +166,13 @@ public class MakeDecList implements Serializable, RevisionHandler {
   /**
    * Constructor for dec list pruned using hold-out pruning.
    */
+<<<<<<< HEAD
   public MakeDecList(ModelSelection toSelectLocModel, int num, int minNum,
     int seed) {
+=======
+  public MakeDecList(ModelSelection toSelectLocModel, int num,
+		     int minNum, int seed){
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
     toSelectModeL = toSelectLocModel;
     numSetS = num;
@@ -112,6 +183,7 @@ public class MakeDecList implements Serializable, RevisionHandler {
   }
 
   /**
+<<<<<<< HEAD
    * Builds dec list.
    * 
    * @exception Exception if dec list can't be built successfully
@@ -123,6 +195,51 @@ public class MakeDecList implements Serializable, RevisionHandler {
     Instances oldGrowData, newGrowData, oldPruneData, newPruneData;
     theRules = new Vector<ClassifierDecList>();
     if ((reducedErrorPruning) && !(unpruned)) {
+=======
+   * Returns default capabilities of the classifier.
+   *
+   * @return      the capabilities of this classifier
+   */
+  public Capabilities getCapabilities() {
+    Capabilities result = new Capabilities(this);
+    result.disableAll();
+
+    // attributes
+    result.enable(Capability.NOMINAL_ATTRIBUTES);
+    result.enable(Capability.NUMERIC_ATTRIBUTES);
+    result.enable(Capability.DATE_ATTRIBUTES);
+    result.enable(Capability.MISSING_VALUES);
+
+    // class
+    result.enable(Capability.NOMINAL_CLASS);
+    result.enable(Capability.MISSING_CLASS_VALUES);
+    
+    return result;
+  }
+
+  /**
+   * Builds dec list.
+   *
+   * @exception Exception if dec list can't be built successfully
+   */
+  public void buildClassifier(Instances data) throws Exception {
+    
+    // can classifier handle the data?
+    getCapabilities().testWithFail(data);
+
+    // remove instances with missing class
+    data = new Instances(data);
+    data.deleteWithMissingClass();
+    
+    ClassifierDecList currentRule;
+    double currentWeight;
+    Instances oldGrowData, newGrowData, oldPruneData,
+      newPruneData;
+    int numRules = 0;
+    
+    theRules = new Vector();
+    if ((reducedErrorPruning) && !(unpruned)){ 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       Random random = new Random(m_seed);
       data.randomize(random);
       data.stratify(numSetS);
@@ -133,6 +250,7 @@ public class MakeDecList implements Serializable, RevisionHandler {
       oldPruneData = null;
     }
 
+<<<<<<< HEAD
     while (Utils.gr(oldGrowData.numInstances(), 0)) {
 
       // Create rule
@@ -174,6 +292,57 @@ public class MakeDecList implements Serializable, RevisionHandler {
         }
         newPruneData.compactify();
         oldPruneData = newPruneData;
+=======
+    while (Utils.gr(oldGrowData.numInstances(),0)){
+
+      // Create rule
+      if (unpruned) {
+	currentRule = new ClassifierDecList(toSelectModeL,
+					    minNumObj);
+	((ClassifierDecList)currentRule).buildRule(oldGrowData);
+      } else if (reducedErrorPruning) {
+	currentRule = new PruneableDecList(toSelectModeL,
+					   minNumObj);
+	((PruneableDecList)currentRule).buildRule(oldGrowData, 
+						  oldPruneData);
+      } else {
+	currentRule = new C45PruneableDecList(toSelectModeL, CF,
+					      minNumObj);
+	((C45PruneableDecList)currentRule).buildRule(oldGrowData);
+      }
+      numRules++;
+
+      // Remove instances from growing data
+      newGrowData = new Instances(oldGrowData,
+				  oldGrowData.numInstances());
+      Enumeration enu = oldGrowData.enumerateInstances();
+      while (enu.hasMoreElements()) {
+	Instance instance = (Instance) enu.nextElement();
+	currentWeight = currentRule.weight(instance);
+	if (Utils.sm(currentWeight,1)) {
+	  instance.setWeight(instance.weight()*(1-currentWeight));
+	  newGrowData.add(instance);
+	}
+      }
+      newGrowData.compactify();
+      oldGrowData = newGrowData;
+      
+      // Remove instances from pruning data
+      if ((reducedErrorPruning) && !(unpruned)) {
+	newPruneData = new Instances(oldPruneData,
+					     oldPruneData.numInstances());
+	enu = oldPruneData.enumerateInstances();
+	while (enu.hasMoreElements()) {
+	  Instance instance = (Instance) enu.nextElement();
+	  currentWeight = currentRule.weight(instance);
+	  if (Utils.sm(currentWeight,1)) {
+	    instance.setWeight(instance.weight()*(1-currentWeight));
+	    newPruneData.add(instance);
+	  }
+	}
+	newPruneData.compactify();
+	oldPruneData = newPruneData;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       }
       theRules.addElement(currentRule);
     }
@@ -182,6 +351,7 @@ public class MakeDecList implements Serializable, RevisionHandler {
   /**
    * Outputs the classifier into a string.
    */
+<<<<<<< HEAD
   @Override
   public String toString() {
 
@@ -191,10 +361,20 @@ public class MakeDecList implements Serializable, RevisionHandler {
       text.append(theRules.elementAt(i) + "\n");
     }
     text.append("Number of Rules  : \t" + theRules.size() + "\n");
+=======
+  public String toString(){
+
+    StringBuffer text = new StringBuffer();
+
+    for (int i=0;i<theRules.size();i++)
+      text.append((ClassifierDecList)theRules.elementAt(i)+"\n");
+    text.append("Number of Rules  : \t"+theRules.size()+"\n");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
     return text.toString();
   }
 
+<<<<<<< HEAD
   /**
    * Classifies an instance.
    * 
@@ -204,10 +384,23 @@ public class MakeDecList implements Serializable, RevisionHandler {
 
     double maxProb = -1;
     double[] sumProbs;
+=======
+  /** 
+   * Classifies an instance.
+   *
+   * @exception Exception if instance can't be classified
+   */
+  public double classifyInstance(Instance instance) 
+       throws Exception {
+
+    double maxProb = -1;
+    double [] sumProbs;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     int maxIndex = 0;
 
     sumProbs = distributionForInstance(instance);
     for (int j = 0; j < sumProbs.length; j++) {
+<<<<<<< HEAD
       if (Utils.gr(sumProbs[j], maxProb)) {
         maxIndex = j;
         maxProb = sumProbs[j];
@@ -240,6 +433,42 @@ public class MakeDecList implements Serializable, RevisionHandler {
           sumProbs[j] += weight * currentProbs[j];
         }
         weight = weight * (1 - currentWeight);
+=======
+      if (Utils.gr(sumProbs[j],maxProb)){
+	maxIndex = j;
+	maxProb = sumProbs[j];
+      }
+    }
+
+    return (double)maxIndex;
+  }
+
+  /** 
+   * Returns the class distribution for an instance.
+   *
+   * @exception Exception if distribution can't be computed
+   */
+  public double[] distributionForInstance(Instance instance) 
+       throws Exception {
+
+    double [] currentProbs = null;
+    double [] sumProbs;
+    double currentWeight, weight = 1;
+    int i,j;
+	
+    // Get probabilities.
+    sumProbs = new double [instance.numClasses()];
+    i = 0;
+    while (Utils.gr(weight,0)){
+      currentWeight = 
+	((ClassifierDecList)theRules.elementAt(i)).weight(instance);
+      if (Utils.gr(currentWeight,0)) {
+	currentProbs = ((ClassifierDecList)theRules.elementAt(i)).
+	  distributionForInstance(instance);
+	for (j = 0; j < sumProbs.length; j++)
+	  sumProbs[j] += weight*currentProbs[j];
+	weight = weight*(1-currentWeight);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       }
       i++;
     }
@@ -250,6 +479,7 @@ public class MakeDecList implements Serializable, RevisionHandler {
   /**
    * Outputs the number of rules in the classifier.
    */
+<<<<<<< HEAD
   public int numRules() {
 
     return theRules.size();
@@ -263,5 +493,19 @@ public class MakeDecList implements Serializable, RevisionHandler {
   @Override
   public String getRevision() {
     return RevisionUtils.extract("$Revision: 14534 $");
+=======
+  public int numRules(){
+
+    return theRules.size();
+  }
+  
+  /**
+   * Returns the revision string.
+   * 
+   * @return		the revision
+   */
+  public String getRevision() {
+    return RevisionUtils.extract("$Revision: 5529 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 }

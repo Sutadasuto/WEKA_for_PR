@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,26 +12,64 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
  *    StringToNominal.java
+<<<<<<< HEAD
  *    Copyright (C) 2002-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 2002 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  *
  */
 
 package weka.filters.unsupervised.attribute;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Vector;
 
 import weka.core.*;
 import weka.core.Capabilities.Capability;
+=======
+import java.util.Enumeration;
+import java.util.Vector;
+
+import weka.core.Attribute;
+import weka.core.Capabilities;
+import weka.core.Capabilities.Capability;
+import weka.core.FastVector;
+import weka.core.Instance;
+import weka.core.Instances;
+import weka.core.Option;
+import weka.core.OptionHandler;
+import weka.core.Range;
+import weka.core.RevisionUtils;
+import weka.core.UnsupportedAttributeTypeException;
+import weka.core.Utils;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 import weka.filters.Filter;
 import weka.filters.UnsupervisedFilter;
 
 /**
+<<<<<<< HEAD
  * <!-- globalinfo-start --> Converts a range of string attributes (unspecified
  * number of values) to nominal (set number of values). You should ensure that
  * all string values that will appear are represented in the first batch of the
@@ -39,10 +78,23 @@ import weka.filters.UnsupervisedFilter;
  * <!-- globalinfo-end -->
  * 
  * <!-- options-start --> Valid options are:
+=======
+ <!-- globalinfo-start --> 
+ * Converts a string attribute (i.e. unspecified
+ * number of values) to nominal (i.e. set number of values). You should ensure
+ * that all string values that will appear are represented in the first batch of
+ * the data.
+ * <p/>
+ <!-- globalinfo-end -->
+ * 
+ <!-- options-start --> 
+ * Valid options are:
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  * <p/>
  * 
  * <pre>
  * -R &lt;col&gt;
+<<<<<<< HEAD
  *  Sets the range of attribute indices ("first" and "last" are valid values
  *  and ranges and lists can also be used) (default "last").
  * </pre>
@@ -59,6 +111,18 @@ import weka.filters.UnsupervisedFilter;
  */
 public class StringToNominal extends Filter implements UnsupervisedFilter,
   OptionHandler, WeightedAttributesHandler, WeightedInstancesHandler {
+=======
+ *  Sets the range of attribute indices (default last).
+ * </pre>
+ * 
+ <!-- options-end -->
+ * 
+ * @author Len Trigg (len@reeltwo.com)
+ * @version $Revision: 9273 $
+ */
+public class StringToNominal extends Filter implements UnsupervisedFilter,
+    OptionHandler {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
   /** for serialization */
   private static final long serialVersionUID = 4864084427902797605L;
@@ -75,8 +139,13 @@ public class StringToNominal extends Filter implements UnsupervisedFilter,
   public String globalInfo() {
 
     return "Converts a range of string attributes (unspecified number of values) to nominal "
+<<<<<<< HEAD
       + "(set number of values). You should ensure that all string values that "
       + "will appear are represented in the first batch of the data.";
+=======
+        + "(set number of values). You should ensure that all string values that "
+        + "will appear are represented in the first batch of the data.";
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**
@@ -147,8 +216,14 @@ public class StringToNominal extends Filter implements UnsupervisedFilter,
       // string attributes when operating on a second batch of instances
       for (int i = 0; i < newInstance.numAttributes(); i++) {
         if (newInstance.attribute(i).isString() && !newInstance.isMissing(i)
+<<<<<<< HEAD
           && m_AttIndices.isInRange(i)) {
           Attribute outAtt = outputFormatPeek().attribute(i);
+=======
+            && m_AttIndices.isInRange(i)) {
+          Attribute outAtt = getOutputFormat().attribute(
+              newInstance.attribute(i).name());
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
           String inVal = newInstance.stringValue(i);
           int outIndex = outAtt.indexOfValue(inVal);
           if (outIndex < 0) {
@@ -158,7 +233,11 @@ public class StringToNominal extends Filter implements UnsupervisedFilter,
           }
         }
       }
+<<<<<<< HEAD
       push(newInstance, false); // No need to copy
+=======
+      push(newInstance);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       return true;
     }
 
@@ -186,7 +265,20 @@ public class StringToNominal extends Filter implements UnsupervisedFilter,
 
       // Convert pending input instances
       for (int i = 0; i < getInputFormat().numInstances(); i++) {
+<<<<<<< HEAD
         push((Instance) getInputFormat().instance(i).copy(), false); // No need to copy
+=======
+        Instance temp = (Instance) getInputFormat().instance(i).copy();
+        for (int j = 0; j < temp.numAttributes(); j++) {
+          if (temp.attribute(j).isString() && !temp.isMissing(j)
+              && m_AttIndices.isInRange(j)) {
+
+            // adjust indexes for the removal of the dummy string value
+            temp.setValue(j, temp.value(j) - 1);
+          }
+        }
+        push(temp);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       }
     }
 
@@ -200,18 +292,29 @@ public class StringToNominal extends Filter implements UnsupervisedFilter,
    * 
    * @return an enumeration of all the available options.
    */
+<<<<<<< HEAD
   @Override
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   public Enumeration<Option> listOptions() {
 
     Vector<Option> newVector = new Vector<Option>(1);
 
     newVector.addElement(new Option(
+<<<<<<< HEAD
       "\tSets which attributes to process (\"first\" and \"last\" are valid values "
               + "and ranges and lists can also be used) (default \"last\").", "R", 1,
       "-R <col>"));
 
     newVector.addElement(new Option("\tInvert the range specified by -R.", "V",
       1, "-V <col>"));
+=======
+        "\tSets the range of attribute indices (default last).", "R", 1,
+        "-R <col>"));
+
+    newVector.addElement(new Option("\tInvert the range specified by -R.", "V",
+        1, "-V <col>"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
     return newVector.elements();
   }
@@ -225,13 +328,21 @@ public class StringToNominal extends Filter implements UnsupervisedFilter,
    * 
    * <pre>
    * -R &lt;col&gt;
+<<<<<<< HEAD
    * Sets the range of attribute indices ("first" and "last" are valid values
    * and ranges and lists can also be used) (default "last").
+=======
+   *  Sets the range of attribute indices (default last).
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * </pre>
    * 
    * <pre>
    * -V &lt;col&gt;
+<<<<<<< HEAD
    *  Invert the range specified by -R.
+=======
+   *  Inverts the selection specified by -R.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * </pre>
    * 
    * <!-- options-end -->
@@ -239,7 +350,10 @@ public class StringToNominal extends Filter implements UnsupervisedFilter,
    * @param options the list of options as an array of strings
    * @throws Exception if an option is not supported
    */
+<<<<<<< HEAD
   @Override
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   public void setOptions(String[] options) throws Exception {
 
     String attIndices = Utils.getOption('R', options);
@@ -259,8 +373,11 @@ public class StringToNominal extends Filter implements UnsupervisedFilter,
     if (getInputFormat() != null) {
       setInputFormat(getInputFormat());
     }
+<<<<<<< HEAD
 
     Utils.checkForRemainingOptions(options);
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**
@@ -268,6 +385,7 @@ public class StringToNominal extends Filter implements UnsupervisedFilter,
    * 
    * @return an array of strings suitable for passing to setOptions
    */
+<<<<<<< HEAD
   @Override
   public String[] getOptions() {
 
@@ -281,6 +399,25 @@ public class StringToNominal extends Filter implements UnsupervisedFilter,
     }
 
     return options.toArray(new String[0]);
+=======
+  public String[] getOptions() {
+
+    String[] options = new String[this.m_AttIndices.getInvert() ? 7 : 6];
+    int current = 0;
+
+    options[current++] = "-R";
+    options[current++] = "" + (getAttributeRange());
+
+    while (current < options.length) {
+      options[current++] = "";
+    }
+
+    if (this.m_AttIndices.getInvert()) {
+      options[current++] = "-V";
+    }
+
+    return options;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**
@@ -289,8 +426,14 @@ public class StringToNominal extends Filter implements UnsupervisedFilter,
    */
   public String attributeRangeTipText() {
 
+<<<<<<< HEAD
     return "Sets which attributes to process (\"first\" and \"last\" are valid values "
       + "and ranges and lists can also be used).";
+=======
+    return "Sets which attributes to process. This attributes "
+        + "must be string attributes (\"first\" and \"last\" are valid values "
+        + "as well as ranges and lists)";
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**
@@ -306,7 +449,11 @@ public class StringToNominal extends Filter implements UnsupervisedFilter,
   /**
    * Sets range of indices of the attributes used.
    * 
+<<<<<<< HEAD
    * @param rangeList the list of attribute indices
+=======
+   * @param attIndex the index of the attribute
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    */
   public void setAttributeRange(String rangeList) {
 
@@ -320,18 +467,27 @@ public class StringToNominal extends Filter implements UnsupervisedFilter,
   private void setOutputFormat() {
 
     Instances newData;
+<<<<<<< HEAD
     ArrayList<Attribute> newAtts;
     ArrayList<String> newVals;
 
     // Compute new attributes
 
     newAtts = new ArrayList<Attribute>(getInputFormat().numAttributes());
+=======
+    FastVector newAtts, newVals;
+
+    // Compute new attributes
+
+    newAtts = new FastVector(getInputFormat().numAttributes());
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     for (int j = 0; j < getInputFormat().numAttributes(); j++) {
       Attribute att = getInputFormat().attribute(j);
       if (!m_AttIndices.isInRange(j) || !att.isString()) {
 
         // We don't have to copy the attribute because the
         // attribute index remains unchanged.
+<<<<<<< HEAD
         newAtts.add(att);
       } else {
 
@@ -343,6 +499,19 @@ public class StringToNominal extends Filter implements UnsupervisedFilter,
         Attribute newAtt = new Attribute(att.name(), newVals);
         newAtt.setWeight(att.weight());
         newAtts.add(newAtt);
+=======
+        newAtts.addElement(att);
+      } else {
+
+        // Compute list of attribute values
+        newVals = new FastVector(att.numValues());
+        for (int i = 1; i < att.numValues(); i++) {
+          newVals.addElement(att.value(i));
+        }
+        Attribute newAtt = new Attribute(att.name(), newVals);
+        newAtt.setWeight(att.weight());
+        newAtts.addElement(newAtt);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       }
     }
 
@@ -359,7 +528,11 @@ public class StringToNominal extends Filter implements UnsupervisedFilter,
    */
   @Override
   public String getRevision() {
+<<<<<<< HEAD
     return RevisionUtils.extract("$Revision: 14534 $");
+=======
+    return RevisionUtils.extract("$Revision: 9273 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**

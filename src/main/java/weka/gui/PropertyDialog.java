@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,11 +12,30 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
  *    PropertyDialog.java
+<<<<<<< HEAD
  *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 1999 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  *
  */
 
@@ -31,14 +51,23 @@ import java.awt.event.WindowEvent;
 import java.beans.PropertyEditor;
 
 import javax.swing.JDialog;
+<<<<<<< HEAD
 import javax.swing.JInternalFrame;
 
 /** 
+=======
+
+/**
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  * Support for PropertyEditors with custom editors: puts the editor into
  * a separate frame.
  *
  * @author Len Trigg (trigg@cs.waikato.ac.nz)
+<<<<<<< HEAD
  * @version $Revision: 14497 $
+=======
+ * @version $Revision: 7899 $
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 public class PropertyDialog
   extends JDialog {
@@ -51,7 +80,11 @@ public class PropertyDialog
 
   /** The custom editor component. */
   private Component m_EditorComponent;
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   /**
    * Creates the editor frame - only kept for backward-compatibility.
    *
@@ -59,8 +92,13 @@ public class PropertyDialog
    * @param x 		initial x coord for the frame
    * @param y 		initial y coord for the frame
    * @deprecated 	instead of this constructor, one should use the constructors
+<<<<<<< HEAD
    * 			with an explicit owner (either derived from 
    * 			<code>java.awt.Dialog</code> or from 
+=======
+   * 			with an explicit owner (either derived from
+   * 			<code>java.awt.Dialog</code> or from
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * 			<code>java.awt.Frame</code>) or, if none available,
    * 			using <code>(Frame) null</code> as owner.
    */
@@ -68,7 +106,11 @@ public class PropertyDialog
     this((Frame) null, pe, x, y);
     setVisible(true);
   }
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   /**
    * Creates the (screen-centered) editor dialog. The dialog is automatically
    * modal in case the owner is non-null.
@@ -79,7 +121,11 @@ public class PropertyDialog
   public PropertyDialog(Dialog owner, PropertyEditor pe) {
     this(owner, pe, -1, -1);
   }
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   /**
    * Creates the editor dialog at the given position. The dialog is automatically
    * modal in case the owner is non-null.
@@ -93,7 +139,11 @@ public class PropertyDialog
     super(owner, pe.getClass().getName(), ModalityType.DOCUMENT_MODAL);
     initialize(pe, x, y);
   }
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   /**
    * Creates the (screen-centered) editor dialog. The dialog is automatically
    * modal in case the owner is non-null.
@@ -104,7 +154,11 @@ public class PropertyDialog
   public PropertyDialog(Frame owner, PropertyEditor pe) {
     this(owner, pe, -1, -1);
   }
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   /**
    * Creates the editor dialog at the given position. The dialog is automatically
    * modal in case the owner is non-null.
@@ -116,10 +170,17 @@ public class PropertyDialog
    */
   public PropertyDialog(Frame owner, PropertyEditor pe, int x, int y) {
     super(owner, pe.getClass().getName(), ModalityType.DOCUMENT_MODAL);
+<<<<<<< HEAD
     
     initialize(pe, x, y);
   }
   
+=======
+
+    initialize(pe, x, y);
+  }
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   /**
    * Initializes the dialog.
    *
@@ -140,16 +201,26 @@ public class PropertyDialog
     getContentPane().add(m_EditorComponent, BorderLayout.CENTER);
 
     pack();
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     int screenWidth = getGraphicsConfiguration().getBounds().width;
     int screenHeight = getGraphicsConfiguration().getBounds().height;
 
     // adjust height to a maximum of 95% of screen height
     if (getHeight() > (double) screenHeight * 0.95)
       setSize(getWidth(), (int) ((double) screenHeight * 0.95));
+<<<<<<< HEAD
     
     if ((x == -1) && (y == -1)) {
       setLocationRelativeTo(getOwner());
+=======
+
+    if ((x == -1) && (y == -1)) {
+      setLocationRelativeTo(null);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     }
     else {
       // adjust position if necessary
@@ -172,16 +243,26 @@ public class PropertyDialog
 
   /**
    * Tries to determine the frame this panel is part of.
+<<<<<<< HEAD
    * 
+=======
+   *
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @param c		the container to start with
    * @return		the parent frame if one exists or null if not
    */
   public static Frame getParentFrame(Container c) {
     Frame	result;
     Container	parent;
+<<<<<<< HEAD
     
     result = null;
     
+=======
+
+    result = null;
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     parent = c;
     while (parent != null) {
       if (parent instanceof Frame) {
@@ -192,6 +273,7 @@ public class PropertyDialog
 	parent = parent.getParent();
       }
     }
+<<<<<<< HEAD
     
     return result;
   }
@@ -219,21 +301,34 @@ public class PropertyDialog
       }
     }
     
+=======
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     return result;
   }
 
   /**
    * Tries to determine the dialog this panel is part of.
+<<<<<<< HEAD
    * 
+=======
+   *
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * @param c		the container to start with
    * @return		the parent dialog if one exists or null if not
    */
   public static Dialog getParentDialog(Container c) {
     Dialog	result;
     Container	parent;
+<<<<<<< HEAD
     
     result = null;
     
+=======
+
+    result = null;
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     parent = c;
     while (parent != null) {
       if (parent instanceof Dialog) {
@@ -244,7 +339,11 @@ public class PropertyDialog
 	parent = parent.getParent();
       }
     }
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     return result;
   }
 }

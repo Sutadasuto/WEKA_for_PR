@@ -28,7 +28,11 @@ import javax.swing.JMenuItem;
  * visualize graphs in the explorer.
  *
  * @author FracPete (fracpete at waikato dot ac dot nz)
+<<<<<<< HEAD
  * @version $Revision: 8034 $
+=======
+ * @version $Revision: 9053 $
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 public interface GraphVisualizePlugin {
 

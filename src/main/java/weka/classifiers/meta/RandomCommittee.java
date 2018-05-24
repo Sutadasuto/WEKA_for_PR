@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,28 +12,57 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
  *    RandomCommittee.java
+<<<<<<< HEAD
  *    Copyright (C) 2003-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 2003 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  *
  */
 
 package weka.classifiers.meta;
 
+<<<<<<< HEAD
 import java.util.Random;
 import java.util.ArrayList;
 
 import weka.classifiers.AbstractClassifier;
 import weka.classifiers.RandomizableParallelIteratedSingleClassifierEnhancer;
+=======
+import weka.classifiers.Classifier;
+import weka.classifiers.RandomizableIteratedSingleClassifierEnhancer;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.Randomizable;
 import weka.core.RevisionUtils;
 import weka.core.Utils;
 import weka.core.WeightedInstancesHandler;
+<<<<<<< HEAD
 import weka.core.PartitionGenerator;
+=======
+
+import java.util.Random;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
 /**
  <!-- globalinfo-start -->
@@ -87,6 +117,7 @@ import weka.core.PartitionGenerator;
  * Options after -- are passed to the designated classifier.<p>
  *
  * @author Eibe Frank (eibe@cs.waikato.ac.nz)
+<<<<<<< HEAD
  * @version $Revision: 11461 $
  */
 public class RandomCommittee 
@@ -98,6 +129,16 @@ public class RandomCommittee
   
   /** training data */
   protected Instances m_data;
+=======
+ * @version $Revision: 1.13 $
+ */
+public class RandomCommittee 
+  extends RandomizableIteratedSingleClassifierEnhancer
+  implements WeightedInstancesHandler {
+    
+  /** for serialization */
+  static final long serialVersionUID = -9204394360557300092L;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   
   /**
    * Constructor.
@@ -142,14 +183,21 @@ public class RandomCommittee
     // can classifier handle the data?
     getCapabilities().testWithFail(data);
 
+<<<<<<< HEAD
     // get fresh instances
     m_data = new Instances(data);
     super.buildClassifier(m_data);
+=======
+    // remove instances with missing class
+    data = new Instances(data);
+    data.deleteWithMissingClass();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     
     if (!(m_Classifier instanceof Randomizable)) {
       throw new IllegalArgumentException("Base learner must implement Randomizable!");
     }
 
+<<<<<<< HEAD
     m_Classifiers = AbstractClassifier.makeCopies(m_Classifier, m_NumIterations);
 
     Random random = m_data.getRandomNumberGenerator(m_Seed);
@@ -159,12 +207,18 @@ public class RandomCommittee
       m_data = m_data.resampleWithWeights(random);
     }
 
+=======
+    m_Classifiers = Classifier.makeCopies(m_Classifier, m_NumIterations);
+
+    Random random = data.getRandomNumberGenerator(m_Seed);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     for (int j = 0; j < m_Classifiers.length; j++) {
 
       // Set the random number seed for the current classifier.
       ((Randomizable) m_Classifiers[j]).setSeed(random.nextInt());
       
       // Build the classifier.
+<<<<<<< HEAD
 //      m_Classifiers[j].buildClassifier(m_data);
     }
     
@@ -185,6 +239,10 @@ public class RandomCommittee
     
     // we don't manipulate the training data in any way.
     return m_data;
+=======
+      m_Classifiers[j].buildClassifier(data);
+    }
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**
@@ -199,6 +257,7 @@ public class RandomCommittee
 
     double [] sums = new double [instance.numClasses()], newProbs; 
     
+<<<<<<< HEAD
     double numPreds = 0;
     for (int i = 0; i < m_NumIterations; i++) {
       if (instance.classAttribute().isNumeric() == true) {
@@ -207,6 +266,11 @@ public class RandomCommittee
           sums[0] += pred;
           numPreds++;
         }
+=======
+    for (int i = 0; i < m_NumIterations; i++) {
+      if (instance.classAttribute().isNumeric() == true) {
+	sums[0] += m_Classifiers[i].classifyInstance(instance);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       } else {
 	newProbs = m_Classifiers[i].distributionForInstance(instance);
 	for (int j = 0; j < newProbs.length; j++)
@@ -214,11 +278,15 @@ public class RandomCommittee
       }
     }
     if (instance.classAttribute().isNumeric() == true) {
+<<<<<<< HEAD
       if (numPreds == 0) {
         sums[0] = Utils.missingValue();
       } else {
         sums[0] /= numPreds;
       }
+=======
+      sums[0] /= (double)m_NumIterations;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       return sums;
     } else if (Utils.eq(Utils.sum(sums), 0)) {
       return sums;
@@ -245,6 +313,7 @@ public class RandomCommittee
 
     return text.toString();
   }
+<<<<<<< HEAD
     
   /**
    * Builds the classifier to generate a partition.
@@ -298,12 +367,20 @@ public class RandomCommittee
   }
 
   /**
+=======
+  
+  /**
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
    * Returns the revision string.
    * 
    * @return		the revision
    */
   public String getRevision() {
+<<<<<<< HEAD
     return RevisionUtils.extract("$Revision: 11461 $");
+=======
+    return RevisionUtils.extract("$Revision: 1.13 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**

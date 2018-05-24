@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,16 +12,36 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
  *    LoaderCustomizer.java
+<<<<<<< HEAD
  *    Copyright (C) 2002-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 2002 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  *
  */
 
 package weka.gui.beans;
 
+<<<<<<< HEAD
 import java.awt.BorderLayout;
 import java.awt.Dialog.ModalityType;
 import java.awt.FlowLayout;
@@ -53,11 +74,52 @@ import weka.gui.PropertySheetPanel;
  */
 public class LoaderCustomizer extends JPanel implements BeanCustomizer,
   CustomizerCloseRequester, EnvironmentHandler {
+=======
+import weka.core.converters.DatabaseConverter;
+import weka.core.converters.DatabaseLoader;
+import weka.core.converters.FileSourcedConverter;
+import weka.gui.ExtensionFileFilter;
+import weka.gui.GenericObjectEditor;
+import weka.gui.PropertySheetPanel;
+
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.beans.Customizer;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
+import java.io.File;
+
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.JCheckBox;
+
+/**
+ * GUI Customizer for the loader bean
+ *
+ * @author <a href="mailto:mhall@cs.waikato.ac.nz">Mark Hall</a>
+ * @version $Revision: 7911 $
+ */
+public class LoaderCustomizer
+  extends JPanel
+  implements Customizer, CustomizerCloseRequester {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 
   /** for serialization */
   private static final long serialVersionUID = 6990446313118930298L;
 
   static {
+<<<<<<< HEAD
     GenericObjectEditor.registerEditors();
   }
 
@@ -466,20 +528,228 @@ public class LoaderCustomizer extends JPanel implements BeanCustomizer,
     holderP.add(buttonsP, BorderLayout.SOUTH);
 
     // db.add(buttonsP);
+=======
+     GenericObjectEditor.registerEditors();
+  }
+
+  private PropertyChangeSupport m_pcSupport = 
+    new PropertyChangeSupport(this);
+
+  private weka.gui.beans.Loader m_dsLoader;
+
+  private PropertySheetPanel m_LoaderEditor = 
+    new PropertySheetPanel();
+
+  private JFileChooser m_fileChooser 
+    = new JFileChooser(new File(System.getProperty("user.dir")));
+  /*  private JDialog m_chooserDialog = 
+    new JDialog((JFrame)getTopLevelAncestor(),
+    true); */
+
+  private JFrame m_parentFrame;
+  
+  private JTextField m_dbaseURLText;
+  
+  private JTextField m_userNameText;
+  
+  private JTextField m_queryText;
+   
+  private JTextField m_keyText;
+  
+  private JPasswordField m_passwordText;
+
+  private JCheckBox m_relativeFilePath;
+
+  public LoaderCustomizer() {
+    /*    m_fileEditor.addPropertyChangeListener(new PropertyChangeListener() {
+	public void propertyChange(PropertyChangeEvent e) {
+	  if (m_dsLoader != null) {
+	    m_dsLoader.setDataSetFile((File)m_fileEditor.getValue());
+	  }
+	}
+	}); */
+
+    try {
+      /*      m_LoaderEditor.setClassType(weka.core.converters.Loader.class);
+	      m_LoaderEditor.setValue(new weka.core.converters.ArffLoader()); */
+      m_LoaderEditor.addPropertyChangeListener(
+	  new PropertyChangeListener() {
+	      public void propertyChange(PropertyChangeEvent e) {
+		repaint();
+		if (m_dsLoader != null) {
+		  System.err.println(Messages.getInstance().getString("LoaderCustomizer_Error_Text_First"));
+		  m_dsLoader.setLoader(m_dsLoader.getLoader());
+		}
+	      }
+	    });
+      repaint();
+    } catch (Exception ex) {
+      ex.printStackTrace();
+    }
+
+    setLayout(new BorderLayout());
+    //    add(m_fileEditor.getCustomEditor(), BorderLayout.CENTER);
+    //    add(m_LoaderEditor, BorderLayout.CENTER);
+    m_fileChooser.setDialogType(JFileChooser.OPEN_DIALOG);
+    m_fileChooser.addActionListener(new ActionListener() {
+	public void actionPerformed(ActionEvent e) {
+	  if (e.getActionCommand().equals(JFileChooser.APPROVE_SELECTION)) {
+	    try {
+              File selectedFile = m_fileChooser.getSelectedFile();
+	      ((FileSourcedConverter)m_dsLoader.getLoader()).
+		setFile(selectedFile);
+	      // tell the loader that a new file has been selected so
+	      // that it can attempt to load the header
+	      //m_dsLoader.setLoader(m_dsLoader.getLoader());
+	      m_dsLoader.newFileSelected();
+	    } catch (Exception ex) {
+	      ex.printStackTrace();
+	    }
+	  }
+	  // closing
+	  if (m_parentFrame != null) {
+	    m_parentFrame.dispose();
+	  }
+	}
+      });   
+  }
+
+  public void setParentFrame(JFrame parent) {
+    m_parentFrame = parent;
+  }
+  
+  private void setUpOther() {
+    removeAll();
+    add(m_LoaderEditor, BorderLayout.CENTER);
+    validate();
+    repaint();
+  }
+  
+  
+  /** Sets up a customizer window for a Database Connection*/
+  private void setUpDatabase() {
+  
+      removeAll();
+      
+      JPanel db = new JPanel();
+      db.setLayout(new GridLayout(6, 1));
+      m_dbaseURLText = new JTextField(((DatabaseConverter)m_dsLoader.getLoader()).getUrl(),50); 
+      JLabel dbaseURLLab = new JLabel(Messages.getInstance().getString("LoaderCustomizer_SetUpDatabase_DbaseURLLab_JLabel_Text"), SwingConstants.LEFT);
+      dbaseURLLab.setFont(new Font("Monospaced", Font.PLAIN, 12));
+
+      m_userNameText = new JTextField(((DatabaseConverter)m_dsLoader.getLoader()).getUser(),50); 
+      JLabel userNameLab = new JLabel(Messages.getInstance().getString("LoaderCustomizer_SetUpDatabase_UserNameLab_JLabel_Text"), SwingConstants.LEFT);
+      userNameLab.setFont(new Font("Monospaced", Font.PLAIN, 12));
+
+      m_passwordText = new JPasswordField(50);
+      m_passwordText.setText(((DatabaseLoader)m_dsLoader.getLoader()).getPassword());
+      JLabel passwordLab = new JLabel(Messages.getInstance().getString("LoaderCustomizer_SetUpDatabase_PasswordLab_JLabel_Text"), SwingConstants.LEFT);
+      passwordLab.setFont(new Font("Monospaced", Font.PLAIN, 12));
+      
+      m_queryText = new JTextField(((DatabaseLoader)m_dsLoader.getLoader()).getQuery(),50); 
+      JLabel queryLab = new JLabel(Messages.getInstance().getString("LoaderCustomizer_SetUpDatabase_QueryLab_JLabel_Text"), SwingConstants.LEFT);
+      queryLab.setFont(new Font("Monospaced", Font.PLAIN, 12));
+
+      m_keyText = new JTextField(((DatabaseLoader)m_dsLoader.getLoader()).getKeys(),50); 
+      JLabel keyLab = new JLabel(Messages.getInstance().getString("LoaderCustomizer_SetUpDatabase_KeyLab_JLabel_Text"), SwingConstants.LEFT);
+      keyLab.setFont(new Font("Monospaced", Font.PLAIN, 12));
+
+      JPanel urlP = new JPanel();   
+
+      urlP.setLayout(new FlowLayout(FlowLayout.LEFT));
+      urlP.add(dbaseURLLab);
+      urlP.add(m_dbaseURLText);
+      db.add(urlP);
+
+      JPanel usernameP = new JPanel();   
+      //usernameP.setLayout(new BorderLayout());
+      usernameP.setLayout(new FlowLayout(FlowLayout.LEFT));
+      usernameP.add(userNameLab);
+      usernameP.add(m_userNameText);
+      db.add(usernameP);
+
+      JPanel passwordP = new JPanel();   
+      //passwordP.setLayout(new BorderLayout());
+      passwordP.setLayout(new FlowLayout(FlowLayout.LEFT));
+      passwordP.add(passwordLab);
+      passwordP.add(m_passwordText);
+      db.add(passwordP);
+      
+      JPanel queryP = new JPanel();   
+
+      queryP.setLayout(new FlowLayout(FlowLayout.LEFT));
+      queryP.add(queryLab);
+      queryP.add(m_queryText);
+      db.add(queryP);
+      
+      JPanel keyP = new JPanel();   
+
+      keyP.setLayout(new FlowLayout(FlowLayout.LEFT));
+      keyP.add(keyLab);
+      keyP.add(m_keyText);
+      db.add(keyP);
+
+      JPanel buttonsP = new JPanel();
+      buttonsP.setLayout(new FlowLayout());
+      JButton ok,cancel;
+      buttonsP.add(ok = new JButton(Messages.getInstance().getString("LoaderCustomizer_SetUpDatabase_ButtonsP_Ok_JButton_Text")));
+      buttonsP.add(cancel=new JButton(Messages.getInstance().getString("LoaderCustomizer_SetUpDatabase_ButtonsP_Cancel_JButton_Text")));
+      ok.addActionListener(new ActionListener(){
+        public void actionPerformed(ActionEvent evt){
+          /*((DatabaseLoader)m_dsLoader.getLoader()).resetStructure();  
+	  ((DatabaseConverter)m_dsLoader.getLoader()).setUrl(m_dbaseURLText.getText());
+          ((DatabaseConverter)m_dsLoader.getLoader()).setUser(m_userNameText.getText());
+          ((DatabaseConverter)m_dsLoader.getLoader()).setPassword(new String(m_passwordText.getPassword()));
+	  ((DatabaseLoader)m_dsLoader.getLoader()).setQuery(m_queryText.getText());
+          ((DatabaseLoader)m_dsLoader.getLoader()).setKeys(m_keyText.getText());*/
+
+          if (resetAndUpdateDatabaseLoaderIfChanged()) {
+            try{
+              //           m_dsLoader.notifyStructureAvailable(((DatabaseLoader)m_dsLoader.getLoader()).getStructure());
+              //database connection has been configured
+              m_dsLoader.setDB(true);
+            }catch (Exception ex){
+            }
+          }
+          if (m_parentFrame != null) {
+            m_parentFrame.dispose();
+          }
+        }
+      });
+      
+      cancel.addActionListener(new ActionListener(){
+	public void actionPerformed(ActionEvent evt){
+	  if (m_parentFrame != null) {
+	    m_parentFrame.dispose();
+	  }
+      }
+    });
+   
+    db.add(buttonsP);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     JPanel about = m_LoaderEditor.getAboutPanel();
     if (about != null) {
       add(about, BorderLayout.NORTH);
     }
+<<<<<<< HEAD
     add(holderP, BorderLayout.SOUTH);
   }
 
   private boolean resetAndUpdateDatabaseLoaderIfChanged() {
     DatabaseLoader dbl = (DatabaseLoader) m_dsLoader.getLoader();
+=======
+    add(db,BorderLayout.SOUTH);
+  }
+  
+  private boolean resetAndUpdateDatabaseLoaderIfChanged() {
+    DatabaseLoader dbl = (DatabaseLoader)m_dsLoader.getLoader();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     String url = dbl.getUrl();
     String user = dbl.getUser();
     String password = dbl.getPassword();
     String query = dbl.getQuery();
     String keys = dbl.getKeys();
+<<<<<<< HEAD
     File propsFile = dbl.getCustomPropsFile();
 
     boolean update = (!url.equals(m_dbaseURLText.getText())
@@ -496,22 +766,39 @@ public class LoaderCustomizer extends JPanel implements BeanCustomizer,
 
     if (update) {
       dbl.resetStructure();
+=======
+    
+    boolean update = (!url.equals(m_dbaseURLText.getText()) || 
+        !user.equals(m_userNameText.getText()) ||
+        !password.equals(m_passwordText.getText()) ||
+        !query.equalsIgnoreCase(m_queryText.getText())||
+        !keys.equals(m_keyText.getText()));
+    
+    if (update) {
+      dbl.resetStructure();  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
       dbl.setUrl(m_dbaseURLText.getText());
       dbl.setUser(m_userNameText.getText());
       dbl.setPassword(new String(m_passwordText.getPassword()));
       dbl.setQuery(m_queryText.getText());
       dbl.setKeys(m_keyText.getText());
+<<<<<<< HEAD
       if (m_dbProps.getText() != null && m_dbProps.getText().length() > 0) {
         dbl.setCustomPropsFile(new File(m_dbProps.getText()));
       }
     }
 
+=======
+    }
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     return update;
   }
 
   public void setUpFile() {
     removeAll();
 
+<<<<<<< HEAD
     boolean currentFileIsDir = false;
     File tmp = ((FileSourcedConverter) m_dsLoader.getLoader()).retrieveFile();
     String tmpString = tmp.toString();
@@ -531,10 +818,20 @@ public class LoaderCustomizer extends JPanel implements BeanCustomizer,
       m_fileChooser.setSelectedFile(tmp2);
     }
 
+=======
+    File tmp = ((FileSourcedConverter)m_dsLoader.getLoader()).retrieveFile();
+    tmp = new File(tmp.getAbsolutePath());
+    if (tmp.isDirectory()) {
+      m_fileChooser.setCurrentDirectory(tmp);
+    } else {
+      m_fileChooser.setSelectedFile(tmp);
+    }
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     FileSourcedConverter loader = (FileSourcedConverter) m_dsLoader.getLoader();
     String[] ext = loader.getFileExtensions();
     ExtensionFileFilter firstFilter = null;
     for (int i = 0; i < ext.length; i++) {
+<<<<<<< HEAD
       ExtensionFileFilter ff = new ExtensionFileFilter(ext[i],
         loader.getFileDescription() + " (*" + ext[i] + ")");
       if (i == 0) {
@@ -661,10 +958,42 @@ public class LoaderCustomizer extends JPanel implements BeanCustomizer,
     add(scroller, BorderLayout.CENTER);
 
     add(butHolder, BorderLayout.SOUTH);
+=======
+      ExtensionFileFilter ff =
+	new ExtensionFileFilter(
+	    ext[i], loader.getFileDescription() + " (*" + ext[i] + ")");
+      if (i == 0)
+	firstFilter = ff;
+      m_fileChooser.addChoosableFileFilter(ff);
+    }
+    if (firstFilter != null)
+      m_fileChooser.setFileFilter(firstFilter);
+    JPanel about = m_LoaderEditor.getAboutPanel();
+    if (about != null) {
+      add(about, BorderLayout.NORTH);
+    }
+    add(m_fileChooser, BorderLayout.CENTER);
+
+    m_relativeFilePath = new JCheckBox(Messages.getInstance().getString("LoaderCustomizer_SetUpDatabase_RelativeFilePath_JCheckBox_Text"));
+    m_relativeFilePath.
+      setSelected(((FileSourcedConverter)m_dsLoader.getLoader()).getUseRelativePath());
+
+    m_relativeFilePath.addActionListener(new ActionListener() {
+        public void actionPerformed(ActionEvent e) {
+          ((FileSourcedConverter)m_dsLoader.getLoader()).
+            setUseRelativePath(m_relativeFilePath.isSelected());
+        }
+      });
+    JPanel holderPanel = new JPanel();
+    holderPanel.setLayout(new FlowLayout());
+    holderPanel.add(m_relativeFilePath);
+    add(holderPanel, BorderLayout.SOUTH);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 
   /**
    * Set the loader to be customized
+<<<<<<< HEAD
    * 
    * @param object a weka.gui.beans.Loader
    */
@@ -704,12 +1033,38 @@ public class LoaderCustomizer extends JPanel implements BeanCustomizer,
    * @param pcl a <code>PropertyChangeListener</code> value
    */
   @Override
+=======
+   *
+   * @param object a weka.gui.beans.Loader
+   */
+  public void setObject(Object object) {
+    m_dsLoader = (weka.gui.beans.Loader)object;
+    m_LoaderEditor.setTarget(m_dsLoader.getLoader());
+    //    m_fileEditor.setValue(m_dsLoader.getDataSetFile());
+    if (m_dsLoader.getLoader() instanceof FileSourcedConverter) {
+      setUpFile();
+    } else{ 
+        if(m_dsLoader.getLoader() instanceof DatabaseConverter) {
+            setUpDatabase();
+        }
+        else
+      setUpOther();
+    }
+  }
+
+  /**
+   * Add a property change listener
+   *
+   * @param pcl a <code>PropertyChangeListener</code> value
+   */
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   public void addPropertyChangeListener(PropertyChangeListener pcl) {
     m_pcSupport.addPropertyChangeListener(pcl);
   }
 
   /**
    * Remove a property change listener
+<<<<<<< HEAD
    * 
    * @param pcl a <code>PropertyChangeListener</code> value
    */
@@ -722,4 +1077,12 @@ public class LoaderCustomizer extends JPanel implements BeanCustomizer,
   public void setModifiedListener(ModifyListener l) {
     m_modifyListener = l;
   }
+=======
+   *
+   * @param pcl a <code>PropertyChangeListener</code> value
+   */
+  public void removePropertyChangeListener(PropertyChangeListener pcl) {
+    m_pcSupport.removePropertyChangeListener(pcl);
+  }
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 }

@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,29 +12,60 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 /*
  * BallNode.java
+<<<<<<< HEAD
  * Copyright (C) 2007-2012 University of Waikato, Hamilton, New Zealand
+=======
+ * Copyright (C) 2007 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 
 package weka.core.neighboursearch.balltrees;
 
+<<<<<<< HEAD
 import java.io.Serializable;
 
 import weka.core.DenseInstance;
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 import weka.core.DistanceFunction;
 import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.RevisionHandler;
 import weka.core.RevisionUtils;
 
+<<<<<<< HEAD
+=======
+import java.io.Serializable;
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
 /**
  * Class representing a node of a BallTree.
  * 
  * @author Ashraf M. Kibriya (amk14[at-the-rate]cs[dot]waikato[dot]ac[dot]nz)
+<<<<<<< HEAD
  * @version $Revision: 8034 $
+=======
+ * @version $Revision: 1.2 $
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
  */
 public class BallNode
   implements Serializable, RevisionHandler {
@@ -218,7 +250,11 @@ public class BallNode
     for(int j=0, numInsts=instList.length; j<attrVals.length; j++) {
       attrVals[j] /= numInsts;
     }
+<<<<<<< HEAD
     temp = new DenseInstance(1.0, attrVals);
+=======
+    temp = new Instance(1.0, attrVals);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     return temp;
   }
   
@@ -250,7 +286,11 @@ public class BallNode
       attrVals[j] /= numInsts;
     }
     
+<<<<<<< HEAD
     temp = new DenseInstance(1.0, attrVals);    
+=======
+    temp = new Instance(1.0, attrVals);    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     return temp;
   }
   
@@ -331,7 +371,11 @@ public class BallNode
       attrVals[j] /= 2D;
     }
     
+<<<<<<< HEAD
     p1 = new DenseInstance(1.0, attrVals);
+=======
+    p1 = new Instance(1.0, attrVals);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
     return p1;
   }
 
@@ -365,6 +409,10 @@ public class BallNode
    * @return		the revision
    */
   public String getRevision() {
+<<<<<<< HEAD
     return RevisionUtils.extract("$Revision: 8034 $");
+=======
+    return RevisionUtils.extract("$Revision: 1.2 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
   }
 }
