@@ -5,23 +5,60 @@
 
   <groupId>nz.ac.waikato.cms.weka</groupId>
   <artifactId>weka-stable</artifactId>
+<<<<<<< HEAD
   <version>3.8.2-SNAPSHOT</version><!-- weka-version -->
+=======
+<<<<<<< HEAD
+  <version>3.8.2-SNAPSHOT</version><!-- weka-version -->
+=======
+  <version>3.6.14-SNAPSHOT</version><!-- weka-version -->
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   <packaging>jar</packaging>
 
   <name>weka-stable</name>
   <description>The Waikato Environment for Knowledge Analysis (WEKA), a machine 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   learning workbench. This is the stable version. Apart from bugfixes, this version
   does not receive any other updates.
   </description>
   <url>http://www.cms.waikato.ac.nz/ml/weka/</url>
+<<<<<<< HEAD
+=======
+=======
+  learning workbench. This version is tied to the 3rd edition the "Data Mining: 
+  Practical Machine Learning Tools and Techniques" book by Ian H. Witten, Eibe Frank, 
+  Mark A. Hall. Apart from bugfixes, this version does not receive any other updates.
+  </description>
+  <url>http://www.cms.waikato.ac.nz/ml/weka/</url>
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   <organization>
     <name>University of Waikato, Hamilton, NZ</name>
     <url>http://www.waikato.ac.nz/</url>
   </organization>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   <licenses>
     <license>
       <name>GNU General Public License 3</name>
       <url>http://www.gnu.org/licenses/gpl-3.0.txt</url>
+<<<<<<< HEAD
+=======
+=======
+
+  <licenses>
+    <license>
+      <name>GNU General Public License 2.0</name>
+      <url>http://www.gnu.org/licenses/gpl-2.0.txt</url>
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       <distribution>repo</distribution>
     </license>
   </licenses>
@@ -30,16 +67,36 @@
     <developer>
       <id>wekateam</id>
       <name>The WEKA Team</name>
+<<<<<<< HEAD
       <email>wekalist@list.waikato.ac.nz</email>
+=======
+<<<<<<< HEAD
+      <email>wekalist@list.waikato.ac.nz</email>
+=======
+      <email>wekalist@list.scms.waikato.ac.nz</email>
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     </developer>
   </developers>
 
   <mailingLists>
     <mailingList>
       <name>wekalist</name>
+<<<<<<< HEAD
       <subscribe>https://list.waikato.ac.nz/mailman/listinfo/wekalist</subscribe>
       <unsubscribe>https://list.waikato.ac.nz/mailman/listinfo/wekalist</unsubscribe>
       <archive>https://list.waikato.ac.nz/mailman/htdig/wekalist/</archive>
+=======
+<<<<<<< HEAD
+      <subscribe>https://list.waikato.ac.nz/mailman/listinfo/wekalist</subscribe>
+      <unsubscribe>https://list.waikato.ac.nz/mailman/listinfo/wekalist</unsubscribe>
+      <archive>https://list.waikato.ac.nz/mailman/htdig/wekalist/</archive>
+=======
+      <subscribe>https://list.scms.waikato.ac.nz/mailman/listinfo/wekalist</subscribe>
+      <unsubscribe>https://list.scms.waikato.ac.nz/mailman/listinfo/wekalist</unsubscribe>
+      <archive>https://list.scms.waikato.ac.nz/mailman/htdig/wekalist/</archive>
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     </mailingList>
   </mailingLists>
 
@@ -50,9 +107,21 @@
   </parent>
 
   <scm>
+<<<<<<< HEAD
     <connection>scm:svn:https://svn.cms.waikato.ac.nz/svn/weka/branches/stable-3-8/weka</connection>
     <developerConnection>scm:svn:https://svn.cms.waikato.ac.nz/svn/weka/branches/stable-3-8/weka</developerConnection>
     <url>https://svn.cms.waikato.ac.nz/svn/weka/branches/stable-3-8/weka</url>
+=======
+<<<<<<< HEAD
+    <connection>scm:svn:https://svn.cms.waikato.ac.nz/svn/weka/branches/stable-3-8/weka</connection>
+    <developerConnection>scm:svn:https://svn.cms.waikato.ac.nz/svn/weka/branches/stable-3-8/weka</developerConnection>
+    <url>https://svn.cms.waikato.ac.nz/svn/weka/branches/stable-3-8/weka</url>
+=======
+    <connection>scm:svn:https://svn.cms.waikato.ac.nz/svn/weka/branches/stable-3-6/weka</connection>
+    <developerConnection>scm:svn:https://svn.cms.waikato.ac.nz/svn/weka/branches/stable-3-6/weka</developerConnection>
+    <url>https://svn.cms.waikato.ac.nz/svn/weka/branches/stable-3-6/weka</url>
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   </scm>
 
   <profiles>
@@ -102,6 +171,10 @@
     </dependency>
 
     <dependency>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       <groupId>nz.ac.waikato.cms.weka.thirdparty</groupId>
       <artifactId>java-cup-11b</artifactId>
       <version>2015.03.26</version>
@@ -143,6 +216,14 @@
       <groupId>com.googlecode.netlib-java</groupId>
       <artifactId>netlib-java</artifactId>
       <version>1.1</version>
+<<<<<<< HEAD
+=======
+=======
+      <groupId>net.sf.squirrel-sql.thirdparty-non-maven</groupId>
+      <artifactId>java-cup</artifactId>
+      <version>0.11a</version>
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     </dependency>    
   </dependencies>
 
@@ -221,8 +302,18 @@
           <artifactId>maven-compiler-plugin</artifactId>
           <version>2.0.2</version>
           <configuration>
+<<<<<<< HEAD
             <source>1.8</source>
             <target>1.8</target>
+=======
+<<<<<<< HEAD
+            <source>1.8</source>
+            <target>1.8</target>
+=======
+            <source>1.5</source>
+            <target>1.5</target>
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
           </configuration>
         </plugin>
 
@@ -238,7 +329,14 @@
             <redirectTestOutputToFile>true</redirectTestOutputToFile>
             <systemPropertyVariables>
               <weka.test.Regression.root>src/test/resources/wekarefs</weka.test.Regression.root>
+<<<<<<< HEAD
 	      <weka.test.maventest>true</weka.test.maventest>
+=======
+<<<<<<< HEAD
+	      <weka.test.maventest>true</weka.test.maventest>
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 	      <user.timezone>Pacific/Auckland</user.timezone>
             </systemPropertyVariables>
           </configuration>
@@ -327,7 +425,15 @@
         <artifactId>maven-javadoc-plugin</artifactId>
         <version>2.8.1</version>
         <configuration>
+<<<<<<< HEAD
           <maxmemory>1000m</maxmemory>
+=======
+<<<<<<< HEAD
+          <maxmemory>1000m</maxmemory>
+=======
+          <maxmemory>256m</maxmemory>
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
           <subpackages>weka:org</subpackages>
           <show>public</show>
           <outputDirectory>${project.basedir}/doc</outputDirectory>

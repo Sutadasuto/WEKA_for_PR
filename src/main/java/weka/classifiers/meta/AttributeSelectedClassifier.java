@@ -1,4 +1,8 @@
 /*
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,28 +15,88 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+<<<<<<< HEAD
+=======
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    AttributeSelectedClassifier.java
+<<<<<<< HEAD
  *    Copyright (C) 2000-2012 University of Waikato, Hamilton, New Zealand
+=======
+<<<<<<< HEAD
+ *    Copyright (C) 2000-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 2000 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
 package weka.classifiers.meta;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.Random;
 import java.util.Vector;
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.attributeSelection.ASEvaluation;
 import weka.attributeSelection.ASSearch;
 import weka.attributeSelection.AttributeSelection;
 import weka.classifiers.SingleClassifierEnhancer;
+<<<<<<< HEAD
 import weka.core.*;
 import weka.core.Capabilities.Capability;
 
+=======
+<<<<<<< HEAD
+import weka.core.*;
+import weka.core.Capabilities.Capability;
+
+=======
+import weka.core.AdditionalMeasureProducer;
+import weka.core.Capabilities;
+import weka.core.Drawable;
+import weka.core.Instance;
+import weka.core.Instances;
+import weka.core.Option;
+import weka.core.OptionHandler;
+import weka.core.RevisionUtils;
+import weka.core.Utils;
+import weka.core.WeightedInstancesHandler;
+import weka.core.Capabilities.Capability;
+
+import java.util.Enumeration;
+import java.util.Random;
+import java.util.Vector;
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 /**
  <!-- globalinfo-start -->
  * Dimensionality of training and test data is reduced by attribute selection before being passed on to a classifier.
@@ -103,7 +167,15 @@ import weka.core.Capabilities.Capability;
  <!-- options-end -->
  *
  * @author Mark Hall (mhall@cs.waikato.ac.nz)
+<<<<<<< HEAD
  * @version $Revision: 14259 $
+=======
+<<<<<<< HEAD
+ * @version $Revision: 14259 $
+=======
+ * @version $Revision: 1.26 $
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 public class AttributeSelectedClassifier 
   extends SingleClassifierEnhancer
@@ -111,7 +183,15 @@ public class AttributeSelectedClassifier
              WeightedInstancesHandler {
 
   /** for serialization */
+<<<<<<< HEAD
   static final long serialVersionUID = -1151805453487947577L;
+=======
+<<<<<<< HEAD
+  static final long serialVersionUID = -1151805453487947577L;
+=======
+  static final long serialVersionUID = -5951805453487947577L;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   
   /** The attribute selection object */
   protected AttributeSelection m_AttributeSelection = null;
@@ -171,8 +251,18 @@ public class AttributeSelectedClassifier
    *
    * @return an enumeration of all the available options.
    */
+<<<<<<< HEAD
   public Enumeration<Option> listOptions() {
      Vector<Option> newVector = new Vector<Option>(2);
+=======
+<<<<<<< HEAD
+  public Enumeration<Option> listOptions() {
+     Vector<Option> newVector = new Vector<Option>(2);
+=======
+  public Enumeration listOptions() {
+     Vector newVector = new Vector(3);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     
     newVector.addElement(new Option(
 	      "\tFull class name of attribute evaluator, followed\n"
@@ -188,6 +278,10 @@ public class AttributeSelectedClassifier
 	      + "\t(default weka.attributeSelection.BestFirst)",
 	      "S", 1, "-S <search method specification>"));
     
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     newVector.addAll(Collections.list(super.listOptions()));
     
     if (getEvaluator() instanceof OptionHandler) {
@@ -206,6 +300,15 @@ public class AttributeSelectedClassifier
       newVector.addAll(Collections.list(((OptionHandler)getSearch()).listOptions()));
     }
     
+<<<<<<< HEAD
+=======
+=======
+    Enumeration enu = super.listOptions();
+    while (enu.hasMoreElements()) {
+      newVector.addElement(enu.nextElement());
+    }
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return newVector.elements();
   }
 
@@ -305,8 +408,16 @@ public class AttributeSelectedClassifier
     setSearch(ASSearch.forName(searchName, searchSpec));
 
     super.setOptions(options);
+<<<<<<< HEAD
     
     Utils.checkForRemainingOptions(options);
+=======
+<<<<<<< HEAD
+    
+    Utils.checkForRemainingOptions(options);
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -316,6 +427,10 @@ public class AttributeSelectedClassifier
    */
   public String [] getOptions() {
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     Vector<String> options = new Vector<String>();
 
     // same attribute evaluator
@@ -329,6 +444,28 @@ public class AttributeSelectedClassifier
     Collections.addAll(options, super.getOptions());
     
     return options.toArray(new String[0]);
+<<<<<<< HEAD
+=======
+=======
+    String [] superOptions = super.getOptions();
+    String [] options = new String [superOptions.length + 4];
+
+    int current = 0;
+
+    // same attribute evaluator
+    options[current++] = "-E";
+    options[current++] = "" +getEvaluatorSpec();
+    
+    // same for search
+    options[current++] = "-S";
+    options[current++] = "" + getSearchSpec();
+
+    System.arraycopy(superOptions, 0, options, current, 
+		     superOptions.length);
+    
+    return options;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -463,8 +600,19 @@ public class AttributeSelectedClassifier
     // can classifier handle the data?
     getCapabilities().testWithFail(data);
 
+<<<<<<< HEAD
     // get fresh Instances object
     Instances newData = new Instances(data);
+=======
+<<<<<<< HEAD
+    // get fresh Instances object
+    Instances newData = new Instances(data);
+=======
+    // remove instances with missing class
+    Instances newData = new Instances(data);
+    newData.deleteWithMissingClass();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     
     if (newData.numInstances() == 0) {
       m_Classifier.buildClassifier(newData);
@@ -551,6 +699,10 @@ public class AttributeSelectedClassifier
   }
 
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Tool tip text for this property
    *
    * @return the tool tip for this property
@@ -639,6 +791,11 @@ public class AttributeSelectedClassifier
   }
 
   /**
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    *  Returns the type of graph this classifier
    *  represents.
    *  
@@ -715,14 +872,38 @@ public class AttributeSelectedClassifier
    * Returns an enumeration of the additional measure names
    * @return an enumeration of the measure names
    */
+<<<<<<< HEAD
   public Enumeration<String> enumerateMeasures() {
     Vector<String> newVector = new Vector<String>(3);
+=======
+<<<<<<< HEAD
+  public Enumeration<String> enumerateMeasures() {
+    Vector<String> newVector = new Vector<String>(3);
+=======
+  public Enumeration enumerateMeasures() {
+    Vector newVector = new Vector(3);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     newVector.addElement("measureNumAttributesSelected");
     newVector.addElement("measureSelectionTime");
     newVector.addElement("measureTime");
     if (m_Classifier instanceof AdditionalMeasureProducer) {
+<<<<<<< HEAD
       newVector.addAll(Collections.list(((AdditionalMeasureProducer)m_Classifier).
 	enumerateMeasures()));
+=======
+<<<<<<< HEAD
+      newVector.addAll(Collections.list(((AdditionalMeasureProducer)m_Classifier).
+	enumerateMeasures()));
+=======
+      Enumeration en = ((AdditionalMeasureProducer)m_Classifier).
+	enumerateMeasures();
+      while (en.hasMoreElements()) {
+	String mname = (String)en.nextElement();
+	newVector.addElement(mname);
+      }
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
     return newVector.elements();
   }
@@ -755,7 +936,15 @@ public class AttributeSelectedClassifier
    * @return		the revision
    */
   public String getRevision() {
+<<<<<<< HEAD
     return RevisionUtils.extract("$Revision: 14259 $");
+=======
+<<<<<<< HEAD
+    return RevisionUtils.extract("$Revision: 14259 $");
+=======
+    return RevisionUtils.extract("$Revision: 1.26 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**

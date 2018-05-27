@@ -1,4 +1,8 @@
 /*
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,26 +15,69 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+<<<<<<< HEAD
+=======
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    MultiClassClassifier.java
+<<<<<<< HEAD
  *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
+=======
+<<<<<<< HEAD
+ *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 1999 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
 package weka.classifiers.meta;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.io.Serializable;
 import java.util.*;
 
 import weka.classifiers.AbstractClassifier;
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.classifiers.Classifier;
 import weka.classifiers.RandomizableSingleClassifierEnhancer;
 import weka.classifiers.rules.ZeroR;
 import weka.core.Attribute;
 import weka.core.Capabilities;
+<<<<<<< HEAD
 import weka.core.Capabilities.Capability;
+=======
+<<<<<<< HEAD
+import weka.core.Capabilities.Capability;
+=======
+import weka.core.FastVector;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.Option;
@@ -41,10 +88,28 @@ import weka.core.RevisionUtils;
 import weka.core.SelectedTag;
 import weka.core.Tag;
 import weka.core.Utils;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+import weka.core.Capabilities.Capability;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.filters.Filter;
 import weka.filters.unsupervised.attribute.MakeIndicator;
 import weka.filters.unsupervised.instance.RemoveWithValues;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+import java.io.Serializable;
+import java.util.Enumeration;
+import java.util.Random;
+import java.util.Vector;
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 /**
  <!-- globalinfo-start -->
  * A metaclassifier for handling multi-class datasets with 2-class classifiers. This classifier is also capable of applying error correcting output codes for increased accuracy.
@@ -64,10 +129,20 @@ import weka.filters.unsupervised.instance.RemoveWithValues;
  * 
  * <pre> -P
  *  Use pairwise coupling (only has an effect for 1-against1)</pre>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  * <pre> -L
  *  Use log loss decoding for random and exhaustive codes.</pre>
  *
+<<<<<<< HEAD
+=======
+=======
+ * 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  * <pre> -S &lt;num&gt;
  *  Random number seed.
  *  (default 1)</pre>
@@ -98,7 +173,15 @@ import weka.filters.unsupervised.instance.RemoveWithValues;
  * @author Eibe Frank (eibe@cs.waikato.ac.nz)
  * @author Len Trigg (len@reeltwo.com)
  * @author Richard Kirkby (rkirkby@cs.waikato.ac.nz)
+<<<<<<< HEAD
  * @version $Revision: 11889 $
+=======
+<<<<<<< HEAD
+ * @version $Revision: 11889 $
+=======
+ * @version $Revision: 1.48 $
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 public class MultiClassClassifier 
   extends RandomizableSingleClassifierEnhancer 
@@ -108,6 +191,10 @@ public class MultiClassClassifier
   static final long serialVersionUID = -3879602011542849141L;
   
   /** The classifiers. */
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   protected Classifier [] m_Classifiers;
 
   /** Use pairwise coupling with 1-vs-1 */
@@ -118,15 +205,43 @@ public class MultiClassClassifier
 
   /** The filters used to transform the class. */
   protected Filter[] m_ClassFilters;
+<<<<<<< HEAD
+=======
+=======
+  private Classifier [] m_Classifiers;
+
+  /** Use pairwise coupling with 1-vs-1 */
+  private boolean m_pairwiseCoupling = false;
+
+  /** Needed for pairwise coupling */
+  private double [] m_SumOfWeights;
+
+  /** The filters used to transform the class. */
+  private Filter[] m_ClassFilters;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** ZeroR classifier for when all base classifier return zero probability. */
   private ZeroR m_ZeroR;
 
   /** Internal copy of the class attribute for output purposes */
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   protected Attribute m_ClassAttribute;
   
   /** A transformed dataset header used by the  1-against-1 method */
   protected Instances m_TwoClassDataset;
+<<<<<<< HEAD
+=======
+=======
+  private Attribute m_ClassAttribute;
+  
+  /** A transformed dataset header used by the  1-against-1 method */
+  private Instances m_TwoClassDataset;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** 
    * The multiplier when generating random codes. Will generate
@@ -134,11 +249,22 @@ public class MultiClassClassifier
    */
   private double m_RandomWidthFactor = 2.0;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /** True if log loss decoding is to be used for random and exhaustive codes. */
   protected boolean m_logLossDecoding = false;
 
   /** The multiclass method to use */
   protected int m_Method = METHOD_1_AGAINST_ALL;
+<<<<<<< HEAD
+=======
+=======
+  /** The multiclass method to use */
+  private int m_Method = METHOD_1_AGAINST_ALL;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** 1-against-all */
   public static final int METHOD_1_AGAINST_ALL    = 0;
@@ -239,7 +365,15 @@ public class MultiClassClassifier
      * @return		the revision
      */
     public String getRevision() {
+<<<<<<< HEAD
       return RevisionUtils.extract("$Revision: 11889 $");
+=======
+<<<<<<< HEAD
+      return RevisionUtils.extract("$Revision: 11889 $");
+=======
+      return RevisionUtils.extract("$Revision: 1.48 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
   }
 
@@ -271,7 +405,15 @@ public class MultiClassClassifier
      * @return		the revision
      */
     public String getRevision() {
+<<<<<<< HEAD
       return RevisionUtils.extract("$Revision: 11889 $");
+=======
+<<<<<<< HEAD
+      return RevisionUtils.extract("$Revision: 11889 $");
+=======
+      return RevisionUtils.extract("$Revision: 1.48 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
   }
 
@@ -353,7 +495,15 @@ public class MultiClassClassifier
      * @return		the revision
      */
     public String getRevision() {
+<<<<<<< HEAD
       return RevisionUtils.extract("$Revision: 11889 $");
+=======
+<<<<<<< HEAD
+      return RevisionUtils.extract("$Revision: 11889 $");
+=======
+      return RevisionUtils.extract("$Revision: 1.48 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
   }
 
@@ -398,7 +548,15 @@ public class MultiClassClassifier
      * @return		the revision
      */
     public String getRevision() {
+<<<<<<< HEAD
       return RevisionUtils.extract("$Revision: 11889 $");
+=======
+<<<<<<< HEAD
+      return RevisionUtils.extract("$Revision: 11889 $");
+=======
+      return RevisionUtils.extract("$Revision: 1.48 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
   }
 
@@ -430,9 +588,18 @@ public class MultiClassClassifier
 
     // can classifier handle the data?
     getCapabilities().testWithFail(insts);
+<<<<<<< HEAD
     
     // zero training instances - could be incremental 
     boolean zeroTrainingInstances = insts.numInstances() == 0;
+=======
+<<<<<<< HEAD
+    
+    // zero training instances - could be incremental 
+    boolean zeroTrainingInstances = insts.numInstances() == 0;
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     // remove instances with missing class
     insts = new Instances(insts);
@@ -449,25 +616,57 @@ public class MultiClassClassifier
     int numClassifiers = insts.numClasses();
     if (numClassifiers <= 2) {
 
+<<<<<<< HEAD
       m_Classifiers = AbstractClassifier.makeCopies(m_Classifier, 1);
+=======
+<<<<<<< HEAD
+      m_Classifiers = AbstractClassifier.makeCopies(m_Classifier, 1);
+=======
+      m_Classifiers = Classifier.makeCopies(m_Classifier, 1);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       m_Classifiers[0].buildClassifier(insts);
 
       m_ClassFilters = null;
 
     } else if (m_Method == METHOD_1_AGAINST_1) {
       // generate fastvector of pairs
+<<<<<<< HEAD
       ArrayList<int[] >pairs = new ArrayList<int[]>();
+=======
+<<<<<<< HEAD
+      ArrayList<int[] >pairs = new ArrayList<int[]>();
+=======
+      FastVector pairs = new FastVector();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       for (int i=0; i<insts.numClasses(); i++) {
 	for (int j=0; j<insts.numClasses(); j++) {
 	  if (j<=i) continue;
 	  int[] pair = new int[2];
 	  pair[0] = i; pair[1] = j;
+<<<<<<< HEAD
 	  pairs.add(pair);
+=======
+<<<<<<< HEAD
+	  pairs.add(pair);
+=======
+	  pairs.addElement(pair);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 	}
       }
 
       numClassifiers = pairs.size();
+<<<<<<< HEAD
       m_Classifiers = AbstractClassifier.makeCopies(m_Classifier, numClassifiers);
+=======
+<<<<<<< HEAD
+      m_Classifiers = AbstractClassifier.makeCopies(m_Classifier, numClassifiers);
+=======
+      m_Classifiers = Classifier.makeCopies(m_Classifier, numClassifiers);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       m_ClassFilters = new Filter[numClassifiers];
       m_SumOfWeights = new double[numClassifiers];
 
@@ -477,12 +676,28 @@ public class MultiClassClassifier
 	classFilter.setAttributeIndex("" + (insts.classIndex() + 1));
 	classFilter.setModifyHeader(true);
 	classFilter.setInvertSelection(true);
+<<<<<<< HEAD
 	classFilter.setNominalIndicesArr((int[])pairs.get(i));
+=======
+<<<<<<< HEAD
+	classFilter.setNominalIndicesArr((int[])pairs.get(i));
+=======
+	classFilter.setNominalIndicesArr((int[])pairs.elementAt(i));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 	Instances tempInstances = new Instances(insts, 0);
 	tempInstances.setClassIndex(-1);
 	classFilter.setInputFormat(tempInstances);
 	newInsts = Filter.useFilter(insts, classFilter);
+<<<<<<< HEAD
 	if (newInsts.numInstances() > 0 || zeroTrainingInstances) {
+=======
+<<<<<<< HEAD
+	if (newInsts.numInstances() > 0 || zeroTrainingInstances) {
+=======
+	if (newInsts.numInstances() > 0) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 	  newInsts.setClassIndex(insts.classIndex());
 	  m_Classifiers[i].buildClassifier(newInsts);
 	  m_ClassFilters[i] = classFilter;
@@ -497,10 +712,24 @@ public class MultiClassClassifier
       m_TwoClassDataset = new Instances(insts, 0);
       int classIndex = m_TwoClassDataset.classIndex();
       m_TwoClassDataset.setClassIndex(-1);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       ArrayList<String> classLabels = new ArrayList<String>();
       classLabels.add("class0");
       classLabels.add("class1");
       m_TwoClassDataset.replaceAttributeAt(new Attribute("class", classLabels),
+<<<<<<< HEAD
+=======
+=======
+      m_TwoClassDataset.deleteAttributeAt(classIndex);
+      FastVector classLabels = new FastVector();
+      classLabels.addElement("class0");
+      classLabels.addElement("class1");
+      m_TwoClassDataset.insertAttributeAt(new Attribute("class", classLabels),
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 					  classIndex);
       m_TwoClassDataset.setClassIndex(classIndex);
 
@@ -522,7 +751,15 @@ public class MultiClassClassifier
         throw new Exception("Unrecognized correction code type");
       }
       numClassifiers = code.size();
+<<<<<<< HEAD
       m_Classifiers = AbstractClassifier.makeCopies(m_Classifier, numClassifiers);
+=======
+<<<<<<< HEAD
+      m_Classifiers = AbstractClassifier.makeCopies(m_Classifier, numClassifiers);
+=======
+      m_Classifiers = Classifier.makeCopies(m_Classifier, numClassifiers);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       m_ClassFilters = new MakeIndicator[numClassifiers];
       for (int i = 0; i < m_Classifiers.length; i++) {
 	m_ClassFilters[i] = new MakeIndicator();
@@ -595,6 +832,10 @@ public class MultiClassClassifier
       double[][] n = new double[inst.numClasses()][inst.numClasses()];
 
       for(int i = 0; i < m_ClassFilters.length; i++) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 	    if (m_Classifiers[i] != null) {
           Instance tempInst = (Instance)inst.copy();
 	      tempInst.setDataset(m_TwoClassDataset);
@@ -602,6 +843,19 @@ public class MultiClassClassifier
 	      Range range = new Range(((RemoveWithValues)m_ClassFilters[i]).getNominalIndices());
 	      range.setUpper(m_ClassAttribute.numValues());
 	      int[] pair = range.getSelection();
+<<<<<<< HEAD
+=======
+=======
+	if (m_Classifiers[i] != null) {
+	  Instance tempInst = (Instance)inst.copy(); 
+	  tempInst.setDataset(m_TwoClassDataset);
+	  double [] current = m_Classifiers[i].distributionForInstance(tempInst);  
+	  Range range = new Range(((RemoveWithValues)m_ClassFilters[i])
+				  .getNominalIndices());
+	  range.setUpper(m_ClassAttribute.numValues());
+	  int[] pair = range.getSelection();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
           if (m_pairwiseCoupling && inst.numClasses() > 2) {
             r[pair[0]][pair[1]] = current[0];
             n[pair[0]][pair[1]] = m_SumOfWeights[i];
@@ -617,6 +871,10 @@ public class MultiClassClassifier
       if (m_pairwiseCoupling && inst.numClasses() > 2) {
         return pairwiseCoupling(n, r);
       }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     } else if (m_Method == METHOD_1_AGAINST_ALL) {
        for(int i = 0; i < m_ClassFilters.length; i++) {
         m_ClassFilters[i].input(inst);
@@ -654,6 +912,25 @@ public class MultiClassClassifier
             }
           }
         }
+<<<<<<< HEAD
+=======
+=======
+    } else {
+      // error correcting style methods
+      for(int i = 0; i < m_ClassFilters.length; i++) {
+	m_ClassFilters[i].input(inst);
+	m_ClassFilters[i].batchFinished();
+	double [] current = m_Classifiers[i].
+	  distributionForInstance(m_ClassFilters[i].output());
+	for (int j = 0; j < m_ClassAttribute.numValues(); j++) {
+	  if (((MakeIndicator)m_ClassFilters[i]).getValueRange().isInRange(j)) {
+	    probs[j] += current[1];
+	  } else {
+	    probs[j] += current[0];
+	  }
+	}
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
     }
     
@@ -707,9 +984,21 @@ public class MultiClassClassifier
    *
    * @return an enumeration of all the available options
    */
+<<<<<<< HEAD
   public Enumeration<Option> listOptions()  {
 
     Vector<Option> vec = new Vector<Option>(3);
+=======
+<<<<<<< HEAD
+  public Enumeration<Option> listOptions()  {
+
+    Vector<Option> vec = new Vector<Option>(3);
+=======
+  public Enumeration listOptions()  {
+
+    Vector vec = new Vector(4);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     
     vec.addElement(new Option(
        "\tSets the method to use. Valid values are 0 (1-against-all),\n"
@@ -721,10 +1010,24 @@ public class MultiClassClassifier
     vec.addElement(new Option(
         "\tUse pairwise coupling (only has an effect for 1-against1)",
         "P", 0, "-P"));
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     vec.addElement(new Option("\tUse log loss decoding for random and exhaustive codes", "L", 0, "-L"));
 
     vec.addAll(Collections.list(super.listOptions()));
     
+<<<<<<< HEAD
+=======
+=======
+
+    Enumeration enu = super.listOptions();
+    while (enu.hasMoreElements()) {
+      vec.addElement(enu.nextElement());
+    }
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return vec.elements();
   }
 
@@ -744,10 +1047,20 @@ public class MultiClassClassifier
    * 
    * <pre> -P
    *  Use pairwise coupling (only has an effect for 1-against1)</pre>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    *
    * <pre> -L
    *  Use log loss decoding for random and exhaustive codes.</pre>
    *
+<<<<<<< HEAD
+=======
+=======
+   * 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * <pre> -S &lt;num&gt;
    *  Random number seed.
    *  (default 1)</pre>
@@ -797,11 +1110,21 @@ public class MultiClassClassifier
 
     setUsePairwiseCoupling(Utils.getFlag('P', options));
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     setLogLossDecoding(Utils.getFlag('L', options));
 
     super.setOptions(options);
     
     Utils.checkForRemainingOptions(options);
+<<<<<<< HEAD
+=======
+=======
+    super.setOptions(options);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -811,6 +1134,10 @@ public class MultiClassClassifier
    */
   public String [] getOptions() {
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     Vector<String> options = new Vector<String>();
     
     options.add("-M");
@@ -830,6 +1157,35 @@ public class MultiClassClassifier
     Collections.addAll(options, super.getOptions());
     
     return options.toArray(new String[0]);
+<<<<<<< HEAD
+=======
+=======
+    String [] superOptions = super.getOptions();
+    String [] options = new String [superOptions.length + 5];
+
+    int current = 0;
+
+
+    options[current++] = "-M";
+    options[current++] = "" + m_Method;
+
+    if (getUsePairwiseCoupling()) {
+      options[current++] = "-P";
+    }
+    
+    options[current++] = "-R";
+    options[current++] = "" + m_RandomWidthFactor;
+
+    System.arraycopy(superOptions, 0, options, current, 
+		     superOptions.length);
+
+    current += superOptions.length;
+    while (current < options.length) {
+      options[current++] = "";
+    }
+    return options;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -847,6 +1203,10 @@ public class MultiClassClassifier
    * @return tip text for this property suitable for
    * displaying in the explorer/experimenter gui
    */
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public String logLossDecodingTipText() {
 
     return "Use log loss decoding for random or exhaustive codes.";
@@ -876,6 +1236,11 @@ public class MultiClassClassifier
    * @return tip text for this property suitable for
    * displaying in the explorer/experimenter gui
    */
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public String randomWidthFactorTipText() {
 
     return "Sets the width multiplier when using random codes. The number "
@@ -1038,7 +1403,15 @@ public class MultiClassClassifier
    * @return		the revision
    */
   public String getRevision() {
+<<<<<<< HEAD
     return RevisionUtils.extract("$Revision: 11889 $");
+=======
+<<<<<<< HEAD
+    return RevisionUtils.extract("$Revision: 11889 $");
+=======
+    return RevisionUtils.extract("$Revision: 1.48 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**

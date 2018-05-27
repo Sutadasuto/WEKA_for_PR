@@ -1,4 +1,8 @@
 /*
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,11 +15,37 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+<<<<<<< HEAD
+=======
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    PairedStats.java
+<<<<<<< HEAD
  *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
+=======
+<<<<<<< HEAD
+ *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 1999 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
@@ -31,7 +61,15 @@ import weka.core.Utils;
  * A class for storing stats on a paired comparison (t-test and correlation)
  *
  * @author Len Trigg (trigg@cs.waikato.ac.nz)
+<<<<<<< HEAD
  * @version $Revision: 14315 $
+=======
+<<<<<<< HEAD
+ * @version $Revision: 14315 $
+=======
+ * @version $Revision: 1.10 $
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 public class PairedStats
   implements RevisionHandler {
@@ -183,6 +221,10 @@ public class PairedStats
 
     correlation = Double.NaN;
     if (!Double.isNaN(xStats.stdDev) && !Double.isNaN(yStats.stdDev)
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
             && (xStats.stdDev > 0) && (yStats.stdDev > 0) && (count > 1)) {
       correlation = (xySum - xStats.sum * yStats.sum / count)
               / ((count - 1) * xStats.stdDev * yStats.stdDev);
@@ -200,23 +242,74 @@ public class PairedStats
         if (count > 1) {
           differencesProbability = Statistics.FProbability(tval * tval, 1,
                   (int) count - 1);
+<<<<<<< HEAD
+=======
+=======
+	&& !Utils.eq(xStats.stdDev, 0)) {
+      double slope = (xySum - xStats.sum * yStats.sum / count)
+	/ (xStats.sumSq - xStats.sum * xStats.mean);
+      if (!Utils.eq(yStats.stdDev, 0)) {
+	correlation = slope * xStats.stdDev / yStats.stdDev;
+      } else {
+	correlation = 1.0;
+      }
+    }
+
+    if (Utils.gr(differencesStats.stdDev, 0)) {
+      double tval = differencesStats.mean
+	* Math.sqrt(count)
+	/ differencesStats.stdDev;
+
+      if (m_degreesOfFreedom >= 1){
+        differencesProbability = Statistics.FProbability(tval * tval, 1,
+                                                         m_degreesOfFreedom);
+      } else {
+        if (count > 1) {
+          differencesProbability = Statistics.FProbability(tval * tval, 1,
+                                                           (int) count - 1);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         } else {
           differencesProbability = 1;
         }
       }
     } else {
       if (differencesStats.sumSq == 0) {
+<<<<<<< HEAD
         differencesProbability = 1.0;
       } else {
         differencesProbability = 0.0;
+=======
+<<<<<<< HEAD
+        differencesProbability = 1.0;
+      } else {
+        differencesProbability = 0.0;
+=======
+	differencesProbability = 1.0;
+      } else {
+	differencesProbability = 0.0;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
     }
     differencesSignificance = 0;
     if (differencesProbability <= sigLevel) {
       if (xStats.mean > yStats.mean) {
+<<<<<<< HEAD
         differencesSignificance = 1;
       } else {
         differencesSignificance = -1;
+=======
+<<<<<<< HEAD
+        differencesSignificance = 1;
+      } else {
+        differencesSignificance = -1;
+=======
+	differencesSignificance = 1;
+      } else {
+	differencesSignificance = -1;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
     }
   }
@@ -271,7 +364,15 @@ public class PairedStats
    * @return		the revision
    */
   public String getRevision() {
+<<<<<<< HEAD
     return RevisionUtils.extract("$Revision: 14315 $");
+=======
+<<<<<<< HEAD
+    return RevisionUtils.extract("$Revision: 14315 $");
+=======
+    return RevisionUtils.extract("$Revision: 1.10 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -285,13 +386,25 @@ public class PairedStats
     try {
       PairedStats ps = new PairedStats(0.05);
       java.io.LineNumberReader r = new java.io.LineNumberReader(
+<<<<<<< HEAD
               new java.io.InputStreamReader(System.in));
+=======
+<<<<<<< HEAD
+              new java.io.InputStreamReader(System.in));
+=======
+				   new java.io.InputStreamReader(System.in));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       String line;
       while ((line = r.readLine()) != null) {
         line = line.trim();
         if (line.equals("") || line.startsWith("@") || line.startsWith("%")) {
           continue;
         }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         java.util.StringTokenizer s
                 = new java.util.StringTokenizer(line, " ,\t\n\r\f");
         int count = 0;
@@ -309,6 +422,28 @@ public class PairedStats
           }
           count++;
         }
+<<<<<<< HEAD
+=======
+=======
+	java.util.StringTokenizer s 
+          = new java.util.StringTokenizer(line, " ,\t\n\r\f");
+	int count = 0;
+	double v1 = 0, v2 = 0;
+	while (s.hasMoreTokens()) {
+	  double val = (new Double(s.nextToken())).doubleValue();
+	  if (count == 0) {
+	    v1 = val;
+	  } else if (count == 1) {
+	    v2 = val;
+	  } else {
+            System.err.println("MSG: Too many values in line \"" 
+                               + line + "\", skipped.");
+	    break;
+	  }
+	  count++;
+	}
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         if (count == 2) {
           ps.add(v1, v2);
         }

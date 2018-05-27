@@ -1,4 +1,8 @@
 /*
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,16 +15,46 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+<<<<<<< HEAD
+=======
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    ScatterPlotMatrix.java
+<<<<<<< HEAD
  *    Copyright (C) 2003-2012 University of Waikato, Hamilton, New Zealand
+=======
+<<<<<<< HEAD
+ *    Copyright (C) 2003-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 2003 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
 package weka.gui.beans;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.awt.BorderLayout;
 import java.awt.GraphicsEnvironment;
 
@@ -38,6 +72,25 @@ import weka.gui.visualize.MatrixPanel;
  */
 public class ScatterPlotMatrix extends DataVisualizer implements
   KnowledgeFlowApp.KFPerspective {
+<<<<<<< HEAD
+=======
+=======
+import weka.core.Instances;
+import weka.gui.visualize.MatrixPanel;
+
+import java.awt.BorderLayout;
+
+/**
+ * Bean that encapsulates weka.gui.visualize.MatrixPanel for displaying a
+ * scatter plot matrix.
+ *
+ * @author <a href="mailto:mhall@cs.waikato.ac.nz">Mark Hall</a>
+ * @version $Revision: 7059 $
+ */
+public class ScatterPlotMatrix
+  extends DataVisualizer {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** for serialization */
   private static final long serialVersionUID = -657856527563507491L;
@@ -45,14 +98,29 @@ public class ScatterPlotMatrix extends DataVisualizer implements
   protected MatrixPanel m_matrixPanel;
 
   public ScatterPlotMatrix() {
+<<<<<<< HEAD
     java.awt.GraphicsEnvironment.getLocalGraphicsEnvironment();
     if (!GraphicsEnvironment.isHeadless()) {
+=======
+<<<<<<< HEAD
+    java.awt.GraphicsEnvironment.getLocalGraphicsEnvironment();
+    if (!GraphicsEnvironment.isHeadless()) {
+=======
+    java.awt.GraphicsEnvironment ge = 
+      java.awt.GraphicsEnvironment.getLocalGraphicsEnvironment(); 
+    if (!ge.isHeadless()) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       appearanceFinal();
     }
   }
 
   /**
    * Global info for this bean
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return a <code>String</code> value
    */
@@ -69,18 +137,51 @@ public class ScatterPlotMatrix extends DataVisualizer implements
     m_visual = new BeanVisual("ScatterPlotMatrix", BeanVisual.ICON_PATH
       + "ScatterPlotMatrix.gif", BeanVisual.ICON_PATH
       + "ScatterPlotMatrix_animated.gif");
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @return a <code>String</code> value
+   */
+  public String globalInfo() {
+    return Messages.getInstance().getString("ScatterPlotMatrix_GlobalInfo_Text");
+  }
+
+  protected void appearanceDesign() {
+    m_matrixPanel = null;
+    removeAll();
+    m_visual = 
+      new BeanVisual("ScatterPlotMatrix", 
+		     BeanVisual.ICON_PATH+"ScatterPlotMatrix.gif",
+		     BeanVisual.ICON_PATH+"ScatterPlotMatrix_animated.gif");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     setLayout(new BorderLayout());
     add(m_visual, BorderLayout.CENTER);
   }
 
+<<<<<<< HEAD
   @Override
+=======
+<<<<<<< HEAD
+  @Override
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   protected void appearanceFinal() {
     removeAll();
     setLayout(new BorderLayout());
     setUpFinal();
   }
 
+<<<<<<< HEAD
   @Override
+=======
+<<<<<<< HEAD
+  @Override
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   protected void setUpFinal() {
     if (m_matrixPanel == null) {
       m_matrixPanel = new MatrixPanel();
@@ -89,6 +190,10 @@ public class ScatterPlotMatrix extends DataVisualizer implements
   }
 
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Set instances for this bean. This method is a convenience method for
    * clients who use this component programatically
    * 
@@ -102,12 +207,30 @@ public class ScatterPlotMatrix extends DataVisualizer implements
         + "time. It is meant to be used if this "
         + "bean is being used programatically as as "
         + "stand alone component.");
+<<<<<<< HEAD
+=======
+=======
+   * Set instances for this bean. This method is a convenience method
+   * for clients who use this component programatically
+   *
+   * @param inst an <code>Instances</code> value
+   * @exception Exception if an error occurs
+   */
+  public void setInstances(Instances inst) throws Exception {
+    if (m_design) {
+      throw new Exception(Messages.getInstance().getString("ScatterPlotMatrix_SetInstances_Exception_Text"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
     m_visualizeDataSet = inst;
     m_matrixPanel.setInstances(m_visualizeDataSet);
   }
 
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Returns true if this perspective accepts instances
    * 
    * @return true if this perspective can accept instances
@@ -242,21 +365,94 @@ public class ScatterPlotMatrix extends DataVisualizer implements
       }
       java.io.Reader r = new java.io.BufferedReader(new java.io.FileReader(
         args[0]));
+<<<<<<< HEAD
+=======
+=======
+   * Perform a named user request
+   *
+   * @param request a string containing the name of the request to perform
+   * @exception IllegalArgumentException if request is not supported
+   */
+  public void performRequest(String request) {
+    if (request.compareTo("Show plot") == 0) {
+      try {
+	// popup matrix panel
+	if (!m_framePoppedUp) {
+	  m_framePoppedUp = true;
+	  final MatrixPanel vis = new MatrixPanel();
+	  vis.setInstances(m_visualizeDataSet);
+
+	  final javax.swing.JFrame jf = 
+	    new javax.swing.JFrame(Messages.getInstance().getString("ScatterPlotMatrix_PerformRequest_Jf_JFrame_Text"));
+	  jf.setSize(800,600);
+	  jf.getContentPane().setLayout(new BorderLayout());
+	  jf.getContentPane().add(vis, BorderLayout.CENTER);
+	  jf.addWindowListener(new java.awt.event.WindowAdapter() {
+	      public void windowClosing(java.awt.event.WindowEvent e) {
+		jf.dispose();
+		m_framePoppedUp = false;
+	      }
+	    });
+	  jf.setVisible(true);
+	  m_popupFrame = jf;
+	} else {
+	  m_popupFrame.toFront();
+	}
+      } catch (Exception ex) {
+	ex.printStackTrace();
+	m_framePoppedUp = false;
+      }
+    } else {
+      throw new IllegalArgumentException(request
+					 + Messages.getInstance().getString("ScatterPlotMatrix_PerformRequest_IllegalArgumentException_Text"));
+    }
+  }
+
+  public static void main(String [] args) {
+    try {
+      if (args.length != 1) {
+	System.err.println(Messages.getInstance().getString("ScatterPlotMatrix_Main_Error_Text"));
+	System.exit(1);
+      }
+      java.io.Reader r = new java.io.BufferedReader(
+			 new java.io.FileReader(args[0]));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       Instances inst = new Instances(r);
       final javax.swing.JFrame jf = new javax.swing.JFrame();
       jf.getContentPane().setLayout(new java.awt.BorderLayout());
       final ScatterPlotMatrix as = new ScatterPlotMatrix();
       as.setInstances(inst);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
       jf.getContentPane().add(as, java.awt.BorderLayout.CENTER);
       jf.addWindowListener(new java.awt.event.WindowAdapter() {
         @Override
+<<<<<<< HEAD
+=======
+=======
+      
+      jf.getContentPane().add(as, java.awt.BorderLayout.CENTER);
+      jf.addWindowListener(new java.awt.event.WindowAdapter() {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         public void windowClosing(java.awt.event.WindowEvent e) {
           jf.dispose();
           System.exit(0);
         }
       });
+<<<<<<< HEAD
       jf.setSize(800, 600);
+=======
+<<<<<<< HEAD
+      jf.setSize(800, 600);
+=======
+      jf.setSize(800,600);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       jf.setVisible(true);
     } catch (Exception ex) {
       ex.printStackTrace();

@@ -1,4 +1,8 @@
 /*
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,19 +15,54 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+<<<<<<< HEAD
+=======
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  * CheckSource.java
+<<<<<<< HEAD
  * Copyright (C) 2007-2012 University of Waikato, Hamilton, New Zealand
+=======
+<<<<<<< HEAD
+ * Copyright (C) 2007-2012 University of Waikato, Hamilton, New Zealand
+=======
+ * Copyright (C) 2007 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 package weka.filters;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.io.File;
 import java.util.Enumeration;
 import java.util.Vector;
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.Option;
@@ -33,6 +72,10 @@ import weka.core.RevisionUtils;
 import weka.core.Utils;
 import weka.core.converters.ConverterUtils.DataSource;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 /**
  * A simple class for checking the source generated from Filters implementing
  * the <code>weka.filters.Sourcable</code> interface. It takes a filter, the
@@ -115,10 +158,99 @@ public class CheckSource implements OptionHandler, RevisionHandler {
       "\tThe class index of the training set. 'first' and 'last' are\n"
         + "\tvalid indices.\n" + "\t(default: none)", "c", 1, "-c <index>"));
 
+<<<<<<< HEAD
+=======
+=======
+import java.io.File;
+import java.util.Enumeration;
+import java.util.Vector;
+
+/**
+ * A simple class for checking the source generated from Filters
+ * implementing the <code>weka.filters.Sourcable</code> interface.
+ * It takes a filter, the classname of the generated source
+ * and the dataset the source was generated with as parameters and tests
+ * the output of the built filter against the output of the generated
+ * source. Use option '-h' to display all available commandline options.
+ * 
+ <!-- options-start -->
+ * Valid options are: <p/>
+ * 
+ * <pre> -W &lt;classname and options&gt;
+ *  The filter (incl. options) that was used to generate
+ *  the source code.</pre>
+ * 
+ * <pre> -S &lt;classname&gt;
+ *  The classname of the generated source code.</pre>
+ * 
+ * <pre> -t &lt;file&gt;
+ *  The training set with which the source code was generated.</pre>
+ * 
+ * <pre> -c &lt;index&gt;
+ *  The class index of the training set. 'first' and 'last' are
+ *  valid indices.
+ *  (default: none)</pre>
+ * 
+ <!-- options-end -->
+ *
+ * Options after -- are passed to the designated filter.<p>
+ *
+ * @author  fracpete (fracpete at waikato dot ac dot nz)
+ * @version $Revision: 1.3 $
+ * @see     weka.filters.Sourcable
+ */
+public class CheckSource
+  implements OptionHandler, RevisionHandler {
+
+  /** the classifier used for generating the source code */
+  protected Filter m_Filter = null;
+  
+  /** the generated source code */
+  protected Filter m_SourceCode = null;
+  
+  /** the dataset to use for testing */
+  protected File m_Dataset = null;
+  
+  /** the class index */
+  protected int m_ClassIndex = -1;
+  
+  /**
+   * Returns an enumeration describing the available options.
+   *
+   * @return an enumeration of all the available options.
+   */
+  public Enumeration listOptions() {
+    Vector result = new Vector();
+    
+    result.addElement(new Option(
+        "\tThe filter (incl. options) that was used to generate\n"
+        + "\tthe source code.",
+        "W", 1, "-W <classname and options>"));
+    
+    result.addElement(new Option(
+        "\tThe classname of the generated source code.",
+        "S", 1, "-S <classname>"));
+    
+    result.addElement(new Option(
+        "\tThe training set with which the source code was generated.",
+        "t", 1, "-t <file>"));
+    
+    result.addElement(new Option(
+        "\tThe class index of the training set. 'first' and 'last' are\n"
+        + "\tvalid indices.\n"
+        + "\t(default: none)",
+        "c", 1, "-c <index>"));
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return result.elements();
   }
 
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Parses a given list of options.
    * <p/>
    * 
@@ -161,10 +293,50 @@ public class CheckSource implements OptionHandler, RevisionHandler {
     String tmpStr;
     String[] spec;
     String classname;
+<<<<<<< HEAD
+=======
+=======
+   * Parses a given list of options. <p/>
+   *
+   <!-- options-start -->
+   * Valid options are: <p/>
+   * 
+   * <pre> -W &lt;classname and options&gt;
+   *  The filter (incl. options) that was used to generate
+   *  the source code.</pre>
+   * 
+   * <pre> -S &lt;classname&gt;
+   *  The classname of the generated source code.</pre>
+   * 
+   * <pre> -t &lt;file&gt;
+   *  The training set with which the source code was generated.</pre>
+   * 
+   * <pre> -c &lt;index&gt;
+   *  The class index of the training set. 'first' and 'last' are
+   *  valid indices.
+   *  (default: none)</pre>
+   * 
+   <!-- options-end -->
+   *
+   * Options after -- are passed to the designated filter.<p>
+   *
+   * @param options the list of options as an array of strings
+   * @throws Exception if an option is not supported
+   */
+  public void setOptions(String[] options) throws Exception {
+    String      tmpStr;
+    String[]    spec;
+    String      classname;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     tmpStr = Utils.getOption('W', options);
     if (tmpStr.length() > 0) {
       spec = Utils.splitOptions(tmpStr);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       if (spec.length == 0) {
         throw new IllegalArgumentException(
           "Invalid filter specification string");
@@ -187,10 +359,39 @@ public class CheckSource implements OptionHandler, RevisionHandler {
       spec[0] = "";
       setSourceCode((Filter) Utils.forName(Filter.class, classname, spec));
     } else {
+<<<<<<< HEAD
+=======
+=======
+      if (spec.length == 0)
+        throw new IllegalArgumentException("Invalid filter specification string");
+      classname = spec[0];
+      spec[0]   = "";
+      setFilter((Filter) Utils.forName(Filter.class, classname, spec));
+    }
+    else {
+      throw new Exception("No filter (classname + options) provided!");
+    }
+    
+    tmpStr = Utils.getOption('S', options);
+    if (tmpStr.length() > 0) {
+      spec = Utils.splitOptions(tmpStr);
+      if (spec.length != 1)
+        throw new IllegalArgumentException("Invalid source code specification string");
+      classname = spec[0];
+      spec[0]   = "";
+      setSourceCode((Filter) Utils.forName(Filter.class, classname, spec));
+    }
+    else {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       throw new Exception("No source code (classname) provided!");
     }
 
     tmpStr = Utils.getOption('t', options);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (tmpStr.length() != 0) {
       setDataset(new File(tmpStr));
     } else {
@@ -207,12 +408,36 @@ public class CheckSource implements OptionHandler, RevisionHandler {
         setClassIndex(Integer.parseInt(tmpStr) - 1);
       }
     } else {
+<<<<<<< HEAD
+=======
+=======
+    if (tmpStr.length() != 0)
+      setDataset(new File(tmpStr));
+    else
+      throw new Exception("No dataset provided!");
+
+    tmpStr = Utils.getOption('c', options);
+    if (tmpStr.length() != 0) {
+      if (tmpStr.equals("first"))
+        setClassIndex(0);
+      else if (tmpStr.equals("last"))
+        setClassIndex(-2);
+      else 
+        setClassIndex(Integer.parseInt(tmpStr) - 1);
+    }
+    else {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       setClassIndex(-1);
     }
   }
 
   /**
    * Gets the current settings of the filter.
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return an array of strings suitable for passing to setOptions
    */
@@ -226,6 +451,23 @@ public class CheckSource implements OptionHandler, RevisionHandler {
       result.add("-W");
       result.add(getFilter().getClass().getName() + " "
         + Utils.joinOptions(((OptionHandler) getFilter()).getOptions()));
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @return an array of strings suitable for passing to setOptions
+   */
+  public String[] getOptions() {
+    Vector<String>      result;
+    
+    result  = new Vector<String>();
+
+    if (getFilter() != null) {
+      result.add("-W");
+      result.add(getFilter().getClass().getName() + " " 
+          + Utils.joinOptions(((OptionHandler) getFilter()).getOptions()));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
 
     if (getSourceCode() != null) {
@@ -240,6 +482,10 @@ public class CheckSource implements OptionHandler, RevisionHandler {
 
     if (getClassIndex() != -1) {
       result.add("-c");
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       if (getClassIndex() == -2) {
         result.add("last");
       } else if (getClassIndex() == 0) {
@@ -249,44 +495,111 @@ public class CheckSource implements OptionHandler, RevisionHandler {
       }
     }
 
+<<<<<<< HEAD
+=======
+=======
+      if (getClassIndex() == -2)
+	result.add("last");
+      else if (getClassIndex() == 0)
+	result.add("first");
+      else 
+	result.add("" + (getClassIndex() + 1));
+    }
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return result.toArray(new String[result.size()]);
   }
 
   /**
    * Sets the filter to use for the comparison.
    * 
+<<<<<<< HEAD
    * @param value the filter to use
+=======
+<<<<<<< HEAD
+   * @param value the filter to use
+=======
+   * @param value       the filter to use
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public void setFilter(Filter value) {
     m_Filter = value;
   }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /**
    * Gets the filter being used for the tests, can be null.
    * 
    * @return the currently set filter
+<<<<<<< HEAD
+=======
+=======
+  
+  /**
+   * Gets the filter being used for the tests, can be null.
+   * 
+   * @return            the currently set filter
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public Filter getFilter() {
     return m_Filter;
   }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /**
    * Sets the class to test.
    * 
    * @param value the class to test
+<<<<<<< HEAD
+=======
+=======
+  
+  /**
+   * Sets the class to test.
+   * 
+   * @param value       the class to test
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public void setSourceCode(Filter value) {
     m_SourceCode = value;
   }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /**
    * Gets the class to test.
    * 
    * @return the currently set class, can be null.
+<<<<<<< HEAD
+=======
+=======
+  
+  /**
+   * Gets the class to test.
+   * 
+   * @return            the currently set class, can be null.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public Filter getSourceCode() {
     return m_SourceCode;
   }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /**
    * Sets the dataset to use for testing.
@@ -306,6 +619,29 @@ public class CheckSource implements OptionHandler, RevisionHandler {
    * Gets the dataset to use for testing, can be null.
    * 
    * @return the dataset to use.
+<<<<<<< HEAD
+=======
+=======
+  
+  /**
+   * Sets the dataset to use for testing.
+   * 
+   * @param value       the dataset to use.
+   */
+  public void setDataset(File value) {
+    if (!value.exists())
+      throw new IllegalArgumentException(
+          "Dataset '" + value.getAbsolutePath() + "' does not exist!");
+    else
+      m_Dataset = value;
+  }
+  
+  /**
+   * Gets the dataset to use for testing, can be null.
+   * 
+   * @return            the dataset to use.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public File getDataset() {
     return m_Dataset;
@@ -314,16 +650,38 @@ public class CheckSource implements OptionHandler, RevisionHandler {
   /**
    * Sets the class index of the dataset.
    * 
+<<<<<<< HEAD
    * @param value the class index of the dataset.
+=======
+<<<<<<< HEAD
+   * @param value the class index of the dataset.
+=======
+   * @param value       the class index of the dataset.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public void setClassIndex(int value) {
     m_ClassIndex = value;
   }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /**
    * Gets the class index of the dataset.
    * 
    * @return the current class index.
+<<<<<<< HEAD
+=======
+=======
+  
+  /**
+   * Gets the class index of the dataset.
+   * 
+   * @return            the current class index.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public int getClassIndex() {
     return m_ClassIndex;
@@ -332,6 +690,10 @@ public class CheckSource implements OptionHandler, RevisionHandler {
   /**
    * compares two Instance
    * 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param inst1 the first Instance object to compare
    * @param inst2 the second Instance object to compare
    * @return true if both are the same
@@ -360,12 +722,48 @@ public class CheckSource implements OptionHandler, RevisionHandler {
       }
     }
 
+<<<<<<< HEAD
+=======
+=======
+   * @param inst1	the first Instance object to compare
+   * @param inst2	the second Instance object to compare
+   * @return		true if both are the same
+   */
+  protected boolean compare(Instance inst1, Instance inst2) {
+    boolean	result;
+    int		i;
+    
+    // check dimension
+    result = (inst1.numAttributes() == inst2.numAttributes());
+    
+    // check content
+    if (result) {
+      for (i = 0; i < inst1.numAttributes(); i++) {
+	if (Double.isNaN(inst1.value(i)) && (Double.isNaN(inst2.value(i))))
+	  continue;
+	
+	if (inst1.value(i) != inst2.value(i)) {
+	  result = false;
+	  System.out.println(
+	      "Values at position " + (i+1) + " differ (Filter/Source code): " 
+	      + inst1.value(i) + " != " + inst2.value(i));
+	  break;
+	}
+      }
+    }
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return result;
   }
 
   /**
    * compares the two Instances objects
    * 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param inst1 the first Instances object to compare
    * @param inst2 the second Instances object to compare
    * @return true if both are the same
@@ -374,12 +772,29 @@ public class CheckSource implements OptionHandler, RevisionHandler {
     boolean result;
     int i;
 
+<<<<<<< HEAD
+=======
+=======
+   * @param inst1	the first Instances object to compare
+   * @param inst2	the second Instances object to compare
+   * @return		true if both are the same
+   */
+  protected boolean compare(Instances inst1, Instances inst2) {
+    boolean	result;
+    int		i;
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     // check dimensions
     result = (inst1.numInstances() == inst2.numInstances());
 
     // check content
     if (result) {
       for (i = 0; i < inst1.numInstances(); i++) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         result = compare(inst1.instance(i), inst2.instance(i));
         if (!result) {
           System.out.println("Values in line " + (i + 1) + " differ!");
@@ -435,6 +850,62 @@ public class CheckSource implements OptionHandler, RevisionHandler {
       data.setClassIndex(getClassIndex());
     }
 
+<<<<<<< HEAD
+=======
+=======
+	result = compare(inst1.instance(i), inst2.instance(i));
+	if (!result) {
+	  System.out.println(
+	      "Values in line " + (i+1) + " differ!");
+	  break;
+	}
+      }
+    }
+    
+    return result;
+  }
+  
+  /**
+   * performs the comparison test
+   * 
+   * @return            true if tests were successful
+   * @throws Exception  if tests fail
+   */
+  public boolean execute() throws Exception {
+    boolean     result;
+    Instances   data;
+    Instance	filteredInstance;
+    Instances	filteredInstances;
+    Instance	filteredInstanceSource;
+    Instances	filteredInstancesSource;
+    DataSource  source;
+    Filter	filter;
+    Filter	filterSource;
+    int		i;
+    
+    result = true;
+    
+    // a few checks
+    if (getFilter() == null)
+      throw new Exception("No filter set!");
+    if (getSourceCode() == null)
+      throw new Exception("No source code set!");
+    if (getDataset() == null)
+      throw new Exception("No dataset set!");
+    if (!getDataset().exists())
+      throw new Exception(
+          "Dataset '" + getDataset().getAbsolutePath() + "' does not exist!");
+    
+    // load data
+    source = new DataSource(getDataset().getAbsolutePath());
+    data   = source.getDataSet();
+    if (getClassIndex() == -2)
+      data.setClassIndex(data.numAttributes() - 1);
+    else
+      data.setClassIndex(getClassIndex());
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     // compare output
     // 1. batch filtering
     filter = Filter.makeCopy(getFilter());
@@ -446,17 +917,37 @@ public class CheckSource implements OptionHandler, RevisionHandler {
     filteredInstancesSource = Filter.useFilter(data, filterSource);
 
     result = compare(filteredInstances, filteredInstancesSource);
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     // 2. instance by instance
     if (result) {
       filter = Filter.makeCopy(getFilter());
       filter.setInputFormat(data);
       Filter.useFilter(data, filter);
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+      
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       filterSource = Filter.makeCopy(getSourceCode());
       filterSource.setInputFormat(data);
 
       for (i = 0; i < data.numInstances(); i++) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         filter.input(data.instance(i));
         filter.batchFinished();
         filteredInstance = filter.output();
@@ -503,10 +994,64 @@ public class CheckSource implements OptionHandler, RevisionHandler {
       enm = check.listOptions();
       while (enm.hasMoreElements()) {
         Option option = enm.nextElement();
+<<<<<<< HEAD
+=======
+=======
+	filter.input(data.instance(i));
+	filter.batchFinished();
+	filteredInstance = filter.output();
+	
+	filterSource.input(data.instance(i));
+	filterSource.batchFinished();
+	filteredInstanceSource = filterSource.output();
+	
+	if (!compare(filteredInstance, filteredInstanceSource))
+	  System.out.println(
+	      (i+1) + ". instance (Filter/Source code): " 
+	      + filteredInstance + " != " + filteredInstanceSource);
+      }
+    }
+    
+    return result;
+  }
+  
+  /**
+   * Returns the revision string.
+   * 
+   * @return		the revision
+   */
+  public String getRevision() {
+    return RevisionUtils.extract("$Revision: 1.3 $");
+  }
+  
+  /**
+   * Executes the tests, use "-h" to list the commandline options.
+   * 
+   * @param args        the commandline parameters
+   * @throws Exception  if something goes wrong
+   */
+  public static void main(String[] args) throws Exception{
+    CheckSource         check;
+    StringBuffer        text;
+    Enumeration         enm;
+    
+    check = new CheckSource();
+    if (Utils.getFlag('h', args)) {
+      text = new StringBuffer();   
+      text.append("\nHelp requested:\n\n");
+      enm = check.listOptions();
+      while (enm.hasMoreElements()) {
+        Option option = (Option) enm.nextElement();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         text.append(option.synopsis() + "\n");
         text.append(option.description() + "\n");
       }
       System.out.println("\n" + text + "\n");
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     } else {
       check.setOptions(args);
       if (check.execute()) {
@@ -514,6 +1059,18 @@ public class CheckSource implements OptionHandler, RevisionHandler {
       } else {
         System.out.println("Tests failed!");
       }
+<<<<<<< HEAD
+=======
+=======
+    }
+    else {
+      check.setOptions(args);
+      if (check.execute())
+        System.out.println("Tests OK!");
+      else
+        System.out.println("Tests failed!");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
   }
 }

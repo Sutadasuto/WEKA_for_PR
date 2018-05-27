@@ -1,4 +1,8 @@
 /*
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,16 +15,46 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+<<<<<<< HEAD
+=======
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    SimpleLinearRegression.java
+<<<<<<< HEAD
  *    Copyright (C) 2002-2012 University of Waikato, Hamilton, New Zealand
+=======
+<<<<<<< HEAD
+ *    Copyright (C) 2002-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 2002 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
 package weka.classifiers.functions;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.Vector;
@@ -77,6 +111,45 @@ public class SimpleLinearRegression extends AbstractClassifier implements
   /** for serialization */
   static final long serialVersionUID = 1679336022895414137L;
 
+<<<<<<< HEAD
+=======
+=======
+import weka.classifiers.Classifier;
+import weka.core.Attribute;
+import weka.core.Capabilities;
+import weka.core.Instance;
+import weka.core.Instances;
+import weka.core.RevisionUtils;
+import weka.core.Utils;
+import weka.core.WeightedInstancesHandler;
+import weka.core.Capabilities.Capability;
+
+/**
+ <!-- globalinfo-start -->
+ * Learns a simple linear regression model. Picks the attribute that results in the lowest squared error. Missing values are not allowed. Can only deal with numeric attributes.
+ * <p/>
+ <!-- globalinfo-end -->
+ *
+ <!-- options-start -->
+ * Valid options are: <p/>
+ * 
+ * <pre> -D
+ *  If set, classifier is run in debug mode and
+ *  may output additional info to the console</pre>
+ * 
+ <!-- options-end -->
+ *
+ * @author Eibe Frank (eibe@cs.waikato.ac.nz)
+ * @version $Revision: 5523 $
+ */
+public class SimpleLinearRegression extends Classifier 
+  implements WeightedInstancesHandler {
+
+  /** for serialization */
+  static final long serialVersionUID = 1679336022895414137L;
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /** The chosen attribute */
   private Attribute m_attribute;
 
@@ -85,6 +158,10 @@ public class SimpleLinearRegression extends AbstractClassifier implements
 
   /** The slope */
   private double m_slope;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** The intercept */
   private double m_intercept;
@@ -240,15 +317,48 @@ public class SimpleLinearRegression extends AbstractClassifier implements
    */
   public boolean getOutputAdditionalStats() {
     return m_outputAdditionalStats;
+<<<<<<< HEAD
+=======
+=======
+  
+  /** The intercept */
+  private double m_intercept;
+
+  /** If true, suppress error message if no useful attribute was found*/   
+  private boolean m_suppressErrorMessage = false;  
+
+  /**
+   * Returns a string describing this classifier
+   * @return a description of the classifier suitable for
+   * displaying in the explorer/experimenter gui
+   */
+  public String globalInfo() {
+    return "Learns a simple linear regression model. "
+      +"Picks the attribute that results in the lowest squared error. "
+      +"Missing values are not allowed. Can only deal with numeric attributes.";
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Generate a prediction for the supplied instance.
+<<<<<<< HEAD
    * 
+=======
+<<<<<<< HEAD
+   * 
+=======
+   *
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param inst the instance to predict.
    * @return the prediction
    * @throws Exception if an error occurs
    */
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   @Override
   public double classifyInstance(Instance inst) throws Exception {
 
@@ -259,15 +369,41 @@ public class SimpleLinearRegression extends AbstractClassifier implements
         return m_classMeanForMissing;
       }
       return m_intercept + m_slope * inst.value(m_attributeIndex);
+<<<<<<< HEAD
+=======
+=======
+  public double classifyInstance(Instance inst) throws Exception {
+    
+    if (m_attribute == null) {
+      return m_intercept;
+    } else {
+      if (inst.isMissing(m_attribute.index())) {
+	throw new Exception("SimpleLinearRegression: No missing values!");
+      }
+      return m_intercept + m_slope * inst.value(m_attribute.index());
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
   }
 
   /**
    * Returns default capabilities of the classifier.
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return the capabilities of this classifier
    */
   @Override
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @return      the capabilities of this classifier
+   */
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public Capabilities getCapabilities() {
     Capabilities result = super.getCapabilities();
     result.disableAll();
@@ -275,12 +411,23 @@ public class SimpleLinearRegression extends AbstractClassifier implements
     // attributes
     result.enable(Capability.NUMERIC_ATTRIBUTES);
     result.enable(Capability.DATE_ATTRIBUTES);
+<<<<<<< HEAD
     result.enable(Capability.MISSING_VALUES);
+=======
+<<<<<<< HEAD
+    result.enable(Capability.MISSING_VALUES);
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     // class
     result.enable(Capability.NUMERIC_CLASS);
     result.enable(Capability.DATE_CLASS);
     result.enable(Capability.MISSING_CLASS_VALUES);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     return result;
   }
@@ -292,11 +439,30 @@ public class SimpleLinearRegression extends AbstractClassifier implements
    * @throws Exception if an error occurs
    */
   @Override
+<<<<<<< HEAD
+=======
+=======
+    
+    return result;
+  }
+  
+  /**
+   * Builds a simple linear regression model given the supplied training data.
+   *
+   * @param insts the training data.
+   * @throws Exception if an error occurs
+   */
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public void buildClassifier(Instances insts) throws Exception {
 
     // can classifier handle the data?
     getCapabilities().testWithFail(insts);
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (m_outputAdditionalStats) {
       // check that the instances weights are all 1
       // because the RegressionAnalysis class does
@@ -388,10 +554,28 @@ public class SimpleLinearRegression extends AbstractClassifier implements
 
     // Pick the best attribute
     double minSSE = Double.MAX_VALUE;
+<<<<<<< HEAD
+=======
+=======
+    // remove instances with missing class
+    insts = new Instances(insts);
+    insts.deleteWithMissingClass();
+    
+    // Compute mean of target value
+    double yMean = insts.meanOrMode(insts.classIndex());
+
+    // Choose best attribute
+    double minMsq = Double.MAX_VALUE;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     m_attribute = null;
     int chosen = -1;
     double chosenSlope = Double.NaN;
     double chosenIntercept = Double.NaN;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     double chosenMeanForMissing = Double.NaN;
     for (int i = 0; i < insts.numAttributes(); i++) {
 
@@ -422,11 +606,60 @@ public class SimpleLinearRegression extends AbstractClassifier implements
         chosenSlope = slopes[i];
         chosenIntercept = intercept;
         chosenMeanForMissing = classMeanForMissing[i];
+<<<<<<< HEAD
+=======
+=======
+    for (int i = 0; i < insts.numAttributes(); i++) {
+      if (i != insts.classIndex()) {
+	m_attribute = insts.attribute(i);
+	
+	// Compute slope and intercept
+	double xMean = insts.meanOrMode(i);
+	double sumWeightedXDiffSquared = 0;
+	double sumWeightedYDiffSquared = 0;
+	m_slope = 0;
+	for (int j = 0; j < insts.numInstances(); j++) {
+	  Instance inst = insts.instance(j);
+	  if (!inst.isMissing(i) && !inst.classIsMissing()) {
+	    double xDiff = inst.value(i) - xMean;
+	    double yDiff = inst.classValue() - yMean;
+	    double weightedXDiff = inst.weight() * xDiff;
+	    double weightedYDiff = inst.weight() * yDiff;
+	    m_slope += weightedXDiff * yDiff;
+	    sumWeightedXDiffSquared += weightedXDiff * xDiff;
+	    sumWeightedYDiffSquared += weightedYDiff * yDiff;
+	  }
+	}
+
+	// Skip attribute if not useful
+	if (sumWeightedXDiffSquared == 0) {
+	  continue;
+	}
+	double numerator = m_slope;
+	m_slope /= sumWeightedXDiffSquared;
+	m_intercept = yMean - m_slope * xMean;
+
+	// Compute sum of squared errors
+	double msq = sumWeightedYDiffSquared - m_slope * numerator;
+
+	// Check whether this is the best attribute
+	if (msq < minMsq) {
+	  minMsq = msq;
+	  chosen = i;
+	  chosenSlope = m_slope;
+	  chosenIntercept = m_intercept;
+	}
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
     }
 
     // Set parameters
     if (chosen == -1) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       if (!m_suppressErrorMessage) {
         System.err.println("----- no useful attribute found");
       }
@@ -435,11 +668,25 @@ public class SimpleLinearRegression extends AbstractClassifier implements
       m_slope = 0;
       m_intercept = classSum / classCount;
       m_classMeanForMissing = 0;
+<<<<<<< HEAD
+=======
+=======
+      if (!m_suppressErrorMessage) System.err.println("----- no useful attribute found");
+      m_attribute = null;
+      m_attributeIndex = 0;
+      m_slope = 0;
+      m_intercept = yMean;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     } else {
       m_attribute = insts.attribute(chosen);
       m_attributeIndex = chosen;
       m_slope = chosenSlope;
       m_intercept = chosenIntercept;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       m_classMeanForMissing = chosenMeanForMissing;
 
       if (m_outputAdditionalStats) {
@@ -475,11 +722,20 @@ public class SimpleLinearRegression extends AbstractClassifier implements
         m_fstat = RegressionAnalysis.calculateFStat(m_rsquared,
           insts.numInstances(), 2);
       }
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
   }
 
   /**
    * Returns true if a usable attribute was found.
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return true if a usable attribute was found.
    */
@@ -494,10 +750,33 @@ public class SimpleLinearRegression extends AbstractClassifier implements
    */
   public int getAttributeIndex() {
     return m_attributeIndex;
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @return true if a usable attribute was found.
+   */
+  public boolean foundUsefulAttribute(){
+      return (m_attribute != null); 
+  } 
+
+  /**
+   * Returns the index of the attribute used in the regression.
+   *
+   * @return the index of the attribute.
+   */
+  public int getAttributeIndex(){
+      return m_attributeIndex;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Returns the slope of the function.
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return the slope.
    */
@@ -530,6 +809,41 @@ public class SimpleLinearRegression extends AbstractClassifier implements
    * @return a description of the classifier.
    */
   @Override
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @return the slope.
+   */
+  public double getSlope(){
+      return m_slope;
+  }
+    
+  /**
+   * Returns the intercept of the function.
+   *
+   * @return the intercept.
+   */
+  public double getIntercept(){
+      return m_intercept;
+  }  
+
+  /**
+   * Turn off the error message that is reported when no useful attribute is found.
+   *
+   * @param s if set to true turns off the error message
+   */
+  public void setSuppressErrorMessage(boolean s){
+      m_suppressErrorMessage = s;
+  }   
+
+  /**
+   * Returns a description of this classifier as a string
+   *
+   * @return a description of the classifier.
+   */
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public String toString() {
 
     StringBuffer text = new StringBuffer();
@@ -537,6 +851,10 @@ public class SimpleLinearRegression extends AbstractClassifier implements
       text.append("Predicting constant " + m_intercept);
     } else {
       text.append("Linear regression on " + m_attribute.name() + "\n\n");
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       text
         .append(Utils.doubleToString(m_slope, 2) + " * " + m_attribute.name());
       if (m_intercept > 0) {
@@ -571,11 +889,26 @@ public class SimpleLinearRegression extends AbstractClassifier implements
         text.append("\nAdjusted R^2 = "
           + Utils.doubleToString(m_rsquaredAdj, 5));
         text.append("\nF-statistic = " + Utils.doubleToString(m_fstat, 5));
+<<<<<<< HEAD
+=======
+=======
+      text.append(Utils.doubleToString(m_slope,2) + " * " + 
+		m_attribute.name());
+      if (m_intercept > 0) {
+	text.append(" + " + Utils.doubleToString(m_intercept, 2));
+      } else {
+      text.append(" - " + Utils.doubleToString((-m_intercept), 2)); 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
     }
     text.append("\n");
     return text.toString();
   }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /**
    * Returns the revision string.
@@ -585,14 +918,42 @@ public class SimpleLinearRegression extends AbstractClassifier implements
   @Override
   public String getRevision() {
     return RevisionUtils.extract("$Revision: 11130 $");
+<<<<<<< HEAD
+=======
+=======
+  
+  /**
+   * Returns the revision string.
+   * 
+   * @return		the revision
+   */
+  public String getRevision() {
+    return RevisionUtils.extract("$Revision: 5523 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Main method for testing this class
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param argv options
    */
   public static void main(String[] argv) {
     runClassifier(new SimpleLinearRegression(), argv);
   }
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @param argv options
+   */
+  public static void main(String [] argv){
+    runClassifier(new SimpleLinearRegression(), argv);
+  } 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 }

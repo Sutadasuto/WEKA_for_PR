@@ -1,4 +1,8 @@
 /*
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,32 +15,96 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+<<<<<<< HEAD
+=======
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    CostSensitiveClassifier.java
+<<<<<<< HEAD
  *    Copyright (C) 2002-2012 University of Waikato, Hamilton, New Zealand
+=======
+<<<<<<< HEAD
+ *    Copyright (C) 2002-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 2002 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
 package weka.classifiers.meta;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+import weka.classifiers.Classifier;
+import weka.classifiers.CostMatrix;
+import weka.classifiers.RandomizableSingleClassifierEnhancer;
+import weka.core.Capabilities;
+import weka.core.Drawable;
+import weka.core.Instance;
+import weka.core.Instances;
+import weka.core.Option;
+import weka.core.OptionHandler;
+import weka.core.RevisionUtils;
+import weka.core.SelectedTag;
+import weka.core.Tag;
+import weka.core.Utils;
+import weka.core.WeightedInstancesHandler;
+import weka.core.Capabilities.Capability;
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.StringReader;
 import java.io.StringWriter;
+<<<<<<< HEAD
 import java.util.Collections;
+=======
+<<<<<<< HEAD
+import java.util.Collections;
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.util.Enumeration;
 import java.util.Random;
 import java.util.Vector;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.classifiers.Classifier;
 import weka.classifiers.CostMatrix;
 import weka.classifiers.RandomizableSingleClassifierEnhancer;
 import weka.core.*;
 import weka.core.Capabilities.Capability;
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 /**
  <!-- globalinfo-start -->
  * A metaclassifier that makes its base classifier cost-sensitive. Two methods can be used to introduce cost-sensitivity: reweighting training instances according to the total cost assigned to each class; or predicting the class with minimum expected misclassification cost (rather than the most likely class). Performance can often be improved by using a Bagged classifier to improve the probability estimates of the base classifier.
@@ -89,6 +157,10 @@ import weka.core.Capabilities.Capability;
  * Options after -- are passed to the designated classifier.<p>
  *
  * @author Len Trigg (len@reeltwo.com)
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  * @version $Revision: 14259 $
  */
 public class CostSensitiveClassifier 
@@ -97,6 +169,19 @@ public class CostSensitiveClassifier
 
   /** for serialization */
   static final long serialVersionUID = -110658209263002404L;
+<<<<<<< HEAD
+=======
+=======
+ * @version $Revision: 1.29 $
+ */
+public class CostSensitiveClassifier 
+  extends RandomizableSingleClassifierEnhancer
+  implements OptionHandler, Drawable {
+
+  /** for serialization */
+  static final long serialVersionUID = -720658209263002404L;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   
   /** load cost matrix on demand */
   public static final int MATRIX_ON_DEMAND = 1;
@@ -151,9 +236,21 @@ public class CostSensitiveClassifier
    *
    * @return an enumeration of all the available options.
    */
+<<<<<<< HEAD
   public Enumeration<Option> listOptions() {
 
     Vector<Option> newVector = new Vector<Option>(4);
+=======
+<<<<<<< HEAD
+  public Enumeration<Option> listOptions() {
+
+    Vector<Option> newVector = new Vector<Option>(4);
+=======
+  public Enumeration listOptions() {
+
+    Vector newVector = new Vector(5);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     newVector.addElement(new Option(
 	      "\tMinimize expected misclassification cost. Default is to\n"
@@ -174,7 +271,18 @@ public class CostSensitiveClassifier
               "\tThe cost matrix in Matlab single line format.",
               "cost-matrix", 1, "-cost-matrix <matrix>"));
 
+<<<<<<< HEAD
     newVector.addAll(Collections.list(super.listOptions()));
+=======
+<<<<<<< HEAD
+    newVector.addAll(Collections.list(super.listOptions()));
+=======
+    Enumeration enu = super.listOptions();
+    while (enu.hasMoreElements()) {
+      newVector.addElement(enu.nextElement());
+    }
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     return newVector.elements();
   }
@@ -267,8 +375,16 @@ public class CostSensitiveClassifier
     }
     
     super.setOptions(options);
+<<<<<<< HEAD
     
     Utils.checkForRemainingOptions(options);
+=======
+<<<<<<< HEAD
+    
+    Utils.checkForRemainingOptions(options);
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
 
@@ -278,6 +394,10 @@ public class CostSensitiveClassifier
    * @return an array of strings suitable for passing to setOptions
    */
   public String [] getOptions() {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     
     Vector<String> options = new Vector<String>();
 
@@ -302,6 +422,45 @@ public class CostSensitiveClassifier
     Collections.addAll(options, super.getOptions());
 
     return options.toArray(new String[0]);
+<<<<<<< HEAD
+=======
+=======
+    String [] superOptions = super.getOptions();
+    String [] options = new String [superOptions.length + 7];
+
+    int current = 0;
+
+    if (m_MatrixSource == MATRIX_SUPPLIED) {
+      if (m_CostFile != null) {
+        options[current++] = "-C";
+        options[current++] = "" + m_CostFile;
+      }
+      else {
+        options[current++] = "-cost-matrix";
+        options[current++] = getCostMatrix().toMatlab();
+      }
+    } else {
+      options[current++] = "-N";
+      options[current++] = "" + getOnDemandDirectory();
+    }
+
+    if (getMinimizeExpectedCost()) {
+      options[current++] = "-M";
+    }
+
+    System.arraycopy(superOptions, 0, options, current, 
+		     superOptions.length);
+
+    while (current < options.length) {
+      if (options[current] == null) {
+        options[current] = "";
+      }
+      current++;
+    }
+
+    return options;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -546,6 +705,10 @@ public class CostSensitiveClassifier
 
     if (!m_MinimizeExpectedCost) {
       return m_Classifier.distributionForInstance(instance);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     } else {
       return convertDistribution(m_Classifier.distributionForInstance(instance), instance);
     }
@@ -562,11 +725,33 @@ public class CostSensitiveClassifier
   protected double[] convertDistribution(double[] pred, Instance instance) throws Exception {
 
     double [] costs = m_CostMatrix.expectedCosts(pred, instance);
+<<<<<<< HEAD
+=======
+=======
+    }
+    double [] pred = m_Classifier.distributionForInstance(instance);
+    double [] costs = m_CostMatrix.expectedCosts(pred, instance);
+    /*
+    for (int i = 0; i < pred.length; i++) {
+      System.out.print(pred[i] + " ");
+    }
+    System.out.println();
+    for (int i = 0; i < costs.length; i++) {
+      System.out.print(costs[i] + " ");
+    }
+    System.out.println("\n");
+    */
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     // This is probably not ideal
     int classIndex = Utils.minIndex(costs);
     for (int i = 0; i  < pred.length; i++) {
       if (i == classIndex) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         pred[i] = 1.0;
       } else {
         pred[i] = 0.0;
@@ -658,6 +843,17 @@ public class CostSensitiveClassifier
 
     return ((BatchPredictor) getClassifier())
             .implementsMoreEfficientBatchPrediction();
+<<<<<<< HEAD
+=======
+=======
+	pred[i] = 1.0;
+      } else {
+	pred[i] = 0.0;
+      }
+    }
+    return pred; 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -720,7 +916,15 @@ public class CostSensitiveClassifier
    * @return		the revision
    */
   public String getRevision() {
+<<<<<<< HEAD
     return RevisionUtils.extract("$Revision: 14259 $");
+=======
+<<<<<<< HEAD
+    return RevisionUtils.extract("$Revision: 14259 $");
+=======
+    return RevisionUtils.extract("$Revision: 1.29 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**

@@ -1,4 +1,8 @@
 /*
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,16 +15,46 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+<<<<<<< HEAD
+=======
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    PruneableClassifierTree.java
+<<<<<<< HEAD
  *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
+=======
+<<<<<<< HEAD
+ *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 1999 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
 package weka.classifiers.trees.j48;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.util.Random;
 
 import weka.core.Capabilities;
@@ -28,13 +62,33 @@ import weka.core.Capabilities.Capability;
 import weka.core.Instances;
 import weka.core.RevisionUtils;
 import weka.core.Utils;
+<<<<<<< HEAD
+=======
+=======
+import weka.core.Capabilities;
+import weka.core.Instances;
+import weka.core.RevisionUtils;
+import weka.core.Utils;
+import weka.core.Capabilities.Capability;
+
+import java.util.Random;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
 /**
  * Class for handling a tree structure that can
  * be pruned using a pruning set. 
  *
  * @author Eibe Frank (eibe@cs.waikato.ac.nz)
+<<<<<<< HEAD
  * @version $Revision: 14534 $
+=======
+<<<<<<< HEAD
+ * @version $Revision: 14534 $
+=======
+ * @version $Revision: 8985 $
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 public class PruneableClassifierTree 
   extends ClassifierTree {
@@ -43,6 +97,10 @@ public class PruneableClassifierTree
   static final long serialVersionUID = -555775736857600201L;
 
   /** True if the tree is to be pruned. */
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   protected boolean pruneTheTree = false;
 
   /** How many subsets of equal size? One used for pruning, the rest for training. */
@@ -53,6 +111,21 @@ public class PruneableClassifierTree
 
   /** The random number seed. */
   protected int m_seed = 1;
+<<<<<<< HEAD
+=======
+=======
+  private boolean pruneTheTree = false;
+
+  /** How many subsets of equal size? One used for pruning, the rest for training. */
+  private int numSets = 3;
+
+  /** Cleanup after the tree has been built. */
+  private boolean m_cleanup = true;
+
+  /** The random number seed. */
+  private int m_seed = 1;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /**
    * Constructor for pruneable tree structure. Stores reference
@@ -79,6 +152,37 @@ public class PruneableClassifierTree
   }
 
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+   * Returns default capabilities of the classifier tree.
+   *
+   * @return      the capabilities of this classifier tree
+   */
+  public Capabilities getCapabilities() {
+    Capabilities result = super.getCapabilities();
+    result.disableAll();
+
+    // attributes
+    result.enable(Capability.NOMINAL_ATTRIBUTES);
+    result.enable(Capability.NUMERIC_ATTRIBUTES);
+    result.enable(Capability.DATE_ATTRIBUTES);
+    result.enable(Capability.MISSING_VALUES);
+
+    // class
+    result.enable(Capability.NOMINAL_CLASS);
+    result.enable(Capability.MISSING_CLASS_VALUES);
+
+    // instances
+    result.setMinimumNumberInstances(0);
+    
+    return result;
+  }
+
+  /**
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Method for building a pruneable classifier tree.
    *
    * @param data the data to build the tree from 
@@ -87,6 +191,15 @@ public class PruneableClassifierTree
   public void buildClassifier(Instances data) 
        throws Exception {
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+    // can classifier tree handle the data?
+    getCapabilities().testWithFail(data);
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     // remove instances with missing class
     data = new Instances(data);
     data.deleteWithMissingClass();
@@ -206,6 +319,14 @@ public class PruneableClassifierTree
    * @return		the revision
    */
   public String getRevision() {
+<<<<<<< HEAD
     return RevisionUtils.extract("$Revision: 14534 $");
+=======
+<<<<<<< HEAD
+    return RevisionUtils.extract("$Revision: 14534 $");
+=======
+    return RevisionUtils.extract("$Revision: 8985 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 }

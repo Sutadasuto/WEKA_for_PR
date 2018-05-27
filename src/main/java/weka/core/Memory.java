@@ -25,7 +25,14 @@ import java.lang.management.ManagementFactory;
 import java.lang.management.MemoryMXBean;
 import java.lang.management.MemoryUsage;
 
+<<<<<<< HEAD
 import javax.swing.JCheckBox;
+=======
+<<<<<<< HEAD
+import javax.swing.JCheckBox;
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import javax.swing.JOptionPane;
 
 /**
@@ -33,7 +40,15 @@ import javax.swing.JOptionPane;
  * disabled by using the setEnabled(boolean) method.
  * 
  * @author FracPete (fracpete at waikato dot ac dot nz)
+<<<<<<< HEAD
  * @version $Revision: 11271 $
+=======
+<<<<<<< HEAD
+ * @version $Revision: 11271 $
+=======
+ * @version $Revision: 9487 $
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  * @see #setEnabled(boolean)
  */
 public class Memory implements RevisionHandler {
@@ -45,11 +60,28 @@ public class Memory implements RevisionHandler {
   public static final long MAX_SLEEP_TIME = 10L;
 
   /** whether memory management is enabled */
+<<<<<<< HEAD
   protected boolean m_Enabled = true;
+=======
+<<<<<<< HEAD
+  protected boolean m_Enabled = true;
+=======
+  protected static boolean m_Enabled = true;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** whether a GUI is present */
   protected boolean m_UseGUI = false;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+  /** the delay before testing for out of memory */
+  protected long m_SleepTime = MAX_SLEEP_TIME;
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /** the managed bean to use */
   protected static MemoryMXBean m_MemoryMXBean = ManagementFactory
     .getMemoryMXBean();
@@ -57,9 +89,18 @@ public class Memory implements RevisionHandler {
   /** the last MemoryUsage object obtained */
   protected MemoryUsage m_MemoryUsage = null;
 
+<<<<<<< HEAD
   /** the delay before testing for out of memory */
   protected long m_SleepTime = MAX_SLEEP_TIME;
 
+=======
+<<<<<<< HEAD
+  /** the delay before testing for out of memory */
+  protected long m_SleepTime = MAX_SLEEP_TIME;
+
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /**
    * initializes the memory management without GUI support
    */
@@ -279,6 +320,10 @@ public class Memory implements RevisionHandler {
     System.err.println(msg);
 
     if (getUseGUI()) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       if (!Utils.getDontShowDialog("weka.core.Memory.LowMemoryWarning")) {
         JCheckBox dontShow = new JCheckBox("Do not show this message again");
         Object[] stuff = new Object[2];
@@ -298,6 +343,15 @@ public class Memory implements RevisionHandler {
 
         return (result == JOptionPane.YES_OPTION);
       }
+<<<<<<< HEAD
+=======
+=======
+      int result = JOptionPane.showConfirmDialog(null, msg, "Low Memory",
+        JOptionPane.YES_NO_OPTION);
+
+      return (result == JOptionPane.YES_OPTION);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
 
     return true;
@@ -306,7 +360,14 @@ public class Memory implements RevisionHandler {
   /**
    * stops all the current threads, to make a restart possible
    */
+<<<<<<< HEAD
   @SuppressWarnings("deprecation")
+=======
+<<<<<<< HEAD
+  @SuppressWarnings("deprecation")
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public void stopThreads() {
     int i;
     Thread[] thGroup;
@@ -340,7 +401,15 @@ public class Memory implements RevisionHandler {
    */
   @Override
   public String getRevision() {
+<<<<<<< HEAD
     return RevisionUtils.extract("$Revision: 11271 $");
+=======
+<<<<<<< HEAD
+    return RevisionUtils.extract("$Revision: 11271 $");
+=======
+    return RevisionUtils.extract("$Revision: 9487 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**

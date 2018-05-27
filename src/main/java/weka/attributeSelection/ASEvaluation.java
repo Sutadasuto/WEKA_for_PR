@@ -1,4 +1,8 @@
 /*
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,20 +15,60 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+<<<<<<< HEAD
+=======
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    ASEvaluation.java
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
  *
  */
 
+<<<<<<< HEAD
+=======
+=======
+ *    Copyright (C) 1999 University of Waikato, Hamilton, New Zealand
+ *
+ */
+
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 package weka.attributeSelection;
 
 import weka.core.Capabilities;
 import weka.core.CapabilitiesHandler;
+<<<<<<< HEAD
 import weka.core.CapabilitiesIgnorer;
 import weka.core.CommandlineRunnable;
+=======
+<<<<<<< HEAD
+import weka.core.CapabilitiesIgnorer;
+import weka.core.CommandlineRunnable;
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.core.Instances;
 import weka.core.RevisionHandler;
 import weka.core.RevisionUtils;
@@ -33,6 +77,10 @@ import weka.core.Utils;
 
 import java.io.Serializable;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 /**
  * Abstract attribute selection evaluation class
  * 
@@ -81,33 +129,90 @@ public abstract class ASEvaluation implements Serializable, CapabilitiesHandler,
     return m_DoNotCheckCapabilities;
   }
 
+<<<<<<< HEAD
+=======
+=======
+/** 
+ * Abstract attribute selection evaluation class
+ *
+ * @author Mark Hall (mhall@cs.waikato.ac.nz)
+ * @version $Revision: 11851 $
+ */
+public abstract class ASEvaluation
+  implements Serializable, CapabilitiesHandler, RevisionHandler {
+
+  /** for serialization */
+  private static final long serialVersionUID = 2091705669885950849L;
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   // ===============
   // Public methods.
   // ===============
 
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Generates a attribute evaluator. Has to initialize all fields of the
    * evaluator that are not being set via options.
    * 
    * @param data set of instances serving as training data
    * @exception Exception if the evaluator has not been generated successfully
+<<<<<<< HEAD
+=======
+=======
+   * Generates a attribute evaluator. Has to initialize all fields of the 
+   * evaluator that are not being set via options.
+   *
+   * @param data set of instances serving as training data 
+   * @exception Exception if the evaluator has not been 
+   * generated successfully
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public abstract void buildEvaluator(Instances data) throws Exception;
 
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Provides a chance for a attribute evaluator to do any special post
    * processing of the selected attribute set. Can also be used to clean up any
    * data structures post attribute selection.
    * 
+<<<<<<< HEAD
+=======
+=======
+   * Provides a chance for a attribute evaluator to do any special
+   * post processing of the selected attribute set.
+   *
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param attributeSet the set of attributes found by the search
    * @return a possibly ranked list of postprocessed attributes
    * @exception Exception if postprocessing fails for some reason
    */
+<<<<<<< HEAD
   public int[] postProcess(int[] attributeSet) throws Exception {
+=======
+<<<<<<< HEAD
+  public int[] postProcess(int[] attributeSet) throws Exception {
+=======
+  public int [] postProcess(int [] attributeSet) 
+    throws Exception {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return attributeSet;
   }
 
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Creates a new instance of an attribute/subset evaluator given it's class
    * name and (optional) arguments to pass to it's setOptions method. If the
    * evaluator implements OptionHandler and the options parameter is non-null,
@@ -138,13 +243,63 @@ public abstract class ASEvaluation implements Serializable, CapabilitiesHandler,
    */
   public static ASEvaluation[] makeCopies(ASEvaluation model, int num)
     throws Exception {
+<<<<<<< HEAD
+=======
+=======
+   * Creates a new instance of an attribute/subset evaluator 
+   * given it's class name and
+   * (optional) arguments to pass to it's setOptions method. If the
+   * evaluator implements OptionHandler and the options parameter is
+   * non-null, the evaluator will have it's options set.
+   *
+   * @param evaluatorName the fully qualified class name of the evaluator
+   * @param options an array of options suitable for passing to setOptions. May
+   * be null.
+   * @return the newly created evaluator, ready for use.
+   * @exception Exception if the evaluator name is invalid, or the options
+   * supplied are not acceptable to the evaluator
+   */
+  public static ASEvaluation forName(String evaluatorName,
+				     String [] options) throws Exception {
+    return (ASEvaluation)Utils.forName(ASEvaluation.class,
+				       evaluatorName,
+				       options);
+  }
+
+  /**
+   * Creates copies of the current evaluator. Note that this method
+   * now uses Serialization to perform a deep copy, so the evaluator
+   * object must be fully Serializable. Any currently built model will
+   * now be copied as well.
+   *
+   * @param model an example evaluator to copy
+   * @param num the number of evaluator copies to create.
+   * @return an array of evaluators.
+   * @exception Exception if an error occurs 
+   */
+  public static ASEvaluation [] makeCopies(ASEvaluation model,
+					 int num) throws Exception {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     if (model == null) {
       throw new Exception("No model evaluator set");
     }
+<<<<<<< HEAD
     ASEvaluation[] evaluators = new ASEvaluation[num];
     SerializedObject so = new SerializedObject(model);
     for (int i = 0; i < evaluators.length; i++) {
+=======
+<<<<<<< HEAD
+    ASEvaluation[] evaluators = new ASEvaluation[num];
+    SerializedObject so = new SerializedObject(model);
+    for (int i = 0; i < evaluators.length; i++) {
+=======
+    ASEvaluation [] evaluators = new ASEvaluation [num];
+    SerializedObject so = new SerializedObject(model);
+    for(int i = 0; i < evaluators.length; i++) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       evaluators[i] = (ASEvaluation) so.getObject();
     }
     return evaluators;
@@ -152,6 +307,10 @@ public abstract class ASEvaluation implements Serializable, CapabilitiesHandler,
 
   /**
    * Returns the capabilities of this evaluator.
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return the capabilities of this evaluator
    * @see Capabilities
@@ -172,6 +331,29 @@ public abstract class ASEvaluation implements Serializable, CapabilitiesHandler,
   @Override
   public String getRevision() {
     return RevisionUtils.extract("$Revision: 12201 $");
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @return            the capabilities of this evaluator
+   * @see               Capabilities
+   */
+  public Capabilities getCapabilities() {
+    Capabilities result = new Capabilities(this);
+    result.enableAll();
+    
+    return result;
+  }
+  
+  /**
+   * Returns the revision string.
+   * 
+   * @return		the revision
+   */
+  public String getRevision() {
+    return RevisionUtils.extract("$Revision: 11851 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -183,6 +365,10 @@ public abstract class ASEvaluation implements Serializable, CapabilitiesHandler,
     // subclasses to override
   }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /**
    * runs the evaluator with the given commandline options
    * 
@@ -247,5 +433,29 @@ public abstract class ASEvaluation implements Serializable, CapabilitiesHandler,
    */
   @Override
   public void postExecution() throws Exception {
+<<<<<<< HEAD
+=======
+=======
+
+  /**
+   * runs the evaluator with the given commandline options
+   * 
+   * @param evaluator	the evaluator to run
+   * @param options	the commandline options
+   */
+  protected static void runEvaluator(ASEvaluation evaluator, String[] options) {
+    try {
+      System.out.println(
+	  AttributeSelection.SelectAttributes(evaluator, options));
+    }
+    catch (Exception e) {
+      String msg = e.toString().toLowerCase();
+      if (    (msg.indexOf("help requested") == -1)
+           && (msg.indexOf("no training file given") == -1) )
+        e.printStackTrace();
+      System.err.println(e.getMessage());
+    }
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 }

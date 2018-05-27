@@ -6,7 +6,15 @@
 # url:     http://www.oracle.com/
 # jdbc:    http://www.oracle.com/technology/software/tech/java/sqlj_jdbc/
 # author:  Fracpete (fracpete at waikato dot ac dot nz)
+<<<<<<< HEAD
 # version: $Revision: 5837 $
+=======
+<<<<<<< HEAD
+# version: $Revision: 5837 $
+=======
+# version: $Revision: 5836 $
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
 # JDBC driver (comma-separated list)
 jdbcDriver=oracle.jdbc.driver.OracleDriver

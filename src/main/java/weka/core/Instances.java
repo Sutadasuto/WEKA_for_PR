@@ -1,4 +1,8 @@
 /*
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,11 +15,37 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+<<<<<<< HEAD
+=======
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    Instances.java
+<<<<<<< HEAD
  *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
+=======
+<<<<<<< HEAD
+ *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 1999 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
@@ -25,6 +55,10 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Serializable;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.Enumeration;
@@ -32,6 +66,13 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map.Entry;
+<<<<<<< HEAD
+=======
+=======
+import java.util.Enumeration;
+import java.util.HashSet;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.util.Random;
 
 import weka.core.converters.ArffLoader.ArffReader;
@@ -71,10 +112,22 @@ import weka.core.converters.ConverterUtils.DataSource;
  * @author Eibe Frank (eibe@cs.waikato.ac.nz)
  * @author Len Trigg (trigg@cs.waikato.ac.nz)
  * @author FracPete (fracpete at waikato dot ac dot nz)
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  * @version $Revision: 14606 $
  */
 public class Instances extends AbstractList<Instance> implements Serializable,
 RevisionHandler {
+<<<<<<< HEAD
+=======
+=======
+ * @version $Revision: 10497 $
+ */
+public class Instances implements Serializable, RevisionHandler {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** for serialization */
   static final long serialVersionUID = -19412345060742748L;
@@ -98,6 +151,10 @@ RevisionHandler {
   protected/* @spec_public non_null@ */String m_RelationName;
 
   /** The attribute information. */
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   protected/* @spec_public non_null@ */ArrayList<Attribute> m_Attributes;
   /*
    * public invariant (\forall int i; 0 <= i && i < m_Attributes.size();
@@ -109,6 +166,19 @@ RevisionHandler {
 
   /** The instances. */
   protected/* @spec_public non_null@ */ArrayList<Instance> m_Instances;
+<<<<<<< HEAD
+=======
+=======
+  protected/* @spec_public non_null@ */FastVector m_Attributes;
+  /*
+   * public invariant (\forall int i; 0 <= i && i < m_Attributes.size();
+   * m_Attributes.elementAt(i) != null);
+   */
+
+  /** The instances. */
+  protected/* @spec_public non_null@ */FastVector m_Instances;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** The class attribute's index */
   protected int m_ClassIndex;
@@ -131,6 +201,10 @@ RevisionHandler {
    * @throws IOException if the ARFF file is not read successfully
    */
   public Instances(/* @non_null@ */Reader reader) throws IOException {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     ArffReader arff = new ArffReader(reader, 1000, false);
     initialize(arff.getData(), 1000);
     arff.setRetainStringValues(true);
@@ -138,6 +212,15 @@ RevisionHandler {
     while ((inst = arff.readInstance(this)) != null) {
       m_Instances.add(inst);
     }
+<<<<<<< HEAD
+=======
+=======
+    ArffReader arff = new ArffReader(reader);
+    Instances dataset = arff.getData();
+    initialize(dataset, dataset.numInstances());
+    dataset.copyInstances(0, this, dataset.numInstances());
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     compactify();
   }
 
@@ -211,8 +294,17 @@ RevisionHandler {
     m_ClassIndex = dataset.m_ClassIndex;
     m_RelationName = dataset.m_RelationName;
     m_Attributes = dataset.m_Attributes;
+<<<<<<< HEAD
     m_NamesToAttributeIndices = dataset.m_NamesToAttributeIndices;
     m_Instances = new ArrayList<Instance>(capacity);
+=======
+<<<<<<< HEAD
+    m_NamesToAttributeIndices = dataset.m_NamesToAttributeIndices;
+    m_Instances = new ArrayList<Instance>(capacity);
+=======
+    m_Instances = new FastVector(capacity);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -246,19 +338,46 @@ RevisionHandler {
    * @param name the name of the relation
    * @param attInfo the attribute information
    * @param capacity the capacity of the set
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @throws IllegalArgumentException if attribute names are not unique
    */
   public Instances(/* @non_null@ */String name,
     /* @non_null@ */ArrayList<Attribute> attInfo, int capacity) {
+<<<<<<< HEAD
+=======
+=======
+   */
+  public Instances(/* @non_null@ */String name,
+  /* @non_null@ */FastVector attInfo, int capacity) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     // check whether the attribute names are unique
     HashSet<String> names = new HashSet<String>();
     StringBuffer nonUniqueNames = new StringBuffer();
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     for (Attribute att : attInfo) {
       if (names.contains(att.name())) {
         nonUniqueNames.append("'" + att.name() + "' ");
       }
       names.add(att.name());
+<<<<<<< HEAD
+=======
+=======
+    for (int i = 0; i < attInfo.size(); i++) {
+      if (names.contains(((Attribute) attInfo.elementAt(i)).name())) {
+        nonUniqueNames.append("'" + ((Attribute) attInfo.elementAt(i)).name()
+          + "' ");
+      }
+      names.add(((Attribute) attInfo.elementAt(i)).name());
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
     if (names.size() != attInfo.size()) {
       throw new IllegalArgumentException("Attribute names are not unique!"
@@ -269,6 +388,10 @@ RevisionHandler {
     m_RelationName = name;
     m_ClassIndex = -1;
     m_Attributes = attInfo;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     m_NamesToAttributeIndices = new HashMap<String, Integer>((int) (numAttributes() / 0.75));
     for (int i = 0; i < numAttributes(); i++) {
       attribute(i).setIndex(i);
@@ -282,11 +405,30 @@ RevisionHandler {
    * attributes, theses are replaced by empty copies. Other attributes are left
    * unmodified, but the underlying list structure holding references to the attributes
    * is shallow-copied, so that other Instances objects with a reference to this list are not affected.
+<<<<<<< HEAD
+=======
+=======
+    for (int i = 0; i < numAttributes(); i++) {
+      attribute(i).setIndex(i);
+    }
+    m_Instances = new FastVector(capacity);
+  }
+
+  /**
+   * Create a copy of the structure if the data has string or relational
+   * attributes, "cleanses" string types (i.e. doesn't contain references to the
+   * strings seen in the past) and all relational attributes.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return a copy of the instance structure.
    */
   public Instances stringFreeStructure() {
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     ArrayList<Attribute> newAtts = new ArrayList<Attribute>();
     for (Attribute att : m_Attributes) {
       if (att.type() == Attribute.STRING) {
@@ -294,14 +436,40 @@ RevisionHandler {
       } else if (att.type() == Attribute.RELATIONAL) {
         newAtts.add(new Attribute(att.name(), new Instances(att.relation(), 0),
           att.index()));
+<<<<<<< HEAD
+=======
+=======
+    FastVector newAtts = new FastVector();
+    for (int i = 0; i < m_Attributes.size(); i++) {
+      Attribute att = (Attribute) m_Attributes.elementAt(i);
+      if (att.type() == Attribute.STRING) {
+        newAtts.addElement(new Attribute(att.name(), (FastVector) null, i));
+      } else if (att.type() == Attribute.RELATIONAL) {
+        newAtts.addElement(new Attribute(att.name(), new Instances(att
+          .relation(), 0), i));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
     }
     if (newAtts.size() == 0) {
       return new Instances(this, 0);
     }
+<<<<<<< HEAD
     ArrayList<Attribute> atts = Utils.cast(m_Attributes.clone());
     for (Attribute att : newAtts) {
       atts.set(att.index(), att);
+=======
+<<<<<<< HEAD
+    ArrayList<Attribute> atts = Utils.cast(m_Attributes.clone());
+    for (Attribute att : newAtts) {
+      atts.set(att.index(), att);
+=======
+    FastVector atts = (FastVector) m_Attributes.copy();
+    for (int i = 0; i < newAtts.size(); i++) {
+      atts.setElementAt(newAtts.elementAt(i),
+        ((Attribute) newAtts.elementAt(i)).index());
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
     Instances result = new Instances(this, 0);
     result.m_Attributes = atts;
@@ -316,6 +484,10 @@ RevisionHandler {
    * 
    * @param instance the instance to be added
    */
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   @Override
   public boolean add(/* @non_null@ */Instance instance) {
 
@@ -341,10 +513,20 @@ RevisionHandler {
   // @ requires index < m_Instances.size();
   @Override
   public void add(int index, /* @non_null@ */Instance instance) {
+<<<<<<< HEAD
+=======
+=======
+  public void add(/* @non_null@ */Instance instance) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     Instance newInstance = (Instance) instance.copy();
 
     newInstance.setDataset(this);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     m_Instances.add(index, newInstance);
   }
 
@@ -385,6 +567,12 @@ RevisionHandler {
       }
       return true;
     }
+<<<<<<< HEAD
+=======
+=======
+    m_Instances.addElement(newInstance);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -398,7 +586,15 @@ RevisionHandler {
   // @ ensures \result != null;
   public/* @pure@ */Attribute attribute(int index) {
 
+<<<<<<< HEAD
     return m_Attributes.get(index);
+=======
+<<<<<<< HEAD
+    return m_Attributes.get(index);
+=======
+    return (Attribute) m_Attributes.elementAt(index);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -412,11 +608,25 @@ RevisionHandler {
    */
   public/* @pure@ */Attribute attribute(String name) {
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     Integer index = m_NamesToAttributeIndices.get(name);
     if (index != null) {
       return attribute(index);
     }
 
+<<<<<<< HEAD
+=======
+=======
+    for (int i = 0; i < numAttributes(); i++) {
+      if (attribute(i).name().equals(name)) {
+        return attribute(i);
+      }
+    }
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return null;
   }
 
@@ -516,7 +726,15 @@ RevisionHandler {
    */
   public void delete() {
 
+<<<<<<< HEAD
     m_Instances = new ArrayList<Instance>();
+=======
+<<<<<<< HEAD
+    m_Instances = new ArrayList<Instance>();
+=======
+    m_Instances = new FastVector();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -527,6 +745,10 @@ RevisionHandler {
   // @ requires 0 <= index && index < numInstances();
   public void delete(int index) {
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     m_Instances.remove(index);
   }
 
@@ -535,6 +757,19 @@ RevisionHandler {
    * - 1). Attribute objects after the deletion point are copied so
    * that their indices can be decremented. Creates a fresh list to
    * hold the old and new attribute objects. 
+<<<<<<< HEAD
+=======
+=======
+    m_Instances.removeElementAt(index);
+  }
+
+  /**
+   * Deletes an attribute at the given position (0 to numAttributes() - 1). A
+   * deep copy of the attribute information is performed before the attribute is
+   * deleted.
+   * 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param position the attribute's position (position starts with 0)
    * @throws IllegalArgumentException if the given index is out of range or the
    *           class attribute is being deleted
@@ -549,6 +784,10 @@ RevisionHandler {
     if (position == m_ClassIndex) {
       throw new IllegalArgumentException("Can't delete class attribute");
     }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     ArrayList<Attribute> newList = new ArrayList<Attribute>(m_Attributes.size() - 1);
     HashMap<String, Integer> newMap = new HashMap<String, Integer>((int) ((m_Attributes.size() - 1) / 0.75));
@@ -573,6 +812,22 @@ RevisionHandler {
       instance(i).setDataset(null);
       instance(i).deleteAttributeAt(position);
       instance(i).setDataset(this);
+<<<<<<< HEAD
+=======
+=======
+    freshAttributeInfo();
+    if (m_ClassIndex > position) {
+      m_ClassIndex--;
+    }
+    m_Attributes.removeElementAt(position);
+    for (int i = position; i < m_Attributes.size(); i++) {
+      Attribute current = (Attribute) m_Attributes.elementAt(i);
+      current.setIndex(current.index() - 1);
+    }
+    for (int i = 0; i < numInstances(); i++) {
+      instance(i).forceDeleteAttributeAt(position);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
   }
 
@@ -617,11 +872,25 @@ RevisionHandler {
   // @ requires 0 <= attIndex && attIndex < numAttributes();
   public void deleteWithMissing(int attIndex) {
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     ArrayList<Instance> newInstances = new ArrayList<Instance>(numInstances());
 
     for (int i = 0; i < numInstances(); i++) {
       if (!instance(i).isMissing(attIndex)) {
         newInstances.add(instance(i));
+<<<<<<< HEAD
+=======
+=======
+    FastVector newInstances = new FastVector(numInstances());
+
+    for (int i = 0; i < numInstances(); i++) {
+      if (!instance(i).isMissing(attIndex)) {
+        newInstances.addElement(instance(i));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
     }
     m_Instances = newInstances;
@@ -657,9 +926,21 @@ RevisionHandler {
    * 
    * @return enumeration of all the attributes.
    */
+<<<<<<< HEAD
   public/* @non_null pure@ */Enumeration<Attribute> enumerateAttributes() {
 
     return new WekaEnumeration<Attribute>(m_Attributes, m_ClassIndex);
+=======
+<<<<<<< HEAD
+  public/* @non_null pure@ */Enumeration<Attribute> enumerateAttributes() {
+
+    return new WekaEnumeration<Attribute>(m_Attributes, m_ClassIndex);
+=======
+  public/* @non_null pure@ */Enumeration enumerateAttributes() {
+
+    return m_Attributes.elements(m_ClassIndex);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -667,6 +948,10 @@ RevisionHandler {
    * 
    * @return enumeration of all instances in the dataset
    */
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public/* @non_null pure@ */Enumeration<Instance> enumerateInstances() {
 
     return new WekaEnumeration<Instance>(m_Instances);
@@ -711,6 +996,38 @@ RevisionHandler {
    */
   public/* @pure@ */boolean equalHeaders(Instances dataset) {
     return (equalHeadersMsg(dataset) == null);
+<<<<<<< HEAD
+=======
+=======
+  public/* @non_null pure@ */Enumeration enumerateInstances() {
+
+    return m_Instances.elements();
+  }
+
+  /**
+   * Checks if two headers are equivalent.
+   * 
+   * @param dataset another dataset
+   * @return true if the header of the given dataset is equivalent to this
+   *         header
+   */
+  public/* @pure@ */boolean equalHeaders(Instances dataset) {
+
+    // Check class and all attributes
+    if (m_ClassIndex != dataset.m_ClassIndex) {
+      return false;
+    }
+    if (m_Attributes.size() != dataset.m_Attributes.size()) {
+      return false;
+    }
+    for (int i = 0; i < m_Attributes.size(); i++) {
+      if (!(attribute(i).equals(dataset.attribute(i)))) {
+        return false;
+      }
+    }
+    return true;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -721,7 +1038,15 @@ RevisionHandler {
   // @ requires numInstances() > 0;
   public/* @non_null pure@ */Instance firstInstance() {
 
+<<<<<<< HEAD
     return m_Instances.get(0);
+=======
+<<<<<<< HEAD
+    return m_Instances.get(0);
+=======
+    return (Instance) m_Instances.firstElement();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -741,12 +1066,24 @@ RevisionHandler {
   }
 
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Inserts an attribute at the given position (0 to numAttributes())
    * and sets all values to be missing. Shallow copies the attribute
    * before it is inserted. Existing attribute objects at and after
    * the insertion point are also copied so that their indices can be
    * incremented. Creates a fresh list to hold the old and new
    * attribute objects.
+<<<<<<< HEAD
+=======
+=======
+   * Inserts an attribute at the given position (0 to numAttributes()) and sets
+   * all values to be missing. Shallow copies the attribute before it is
+   * inserted, and performs a deep copy of the existing attribute information.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param att the attribute to be inserted
    * @param position the attribute's position (position starts with 0)
@@ -764,6 +1101,10 @@ RevisionHandler {
         + "' already in use at position #" + attribute(att.name()).index());
     }
     att = (Attribute) att.copy();
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     att.setIndex(position);
 
     ArrayList<Attribute> newList = new ArrayList<Attribute>(m_Attributes.size() + 1);
@@ -788,6 +1129,20 @@ RevisionHandler {
       instance(i).setDataset(null);
       instance(i).insertAttributeAt(position);
       instance(i).setDataset(this);
+<<<<<<< HEAD
+=======
+=======
+    freshAttributeInfo();
+    att.setIndex(position);
+    m_Attributes.insertElementAt(att, position);
+    for (int i = position + 1; i < m_Attributes.size(); i++) {
+      Attribute current = (Attribute) m_Attributes.elementAt(i);
+      current.setIndex(current.index() + 1);
+    }
+    for (int i = 0; i < numInstances(); i++) {
+      instance(i).forceInsertAttributeAt(position);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
     if (m_ClassIndex >= position) {
       m_ClassIndex++;
@@ -804,6 +1159,10 @@ RevisionHandler {
   // @ requires index < numInstances();
   public/* @non_null pure@ */Instance instance(int index) {
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return m_Instances.get(index);
   }
 
@@ -819,6 +1178,12 @@ RevisionHandler {
   public/* @non_null pure@ */Instance get(int index) {
 
     return m_Instances.get(index);
+<<<<<<< HEAD
+=======
+=======
+    return (Instance) m_Instances.elementAt(index);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -857,7 +1222,15 @@ RevisionHandler {
     double[] vals = new double[numInstances()];
     for (int i = 0; i < vals.length; i++) {
       double val = instance(i).value(attIndex);
+<<<<<<< HEAD
       if (Utils.isMissingValue(val)) {
+=======
+<<<<<<< HEAD
+      if (Utils.isMissingValue(val)) {
+=======
+      if (Instance.isMissingValue(val)) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         vals[i] = Double.MAX_VALUE;
       } else {
         vals[i] = val;
@@ -874,7 +1247,15 @@ RevisionHandler {
   // @ requires numInstances() > 0;
   public/* @non_null pure@ */Instance lastInstance() {
 
+<<<<<<< HEAD
     return m_Instances.get(m_Instances.size() - 1);
+=======
+<<<<<<< HEAD
+    return m_Instances.get(m_Instances.size() - 1);
+=======
+    return (Instance) m_Instances.lastElement();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -961,7 +1342,16 @@ RevisionHandler {
   }
 
   /**
+<<<<<<< HEAD
    * Returns the number of distinct values of a given attribute. The value
+=======
+<<<<<<< HEAD
+   * Returns the number of distinct values of a given attribute. The value
+=======
+   * Returns the number of distinct values of a given attribute. Returns the
+   * number of instances if the attribute is a string attribute. The value
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 'missing' is not counted.
    * 
    * @param attIndex the attribute (index starts with 0)
@@ -971,6 +1361,10 @@ RevisionHandler {
   // @ requires attIndex < numAttributes();
   public/* @pure@ */int numDistinctValues(int attIndex) {
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     HashSet<Double> set = new HashSet<Double>(2 * numInstances());
     for (Instance current : this) {
       double key = current.value(attIndex);
@@ -983,6 +1377,35 @@ RevisionHandler {
 
   /**
    * Returns the number of distinct values of a given attribute. The value
+<<<<<<< HEAD
+=======
+=======
+    if (attribute(attIndex).isNumeric()) {
+      double[] attVals = attributeToDoubleArray(attIndex);
+      int[] sorted = Utils.sort(attVals);
+      double prev = 0;
+      int counter = 0;
+      for (int i = 0; i < sorted.length; i++) {
+        Instance current = instance(sorted[i]);
+        if (current.isMissing(attIndex)) {
+          break;
+        }
+        if ((i == 0) || (current.value(attIndex) > prev)) {
+          prev = current.value(attIndex);
+          counter++;
+        }
+      }
+      return counter;
+    } else {
+      return attribute(attIndex).numValues();
+    }
+  }
+
+  /**
+   * Returns the number of distinct values of a given attribute. Returns the
+   * number of instances if the attribute is a string attribute. The value
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 'missing' is not counted.
    * 
    * @param att the attribute
@@ -1005,6 +1428,10 @@ RevisionHandler {
   }
 
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Returns the number of instances in the dataset.
    * 
    * @return the number of instances in the dataset as an integer
@@ -1017,6 +1444,11 @@ RevisionHandler {
   }
 
   /**
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Shuffles the instances in the set so that they are ordered randomly.
    * 
    * @param random a random number generator
@@ -1059,6 +1491,10 @@ RevisionHandler {
   }
 
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Replaces the attribute at the given position (0 to
    * numAttributes()) with the given attribute and sets all its values to
    * be missing. Shallow copies the given attribute before it is
@@ -1116,6 +1552,11 @@ RevisionHandler {
   }
 
   /**
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Returns the relation's name.
    * 
    * @return the relation's name as a string
@@ -1127,6 +1568,10 @@ RevisionHandler {
   }
 
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Removes the instance at the given position.
    * 
    * @param index the instance's index (index starts with 0)
@@ -1141,12 +1586,21 @@ RevisionHandler {
   }
 
   /**
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Renames an attribute. This change only affects this dataset.
    * 
    * @param att the attribute's index (index starts with 0)
    * @param name the new name
    */
   public void renameAttribute(int att, String name) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     Attribute existingAtt = attribute(name);
     if (existingAtt != null) {
@@ -1155,10 +1609,27 @@ RevisionHandler {
       } else {
         throw new IllegalArgumentException("Attribute name '" + name
           + "' already present at position #" + existingAtt.index());
+<<<<<<< HEAD
+=======
+=======
+    // name already present?
+    for (int i = 0; i < numAttributes(); i++) {
+      if (i == att) {
+        continue;
+      }
+      if (attribute(i).name().equals(name)) {
+        throw new IllegalArgumentException("Attribute name '" + name
+          + "' already present at position #" + i);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
     }
 
     Attribute newAtt = attribute(att).copy(name);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     ArrayList<Attribute> newVec = new ArrayList<Attribute>(numAttributes());
     HashMap<String, Integer> newMap = new HashMap<String, Integer>((int)(numAttributes() / 0.75));
     for (Attribute attr : m_Attributes) {
@@ -1213,11 +1684,33 @@ RevisionHandler {
     }
     m_Attributes = newVec;
     m_NamesToAttributeIndices = newMap;
+<<<<<<< HEAD
+=======
+=======
+    FastVector newVec = new FastVector(numAttributes());
+    for (int i = 0; i < numAttributes(); i++) {
+      if (i == att) {
+        newVec.addElement(newAtt);
+      } else {
+        newVec.addElement(attribute(i));
+      }
+    }
+    m_Attributes = newVec;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Renames an attribute. This change only affects this dataset.
+<<<<<<< HEAD
    *
+=======
+<<<<<<< HEAD
+   *
+=======
+   * 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param att the attribute
    * @param name the new name
    */
@@ -1237,6 +1730,10 @@ RevisionHandler {
   public void renameAttributeValue(int att, int val, String name) {
 
     Attribute newAtt = (Attribute) attribute(att).copy();
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     ArrayList<Attribute> newVec = new ArrayList<Attribute>(numAttributes());
 
     newAtt.setValue(val, name);
@@ -1245,6 +1742,19 @@ RevisionHandler {
         newVec.add(newAtt);
       } else {
         newVec.add(attr);
+<<<<<<< HEAD
+=======
+=======
+    FastVector newVec = new FastVector(numAttributes());
+
+    newAtt.setValue(val, name);
+    for (int i = 0; i < numAttributes(); i++) {
+      if (i == att) {
+        newVec.addElement(newAtt);
+      } else {
+        newVec.addElement(attribute(i));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
     }
     m_Attributes = newVec;
@@ -1286,15 +1796,36 @@ RevisionHandler {
   /**
    * Creates a new dataset of the same size using random sampling with
    * replacement according to the current instance weights. The weights of the
+<<<<<<< HEAD
    * instances in the new dataset are set to one. See also
    * resampleWithWeights(Random, double[], boolean[]).
+=======
+<<<<<<< HEAD
+   * instances in the new dataset are set to one. See also
+   * resampleWithWeights(Random, double[], boolean[]).
+=======
+   * instances in the new dataset are set to one.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param random a random number generator
    * @return the new dataset
    */
   public Instances resampleWithWeights(Random random) {
 
+<<<<<<< HEAD
     return resampleWithWeights(random, false);
+=======
+<<<<<<< HEAD
+    return resampleWithWeights(random, false);
+=======
+    double[] weights = new double[numInstances()];
+    for (int i = 0; i < weights.length; i++) {
+      weights[i] = instance(i).weight();
+    }
+    return resampleWithWeights(random, weights);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -1309,6 +1840,10 @@ RevisionHandler {
    */
   public Instances resampleWithWeights(Random random, boolean[] sampled) {
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return resampleWithWeights(random, sampled, false);
   }
 
@@ -1344,11 +1879,24 @@ RevisionHandler {
   public Instances resampleWithWeights(Random random, boolean[] sampled,
     boolean representUsingWeights) {
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     double[] weights = new double[numInstances()];
     for (int i = 0; i < weights.length; i++) {
       weights[i] = instance(i).weight();
     }
+<<<<<<< HEAD
     return resampleWithWeights(random, weights, sampled, representUsingWeights);
+=======
+<<<<<<< HEAD
+    return resampleWithWeights(random, weights, sampled, representUsingWeights);
+=======
+    return resampleWithWeights(random, weights, sampled);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -1385,6 +1933,10 @@ RevisionHandler {
   public Instances resampleWithWeights(Random random, double[] weights,
     boolean[] sampled) {
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return resampleWithWeights(random, weights, sampled, false);
   }
 
@@ -1408,6 +1960,11 @@ RevisionHandler {
   public Instances resampleWithWeights(Random random, double[] weights,
     boolean[] sampled, boolean representUsingWeights) {
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (weights.length != numInstances()) {
       throw new IllegalArgumentException("weights.length != numInstances.");
     }
@@ -1458,12 +2015,21 @@ RevisionHandler {
       Q[I] += I;
     }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     // Do we need to keep track of how many copies to use?
     int[] counts = null;
     if (representUsingWeights) {
       counts = new int[M];
     }
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     for (int i = 0; i < numInstances(); i++) {
       int ALRV;
       double U = M * random.nextDouble();
@@ -1473,6 +2039,10 @@ RevisionHandler {
       } else {
         ALRV = A[I];
       }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       if (representUsingWeights) {
         counts[ALRV]++;
       } else {
@@ -1494,12 +2064,26 @@ RevisionHandler {
           newData.instance(newData.numInstances() - 1).setWeight(counts[i]);
         }
       }
+<<<<<<< HEAD
+=======
+=======
+      newData.add(instance(ALRV));
+      if (sampled != null) {
+        sampled[ALRV] = true;
+      }
+      newData.instance(newData.numInstances() - 1).setWeight(1);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
 
     return newData;
   }
 
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Replaces the instance at the given position. Shallow copies instance before
    * it is added. Does not check if the instance is compatible with the dataset.
    * Note: String or relational values are not transferred.
@@ -1523,6 +2107,11 @@ RevisionHandler {
   }
 
   /**
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Sets the class attribute.
    * 
    * @param att attribute to be the class
@@ -1558,6 +2147,10 @@ RevisionHandler {
   }
 
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Sorts a nominal attribute (stable, linear-time sort). Instances
    * are sorted based on the attribute label ordering specified in the header.  
    * 
@@ -1594,6 +2187,11 @@ RevisionHandler {
   }
 
   /**
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Sorts the instances based on an attribute. For numeric attributes,
    * instances are sorted in ascending order. For nominal attributes, instances
    * are sorted based on the attribute label ordering specified in the header.
@@ -1604,6 +2202,10 @@ RevisionHandler {
    */
   public void sort(int attIndex) {
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (!attribute(attIndex).isNominal()) {
 
       // Use quicksort from Utils class for sorting
@@ -1626,6 +2228,28 @@ RevisionHandler {
       }
     } else {
       sortBasedOnNominalAttribute(attIndex);
+<<<<<<< HEAD
+=======
+=======
+    double[] vals = new double[numInstances()];
+    for (int i = 0; i < vals.length; i++) {
+      double val = instance(i).value(attIndex);
+      if (Instance.isMissingValue(val)) {
+        vals[i] = Double.MAX_VALUE;
+      } else {
+        vals[i] = val;
+      }
+    }
+
+    int[] sortOrder = Utils.sortWithNoMissingValues(vals);
+    Instance[] backup = new Instance[vals.length];
+    for (int i = 0; i < vals.length; i++) {
+      backup[i] = instance(i);
+    }
+    for (int i = 0; i < vals.length; i++) {
+      m_Instances.setElementAt(backup[sortOrder[i]], i);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
   }
 
@@ -1644,6 +2268,10 @@ RevisionHandler {
   }
 
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Sorts the instances based on an attribute, using a stable sort. For numeric attributes,
    * instances are sorted in ascending order. For nominal attributes, instances
    * are sorted based on the attribute label ordering specified in the header.
@@ -1689,6 +2317,11 @@ RevisionHandler {
   }
 
   /**
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Stratifies a set of instances according to its class values if the class
    * attribute is nominal (so that afterwards a stratified cross-validation can
    * be performed).
@@ -1789,7 +2422,15 @@ RevisionHandler {
     StringBuffer text = new StringBuffer();
 
     text.append(ARFF_RELATION).append(" ").append(Utils.quote(m_RelationName))
+<<<<<<< HEAD
     .append("\n\n");
+=======
+<<<<<<< HEAD
+    .append("\n\n");
+=======
+      .append("\n\n");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     for (int i = 0; i < numAttributes(); i++) {
       text.append(attribute(i)).append("\n");
     }
@@ -1882,6 +2523,10 @@ RevisionHandler {
   }
 
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Computes the variance for all numeric attributes simultaneously.
    * This is faster than calling variance() for each attribute.
    * The resulting array has as many dimensions as there are attributes.
@@ -1940,6 +2585,11 @@ RevisionHandler {
   }
 
   /**
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Computes the variance for a numeric attribute.
    * 
    * @param attIndex the numeric attribute (index starts with 0)
@@ -1948,10 +2598,22 @@ RevisionHandler {
    */
   public/* @pure@ */double variance(int attIndex) {
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+    double sum = 0, sumSquared = 0, sumOfWeights = 0;
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (!attribute(attIndex).isNumeric()) {
       throw new IllegalArgumentException(
         "Can't compute variance because attribute is " + "not numeric!");
     }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     double mean = 0;
     double var = Double.NaN;
@@ -1988,6 +2650,30 @@ RevisionHandler {
       return 0;
     } else {
       return var;
+<<<<<<< HEAD
+=======
+=======
+    for (int i = 0; i < numInstances(); i++) {
+      if (!instance(i).isMissing(attIndex)) {
+        sum += instance(i).weight() * instance(i).value(attIndex);
+        sumSquared += instance(i).weight() * instance(i).value(attIndex)
+          * instance(i).value(attIndex);
+        sumOfWeights += instance(i).weight();
+      }
+    }
+    if (sumOfWeights <= 1) {
+      return 0;
+    }
+    double result = (sumSquared - (sum * sum / sumOfWeights))
+      / (sumOfWeights - 1);
+
+    // We don't like negative variance
+    if (result < 0) {
+      return 0;
+    } else {
+      return result;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
   }
 
@@ -2016,13 +2702,24 @@ RevisionHandler {
     AttributeStats result = new AttributeStats();
     if (attribute(index).isNominal()) {
       result.nominalCounts = new int[attribute(index).numValues()];
+<<<<<<< HEAD
       result.nominalWeights = new double[attribute(index).numValues()];
+=======
+<<<<<<< HEAD
+      result.nominalWeights = new double[attribute(index).numValues()];
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
     if (attribute(index).isNumeric()) {
       result.numericStats = new weka.experiment.Stats();
     }
     result.totalCount = numInstances();
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     HashMap<Double,double[]> map = new HashMap<Double,double[]>(2 * result.totalCount);
     for (Instance current : this) {
       double key = current.value(index);
@@ -2045,6 +2742,31 @@ RevisionHandler {
     for (Entry<Double, double[]> entry : map.entrySet()) {
       result.addDistinct(entry.getKey(), (int)entry.getValue()[0], entry.getValue()[1]);
     }
+<<<<<<< HEAD
+=======
+=======
+    double[] attVals = attributeToDoubleArray(index);
+    int[] sorted = Utils.sort(attVals);
+    int currentCount = 0;
+    double prev = Instance.missingValue();
+    for (int j = 0; j < numInstances(); j++) {
+      Instance current = instance(sorted[j]);
+      if (current.isMissing(index)) {
+        result.missingCount = numInstances() - j;
+        break;
+      }
+      if (current.value(index) == prev) {
+        currentCount++;
+      } else {
+        result.addDistinct(prev, currentCount);
+        currentCount = 1;
+        prev = current.value(index);
+      }
+    }
+    result.addDistinct(prev, currentCount);
+    result.distinctCount--; // So we don't count "missing" as a value
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return result;
   }
 
@@ -2088,6 +2810,10 @@ RevisionHandler {
     result.append(Utils.padLeft("Missing", 12));
     result.append(Utils.padLeft("Unique", 12));
     result.append(Utils.padLeft("Dist", 6)).append('\n');
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     // Figure out how many digits we need for the index
     int numDigits = (int)Math.log10((int)numAttributes()) + 1;
@@ -2096,6 +2822,15 @@ RevisionHandler {
       Attribute a = attribute(i);
       AttributeStats as = attributeStats(i);
       result.append(Utils.padLeft("" + (i + 1), numDigits)).append(' ');
+<<<<<<< HEAD
+=======
+=======
+    for (int i = 0; i < numAttributes(); i++) {
+      Attribute a = attribute(i);
+      AttributeStats as = attributeStats(i);
+      result.append(Utils.padLeft("" + (i + 1), 4)).append(' ');
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       result.append(Utils.padRight(a.name(), 25)).append(' ');
       long percent;
       switch (a.type()) {
@@ -2177,6 +2912,20 @@ RevisionHandler {
   }
 
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+   * Replaces the attribute information by a clone of itself.
+   */
+  protected void freshAttributeInfo() {
+
+    m_Attributes = (FastVector) m_Attributes.copyElements();
+  }
+
+  /**
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Returns string including all instances, their weights and their indices in
    * the original dataset.
    * 
@@ -2202,14 +2951,30 @@ RevisionHandler {
    */
   protected void stratStep(int numFolds) {
 
+<<<<<<< HEAD
     ArrayList<Instance> newVec = new ArrayList<Instance>(m_Instances.size());
+=======
+<<<<<<< HEAD
+    ArrayList<Instance> newVec = new ArrayList<Instance>(m_Instances.size());
+=======
+    FastVector newVec = new FastVector(m_Instances.capacity());
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     int start = 0, j;
 
     // create stratified batch
     while (newVec.size() < numInstances()) {
       j = start;
       while (j < numInstances()) {
+<<<<<<< HEAD
         newVec.add(instance(j));
+=======
+<<<<<<< HEAD
+        newVec.add(instance(j));
+=======
+        newVec.addElement(instance(j));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         j = j + numFolds;
       }
       start++;
@@ -2227,9 +2992,19 @@ RevisionHandler {
   // @ requires 0 <= j && j < numInstances();
   public void swap(int i, int j) {
 
+<<<<<<< HEAD
     Instance in = m_Instances.get(i);
     m_Instances.set(i, m_Instances.get(j));
     m_Instances.set(j, in);
+=======
+<<<<<<< HEAD
+    Instance in = m_Instances.get(i);
+    m_Instances.set(i, m_Instances.get(j));
+    m_Instances.set(j, in);
+=======
+    m_Instances.swap(i, j);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -2250,6 +3025,10 @@ RevisionHandler {
     }
 
     // Create the vector of merged attributes
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     ArrayList<Attribute> newAttributes = new ArrayList<Attribute>(first.numAttributes() +
       second.numAttributes());
     for (Attribute att : first.m_Attributes) {
@@ -2257,6 +3036,17 @@ RevisionHandler {
     }
     for (Attribute att : second.m_Attributes) {
       newAttributes.add((Attribute)att.copy()); // Need to copy because indices will change.
+<<<<<<< HEAD
+=======
+=======
+    FastVector newAttributes = new FastVector();
+    for (int i = 0; i < first.numAttributes(); i++) {
+      newAttributes.addElement(first.attribute(i));
+    }
+    for (int i = 0; i < second.numAttributes(); i++) {
+      newAttributes.addElement(second.attribute(i));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
 
     // Create the set of Instances
@@ -2283,8 +3073,17 @@ RevisionHandler {
     Random random = new Random(2);
     Reader reader;
     int start, num;
+<<<<<<< HEAD
     ArrayList<Attribute> testAtts;
     ArrayList<String> testVals;
+=======
+<<<<<<< HEAD
+    ArrayList<Attribute> testAtts;
+    ArrayList<String> testVals;
+=======
+    FastVector testAtts, testVals;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     int i, j;
 
     try {
@@ -2293,6 +3092,10 @@ RevisionHandler {
       }
 
       // Creating set of instances from scratch
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       testVals = new ArrayList<String>(2);
       testVals.add("first_value");
       testVals.add("second_value");
@@ -2303,6 +3106,21 @@ RevisionHandler {
       instances.add(new DenseInstance(instances.numAttributes()));
       instances.add(new DenseInstance(instances.numAttributes()));
       instances.add(new DenseInstance(instances.numAttributes()));
+<<<<<<< HEAD
+=======
+=======
+      testVals = new FastVector(2);
+      testVals.addElement("first_value");
+      testVals.addElement("second_value");
+      testAtts = new FastVector(2);
+      testAtts.addElement(new Attribute("nominal_attribute", testVals));
+      testAtts.addElement(new Attribute("numeric_attribute"));
+      instances = new Instances("test_set", testAtts, 10);
+      instances.add(new Instance(instances.numAttributes()));
+      instances.add(new Instance(instances.numAttributes()));
+      instances.add(new Instance(instances.numAttributes()));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       instances.setClassIndex(0);
       System.out.println("\nSet of instances created from scratch:\n");
       System.out.println(instances);
@@ -2543,11 +3361,22 @@ RevisionHandler {
       else if ((args.length == 3) && (args[0].toLowerCase().equals("append"))) {
         DataSource source1 = new DataSource(args[1]);
         DataSource source2 = new DataSource(args[2]);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         String msg = source1.getStructure().equalHeadersMsg(
           source2.getStructure());
         if (msg != null) {
           throw new Exception("The two datasets have different headers:\n"
             + msg);
+<<<<<<< HEAD
+=======
+=======
+        if (!source1.getStructure().equalHeaders(source2.getStructure())) {
+          throw new Exception("The two datasets have different headers!");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         }
         Instances structure = source1.getStructure();
         System.out.println(source1.getStructure());
@@ -2563,12 +3392,25 @@ RevisionHandler {
       else if ((args.length == 3) && (args[0].toLowerCase().equals("headers"))) {
         DataSource source1 = new DataSource(args[1]);
         DataSource source2 = new DataSource(args[2]);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         String msg = source1.getStructure().equalHeadersMsg(
           source2.getStructure());
         if (msg == null) {
           System.out.println("Headers match");
         } else {
           System.out.println("Headers don't match:\n" + msg);
+<<<<<<< HEAD
+=======
+=======
+        if (source1.getStructure().equalHeaders(source2.getStructure())) {
+          System.out.println("Headers match");
+        } else {
+          System.out.println("Headers don't match");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         }
       }
       // read file and seed value, randomize data and print result to stdout
@@ -2579,6 +3421,10 @@ RevisionHandler {
         i.randomize(new Random(Integer.parseInt(args[1])));
         System.out.println(i);
       }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       // wrong parameters or help
       else {
         System.err
@@ -2604,6 +3450,19 @@ RevisionHandler {
           // randomize
           + "\tweka.core.Instances randomize <seed> <filename>\n"
           + "\t\tRandomizes the dataset and outputs it on stdout.\n");
+<<<<<<< HEAD
+=======
+=======
+      // wrong parameters
+      else {
+        System.err.println("\nUsage:\n" + "\tweka.core.Instances help\n"
+          + "\tweka.core.Instances <filename>\n"
+          + "\tweka.core.Instances merge <filename1> <filename2>\n"
+          + "\tweka.core.Instances append <filename1> <filename2>\n"
+          + "\tweka.core.Instances headers <filename1> <filename2>\n"
+          + "\tweka.core.Instances randomize <seed> <filename>\n");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
     } catch (Exception ex) {
       ex.printStackTrace();
@@ -2618,6 +3477,14 @@ RevisionHandler {
    */
   @Override
   public String getRevision() {
+<<<<<<< HEAD
     return RevisionUtils.extract("$Revision: 14606 $");
+=======
+<<<<<<< HEAD
+    return RevisionUtils.extract("$Revision: 14606 $");
+=======
+    return RevisionUtils.extract("$Revision: 10497 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 }

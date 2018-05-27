@@ -1,4 +1,8 @@
 /*
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,11 +15,37 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+<<<<<<< HEAD
+=======
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    RandomSplitResultProducer.java
+<<<<<<< HEAD
  *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
+=======
+<<<<<<< HEAD
+ *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 1999 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
@@ -23,7 +53,14 @@ package weka.experiment;
 
 import java.io.File;
 import java.util.Calendar;
+<<<<<<< HEAD
 import java.util.Collections;
+=======
+<<<<<<< HEAD
+import java.util.Collections;
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.util.Enumeration;
 import java.util.Random;
 import java.util.TimeZone;
@@ -124,10 +161,24 @@ import weka.core.Utils;
  * All options after -- will be passed to the split evaluator.
  * 
  * @author Len Trigg (trigg@cs.waikato.ac.nz)
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  * @version $Revision: 10203 $
  */
 public class RandomSplitResultProducer implements ResultProducer,
   OptionHandler, AdditionalMeasureProducer, RevisionHandler {
+<<<<<<< HEAD
+=======
+=======
+ * @version $Revision: 11198 $
+ */
+public class RandomSplitResultProducer
+  implements ResultProducer, OptionHandler, AdditionalMeasureProducer,
+  RevisionHandler {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** for serialization */
   static final long serialVersionUID = 1403798165056795073L;
@@ -157,8 +208,19 @@ public class RandomSplitResultProducer implements ResultProducer,
   protected OutputZipper m_ZipDest = null;
 
   /** The destination output file/directory for raw output */
+<<<<<<< HEAD
   protected File m_OutputFile = new File(new File(
     System.getProperty("user.dir")), "splitEvalutorOut.zip");
+=======
+<<<<<<< HEAD
+  protected File m_OutputFile = new File(new File(
+    System.getProperty("user.dir")), "splitEvalutorOut.zip");
+=======
+  protected File m_OutputFile = new File(
+    new File(System.getProperty("user.dir")),
+    "splitEvalutorOut.zip");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** The name of the key field containing the dataset name */
   public static String DATASET_FIELD_NAME = "Dataset";
@@ -176,7 +238,16 @@ public class RandomSplitResultProducer implements ResultProducer,
    *         explorer/experimenter gui
    */
   public String globalInfo() {
+<<<<<<< HEAD
     return "Generates a single train/test split and calls the appropriate "
+=======
+<<<<<<< HEAD
+    return "Generates a single train/test split and calls the appropriate "
+=======
+    return
+    "Generates a single train/test split and calls the appropriate "
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       + "SplitEvaluator to generate some results.";
   }
 
@@ -205,7 +276,16 @@ public class RandomSplitResultProducer implements ResultProducer,
 
     if (m_SplitEvaluator != null) {
       System.err.println("RandomSplitResultProducer: setting additional "
+<<<<<<< HEAD
         + "measures for " + "split evaluator");
+=======
+<<<<<<< HEAD
+        + "measures for " + "split evaluator");
+=======
+        + "measures for "
+        + "split evaluator");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       m_SplitEvaluator.setAdditionalMeasures(m_AdditionalMeasures);
     }
   }
@@ -217,6 +297,10 @@ public class RandomSplitResultProducer implements ResultProducer,
    * @return an enumeration of the measure names
    */
   @Override
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public Enumeration<String> enumerateMeasures() {
     Vector<String> newVector = new Vector<String>();
     if (m_SplitEvaluator instanceof AdditionalMeasureProducer) {
@@ -225,6 +309,19 @@ public class RandomSplitResultProducer implements ResultProducer,
       while (en.hasMoreElements()) {
         String mname = en.nextElement();
         newVector.add(mname);
+<<<<<<< HEAD
+=======
+=======
+  public Enumeration enumerateMeasures() {
+    Vector newVector = new Vector();
+    if (m_SplitEvaluator instanceof AdditionalMeasureProducer) {
+      Enumeration en = ((AdditionalMeasureProducer) m_SplitEvaluator).
+        enumerateMeasures();
+      while (en.hasMoreElements()) {
+        String mname = (String) en.nextElement();
+        newVector.addElement(mname);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
     }
     return newVector.elements();
@@ -240,12 +337,27 @@ public class RandomSplitResultProducer implements ResultProducer,
   @Override
   public double getMeasure(String additionalMeasureName) {
     if (m_SplitEvaluator instanceof AdditionalMeasureProducer) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       return ((AdditionalMeasureProducer) m_SplitEvaluator)
         .getMeasure(additionalMeasureName);
     } else {
       throw new IllegalArgumentException("RandomSplitResultProducer: "
         + "Can't return value for : " + additionalMeasureName + ". "
         + m_SplitEvaluator.getClass().getName() + " "
+<<<<<<< HEAD
+=======
+=======
+      return ((AdditionalMeasureProducer) m_SplitEvaluator).
+        getMeasure(additionalMeasureName);
+    } else {
+      throw new IllegalArgumentException("RandomSplitResultProducer: "
+        + "Can't return value for : " + additionalMeasureName
+        + ". " + m_SplitEvaluator.getClass().getName() + " "
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         + "is not an AdditionalMeasureProducer");
     }
   }
@@ -271,9 +383,22 @@ public class RandomSplitResultProducer implements ResultProducer,
 
     Calendar now = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
     double timestamp = now.get(Calendar.YEAR) * 10000
+<<<<<<< HEAD
       + (now.get(Calendar.MONTH) + 1) * 100 + now.get(Calendar.DAY_OF_MONTH)
       + now.get(Calendar.HOUR_OF_DAY) / 100.0 + now.get(Calendar.MINUTE)
       / 10000.0;
+=======
+<<<<<<< HEAD
+      + (now.get(Calendar.MONTH) + 1) * 100 + now.get(Calendar.DAY_OF_MONTH)
+      + now.get(Calendar.HOUR_OF_DAY) / 100.0 + now.get(Calendar.MINUTE)
+      / 10000.0;
+=======
+      + (now.get(Calendar.MONTH) + 1) * 100
+      + now.get(Calendar.DAY_OF_MONTH)
+      + now.get(Calendar.HOUR_OF_DAY) / 100.0
+      + now.get(Calendar.MINUTE) / 10000.0;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return new Double(timestamp);
   }
 
@@ -379,8 +504,18 @@ public class RandomSplitResultProducer implements ResultProducer,
       if (!m_randomize) {
 
         // Don't do any randomization
+<<<<<<< HEAD
         int trainSize = Utils.round(runInstances.numInstances()
           * m_TrainPercent / 100);
+=======
+<<<<<<< HEAD
+        int trainSize = Utils.round(runInstances.numInstances()
+          * m_TrainPercent / 100);
+=======
+        int trainSize =
+          Utils.round(runInstances.numInstances() * m_TrainPercent / 100);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         int testSize = runInstances.numInstances() - trainSize;
         train = new Instances(runInstances, 0, trainSize);
         test = new Instances(runInstances, trainSize, testSize);
@@ -399,9 +534,21 @@ public class RandomSplitResultProducer implements ResultProducer,
           }
 
           // divide instances into subsets
+<<<<<<< HEAD
           Enumeration<Instance> e = runInstances.enumerateInstances();
           while (e.hasMoreElements()) {
             Instance inst = e.nextElement();
+=======
+<<<<<<< HEAD
+          Enumeration<Instance> e = runInstances.enumerateInstances();
+          while (e.hasMoreElements()) {
+            Instance inst = e.nextElement();
+=======
+          Enumeration e = runInstances.enumerateInstances();
+          while (e.hasMoreElements()) {
+            Instance inst = (Instance) e.nextElement();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
             if (inst.classIsMissing()) {
               subsets[numClasses].add(inst);
             } else {
@@ -418,8 +565,19 @@ public class RandomSplitResultProducer implements ResultProducer,
           train = new Instances(runInstances, runInstances.numInstances());
           test = new Instances(runInstances, runInstances.numInstances());
           for (int i = 0; i < numClasses + 1; i++) {
+<<<<<<< HEAD
             int trainSize = Utils.probRound(subsets[i].numInstances()
               * m_TrainPercent / 100, rand);
+=======
+<<<<<<< HEAD
+            int trainSize = Utils.probRound(subsets[i].numInstances()
+              * m_TrainPercent / 100, rand);
+=======
+            int trainSize =
+              Utils.probRound(subsets[i].numInstances() * m_TrainPercent / 100,
+                rand);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
             for (int j = 0; j < trainSize; j++) {
               train.add(subsets[i].instance(j));
             }
@@ -438,8 +596,19 @@ public class RandomSplitResultProducer implements ResultProducer,
         } else {
 
           // Numeric target
+<<<<<<< HEAD
           int trainSize = Utils.probRound(runInstances.numInstances()
             * m_TrainPercent / 100, rand);
+=======
+<<<<<<< HEAD
+          int trainSize = Utils.probRound(runInstances.numInstances()
+            * m_TrainPercent / 100, rand);
+=======
+          int trainSize =
+            Utils.probRound(runInstances.numInstances() * m_TrainPercent / 100,
+              rand);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
           int testSize = runInstances.numInstances() - trainSize;
           train = new Instances(runInstances, 0, trainSize);
           test = new Instances(runInstances, trainSize, testSize);
@@ -449,6 +618,10 @@ public class RandomSplitResultProducer implements ResultProducer,
         Object[] seResults = m_SplitEvaluator.getResult(train, test);
         Object[] results = new Object[seResults.length + 1];
         results[0] = getTimestamp();
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         System.arraycopy(seResults, 0, results, 1, seResults.length);
         if (m_debugOutput) {
           String resultName = ("" + run + "."
@@ -456,6 +629,23 @@ public class RandomSplitResultProducer implements ResultProducer,
             .toString()).replace(' ', '_');
           resultName = Utils.removeSubstring(resultName, "weka.classifiers.");
           resultName = Utils.removeSubstring(resultName, "weka.filters.");
+<<<<<<< HEAD
+=======
+=======
+        System.arraycopy(seResults, 0, results, 1,
+          seResults.length);
+        if (m_debugOutput) {
+          String resultName =
+            ("" + run + "." +
+              Utils.backQuoteChars(runInstances.relationName())
+              + "."
+              + m_SplitEvaluator.toString()).replace(' ', '_');
+          resultName = Utils.removeSubstring(resultName,
+            "weka.classifiers.");
+          resultName = Utils.removeSubstring(resultName,
+            "weka.filters.");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
           resultName = Utils.removeSubstring(resultName,
             "weka.attributeSelection.");
           m_ZipDest.zipit(m_SplitEvaluator.getRawResultOutput(), resultName);
@@ -612,7 +802,16 @@ public class RandomSplitResultProducer implements ResultProducer,
    */
   public String randomizeDataTipText() {
     return "Do not randomize dataset and do not perform probabilistic rounding "
+<<<<<<< HEAD
       + "if false";
+=======
+<<<<<<< HEAD
+      + "if false";
+=======
+      +
+      "if false";
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -730,6 +929,10 @@ public class RandomSplitResultProducer implements ResultProducer,
    * @return an enumeration of all the available options.
    */
   @Override
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public Enumeration<Option> listOptions() {
 
     Vector<Option> newVector = new Vector<Option>(5);
@@ -741,17 +944,48 @@ public class RandomSplitResultProducer implements ResultProducer,
 
     newVector.addElement(new Option("Save raw split evaluator output.", "D", 0,
       "-D"));
+<<<<<<< HEAD
+=======
+=======
+  public Enumeration listOptions() {
+
+    Vector newVector = new Vector(5);
+
+    newVector.addElement(new Option(
+      "\tThe percentage of instances to use for training.\n"
+        + "\t(default 66)",
+      "P", 1,
+      "-P <percent>"));
+
+    newVector.addElement(new Option(
+      "Save raw split evaluator output.",
+      "D", 0, "-D"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     newVector.addElement(new Option(
       "\tThe filename where raw output will be stored.\n"
         + "\tIf a directory name is specified then then individual\n"
         + "\toutputs will be gzipped, otherwise all output will be\n"
         + "\tzipped to the named file. Use in conjuction with -D."
+<<<<<<< HEAD
         + "\t(default splitEvalutorOut.zip)", "O", 1,
+=======
+<<<<<<< HEAD
+        + "\t(default splitEvalutorOut.zip)", "O", 1,
+=======
+        + "\t(default splitEvalutorOut.zip)",
+      "O", 1,
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       "-O <file/directory name/path>"));
 
     newVector.addElement(new Option(
       "\tThe full class name of a SplitEvaluator.\n"
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         + "\teg: weka.experiment.ClassifierSplitEvaluator", "W", 1,
       "-W <class name>"));
 
@@ -768,6 +1002,30 @@ public class RandomSplitResultProducer implements ResultProducer,
           + m_SplitEvaluator.getClass().getName() + ":"));
       newVector.addAll(Collections.list(((OptionHandler) m_SplitEvaluator)
         .listOptions()));
+<<<<<<< HEAD
+=======
+=======
+        + "\teg: weka.experiment.ClassifierSplitEvaluator",
+      "W", 1,
+      "-W <class name>"));
+
+    newVector.addElement(new Option(
+      "\tSet when data is not to be randomized and the data sets' size.\n"
+        + "\tIs not to be determined via probabilistic rounding.",
+      "R", 0, "-R"));
+
+    if ((m_SplitEvaluator != null) &&
+      (m_SplitEvaluator instanceof OptionHandler)) {
+      newVector.addElement(new Option(
+        "",
+        "", 0, "\nOptions specific to split evaluator "
+          + m_SplitEvaluator.getClass().getName() + ":"));
+      Enumeration enu = ((OptionHandler) m_SplitEvaluator).listOptions();
+      while (enu.hasMoreElements()) {
+        newVector.addElement(enu.nextElement());
+      }
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
     return newVector.elements();
   }
@@ -877,6 +1135,10 @@ public class RandomSplitResultProducer implements ResultProducer,
     }
 
     String seName = Utils.getOption('W', options);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (seName.length() == 0) {
       throw new Exception("A SplitEvaluator must be specified with"
         + " the -W option.");
@@ -889,6 +1151,24 @@ public class RandomSplitResultProducer implements ResultProducer,
     if (getSplitEvaluator() instanceof OptionHandler) {
       ((OptionHandler) getSplitEvaluator()).setOptions(Utils
         .partitionOptions(options));
+<<<<<<< HEAD
+=======
+=======
+    if (seName.length() > 0) {
+
+      // Do it first without options, so if an exception is thrown during
+      // the option setting, listOptions will contain options for the actual
+      // SE.
+      setSplitEvaluator((SplitEvaluator) Utils.forName(
+        SplitEvaluator.class,
+        seName,
+        null));
+    }
+    if (getSplitEvaluator() instanceof OptionHandler) {
+      ((OptionHandler) getSplitEvaluator())
+        .setOptions(Utils.partitionOptions(options));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
   }
 
@@ -901,8 +1181,18 @@ public class RandomSplitResultProducer implements ResultProducer,
   public String[] getOptions() {
 
     String[] seOptions = new String[0];
+<<<<<<< HEAD
     if ((m_SplitEvaluator != null)
       && (m_SplitEvaluator instanceof OptionHandler)) {
+=======
+<<<<<<< HEAD
+    if ((m_SplitEvaluator != null)
+      && (m_SplitEvaluator instanceof OptionHandler)) {
+=======
+    if ((m_SplitEvaluator != null) &&
+      (m_SplitEvaluator instanceof OptionHandler)) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       seOptions = ((OptionHandler) m_SplitEvaluator).getOptions();
     }
 
@@ -929,7 +1219,16 @@ public class RandomSplitResultProducer implements ResultProducer,
     }
     options[current++] = "--";
 
+<<<<<<< HEAD
     System.arraycopy(seOptions, 0, options, current, seOptions.length);
+=======
+<<<<<<< HEAD
+    System.arraycopy(seOptions, 0, options, current, seOptions.length);
+=======
+    System.arraycopy(seOptions, 0, options, current,
+      seOptions.length);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     current += seOptions.length;
     while (current < options.length) {
       options[current++] = "";
@@ -962,6 +1261,14 @@ public class RandomSplitResultProducer implements ResultProducer,
    */
   @Override
   public String getRevision() {
+<<<<<<< HEAD
     return RevisionUtils.extract("$Revision: 10203 $");
+=======
+<<<<<<< HEAD
+    return RevisionUtils.extract("$Revision: 10203 $");
+=======
+    return RevisionUtils.extract("$Revision: 11198 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 } // RandomSplitResultProducer

@@ -1,4 +1,8 @@
 /*
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,15 +15,45 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+<<<<<<< HEAD
+=======
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  * ClassAssigner.java
+<<<<<<< HEAD
  * Copyright (C) 2006-2012 University of Waikato, Hamilton, New Zealand
+=======
+<<<<<<< HEAD
+ * Copyright (C) 2006-2012 University of Waikato, Hamilton, New Zealand
+=======
+ * Copyright (C) 2006 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 package weka.filters.unsupervised.attribute;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.Vector;
@@ -54,12 +88,57 @@ import weka.filters.SimpleStreamFilter;
  * @version $Revision: 14534 $
  */
 public class ClassAssigner extends SimpleStreamFilter implements WeightedInstancesHandler, WeightedAttributesHandler {
+<<<<<<< HEAD
+=======
+=======
+import weka.core.Capabilities;
+import weka.core.Instance;
+import weka.core.Instances;
+import weka.core.Option;
+import weka.core.RevisionUtils;
+import weka.core.Utils;
+import weka.core.Capabilities.Capability;
+import weka.filters.SimpleStreamFilter;
+
+import java.util.Enumeration;
+import java.util.Vector;
+
+/**
+ <!-- globalinfo-start -->
+ * Filter that can set and unset the class index.
+ * <p/>
+ <!-- globalinfo-end -->
+ *
+ <!-- options-start -->
+ * Valid options are: <p/>
+ * 
+ * <pre> -D
+ *  Turns on output of debugging information.</pre>
+ * 
+ * <pre> -C &lt;num|first|last|0&gt;
+ *  The index of the class attribute. Index starts with 1, 'first'
+ *  and 'last' are accepted, '0' unsets the class index.
+ *  (default: last)</pre>
+ * 
+ <!-- options-end -->
+ *
+ * @author  fracpete (fracpete at waikato dot ac dot nz)
+ * @version $Revision: 5543 $
+ */
+public class ClassAssigner
+  extends SimpleStreamFilter {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** for serialization. */
   private static final long serialVersionUID = 1775780193887394115L;
 
   /** use the first attribute as class. */
   public final static int FIRST = 0;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** use the last attribute as class. */
   public final static int LAST = -2;
@@ -79,10 +158,38 @@ public class ClassAssigner extends SimpleStreamFilter implements WeightedInstanc
   @Override
   public String globalInfo() {
     return "Filter that can set and unset the class index.";
+<<<<<<< HEAD
+=======
+=======
+  
+  /** use the last attribute as class. */
+  public final static int LAST = -2;
+  
+  /** unset the class attribute. */
+  public final static int UNSET = -1;
+  
+  /** the class index. */
+  protected int m_ClassIndex = LAST;
+  
+  /**
+   * Returns a string describing this classifier.
+   * 
+   * @return 		a description of the classifier suitable for
+   * 			displaying in the explorer/experimenter gui
+   */
+  public String globalInfo() {
+    return 
+        "Filter that can set and unset the class index.";
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Returns an enumeration describing the available options.
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return an enumeration of all the available options.
    */
@@ -97,11 +204,34 @@ public class ClassAssigner extends SimpleStreamFilter implements WeightedInstanc
         + "\t(default: last)", "C", 1, "-C <num|first|last|0>"));
 
     result.addAll(Collections.list(super.listOptions()));
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @return 		an enumeration of all the available options.
+   */
+  public Enumeration listOptions() {
+    Vector result = new Vector();
+    Enumeration enm = super.listOptions();
+    while (enm.hasMoreElements())
+      result.add(enm.nextElement());
+      
+    result.addElement(new Option(
+	"\tThe index of the class attribute. Index starts with 1, 'first'\n"
+	+ "\tand 'last' are accepted, '0' unsets the class index.\n"
+	+ "\t(default: last)",
+	"C", 1, "-C <num|first|last|0>"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     return result.elements();
   }
 
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Parses a list of options for this object.
    * <p/>
    * 
@@ -139,10 +269,47 @@ public class ClassAssigner extends SimpleStreamFilter implements WeightedInstanc
     super.setOptions(options);
 
     Utils.checkForRemainingOptions(options);
+<<<<<<< HEAD
+=======
+=======
+   * Parses a list of options for this object. <p/>
+   *
+   <!-- options-start -->
+   * Valid options are: <p/>
+   * 
+   * <pre> -D
+   *  Turns on output of debugging information.</pre>
+   * 
+   * <pre> -C &lt;num|first|last|0&gt;
+   *  The index of the class attribute. Index starts with 1, 'first'
+   *  and 'last' are accepted, '0' unsets the class index.
+   *  (default: last)</pre>
+   * 
+   <!-- options-end -->
+   *
+   * @param options 	the list of options as an array of strings
+   * @throws Exception 	if an option is not supported
+   */
+  public void setOptions(String[] options) throws Exception {
+    String        tmpStr;
+
+    super.setOptions(options);
+    
+    tmpStr = Utils.getOption("C", options);
+    if (tmpStr.length() != 0)
+      setClassIndex(tmpStr);
+    else
+      setClassIndex("last");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Gets the current settings of the filter.
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return an array of strings suitable for passing to setOptions
    */
@@ -150,34 +317,90 @@ public class ClassAssigner extends SimpleStreamFilter implements WeightedInstanc
   public String[] getOptions() {
 
     Vector<String> result = new Vector<String>();
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @return 		an array of strings suitable for passing to setOptions
+   */
+  public String[] getOptions() {
+    Vector        result;
+    String[]      options;
+    int           i;
+
+    result = new Vector();
+
+    options = super.getOptions();
+    for (i = 0; i < options.length; i++)
+      result.add(options[i]);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     result.add("-C");
     result.add(getClassIndex());
 
+<<<<<<< HEAD
     Collections.addAll(result, super.getOptions());
 
     return result.toArray(new String[result.size()]);
+=======
+<<<<<<< HEAD
+    Collections.addAll(result, super.getOptions());
+
+    return result.toArray(new String[result.size()]);
+=======
+    return (String[]) result.toArray(new String[result.size()]);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Returns the tip text for this property.
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return tip text for this property suitable for displaying in the
    *         explorer/experimenter gui
    */
   public String classIndexTipText() {
     return "The index of the class attribute, starts with 1, 'first' and 'last' "
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @return 		tip text for this property suitable for
+   * 			displaying in the explorer/experimenter gui
+   */
+  public String classIndexTipText() {
+    return 
+        "The index of the class attribute, starts with 1, 'first' and 'last' "
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       + "are accepted as well, '0' unsets the class index.";
   }
 
   /**
    * sets the class index.
    * 
+<<<<<<< HEAD
    * @param value the class index
+=======
+<<<<<<< HEAD
+   * @param value the class index
+=======
+   * @param value	the class index
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public void setClassIndex(String value) {
     if (value.equalsIgnoreCase("first")) {
       m_ClassIndex = FIRST;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     } else if (value.equalsIgnoreCase("last")) {
       m_ClassIndex = LAST;
     } else if (value.equalsIgnoreCase("0")) {
@@ -187,6 +410,24 @@ public class ClassAssigner extends SimpleStreamFilter implements WeightedInstanc
         m_ClassIndex = Integer.parseInt(value) - 1;
       } catch (Exception e) {
         System.err.println("Error parsing '" + value + "'!");
+<<<<<<< HEAD
+=======
+=======
+    }
+    else if (value.equalsIgnoreCase("last")) {
+      m_ClassIndex = LAST;
+    }
+    else if (value.equalsIgnoreCase("0")) {
+      m_ClassIndex = UNSET;
+    }
+    else {
+      try {
+	m_ClassIndex = Integer.parseInt(value) - 1;
+      }
+      catch (Exception e) {
+	System.err.println("Error parsing '" + value + "'!");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
     }
   }
@@ -194,6 +435,10 @@ public class ClassAssigner extends SimpleStreamFilter implements WeightedInstanc
   /**
    * returns the class index.
    * 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @return the class index
    */
   public String getClassIndex() {
@@ -223,15 +468,59 @@ public class ClassAssigner extends SimpleStreamFilter implements WeightedInstanc
     result.enableAllAttributes();
     result.enable(Capability.MISSING_VALUES);
 
+<<<<<<< HEAD
+=======
+=======
+   * @return		the class index
+   */
+  public String getClassIndex() {
+    if (m_ClassIndex == FIRST)
+      return "first";
+    else if (m_ClassIndex == LAST)
+      return "last";
+    else if (m_ClassIndex == UNSET)
+      return "0";
+    else
+      return "" + (m_ClassIndex + 1);
+  }
+
+  /** 
+   * Returns the Capabilities of this filter.
+   *
+   * @return            the capabilities of this object
+   * @see               Capabilities
+   */
+  public Capabilities getCapabilities() {
+    Capabilities result = super.getCapabilities();
+    result.disableAll();
+    
+    // attributes
+    result.enableAllAttributes();
+    result.enable(Capability.MISSING_VALUES);
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     // class
     result.enableAllClasses();
     result.enable(Capability.NO_CLASS);
     result.enable(Capability.MISSING_CLASS_VALUES);
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return result;
   }
 
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Determines the output format based on the input format and returns this.
    * 
    * @param inputFormat the input format to base the output format on
@@ -254,10 +543,40 @@ public class ClassAssigner extends SimpleStreamFilter implements WeightedInstanc
       result.setClassIndex(m_ClassIndex);
     }
 
+<<<<<<< HEAD
+=======
+=======
+   * Determines the output format based on the input format and returns 
+   * this.
+   *
+   * @param inputFormat     the input format to base the output format on
+   * @return                the output format
+   * @throws Exception      in case the class index is invalid
+   */
+  protected Instances determineOutputFormat(Instances inputFormat)
+      throws Exception {
+    
+    Instances result = new Instances(inputFormat, 0);
+    
+    if (m_ClassIndex == FIRST)
+      result.setClassIndex(0);
+    else if (m_ClassIndex == LAST)
+      result.setClassIndex(result.numAttributes() - 1);
+    else if (m_ClassIndex == UNSET)
+      result.setClassIndex(-1);
+    else
+      result.setClassIndex(m_ClassIndex);
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return result;
   }
 
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * processes the given instance (may change the provided instance) and returns
    * the modified version.
    * 
@@ -278,11 +597,42 @@ public class ClassAssigner extends SimpleStreamFilter implements WeightedInstanc
   @Override
   public String getRevision() {
     return RevisionUtils.extract("$Revision: 14534 $");
+<<<<<<< HEAD
+=======
+=======
+   * processes the given instance (may change the provided instance) and
+   * returns the modified version.
+   *
+   * @param instance    the instance to process
+   * @return            the modified data
+   * @throws Exception  in case the processing goes wrong
+   */
+  protected Instance process(Instance instance) throws Exception {
+    return instance;
+  }
+  
+  /**
+   * Returns the revision string.
+   * 
+   * @return		the revision
+   */
+  public String getRevision() {
+    return RevisionUtils.extract("$Revision: 5543 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Main method for executing this class.
+<<<<<<< HEAD
    * 
+=======
+<<<<<<< HEAD
+   * 
+=======
+   *
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param args should contain arguments for the filter: use -h for help
    */
   public static void main(String[] args) {

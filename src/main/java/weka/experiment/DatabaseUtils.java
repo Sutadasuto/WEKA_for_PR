@@ -1,4 +1,8 @@
 /*
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,16 +15,46 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+<<<<<<< HEAD
+=======
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    DatabaseUtils.java
+<<<<<<< HEAD
  *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
+=======
+<<<<<<< HEAD
+ *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 1999 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
 package weka.experiment;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.core.RevisionHandler;
 import weka.core.RevisionUtils;
 import weka.core.Utils;
@@ -34,6 +68,14 @@ import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.Driver;
+<<<<<<< HEAD
+=======
+=======
+import java.io.Serializable;
+import java.sql.Connection;
+import java.sql.DatabaseMetaData;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -42,12 +84,29 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Types;
 import java.util.Collections;
+<<<<<<< HEAD
 import java.util.Enumeration;
+=======
+<<<<<<< HEAD
+import java.util.Enumeration;
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.util.HashSet;
 import java.util.Properties;
 import java.util.StringTokenizer;
 import java.util.Vector;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+import weka.core.RevisionHandler;
+import weka.core.RevisionUtils;
+import weka.core.Utils;
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 /**
  * DatabaseUtils provides utility functions for accessing the experiment
  * database. The jdbc driver and database to be used default to "jdbc.idbDriver"
@@ -63,7 +122,15 @@ import java.util.Vector;
  * <p>
  * 
  * @author Len Trigg (trigg@cs.waikato.ac.nz)
+<<<<<<< HEAD
  * @version $Revision: 13477 $
+=======
+<<<<<<< HEAD
+ * @version $Revision: 13477 $
+=======
+ * @version $Revision: 11887 $
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 public class DatabaseUtils implements Serializable, RevisionHandler {
 
@@ -86,6 +153,10 @@ public class DatabaseUtils implements Serializable, RevisionHandler {
   public static final String EXP_RESULT_PREFIX = "Results";
 
   /** The name of the properties file. */
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public final static String PROPERTY_FILE =
     "weka/experiment/DatabaseUtils.props";
 
@@ -94,6 +165,18 @@ public class DatabaseUtils implements Serializable, RevisionHandler {
 
   /** keeping track of drivers that couldn't be loaded. */
   protected static Vector<String> DRIVERS_ERRORS;
+<<<<<<< HEAD
+=======
+=======
+  public final static String PROPERTY_FILE = "weka/experiment/DatabaseUtils.props";
+
+  /** Holds the jdbc drivers to be used (only to stop them being gc'ed). */
+  protected Vector DRIVERS = new Vector();
+
+  /** keeping track of drivers that couldn't be loaded. */
+  protected static Vector DRIVERS_ERRORS;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** Properties associated with the database connection. */
   protected Properties PROPERTIES;
@@ -174,6 +257,10 @@ public class DatabaseUtils implements Serializable, RevisionHandler {
    * @throws Exception if an error occurs
    */
   public DatabaseUtils() throws Exception {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     this((Properties) null);
   }
 
@@ -225,6 +312,17 @@ public class DatabaseUtils implements Serializable, RevisionHandler {
       } else {
         PROPERTIES = Utils.readProperties(PROPERTY_FILE);
       }
+<<<<<<< HEAD
+=======
+=======
+    if (DRIVERS_ERRORS == null) {
+      DRIVERS_ERRORS = new Vector();
+    }
+
+    try {
+      PROPERTIES = Utils.readProperties(PROPERTY_FILE);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
       // Register the drivers in jdbc DriverManager
       String drivers = PROPERTIES.getProperty("jdbcDriver", "jdbc.idbDriver");
@@ -239,14 +337,28 @@ public class DatabaseUtils implements Serializable, RevisionHandler {
         String driver = st.nextToken();
         boolean result;
         try {
+<<<<<<< HEAD
           // Class.forName(driver);
           Object driverImpl =
             WekaPackageClassLoaderManager.objectForName(driver);
+=======
+<<<<<<< HEAD
+          // Class.forName(driver);
+          Object driverImpl =
+            WekaPackageClassLoaderManager.objectForName(driver);
+=======
+          Class.forName(driver);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
           DRIVERS.addElement(driver);
           result = true;
         } catch (Exception e) {
           result = false;
         }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         if (!result && !DRIVERS_ERRORS.contains(driver)) {
           Logger.log(Logger.Level.WARNING,
             "Trying to add database driver (JDBC): " + driver + " - "
@@ -254,6 +366,14 @@ public class DatabaseUtils implements Serializable, RevisionHandler {
         } else if (m_Debug) {
           System.err.println("Trying to add database driver (JDBC): " + driver
             + " - " + (result ? "Success!" : "Warning, not in CLASSPATH?"));
+<<<<<<< HEAD
+=======
+=======
+        if (m_Debug || (!result && !DRIVERS_ERRORS.contains(driver))) {
+          System.err.println("Trying to add database driver (JDBC): " + driver
+            + " - " + (result ? "Success!" : "Error, not in CLASSPATH?"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         }
         if (!result) {
           DRIVERS_ERRORS.add(driver);
@@ -264,6 +384,10 @@ public class DatabaseUtils implements Serializable, RevisionHandler {
       System.err.println(ex);
     }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     m_DatabaseURL =
       PROPERTIES.getProperty("jdbcURL", "jdbc:idb=experiments.prp");
     m_stringType = PROPERTIES.getProperty("CREATE_STRING", "LONGVARCHAR");
@@ -277,6 +401,24 @@ public class DatabaseUtils implements Serializable, RevisionHandler {
       PROPERTIES.getProperty("setAutoCommit", "true").equals("true");
     m_createIndex =
       PROPERTIES.getProperty("createIndex", "false").equals("true");
+<<<<<<< HEAD
+=======
+=======
+    m_DatabaseURL = PROPERTIES.getProperty("jdbcURL",
+      "jdbc:idb=experiments.prp");
+    m_stringType = PROPERTIES.getProperty("CREATE_STRING", "LONGVARCHAR");
+    m_intType = PROPERTIES.getProperty("CREATE_INT", "INT");
+    m_doubleType = PROPERTIES.getProperty("CREATE_DOUBLE", "DOUBLE");
+    m_checkForUpperCaseNames = PROPERTIES.getProperty("checkUpperCaseNames",
+      "false").equals("true");
+    m_checkForLowerCaseNames = PROPERTIES.getProperty("checkLowerCaseNames",
+      "false").equals("true");
+    m_setAutoCommit = PROPERTIES.getProperty("setAutoCommit", "true").equals(
+      "true");
+    m_createIndex = PROPERTIES.getProperty("createIndex", "false").equals(
+      "true");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     setKeywords(PROPERTIES.getProperty("Keywords",
       "AND,ASC,BY,DESC,FROM,GROUP,INSERT,ORDER,SELECT,UPDATE,WHERE"));
     setKeywordsMaskChar(PROPERTIES.getProperty("KeywordsMaskChar", "_"));
@@ -289,7 +431,15 @@ public class DatabaseUtils implements Serializable, RevisionHandler {
    * @param columnName the column to retrieve the original case for
    * @return the original case
    */
+<<<<<<< HEAD
   public String attributeCaseFix(String columnName) {
+=======
+<<<<<<< HEAD
+  public String attributeCaseFix(String columnName) {
+=======
+  protected String attributeCaseFix(String columnName) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (m_checkForUpperCaseNames) {
       String ucname = columnName.toUpperCase();
       if (ucname.equals(EXP_TYPE_COL.toUpperCase())) {
@@ -342,7 +492,14 @@ public class DatabaseUtils implements Serializable, RevisionHandler {
       }
       return Integer.parseInt(value);
     } catch (NumberFormatException e) {
+<<<<<<< HEAD
       e.printStackTrace();
+=======
+<<<<<<< HEAD
+      e.printStackTrace();
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       throw new IllegalArgumentException("Unknown data type: " + type + ". "
         + "Add entry in " + PROPERTY_FILE + ".\n"
         + "If the type contains blanks, either escape them with a backslash "
@@ -551,6 +708,10 @@ public class DatabaseUtils implements Serializable, RevisionHandler {
     if (m_Debug) {
       System.err.println("Connecting to " + m_DatabaseURL);
     }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     if (m_Connection == null) {
       try {
@@ -619,6 +780,11 @@ public class DatabaseUtils implements Serializable, RevisionHandler {
    * @throws Exception if a problem occurs
    */
   protected void connectUsingDriverManager() throws Exception {
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (m_Connection == null) {
       if (m_userName.equals("")) {
         try {
@@ -628,8 +794,17 @@ public class DatabaseUtils implements Serializable, RevisionHandler {
           // Try loading the drivers
           for (int i = 0; i < DRIVERS.size(); i++) {
             try {
+<<<<<<< HEAD
               // Class.forName(DRIVERS.elementAt(i));
               WekaPackageClassLoaderManager.forName(DRIVERS.elementAt(i));
+=======
+<<<<<<< HEAD
+              // Class.forName(DRIVERS.elementAt(i));
+              WekaPackageClassLoaderManager.forName(DRIVERS.elementAt(i));
+=======
+              Class.forName((String) DRIVERS.elementAt(i));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
             } catch (Exception ex) {
               // Drop through
             }
@@ -638,25 +813,59 @@ public class DatabaseUtils implements Serializable, RevisionHandler {
         }
       } else {
         try {
+<<<<<<< HEAD
           m_Connection =
             DriverManager.getConnection(m_DatabaseURL, m_userName, m_password);
+=======
+<<<<<<< HEAD
+          m_Connection =
+            DriverManager.getConnection(m_DatabaseURL, m_userName, m_password);
+=======
+          m_Connection = DriverManager.getConnection(m_DatabaseURL, m_userName,
+            m_password);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         } catch (java.sql.SQLException e) {
 
           // Try loading the drivers
           for (int i = 0; i < DRIVERS.size(); i++) {
             try {
+<<<<<<< HEAD
               WekaPackageClassLoaderManager.forName(DRIVERS.elementAt(i));
               // Class.forName(DRIVERS.elementAt(i));
+=======
+<<<<<<< HEAD
+              WekaPackageClassLoaderManager.forName(DRIVERS.elementAt(i));
+              // Class.forName(DRIVERS.elementAt(i));
+=======
+              Class.forName((String) DRIVERS.elementAt(i));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
             } catch (Exception ex) {
               // Drop through
             }
           }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
           m_Connection =
             DriverManager.getConnection(m_DatabaseURL, m_userName, m_password);
         }
       }
     }
+<<<<<<< HEAD
+=======
+=======
+          m_Connection = DriverManager.getConnection(m_DatabaseURL, m_userName,
+            m_password);
+        }
+      }
+    }
+    m_Connection.setAutoCommit(m_setAutoCommit);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -700,9 +909,20 @@ public class DatabaseUtils implements Serializable, RevisionHandler {
 
     try {
       if (isConnected()) {
+<<<<<<< HEAD
         result =
           m_Connection.getMetaData().supportsResultSetConcurrency(
             ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+=======
+<<<<<<< HEAD
+        result =
+          m_Connection.getMetaData().supportsResultSetConcurrency(
+            ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+=======
+        result = m_Connection.getMetaData().supportsResultSetConcurrency(
+          ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
     } catch (Exception e) {
       // ignored
@@ -773,6 +993,10 @@ public class DatabaseUtils implements Serializable, RevisionHandler {
     }
 
     if (!isCursorScrollable()) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       m_PreparedStatement =
         m_Connection.prepareStatement(query, ResultSet.TYPE_FORWARD_ONLY,
           ResultSet.CONCUR_READ_ONLY);
@@ -780,6 +1004,16 @@ public class DatabaseUtils implements Serializable, RevisionHandler {
       m_PreparedStatement =
         m_Connection.prepareStatement(query, getSupportedCursorScrollType(),
           ResultSet.CONCUR_READ_ONLY);
+<<<<<<< HEAD
+=======
+=======
+      m_PreparedStatement = m_Connection.prepareStatement(query,
+        ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
+    } else {
+      m_PreparedStatement = m_Connection.prepareStatement(query,
+        getSupportedCursorScrollType(), ResultSet.CONCUR_READ_ONLY);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
 
     return (m_PreparedStatement.execute());
@@ -816,6 +1050,10 @@ public class DatabaseUtils implements Serializable, RevisionHandler {
 
     Statement statement;
     if (!isCursorScrollable()) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       statement =
         m_Connection.createStatement(ResultSet.TYPE_FORWARD_ONLY,
           ResultSet.CONCUR_READ_ONLY);
@@ -823,6 +1061,16 @@ public class DatabaseUtils implements Serializable, RevisionHandler {
       statement =
         m_Connection.createStatement(getSupportedCursorScrollType(),
           ResultSet.CONCUR_READ_ONLY);
+<<<<<<< HEAD
+=======
+=======
+      statement = m_Connection.createStatement(ResultSet.TYPE_FORWARD_ONLY,
+        ResultSet.CONCUR_READ_ONLY);
+    } else {
+      statement = m_Connection.createStatement(getSupportedCursorScrollType(),
+        ResultSet.CONCUR_READ_ONLY);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
     int result = statement.executeUpdate(query);
     statement.close();
@@ -845,6 +1093,10 @@ public class DatabaseUtils implements Serializable, RevisionHandler {
 
     Statement statement;
     if (!isCursorScrollable()) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       statement =
         m_Connection.createStatement(ResultSet.TYPE_FORWARD_ONLY,
           ResultSet.CONCUR_READ_ONLY);
@@ -852,6 +1104,16 @@ public class DatabaseUtils implements Serializable, RevisionHandler {
       statement =
         m_Connection.createStatement(getSupportedCursorScrollType(),
           ResultSet.CONCUR_READ_ONLY);
+<<<<<<< HEAD
+=======
+=======
+      statement = m_Connection.createStatement(ResultSet.TYPE_FORWARD_ONLY,
+        ResultSet.CONCUR_READ_ONLY);
+    } else {
+      statement = m_Connection.createStatement(getSupportedCursorScrollType(),
+        ResultSet.CONCUR_READ_ONLY);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
     ResultSet result = statement.executeQuery(query);
 
@@ -1182,10 +1444,22 @@ public class DatabaseUtils implements Serializable, RevisionHandler {
      * + " TEXT," + "  " + EXP_RESULT_COL + " INT )"; } else {
      */
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     query =
       "CREATE TABLE " + EXP_INDEX_TABLE + " ( " + EXP_TYPE_COL + " "
         + m_stringType + "," + "  " + EXP_SETUP_COL + " " + m_stringType + ","
         + "  " + EXP_RESULT_COL + " " + m_intType + " )";
+<<<<<<< HEAD
+=======
+=======
+    query = "CREATE TABLE " + EXP_INDEX_TABLE + " ( " + EXP_TYPE_COL + " "
+      + m_stringType + "," + "  " + EXP_SETUP_COL + " " + m_stringType + ","
+      + "  " + EXP_RESULT_COL + " " + m_intType + " )";
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     // }
     // Other possible fields:
     // creator user name (from System properties)
@@ -1234,9 +1508,20 @@ public class DatabaseUtils implements Serializable, RevisionHandler {
     // Add an entry in the index table
     String expType = rp.getClass().getName();
     String expParams = rp.getCompatibilityState();
+<<<<<<< HEAD
     query =
       "INSERT INTO " + EXP_INDEX_TABLE + " VALUES ('" + expType + "', '"
         + expParams + "', " + numRows + " )";
+=======
+<<<<<<< HEAD
+    query =
+      "INSERT INTO " + EXP_INDEX_TABLE + " VALUES ('" + expType + "', '"
+        + expParams + "', " + numRows + " )";
+=======
+    query = "INSERT INTO " + EXP_INDEX_TABLE + " VALUES ('" + expType + "', '"
+      + expParams + "', " + numRows + " )";
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (update(query) > 0) {
       if (m_Debug) {
         System.err.println("...create returned resultset");
@@ -1294,10 +1579,22 @@ public class DatabaseUtils implements Serializable, RevisionHandler {
     }
     String expType = rp.getClass().getName();
     String expParams = rp.getCompatibilityState();
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     String query =
       "SELECT " + EXP_RESULT_COL + " FROM " + EXP_INDEX_TABLE + " WHERE "
         + EXP_TYPE_COL + "='" + expType + "' AND " + EXP_SETUP_COL + "='"
         + expParams + "'";
+<<<<<<< HEAD
+=======
+=======
+    String query = "SELECT " + EXP_RESULT_COL + " FROM " + EXP_INDEX_TABLE
+      + " WHERE " + EXP_TYPE_COL + "='" + expType + "' AND " + EXP_SETUP_COL
+      + "='" + expParams + "'";
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     String tableName = null;
     ResultSet rs = select(query);
     if (rs.next()) {
@@ -1516,6 +1813,10 @@ public class DatabaseUtils implements Serializable, RevisionHandler {
    */
   @Override
   public String getRevision() {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return RevisionUtils.extract("$Revision: 13477 $");
   }
 
@@ -1556,5 +1857,11 @@ public class DatabaseUtils implements Serializable, RevisionHandler {
     }
 
     return result;
+<<<<<<< HEAD
+=======
+=======
+    return RevisionUtils.extract("$Revision: 11887 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 }

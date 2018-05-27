@@ -1,4 +1,8 @@
 /*
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,16 +15,46 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+<<<<<<< HEAD
+=======
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    Explorer.java
+<<<<<<< HEAD
  *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
+=======
+<<<<<<< HEAD
+ *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 1999 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
 package weka.gui.explorer;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.core.Capabilities;
 import weka.core.Copyright;
 import weka.core.Instances;
@@ -38,6 +72,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.event.ChangeEvent;
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.awt.BorderLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -53,12 +92,42 @@ import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Vector;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
+import javax.swing.event.ChangeEvent;
+
+import weka.core.Capabilities;
+import weka.core.Copyright;
+import weka.core.Instances;
+import weka.core.Memory;
+import weka.core.converters.AbstractFileLoader;
+import weka.core.converters.ConverterUtils;
+import weka.gui.LogPanel;
+import weka.gui.Logger;
+import weka.gui.LookAndFeel;
+import weka.gui.WekaTaskMonitor;
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 /**
  * The main class for the Weka explorer. Lets the user create, open, save,
  * configure, datasets, and perform ML analysis.
  * 
  * @author Len Trigg (trigg@cs.waikato.ac.nz)
+<<<<<<< HEAD
  * @version $Revision: 13477 $
+=======
+<<<<<<< HEAD
+ * @version $Revision: 13477 $
+=======
+ * @version $Revision: 10438 $
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 public class Explorer extends JPanel {
 
@@ -69,7 +138,15 @@ public class Explorer extends JPanel {
    * Interface for classes that listen for filter changes.
    * 
    * @author FracPete (fracpete at waikato dot ac dot nz)
+<<<<<<< HEAD
    * @version $Revision: 13477 $
+=======
+<<<<<<< HEAD
+   * @version $Revision: 13477 $
+=======
+   * @version $Revision: 10438 $
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public static interface CapabilitiesFilterChangeListener extends
     EventListener {
@@ -86,7 +163,15 @@ public class Explorer extends JPanel {
    * This event can be fired in case the capabilities filter got changed
    * 
    * @author FracPete (fracpete at waikato dot ac dot nz)
+<<<<<<< HEAD
    * @version $Revision: 13477 $
+=======
+<<<<<<< HEAD
+   * @version $Revision: 13477 $
+=======
+   * @version $Revision: 10438 $
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public static class CapabilitiesFilterChangeEvent extends ChangeEvent {
 
@@ -121,7 +206,15 @@ public class Explorer extends JPanel {
    * A common interface for panels to be displayed in the Explorer
    * 
    * @author FracPete (fracpete at waikato dot ac dot nz)
+<<<<<<< HEAD
    * @version $Revision: 13477 $
+=======
+<<<<<<< HEAD
+   * @version $Revision: 13477 $
+=======
+   * @version $Revision: 10438 $
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public static interface ExplorerPanel {
 
@@ -166,7 +259,15 @@ public class Explorer extends JPanel {
    * A common interface for panels in the explorer that can handle logs
    * 
    * @author FracPete (fracpete at waikato dot ac dot nz)
+<<<<<<< HEAD
    * @version $Revision: 13477 $
+=======
+<<<<<<< HEAD
+   * @version $Revision: 13477 $
+=======
+   * @version $Revision: 10438 $
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public static interface LogHandler {
 
@@ -200,6 +301,10 @@ public class Explorer extends JPanel {
 
     String date = (new SimpleDateFormat("EEEE, d MMMM yyyy"))
       .format(new Date());
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     m_LogPanel.logMessage("Weka Explorer");
     m_LogPanel.logMessage("(c) " + Copyright.getFromYear() + "-"
       + Copyright.getToYear() + " " + Copyright.getOwner() + ", "
@@ -207,6 +312,28 @@ public class Explorer extends JPanel {
     m_LogPanel.logMessage("web: " + Copyright.getURL());
     m_LogPanel.logMessage("Started on " + date);
     m_LogPanel.statusMessage("Welcome to the Weka Explorer");
+<<<<<<< HEAD
+=======
+=======
+    m_LogPanel.logMessage(Messages.getInstance().getString(
+      "Explorer_LogPanel_LogMessage_Text_First"));
+    m_LogPanel.logMessage(Messages.getInstance().getString(
+      "Explorer_LogPanel_LogMessage_Text_Second")
+      + Copyright.getFromYear()
+      + Messages.getInstance().getString(
+        "Explorer_LogPanel_LogMessage_Text_Third")
+      + Copyright.getToYear()
+      + " " + Copyright.getOwner() + ", " + Copyright.getAddress());
+    m_LogPanel.logMessage(Messages.getInstance().getString(
+      "Explorer_LogPanel_LogMessage_Text_Fourth")
+      + Copyright.getURL());
+    m_LogPanel.logMessage(Messages.getInstance().getString(
+      "Explorer_LogPanel_LogMessage_Text_Fifth")
+      + date);
+    m_LogPanel.statusMessage(Messages.getInstance().getString(
+      "Explorer_LogPanel_StatusMessage_Text_First"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     // intialize pre-processpanel
     m_PreprocessPanel.setLog(m_LogPanel);
@@ -215,23 +342,49 @@ public class Explorer extends JPanel {
 
     // initialize additional panels
     String[] tabs = ExplorerDefaults.getTabs();
+<<<<<<< HEAD
     Hashtable<String, HashSet<String>> tabOptions = new Hashtable<String, HashSet<String>>();
+=======
+<<<<<<< HEAD
+    Hashtable<String, HashSet<String>> tabOptions = new Hashtable<String, HashSet<String>>();
+=======
+    Hashtable<String, HashSet> tabOptions = new Hashtable<String, HashSet>();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     for (String tab : tabs) {
       try {
         // determine classname and additional options
         String[] optionsStr = tab.split(":");
         String classname = optionsStr[0];
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         if (PluginManager.isInDisabledList(classname)) {
           continue;
         }
         HashSet<String> options = new HashSet<String>();
+<<<<<<< HEAD
+=======
+=======
+        HashSet options = new HashSet();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         tabOptions.put(classname, options);
         for (int n = 1; n < optionsStr.length; n++) {
           options.add(optionsStr[n]);
         }
 
         // setup panel
+<<<<<<< HEAD
         ExplorerPanel panel = (ExplorerPanel) WekaPackageClassLoaderManager.forName(classname)
+=======
+<<<<<<< HEAD
+        ExplorerPanel panel = (ExplorerPanel) WekaPackageClassLoaderManager.forName(classname)
+=======
+        ExplorerPanel panel = (ExplorerPanel) Class.forName(classname)
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
           .newInstance();
         panel.setExplorer(this);
         m_Panels.add(panel);
@@ -248,8 +401,17 @@ public class Explorer extends JPanel {
     // setup tabbed pane
     m_TabbedPane.setSelectedIndex(0);
     for (int i = 0; i < m_Panels.size(); i++) {
+<<<<<<< HEAD
       HashSet<String> options = tabOptions.get(m_Panels.get(i).getClass()
         .getName());
+=======
+<<<<<<< HEAD
+      HashSet<String> options = tabOptions.get(m_Panels.get(i).getClass()
+        .getName());
+=======
+      HashSet options = tabOptions.get(m_Panels.get(i).getClass().getName());
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       m_TabbedPane.setEnabledAt(i + 1, options.contains("standalone"));
     }
 
@@ -361,6 +523,10 @@ public class Explorer extends JPanel {
    */
   public static void main(String[] args) {
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     weka.core.logging.Logger.log(weka.core.logging.Logger.Level.INFO,
       "Logging started");
 
@@ -368,13 +534,31 @@ public class Explorer extends JPanel {
     // make sure that packages are loaded and the GenericPropertiesCreator
     // executes to populate the lists correctly
     weka.gui.GenericObjectEditor.determineClasses();
+<<<<<<< HEAD
+=======
+=======
+    weka.core.logging.Logger.log(weka.core.logging.Logger.Level.INFO, Messages
+      .getInstance().getString("Explorer_Main_Logger_Text"));
+
+    LookAndFeel.setLookAndFeel();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     try {
       // uncomment to disable the memory management:
       // m_Memory.setEnabled(false);
 
       m_explorer = new Explorer();
+<<<<<<< HEAD
       final JFrame jf = new JFrame("Weka Explorer");
+=======
+<<<<<<< HEAD
+      final JFrame jf = new JFrame("Weka Explorer");
+=======
+      final JFrame jf = new JFrame(Messages.getInstance().getString(
+        "Explorer_Main_JFrame_Text"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       jf.getContentPane().setLayout(new BorderLayout());
       jf.getContentPane().add(m_explorer, BorderLayout.CENTER);
       jf.addWindowListener(new WindowAdapter() {
@@ -393,7 +577,17 @@ public class Explorer extends JPanel {
       jf.setIconImage(icon);
 
       if (args.length == 1) {
+<<<<<<< HEAD
         System.err.println("Loading instances from " + args[0]);
+=======
+<<<<<<< HEAD
+        System.err.println("Loading instances from " + args[0]);
+=======
+        System.err.println(Messages.getInstance().getString(
+          "Explorer_Main_Run_Error_Text")
+          + args[0]);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         AbstractFileLoader loader = ConverterUtils.getLoaderForFile(args[0]);
         loader.setFile(new File(args[0]));
         m_explorer.m_PreprocessPanel.setInstancesFromFile(loader);
@@ -404,8 +598,20 @@ public class Explorer extends JPanel {
         public void run() {
           while (true) {
             // try {
+<<<<<<< HEAD
             // System.out.println("Before sleeping.");
             // Thread.sleep(10);
+=======
+<<<<<<< HEAD
+            // System.out.println("Before sleeping.");
+            // Thread.sleep(10);
+=======
+            // //System.out.println("Before sleeping.");
+            // this.sleep(4000);
+
+            // System.gc();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
             if (m_Memory.isOutOfMemory()) {
               // clean up
@@ -414,6 +620,10 @@ public class Explorer extends JPanel {
               System.gc();
 
               // display error
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
               System.err.println("\ndisplayed message:");
               m_Memory.showOutOfMemory();
               System.err.println("\nexiting");
@@ -423,6 +633,20 @@ public class Explorer extends JPanel {
             // } catch (InterruptedException ex) {
             // ex.printStackTrace();
             // }
+<<<<<<< HEAD
+=======
+=======
+              System.err.println(Messages.getInstance().getString(
+                "Explorer_Main_Run_Error_Text_First"));
+              m_Memory.showOutOfMemory();
+              System.err.println(Messages.getInstance().getString(
+                "Explorer_Main_Run_Error_Text_Second"));
+              System.exit(-1);
+            }
+
+            // } catch(InterruptedException ex) { ex.printStackTrace(); }
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
           }
         }
       };

@@ -1,4 +1,8 @@
 /*
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,22 +15,71 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+<<<<<<< HEAD
+=======
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  * XMLInstances.java
+<<<<<<< HEAD
  * Copyright (C) 2006-2012 University of Waikato, Hamilton, New Zealand
+=======
+<<<<<<< HEAD
+ * Copyright (C) 2006-2012 University of Waikato, Hamilton, New Zealand
+=======
+ * Copyright (C) 2006 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 package weka.core.xml;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+import weka.core.Attribute;
+import weka.core.FastVector;
+import weka.core.Instance;
+import weka.core.Instances;
+import weka.core.ProtectedProperties;
+import weka.core.RevisionUtils;
+import weka.core.SparseInstance;
+import weka.core.Utils;
+import weka.core.Version;
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.Serializable;
+<<<<<<< HEAD
 import java.util.ArrayList;
+=======
+<<<<<<< HEAD
+import java.util.ArrayList;
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.util.Enumeration;
 import java.util.Properties;
 import java.util.Vector;
@@ -34,6 +87,10 @@ import java.util.zip.GZIPInputStream;
 
 import org.w3c.dom.Element;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.core.Attribute;
 import weka.core.DenseInstance;
 import weka.core.Instance;
@@ -58,6 +115,27 @@ public class XMLInstances extends XMLDocument implements Serializable {
   /** The filename extension that should be used for xrff files */
   public static String FILE_EXTENSION = ".xrff";
 
+<<<<<<< HEAD
+=======
+=======
+/**
+ * XML representation of the Instances class.
+ * 
+ * @author  fracpete (fracpete at waikato dot ac dot nz)
+ * @version $Revision: 1.4 $
+ */
+public class XMLInstances
+  extends XMLDocument
+  implements Serializable {
+
+  /** for serialization */
+  private static final long serialVersionUID = 3626821327547416099L;
+  
+  /** The filename extension that should be used for xrff files */
+  public static String FILE_EXTENSION = ".xrff";
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   // tags
   /** the root element */
   public final static String TAG_DATASET = "dataset";
@@ -97,6 +175,10 @@ public class XMLInstances extends XMLDocument implements Serializable {
 
   /** the value element */
   public final static String TAG_VALUE = "value";
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   // attributes
   /** the version attribute */
@@ -187,10 +269,96 @@ public class XMLInstances extends XMLDocument implements Serializable {
     + ">   <!-- 1-based index (only used for instance format \"sparse\") -->\n"
     + "   <!" + DTD_ATTLIST + " " + TAG_VALUE + " " + ATT_MISSING + " ("
     + VAL_YES + DTD_SEPARATOR + VAL_NO + ") \"" + VAL_NO + "\"" + ">\n" + "]\n"
+<<<<<<< HEAD
+=======
+=======
+  
+  // attributes
+  /** the version attribute */
+  public final static String ATT_VERSION = "version";
+  
+  /** the type attribute */
+  public final static String ATT_TYPE = "type";
+  
+  /** the format attribute (for date attributes) */
+  public final static String ATT_FORMAT = "format";
+  
+  /** the class attribute */
+  public final static String ATT_CLASS = "class";
+  
+  /** the index attribute */
+  public final static String ATT_INDEX = "index";
+  
+  /** the weight attribute */
+  public final static String ATT_WEIGHT = "weight";
+  
+  /** the missing attribute */
+  public final static String ATT_MISSING = "missing";
+  
+  // values
+  /** the value for numeric */
+  public final static String VAL_NUMERIC = "numeric";
+  
+  /** the value for date */
+  public final static String VAL_DATE = "date";
+  
+  /** the value for nominal */
+  public final static String VAL_NOMINAL = "nominal";
+  
+  /** the value for string */
+  public final static String VAL_STRING = "string";
+  
+  /** the value for relational */
+  public final static String VAL_RELATIONAL = "relational";
+  
+  /** the value for normal */
+  public final static String VAL_NORMAL = "normal";
+  
+  /** the value for sparse */
+  public final static String VAL_SPARSE = "sparse";
+  
+  /** the DTD */
+  public final static String DOCTYPE = 
+      "<!" + DTD_DOCTYPE + " " + TAG_DATASET + "\n"
+    + "[\n"
+    + "   <!" + DTD_ELEMENT + " " + TAG_DATASET + " (" + TAG_HEADER + "," + TAG_BODY + ")" + ">\n"
+    + "   <!" + DTD_ATTLIST + " " + TAG_DATASET + " " + ATT_NAME + " " + DTD_CDATA + " " + DTD_REQUIRED + ">\n"
+    + "   <!" + DTD_ATTLIST + " " + TAG_DATASET + " " + ATT_VERSION + " " + DTD_CDATA + " \"" + Version.VERSION + "\">\n"
+    + "\n"
+    + "   <!" + DTD_ELEMENT + " " + TAG_HEADER + " (" + TAG_NOTES + DTD_OPTIONAL + "," + TAG_ATTRIBUTES + ")" + ">\n"
+    + "   <!" + DTD_ELEMENT + " " + TAG_BODY   + " (" + TAG_INSTANCES  + ")" + ">\n"
+    + "   <!" + DTD_ELEMENT + " " + TAG_NOTES + " " + DTD_ANY + ">   <!--  comments, information, copyright, etc. -->\n"
+    + "\n"
+    + "   <!" + DTD_ELEMENT + " " + TAG_ATTRIBUTES + " (" + TAG_ATTRIBUTE + DTD_AT_LEAST_ONE + ")" + ">\n"
+    + "   <!" + DTD_ELEMENT + " " + TAG_ATTRIBUTE + " (" + TAG_LABELS + DTD_OPTIONAL + "," + TAG_METADATA + DTD_OPTIONAL + "," + TAG_ATTRIBUTES + DTD_OPTIONAL + ")" + ">\n"
+    + "   <!" + DTD_ATTLIST + " " + TAG_ATTRIBUTE + " " + ATT_NAME + " " + DTD_CDATA + " " + DTD_REQUIRED + ">\n"
+    + "   <!" + DTD_ATTLIST + " " + TAG_ATTRIBUTE + " " + ATT_TYPE + " (" + VAL_NUMERIC + DTD_SEPARATOR + VAL_DATE + DTD_SEPARATOR + VAL_NOMINAL + DTD_SEPARATOR + VAL_STRING + DTD_SEPARATOR + VAL_RELATIONAL + ") " + DTD_REQUIRED + ">\n"
+    + "   <!" + DTD_ATTLIST + " " + TAG_ATTRIBUTE + " " + ATT_FORMAT + " " + DTD_CDATA + " " + DTD_IMPLIED + ">\n"
+    + "   <!" + DTD_ATTLIST + " " + TAG_ATTRIBUTE + " " + ATT_CLASS + " (" + VAL_YES + DTD_SEPARATOR + VAL_NO + ") \"" + VAL_NO + "\"" + ">\n"
+    + "   <!" + DTD_ELEMENT + " " + TAG_LABELS + " (" + TAG_LABEL + DTD_ZERO_OR_MORE + ")" + ">   <!-- only for type \"nominal\" -->\n"
+    + "   <!" + DTD_ELEMENT + " " + TAG_LABEL + " " + DTD_ANY + ">\n"
+    + "   <!" + DTD_ELEMENT + " " + TAG_METADATA + " (" + TAG_PROPERTY + DTD_ZERO_OR_MORE + ")" + ">\n"
+    + "   <!" + DTD_ELEMENT + " " + TAG_PROPERTY + " " + DTD_ANY + ">\n"
+    + "   <!" + DTD_ATTLIST + " " + TAG_PROPERTY + " " + ATT_NAME + " " + DTD_CDATA + " " + DTD_REQUIRED + ">\n"
+    + "\n"
+    + "   <!" + DTD_ELEMENT + " " + TAG_INSTANCES + " (" + TAG_INSTANCE + DTD_ZERO_OR_MORE + ")" + ">\n"
+    + "   <!" + DTD_ELEMENT + " " + TAG_INSTANCE + " (" + TAG_VALUE + DTD_ZERO_OR_MORE + ")" + ">\n"
+    + "   <!" + DTD_ATTLIST + " " + TAG_INSTANCE + " " + ATT_TYPE + " (" + VAL_NORMAL + DTD_SEPARATOR + VAL_SPARSE + ") \"" + VAL_NORMAL + "\"" + ">\n"
+    + "   <!" + DTD_ATTLIST + " " + TAG_INSTANCE + " " + ATT_WEIGHT + " " + DTD_CDATA + " " + DTD_IMPLIED + ">\n"
+    + "   <!" + DTD_ELEMENT + " " + TAG_VALUE + " (" + DTD_PCDATA + DTD_SEPARATOR + TAG_INSTANCES + ")" + DTD_ZERO_OR_MORE + ">\n"
+    + "   <!" + DTD_ATTLIST + " " + TAG_VALUE + " " + ATT_INDEX + " " + DTD_CDATA + " " + DTD_IMPLIED + ">   <!-- 1-based index (only used for instance format \"sparse\") -->\n"
+    + "   <!" + DTD_ATTLIST + " " + TAG_VALUE + " " + ATT_MISSING + " (" + VAL_YES + DTD_SEPARATOR + VAL_NO + ") \"" + VAL_NO + "\"" + ">\n"
+    + "]\n"
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     + ">";
 
   /** the precision for numbers */
   protected int m_Precision = 6;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** the underlying Instances */
   protected Instances m_Instances;
@@ -203,12 +371,33 @@ public class XMLInstances extends XMLDocument implements Serializable {
   public XMLInstances() throws Exception {
     super();
 
+<<<<<<< HEAD
+=======
+=======
+  
+  /** the underlying Instances */
+  protected Instances m_Instances;
+  
+  /**
+   * the default constructor
+   * 
+   * @throws Exception	if XML initialization fails
+   */
+  public XMLInstances() throws Exception {
+    super();
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     m_Instances = null;
 
     setDocType(DOCTYPE);
     setRootNode(TAG_DATASET);
     setValidating(true);
   }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /**
    * generates the XML structure based on the given data
@@ -282,12 +471,95 @@ public class XMLInstances extends XMLDocument implements Serializable {
       node.setAttribute(ATT_TYPE, "???");
     }
 
+<<<<<<< HEAD
+=======
+=======
+  
+  /**
+   * generates the XML structure based on the given data
+   * 
+   * @param data	the data to build the XML structure from
+   * @throws Exception	if initialization/generation fails
+   */
+  public XMLInstances(Instances data) throws Exception {
+    this();
+    
+    setInstances(data);
+  }
+  
+  /**
+   * generates the Instances directly from the reader containing the
+   * XML data.
+   * 
+   * @param reader	the reader for the XML data
+   * @throws Exception	if something goes wrong
+   */
+  public XMLInstances(Reader reader) throws Exception {
+    this();
+    
+    setXML(reader);
+  }
+  
+  /**
+   * adds the attribute to the XML structure
+   * 
+   * @param parent	the parent node to add the attribute node as child
+   * @param att		the attribute to add
+   */
+  protected void addAttribute(Element parent, Attribute att) {
+    Element		node;
+    Element		child;
+    Element		property;
+    Element		label;
+    String		tmpStr;
+    Enumeration		enm;
+    int			i;
+    
+    node = m_Document.createElement(TAG_ATTRIBUTE);
+    parent.appendChild(node);
+    
+    // XML attributes
+    // name
+    node.setAttribute(ATT_NAME, validContent(att.name()));
+    
+    // type
+    switch (att.type()) {
+      case Attribute.NUMERIC:
+	node.setAttribute(ATT_TYPE, VAL_NUMERIC);
+	break;
+	
+      case Attribute.DATE:
+	node.setAttribute(ATT_TYPE, VAL_DATE);
+	break;
+	
+      case Attribute.NOMINAL:
+	node.setAttribute(ATT_TYPE, VAL_NOMINAL);
+	break;
+	
+      case Attribute.STRING:
+	node.setAttribute(ATT_TYPE, VAL_STRING);
+	break;
+	
+      case Attribute.RELATIONAL:
+	node.setAttribute(ATT_TYPE, VAL_RELATIONAL);
+	break;
+	
+      default:
+	node.setAttribute(ATT_TYPE, "???");
+    }
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     // labels
     if (att.isNominal()) {
       child = m_Document.createElement(TAG_LABELS);
       node.appendChild(child);
       enm = att.enumerateValues();
       while (enm.hasMoreElements()) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         tmpStr = enm.nextElement().toString();
         label = m_Document.createElement(TAG_LABEL);
         child.appendChild(label);
@@ -309,10 +581,38 @@ public class XMLInstances extends XMLDocument implements Serializable {
 
     // add meta-data
     if ((att.getMetadata() != null) && (att.getMetadata().size() > 0)) {
+<<<<<<< HEAD
+=======
+=======
+	tmpStr = enm.nextElement().toString();
+	label = m_Document.createElement(TAG_LABEL);
+	child.appendChild(label);
+	label.appendChild(m_Document.createTextNode(validContent(tmpStr)));
+      }
+    }
+    
+    // format
+    if (att.isDate())
+      node.setAttribute(ATT_FORMAT, validContent(att.getDateFormat()));
+    
+    // class
+    if (m_Instances.classIndex() > -1) {
+      if (att == m_Instances.classAttribute())
+	node.setAttribute(ATT_CLASS, VAL_YES);
+    }
+    
+    // add meta-data
+    if ( (att.getMetadata() != null) && (att.getMetadata().size() > 0) ) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       child = m_Document.createElement(TAG_METADATA);
       node.appendChild(child);
       enm = att.getMetadata().propertyNames();
       while (enm.hasMoreElements()) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         tmpStr = enm.nextElement().toString();
         property = m_Document.createElement(TAG_PROPERTY);
         child.appendChild(property);
@@ -322,17 +622,45 @@ public class XMLInstances extends XMLDocument implements Serializable {
       }
     }
 
+<<<<<<< HEAD
+=======
+=======
+	tmpStr = enm.nextElement().toString();
+	property = m_Document.createElement(TAG_PROPERTY);
+	child.appendChild(property);
+	property.setAttribute(ATT_NAME, validContent(tmpStr));
+	property.appendChild(m_Document.createTextNode(validContent(att.getMetadata().getProperty(tmpStr, ""))));
+      }
+    }
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     // relational attribute?
     if (att.isRelationValued()) {
       child = m_Document.createElement(TAG_ATTRIBUTES);
       node.appendChild(child);
+<<<<<<< HEAD
       for (i = 0; i < att.relation().numAttributes(); i++) {
         addAttribute(child, att.relation().attribute(i));
       }
+=======
+<<<<<<< HEAD
+      for (i = 0; i < att.relation().numAttributes(); i++) {
+        addAttribute(child, att.relation().attribute(i));
+      }
+=======
+      for (i = 0; i < att.relation().numAttributes(); i++)
+	addAttribute(child, att.relation().attribute(i));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
   }
 
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * turns all &lt;, &gt; and &amp;into character entities and returns that
    * string. Necessary for TextNodes.
    * 
@@ -390,10 +718,76 @@ public class XMLInstances extends XMLDocument implements Serializable {
     for (i = 0; i < inst.numValues(); i++) {
       index = inst.index(i);
 
+<<<<<<< HEAD
+=======
+=======
+   * turns all &lt;, &gt; and &amp;into character entities and returns that 
+   * string. Necessary for TextNodes.
+   * 
+   * @param content	string to convert
+   * @return		the valid content string
+   */
+  protected String validContent(String content) {
+    String	result;
+    
+    result = content;
+    
+    // these five entities are recognized by every XML processor
+    // see http://www.xml.com/pub/a/2001/03/14/trxml10.html
+    result = result.replaceAll("&", "&amp;")
+                   .replaceAll("\"", "&quot;")
+                   .replaceAll("'", "&apos;")
+                   .replaceAll("<", "&lt;")
+                   .replaceAll(">", "&gt;");
+    // in addition, replace some other entities as well
+    result = result.replaceAll("\n", "&#10;")
+                   .replaceAll("\r", "&#13;")
+                   .replaceAll("\t", "&#9;");
+    
+    return result;
+  }
+  
+  /**
+   * adds the instance to the XML structure
+   * 
+   * @param parent	the parent node to add the instance node as child
+   * @param inst	the instance to add
+   */
+  protected void addInstance(Element parent, Instance inst) {
+    Element		node;
+    Element		value;
+    Element		child;
+    boolean		sparse;
+    int			i;
+    int			n;
+    int			index;
+    
+    node = m_Document.createElement(TAG_INSTANCE);
+    parent.appendChild(node);
+    
+    // sparse?
+    sparse = (inst instanceof SparseInstance);
+    if (sparse)
+      node.setAttribute(ATT_TYPE, VAL_SPARSE);
+    
+    // weight
+    if (inst.weight() != 1.0)
+      node.setAttribute(ATT_WEIGHT, Utils.doubleToString(inst.weight(), m_Precision));
+    
+    // values
+    for (i = 0; i < inst.numValues(); i++) {
+      index = inst.index(i);
+      
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       value = m_Document.createElement(TAG_VALUE);
       node.appendChild(value);
 
       if (inst.isMissing(index)) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         value.setAttribute(ATT_MISSING, VAL_YES);
       } else {
         if (inst.attribute(index).isRelationValued()) {
@@ -419,10 +813,41 @@ public class XMLInstances extends XMLDocument implements Serializable {
     }
   }
 
+<<<<<<< HEAD
+=======
+=======
+	value.setAttribute(ATT_MISSING, VAL_YES);
+      }
+      else {
+	if (inst.attribute(index).isRelationValued()) {
+	  child = m_Document.createElement(TAG_INSTANCES);
+	  value.appendChild(child);
+	  for (n = 0; n < inst.relationalValue(i).numInstances(); n++)
+	    addInstance(child, inst.relationalValue(i).instance(n));
+	}
+	else {
+	  if (inst.attribute(index).type() == Attribute.NUMERIC)
+	    value.appendChild(m_Document.createTextNode(Utils.doubleToString(inst.value(index), m_Precision)));
+	  else
+	    value.appendChild(m_Document.createTextNode(validContent(inst.stringValue(index))));
+	}
+      }
+      
+      if (sparse)
+	value.setAttribute(ATT_INDEX, "" + (index+1));
+    }
+  }
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /**
    * generates the XML structure for the header
    */
   protected void headerToXML() {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     Element root;
     Element node;
     Element child;
@@ -432,6 +857,20 @@ public class XMLInstances extends XMLDocument implements Serializable {
     root.setAttribute(ATT_NAME, validContent(m_Instances.relationName()));
     root.setAttribute(ATT_VERSION, Version.VERSION);
 
+<<<<<<< HEAD
+=======
+=======
+    Element	root;
+    Element	node;
+    Element	child;
+    int		i;
+    
+    root = m_Document.getDocumentElement();
+    root.setAttribute(ATT_NAME, validContent(m_Instances.relationName()));
+    root.setAttribute(ATT_VERSION, Version.VERSION);
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     // create "header" node
     node = m_Document.createElement(TAG_HEADER);
     root.appendChild(node);
@@ -439,15 +878,32 @@ public class XMLInstances extends XMLDocument implements Serializable {
     // add all attributes
     child = m_Document.createElement(TAG_ATTRIBUTES);
     node.appendChild(child);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     for (i = 0; i < m_Instances.numAttributes(); i++) {
       addAttribute(child, m_Instances.attribute(i));
     }
   }
 
+<<<<<<< HEAD
+=======
+=======
+    for (i = 0; i < m_Instances.numAttributes(); i++)
+      addAttribute(child, m_Instances.attribute(i));
+  }
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /**
    * generates the XML structure from the rows
    */
   protected void dataToXML() {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     Element root;
     Element node;
     Element child;
@@ -455,6 +911,18 @@ public class XMLInstances extends XMLDocument implements Serializable {
 
     root = m_Document.getDocumentElement();
 
+<<<<<<< HEAD
+=======
+=======
+    Element	root;
+    Element	node;
+    Element	child;
+    int		i;
+    
+    root = m_Document.getDocumentElement();
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     // create "body" node
     node = m_Document.createElement(TAG_BODY);
     root.appendChild(node);
@@ -462,6 +930,10 @@ public class XMLInstances extends XMLDocument implements Serializable {
     // add all instances
     child = m_Document.createElement(TAG_INSTANCES);
     node.appendChild(child);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     for (i = 0; i < m_Instances.numInstances(); i++) {
       addInstance(child, m_Instances.instance(i));
     }
@@ -471,6 +943,19 @@ public class XMLInstances extends XMLDocument implements Serializable {
    * builds up the XML structure based on the given data
    * 
    * @param data data to generate the XML from
+<<<<<<< HEAD
+=======
+=======
+    for (i = 0; i < m_Instances.numInstances(); i++)
+      addInstance(child, m_Instances.instance(i));
+  }
+  
+  /**
+   * builds up the XML structure based on the given data
+   * 
+   * @param data	data to generate the XML from
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public void setInstances(Instances data) {
     m_Instances = new Instances(data);
@@ -478,18 +963,38 @@ public class XMLInstances extends XMLDocument implements Serializable {
     headerToXML();
     dataToXML();
   }
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /**
    * returns the current instances, either the ones that were set or the ones
    * that were generated from the XML structure.
    * 
+<<<<<<< HEAD
    * @return the current instances
+=======
+<<<<<<< HEAD
+   * @return the current instances
+=======
+   * @return		the current instances
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public Instances getInstances() {
     return m_Instances;
   }
 
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * returns the metadata, if any available underneath this node, otherwise just
    * null
    * 
@@ -526,10 +1031,54 @@ public class XMLInstances extends XMLDocument implements Serializable {
       result = new ProtectedProperties(props);
     }
 
+<<<<<<< HEAD
+=======
+=======
+   * returns the metadata, if any available underneath this node, otherwise
+   * just null
+   * 
+   * @param parent	the attribute node
+   * @return		the metadata, or null if none found
+   * @throws Exception	if generation fails
+   */
+  protected ProtectedProperties createMetadata(Element parent) throws Exception {
+    ProtectedProperties	result;
+    Properties		props;
+    Vector		list;
+    Element		node;
+    Element		metanode;
+    int			i;
+    
+    result = null;
+    
+    // find metadata node directly underneath this attribute, but not in
+    // deeper nested attributes (e.g., within relational attributes)
+    metanode = null;
+    list     = getChildTags(parent, TAG_METADATA);
+    if (list.size() > 0)
+      metanode = (Element) list.get(0);
+    
+    // generate properties
+    if (metanode != null) {
+      props = new Properties();
+      list  = getChildTags(metanode, TAG_PROPERTY);
+      for (i = 0; i < list.size(); i++) {
+	node = (Element) list.get(i);
+	props.setProperty(node.getAttribute(ATT_NAME), getContent(node));
+      }
+      result = new ProtectedProperties(props);
+    }
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return result;
   }
 
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * returns the labels listed underneath this (nominal) attribute in a
    * ArrayList
    * 
@@ -585,11 +1134,74 @@ public class XMLInstances extends XMLDocument implements Serializable {
 
     result = null;
 
+<<<<<<< HEAD
+=======
+=======
+   * returns the labels listed underneath this (nominal) attribute in a 
+   * FastVector
+   * 
+   * @param parent	the (nominal) attribute node
+   * @return		the label vector
+   * @throws Exception	if generation fails
+   */
+  protected FastVector createLabels(Element parent) throws Exception {
+    FastVector		result;
+    Vector		list;
+    Element		node;
+    Element		labelsnode;
+    int			i;
+    
+    result = new FastVector();
+    
+    // find labels node directly underneath this attribute, but not in
+    // deeper nested attributes (e.g., within relational attributes)
+    labelsnode = null;
+    list     = getChildTags(parent, TAG_LABELS);
+    if (list.size() > 0)
+      labelsnode = (Element) list.get(0);
+    
+    // retrieve all labels
+    if (labelsnode != null) {
+      list  = getChildTags(labelsnode, TAG_LABEL);
+      for (i = 0; i < list.size(); i++) {
+	node = (Element) list.get(i);
+	result.addElement(getContent(node));
+      }
+    }
+    
+    return result;
+  }
+  
+  /**
+   * creates an Attribute from the given XML node
+   * 
+   * @param node	the node with the setup
+   * @return		the configured Attribute
+   * @throws Exception	if generation fails, e.g., due to unknown attribute type
+   */
+  protected Attribute createAttribute(Element node) throws Exception {
+    String		typeStr;
+    String		name;
+    int			type;
+    Attribute		result;
+    FastVector		values;
+    ProtectedProperties	metadata;
+    Vector		list;
+    FastVector		atts;
+    
+    result = null;
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     // name
     name = node.getAttribute(ATT_NAME);
 
     // type
     typeStr = node.getAttribute(ATT_TYPE);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (typeStr.equals(VAL_NUMERIC)) {
       type = Attribute.NUMERIC;
     } else if (typeStr.equals(VAL_DATE)) {
@@ -711,11 +1323,133 @@ public class XMLInstances extends XMLDocument implements Serializable {
     double weight;
     Instances data;
 
+<<<<<<< HEAD
+=======
+=======
+    if (typeStr.equals(VAL_NUMERIC))
+      type = Attribute.NUMERIC;
+    else if (typeStr.equals(VAL_DATE))
+      type = Attribute.DATE;
+    else if (typeStr.equals(VAL_NOMINAL))
+      type = Attribute.NOMINAL;
+    else if (typeStr.equals(VAL_STRING))
+      type = Attribute.STRING;
+    else if (typeStr.equals(VAL_RELATIONAL))
+      type = Attribute.RELATIONAL;
+    else
+      throw new Exception(
+	  "Attribute type '" + typeStr + "' is not supported!");
+
+    // metadata
+    metadata = createMetadata(node);
+    
+    switch (type) {
+      case Attribute.NUMERIC:
+	if (metadata == null)
+	  result = new Attribute(name);
+	else
+	  result = new Attribute(name, metadata);
+	break;
+
+      case Attribute.DATE:
+	if (metadata == null)
+	  result = new Attribute(name, node.getAttribute(ATT_FORMAT));
+	else
+	  result = new Attribute(name, node.getAttribute(ATT_FORMAT), metadata);
+	break;
+	
+      case Attribute.NOMINAL:
+	values = createLabels(node);
+	if (metadata == null)
+	  result = new Attribute(name, values);
+	else
+	  result = new Attribute(name, values, metadata);
+	break;
+	
+      case Attribute.STRING:
+	if (metadata == null)
+	  result = new Attribute(name, (FastVector) null);
+	else
+	  result = new Attribute(name, (FastVector) null, metadata);
+	break;
+	
+      case Attribute.RELATIONAL:
+	list = getChildTags(node, TAG_ATTRIBUTES);
+	node = (Element) list.get(0);
+	atts = createAttributes(node, new int[1]);
+	if (metadata == null)
+	  result = new Attribute(name, new Instances(name, atts, 0));
+	else
+	  result = new Attribute(name, new Instances(name, atts, 0), metadata);
+	break;
+    }
+    
+    return result;
+  }
+  
+  /**
+   * returns a list of generated attributes
+   * 
+   * @param parent	the attributes node
+   * @param classIndex	array of length 1 to return the class index, if any
+   * @return		the vector with the generated attributes
+   * @throws Exception	if generation fails, e.g., due to unknown attribute type
+   */
+  protected FastVector createAttributes(Element parent, int[] classIndex) throws Exception {
+    Vector	list;
+    FastVector	result;
+    int		i;
+    Element	node;
+    Attribute	att;
+
+    result        = new FastVector();
+    classIndex[0] = -1;
+    
+    list = getChildTags(parent, TAG_ATTRIBUTE);
+    for (i = 0; i < list.size(); i++) {
+      node = (Element) list.get(i);
+      att = createAttribute(node);
+      if (node.getAttribute(ATT_CLASS).equals(VAL_YES))
+	classIndex[0] = i;
+      result.addElement(att);
+    }
+    
+    return result;
+  }
+  
+  /**
+   * creates an Instance from the given XML node
+   * 
+   * @param header	the data this instance will belong to
+   * @param parent	the instance node
+   * @return		the configured Instance
+   * @throws Exception	if generation fails, e.g., due to unknown attribute type
+   */
+  protected Instance createInstance(Instances header, Element parent) throws Exception {
+    Instance	result;
+    Element	node;
+    Element	child;
+    boolean	sparse;
+    int		i;
+    int		index;
+    Vector	list;
+    Vector	subList;
+    double[]	values;
+    String	content;
+    double	weight;
+    Instances	data;
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     result = null;
 
     // sparse?
     sparse = (parent.getAttribute(ATT_TYPE).equals(VAL_SPARSE));
     values = new double[header.numAttributes()];
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     // weight
     if (parent.getAttribute(ATT_WEIGHT).length() != 0) {
@@ -836,10 +1570,136 @@ public class XMLInstances extends XMLDocument implements Serializable {
     node = list.get(0);
     classIndex = new int[1];
     atts = createAttributes(node, classIndex);
+<<<<<<< HEAD
+=======
+=======
+    
+    // weight
+    if (parent.getAttribute(ATT_WEIGHT).length() != 0)
+      weight = Double.parseDouble(parent.getAttribute(ATT_WEIGHT));
+    else
+      weight = 1.0;
+    
+    list = getChildTags(parent, TAG_VALUE);
+    for (i = 0; i < list.size(); i++) {
+      node = (Element) list.get(i);
+      
+      // determine index
+      if (sparse)
+	index = Integer.parseInt(node.getAttribute(ATT_INDEX)) - 1;
+      else
+	index = i;
+
+      // set value
+      if (node.getAttribute(ATT_MISSING).equals(VAL_YES)) {
+	values[index] = Instance.missingValue();
+      }
+      else {
+	content = getContent(node);
+	switch (header.attribute(index).type()) {
+	  case Attribute.NUMERIC:
+	    values[index] = Double.parseDouble(content);
+	    break;
+	    
+	  case Attribute.DATE:
+	    values[index] = header.attribute(index).parseDate(content);
+	    break;
+	    
+	  case Attribute.NOMINAL:
+	    values[index] = header.attribute(index).indexOfValue(content);
+	    break;
+	    
+	  case Attribute.STRING:
+	    values[index] = header.attribute(index).addStringValue(content);
+	    break;
+	    
+	  case Attribute.RELATIONAL:
+	    subList       = getChildTags(node, TAG_INSTANCES);
+	    child         = (Element) subList.get(0);
+	    data          = createInstances(header.attribute(index).relation(), child);
+	    values[index] = header.attribute(index).addRelation(data);
+	    break;
+	    
+	  default:
+	    throw new Exception(
+		"Attribute type " + header.attribute(index).type() 
+		+ " is not supported!");  
+	}
+      }
+    }
+    
+    // create instance
+    if (sparse)
+      result = new SparseInstance(weight, values);
+    else
+      result = new Instance(weight, values);
+    
+    return result;
+  }
+  
+  /**
+   * creates Instances from the given XML node
+   * 
+   * @param header	the header of this data
+   * @param parent	the instances node
+   * @return		the generated Instances
+   * @throws Exception	if generation fails, e.g., due to unknown attribute type
+   */
+  protected Instances createInstances(Instances header, Element parent) throws Exception {
+    Instances	result;
+    Vector	list;
+    int		i;
+    
+    result = new Instances(header, 0);
+    
+    list = getChildTags(parent, TAG_INSTANCE);
+    for (i = 0; i < list.size(); i++)
+      result.add(createInstance(result, (Element) list.get(i)));
+    
+    return result;
+  }
+  
+  /**
+   * generates the header from the XML document
+   * 
+   * @return		the generated header
+   * @throws Exception	if generation fails
+   */
+  protected Instances headerFromXML() throws Exception {
+    Instances	result;
+    Element	root;
+    Element	node;
+    Vector	list;
+    FastVector	atts;
+    Version	version;
+    int[]	classIndex;
+
+    root = m_Document.getDocumentElement();
+    
+    // check version
+    version = new Version();
+    if (version.isOlder(root.getAttribute(ATT_VERSION)))
+      System.out.println(
+	  "WARNING: loading data of version " + root.getAttribute(ATT_VERSION)
+	  + " with version " + Version.VERSION);
+    
+    // attributes
+    list       = getChildTags(root, TAG_HEADER);
+    node       = (Element) list.get(0);
+    list       = getChildTags(node, TAG_ATTRIBUTES);
+    node       = (Element) list.get(0);
+    classIndex = new int[1];
+    atts       = createAttributes(node, classIndex);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     // generate header
     result = new Instances(root.getAttribute(ATT_NAME), atts, 0);
     result.setClassIndex(classIndex[0]);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     return result;
   }
@@ -888,16 +1748,80 @@ public class XMLInstances extends XMLDocument implements Serializable {
     return RevisionUtils.extract("$Revision: 10203 $");
   }
 
+<<<<<<< HEAD
+=======
+=======
+    
+    return result;
+  }
+  
+  /**
+   * generates the complete dataset from the XML document
+   * 
+   * @param header	the header structure
+   * @return		the complete dataset
+   * @throws Exception	if generation fails
+   */
+  protected Instances dataFromXML(Instances header) throws Exception {
+    Instances	result;
+    Element	node;
+    Vector	list;
+
+    list   = getChildTags(m_Document.getDocumentElement(), TAG_BODY);
+    node   = (Element) list.get(0);
+    list   = getChildTags(node, TAG_INSTANCES);
+    node   = (Element) list.get(0);
+    result = createInstances(header, node);
+    
+    return result;
+  }
+  
+  /**
+   * reads the XML structure from the given reader
+   * 
+   * @param reader	the reader to get the XML from
+   * @throws Exception	if 
+   */
+  public void setXML(Reader reader) throws Exception {
+    read(reader);
+    
+    // interprete XML structure
+    m_Instances = dataFromXML(headerFromXML());
+  }
+  
+  /**
+   * Returns the revision string.
+   * 
+   * @return		the revision
+   */
+  public String getRevision() {
+    return RevisionUtils.extract("$Revision: 1.4 $");
+  }
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /**
    * takes an XML document as first argument and then outputs the Instances
    * statistics
    * 
+<<<<<<< HEAD
    * @param args the commandline options
+=======
+<<<<<<< HEAD
+   * @param args the commandline options
+=======
+   * @param args	the commandline options
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public static void main(String[] args) {
     try {
       Reader r = null;
       if (args.length != 1) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         throw (new Exception("Usage: XMLInstances <filename>"));
       } else {
         InputStream in = new FileInputStream(args[0]);
@@ -916,6 +1840,31 @@ public class XMLInstances extends XMLDocument implements Serializable {
         System.out.println(i.toSummaryString());
       }
     } catch (Exception ex) {
+<<<<<<< HEAD
+=======
+=======
+	throw (new Exception("Usage: XMLInstances <filename>"));
+      }
+      else {
+	InputStream in = new FileInputStream(args[0]);
+	// compressed file?
+	if (args[0].endsWith(".gz"))
+	  in = new GZIPInputStream(in);
+        r = new BufferedReader(new InputStreamReader(in));
+     }
+      
+      if (args[0].endsWith(Instances.FILE_EXTENSION)) {
+	XMLInstances i = new XMLInstances(new Instances(r));
+	System.out.println(i.toString());
+      }
+      else {
+	Instances i = new XMLInstances(r).getInstances();
+	System.out.println(i.toSummaryString());
+      }
+    }
+    catch (Exception ex) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       ex.printStackTrace();
       System.err.println(ex.getMessage());
     }

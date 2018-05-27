@@ -1,4 +1,8 @@
 /*
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,15 +15,45 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+<<<<<<< HEAD
+=======
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  * PrincipalComponents.java
+<<<<<<< HEAD
  * Copyright (C) 2007-2012 University of Waikato, Hamilton, New Zealand
+=======
+<<<<<<< HEAD
+ * Copyright (C) 2007-2012 University of Waikato, Hamilton, New Zealand
+=======
+ * Copyright (C) 2007 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 package weka.filters.unsupervised.attribute;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Vector;
@@ -31,12 +65,25 @@ import weka.core.Capabilities;
 import weka.core.Capabilities.Capability;
 import weka.core.DenseInstance;
 import weka.core.Instance;
+<<<<<<< HEAD
+=======
+=======
+import weka.core.Attribute;
+import weka.core.Capabilities;
+import weka.core.FastVector;
+import weka.core.Instance; 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.core.Instances;
 import weka.core.Option;
 import weka.core.OptionHandler;
 import weka.core.RevisionUtils;
 import weka.core.SparseInstance;
 import weka.core.Utils;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.filters.Filter;
 import weka.filters.UnsupervisedFilter;
 
@@ -90,6 +137,58 @@ import weka.filters.UnsupervisedFilter;
  */
 public class PrincipalComponents extends Filter implements OptionHandler,
   UnsupervisedFilter {
+<<<<<<< HEAD
+=======
+=======
+import weka.core.Capabilities.Capability;
+import weka.core.matrix.EigenvalueDecomposition;
+import weka.core.matrix.Matrix;
+import weka.filters.Filter;
+import weka.filters.UnsupervisedFilter;
+
+import java.util.Enumeration;
+import java.util.Vector;
+
+/**
+ <!-- globalinfo-start -->
+ * Performs a principal components analysis and transformation of the data.<br/>
+ * Dimensionality reduction is accomplished by choosing enough eigenvectors to account for some percentage of the variance in the original data -- default 0.95 (95%).<br/>
+ * Based on code of the attribute selection scheme 'PrincipalComponents' by Mark Hall and Gabi Schmidberger.
+ * <p/>
+ <!-- globalinfo-end -->
+ * 
+ <!-- options-start -->
+ * Valid options are: <p/>
+ * 
+ * <pre> -D
+ *  Don't normalize input data.</pre>
+ * 
+ * <pre> -R &lt;num&gt;
+ *  Retain enough PC attributes to account
+ *  for this proportion of variance in the original data.
+ *  (default: 0.95)</pre>
+ * 
+ * <pre> -A &lt;num&gt;
+ *  Maximum number of attributes to include in 
+ *  transformed attribute names.
+ *  (-1 = include all, default: 5)</pre>
+ * 
+ * <pre> -M &lt;num&gt;
+ *  Maximum number of PC attributes to retain.
+ *  (-1 = include all, default: -1)</pre>
+ * 
+ <!-- options-end -->
+ *
+ * @author Mark Hall (mhall@cs.waikato.ac.nz) -- attribute selection code
+ * @author Gabi Schmidberger (gabi@cs.waikato.ac.nz) -- attribute selection code
+ * @author fracpete (fracpete at waikato dot ac dot nz) -- filter code
+ * @version $Revision: 11449 $
+ */
+public class PrincipalComponents
+  extends Filter
+  implements OptionHandler, UnsupervisedFilter {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** for serialization. */
   private static final long serialVersionUID = -5649876869480249303L;
@@ -116,6 +215,10 @@ public class PrincipalComponents extends Filter implements OptionHandler,
   protected int m_NumInstances;
 
   /** Correlation matrix for the original data. */
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   protected UpperSymmDenseMatrix m_Correlation;
 
   /**
@@ -128,6 +231,22 @@ public class PrincipalComponents extends Filter implements OptionHandler,
    * Will hold the unordered linear transformations of the (normalized) original
    * data.
    */
+<<<<<<< HEAD
+=======
+=======
+  protected double[][] m_Correlation;
+  
+  /** 
+   * If true, center (rather than standardize) the data and
+   * compute PCA from covariance (rather than correlation)
+   * matrix.
+   */
+  private boolean m_center = false;
+
+  /** Will hold the unordered linear transformations of the (normalized)
+      original data. */
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   protected double[][] m_Eigenvectors;
 
   /** Eigenvalues for the corresponding eigenvectors. */
@@ -141,6 +260,10 @@ public class PrincipalComponents extends Filter implements OptionHandler,
 
   /** Filters for replacing missing values. */
   protected ReplaceMissingValues m_ReplaceMissingFilter;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** Filter for turning nominal values into numeric ones. */
   protected NominalToBinary m_NominalToBinaryFilter;
@@ -151,16 +274,44 @@ public class PrincipalComponents extends Filter implements OptionHandler,
   /** Filter for standardizing the data */
   protected Standardize m_standardizeFilter;
 
+<<<<<<< HEAD
+=======
+=======
+  
+  /** Filter for turning nominal values into numeric ones. */
+  protected NominalToBinary m_NominalToBinaryFilter;
+  
+  /** Filter for removing class attribute, nominal attributes with 0 or 1 value. */
+  protected Remove m_AttributeFilter;
+  
+  /** Filter for standardizing the data */
+  protected Standardize m_standardizeFilter;
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /** Filter for centering the data */
   protected Center m_centerFilter;
 
   /** The number of attributes in the pc transformed data. */
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   protected int m_OutputNumAtts = -1;
 
   /**
    * the amount of varaince to cover in the original data when retaining the
    * best n PC's.
    */
+<<<<<<< HEAD
+=======
+=======
+  protected int m_OutputNumAtts = -1;  
+
+  /** the amount of varaince to cover in the original data when
+      retaining the best n PC's. */
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   protected double m_CoverVariance = 0.95;
 
   /** maximum number of attributes in the transformed attribute name. */
@@ -171,12 +322,28 @@ public class PrincipalComponents extends Filter implements OptionHandler,
 
   /**
    * Returns a string describing this filter.
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return a description of the filter suitable for displaying in the
    *         explorer/experimenter gui
    */
   public String globalInfo() {
     return "Performs a principal components analysis and transformation of "
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @return 		a description of the filter suitable for
+   * 			displaying in the explorer/experimenter gui
+   */
+  public String globalInfo() {
+    return 
+        "Performs a principal components analysis and transformation of "
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       + "the data.\n"
       + "Dimensionality reduction is accomplished by choosing enough eigenvectors "
       + "to account for some percentage of the variance in the original data -- "
@@ -187,6 +354,10 @@ public class PrincipalComponents extends Filter implements OptionHandler,
 
   /**
    * Returns an enumeration describing the available options.
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return an enumeration of all the available options.
    */
@@ -211,11 +382,47 @@ public class PrincipalComponents extends Filter implements OptionHandler,
     result.addElement(new Option(
       "\tMaximum number of PC attributes to retain.\n"
         + "\t(-1 = include all, default: -1)", "M", 1, "-M <num>"));
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @return 		an enumeration of all the available options.
+   */
+  public Enumeration listOptions() {
+    Vector result = new Vector();
+    
+    result.addElement(new Option("\tCenter (rather than standardize) the" +
+        "\n\tdata and compute PCA using the covariance (rather" +
+        "\n\t than the correlation) matrix.",
+        "C", 0, "-C"));
+
+    result.addElement(new Option(
+	"\tRetain enough PC attributes to account\n"
+	+"\tfor this proportion of variance in the original data.\n"
+	+ "\t(default: 0.95)",
+	"R", 1, "-R <num>"));
+
+    result.addElement(new Option(
+	"\tMaximum number of attributes to include in \n"
+	+ "\ttransformed attribute names.\n"
+	+ "\t(-1 = include all, default: 5)", 
+	"A", 1, "-A <num>"));
+
+    result.addElement(new Option(
+	"\tMaximum number of PC attributes to retain.\n"
+	+ "\t(-1 = include all, default: -1)", 
+	"M", 1, "-M <num>"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     return result.elements();
   }
 
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Parses a list of options for this object.
    * <p/>
    * 
@@ -281,10 +488,68 @@ public class PrincipalComponents extends Filter implements OptionHandler,
     setCenterData(Utils.getFlag('C', options));
 
     Utils.checkForRemainingOptions(options);
+<<<<<<< HEAD
+=======
+=======
+   * Parses a list of options for this object. <p/>
+   *
+   <!-- options-start -->
+   * Valid options are: <p/>
+   * 
+   * <pre> -D
+   *  Don't normalize input data.</pre>
+   * 
+   * <pre> -R &lt;num&gt;
+   *  Retain enough PC attributes to account
+   *  for this proportion of variance in the original data.
+   *  (default: 0.95)</pre>
+   * 
+   * <pre> -A &lt;num&gt;
+   *  Maximum number of attributes to include in 
+   *  transformed attribute names.
+   *  (-1 = include all, default: 5)</pre>
+   * 
+   * <pre> -M &lt;num&gt;
+   *  Maximum number of PC attributes to retain.
+   *  (-1 = include all, default: -1)</pre>
+   * 
+   <!-- options-end -->
+   *
+   * @param options 	the list of options as an array of strings
+   * @throws Exception 	if an option is not supported
+   */
+  public void setOptions(String[] options) throws Exception {
+    String        tmpStr;
+
+    tmpStr = Utils.getOption('R', options);
+    if (tmpStr.length() != 0)
+      setVarianceCovered(Double.parseDouble(tmpStr));
+    else
+      setVarianceCovered(0.95);
+
+    tmpStr = Utils.getOption('A', options);
+    if (tmpStr.length() != 0)
+      setMaximumAttributeNames(Integer.parseInt(tmpStr));
+    else
+      setMaximumAttributeNames(5);
+
+    tmpStr = Utils.getOption('M', options);
+    if (tmpStr.length() != 0)
+      setMaximumAttributes(Integer.parseInt(tmpStr));
+    else
+      setMaximumAttributes(-1);
+
+    setCenterData(Utils.getFlag('C', options));    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Gets the current settings of the filter.
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return an array of strings suitable for passing to setOptions
    */
@@ -292,6 +557,18 @@ public class PrincipalComponents extends Filter implements OptionHandler,
   public String[] getOptions() {
 
     Vector<String> result = new Vector<String>();
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @return 		an array of strings suitable for passing to setOptions
+   */
+  public String[] getOptions() {
+    Vector<String>	result;
+
+    result = new Vector<String>();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     result.add("-R");
     result.add("" + getVarianceCovered());
@@ -302,15 +579,30 @@ public class PrincipalComponents extends Filter implements OptionHandler,
     result.add("-M");
     result.add("" + getMaximumAttributes());
 
+<<<<<<< HEAD
     if (getCenterData()) {
       result.add("-C");
     }
+=======
+<<<<<<< HEAD
+    if (getCenterData()) {
+      result.add("-C");
+    }
+=======
+    if (getCenterData())
+      result.add("-C");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     return result.toArray(new String[result.size()]);
   }
 
   /**
    * Returns the tip text for this property
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return tip text for this property suitable for displaying in the
    *         explorer/experimenter gui
@@ -325,16 +617,54 @@ public class PrincipalComponents extends Filter implements OptionHandler,
    * then PCA is computed from the covariance rather than correlation matrix.
    * 
    * @param center true if the data is to be centered rather than standardized
+<<<<<<< HEAD
+=======
+=======
+   * @return tip text for this property suitable for
+   * displaying in the explorer/experimenter gui
+   */
+  public String centerDataTipText() {
+    return "Center (rather than standardize) the data. PCA will "
+      + "be computed from the covariance (rather than correlation) "
+      + "matrix";
+  }
+  
+  /**
+   * Set whether to center (rather than standardize)
+   * the data. If set to true then PCA is computed
+   * from the covariance rather than correlation matrix.
+   * 
+   * @param center true if the data is to be
+   * centered rather than standardized
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public void setCenterData(boolean center) {
     m_center = center;
   }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /**
    * Get whether to center (rather than standardize) the data. If true then PCA
    * is computed from the covariance rather than correlation matrix.
    * 
    * @return true if the data is to be centered rather than standardized.
+<<<<<<< HEAD
+=======
+=======
+  
+  /**
+   * Get whether to center (rather than standardize)
+   * the data. If true then PCA is computed
+   * from the covariance rather than correlation matrix. 
+   * 
+   * @return true if the data is to be centered rather
+   * than standardized.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public boolean getCenterData() {
     return m_center;
@@ -343,28 +673,64 @@ public class PrincipalComponents extends Filter implements OptionHandler,
   /**
    * Returns the tip text for this property.
    * 
+<<<<<<< HEAD
    * @return tip text for this property suitable for displaying in the
    *         explorer/experimenter gui
+=======
+<<<<<<< HEAD
+   * @return tip text for this property suitable for displaying in the
+   *         explorer/experimenter gui
+=======
+   * @return 		tip text for this property suitable for
+   * 			displaying in the explorer/experimenter gui
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public String varianceCoveredTipText() {
     return "Retain enough PC attributes to account for this proportion of variance.";
   }
 
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Sets the amount of variance to account for when retaining principal
    * components.
    * 
    * @param value the proportion of total variance to account for
+<<<<<<< HEAD
+=======
+=======
+   * Sets the amount of variance to account for when retaining
+   * principal components.
+   * 
+   * @param value 	the proportion of total variance to account for
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public void setVarianceCovered(double value) {
     m_CoverVariance = value;
   }
 
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Gets the proportion of total variance to account for when retaining
    * principal components.
    * 
    * @return the proportion of variance to account for
+<<<<<<< HEAD
+=======
+=======
+   * Gets the proportion of total variance to account for when
+   * retaining principal components.
+   * 
+   * @return 		the proportion of variance to account for
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public double getVarianceCovered() {
     return m_CoverVariance;
@@ -373,28 +739,64 @@ public class PrincipalComponents extends Filter implements OptionHandler,
   /**
    * Returns the tip text for this property.
    * 
+<<<<<<< HEAD
    * @return tip text for this property suitable for displaying in the
    *         explorer/experimenter gui
+=======
+<<<<<<< HEAD
+   * @return tip text for this property suitable for displaying in the
+   *         explorer/experimenter gui
+=======
+   * @return 		tip text for this property suitable for
+   * 			displaying in the explorer/experimenter gui
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public String maximumAttributeNamesTipText() {
     return "The maximum number of attributes to include in transformed attribute names.";
   }
 
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Sets maximum number of attributes to include in transformed attribute
    * names.
    * 
    * @param value the maximum number of attributes
+<<<<<<< HEAD
+=======
+=======
+   * Sets maximum number of attributes to include in
+   * transformed attribute names.
+   * 
+   * @param value 	the maximum number of attributes
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public void setMaximumAttributeNames(int value) {
     m_MaxAttrsInName = value;
   }
 
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Gets maximum number of attributes to include in transformed attribute
    * names.
    * 
    * @return the maximum number of attributes
+<<<<<<< HEAD
+=======
+=======
+   * Gets maximum number of attributes to include in
+   * transformed attribute names.
+   * 
+   * @return 		the maximum number of attributes
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public int getMaximumAttributeNames() {
     return m_MaxAttrsInName;
@@ -403,8 +805,18 @@ public class PrincipalComponents extends Filter implements OptionHandler,
   /**
    * Returns the tip text for this property.
    * 
+<<<<<<< HEAD
    * @return tip text for this property suitable for displaying in the
    *         explorer/experimenter gui
+=======
+<<<<<<< HEAD
+   * @return tip text for this property suitable for displaying in the
+   *         explorer/experimenter gui
+=======
+   * @return 		tip text for this property suitable for
+   * 			displaying in the explorer/experimenter gui
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public String maximumAttributesTipText() {
     return "The maximum number of PC attributes to retain.";
@@ -413,7 +825,15 @@ public class PrincipalComponents extends Filter implements OptionHandler,
   /**
    * Sets maximum number of PC attributes to retain.
    * 
+<<<<<<< HEAD
    * @param value the maximum number of attributes
+=======
+<<<<<<< HEAD
+   * @param value the maximum number of attributes
+=======
+   * @param value 	the maximum number of attributes
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public void setMaximumAttributes(int value) {
     m_MaxAttributes = value;
@@ -422,7 +842,15 @@ public class PrincipalComponents extends Filter implements OptionHandler,
   /**
    * Gets maximum number of PC attributes to retain.
    * 
+<<<<<<< HEAD
    * @return the maximum number of attributes
+=======
+<<<<<<< HEAD
+   * @return the maximum number of attributes
+=======
+   * @return 		the maximum number of attributes
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public int getMaximumAttributes() {
     return m_MaxAttributes;
@@ -430,11 +858,24 @@ public class PrincipalComponents extends Filter implements OptionHandler,
 
   /**
    * Returns the capabilities of this evaluator.
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return the capabilities of this evaluator
    * @see Capabilities
    */
   @Override
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @return            the capabilities of this evaluator
+   * @see               Capabilities
+   */
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public Capabilities getCapabilities() {
     Capabilities result = super.getCapabilities();
     result.disableAll();
@@ -457,6 +898,10 @@ public class PrincipalComponents extends Filter implements OptionHandler,
   }
 
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Determines the output format based on the input format and returns this. In
    * case the output format cannot be returned immediately, i.e.,
    * immediateOutputFormat() returns false, then this method will be called from
@@ -495,10 +940,54 @@ public class PrincipalComponents extends Filter implements OptionHandler,
 
     cumulative = 0.0;
     attributes = new ArrayList<Attribute>();
+<<<<<<< HEAD
+=======
+=======
+   * Determines the output format based on the input format and returns 
+   * this. In case the output format cannot be returned immediately, i.e.,
+   * immediateOutputFormat() returns false, then this method will be called
+   * from batchFinished().
+   *
+   * @param inputFormat     the input format to base the output format on
+   * @return                the output format
+   * @throws Exception      in case the determination goes wrong
+   * @see   #hasImmediateOutputFormat()
+   * @see   #batchFinished()
+   */
+  protected Instances determineOutputFormat(Instances inputFormat) throws Exception {
+    double 		cumulative;
+    FastVector 		attributes;
+    int 		i;
+    int 		j;
+    StringBuffer 	attName;
+    double[] 		coeff_mags;
+    int 		num_attrs;
+    int[] 		coeff_inds;
+    double 		coeff_value;
+    int			numAttsLowerBound;
+    
+    if (m_Eigenvalues == null)
+      return inputFormat;
+
+    if (m_MaxAttributes > 0)
+      numAttsLowerBound = m_NumAttribs - m_MaxAttributes;
+    else
+      numAttsLowerBound = 0;
+    if (numAttsLowerBound < 0)
+      numAttsLowerBound = 0;
+    
+    cumulative = 0.0;
+    attributes = new FastVector();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     for (i = m_NumAttribs - 1; i >= numAttsLowerBound; i--) {
       attName = new StringBuffer();
       // build array of coefficients
       coeff_mags = new double[m_NumAttribs];
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       for (j = 0; j < m_NumAttribs; j++) {
         coeff_mags[j] = -Math.abs(m_Eigenvectors[j][m_SortedEigens[i]]);
       }
@@ -583,11 +1072,145 @@ public class PrincipalComponents extends Filter implements OptionHandler,
         m_Correlation.set(i, j, cov);
       }
     }
+<<<<<<< HEAD
+=======
+=======
+      for (j = 0; j < m_NumAttribs; j++)
+	coeff_mags[j] = -Math.abs(m_Eigenvectors[j][m_SortedEigens[i]]);
+      num_attrs = (m_MaxAttrsInName > 0) ? Math.min(m_NumAttribs, m_MaxAttrsInName) : m_NumAttribs;
+
+      // this array contains the sorted indices of the coefficients
+      if (m_NumAttribs > 0) {
+	// if m_maxAttrsInName > 0, sort coefficients by decreasing magnitude
+	coeff_inds = Utils.sort(coeff_mags);
+      }
+      else {
+	// if  m_maxAttrsInName <= 0, use all coeffs in original order
+	coeff_inds = new int[m_NumAttribs];
+	for (j = 0; j < m_NumAttribs; j++)
+	  coeff_inds[j] = j;
+      }
+      // build final attName string
+      for (j = 0; j < num_attrs; j++) {
+	coeff_value = m_Eigenvectors[coeff_inds[j]][m_SortedEigens[i]];
+	if (j > 0 && coeff_value >= 0)
+	  attName.append("+");
+	attName.append(
+	    Utils.doubleToString(coeff_value,5,3) 
+	    + inputFormat.attribute(coeff_inds[j]).name());
+      }
+      if (num_attrs < m_NumAttribs)
+	attName.append("...");
+
+      attributes.addElement(new Attribute(attName.toString()));
+      cumulative += m_Eigenvalues[m_SortedEigens[i]];
+
+      if ((cumulative / m_SumOfEigenValues) >= m_CoverVariance)
+	break;
+    }
+
+    if (m_HasClass)
+      attributes.addElement(m_TrainCopy.classAttribute().copy());
+
+    Instances outputFormat = 
+      new Instances(
+	  m_TrainCopy.relationName() + "_principal components", attributes, 0);
+
+    // set the class to be the last attribute if necessary
+    if (m_HasClass)
+      outputFormat.setClassIndex(outputFormat.numAttributes() - 1);
+
+    m_OutputNumAtts = outputFormat.numAttributes();
+    
+    return outputFormat;
+  }
+  
+  protected void fillCovariance() throws Exception {    
+    
+    if (!m_center) {
+      fillCorrelation();
+      return;
+    }
+    
+    double[] att = new double[m_TrainInstances.numInstances()];
+    
+    // now center the data by subtracting the mean
+    m_centerFilter = new Center();
+    m_centerFilter.setInputFormat(m_TrainInstances);
+    m_TrainInstances = Filter.useFilter(m_TrainInstances, m_centerFilter);
+    
+    // now compute the covariance matrix
+    m_Correlation = new double[m_NumAttribs][m_NumAttribs];
+    
+    for (int i = 0; i < m_NumAttribs; i++) {
+      for (int j = 0; j < m_NumAttribs; j++) {
+        
+        double cov = 0;
+        for (int k = 0; k < m_NumInstances; k++) {
+       
+          if (i == j) {
+            cov += (m_TrainInstances.instance(k).value(i) *
+                m_TrainInstances.instance(k).value(i));
+          } else {
+          cov += (m_TrainInstances.instance(k).value(i) *
+              m_TrainInstances.instance(k).value(j));
+          }
+        }
+        
+        cov /= (double)(m_TrainInstances.numInstances() - 1);
+        m_Correlation[i][j] = cov;
+        m_Correlation[j][i] = cov;                
+      }
+    }
+  }
+
+  /**
+   * Fill the correlation matrix.
+   */
+  protected void fillCorrelation() throws Exception {
+    int		i;
+    int		j;
+    int		k;
+    double[] 	att1;
+    double[] 	att2;
+    double 	corr;
+    
+    m_Correlation = new double[m_NumAttribs][m_NumAttribs];
+    att1          = new double [m_NumInstances];
+    att2          = new double [m_NumInstances];
+
+    for (i = 0; i < m_NumAttribs; i++) {
+      for (j = 0; j < m_NumAttribs; j++) {
+        for (k = 0; k < m_NumInstances; k++) {
+          att1[k] = m_TrainInstances.instance(k).value(i);
+          att2[k] = m_TrainInstances.instance(k).value(j);
+        }
+	if (i == j) {
+	  m_Correlation[i][j] = 1.0;
+	}
+	else {	  
+	  corr = Utils.correlation(att1,att2,m_NumInstances);
+	  m_Correlation[i][j] = corr;
+	  m_Correlation[j][i] = corr;
+	}
+      }
+    }
+    
+    // now standardize the input data
+    m_standardizeFilter = new Standardize();
+    m_standardizeFilter.setInputFormat(m_TrainInstances);
+    m_TrainInstances = Filter.useFilter(m_TrainInstances, m_standardizeFilter);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Transform an instance in original (unormalized) format.
    * 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param instance an instance in the original (unormalized) format
    * @return a transformed instance
    * @throws Exception if instance can't be transformed
@@ -603,11 +1226,39 @@ public class PrincipalComponents extends Filter implements OptionHandler,
     int numAttsLowerBound;
 
     newVals = new double[m_OutputNumAtts];
+<<<<<<< HEAD
+=======
+=======
+   * @param instance 	an instance in the original (unormalized) format
+   * @return 		a transformed instance
+   * @throws Exception 	if instance can't be transformed
+   */
+  protected Instance convertInstance(Instance instance) throws Exception {
+    Instance	result;
+    double[] 	newVals;
+    Instance 	tempInst;
+    double 	cumulative;
+    int		i;
+    int		j;
+    double 	tempval;
+    int		numAttsLowerBound;
+    
+    newVals  = new double[m_OutputNumAtts];
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     tempInst = (Instance) instance.copy();
 
     m_ReplaceMissingFilter.input(tempInst);
     m_ReplaceMissingFilter.batchFinished();
+<<<<<<< HEAD
     tempInst = m_ReplaceMissingFilter.output();
+=======
+<<<<<<< HEAD
+    tempInst = m_ReplaceMissingFilter.output();
+=======
+    tempInst = m_ReplaceMissingFilter.output();    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     m_NominalToBinaryFilter.input(tempInst);
     m_NominalToBinaryFilter.batchFinished();
@@ -618,7 +1269,15 @@ public class PrincipalComponents extends Filter implements OptionHandler,
       m_AttributeFilter.batchFinished();
       tempInst = m_AttributeFilter.output();
     }
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (!m_center) {
       m_standardizeFilter.input(tempInst);
       m_standardizeFilter.batchFinished();
@@ -629,6 +1288,10 @@ public class PrincipalComponents extends Filter implements OptionHandler,
       tempInst = m_centerFilter.output();
     }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (m_HasClass) {
       newVals[m_OutputNumAtts - 1] = instance.value(instance.classIndex());
     }
@@ -663,11 +1326,48 @@ public class PrincipalComponents extends Filter implements OptionHandler,
       result = new DenseInstance(instance.weight(), newVals);
     }
 
+<<<<<<< HEAD
+=======
+=======
+    if (m_HasClass)
+      newVals[m_OutputNumAtts - 1] = instance.value(instance.classIndex());
+
+    if (m_MaxAttributes > 0)
+      numAttsLowerBound = m_NumAttribs - m_MaxAttributes;
+    else
+      numAttsLowerBound = 0;
+    if (numAttsLowerBound < 0)
+      numAttsLowerBound = 0;
+    
+    cumulative = 0;
+    for (i = m_NumAttribs - 1; i >= numAttsLowerBound; i--) {
+      tempval = 0.0;
+      for (j = 0; j < m_NumAttribs; j++)
+	tempval += m_Eigenvectors[j][m_SortedEigens[i]] * tempInst.value(j);
+
+      newVals[m_NumAttribs - i - 1] = tempval;
+      cumulative += m_Eigenvalues[m_SortedEigens[i]];
+      if ((cumulative / m_SumOfEigenValues) >= m_CoverVariance)
+	break;
+    }
+
+    // create instance
+    if (instance instanceof SparseInstance)
+      result = new SparseInstance(instance.weight(), newVals);
+    else
+      result = new Instance(instance.weight(), newVals);
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return result;
   }
 
   /**
    * Initializes the filter with the given input data.
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param instances the data to process
    * @throws Exception in case the processing goes wrong
@@ -680,6 +1380,26 @@ public class PrincipalComponents extends Filter implements OptionHandler,
     int[] todelete;
     double[][] v;
 
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @param instances   the data to process
+   * @throws Exception  in case the processing goes wrong
+   * @see               #batchFinished()
+   */
+  protected void setup(Instances instances) throws Exception {
+    int				i;
+    int				j;
+    Vector<Integer> 		deleteCols;
+    int[] 			todelete;
+    double[][] 			v;
+    Matrix 			corr;
+    EigenvalueDecomposition 	eig;
+    Matrix 			V;
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     m_TrainInstances = new Instances(instances);
 
     // make a copy of the training data so that we can get the class
@@ -688,6 +1408,10 @@ public class PrincipalComponents extends Filter implements OptionHandler,
 
     m_ReplaceMissingFilter = new ReplaceMissingValues();
     m_ReplaceMissingFilter.setInputFormat(m_TrainInstances);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     m_TrainInstances = Filter.useFilter(m_TrainInstances,
       m_ReplaceMissingFilter);
 
@@ -695,16 +1419,40 @@ public class PrincipalComponents extends Filter implements OptionHandler,
     m_NominalToBinaryFilter.setInputFormat(m_TrainInstances);
     m_TrainInstances = Filter.useFilter(m_TrainInstances,
       m_NominalToBinaryFilter);
+<<<<<<< HEAD
+=======
+=======
+    m_TrainInstances = Filter.useFilter(m_TrainInstances, m_ReplaceMissingFilter);
+
+    m_NominalToBinaryFilter = new NominalToBinary();
+    m_NominalToBinaryFilter.setInputFormat(m_TrainInstances);
+    m_TrainInstances = Filter.useFilter(m_TrainInstances, m_NominalToBinaryFilter);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     // delete any attributes with only one distinct value or are all missing
     deleteCols = new Vector<Integer>();
     for (i = 0; i < m_TrainInstances.numAttributes(); i++) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       if (m_TrainInstances.numDistinctValues(i) <= 1) {
         deleteCols.addElement(i);
       }
     }
 
     if (m_TrainInstances.classIndex() >= 0) {
+<<<<<<< HEAD
+=======
+=======
+      if (m_TrainInstances.numDistinctValues(i) <= 1)
+	deleteCols.addElement(i);
+    }
+
+    if (m_TrainInstances.classIndex() >=0) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       // get rid of the class column
       m_HasClass = true;
       m_ClassIndex = m_TrainInstances.classIndex();
@@ -714,10 +1462,22 @@ public class PrincipalComponents extends Filter implements OptionHandler,
     // remove columns from the data if necessary
     if (deleteCols.size() > 0) {
       m_AttributeFilter = new Remove();
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       todelete = new int[deleteCols.size()];
       for (i = 0; i < deleteCols.size(); i++) {
         todelete[i] = (deleteCols.elementAt(i)).intValue();
       }
+<<<<<<< HEAD
+=======
+=======
+      todelete = new int [deleteCols.size()];
+      for (i = 0; i < deleteCols.size(); i++)
+	todelete[i] = ((Integer)(deleteCols.elementAt(i))).intValue();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       m_AttributeFilter.setAttributeIndicesArray(todelete);
       m_AttributeFilter.setInvertSelection(false);
       m_AttributeFilter.setInputFormat(m_TrainInstances);
@@ -728,6 +1488,10 @@ public class PrincipalComponents extends Filter implements OptionHandler,
     getCapabilities().testWithFail(m_TrainInstances);
 
     m_NumInstances = m_TrainInstances.numInstances();
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     m_NumAttribs = m_TrainInstances.numAttributes();
 
     // fillCorrelation();
@@ -747,16 +1511,56 @@ public class PrincipalComponents extends Filter implements OptionHandler,
       }
     }
     m_SortedEigens = Utils.sort(m_Eigenvalues);
+<<<<<<< HEAD
+=======
+=======
+    m_NumAttribs   = m_TrainInstances.numAttributes();
+
+    //fillCorrelation();
+    fillCovariance();
+
+    // get eigen vectors/values
+    corr = new Matrix(m_Correlation);
+    eig  = corr.eig();
+    V    = eig.getV();
+    v    = new double[m_NumAttribs][m_NumAttribs];
+    for (i = 0; i < v.length; i++) {
+      for (j = 0; j < v[0].length; j++)
+        v[i][j] = V.get(i, j);
+    }
+    m_Eigenvectors = (double[][]) v.clone();
+    m_Eigenvalues  = (double[]) eig.getRealEigenvalues().clone();
+
+    // any eigenvalues less than 0 are not worth anything --- change to 0
+    for (i = 0; i < m_Eigenvalues.length; i++) {
+      if (m_Eigenvalues[i] < 0)
+	m_Eigenvalues[i] = 0.0;
+    }
+    m_SortedEigens     = Utils.sort(m_Eigenvalues);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     m_SumOfEigenValues = Utils.sum(m_Eigenvalues);
 
     m_TransformedFormat = determineOutputFormat(m_TrainInstances);
     setOutputFormat(m_TransformedFormat);
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     m_TrainInstances = null;
   }
 
   /**
    * Sets the format of the input instances.
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param instanceInfo an Instances object containing the input instance
    *          structure (any instances contained in the object are ignored -
@@ -774,10 +1578,37 @@ public class PrincipalComponents extends Filter implements OptionHandler,
     m_NominalToBinaryFilter = null;
     m_SumOfEigenValues = 0.0;
 
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @param instanceInfo 	an Instances object containing the input 
+   * 				instance structure (any instances contained 
+   * 				in the object are ignored - only the structure 
+   * 				is required).
+   * @return 			true if the outputFormat may be collected 
+   * 				immediately
+   * @throws Exception 		if the input format can't be set successfully
+   */
+  public boolean setInputFormat(Instances instanceInfo) throws Exception {
+    super.setInputFormat(instanceInfo);
+
+    m_Eigenvalues           = null;
+    m_OutputNumAtts         = -1;
+    m_AttributeFilter       = null;
+    m_NominalToBinaryFilter = null;
+    m_SumOfEigenValues      = 0.0;
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return false;
   }
 
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Input an instance for filtering. Filter requires all training instances be
    * read before producing output.
    * 
@@ -793,11 +1624,34 @@ public class PrincipalComponents extends Filter implements OptionHandler,
     if (getInputFormat() == null) {
       throw new IllegalStateException("No input instance format defined");
     }
+<<<<<<< HEAD
+=======
+=======
+   * Input an instance for filtering. Filter requires all
+   * training instances be read before producing output.
+   *
+   * @param instance 			the input instance
+   * @return 				true if the filtered instance may now be
+   * 					collected with output().
+   * @throws IllegalStateException 	if no input format has been set
+   * @throws Exception 			if conversion fails
+   */
+  public boolean input(Instance instance) throws Exception {
+    Instance 	inst;
+    
+    if (getInputFormat() == null)
+      throw new IllegalStateException("No input instance format defined");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     if (isNewBatch()) {
       resetQueue();
       m_NewBatch = false;
     }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     if (isFirstBatchDone()) {
       inst = convertInstance(instance);
@@ -805,6 +1659,19 @@ public class PrincipalComponents extends Filter implements OptionHandler,
       push(inst, false); // No need to copy
       return true;
     } else {
+<<<<<<< HEAD
+=======
+=======
+    
+    if (isFirstBatchDone()) {
+      inst = convertInstance(instance);
+      inst.setDataset(getOutputFormat());
+      push(inst);
+      return true;
+    }
+    else {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       bufferInput(instance);
       return false;
     }
@@ -812,6 +1679,10 @@ public class PrincipalComponents extends Filter implements OptionHandler,
 
   /**
    * Signify that this batch of input to the filter is finished.
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return true if there are instances pending output
    * @throws NullPointerException if no input structure has been defined,
@@ -854,12 +1725,65 @@ public class PrincipalComponents extends Filter implements OptionHandler,
   @Override
   public String getRevision() {
     return RevisionUtils.extract("$Revision: 12660 $");
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @return true 			if there are instances pending output
+   * @throws NullPointerException 	if no input structure has been defined,
+   * @throws Exception 			if there was a problem finishing the batch.
+   */
+  public boolean batchFinished() throws Exception {
+    int		i;
+    Instances	insts;
+    Instance	inst;
+    
+    if (getInputFormat() == null)
+      throw new NullPointerException("No input instance format defined");
+
+    insts = getInputFormat();
+
+    if (!isFirstBatchDone())
+      setup(insts);
+    
+    for (i = 0; i < insts.numInstances(); i++) {
+      inst = convertInstance(insts.instance(i));
+      inst.setDataset(getOutputFormat());
+      push(inst);
+    }
+    
+    flushInput();
+    m_NewBatch       = true;
+    m_FirstBatchDone = true;
+    
+    return (numPendingOutput() != 0);
+  }
+  
+  /**
+   * Returns the revision string.
+   * 
+   * @return		the revision
+   */
+  public String getRevision() {
+    return RevisionUtils.extract("$Revision: 11449 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Main method for running this filter.
+<<<<<<< HEAD
    * 
    * @param args should contain arguments to the filter: use -h for help
+=======
+<<<<<<< HEAD
+   * 
+   * @param args should contain arguments to the filter: use -h for help
+=======
+   *
+   * @param args 	should contain arguments to the filter: use -h for help
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public static void main(String[] args) {
     runFilter(new PrincipalComponents(), args);

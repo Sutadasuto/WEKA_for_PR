@@ -1,4 +1,8 @@
 /*
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,11 +15,37 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+<<<<<<< HEAD
+=======
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    SetupModePanel.java
+<<<<<<< HEAD
  *    Copyright (C) 2002-2012 University of Waikato, Hamilton, New Zealand
+=======
+<<<<<<< HEAD
+ *    Copyright (C) 2002-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 2002 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
@@ -23,20 +53,50 @@ package weka.gui.experiment;
 
 import weka.experiment.Experiment;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+<<<<<<< HEAD
+=======
+=======
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeListener;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+import javax.swing.ButtonGroup;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 /** 
  * This panel switches between simple and advanced experiment setup panels.
  *
  * @author Richard Kirkby (rkirkby@cs.waikato.ac.nz)
+<<<<<<< HEAD
  * @version $Revision: 12968 $
+=======
+<<<<<<< HEAD
+ * @version $Revision: 12968 $
+=======
+ * @version $Revision: 7059 $
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 public class SetupModePanel
   extends JPanel {
@@ -44,6 +104,10 @@ public class SetupModePanel
   /** for serialization */
   private static final long serialVersionUID = -3758035565520727822L;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /** the available panels. */
   protected AbstractSetupPanel[] m_Panels = AbstractSetupPanel.getPanels();
 
@@ -58,12 +122,34 @@ public class SetupModePanel
 
   /** the current panel. */
   protected AbstractSetupPanel m_CurrentPanel;
+<<<<<<< HEAD
+=======
+=======
+  /** The button for choosing simple setup mode */
+  protected JRadioButton m_SimpleSetupRBut = 
+    new JRadioButton(Messages.getInstance().getString("SetupModePanel_SimpleSetupRBut_JRadioButton_Text"));
+
+  /** The button for choosing advanced setup mode */
+  protected JRadioButton m_AdvancedSetupRBut = 
+    new JRadioButton(Messages.getInstance().getString("SetupModePanel_AdvancedSetupRBut_JRadioButton_Text"));  
+
+  /** The simple setup panel */
+  protected SimpleSetupPanel m_simplePanel = new SimpleSetupPanel();
+
+  /** The advanced setup panel */
+  protected SetupPanel m_advancedPanel = new SetupPanel();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /**
    * Creates the setup panel with no initial experiment.
    */
   public SetupModePanel() {
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     // no panels discovered?
     if (m_Panels.length == 0) {
       System.err.println("No experimenter setup panels discovered? Using fallback (simple, advanced).");
@@ -115,10 +201,57 @@ public class SetupModePanel
 
   /**
    * Switches to the advanced panel.
+<<<<<<< HEAD
+=======
+=======
+    m_simplePanel.setModePanel(this);
+
+    m_SimpleSetupRBut.setMnemonic('S');
+    m_SimpleSetupRBut.addActionListener(new ActionListener() {
+	public void actionPerformed(ActionEvent e) {
+	  switchToSimple(null);
+	}
+      });
+
+    m_AdvancedSetupRBut.setMnemonic('A');
+    m_AdvancedSetupRBut.addActionListener(new ActionListener() {
+	public void actionPerformed(ActionEvent e) {
+	  switchToAdvanced(null);
+	}
+      });
+
+    ButtonGroup modeBG = new ButtonGroup();
+    modeBG.add(m_SimpleSetupRBut);
+    modeBG.add(m_AdvancedSetupRBut);
+    m_SimpleSetupRBut.setSelected(true);
+
+    JPanel modeButtons = new JPanel();
+    modeButtons.setLayout(new GridLayout(1,0));
+    modeButtons.add(m_SimpleSetupRBut);
+    modeButtons.add(m_AdvancedSetupRBut);
+
+    JPanel switchPanel = new JPanel();
+    switchPanel.setLayout(new GridLayout(1,0));
+    switchPanel.add(new JLabel(Messages.getInstance().getString("SetupModePanel_SwitchPanel_JPanel_Text")));
+    switchPanel.add(modeButtons);
+
+    setLayout(new BorderLayout());
+    add(switchPanel, BorderLayout.NORTH);
+    add(m_simplePanel, BorderLayout.CENTER);
+  }
+
+  /**
+   * Switches to the advanced setup mode.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    *
    * @param exp the experiment to configure
    */
   public void switchToAdvanced(Experiment exp) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     switchTo(m_advancedPanel, exp);
     m_ComboBoxPanels.setSelectedItem(m_advancedPanel);
   }
@@ -159,10 +292,53 @@ public class SetupModePanel
     if (m_Panels != null) {
       for (AbstractSetupPanel panel : m_Panels)
         panel.addPropertyChangeListener(l);
+<<<<<<< HEAD
+=======
+=======
+ 
+    if (exp == null) {
+      exp = m_simplePanel.getExperiment();
+    }
+    if (exp != null) {
+      m_AdvancedSetupRBut.setSelected(true);
+      m_advancedPanel.setExperiment(exp);
+    }
+    remove(m_simplePanel);
+    m_simplePanel.removeNotesFrame();
+    add(m_advancedPanel, BorderLayout.CENTER);
+    validate();
+    repaint();
+  }
+  
+  /**
+   * Switches to the simple setup mode only if allowed to.
+   *
+   * @param exp the experiment to configure
+   */
+  public void switchToSimple(Experiment exp) {
+    
+    if (exp == null) {
+      exp = m_advancedPanel.getExperiment();
+    }
+    if (exp != null && !m_simplePanel.setExperiment(exp)) {
+      m_AdvancedSetupRBut.setSelected(true);
+      switchToAdvanced(exp);
+    } else {
+      remove(m_advancedPanel);
+      m_advancedPanel.removeNotesFrame();
+      add(m_simplePanel, BorderLayout.CENTER);
+      validate();
+      repaint();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
   }
 
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Removes a PropertyChangeListener who will be notified of value changes.
    *
    * @param l a value of type 'PropertyChangeListener'
@@ -172,6 +348,19 @@ public class SetupModePanel
       for (AbstractSetupPanel panel : m_Panels)
         panel.removePropertyChangeListener(l);
     }
+<<<<<<< HEAD
+=======
+=======
+   * Adds a PropertyChangeListener who will be notified of value changes.
+   *
+   * @param l a value of type 'PropertyChangeListener'
+   */
+  public void addPropertyChangeListener(PropertyChangeListener l) {
+
+    m_simplePanel.addPropertyChangeListener(l);
+    m_advancedPanel.addPropertyChangeListener(l);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -180,6 +369,16 @@ public class SetupModePanel
    * @return the currently configured experiment.
    */
   public Experiment getExperiment() {
+<<<<<<< HEAD
     return m_CurrentPanel.getExperiment();
+=======
+<<<<<<< HEAD
+    return m_CurrentPanel.getExperiment();
+=======
+
+    if (m_SimpleSetupRBut.isSelected()) return m_simplePanel.getExperiment();
+    else return m_advancedPanel.getExperiment();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 }

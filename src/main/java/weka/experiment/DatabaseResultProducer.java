@@ -1,4 +1,8 @@
 /*
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,17 +15,50 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+<<<<<<< HEAD
+=======
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    DatabaseResultProducer.java
+<<<<<<< HEAD
  *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
+=======
+<<<<<<< HEAD
+ *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 1999 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
 package weka.experiment;
 
+<<<<<<< HEAD
 import java.util.Collections;
+=======
+<<<<<<< HEAD
+import java.util.Collections;
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.util.Enumeration;
 import java.util.Vector;
 
@@ -128,10 +165,24 @@ import weka.core.Utils;
  * <!-- options-end -->
  * 
  * @author Len Trigg (trigg@cs.waikato.ac.nz)
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  * @version $Revision: 11247 $
  */
 public class DatabaseResultProducer extends DatabaseResultListener implements
   ResultProducer, OptionHandler, AdditionalMeasureProducer {
+<<<<<<< HEAD
+=======
+=======
+ * @version $Revision: 11198 $
+ */
+public class DatabaseResultProducer
+  extends DatabaseResultListener
+  implements ResultProducer, OptionHandler, AdditionalMeasureProducer {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** for serialization */
   static final long serialVersionUID = -5620660780203158666L;
@@ -141,7 +192,19 @@ public class DatabaseResultProducer extends DatabaseResultListener implements
 
   /** The ResultListener to send results to */
   protected ResultListener m_ResultListener = new CSVResultListener();
+<<<<<<< HEAD
  
+=======
+<<<<<<< HEAD
+ 
+=======
+
+  /** The ResultProducer used to generate results */
+  protected ResultProducer m_ResultProducer =
+    new CrossValidationResultProducer();
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /** The names of any additional measures to look for in SplitEvaluators */
   protected String[] m_AdditionalMeasures = null;
 
@@ -168,7 +231,14 @@ public class DatabaseResultProducer extends DatabaseResultListener implements
   public DatabaseResultProducer() throws Exception {
 
     super();
+<<<<<<< HEAD
     m_ResultProducer = new CrossValidationResultProducer();
+=======
+<<<<<<< HEAD
+    m_ResultProducer = new CrossValidationResultProducer();
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -305,7 +375,16 @@ public class DatabaseResultProducer extends DatabaseResultListener implements
     // System.err.println("DBRP::acceptResult");
 
     // Is the result needed by the listener?
+<<<<<<< HEAD
     boolean isRequiredByListener = m_ResultListener.isResultRequired(this, key);
+=======
+<<<<<<< HEAD
+    boolean isRequiredByListener = m_ResultListener.isResultRequired(this, key);
+=======
+    boolean isRequiredByListener = m_ResultListener.isResultRequired(this,
+      key);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     // Is the result already in the database?
     boolean isRequiredByDatabase = super.isResultRequired(rp, key);
 
@@ -345,13 +424,31 @@ public class DatabaseResultProducer extends DatabaseResultListener implements
     // System.err.println("DBRP::isResultRequired");
 
     // Is the result needed by the listener?
+<<<<<<< HEAD
     boolean isRequiredByListener = m_ResultListener.isResultRequired(this, key);
+=======
+<<<<<<< HEAD
+    boolean isRequiredByListener = m_ResultListener.isResultRequired(this, key);
+=======
+    boolean isRequiredByListener = m_ResultListener.isResultRequired(this,
+      key);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     // Is the result already in the database?
     boolean isRequiredByDatabase = super.isResultRequired(rp, key);
 
     if (!isRequiredByDatabase && isRequiredByListener) {
       // Pass the result through to the listener
+<<<<<<< HEAD
       Object[] result = getResultFromTable(m_ResultsTableName, rp, key);
+=======
+<<<<<<< HEAD
+      Object[] result = getResultFromTable(m_ResultsTableName, rp, key);
+=======
+      Object[] result = getResultFromTable(m_ResultsTableName,
+        rp, key);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       System.err.println("Got result from database: "
         + DatabaseUtils.arrayToString(result));
       m_ResultListener.acceptResult(this, key, result);
@@ -449,6 +546,10 @@ public class DatabaseResultProducer extends DatabaseResultListener implements
    * @return an enumeration of all the available options.
    */
   @Override
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public Enumeration<Option> listOptions() {
 
     Vector<Option> newVector = new Vector<Option>(2);
@@ -468,6 +569,36 @@ public class DatabaseResultProducer extends DatabaseResultListener implements
           + m_ResultProducer.getClass().getName() + ":"));
       newVector.addAll(Collections.list(((OptionHandler) m_ResultProducer)
         .listOptions()));
+<<<<<<< HEAD
+=======
+=======
+  public Enumeration listOptions() {
+
+    Vector newVector = new Vector(2);
+
+    newVector.addElement(new Option(
+      "\tThe name of the database field to cache over.\n"
+        + "\teg: \"Fold\" (default none)",
+      "F", 1,
+      "-F <field name>"));
+    newVector.addElement(new Option(
+      "\tThe full class name of a ResultProducer.\n"
+        + "\teg: weka.experiment.CrossValidationResultProducer",
+      "W", 1,
+      "-W <class name>"));
+
+    if ((m_ResultProducer != null) &&
+      (m_ResultProducer instanceof OptionHandler)) {
+      newVector.addElement(new Option(
+        "",
+        "", 0, "\nOptions specific to result producer "
+          + m_ResultProducer.getClass().getName() + ":"));
+      Enumeration enu = ((OptionHandler) m_ResultProducer).listOptions();
+      while (enu.hasMoreElements()) {
+        newVector.addElement(enu.nextElement());
+      }
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
     return newVector.elements();
   }
@@ -574,6 +705,10 @@ public class DatabaseResultProducer extends DatabaseResultListener implements
     setCacheKeyName(Utils.getOption('F', options));
 
     String rpName = Utils.getOption('W', options);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (rpName.length() == 0) {
       throw new Exception("A ResultProducer must be specified with"
         + " the -W option.");
@@ -586,6 +721,23 @@ public class DatabaseResultProducer extends DatabaseResultListener implements
     if (getResultProducer() instanceof OptionHandler) {
       ((OptionHandler) getResultProducer()).setOptions(Utils
         .partitionOptions(options));
+<<<<<<< HEAD
+=======
+=======
+    if (rpName.length() > 0) {
+      // Do it first without options, so if an exception is thrown during
+      // the option setting, listOptions will contain options for the actual
+      // RP.
+      setResultProducer((ResultProducer) Utils.forName(
+        ResultProducer.class,
+        rpName,
+        null));
+    }
+    if (getResultProducer() instanceof OptionHandler) {
+      ((OptionHandler) getResultProducer())
+        .setOptions(Utils.partitionOptions(options));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
   }
 
@@ -598,8 +750,18 @@ public class DatabaseResultProducer extends DatabaseResultListener implements
   public String[] getOptions() {
 
     String[] seOptions = new String[0];
+<<<<<<< HEAD
     if ((m_ResultProducer != null)
       && (m_ResultProducer instanceof OptionHandler)) {
+=======
+<<<<<<< HEAD
+    if ((m_ResultProducer != null)
+      && (m_ResultProducer instanceof OptionHandler)) {
+=======
+    if ((m_ResultProducer != null) &&
+      (m_ResultProducer instanceof OptionHandler)) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       seOptions = ((OptionHandler) m_ResultProducer).getOptions();
     }
 
@@ -616,7 +778,16 @@ public class DatabaseResultProducer extends DatabaseResultListener implements
     }
     options[current++] = "--";
 
+<<<<<<< HEAD
     System.arraycopy(seOptions, 0, options, current, seOptions.length);
+=======
+<<<<<<< HEAD
+    System.arraycopy(seOptions, 0, options, current, seOptions.length);
+=======
+    System.arraycopy(seOptions, 0, options, current,
+      seOptions.length);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     current += seOptions.length;
     while (current < options.length) {
       options[current++] = "";
@@ -638,7 +809,16 @@ public class DatabaseResultProducer extends DatabaseResultListener implements
 
     if (m_ResultProducer != null) {
       System.err.println("DatabaseResultProducer: setting additional "
+<<<<<<< HEAD
         + "measures for " + "ResultProducer");
+=======
+<<<<<<< HEAD
+        + "measures for " + "ResultProducer");
+=======
+        + "measures for "
+        + "ResultProducer");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       m_ResultProducer.setAdditionalMeasures(m_AdditionalMeasures);
     }
   }
@@ -650,6 +830,10 @@ public class DatabaseResultProducer extends DatabaseResultListener implements
    * @return an enumeration of the measure names
    */
   @Override
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public Enumeration<String> enumerateMeasures() {
     Vector<String> newVector = new Vector<String>();
     if (m_ResultProducer instanceof AdditionalMeasureProducer) {
@@ -657,6 +841,18 @@ public class DatabaseResultProducer extends DatabaseResultListener implements
         .enumerateMeasures();
       while (en.hasMoreElements()) {
         String mname = en.nextElement();
+<<<<<<< HEAD
+=======
+=======
+  public Enumeration enumerateMeasures() {
+    Vector newVector = new Vector();
+    if (m_ResultProducer instanceof AdditionalMeasureProducer) {
+      Enumeration en = ((AdditionalMeasureProducer) m_ResultProducer).
+        enumerateMeasures();
+      while (en.hasMoreElements()) {
+        String mname = (String) en.nextElement();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         newVector.addElement(mname);
       }
     }
@@ -673,12 +869,27 @@ public class DatabaseResultProducer extends DatabaseResultListener implements
   @Override
   public double getMeasure(String additionalMeasureName) {
     if (m_ResultProducer instanceof AdditionalMeasureProducer) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       return ((AdditionalMeasureProducer) m_ResultProducer)
         .getMeasure(additionalMeasureName);
     } else {
       throw new IllegalArgumentException("DatabaseResultProducer: "
         + "Can't return value for : " + additionalMeasureName + ". "
         + m_ResultProducer.getClass().getName() + " "
+<<<<<<< HEAD
+=======
+=======
+      return ((AdditionalMeasureProducer) m_ResultProducer).
+        getMeasure(additionalMeasureName);
+    } else {
+      throw new IllegalArgumentException("DatabaseResultProducer: "
+        + "Can't return value for : " + additionalMeasureName
+        + ". " + m_ResultProducer.getClass().getName() + " "
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         + "is not an AdditionalMeasureProducer");
     }
   }
@@ -762,6 +973,14 @@ public class DatabaseResultProducer extends DatabaseResultListener implements
    */
   @Override
   public String getRevision() {
+<<<<<<< HEAD
     return RevisionUtils.extract("$Revision: 11247 $");
+=======
+<<<<<<< HEAD
+    return RevisionUtils.extract("$Revision: 11247 $");
+=======
+    return RevisionUtils.extract("$Revision: 11198 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 } // DatabaseResultProducer

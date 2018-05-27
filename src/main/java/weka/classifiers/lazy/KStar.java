@@ -1,4 +1,8 @@
 /*
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,22 +15,58 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+<<<<<<< HEAD
+=======
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    KStar.java
+<<<<<<< HEAD
  *    Copyright (C) 1995-2012 University of Waikato, Hamilton, New Zealand
+=======
+<<<<<<< HEAD
+ *    Copyright (C) 1995-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 1995-97 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
 package weka.classifiers.lazy;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.Random;
 import java.util.Vector;
 
 import weka.classifiers.AbstractClassifier;
+<<<<<<< HEAD
+=======
+=======
+import weka.classifiers.Classifier;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.classifiers.UpdateableClassifier;
 import weka.classifiers.lazy.kstar.KStarCache;
 import weka.classifiers.lazy.kstar.KStarConstants;
@@ -34,7 +74,14 @@ import weka.classifiers.lazy.kstar.KStarNominalAttribute;
 import weka.classifiers.lazy.kstar.KStarNumericAttribute;
 import weka.core.Attribute;
 import weka.core.Capabilities;
+<<<<<<< HEAD
 import weka.core.Capabilities.Capability;
+=======
+<<<<<<< HEAD
+import weka.core.Capabilities.Capability;
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.Option;
@@ -42,10 +89,28 @@ import weka.core.RevisionUtils;
 import weka.core.SelectedTag;
 import weka.core.Tag;
 import weka.core.TechnicalInformation;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.core.TechnicalInformation.Field;
 import weka.core.TechnicalInformation.Type;
 import weka.core.TechnicalInformationHandler;
 import weka.core.Utils;
+<<<<<<< HEAD
+=======
+=======
+import weka.core.TechnicalInformationHandler;
+import weka.core.Utils;
+import weka.core.Capabilities.Capability;
+import weka.core.TechnicalInformation.Field;
+import weka.core.TechnicalInformation.Type;
+
+import java.util.Enumeration;
+import java.util.Random;
+import java.util.Vector;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
 /**
  <!-- globalinfo-start -->
@@ -91,10 +156,23 @@ import weka.core.Utils;
  *
  * @author Len Trigg (len@reeltwo.com)
  * @author Abdelaziz Mahoui (am14@cs.waikato.ac.nz) - Java port
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  * @version $Revision: 10141 $
  */
 public class KStar 
   extends AbstractClassifier
+<<<<<<< HEAD
+=======
+=======
+ * @version $Revision: 5525 $
+ */
+public class KStar 
+  extends Classifier
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   implements KStarConstants, UpdateableClassifier, TechnicalInformationHandler {
 
   /** for serialization */
@@ -217,7 +295,16 @@ public class KStar
    * @throws Exception if the classifier has not been generated successfully
    */
   public void buildClassifier(Instances instances) throws Exception {
+<<<<<<< HEAD
     
+=======
+<<<<<<< HEAD
+    
+=======
+    String debug = "(KStar.buildClassifier) ";
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     // can classifier handle the data?
     getCapabilities().testWithFail(instances);
 
@@ -238,9 +325,22 @@ public class KStar
    * @throws Exception if instance could not be incorporated successfully
    */
   public void updateClassifier(Instance instance) throws Exception {
+<<<<<<< HEAD
     
     if (m_Train.equalHeaders(instance.dataset()) == false)
       throw new Exception("Incompatible instance types\n" + m_Train.equalHeadersMsg(instance.dataset()));
+=======
+<<<<<<< HEAD
+    
+    if (m_Train.equalHeaders(instance.dataset()) == false)
+      throw new Exception("Incompatible instance types\n" + m_Train.equalHeadersMsg(instance.dataset()));
+=======
+    String debug = "(KStar.updateClassifier) ";
+
+    if (m_Train.equalHeaders(instance.dataset()) == false)
+      throw new Exception("Incompatible instance types");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if ( instance.classIsMissing() )
       return;
     m_Train.add(instance);
@@ -257,6 +357,13 @@ public class KStar
    */
   public double [] distributionForInstance(Instance instance) throws Exception {
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+    String debug = "(KStar.distributionForInstance) ";
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     double transProb = 0.0, temp = 0.0;
     double [] classProbability = new double[m_NumClasses];
     double [] predictedValue = new double[1];
@@ -281,7 +388,15 @@ public class KStar
     }
     // init done.
     Instance trainInstance;
+<<<<<<< HEAD
     Enumeration<Instance> enu = m_Train.enumerateInstances();
+=======
+<<<<<<< HEAD
+    Enumeration<Instance> enu = m_Train.enumerateInstances();
+=======
+    Enumeration enu = m_Train.enumerateInstances();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     while ( enu.hasMoreElements() ) {
       trainInstance = (Instance)enu.nextElement();
       transProb = instanceTransformationProbability(instance, trainInstance);      
@@ -322,6 +437,13 @@ public class KStar
    */
   private double instanceTransformationProbability(Instance first, 
 						   Instance second) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+    String debug = "(KStar.instanceTransformationProbability) ";
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     double transProb = 1.0;
     int numMissAttr = 0;
     for (int i = 0; i < m_NumAttributes; i++) {
@@ -356,7 +478,15 @@ public class KStar
    * @return the value of the transformation probability.
    */
   private double attrTransProb(Instance first, Instance second, int col) {
+<<<<<<< HEAD
     
+=======
+<<<<<<< HEAD
+    
+=======
+    String debug = "(KStar.attrTransProb)";
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     double transProb = 0.0;
     KStarNominalAttribute ksNominalAttr;
     KStarNumericAttribute ksNumericAttr;
@@ -421,9 +551,21 @@ public class KStar
    *
    * @return an enumeration of all the available options.
    */
+<<<<<<< HEAD
   public Enumeration<Option> listOptions() {
 
     Vector<Option> optVector = new Vector<Option>( 3 );
+=======
+<<<<<<< HEAD
+  public Enumeration<Option> listOptions() {
+
+    Vector<Option> optVector = new Vector<Option>( 3 );
+=======
+  public Enumeration listOptions() {
+
+    Vector optVector = new Vector( 3 );
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     optVector.addElement(new Option(
 	      "\tManual blend setting (default 20%)\n",
 	      "B", 1, "-B <num>"));
@@ -434,9 +576,18 @@ public class KStar
 	      "\tSpecify the missing value treatment mode (default a)\n"
 	      +"\tValid options are: a(verage), d(elete), m(axdiff), n(ormal)\n",
 	      "M", 1,"-M <char>"));
+<<<<<<< HEAD
     
     optVector.addAll(Collections.list(super.listOptions()));
     
+=======
+<<<<<<< HEAD
+    
+    optVector.addAll(Collections.list(super.listOptions()));
+    
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return optVector.elements();
   }
    
@@ -529,7 +680,15 @@ public class KStar
    * @throws Exception if an option is not supported
    */
   public void setOptions(String[] options) throws Exception {
+<<<<<<< HEAD
     
+=======
+<<<<<<< HEAD
+    
+=======
+    String debug = "(KStar.setOptions)";
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     String blendStr = Utils.getOption('B', options);
     if (blendStr.length() != 0) {
       setGlobalBlend(Integer.parseInt(blendStr));
@@ -556,9 +715,18 @@ public class KStar
 	setMissingMode(new SelectedTag(M_AVERAGE, TAGS_MISSING));
       }
     }
+<<<<<<< HEAD
     
     super.setOptions(options);
     
+=======
+<<<<<<< HEAD
+    
+    super.setOptions(options);
+    
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     Utils.checkForRemainingOptions(options);
   }
 
@@ -570,6 +738,10 @@ public class KStar
    */
   public String [] getOptions() {
     // -B <num> -E -M <char>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     Vector<String> options = new Vector<String>();
     
     options.add("-B");
@@ -596,6 +768,37 @@ public class KStar
     Collections.addAll(options, super.getOptions());
     
     return options.toArray(new String[0]);
+<<<<<<< HEAD
+=======
+=======
+    String [] options = new String [ 5 ];
+    int itr = 0;
+    options[itr++] = "-B";
+    options[itr++] = "" + m_GlobalBlend;
+
+    if (getEntropicAutoBlend()) {
+      options[itr++] = "-E";
+    }
+
+    options[itr++] = "-M";
+    if (m_MissingMode == M_AVERAGE) {
+      options[itr++] = "" + "a";
+    }
+    else if (m_MissingMode == M_DELETE) {
+      options[itr++] = "" + "d";
+    }
+    else if (m_MissingMode == M_MAXDIFF) {
+      options[itr++] = "" + "m";
+    }
+    else if (m_MissingMode == M_NORMAL) {
+      options[itr++] = "" + "n";
+    }
+    while (itr < options.length) {
+      options[itr++] = "";
+    }
+    return options;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -653,7 +856,15 @@ public class KStar
    * Generates a set of random versions of the class colomn.
    */
   private void generateRandomClassColomns() {
+<<<<<<< HEAD
     
+=======
+<<<<<<< HEAD
+    
+=======
+    String debug = "(KStar.generateRandomClassColomns)";
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     Random generator = new Random(42);
     //    Random generator = new Random();
     m_RandClassCols = new int [NUM_RAND_COLS+1][];
@@ -673,7 +884,15 @@ public class KStar
    * @return an array of class values
    */
   private int [] classValues() {
+<<<<<<< HEAD
     
+=======
+<<<<<<< HEAD
+    
+=======
+    String debug = "(KStar.classValues)";
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     int [] classval = new int[m_NumInstances];
     for (int i=0; i < m_NumInstances; i++) {
       try {
@@ -693,7 +912,15 @@ public class KStar
    * @return a copy of the array with its elements randomly redistributed.
    */
   private int [] randomize(int [] array, Random generator) {
+<<<<<<< HEAD
     
+=======
+<<<<<<< HEAD
+    
+=======
+    String debug = "(KStar.randomize)";
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     int index;
     int temp;
     int [] newArray = new int[array.length];
@@ -713,7 +940,15 @@ public class KStar
    * @return		the revision
    */
   public String getRevision() {
+<<<<<<< HEAD
     return RevisionUtils.extract("$Revision: 10141 $");
+=======
+<<<<<<< HEAD
+    return RevisionUtils.extract("$Revision: 10141 $");
+=======
+    return RevisionUtils.extract("$Revision: 5525 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
 } // class end

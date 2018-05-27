@@ -1,4 +1,8 @@
 /*
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,11 +15,37 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+<<<<<<< HEAD
+=======
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    Environment.java
+<<<<<<< HEAD
  *    Copyright (C) 2008-2012 University of Waikato, Hamilton, New Zealand
+=======
+<<<<<<< HEAD
+ *    Copyright (C) 2008-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 2008 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
@@ -30,6 +60,10 @@ import java.util.TreeMap;
 
 /**
  * This class encapsulates a map of all environment and java system properties.
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  * There are methods for adding and removing variables to this Environment
  * object as well as to the system wide global environment. There is also a
  * method for replacing key names (enclosed by ${}) with their associated value
@@ -52,6 +86,27 @@ public class Environment implements RevisionHandler {
   public Environment() {
     // get the env variables first
     Map<String, String> env = System.getenv();
+<<<<<<< HEAD
+=======
+=======
+ * There are methods for adding and removing variables as well as a method for
+ * replacing key names (enclosed by ${}) with their associated value in Strings.
+ *
+ * @author Mark Hall (mhall{[at]}pentaho{[dot]}com)
+ * @version $Revision: 5562 $
+ */
+public class Environment implements RevisionHandler {
+  
+  private static Environment m_systemWide = new Environment();
+  
+  // Map to hold all the system environment variables + java properties
+  private Map<String,String> m_envVars = new TreeMap<String,String>();
+  
+  public Environment() {
+    // get the env variables first
+    Map<String,String> env = System.getenv();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     Set<String> keys = env.keySet();
     Iterator<String> i = keys.iterator();
     while (i.hasNext()) {
@@ -62,14 +117,30 @@ public class Environment implements RevisionHandler {
 
     // get the java properties
     Properties jvmProps = System.getProperties();
+<<<<<<< HEAD
     Enumeration<?> pKeys = jvmProps.propertyNames();
     while (pKeys.hasMoreElements()) {
       String kv = (String) pKeys.nextElement();
+=======
+<<<<<<< HEAD
+    Enumeration<?> pKeys = jvmProps.propertyNames();
+    while (pKeys.hasMoreElements()) {
+      String kv = (String) pKeys.nextElement();
+=======
+    Enumeration pKeys = jvmProps.propertyNames();
+    while (pKeys.hasMoreElements()) {
+      String kv = (String)pKeys.nextElement();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       String value = jvmProps.getProperty(kv);
       m_envVars.put(kv, value);
     }
     m_envVars.put("weka.version", Version.VERSION);
   }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /**
    * Constructor that makes a new Environment object containing all
@@ -84,18 +155,45 @@ public class Environment implements RevisionHandler {
   /**
    * Get the singleton system-wide (visible to every class in the running VM)
    * set of environment variables.
+<<<<<<< HEAD
+=======
+=======
+  
+  /**
+   * Get the singleton system-wide (visible to every
+   * class in the running VM) set of environment
+   * variables.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return the system-wide set of environment variables.
    */
   public static Environment getSystemWide() {
     return m_systemWide;
   }
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /**
    * Tests for the presence of environment variables.
    * 
    * @param source the string to test
+<<<<<<< HEAD
    * @return true if the argument contains one or more environment variables
+=======
+<<<<<<< HEAD
+   * @return true if the argument contains one or more environment variables
+=======
+   * @return true if the argument contains one or more environment
+   * variables
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public static boolean containsEnvVariables(String source) {
     return (source.indexOf("${") >= 0);
@@ -115,7 +213,15 @@ public class Environment implements RevisionHandler {
     while (index >= 0) {
       index += 2;
       int endIndex = source.indexOf('}');
+<<<<<<< HEAD
       if (endIndex >= 0 && endIndex > index + 1) {
+=======
+<<<<<<< HEAD
+      if (endIndex >= 0 && endIndex > index + 1) {
+=======
+      if (endIndex >= 0 && endIndex > index +1) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         String key = source.substring(index, endIndex);
 
         // look this sucker up
@@ -124,8 +230,18 @@ public class Environment implements RevisionHandler {
           String toReplace = "${" + key + "}";
           source = source.replace(toReplace, replace);
         } else {
+<<<<<<< HEAD
           throw new Exception("[Environment] Variable " + key
             + " doesn't seem to be set.");
+=======
+<<<<<<< HEAD
+          throw new Exception("[Environment] Variable " + key
+            + " doesn't seem to be set.");
+=======
+          throw new Exception("[Environment] Variable " 
+                              + key + " doesn't seem to be set.");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         }
       } else {
         break;
@@ -136,8 +252,18 @@ public class Environment implements RevisionHandler {
   }
 
   /**
+<<<<<<< HEAD
    * Add a variable to the internal map of this properties object.
    * 
+=======
+<<<<<<< HEAD
+   * Add a variable to the internal map of this properties object.
+   * 
+=======
+   * Add a variable to the internal map.
+   *
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param key the name of the variable
    * @param value its value
    */
@@ -146,6 +272,10 @@ public class Environment implements RevisionHandler {
   }
 
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Add a a variable to the internal map of this properties object and to the
    * global system-wide environment;
    * 
@@ -165,14 +295,34 @@ public class Environment implements RevisionHandler {
   /**
    * Remove a named variable from the map.
    * 
+<<<<<<< HEAD
+=======
+=======
+   * Remove a named variable from the map.
+   *
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param key the name of the varaible to remove.
    */
   public void removeVariable(String key) {
     m_envVars.remove(key);
   }
+<<<<<<< HEAD
 
   /**
    * Get the names of the variables (keys) stored in the internal map.
+=======
+<<<<<<< HEAD
+
+  /**
+   * Get the names of the variables (keys) stored in the internal map.
+=======
+  
+  /**
+   * Get the names of the variables (keys) stored in the 
+   * internal map.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return a Set of variable names (keys)
    */
@@ -182,14 +332,31 @@ public class Environment implements RevisionHandler {
 
   /**
    * Get the value for a particular variable.
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param key the name of the variable to get
    * @return the associated value or null if this variable is not in the
    *         internal map
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @param key the name of the variable to get
+   * @return the associated value or null if this variable
+   * is not in the internal map
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public String getVariableValue(String key) {
     return m_envVars.get(key);
   }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /**
    * Main method for testing this class.
@@ -211,6 +378,29 @@ public class Environment implements RevisionHandler {
           String newS = t.substitute(arg);
           System.out.println("Original string:\n" + arg + "\n\nNew string:\n"
             + newS);
+<<<<<<< HEAD
+=======
+=======
+  
+  /**
+   * Main method for testing this class.
+   *
+   * @param args a list of strings to replace variables in 
+   * (e.g. "\${os.name} "\${java.version}")
+   */
+  public static void main(String[] args) {
+    Environment t = new Environment();
+    //    String test = "Here is a string with the variable ${java.version} and ${os.name} in it";
+
+    if (args.length == 0) {
+      System.err.println("Usage: java weka.core.Environment <string> <string> ...");
+    } else {
+      try {
+        for (int i = 0; i < args.length; i++) {
+          String newS = t.substitute(args[i]);
+          System.out.println("Original string:\n" + args[i] +"\n\nNew string:\n" + newS);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         }
       } catch (Exception ex) {
         ex.printStackTrace();
@@ -221,6 +411,10 @@ public class Environment implements RevisionHandler {
   /**
    * Returns the revision string.
    * 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @return the revision
    */
   @Override
@@ -228,3 +422,14 @@ public class Environment implements RevisionHandler {
     return RevisionUtils.extract("$Revision: 13893 $");
   }
 }
+<<<<<<< HEAD
+=======
+=======
+   * @return		the revision
+   */
+  public String getRevision() {
+    return RevisionUtils.extract("$Revision: 5562 $");
+  }
+}
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb

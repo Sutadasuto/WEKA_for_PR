@@ -1,4 +1,8 @@
 /*
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,14 +15,46 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+<<<<<<< HEAD
+=======
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  * ResultSetHelper.java
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  * Copyright (C) 2005-2012 University of Waikato, Hamilton, New Zealand
  *
  */
 
+<<<<<<< HEAD
+=======
+=======
+ * Copyright (C) 2005 University of Waikato, Hamilton, New Zealand
+ *
+ */
+
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 package weka.gui.sql;
 
 import java.sql.ResultSet;
@@ -29,12 +65,27 @@ import java.util.Vector;
 /**
  * Represents an extended JTable, containing a table model based on a ResultSet
  * and the corresponding query.
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  * 
  * @author FracPete (fracpete at waikato dot ac dot nz)
  * @version $Revision: 11247 $
  */
 public class ResultSetHelper {
 
+<<<<<<< HEAD
+=======
+=======
+ *
+ * @author      FracPete (fracpete at waikato dot ac dot nz)
+ * @version     $Revision: 7043 $
+ */
+public class ResultSetHelper {
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /** the resultset to work on. */
   protected ResultSet m_ResultSet;
 
@@ -57,35 +108,77 @@ public class ResultSetHelper {
   protected boolean[] m_NumericColumns = null;
 
   /** the class for each column. */
+<<<<<<< HEAD
   protected Class<?>[] m_ColumnClasses = null;
+=======
+<<<<<<< HEAD
+  protected Class<?>[] m_ColumnClasses = null;
+=======
+  protected Class[] m_ColumnClasses = null;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /**
    * initializes the helper, with unlimited number of rows.
    * 
+<<<<<<< HEAD
    * @param rs the resultset to work on
+=======
+<<<<<<< HEAD
+   * @param rs the resultset to work on
+=======
+   * @param rs        the resultset to work on
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public ResultSetHelper(ResultSet rs) {
     this(rs, 0);
   }
 
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * initializes the helper, with the given maximum number of rows (less than 1
    * means unlimited).
    * 
    * @param rs the resultset to work on
    * @param max the maximum number of rows to retrieve
+<<<<<<< HEAD
+=======
+=======
+   * initializes the helper, with the given maximum number of rows (less than
+   * 1 means unlimited).
+   * 
+   * @param rs        the resultset to work on
+   * @param max       the maximum number of rows to retrieve
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public ResultSetHelper(ResultSet rs, int max) {
     super();
 
     m_ResultSet = rs;
+<<<<<<< HEAD
     m_MaxRows = max;
+=======
+<<<<<<< HEAD
+    m_MaxRows = max;
+=======
+    m_MaxRows   = max;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * initializes, i.e. reads the data, etc.
    */
   protected void initialize() {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     ResultSetMetaData meta;
     int i;
 
@@ -93,11 +186,26 @@ public class ResultSetHelper {
       return;
     }
 
+<<<<<<< HEAD
+=======
+=======
+    ResultSetMetaData     meta;
+    int                   i;
+    
+    if (m_Initialized)
+      return;
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     try {
       meta = m_ResultSet.getMetaData();
 
       // columns names
       m_ColumnNames = new String[meta.getColumnCount()];
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       for (i = 1; i <= meta.getColumnCount(); i++) {
         m_ColumnNames[i - 1] = meta.getColumnLabel(i);
       }
@@ -107,15 +215,42 @@ public class ResultSetHelper {
       for (i = 1; i <= meta.getColumnCount(); i++) {
         m_NumericColumns[i - 1] = typeIsNumeric(meta.getColumnType(i));
       }
+<<<<<<< HEAD
+=======
+=======
+      for (i = 1; i <= meta.getColumnCount(); i++)
+        m_ColumnNames[i - 1] = meta.getColumnLabel(i);
+      
+      // numeric columns
+      m_NumericColumns = new boolean[meta.getColumnCount()];
+      for (i = 1; i <= meta.getColumnCount(); i++)
+        m_NumericColumns[i - 1] = typeIsNumeric(meta.getColumnType(i));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
       // column classes
       m_ColumnClasses = new Class[meta.getColumnCount()];
       for (i = 1; i <= meta.getColumnCount(); i++) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         try {
           m_ColumnClasses[i - 1] = typeToClass(meta.getColumnType(i));
         } catch (Exception ex) {
           m_ColumnClasses[i - 1] = String.class;
         }
+<<<<<<< HEAD
+=======
+=======
+	try {
+	  m_ColumnClasses[i - 1] = typeToClass(meta.getColumnType(i));
+	}
+	catch (Exception ex) {
+	  m_ColumnClasses[i - 1] = String.class;
+	}
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
 
       // dimensions
@@ -124,6 +259,10 @@ public class ResultSetHelper {
       // if the JDBC driver doesn't support scrolling we can't determine
       // the row count here
       if (m_ResultSet.getType() == ResultSet.TYPE_FORWARD_ONLY) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         m_RowCount = -1;
       } else {
         m_RowCount = 0;
@@ -160,6 +299,50 @@ public class ResultSetHelper {
 
       m_Initialized = true;
     } catch (Exception ex) {
+<<<<<<< HEAD
+=======
+=======
+	m_RowCount = -1;
+      }
+      else {
+	m_RowCount = 0;
+	m_ResultSet.first();
+	if (m_MaxRows > 0) {
+	  try {
+	    m_ResultSet.absolute(m_MaxRows);
+	    m_RowCount = m_ResultSet.getRow();
+	  }
+	  catch (Exception ex) {
+	    // ignore it
+	  }
+	}
+	else {
+	  m_ResultSet.last();
+	  m_RowCount = m_ResultSet.getRow();
+	}
+
+	// sometimes, e.g. with a "desc <table>", we can't use absolute(int)
+	// and getRow()???
+	try {
+	  if ( (m_RowCount == 0) && (m_ResultSet.first()) ) {
+	    m_RowCount = 1;
+	    while (m_ResultSet.next()) {
+	      m_RowCount++;
+	      if (m_ResultSet.getRow() == m_MaxRows)
+		break;
+	    };
+	  }
+	}
+	catch (Exception e) {
+	  // ignore it
+	}
+      }
+
+      m_Initialized = true;
+    }
+    catch (Exception ex) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       // ignore it
     }
   }
@@ -167,7 +350,15 @@ public class ResultSetHelper {
   /**
    * the underlying resultset.
    * 
+<<<<<<< HEAD
    * @return the resultset
+=======
+<<<<<<< HEAD
+   * @return the resultset
+=======
+   * @return		the resultset
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public ResultSet getResultSet() {
     return m_ResultSet;
@@ -176,7 +367,15 @@ public class ResultSetHelper {
   /**
    * returns the number of columns in the resultset.
    * 
+<<<<<<< HEAD
    * @return the number of columns
+=======
+<<<<<<< HEAD
+   * @return the number of columns
+=======
+   * @return		the number of columns
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public int getColumnCount() {
     initialize();
@@ -185,10 +384,24 @@ public class ResultSetHelper {
   }
 
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * returns the number of rows in the resultset. If -1 then the number of rows
    * couldn't be determined, i.e., the cursors aren't scrollable.
    * 
    * @return the number of rows, -1 if it wasn't possible to determine
+<<<<<<< HEAD
+=======
+=======
+   * returns the number of rows in the resultset. If -1 then the number of
+   * rows couldn't be determined, i.e., the cursors aren't scrollable.
+   * 
+   * @return		the number of rows, -1 if it wasn't possible to 
+   * 			determine
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public int getRowCount() {
     initialize();
@@ -199,7 +412,15 @@ public class ResultSetHelper {
   /**
    * returns an array with the names of the columns in the resultset.
    * 
+<<<<<<< HEAD
    * @return the column names
+=======
+<<<<<<< HEAD
+   * @return the column names
+=======
+   * @return		the column names
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public String[] getColumnNames() {
     initialize();
@@ -210,7 +431,15 @@ public class ResultSetHelper {
   /**
    * returns an array that indicates whether a column is numeric or nor.
    * 
+<<<<<<< HEAD
    * @return the numeric columns
+=======
+<<<<<<< HEAD
+   * @return the numeric columns
+=======
+   * @return		the numeric columns
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public boolean[] getNumericColumns() {
     initialize();
@@ -221,9 +450,21 @@ public class ResultSetHelper {
   /**
    * returns the classes for the columns.
    * 
+<<<<<<< HEAD
    * @return the column classes
    */
   public Class<?>[] getColumnClasses() {
+=======
+<<<<<<< HEAD
+   * @return the column classes
+   */
+  public Class<?>[] getColumnClasses() {
+=======
+   * @return		the column classes
+   */
+  public Class[] getColumnClasses() {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     initialize();
 
     return m_ColumnClasses;
@@ -232,7 +473,15 @@ public class ResultSetHelper {
   /**
    * whether a limit on the rows to retrieve was set.
    * 
+<<<<<<< HEAD
    * @return true if there's a limit
+=======
+<<<<<<< HEAD
+   * @return true if there's a limit
+=======
+   * @return		true if there's a limit
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public boolean hasMaxRows() {
     return (m_MaxRows > 0);
@@ -241,7 +490,15 @@ public class ResultSetHelper {
   /**
    * the maximum number of rows to retrieve, less than 1 means unlimited.
    * 
+<<<<<<< HEAD
    * @return the maximum number of rows
+=======
+<<<<<<< HEAD
+   * @return the maximum number of rows
+=======
+   * @return		the maximum number of rows
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public int getMaxRows() {
     return m_MaxRows;
@@ -249,6 +506,10 @@ public class ResultSetHelper {
 
   /**
    * returns an 2-dimensional array with the content of the resultset, the first
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * dimension is the row, the second the column (i.e., getCells()[y][x]). Note:
    * the data is not cached! It is always retrieved anew.
    * 
@@ -262,11 +523,33 @@ public class ResultSetHelper {
     int rowCount;
     boolean proceed;
 
+<<<<<<< HEAD
+=======
+=======
+   * dimension is the row, the second the column (i.e., getCells()[y][x]).
+   * Note: the data is not cached! It is always retrieved anew.
+   * 
+   * @return		the data
+   */
+  public Object[][] getCells() {
+    int			i;
+    int			n;
+    Vector<Object[]>	result;
+    Object[]		row;
+    int			rowCount;
+    boolean		proceed;
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     initialize();
 
     result = new Vector<Object[]>();
 
     try {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
       // do know the number of rows?
       rowCount = getRowCount();
@@ -310,6 +593,56 @@ public class ResultSetHelper {
         }
       }
     } catch (Exception e) {
+<<<<<<< HEAD
+=======
+=======
+      
+      // do know the number of rows?
+      rowCount = getRowCount();
+      if (rowCount == -1) {
+	rowCount = getMaxRows();
+	proceed  = m_ResultSet.next();
+      }
+      else {
+	proceed = m_ResultSet.first();
+      }
+      
+      if (proceed) {
+	i = 0;
+	while (true) {
+	  row = new Object[getColumnCount()];
+	  result.add(row);
+
+	  for (n = 0; n < getColumnCount(); n++) {
+	    try {
+	      // to get around byte arrays when using getObject(int)
+	      if (getColumnClasses()[n] == String.class)
+		row[n] = m_ResultSet.getString(n + 1);
+	      else
+		row[n] = m_ResultSet.getObject(n + 1);
+	    }
+	    catch (Exception e) {
+	      row[n] = null;
+	    }
+	  }
+
+	  // get next row, if possible
+	  if (i == rowCount - 1) {
+	    break;
+	  }
+	  else {
+	    // no more rows -> exit
+	    if (!m_ResultSet.next())
+	      break;
+	  }
+
+	  i++;
+	}
+      }
+    }
+    catch (Exception e) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       e.printStackTrace();
     }
 
@@ -318,6 +651,10 @@ public class ResultSetHelper {
 
   /**
    * Returns the class associated with a SQL type.
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param type the SQL type
    * @return the Java class corresponding with the type
@@ -391,6 +728,84 @@ public class ResultSetHelper {
       break;
     default:
       result = null;
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @param type the SQL type
+   * @return the Java class corresponding with the type
+   */
+  public static Class typeToClass(int type) {
+    Class     result;
+    
+    switch (type) {
+      case Types.BIGINT :
+        result = Long.class;
+        break;
+      case Types.BINARY:
+        result = String.class;
+        break;
+      case Types.BIT:
+        result = Boolean.class;
+        break;
+      case Types.CHAR:
+        result = Character.class;
+        break;
+      case Types.DATE:
+        result = java.sql.Date.class;
+        break;
+      case Types.DECIMAL:
+        result = Double.class;
+        break;
+      case Types.DOUBLE:
+        result = Double.class;
+        break;
+      case Types.FLOAT:
+        result = Float.class;
+        break;
+      case Types.INTEGER:
+        result = Integer.class;
+        break;
+      case Types.LONGVARBINARY:
+        result = String.class;
+        break;
+      case Types.LONGVARCHAR:
+        result = String.class;
+        break;
+      case Types.NULL:
+        result = String.class;
+        break;
+      case Types.NUMERIC:
+        result = Double.class;
+        break;
+      case Types.OTHER:
+        result = String.class;
+        break;
+      case Types.REAL:
+        result = Double.class;
+        break;
+      case Types.SMALLINT:
+        result = Short.class;
+        break;
+      case Types.TIME:
+        result = java.sql.Time.class;
+        break;
+      case Types.TIMESTAMP:
+        result = java.sql.Timestamp.class;
+        break;
+      case Types.TINYINT:
+        result = Short.class;
+        break;
+      case Types.VARBINARY:
+        result = String.class;
+        break;
+      case Types.VARCHAR:
+        result = String.class;
+        break;
+      default:
+        result = null;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
 
     return result;
@@ -400,6 +815,10 @@ public class ResultSetHelper {
    * returns whether the SQL type is numeric (and therefore the justification
    * should be right).
    * 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param type the SQL type
    * @return whether the given type is numeric
    */
@@ -472,6 +891,82 @@ public class ResultSetHelper {
       break;
     default:
       result = false;
+<<<<<<< HEAD
+=======
+=======
+   * @param type      the SQL type
+   * @return          whether the given type is numeric
+   */
+  public static boolean typeIsNumeric(int type) {
+    boolean     result;
+    
+    switch (type) {
+      case Types.BIGINT :
+        result = true;
+        break;
+      case Types.BINARY:
+        result = false;
+      case Types.BIT:
+        result = false;
+        break;
+      case Types.CHAR:
+        result = false;
+        break;
+      case Types.DATE:
+        result = false;
+        break;
+      case Types.DECIMAL:
+        result = true;
+        break;
+      case Types.DOUBLE:
+        result = true;
+        break;
+      case Types.FLOAT:
+        result = true;
+        break;
+      case Types.INTEGER:
+        result = true;
+        break;
+      case Types.LONGVARBINARY:
+        result = false;
+        break;
+      case Types.LONGVARCHAR:
+        result = false;
+        break;
+      case Types.NULL:
+        result = false;
+        break;
+      case Types.NUMERIC:
+        result = true;
+        break;
+      case Types.OTHER:
+        result = false;
+        break;
+      case Types.REAL:
+        result = true;
+        break;
+      case Types.SMALLINT:
+        result = true;
+        break;
+      case Types.TIME:
+        result = false;
+        break;
+      case Types.TIMESTAMP:
+        result = true;
+        break;
+      case Types.TINYINT:
+        result = true;
+        break;
+      case Types.VARBINARY:
+        result = false;
+        break;
+      case Types.VARCHAR:
+        result = false;
+        break;
+      default:
+        result = false;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
 
     return result;

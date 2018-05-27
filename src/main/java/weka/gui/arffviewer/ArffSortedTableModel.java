@@ -1,4 +1,8 @@
 /*
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,16 +15,46 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+<<<<<<< HEAD
+=======
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  * ArffSortedTableModel.java
+<<<<<<< HEAD
  * Copyright (C) 2005-2012 University of Waikato, Hamilton, New Zealand
+=======
+<<<<<<< HEAD
+ * Copyright (C) 2005-2012 University of Waikato, Hamilton, New Zealand
+=======
+ * Copyright (C) 2005 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
 package weka.gui.arffviewer;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.core.Attribute;
 import weka.core.Instances;
 import weka.core.Undoable;
@@ -30,12 +64,32 @@ import weka.gui.SortedTableModel;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;
+<<<<<<< HEAD
+=======
+=======
+import weka.gui.SortedTableModel;
+import weka.core.Instances;
+import weka.core.Attribute;
+import weka.core.Undoable;
+import javax.swing.table.TableModel;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
 /**
  * A sorter for the ARFF-Viewer - necessary because of the custom CellRenderer.
  *
  * @author FracPete (fracpete at waikato dot ac dot nz)
+<<<<<<< HEAD
  * @version $Revision: 14589 $ 
+=======
+<<<<<<< HEAD
+ * @version $Revision: 14589 $ 
+=======
+ * @version $Revision: 1.4 $ 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 public class ArffSortedTableModel 
@@ -50,10 +104,22 @@ public class ArffSortedTableModel
    * from that a model
    * 
    * @param filename	the file to load
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param loaders optional varargs loader to use
    */
   public ArffSortedTableModel(String filename, AbstractFileLoader... loaders) {
     this(new ArffTableModel(filename, loaders));
+<<<<<<< HEAD
+=======
+=======
+   */
+  public ArffSortedTableModel(String filename) {
+    this(new ArffTableModel(filename));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
   
   /**
@@ -128,6 +194,10 @@ public class ArffSortedTableModel
   public void setReadOnly(boolean value) {
     ((ArffTableModel) getModel()).setReadOnly(value);
   }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /**
    * Returns the attribute index for the given column index.
@@ -153,6 +223,12 @@ public class ArffSortedTableModel
     return ((ArffTableModel) getModel()).isAttribute(columnIndex);
   }
 
+<<<<<<< HEAD
+=======
+=======
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /**
    * returns the double value of the underlying Instances object at the
    * given position, -1 if out of bounds
@@ -191,7 +267,15 @@ public class ArffSortedTableModel
    * @return			the attribute type
    */
   public int getType(int columnIndex) {
+<<<<<<< HEAD
     return ((ArffTableModel) getModel()).getType(mIndices.length > 0 ? mIndices[0] : -1, columnIndex);
+=======
+<<<<<<< HEAD
+    return ((ArffTableModel) getModel()).getType(mIndices.length > 0 ? mIndices[0] : -1, columnIndex);
+=======
+    return ((ArffTableModel) getModel()).getType(mIndices[0], columnIndex);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
   
   /**
@@ -232,6 +316,10 @@ public class ArffSortedTableModel
   public void renameAttributeAt(int columnIndex, String newName) {
     ((ArffTableModel) getModel()).renameAttributeAt(columnIndex, newName);
   }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /**
    * sets the weight of the attribute at the given col index
@@ -243,6 +331,12 @@ public class ArffSortedTableModel
     ((ArffTableModel) getModel()).setAttributeWeightAt(columnIndex, weight);
   }
 
+<<<<<<< HEAD
+=======
+=======
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /**
    * sets the attribute at the given col index as the new class attribute
    * 
@@ -260,6 +354,10 @@ public class ArffSortedTableModel
   public void deleteInstanceAt(int rowIndex) {
     ((ArffTableModel) getModel()).deleteInstanceAt(mIndices[rowIndex]);
   }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /**
    * Insert a new instance (all values 0) at the given index. If index is < 0,
@@ -280,6 +378,12 @@ public class ArffSortedTableModel
   public void setInstanceWeight(int index, double weight) {
     ((ArffTableModel) getModel()).setInstanceWeight(index, weight);
   }
+<<<<<<< HEAD
+=======
+=======
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /**
    * deletes the instances at the given positions
    * 
@@ -306,6 +410,10 @@ public class ArffSortedTableModel
   }
   
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * sorts the instances via the given attribute
    * 
    * @param columnIndex         the index of the column
@@ -326,6 +434,11 @@ public class ArffSortedTableModel
   }
   
   /**
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * returns the column of the given attribute name, -1 if not found
    * 
    * @param name		the name of the attribute
@@ -436,6 +549,10 @@ public class ArffSortedTableModel
   public void addUndoPoint() {
     ((ArffTableModel) getModel()).addUndoPoint();
   }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /**
    * Sets whether to display the attribute index in the header.
@@ -456,4 +573,9 @@ public class ArffSortedTableModel
   public boolean getShowAttributeIndex() {
     return ((ArffTableModel) getModel()).getShowAttributeIndex();
   }
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 }

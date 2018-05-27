@@ -1,4 +1,8 @@
 /*
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,18 +15,51 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+<<<<<<< HEAD
+=======
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    SimpleSetupPanel.java
+<<<<<<< HEAD
  *    Copyright (C) 2002-2015 University of Waikato, Hamilton, New Zealand
+=======
+<<<<<<< HEAD
+ *    Copyright (C) 2002-2015 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 2002 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
 package weka.gui.experiment;
 
 import weka.classifiers.Classifier;
+<<<<<<< HEAD
 import weka.core.Utils;
+=======
+<<<<<<< HEAD
+import weka.core.Utils;
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.core.xml.KOML;
 import weka.experiment.CSVResultListener;
 import weka.experiment.ClassifierSplitEvaluator;
@@ -37,11 +74,25 @@ import weka.experiment.SplitEvaluator;
 import weka.gui.DatabaseConnectionDialog;
 import weka.gui.ExtensionFileFilter;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.filechooser.FileFilter;
 import java.awt.*;
+<<<<<<< HEAD
+=======
+=======
+import java.awt.BorderLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+import java.awt.Insets;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;
@@ -56,6 +107,29 @@ import java.beans.PropertyChangeSupport;
 import java.beans.PropertyDescriptor;
 import java.io.File;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+import javax.swing.BorderFactory;
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import javax.swing.filechooser.FileFilter;
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 /** 
  * This panel controls the configuration of an experiment.
   * <p>
@@ -65,10 +139,23 @@ import java.io.File;
 *
  * @author Richard kirkby (rkirkby@cs.waikato.ac.nz)
  * @author FracPete (fracpete at waikato dot ac dot nz) 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  * @version $Revision: 14497 $
  */
 public class SimpleSetupPanel
   extends AbstractSetupPanel {
+<<<<<<< HEAD
+=======
+=======
+ * @version $Revision: 7059 $
+ */
+public class SimpleSetupPanel
+  extends JPanel {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** for serialization */
   private static final long serialVersionUID = 5257424515609176509L;
@@ -99,6 +186,10 @@ public class SimpleSetupPanel
 
   /** Filter for choosing CSV files */
   protected ExtensionFileFilter m_csvFileFilter =
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     new ExtensionFileFilter(".csv", "Comma separated value files");
 
   /** FIlter for choosing ARFF files */
@@ -113,21 +204,64 @@ public class SimpleSetupPanel
 
   /** Click to create a new experiment with default settings */
   protected JButton m_NewBut = new JButton("New");
+<<<<<<< HEAD
+=======
+=======
+    new ExtensionFileFilter(".csv", Messages.getInstance().getString("SimpleSetupPanel_CsvFileFilter_Text"));
+
+  /** FIlter for choosing ARFF files */
+  protected ExtensionFileFilter m_arffFileFilter =
+    new ExtensionFileFilter(".arff", Messages.getInstance().getString("SimpleSetupPanel_ArffFileFilter_Text"));
+
+  /** Click to load an experiment */
+  protected JButton m_OpenBut = new JButton(Messages.getInstance().getString("SimpleSetupPanel_OpenBut_JButton_Text"));
+
+  /** Click to save an experiment */
+  protected JButton m_SaveBut = new JButton(Messages.getInstance().getString("SimpleSetupPanel_SaveBut_JButton_Text"));
+
+  /** Click to create a new experiment with default settings */
+  protected JButton m_NewBut = new JButton(Messages.getInstance().getString("SimpleSetupPanel_NewBut_JButton_Text"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** A filter to ensure only experiment files get shown in the chooser */
   protected FileFilter m_ExpFilter = 
     new ExtensionFileFilter(Experiment.FILE_EXTENSION, 
+<<<<<<< HEAD
                             "Experiment configuration files (*" + Experiment.FILE_EXTENSION + ")");
+=======
+<<<<<<< HEAD
+                            "Experiment configuration files (*" + Experiment.FILE_EXTENSION + ")");
+=======
+    		Messages.getInstance().getString("SimpleSetupPanel_ExpFilter_ExtensionFileFilter_Text_First") + Experiment.FILE_EXTENSION + Messages.getInstance().getString("SimpleSetupPanel_ExpFilter_ExtensionFileFilter_Text_Second"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** A filter to ensure only experiment (in KOML format) files get shown in the chooser */
   protected FileFilter m_KOMLFilter = 
     new ExtensionFileFilter(KOML.FILE_EXTENSION, 
+<<<<<<< HEAD
                             "Experiment configuration files (*" + KOML.FILE_EXTENSION + ")");
+=======
+<<<<<<< HEAD
+                            "Experiment configuration files (*" + KOML.FILE_EXTENSION + ")");
+=======
+    		Messages.getInstance().getString("SimpleSetupPanel_KOMLFilter_ExtensionFileFilter_Text_First") + KOML.FILE_EXTENSION + Messages.getInstance().getString("SimpleSetupPanel_KOMLFilter_ExtensionFileFilter_Text_Second"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** A filter to ensure only experiment (in XML format) files get shown in the chooser */
   protected FileFilter m_XMLFilter = 
     new ExtensionFileFilter(".xml", 
+<<<<<<< HEAD
                             "Experiment configuration files (*.xml)");
+=======
+<<<<<<< HEAD
+                            "Experiment configuration files (*.xml)");
+=======
+    		Messages.getInstance().getString("SimpleSetupPanel_XMLFilter_ExtensionFileFilter_Text"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** The file chooser for selecting experiments */
   protected JFileChooser m_FileChooser =
@@ -141,36 +275,78 @@ public class SimpleSetupPanel
   protected JComboBox m_ResultsDestinationCBox = new JComboBox();
 
   /** Label for destination field */
+<<<<<<< HEAD
   protected JLabel m_ResultsDestinationPathLabel = new JLabel("Filename:");
+=======
+<<<<<<< HEAD
+  protected JLabel m_ResultsDestinationPathLabel = new JLabel("Filename:");
+=======
+  protected JLabel m_ResultsDestinationPathLabel = new JLabel(Messages.getInstance().getString("SimpleSetupPanel_ResultsDestinationPathLabel_JLabel_Text"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** Input field for result destination path */ 
   protected JTextField m_ResultsDestinationPathTField = new JTextField();
 
   /** Button for browsing destination files */
+<<<<<<< HEAD
   protected JButton m_BrowseDestinationButton = new JButton("Browse...");
+=======
+<<<<<<< HEAD
+  protected JButton m_BrowseDestinationButton = new JButton("Browse...");
+=======
+  protected JButton m_BrowseDestinationButton = new JButton(Messages.getInstance().getString("SimpleSetupPanel_BrowseDestinationButton_JButton_Text"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** Combo box for choosing experiment type */
   protected JComboBox m_ExperimentTypeCBox = new JComboBox();
 
   /** Label for parameter field */
+<<<<<<< HEAD
   protected JLabel m_ExperimentParameterLabel = new JLabel("Number of folds:");
+=======
+<<<<<<< HEAD
+  protected JLabel m_ExperimentParameterLabel = new JLabel("Number of folds:");
+=======
+  protected JLabel m_ExperimentParameterLabel = new JLabel(Messages.getInstance().getString("SimpleSetupPanel_ExperimentParameterLabel_JLabel_Text"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** Input field for experiment parameter */
   protected JTextField m_ExperimentParameterTField = new JTextField(); 
 
   /** Radio button for choosing classification experiment */
   protected JRadioButton m_ExpClassificationRBut = 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     new JRadioButton("Classification");
 
   /** Radio button for choosing regression experiment */
   protected JRadioButton m_ExpRegressionRBut = 
     new JRadioButton("Regression");
+<<<<<<< HEAD
+=======
+=======
+    new JRadioButton(Messages.getInstance().getString("SimpleSetupPanel_ExpClassificationRBut_JRadioButton_Text"));
+
+  /** Radio button for choosing regression experiment */
+  protected JRadioButton m_ExpRegressionRBut = 
+    new JRadioButton(Messages.getInstance().getString("SimpleSetupPanel_ExpRegressionRBut_JRadioButton_Text"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** Input field for number of repetitions */
   protected JTextField m_NumberOfRepetitionsTField = new JTextField();  
 
   /** Radio button for choosing datasets first in order of execution */ 
   protected JRadioButton m_OrderDatasetsFirstRBut = 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     new JRadioButton("Data sets first");
 
   /** Radio button for choosing algorithms first in order of execution */ 
@@ -184,6 +360,24 @@ public class SimpleSetupPanel
   protected static String TYPE_CROSSVALIDATION_TEXT = ("Cross-validation");
   protected static String TYPE_RANDOMSPLIT_TEXT = ("Train/Test Percentage Split (data randomized)");
   protected static String TYPE_FIXEDSPLIT_TEXT = ("Train/Test Percentage Split (order preserved)");
+<<<<<<< HEAD
+=======
+=======
+    new JRadioButton(Messages.getInstance().getString("SimpleSetupPanel_OrderDatasetsFirstRBut_JRadioButton_Text"));
+
+  /** Radio button for choosing algorithms first in order of execution */ 
+  protected JRadioButton m_OrderAlgorithmsFirstRBut = 
+    new JRadioButton(Messages.getInstance().getString("SimpleSetupPanel_OrderAlgorithmsFirstRBut_JRadioButton_Text"));
+
+  /** The strings used to identify the combo box choices */
+  protected static String DEST_DATABASE_TEXT = (Messages.getInstance().getString("SimpleSetupPanel_DEST_DATABASE_TEXT_Text"));
+  protected static String DEST_ARFF_TEXT = (Messages.getInstance().getString("SimpleSetupPanel_DEST_ARFF_TEXT_Text"));
+  protected static String DEST_CSV_TEXT = (Messages.getInstance().getString("SimpleSetupPanel_DEST_CSV_TEXT_Text"));
+  protected static String TYPE_CROSSVALIDATION_TEXT = (Messages.getInstance().getString("SimpleSetupPanel_TYPE_CROSSVALIDATION_TEXT_Text"));
+  protected static String TYPE_RANDOMSPLIT_TEXT = (Messages.getInstance().getString("SimpleSetupPanel_TYPE_RANDOMSPLIT_TEXT_Text"));
+  protected static String TYPE_FIXEDSPLIT_TEXT = (Messages.getInstance().getString("SimpleSetupPanel_TYPE_FIXEDSPLIT_TEXT_Text"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** The panel for configuring selected datasets */
   protected DatasetListPanel m_DatasetListPanel = new DatasetListPanel();
@@ -192,10 +386,23 @@ public class SimpleSetupPanel
   protected AlgorithmListPanel m_AlgorithmListPanel = new AlgorithmListPanel();
 
   /** A button for bringing up the notes */
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   protected JButton m_NotesButton =  new JButton("Notes");
 
   /** Frame for the notes */
   protected JFrame m_NotesFrame = Utils.getWekaJFrame("Notes", this);
+<<<<<<< HEAD
+=======
+=======
+  protected JButton m_NotesButton =  new JButton(Messages.getInstance().getString("SimpleSetupPanel_NotesButton_JButton_Text"));
+
+  /** Frame for the notes */
+  protected JFrame m_NotesFrame = new JFrame(Messages.getInstance().getString("SimpleSetupPanel_NotesFrame_JFrame_Text"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** Area for user notes Default of 10 rows */
   protected JTextArea m_NotesText = new JTextArea(null, 10, 0);
@@ -382,14 +589,31 @@ public class SimpleSetupPanel
 	}
       });
     m_NotesFrame.getContentPane().add(new JScrollPane(m_NotesText));
+<<<<<<< HEAD
     m_NotesFrame.pack();
     m_NotesFrame.setSize(800, 600);
+=======
+<<<<<<< HEAD
+    m_NotesFrame.pack();
+    m_NotesFrame.setSize(800, 600);
+=======
+    m_NotesFrame.setSize(600, 400);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     m_NotesButton.addActionListener(new ActionListener() {
 	public void actionPerformed(ActionEvent e) {
 	  m_NotesButton.setEnabled(false);
+<<<<<<< HEAD
 	  m_NotesFrame.setIconImage(((JFrame)SwingUtilities.getWindowAncestor(SimpleSetupPanel.this)).getIconImage());
 	  m_NotesFrame.setLocationRelativeTo(SwingUtilities.getWindowAncestor(SimpleSetupPanel.this));
+=======
+<<<<<<< HEAD
+	  m_NotesFrame.setIconImage(((JFrame)SwingUtilities.getWindowAncestor(SimpleSetupPanel.this)).getIconImage());
+	  m_NotesFrame.setLocationRelativeTo(SwingUtilities.getWindowAncestor(SimpleSetupPanel.this));
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 	  m_NotesFrame.setVisible(true);
 	}
       });
@@ -450,7 +674,15 @@ public class SimpleSetupPanel
     JPanel dest = new JPanel();
     dest.setLayout(new BorderLayout());
     dest.setBorder(BorderFactory.createCompoundBorder(
+<<<<<<< HEAD
 		  BorderFactory.createTitledBorder("Results Destination"),
+=======
+<<<<<<< HEAD
+		  BorderFactory.createTitledBorder("Results Destination"),
+=======
+		  BorderFactory.createTitledBorder(Messages.getInstance().getString("SimpleSetupPanel_Dest_JPanel_BorderFactoryCreateTitledBorder_Text")),
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 		  BorderFactory.createEmptyBorder(0, 5, 5, 5)
 		  ));
     dest.add(destInner, BorderLayout.NORTH);
@@ -489,7 +721,15 @@ public class SimpleSetupPanel
     JPanel type = new JPanel();
     type.setLayout(new BorderLayout());
     type.setBorder(BorderFactory.createCompoundBorder(
+<<<<<<< HEAD
 		  BorderFactory.createTitledBorder("Experiment Type"),
+=======
+<<<<<<< HEAD
+		  BorderFactory.createTitledBorder("Experiment Type"),
+=======
+		  BorderFactory.createTitledBorder(Messages.getInstance().getString("SimpleSetupPanel_Type_JPanel_BorderFactoryCreateTitledBorder_Text")),
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 		  BorderFactory.createEmptyBorder(0, 5, 5, 5)
 		  ));
     type.add(typeInner, BorderLayout.NORTH);
@@ -501,7 +741,15 @@ public class SimpleSetupPanel
 
     JPanel numIter = new JPanel();
     numIter.setLayout(new BorderLayout(5, 5));
+<<<<<<< HEAD
     numIter.add(new JLabel("Number of repetitions:"), BorderLayout.WEST);
+=======
+<<<<<<< HEAD
+    numIter.add(new JLabel("Number of repetitions:"), BorderLayout.WEST);
+=======
+    numIter.add(new JLabel(Messages.getInstance().getString("SimpleSetupPanel_NumIter_JPanel_Add_JLabel_Text")), BorderLayout.WEST);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     numIter.add(m_NumberOfRepetitionsTField, BorderLayout.CENTER);
 
     JPanel controlInner = new JPanel();
@@ -513,7 +761,15 @@ public class SimpleSetupPanel
     JPanel control = new JPanel();
     control.setLayout(new BorderLayout());
     control.setBorder(BorderFactory.createCompoundBorder(
+<<<<<<< HEAD
 		  BorderFactory.createTitledBorder("Iteration Control"),
+=======
+<<<<<<< HEAD
+		  BorderFactory.createTitledBorder("Iteration Control"),
+=======
+		  BorderFactory.createTitledBorder(Messages.getInstance().getString("SimpleSetupPanel_Control_JPanel_BorderFactoryCreateTitledBorder_Text")),
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 		  BorderFactory.createEmptyBorder(0, 5, 5, 5)
 		  ));
     control.add(controlInner, BorderLayout.NORTH);
@@ -555,6 +811,10 @@ public class SimpleSetupPanel
     add(schemes, BorderLayout.CENTER);
     add(notes, BorderLayout.SOUTH);
   }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /**
    * Returns the name of the panel.
@@ -565,6 +825,12 @@ public class SimpleSetupPanel
     return "Simple";
   }
 
+<<<<<<< HEAD
+=======
+=======
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /**
    * Sets the selected item of an combobox, since using setSelectedItem(...)
    * doesn't work, if one checks object references!
@@ -600,11 +866,22 @@ public class SimpleSetupPanel
     if (m_userHasBeenAskedAboutConversion) return true;
     m_userHasBeenAskedAboutConversion = true;
     return (JOptionPane.showConfirmDialog(this,
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 					  "This experiment has settings that are too advanced\n" +
 					  "to be represented in the simple setup mode.\n" +
 					  "Do you want the experiment to be converted,\n" +
 					  "losing some of the advanced settings?\n",
 					  "Confirm conversion",
+<<<<<<< HEAD
+=======
+=======
+    		Messages.getInstance().getString("SimpleSetupPanel_UserWantsToConvert_JOptionPaneShowConfirmDialog_Text_First"),
+					  Messages.getInstance().getString("SimpleSetupPanel_UserWantsToConvert_JOptionPaneShowConfirmDialog_Text_Second"),
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 					  JOptionPane.YES_NO_OPTION,
 					  JOptionPane.WARNING_MESSAGE) == JOptionPane.YES_OPTION);
   }
@@ -633,28 +910,65 @@ public class SimpleSetupPanel
 
     if (exp.getResultListener() instanceof DatabaseResultListener) {
       m_ResultsDestinationCBox.setSelectedItem(DEST_DATABASE_TEXT);
+<<<<<<< HEAD
       m_ResultsDestinationPathLabel.setText("URL:");
+=======
+<<<<<<< HEAD
+      m_ResultsDestinationPathLabel.setText("URL:");
+=======
+      m_ResultsDestinationPathLabel.setText(Messages.getInstance().getString("SimpleSetupPanel_SetExperiment_DatabaseResultListener_ResultsDestinationPathLabel_Text"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       m_destinationDatabaseURL = ((DatabaseResultListener)exp.getResultListener()).getDatabaseURL();
       m_ResultsDestinationPathTField.setText(m_destinationDatabaseURL);
       m_BrowseDestinationButton.setEnabled(true);
     } else if (exp.getResultListener() instanceof InstancesResultListener) {
       m_ResultsDestinationCBox.setSelectedItem(DEST_ARFF_TEXT);
+<<<<<<< HEAD
       m_ResultsDestinationPathLabel.setText("Filename:");
+=======
+<<<<<<< HEAD
+      m_ResultsDestinationPathLabel.setText("Filename:");
+=======
+      m_ResultsDestinationPathLabel.setText(Messages.getInstance().getString("SimpleSetupPanel_SetExperiment_InstancesResultListener_Text"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       m_destinationFilename = ((InstancesResultListener)exp.getResultListener()).outputFileName();
       m_ResultsDestinationPathTField.setText(m_destinationFilename);
       m_BrowseDestinationButton.setEnabled(true);
     } else if (exp.getResultListener() instanceof CSVResultListener) {
       m_ResultsDestinationCBox.setSelectedItem(DEST_CSV_TEXT);
+<<<<<<< HEAD
       m_ResultsDestinationPathLabel.setText("Filename:");
+=======
+<<<<<<< HEAD
+      m_ResultsDestinationPathLabel.setText("Filename:");
+=======
+      m_ResultsDestinationPathLabel.setText(Messages.getInstance().getString("SimpleSetupPanel_SetExperiment_CSVResultListener_Text"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       m_destinationFilename = ((CSVResultListener)exp.getResultListener()).outputFileName();
       m_ResultsDestinationPathTField.setText(m_destinationFilename);
       m_BrowseDestinationButton.setEnabled(true);
     } else {
       // unrecognised result listener 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       System.out.println("SimpleSetup incompatibility: unrecognised result destination");
       if (userWantsToConvert()) {
 	m_ResultsDestinationCBox.setSelectedItem(DEST_ARFF_TEXT);
 	m_ResultsDestinationPathLabel.setText("Filename:");
+<<<<<<< HEAD
+=======
+=======
+      System.out.println(Messages.getInstance().getString("SimpleSetupPanel_SetExperiment_UnrecognisedResultListener_Text"));
+      if (userWantsToConvert()) {
+	m_ResultsDestinationCBox.setSelectedItem(DEST_ARFF_TEXT);
+	m_ResultsDestinationPathLabel.setText(Messages.getInstance().getString("SimpleSetupPanel_SetExperiment_UnrecognisedResultListener_UserWantsToConvert_Text"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 	m_destinationFilename = "";
 	m_ResultsDestinationPathTField.setText(m_destinationFilename);
 	m_BrowseDestinationButton.setEnabled(true);
@@ -679,7 +993,15 @@ public class SimpleSetupPanel
 	m_ExpRegressionRBut.setSelected(true);
       } else {
 	// unknown split evaluator
+<<<<<<< HEAD
 	System.out.println("SimpleSetup incompatibility: unrecognised split evaluator");
+=======
+<<<<<<< HEAD
+	System.out.println("SimpleSetup incompatibility: unrecognised split evaluator");
+=======
+	System.out.println(Messages.getInstance().getString("SimpleSetupPanel_SetExperiment_UnknownSplitEvaluator_Text"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 	if (userWantsToConvert()) {
 	  m_ExpClassificationRBut.setSelected(true);
 	  m_ExpRegressionRBut.setSelected(false);
@@ -703,7 +1025,15 @@ public class SimpleSetupPanel
 	m_ExpRegressionRBut.setSelected(true);
       } else {
 	// unknown split evaluator
+<<<<<<< HEAD
 	System.out.println("SimpleSetup incompatibility: unrecognised split evaluator");
+=======
+<<<<<<< HEAD
+	System.out.println("SimpleSetup incompatibility: unrecognised split evaluator");
+=======
+	System.out.println(Messages.getInstance().getString("SimpleSetupPanel_SetExperiment_UnknownSplitEvaluator_Text_First"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 	if (userWantsToConvert()) {
 	  m_ExpClassificationRBut.setSelected(true);
 	  m_ExpRegressionRBut.setSelected(false);
@@ -716,7 +1046,15 @@ public class SimpleSetupPanel
       
     } else {
       // unknown experiment type
+<<<<<<< HEAD
       System.out.println("SimpleSetup incompatibility: unrecognised resultProducer");
+=======
+<<<<<<< HEAD
+      System.out.println("SimpleSetup incompatibility: unrecognised resultProducer");
+=======
+      System.out.println(Messages.getInstance().getString("SimpleSetupPanel_SetExperiment_UnknownPropertyIteration_Text"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       if (userWantsToConvert()) {
 	m_ExperimentTypeCBox.setSelectedItem(TYPE_CROSSVALIDATION_TEXT);
 	m_ExpClassificationRBut.setSelected(true);
@@ -737,7 +1075,15 @@ public class SimpleSetupPanel
       m_NumberOfRepetitionsTField.setText("" + m_numRepetitions);
     } else {
       // unsupported iterations
+<<<<<<< HEAD
       System.out.println("SimpleSetup incompatibility: runLower is not 1");
+=======
+<<<<<<< HEAD
+      System.out.println("SimpleSetup incompatibility: runLower is not 1");
+=======
+      System.out.println(Messages.getInstance().getString("SimpleSetupPanel_SetExperiment_UnknownPropertyIteration_Text_Alpha"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       if (userWantsToConvert()) {
 	exp.setRunLower(1);
 	if (m_ExperimentTypeCBox.getSelectedItem() == TYPE_FIXEDSPLIT_TEXT) {
@@ -766,7 +1112,15 @@ public class SimpleSetupPanel
 
     if (!exp.getUsePropertyIterator() || !(exp.getPropertyArray() instanceof Classifier[])) {
       // unknown property iteration
+<<<<<<< HEAD
       System.out.println("SimpleSetup incompatibility: unrecognised property iteration");
+=======
+<<<<<<< HEAD
+      System.out.println("SimpleSetup incompatibility: unrecognised property iteration");
+=======
+      System.out.println(Messages.getInstance().getString("SimpleSetupPanel_SetExperiment_UnknownPropertyIteration_Text_First"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       if (userWantsToConvert()) {
 	exp.setPropertyArray(new Classifier[0]);
 	exp.setUsePropertyIterator(true);
@@ -826,6 +1180,10 @@ public class SimpleSetupPanel
       if (!setExperiment(exp)) {
 	if (m_modePanel != null) m_modePanel.switchToAdvanced(exp);
       }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       System.err.println("Opened experiment:\n" + exp);
     } catch (Exception ex) {
       ex.printStackTrace();
@@ -833,6 +1191,18 @@ public class SimpleSetupPanel
 				    + expFile
 				    + "\nReason:\n" + ex.getMessage(),
 				    "Open Experiment",
+<<<<<<< HEAD
+=======
+=======
+      System.err.println(Messages.getInstance().getString("SimpleSetupPanel_OpenExperiment_Exception_JOptionPaneShowMessageDialog_Text") + exp);
+    } catch (Exception ex) {
+      ex.printStackTrace();
+      JOptionPane.showMessageDialog(this, Messages.getInstance().getString("SimpleSetupPanel_OpenExperiment_Exception_JOptionPaneShowMessageDialog_Text_First")
+				    + expFile
+				    + Messages.getInstance().getString("SimpleSetupPanel_OpenExperiment_Exception_JOptionPaneShowMessageDialog_Text_Second") + ex.getMessage(),
+				    Messages.getInstance().getString("SimpleSetupPanel_OpenExperiment_Exception_JOptionPaneShowMessageDialog_Text_Third"),
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 				    JOptionPane.ERROR_MESSAGE);
       // Pop up error dialog
     }
@@ -866,6 +1236,10 @@ public class SimpleSetupPanel
     
     try {
       Experiment.write(expFile.getAbsolutePath(), m_Exp);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       System.err.println("Saved experiment:\n" + m_Exp);
     } catch (Exception ex) {
       ex.printStackTrace();
@@ -873,6 +1247,18 @@ public class SimpleSetupPanel
 				    + expFile
 				    + "\nReason:\n" + ex.getMessage(),
 				    "Save Experiment",
+<<<<<<< HEAD
+=======
+=======
+      System.err.println(Messages.getInstance().getString("SimpleSetupPanel_SaveExperiment_Error_Text") + m_Exp);
+    } catch (Exception ex) {
+      ex.printStackTrace();
+      JOptionPane.showMessageDialog(this, Messages.getInstance().getString("SimpleSetupPanel_SaveExperiment_Exception_JOptionPaneShowMessageDialog_Text_First")
+				    + expFile
+				    + Messages.getInstance().getString("SimpleSetupPanel_SaveExperiment_Exception_JOptionPaneShowMessageDialog_Text_Second") + ex.getMessage(),
+				    Messages.getInstance().getString("SimpleSetupPanel_SaveExperiment_Exception_JOptionPaneShowMessageDialog_Text_Third"),
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 				    JOptionPane.ERROR_MESSAGE);
     }
   }
@@ -883,9 +1269,19 @@ public class SimpleSetupPanel
    * @param l a value of type 'PropertyChangeListener'
    */
   public void addPropertyChangeListener(PropertyChangeListener l) {
+<<<<<<< HEAD
     if (m_Support != null && l != null) {
       m_Support.addPropertyChangeListener(l);
     }
+=======
+<<<<<<< HEAD
+    if (m_Support != null && l != null) {
+      m_Support.addPropertyChangeListener(l);
+    }
+=======
+    m_Support.addPropertyChangeListener(l);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -894,9 +1290,19 @@ public class SimpleSetupPanel
    * @param l a value of type 'PropertyChangeListener'
    */
   public void removePropertyChangeListener(PropertyChangeListener l) {
+<<<<<<< HEAD
     if (m_Support != null && l != null) {
       m_Support.removePropertyChangeListener(l);
     }
+=======
+<<<<<<< HEAD
+    if (m_Support != null && l != null) {
+      m_Support.removePropertyChangeListener(l);
+    }
+=======
+    m_Support.removePropertyChangeListener(l);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -909,12 +1315,27 @@ public class SimpleSetupPanel
     String str = "";
 
     if (m_ResultsDestinationCBox.getSelectedItem() == DEST_DATABASE_TEXT) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       m_ResultsDestinationPathLabel.setText("URL:");
       str = m_destinationDatabaseURL;
       m_BrowseDestinationButton.setEnabled(true); //!!!
       m_BrowseDestinationButton.setText("User...");
     } else {
       m_ResultsDestinationPathLabel.setText("Filename:");
+<<<<<<< HEAD
+=======
+=======
+      m_ResultsDestinationPathLabel.setText(Messages.getInstance().getString("SimpleSetupPanel_DestinationTypeChanged_DEST_DATABASE_TEXT_ResultsDestinationPathLabel_Text_First"));
+      str = m_destinationDatabaseURL;
+      m_BrowseDestinationButton.setEnabled(true); //!!!
+      m_BrowseDestinationButton.setText(Messages.getInstance().getString("SimpleSetupPanel_DestinationTypeChanged_DEST_DATABASE_TEXT_BrowseDestinationButton_Text"));
+    } else {
+      m_ResultsDestinationPathLabel.setText(Messages.getInstance().getString("SimpleSetupPanel_DestinationTypeChanged_DEST_DATABASE_TEXT_ResultsDestinationPathLabel_Text_Second"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       if (m_ResultsDestinationCBox.getSelectedItem() == DEST_ARFF_TEXT) {
 	int ind = m_destinationFilename.lastIndexOf(".csv");
 	if (ind > -1) {
@@ -941,7 +1362,15 @@ public class SimpleSetupPanel
 	}
       }
       m_BrowseDestinationButton.setEnabled(true);
+<<<<<<< HEAD
       m_BrowseDestinationButton.setText("Browse...");
+=======
+<<<<<<< HEAD
+      m_BrowseDestinationButton.setText("Browse...");
+=======
+      m_BrowseDestinationButton.setText(Messages.getInstance().getString("SimpleSetupPanel_DestinationTypeChanged_BrowseDestinationButton_Text"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
 
     if (m_ResultsDestinationCBox.getSelectedItem() == DEST_DATABASE_TEXT) {
@@ -1001,7 +1430,15 @@ public class SimpleSetupPanel
 	  }
 	  resultsFile.deleteOnExit();
 	} catch (Exception e) {
+<<<<<<< HEAD
 	  System.err.println("Cannot create temp file, writing to standard out.");
+=======
+<<<<<<< HEAD
+	  System.err.println("Cannot create temp file, writing to standard out.");
+=======
+	  System.err.println(Messages.getInstance().getString("SimpleSetupPanel_DestinationAddressChanged_Exception_Text"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 	  resultsFile = new File("-");
 	}
       } else {
@@ -1033,10 +1470,23 @@ public class SimpleSetupPanel
 
     // update parameter ui
     if (m_ExperimentTypeCBox.getSelectedItem() == TYPE_CROSSVALIDATION_TEXT) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       m_ExperimentParameterLabel.setText("Number of folds:");
       m_ExperimentParameterTField.setText("" + m_numFolds);
     } else {
       m_ExperimentParameterLabel.setText("Train percentage:");
+<<<<<<< HEAD
+=======
+=======
+      m_ExperimentParameterLabel.setText(Messages.getInstance().getString("SimpleSetupPanel_ExpTypeChanged_TYPE_CROSSVALIDATION_TEXT_ExperimentParameterLabel_Text_First"));
+      m_ExperimentParameterTField.setText("" + m_numFolds);
+    } else {
+      m_ExperimentParameterLabel.setText(Messages.getInstance().getString("SimpleSetupPanel_ExpTypeChanged_TYPE_CROSSVALIDATION_TEXT_ExperimentParameterLabel_Text_Second"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       m_ExperimentParameterTField.setText("" + m_trainPercent);
     }
 
@@ -1181,9 +1631,19 @@ public class SimpleSetupPanel
   private void chooseURLUsername() {
     String dbaseURL=((DatabaseResultListener)m_Exp.getResultListener()).getDatabaseURL();
     String username=((DatabaseResultListener)m_Exp.getResultListener()).getUsername();
+<<<<<<< HEAD
     DatabaseConnectionDialog dbd= new DatabaseConnectionDialog((Frame)SwingUtilities.
             getWindowAncestor(SimpleSetupPanel.this),dbaseURL,username);
     dbd.setLocationRelativeTo(SwingUtilities.getWindowAncestor(SimpleSetupPanel.this));
+=======
+<<<<<<< HEAD
+    DatabaseConnectionDialog dbd= new DatabaseConnectionDialog((Frame)SwingUtilities.
+            getWindowAncestor(SimpleSetupPanel.this),dbaseURL,username);
+    dbd.setLocationRelativeTo(SwingUtilities.getWindowAncestor(SimpleSetupPanel.this));
+=======
+    DatabaseConnectionDialog dbd= new DatabaseConnectionDialog(null,dbaseURL,username);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     dbd.setVisible(true);
       
     //if (dbaseURL == null) {
@@ -1215,6 +1675,10 @@ public class SimpleSetupPanel
     }
     m_ResultsDestinationPathTField.setText(m_DestFileChooser.getSelectedFile().toString());
   }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /**
    * Hook method for cleaning up the interface after a switch.
@@ -1222,4 +1686,9 @@ public class SimpleSetupPanel
   public void cleanUpAfterSwitch() {
     removeNotesFrame();
   }
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 }

@@ -1,4 +1,8 @@
 /*
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,16 +15,46 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+<<<<<<< HEAD
+=======
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    WrapperSubsetEval.java
+<<<<<<< HEAD
  *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
+=======
+<<<<<<< HEAD
+ *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 1999 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
 package weka.attributeSelection;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.classifiers.AbstractClassifier;
 import weka.classifiers.Classifier;
 import weka.classifiers.Evaluation;
@@ -29,10 +63,23 @@ import weka.classifiers.evaluation.InformationRetrievalEvaluationMetric;
 import weka.classifiers.rules.ZeroR;
 import weka.core.Capabilities;
 import weka.core.Capabilities.Capability;
+<<<<<<< HEAD
+=======
+=======
+import weka.classifiers.Classifier;
+import weka.classifiers.Evaluation;
+import weka.classifiers.rules.ZeroR;
+import weka.core.Capabilities;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.core.Instances;
 import weka.core.Option;
 import weka.core.OptionHandler;
 import weka.core.RevisionUtils;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.core.SelectedTag;
 import weka.core.Tag;
 import weka.core.TechnicalInformation;
@@ -40,10 +87,25 @@ import weka.core.TechnicalInformation.Field;
 import weka.core.TechnicalInformation.Type;
 import weka.core.TechnicalInformationHandler;
 import weka.core.Utils;
+<<<<<<< HEAD
+=======
+=======
+import weka.core.TechnicalInformation;
+import weka.core.TechnicalInformationHandler;
+import weka.core.Utils;
+import weka.core.Capabilities.Capability;
+import weka.core.TechnicalInformation.Field;
+import weka.core.TechnicalInformation.Type;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.filters.Filter;
 import weka.filters.unsupervised.attribute.Remove;
 
 import java.util.BitSet;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.List;
@@ -66,6 +128,29 @@ import java.util.Vector;
  * 
  * <!-- technical-bibtex-start --> BibTeX:
  * 
+<<<<<<< HEAD
+=======
+=======
+import java.util.Enumeration;
+import java.util.Random;
+import java.util.Vector;
+
+/** 
+ <!-- globalinfo-start -->
+ * WrapperSubsetEval:<br/>
+ * <br/>
+ * Evaluates attribute sets by using a learning scheme. Cross validation is used to estimate the accuracy of the learning scheme for a set of attributes.<br/>
+ * <br/>
+ * For more information see:<br/>
+ * <br/>
+ * Ron Kohavi, George H. John (1997). Wrappers for feature subset selection. Artificial Intelligence. 97(1-2):273-324.
+ * <p/>
+ <!-- globalinfo-end -->
+ *
+ <!-- technical-bibtex-start -->
+ * BibTeX:
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  * <pre>
  * &#64;article{Kohavi1997,
  *    author = {Ron Kohavi and George H. John},
@@ -79,6 +164,10 @@ import java.util.Vector;
  *    ISSN = {0004-3702}
  * }
  * </pre>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  * <p>
  <!-- technical-bibtex-end -->
  * 
@@ -88,10 +177,26 @@ import java.util.Vector;
  * 
  * <pre>
  * -B &lt;base learner&gt;
+<<<<<<< HEAD
+=======
+=======
+ * <p/>
+ <!-- technical-bibtex-end -->
+ *
+ <!-- options-start -->
+ * Valid options are: <p/>
+ * 
+ * <pre> -B &lt;base learner&gt;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *  class name of base learner to use for  accuracy estimation.
  *  Place any classifier options LAST on the command line
  *  following a "--". eg.:
  *   -B weka.classifiers.bayes.NaiveBayes ... -- -K
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *  (default: weka.classifiers.rules.ZeroR)
  * </pre>
  * 
@@ -145,6 +250,45 @@ import java.util.Vector;
 public class WrapperSubsetEval extends ASEvaluation
   implements SubsetEvaluator, OptionHandler, TechnicalInformationHandler {
 
+<<<<<<< HEAD
+=======
+=======
+ *  (default: weka.classifiers.rules.ZeroR)</pre>
+ * 
+ * <pre> -F &lt;num&gt;
+ *  number of cross validation folds to use for estimating accuracy.
+ *  (default=5)</pre>
+ * 
+ * <pre> -R &lt;seed&gt;
+ *  Seed for cross validation accuracy testimation.
+ *  (default = 1)</pre>
+ * 
+ * <pre> -T &lt;num&gt;
+ *  threshold by which to execute another cross validation
+ *  (standard deviation---expressed as a percentage of the mean).
+ *  (default: 0.01 (1%))</pre>
+ * 
+ * <pre> 
+ * Options specific to scheme weka.classifiers.rules.ZeroR:
+ * </pre>
+ * 
+ * <pre> -D
+ *  If set, classifier is run in debug mode and
+ *  may output additional info to the console</pre>
+ * 
+ <!-- options-end -->
+ *
+ * @author Mark Hall (mhall@cs.waikato.ac.nz)
+ * @version $Revision: 11851 $
+ */
+public class WrapperSubsetEval
+  extends ASEvaluation
+  implements SubsetEvaluator,
+             OptionHandler, 
+             TechnicalInformationHandler {
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /** for serialization */
   static final long serialVersionUID = -4573057658746728675L;
 
@@ -154,6 +298,14 @@ public class WrapperSubsetEval extends ASEvaluation
   private int m_classIndex;
   /** number of attributes in the training data */
   private int m_numAttribs;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+  /** number of instances in the training data */
+  private int m_numInstances;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /** holds an evaluation object */
   private Evaluation m_Evaluation;
   /** holds the base classifier object */
@@ -162,6 +314,10 @@ public class WrapperSubsetEval extends ASEvaluation
   private int m_folds;
   /** random number seed */
   private int m_seed;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /**
    * the threshold by which to do further cross validations when estimating the
    * accuracy of a subset
@@ -296,10 +452,36 @@ public class WrapperSubsetEval extends ASEvaluation
       + "Evaluates attribute sets by using a learning scheme. Cross "
       + "validation is used to estimate the accuracy of the learning "
       + "scheme for a set of attributes.\n\n" + "For more information see:\n\n"
+<<<<<<< HEAD
+=======
+=======
+  /** 
+   * the threshold by which to do further cross validations when
+   * estimating the accuracy of a subset
+   */
+  private double m_threshold;
+
+  /**
+   * Returns a string describing this attribute evaluator
+   * @return a description of the evaluator suitable for
+   * displaying in the explorer/experimenter gui
+   */
+  public String globalInfo() {
+    return "WrapperSubsetEval:\n\n"
+      +"Evaluates attribute sets by using a learning scheme. Cross "
+      +"validation is used to estimate the accuracy of the learning "
+      +"scheme for a set of attributes.\n\n"
+      + "For more information see:\n\n"
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       + getTechnicalInformation().toString();
   }
 
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Returns an instance of a TechnicalInformation object, containing detailed
    * information about the technical background of this class, e.g., paper
    * reference or book this class is based on.
@@ -310,6 +492,20 @@ public class WrapperSubsetEval extends ASEvaluation
   public TechnicalInformation getTechnicalInformation() {
     TechnicalInformation result;
 
+<<<<<<< HEAD
+=======
+=======
+   * Returns an instance of a TechnicalInformation object, containing 
+   * detailed information about the technical background of this class,
+   * e.g., paper reference or book this class is based on.
+   * 
+   * @return the technical information about this class
+   */
+  public TechnicalInformation getTechnicalInformation() {
+    TechnicalInformation 	result;
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     result = new TechnicalInformation(Type.ARTICLE);
     result.setValue(Field.AUTHOR, "Ron Kohavi and George H. John");
     result.setValue(Field.YEAR, "1997");
@@ -320,13 +516,25 @@ public class WrapperSubsetEval extends ASEvaluation
     result.setValue(Field.PAGES, "273-324");
     result.setValue(Field.NOTE, "Special issue on relevance");
     result.setValue(Field.ISSN, "0004-3702");
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return result;
   }
 
   /**
    * Constructor. Calls restOptions to set default options
    **/
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public WrapperSubsetEval() {
     resetOptions();
   }
@@ -395,10 +603,77 @@ public class WrapperSubsetEval extends ASEvaluation
    * 
    * <pre>
    * -B &lt;base learner&gt;
+<<<<<<< HEAD
+=======
+=======
+  public WrapperSubsetEval () {
+    resetOptions();
+  }
+
+
+  /**
+   * Returns an enumeration describing the available options.
+   * @return an enumeration of all the available options.
+   **/
+  public Enumeration listOptions () {
+    Vector newVector = new Vector(4);
+    newVector.addElement(new Option(
+	"\tclass name of base learner to use for \taccuracy estimation.\n"
+	+ "\tPlace any classifier options LAST on the command line\n"
+	+ "\tfollowing a \"--\". eg.:\n"
+	+ "\t\t-B weka.classifiers.bayes.NaiveBayes ... -- -K\n"
+	+ "\t(default: weka.classifiers.rules.ZeroR)", 
+	"B", 1, "-B <base learner>"));
+    
+    newVector.addElement(new Option(
+	"\tnumber of cross validation folds to use for estimating accuracy.\n" 
+	+ "\t(default=5)", 
+	"F", 1, "-F <num>"));
+    
+    newVector.addElement(new Option(
+	"\tSeed for cross validation accuracy testimation.\n"
+	+ "\t(default = 1)", 
+	"R", 1,"-R <seed>"));
+    
+    newVector.addElement(new Option(
+	"\tthreshold by which to execute another cross validation\n" 
+	+ "\t(standard deviation---expressed as a percentage of the mean).\n"
+	+ "\t(default: 0.01 (1%))", 
+	"T", 1, "-T <num>"));
+
+    if ((m_BaseClassifier != null) && 
+	(m_BaseClassifier instanceof OptionHandler)) {
+      newVector.addElement(new Option("", "", 0, "\nOptions specific to scheme " 
+				      + m_BaseClassifier.getClass().getName() 
+				      + ":"));
+      Enumeration enu = ((OptionHandler)m_BaseClassifier).listOptions();
+
+      while (enu.hasMoreElements()) {
+        newVector.addElement(enu.nextElement());
+      }
+    }
+
+    return  newVector.elements();
+  }
+
+
+  /**
+   * Parses a given list of options. <p/>
+   *
+   <!-- options-start -->
+   * Valid options are: <p/>
+   * 
+   * <pre> -B &lt;base learner&gt;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    *  class name of base learner to use for  accuracy estimation.
    *  Place any classifier options LAST on the command line
    *  following a "--". eg.:
    *   -B weka.classifiers.bayes.NaiveBayes ... -- -K
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    *  (default: weka.classifiers.rules.ZeroR)
    * </pre>
    * 
@@ -451,15 +726,63 @@ public class WrapperSubsetEval extends ASEvaluation
    */
   @Override
   public void setOptions(String[] options) throws Exception {
+<<<<<<< HEAD
+=======
+=======
+   *  (default: weka.classifiers.rules.ZeroR)</pre>
+   * 
+   * <pre> -F &lt;num&gt;
+   *  number of cross validation folds to use for estimating accuracy.
+   *  (default=5)</pre>
+   * 
+   * <pre> -R &lt;seed&gt;
+   *  Seed for cross validation accuracy testimation.
+   *  (default = 1)</pre>
+   * 
+   * <pre> -T &lt;num&gt;
+   *  threshold by which to execute another cross validation
+   *  (standard deviation---expressed as a percentage of the mean).
+   *  (default: 0.01 (1%))</pre>
+   * 
+   * <pre> 
+   * Options specific to scheme weka.classifiers.rules.ZeroR:
+   * </pre>
+   * 
+   * <pre> -D
+   *  If set, classifier is run in debug mode and
+   *  may output additional info to the console</pre>
+   * 
+   <!-- options-end -->
+   *
+   * @param options the list of options as an array of strings
+   * @throws Exception if an option is not supported
+   */
+  public void setOptions (String[] options)
+    throws Exception {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     String optionString;
     resetOptions();
     optionString = Utils.getOption('B', options);
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (optionString.length() == 0) {
       optionString = ZeroR.class.getName();
     }
     setClassifier(AbstractClassifier.forName(optionString,
       Utils.partitionOptions(options)));
+<<<<<<< HEAD
+=======
+=======
+    if (optionString.length() == 0)
+      optionString = ZeroR.class.getName();
+    setClassifier(Classifier.forName(optionString, 
+				     Utils.partitionOptions(options)));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     optionString = Utils.getOption('F', options);
 
     if (optionString.length() != 0) {
@@ -471,11 +794,25 @@ public class WrapperSubsetEval extends ASEvaluation
       setSeed(Integer.parseInt(optionString));
     }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     // optionString = Utils.getOption('S',options);
     // if (optionString.length() != 0)
     // {
     // seed = Integer.parseInt(optionString);
     // }
+<<<<<<< HEAD
+=======
+=======
+    //       optionString = Utils.getOption('S',options);
+    //       if (optionString.length() != 0)
+    //         {
+    //  	 seed = Integer.parseInt(optionString);
+    //         }
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     optionString = Utils.getOption('T', options);
 
     if (optionString.length() != 0) {
@@ -483,6 +820,10 @@ public class WrapperSubsetEval extends ASEvaluation
       temp = Double.valueOf(optionString);
       setThreshold(temp.doubleValue());
     }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     optionString = Utils.getOption('E', options);
     if (optionString.length() != 0) {
@@ -574,6 +915,17 @@ public class WrapperSubsetEval extends ASEvaluation
    * 
    * @return tip text for this property suitable for displaying in the
    *         explorer/experimenter gui
+<<<<<<< HEAD
+=======
+=======
+  }
+  
+  /**
+   * Returns the tip text for this property
+   * @return tip text for this property suitable for
+   * displaying in the explorer/experimenter gui
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public String thresholdTipText() {
     return "Repeat xval if stdev of mean exceeds this value.";
@@ -581,6 +933,10 @@ public class WrapperSubsetEval extends ASEvaluation
 
   /**
    * Set the value of the threshold for repeating cross validation
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param t the value of the threshold
    */
@@ -595,13 +951,44 @@ public class WrapperSubsetEval extends ASEvaluation
    */
   public double getThreshold() {
     return m_threshold;
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @param t the value of the threshold
+   */
+  public void setThreshold (double t) {
+    m_threshold = t;
+  }
+
+
+  /**
+   * Get the value of the threshold
+   *
+   * @return the threshold as a double
+   */
+  public double getThreshold () {
+    return  m_threshold;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Returns the tip text for this property
+<<<<<<< HEAD
    * 
    * @return tip text for this property suitable for displaying in the
    *         explorer/experimenter gui
+=======
+<<<<<<< HEAD
+   * 
+   * @return tip text for this property suitable for displaying in the
+   *         explorer/experimenter gui
+=======
+   * @return tip text for this property suitable for
+   * displaying in the explorer/experimenter gui
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public String foldsTipText() {
     return "Number of xval folds to use when estimating subset accuracy.";
@@ -609,6 +996,10 @@ public class WrapperSubsetEval extends ASEvaluation
 
   /**
    * Set the number of folds to use for accuracy estimation
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param f the number of folds
    */
@@ -623,13 +1014,44 @@ public class WrapperSubsetEval extends ASEvaluation
    */
   public int getFolds() {
     return m_folds;
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @param f the number of folds
+   */
+  public void setFolds (int f) {
+    m_folds = f;
+  }
+
+
+  /**
+   * Get the number of folds used for accuracy estimation
+   *
+   * @return the number of folds
+   */
+  public int getFolds () {
+    return  m_folds;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Returns the tip text for this property
+<<<<<<< HEAD
    * 
    * @return tip text for this property suitable for displaying in the
    *         explorer/experimenter gui
+=======
+<<<<<<< HEAD
+   * 
+   * @return tip text for this property suitable for displaying in the
+   *         explorer/experimenter gui
+=======
+   * @return tip text for this property suitable for
+   * displaying in the explorer/experimenter gui
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public String seedTipText() {
     return "Seed to use for randomly generating xval splits.";
@@ -637,6 +1059,10 @@ public class WrapperSubsetEval extends ASEvaluation
 
   /**
    * Set the seed to use for cross validation
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param s the seed
    */
@@ -651,13 +1077,44 @@ public class WrapperSubsetEval extends ASEvaluation
    */
   public int getSeed() {
     return m_seed;
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @param s the seed
+   */
+  public void setSeed (int s) {
+    m_seed = s;
+  }
+
+
+  /**
+   * Get the random number seed used for cross validation
+   *
+   * @return the seed
+   */
+  public int getSeed () {
+    return  m_seed;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Returns the tip text for this property
+<<<<<<< HEAD
    * 
    * @return tip text for this property suitable for displaying in the
    *         explorer/experimenter gui
+=======
+<<<<<<< HEAD
+   * 
+   * @return tip text for this property suitable for displaying in the
+   *         explorer/experimenter gui
+=======
+   * @return tip text for this property suitable for
+   * displaying in the explorer/experimenter gui
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public String classifierTipText() {
     return "Classifier to use for estimating the accuracy of subsets";
@@ -665,6 +1122,10 @@ public class WrapperSubsetEval extends ASEvaluation
 
   /**
    * Set the classifier to use for accuracy estimation
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param newClassifier the Classifier to use.
    */
@@ -696,6 +1157,43 @@ public class WrapperSubsetEval extends ASEvaluation
     }
 
     String[] options = new String[13 + classifierOptions.length];
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @param newClassifier the Classifier to use.
+   */
+  public void setClassifier (Classifier newClassifier) {
+    m_BaseClassifier = newClassifier;
+  }
+
+
+  /**
+   * Get the classifier used as the base learner.
+   *
+   * @return the classifier used as the classifier
+   */
+  public Classifier getClassifier () {
+    return  m_BaseClassifier;
+  }
+
+
+  /**
+   * Gets the current settings of WrapperSubsetEval.
+   *
+   * @return an array of strings suitable for passing to setOptions()
+   */
+  public String[] getOptions () {
+    String[] classifierOptions = new String[0];
+
+    if ((m_BaseClassifier != null) && 
+	(m_BaseClassifier instanceof OptionHandler)) {
+      classifierOptions = ((OptionHandler)m_BaseClassifier).getOptions();
+    }
+
+    String[] options = new String[9 + classifierOptions.length];
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     int current = 0;
 
     if (getClassifier() != null) {
@@ -709,6 +1207,10 @@ public class WrapperSubsetEval extends ASEvaluation
     options[current++] = "" + getThreshold();
     options[current++] = "-R";
     options[current++] = "" + getSeed();
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     options[current++] = "-E";
     options[current++] = m_evaluationMeasure.getIDStr();
@@ -721,16 +1223,38 @@ public class WrapperSubsetEval extends ASEvaluation
     options[current++] = "--";
     System.arraycopy(classifierOptions, 0, options, current,
       classifierOptions.length);
+<<<<<<< HEAD
+=======
+=======
+    options[current++] = "--";
+    System.arraycopy(classifierOptions, 0, options, current, 
+		     classifierOptions.length);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     current += classifierOptions.length;
 
     while (current < options.length) {
       options[current++] = "";
     }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return options;
   }
 
   protected void resetOptions() {
+<<<<<<< HEAD
+=======
+=======
+    return  options;
+  }
+
+
+  protected void resetOptions () {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     m_trainInstances = null;
     m_Evaluation = null;
     m_BaseClassifier = new ZeroR();
@@ -741,6 +1265,10 @@ public class WrapperSubsetEval extends ASEvaluation
 
   /**
    * Returns the capabilities of this evaluator.
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return the capabilities of this evaluator
    * @see Capabilities
@@ -749,12 +1277,28 @@ public class WrapperSubsetEval extends ASEvaluation
   public Capabilities getCapabilities() {
     Capabilities result;
 
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @return            the capabilities of this evaluator
+   * @see               Capabilities
+   */
+  public Capabilities getCapabilities() {
+    Capabilities	result;
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (getClassifier() == null) {
       result = super.getCapabilities();
       result.disableAll();
     } else {
       result = getClassifier().getCapabilities();
     }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     // set dependencies
     for (Capability cap : Capability.values()) {
@@ -785,10 +1329,26 @@ public class WrapperSubsetEval extends ASEvaluation
 
     result.setMinimumNumberInstances(getFolds());
 
+<<<<<<< HEAD
+=======
+=======
+    
+    // set dependencies
+    for (Capability cap: Capability.values())
+      result.enableDependency(cap);
+    
+    result.setMinimumNumberInstances(getFolds());
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return result;
   }
 
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Generates a attribute evaluator. Has to initialize all fields of the
    * evaluator that are not being set via options.
    * 
@@ -797,6 +1357,20 @@ public class WrapperSubsetEval extends ASEvaluation
    */
   @Override
   public void buildEvaluator(Instances data) throws Exception {
+<<<<<<< HEAD
+=======
+=======
+   * Generates a attribute evaluator. Has to initialize all fields of the 
+   * evaluator that are not being set via options.
+   *
+   * @param data set of instances serving as training data 
+   * @throws Exception if the evaluator has not been 
+   * generated successfully
+   */
+  public void buildEvaluator (Instances data)
+    throws Exception {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     // can evaluator handle data?
     getCapabilities().testWithFail(data);
@@ -804,6 +1378,10 @@ public class WrapperSubsetEval extends ASEvaluation
     m_trainInstances = data;
     m_classIndex = m_trainInstances.classIndex();
     m_numAttribs = m_trainInstances.numAttributes();
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     if (m_IRClassValS != null && m_IRClassValS.length() > 0) {
       // try to parse as a number first
@@ -829,6 +1407,26 @@ public class WrapperSubsetEval extends ASEvaluation
   @Override
   public double evaluateSubset(BitSet subset) throws Exception {
     double evalMetric = 0;
+<<<<<<< HEAD
+=======
+=======
+    m_numInstances = m_trainInstances.numInstances();
+  }
+
+
+  /**
+   * Evaluates a subset of attributes
+   *
+   * @param subset a bitset representing the attribute subset to be 
+   * evaluated 
+   * @return the error rate
+   * @throws Exception if the subset could not be evaluated
+   */
+  public double evaluateSubset (BitSet subset)
+    throws Exception {
+    double errorRate = 0;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     double[] repError = new double[5];
     int numAttributes = 0;
     int i, j;
@@ -859,6 +1457,10 @@ public class WrapperSubsetEval extends ASEvaluation
     delTransform.setInputFormat(trainCopy);
     trainCopy = Filter.useFilter(trainCopy, delTransform);
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     AbstractEvaluationMetric pluginMetric = null;
     String statName = null;
     String metricName = null;
@@ -931,6 +1533,16 @@ public class WrapperSubsetEval extends ASEvaluation
         }
         break;
       }
+<<<<<<< HEAD
+=======
+=======
+    // max of 5 repititions ofcross validation
+    for (i = 0; i < 5; i++) {
+      m_Evaluation = new Evaluation(trainCopy);
+      m_Evaluation.crossValidateModel(m_BaseClassifier, trainCopy, m_folds, Rnd);
+      repError[i] = m_Evaluation.errorRate();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
       // check on the standard deviation
       if (!repeat(repError, i + 1)) {
@@ -940,6 +1552,10 @@ public class WrapperSubsetEval extends ASEvaluation
     }
 
     for (j = 0; j < i; j++) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       evalMetric += repError[j];
     }
 
@@ -976,26 +1592,77 @@ public class WrapperSubsetEval extends ASEvaluation
    */
   @Override
   public String toString() {
+<<<<<<< HEAD
+=======
+=======
+      errorRate += repError[j];
+    }
+
+    errorRate /= (double)i;
+    m_Evaluation = null;
+    return  m_trainInstances.classAttribute().isNumeric() ? -errorRate : 1.0 - errorRate;
+  }
+
+
+  /**
+   * Returns a string describing the wrapper
+   *
+   * @return the description as a string
+   */
+  public String toString () {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     StringBuffer text = new StringBuffer();
 
     if (m_trainInstances == null) {
       text.append("\tWrapper subset evaluator has not been built yet\n");
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     } else {
       text.append("\tWrapper Subset Evaluator\n");
       text.append(
         "\tLearning scheme: " + getClassifier().getClass().getName() + "\n");
+<<<<<<< HEAD
+=======
+=======
+    }
+    else {
+      text.append("\tWrapper Subset Evaluator\n");
+      text.append("\tLearning scheme: " 
+		  + getClassifier().getClass().getName() + "\n");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       text.append("\tScheme options: ");
       String[] classifierOptions = new String[0];
 
       if (m_BaseClassifier instanceof OptionHandler) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         classifierOptions = ((OptionHandler) m_BaseClassifier).getOptions();
 
         for (String classifierOption : classifierOptions) {
           text.append(classifierOption + " ");
+<<<<<<< HEAD
+=======
+=======
+        classifierOptions = ((OptionHandler)m_BaseClassifier).getOptions();
+
+        for (int i = 0; i < classifierOptions.length; i++) {
+          text.append(classifierOptions[i] + " ");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         }
       }
 
       text.append("\n");
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       String IRClassL = "";
       if (m_IRClassVal >= 0) {
         IRClassL = "(class value: "
@@ -1063,10 +1730,40 @@ public class WrapperSubsetEval extends ASEvaluation
    * deviation of the cross validations is greater than threshold% of the mean
    * (default 1%) then another repeat is done.
    * 
+<<<<<<< HEAD
+=======
+=======
+      if (m_trainInstances.attribute(m_classIndex).isNumeric()) {
+	text.append("\tSubset evaluation: RMSE\n");
+      } else {
+	text.append("\tSubset evaluation: classification accuracy\n");
+      }
+      
+      text.append("\tNumber of folds for accuracy estimation: " 
+		  + m_folds 
+		  + "\n");
+    }
+
+    return  text.toString();
+  }
+
+
+  /**
+   * decides whether to do another repeat of cross validation. If the
+   * standard deviation of the cross validations
+   * is greater than threshold% of the mean (default 1%) then another 
+   * repeat is done. 
+   *
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param repError an array of cross validation results
    * @param entries the number of cross validations done so far
    * @return true if another cv is to be done
    */
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   private boolean repeat(double[] repError, int entries) {
     int i;
     double mean = 0;
@@ -1080,12 +1777,34 @@ public class WrapperSubsetEval extends ASEvaluation
 
     if (entries == 1) {
       return true;
+<<<<<<< HEAD
+=======
+=======
+  private boolean repeat (double[] repError, int entries) {
+    int i;
+    double mean = 0;
+    double variance = 0;
+    
+    // setting a threshold less than zero allows for "manual" exploration
+    // and prevents multiple xval for each subset
+    if (m_threshold < 0) { 
+      return false; 
+    }
+
+    if (entries == 1) {
+      return  true;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
 
     for (i = 0; i < entries; i++) {
       mean += repError[i];
     }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     mean /= entries;
 
     for (i = 0; i < entries; i++) {
@@ -1093,11 +1812,27 @@ public class WrapperSubsetEval extends ASEvaluation
     }
 
     variance /= entries;
+<<<<<<< HEAD
+=======
+=======
+    mean /= (double)entries;
+
+    for (i = 0; i < entries; i++) {
+      variance += ((repError[i] - mean)*(repError[i] - mean));
+    }
+
+    variance /= (double)entries;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     if (variance > 0) {
       variance = Math.sqrt(variance);
     }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if ((variance / mean) > m_threshold) {
       return true;
     }
@@ -1126,6 +1861,41 @@ public class WrapperSubsetEval extends ASEvaluation
    * @param args the options
    */
   public static void main(String[] args) {
+<<<<<<< HEAD
+=======
+=======
+    if ((variance/mean) > m_threshold) {
+      return  true;
+    }
+
+    return  false;
+  }
+  
+  /**
+   * Returns the revision string.
+   * 
+   * @return		the revision
+   */
+  public String getRevision() {
+    return RevisionUtils.extract("$Revision: 11851 $");
+  }
+  
+  @Override
+  public void clean() {
+
+    // save memory
+    m_trainInstances = new Instances(m_trainInstances, 0);
+  }
+
+
+  /**
+   * Main method for testing this class.
+   *
+   * @param args the options
+   */
+  public static void main (String[] args) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     runEvaluator(new WrapperSubsetEval(), args);
   }
 }

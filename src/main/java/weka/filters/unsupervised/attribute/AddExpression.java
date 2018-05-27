@@ -1,4 +1,8 @@
 /*
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,16 +15,46 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+<<<<<<< HEAD
+=======
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    AddExpression.java
+<<<<<<< HEAD
  *    Copyright (C) 2000-2012 University of Waikato, Hamilton, New Zealand
+=======
+<<<<<<< HEAD
+ *    Copyright (C) 2000-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 2000 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
 package weka.filters.unsupervised.attribute;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.util.Enumeration;
 import java.util.Vector;
 
@@ -34,10 +68,30 @@ import weka.core.expressionlanguage.common.Primitives.DoubleExpression;
 import weka.core.expressionlanguage.core.Node;
 import weka.core.expressionlanguage.parser.Parser;
 import weka.core.expressionlanguage.weka.InstancesHelper;
+<<<<<<< HEAD
+=======
+=======
+import weka.core.Attribute;
+import weka.core.AttributeExpression;
+import weka.core.Capabilities;
+import weka.core.Instance;
+import weka.core.Instances;
+import weka.core.Option;
+import weka.core.OptionHandler;
+import weka.core.RevisionUtils;
+import weka.core.SparseInstance;
+import weka.core.Utils;
+import weka.core.Capabilities.Capability;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.filters.Filter;
 import weka.filters.StreamableFilter;
 import weka.filters.UnsupervisedFilter;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 /**
  * <!-- globalinfo-start --> An instance filter that creates a new attribute by
  * applying a mathematical expression to existing attributes. The expression can
@@ -108,6 +162,72 @@ public class AddExpression extends Filter implements UnsupervisedFilter,
    */
   public String globalInfo() {
     return "An instance filter that creates a new attribute by applying a "
+<<<<<<< HEAD
+=======
+=======
+import java.util.Enumeration;
+import java.util.Vector;
+
+/**
+ <!-- globalinfo-start -->
+ * An instance filter that creates a new attribute by applying a mathematical expression to existing attributes. The expression can contain attribute references and numeric constants. Supported operators are :<br/>
+ * +, -, *, /, ^, log, abs, cos, exp, sqrt, floor, ceil, rint, tan, sin, (, )<br/>
+ * Attributes are specified by prefixing with 'a', eg. a7 is attribute number 7 (starting from 1).<br/>
+ * Example expression : a1^2*a5/log(a7*4.0).
+ * <p/>
+ <!-- globalinfo-end -->
+ * 
+ <!-- options-start -->
+ * Valid options are: <p/>
+ * 
+ * <pre> -E &lt;expression&gt;
+ *  Specify the expression to apply. Eg a1^2*a5/log(a7*4.0).
+ *  Supported opperators: ,+, -, *, /, ^, log, abs, cos, 
+ *  exp, sqrt, floor, ceil, rint, tan, sin, (, )
+ *  (default: a1^2)</pre>
+ * 
+ * <pre> -N &lt;name&gt;
+ *  Specify the name for the new attribute. (default is the expression provided with -E)</pre>
+ * 
+ * <pre> -D
+ *  Debug. Names attribute with the postfix parse of the expression.</pre>
+ * 
+ <!-- options-end -->
+ *
+ * @author Mark Hall (mhall@cs.waikato.ac.nz)
+ * @version $Revision: 5543 $
+ */
+public class AddExpression 
+  extends Filter 
+  implements UnsupervisedFilter, StreamableFilter, OptionHandler {
+
+  /** for serialization */
+  static final long serialVersionUID = 402130384261736245L;
+  
+  /** The infix expression */
+  private String m_infixExpression = "a1^2";
+
+  /** Name of the new attribute. "expression"  length string will use the 
+      provided expression as the new attribute name */
+  private String m_attributeName="expression";
+
+  /** If true, makes the attribute name equal to the postfix parse of the
+      expression */
+  private boolean m_Debug = false;
+
+  private AttributeExpression m_attributeExpression = null;
+
+  /**
+   * Returns a string describing this filter
+   *
+   * @return 		a description of the filter suitable for
+   * 			displaying in the explorer/experimenter gui
+   */
+  public String globalInfo() {
+    return 
+        "An instance filter that creates a new attribute by applying a "
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       + "mathematical expression to existing attributes. The expression "
       + "can contain attribute references and numeric constants. Supported "
       + "operators are :\n"
@@ -117,6 +237,10 @@ public class AddExpression extends Filter implements UnsupervisedFilter,
       + "attribute number 7 (starting from 1).\n"
       + "Example expression : a1^2*a5/log(a7*4.0).";
   }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /**
    * Returns an enumeration describing the available options.
@@ -142,11 +266,45 @@ public class AddExpression extends Filter implements UnsupervisedFilter,
       .addElement(new Option(
         "\tDebug. Names attribute with the postfix parse of the "
           + "expression.", "D", 0, "-D"));
+<<<<<<< HEAD
+=======
+=======
+  
+  /**
+   * Returns an enumeration describing the available options.
+   *
+   * @return an enumeration of all the available options.
+   */
+  public Enumeration listOptions() {
+
+    Vector newVector = new Vector(3); 
+
+    newVector.addElement(new Option(
+	     "\tSpecify the expression to apply. Eg a1^2*a5/log(a7*4.0)."
+	     +"\n\tSupported opperators: ,+, -, *, /, ^, log, abs, cos, "
+	     +"\n\texp, sqrt, floor, ceil, rint, tan, sin, (, )"
+	     +"\n\t(default: a1^2)",
+	     "E",1,"-E <expression>"));
+
+    newVector.addElement(new Option(
+	     "\tSpecify the name for the new attribute. (default is the "
+	     +"expression provided with -E)",
+	     "N",1,"-N <name>"));
+
+    newVector.addElement(new Option(
+	     "\tDebug. Names attribute with the postfix parse of the "
+	     +"expression.","D",0,"-D"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     return newVector.elements();
   }
 
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Parses a given list of options.
    * <p/>
    * 
@@ -177,6 +335,33 @@ public class AddExpression extends Filter implements UnsupervisedFilter,
    * @throws Exception if an option is not supported
    */
   @Override
+<<<<<<< HEAD
+=======
+=======
+   * Parses a given list of options. <p/>
+   * 
+   <!-- options-start -->
+   * Valid options are: <p/>
+   * 
+   * <pre> -E &lt;expression&gt;
+   *  Specify the expression to apply. Eg a1^2*a5/log(a7*4.0).
+   *  Supported opperators: ,+, -, *, /, ^, log, abs, cos, 
+   *  exp, sqrt, floor, ceil, rint, tan, sin, (, )
+   *  (default: a1^2)</pre>
+   * 
+   * <pre> -N &lt;name&gt;
+   *  Specify the name for the new attribute. (default is the expression provided with -E)</pre>
+   * 
+   * <pre> -D
+   *  Debug. Names attribute with the postfix parse of the expression.</pre>
+   * 
+   <!-- options-end -->
+   *
+   * @param options the list of options as an array of strings
+   * @throws Exception if an option is not supported
+   */
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public void setOptions(String[] options) throws Exception {
     String expString = Utils.getOption('E', options);
     if (expString.length() != 0) {
@@ -185,12 +370,24 @@ public class AddExpression extends Filter implements UnsupervisedFilter,
       setExpression("a1^2");
     }
 
+<<<<<<< HEAD
     String name = Utils.getOption('N', options);
+=======
+<<<<<<< HEAD
+    String name = Utils.getOption('N', options);
+=======
+    String name = Utils.getOption('N',options);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (name.length() != 0) {
       setName(name);
     }
 
     setDebug(Utils.getFlag('D', options));
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     Utils.checkForRemainingOptions(options);
   }
@@ -215,22 +412,74 @@ public class AddExpression extends Filter implements UnsupervisedFilter,
     }
 
     return options.toArray(new String[0]);
+<<<<<<< HEAD
+=======
+=======
+  }
+  
+  /**
+   * Gets the current settings of the filter.
+   *
+   * @return an array of strings suitable for passing to setOptions
+   */
+  public String [] getOptions() {
+
+    String [] options = new String [5];
+    int current = 0;
+    
+    options[current++] = "-E"; options[current++] = getExpression();
+    options[current++] = "-N"; options[current++] = getName();
+
+    if (getDebug()) {
+      options[current++] = "-D";
+    }
+    
+    while (current < options.length) {
+      options[current++] = "";
+    }
+    return options;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Returns the tip text for this property
+<<<<<<< HEAD
    * 
    * @return tip text for this property suitable for displaying in the
    *         explorer/experimenter gui
+=======
+<<<<<<< HEAD
+   * 
+   * @return tip text for this property suitable for displaying in the
+   *         explorer/experimenter gui
+=======
+   *
+   * @return tip text for this property suitable for
+   * displaying in the explorer/experimenter gui
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public String nameTipText() {
     return "Set the name of the new attribute.";
   }
 
   /**
+<<<<<<< HEAD
    * Set the name for the new attribute. The string "expression" can be used to
    * make the name of the new attribute equal to the expression provided.
    * 
+=======
+<<<<<<< HEAD
+   * Set the name for the new attribute. The string "expression" can be used to
+   * make the name of the new attribute equal to the expression provided.
+   * 
+=======
+   * Set the name for the new attribute. The string "expression" can
+   * be used to make the name of the new attribute equal to the expression
+   * provided.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param name the name of the new attribute
    */
   public void setName(String name) {
@@ -239,7 +488,14 @@ public class AddExpression extends Filter implements UnsupervisedFilter,
 
   /**
    * Returns the name of the new attribute
+<<<<<<< HEAD
    * 
+=======
+<<<<<<< HEAD
+   * 
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @return the name of the new attribute
    */
   public String getName() {
@@ -248,6 +504,10 @@ public class AddExpression extends Filter implements UnsupervisedFilter,
 
   /**
    * Returns the tip text for this property
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return tip text for this property suitable for displaying in the
    *         explorer/experimenter gui
@@ -261,6 +521,23 @@ public class AddExpression extends Filter implements UnsupervisedFilter,
    * Set debug mode. Causes the new attribute to be named with the postfix parse
    * of the expression
    * 
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @return tip text for this property suitable for
+   * displaying in the explorer/experimenter gui
+   */
+  public String debugTipText() {
+    return "Set debug mode. If true then the new attribute will be named with "
+      +"the postfix parse of the supplied expression.";
+  }
+  
+  /**
+   * Set debug mode. Causes the new attribute to be named with the postfix
+   * parse of the expression
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param d true if debug mode is to be used
    */
   public void setDebug(boolean d) {
@@ -269,7 +546,14 @@ public class AddExpression extends Filter implements UnsupervisedFilter,
 
   /**
    * Gets whether debug is set
+<<<<<<< HEAD
    * 
+=======
+<<<<<<< HEAD
+   * 
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @return true if debug is set
    */
   public boolean getDebug() {
@@ -278,9 +562,21 @@ public class AddExpression extends Filter implements UnsupervisedFilter,
 
   /**
    * Returns the tip text for this property
+<<<<<<< HEAD
    * 
    * @return tip text for this property suitable for displaying in the
    *         explorer/experimenter gui
+=======
+<<<<<<< HEAD
+   * 
+   * @return tip text for this property suitable for displaying in the
+   *         explorer/experimenter gui
+=======
+   *
+   * @return tip text for this property suitable for
+   * displaying in the explorer/experimenter gui
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public String expressionTipText() {
     return "Set the math expression to apply. Eg. a1^2*a5/log(a7*4.0)";
@@ -288,7 +584,14 @@ public class AddExpression extends Filter implements UnsupervisedFilter,
 
   /**
    * Set the expression to apply
+<<<<<<< HEAD
    * 
+=======
+<<<<<<< HEAD
+   * 
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param expr a mathematical expression to apply
    */
   public void setExpression(String expr) {
@@ -297,13 +600,24 @@ public class AddExpression extends Filter implements UnsupervisedFilter,
 
   /**
    * Get the expression
+<<<<<<< HEAD
    * 
+=======
+<<<<<<< HEAD
+   * 
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @return the expression
    */
   public String getExpression() {
     return m_infixExpression;
   }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /**
    * Returns the Capabilities of this filter.
    * 
@@ -311,6 +625,17 @@ public class AddExpression extends Filter implements UnsupervisedFilter,
    * @see Capabilities
    */
   @Override
+<<<<<<< HEAD
+=======
+=======
+  /** 
+   * Returns the Capabilities of this filter.
+   *
+   * @return            the capabilities of this object
+   * @see               Capabilities
+   */
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public Capabilities getCapabilities() {
     Capabilities result = super.getCapabilities();
     result.disableAll();
@@ -318,17 +643,37 @@ public class AddExpression extends Filter implements UnsupervisedFilter,
     // attributes
     result.enableAllAttributes();
     result.enable(Capability.MISSING_VALUES);
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     // class
     result.enableAllClasses();
     result.enable(Capability.MISSING_CLASS_VALUES);
     result.enable(Capability.NO_CLASS);
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return result;
   }
 
   /**
    * Sets the format of the input instances.
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param instanceInfo an Instances object containing the input instance
    *          structure (any instances contained in the object are ignored -
@@ -358,22 +703,63 @@ public class AddExpression extends Filter implements UnsupervisedFilter,
       throw new Exception("Expression must be of double type!");
     
     m_Expression = (DoubleExpression) node;
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @param instanceInfo an Instances object containing the input instance
+   * structure (any instances contained in the object are ignored - only the
+   * structure is required).
+   * @return true if the outputFormat may be collected immediately
+   * @throws Exception if the format couldn't be set successfully
+   */
+  public boolean setInputFormat(Instances instanceInfo) throws Exception {
+
+    m_attributeExpression = new AttributeExpression();
+    m_attributeExpression.
+      convertInfixToPostfix(new String(m_infixExpression));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     super.setInputFormat(instanceInfo);
 
     Instances outputFormat = new Instances(instanceInfo, 0);
     Attribute newAttribute;
+<<<<<<< HEAD
     if (m_attributeName.compareTo("expression") != 0) {
+=======
+<<<<<<< HEAD
+    if (m_attributeName.compareTo("expression") != 0) {
+=======
+    if (m_Debug) {
+      newAttribute = 
+        new Attribute(m_attributeExpression.getPostFixExpression());
+    } else if (m_attributeName.compareTo("expression") != 0) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       newAttribute = new Attribute(m_attributeName);
     } else {
       newAttribute = new Attribute(m_infixExpression);
     }
+<<<<<<< HEAD
     outputFormat.insertAttributeAt(newAttribute, instanceInfo.numAttributes());
+=======
+<<<<<<< HEAD
+    outputFormat.insertAttributeAt(newAttribute, instanceInfo.numAttributes());
+=======
+    outputFormat.insertAttributeAt(newAttribute, 
+				   instanceInfo.numAttributes());
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     setOutputFormat(outputFormat);
     return true;
   }
 
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Input an instance for filtering. Ordinarily the instance is processed and
    * made available for output immediately. Some filters require all instances
    * be read before producing output.
@@ -384,6 +770,21 @@ public class AddExpression extends Filter implements UnsupervisedFilter,
    * @throws Exception if there was a problem during the filtering.
    */
   @Override
+<<<<<<< HEAD
+=======
+=======
+   * Input an instance for filtering. Ordinarily the instance is processed
+   * and made available for output immediately. Some filters require all
+   * instances be read before producing output.
+   *
+   * @param instance the input instance
+   * @return true if the filtered instance may now be
+   * collected with output().
+   * @throws IllegalStateException if no input format has been defined.
+   * @throws Exception if there was a problem during the filtering.
+   */
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public boolean input(Instance instance) throws Exception {
 
     if (getInputFormat() == null) {
@@ -394,6 +795,10 @@ public class AddExpression extends Filter implements UnsupervisedFilter,
       m_NewBatch = false;
     }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     double[] vals = new double[instance.numAttributes() + 1];
     System.arraycopy(instance.toDoubleArray(), 0, vals, 0, instance.numAttributes());
 
@@ -401,11 +806,30 @@ public class AddExpression extends Filter implements UnsupervisedFilter,
     vals[vals.length - 1] = m_Expression.evaluate();
     if (m_InstancesHelper.missingAccessed())
       vals[vals.length - 1] = Utils.missingValue();
+<<<<<<< HEAD
+=======
+=======
+    double[] vals = new double[instance.numAttributes()+1];
+    for(int i = 0; i < instance.numAttributes(); i++) {
+      if (instance.isMissing(i)) {
+	vals[i] = Instance.missingValue();
+      } else {
+	vals[i] = instance.value(i);
+      }
+    }
+
+    m_attributeExpression.evaluateExpression(vals);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     Instance inst = null;
     if (instance instanceof SparseInstance) {
       inst = new SparseInstance(instance.weight(), vals);
     } else {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       inst = new DenseInstance(instance.weight(), vals);
     }
 
@@ -431,6 +855,36 @@ public class AddExpression extends Filter implements UnsupervisedFilter,
    * @param args should contain arguments to the filter: use -h for help
    */
   public static void main(String[] args) {
+<<<<<<< HEAD
+=======
+=======
+      inst = new Instance(instance.weight(), vals);
+    }
+
+    inst.setDataset(getOutputFormat());
+    copyValues(inst, false, instance.dataset(), getOutputFormat());
+    inst.setDataset(getOutputFormat());
+    push(inst);
+    return true;
+  }
+  
+  /**
+   * Returns the revision string.
+   * 
+   * @return		the revision
+   */
+  public String getRevision() {
+    return RevisionUtils.extract("$Revision: 5543 $");
+  }
+  
+  /**
+   * Main method for testing this class.
+   *
+   * @param args should contain arguments to the filter: use -h for help
+   */
+  public static void main(String [] args) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     runFilter(new AddExpression(), args);
   }
 }

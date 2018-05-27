@@ -1,4 +1,8 @@
 /*
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,11 +15,37 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+<<<<<<< HEAD
+=======
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  * ArffViewerMainPanel.java
+<<<<<<< HEAD
  * Copyright (C) 2005-2012 University of Waikato, Hamilton, New Zealand
+=======
+<<<<<<< HEAD
+ * Copyright (C) 2005-2012 University of Waikato, Hamilton, New Zealand
+=======
+ * Copyright (C) 2005 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
@@ -52,7 +82,14 @@ import javax.swing.event.ChangeListener;
 
 import weka.core.Capabilities;
 import weka.core.Instances;
+<<<<<<< HEAD
 import weka.core.converters.AbstractFileLoader;
+=======
+<<<<<<< HEAD
+import weka.core.converters.AbstractFileLoader;
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.core.converters.AbstractFileSaver;
 import weka.core.converters.AbstractSaver;
 import weka.core.converters.ConverterUtils;
@@ -67,11 +104,25 @@ import weka.gui.ListSelectorDialog;
  * 
  * 
  * @author FracPete (fracpete at waikato dot ac dot nz)
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  * @version $Revision: 11342 $
  */
 
 public class ArffViewerMainPanel extends JPanel implements ActionListener,
   ChangeListener {
+<<<<<<< HEAD
+=======
+=======
+ * @version $Revision: 9892 $
+ */
+
+public class ArffViewerMainPanel extends JPanel implements ActionListener,
+    ChangeListener {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** for serialization */
   static final long serialVersionUID = -8763161167586738753L;
@@ -133,7 +184,16 @@ public class ArffViewerMainPanel extends JPanel implements ActionListener,
    */
   public ArffViewerMainPanel(Container parentFrame) {
     parent = parentFrame;
+<<<<<<< HEAD
     frameTitle = "ARFF-Viewer";
+=======
+<<<<<<< HEAD
+    frameTitle = "ARFF-Viewer";
+=======
+    frameTitle = Messages.getInstance().getString(
+        "ArffViewerMainPanel_Title_Text");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     createPanel();
   }
 
@@ -149,11 +209,23 @@ public class ArffViewerMainPanel extends JPanel implements ActionListener,
 
     // file dialog
     fileChooser = new ConverterFileChooser(new File(
+<<<<<<< HEAD
       System.getProperty("user.dir")));
+=======
+<<<<<<< HEAD
+      System.getProperty("user.dir")));
+=======
+        System.getProperty("user.dir")));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     fileChooser.setMultiSelectionEnabled(true);
 
     // menu
     menuBar = new JMenuBar();
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     menuFile = new JMenu("File");
     menuFileOpen = new JMenuItem("Open...",
       ComponentHelper.getImageIcon("open.gif"));
@@ -187,6 +259,52 @@ public class ArffViewerMainPanel extends JPanel implements ActionListener,
       ComponentHelper.getImageIcon("forward.gif"));
     menuFileExit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X,
       KeyEvent.ALT_MASK));
+<<<<<<< HEAD
+=======
+=======
+    menuFile = new JMenu(Messages.getInstance().getString(
+        "ArffViewerMainPanel_CreatePanel_File_JMenu_Text"));
+    menuFileOpen = new JMenuItem(Messages.getInstance().getString(
+        "ArffViewerMainPanel_CreatePanel_FileOpen_JMenuItem_Text"),
+        ComponentHelper.getImageIcon("open.gif"));
+    menuFileOpen.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O,
+        KeyEvent.CTRL_MASK));
+    menuFileOpen.addActionListener(this);
+    menuFileSave = new JMenuItem(Messages.getInstance().getString(
+        "ArffViewerMainPanel_CreatePanel_Save_JMenuItem_Text"),
+        ComponentHelper.getImageIcon("save.gif"));
+    menuFileSave.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S,
+        KeyEvent.CTRL_MASK));
+    menuFileSave.addActionListener(this);
+    menuFileSaveAs = new JMenuItem(Messages.getInstance().getString(
+        "ArffViewerMainPanel_CreatePanel_SaveAs_JMenuItem_Text"),
+        ComponentHelper.getImageIcon("empty.gif"));
+    menuFileSaveAs.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S,
+        KeyEvent.CTRL_MASK + KeyEvent.SHIFT_MASK));
+    menuFileSaveAs.addActionListener(this);
+    menuFileClose = new JMenuItem(Messages.getInstance().getString(
+        "ArffViewerMainPanel_CreatePanel_Close_JMenuItem_Text"),
+        ComponentHelper.getImageIcon("empty.gif"));
+    menuFileClose.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_W,
+        KeyEvent.CTRL_MASK));
+    menuFileClose.addActionListener(this);
+    menuFileCloseAll = new JMenuItem(Messages.getInstance().getString(
+        "ArffViewerMainPanel_CreatePanel_CloseAll_JMenuItem_Text"),
+        ComponentHelper.getImageIcon("empty.gif"));
+    menuFileCloseAll.addActionListener(this);
+    menuFileProperties = new JMenuItem(Messages.getInstance().getString(
+        "ArffViewerMainPanel_CreatePanel_Properties_JMenuItem_Text"),
+        ComponentHelper.getImageIcon("empty.gif"));
+    menuFileProperties.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER,
+        KeyEvent.CTRL_MASK));
+    menuFileProperties.addActionListener(this);
+    menuFileExit = new JMenuItem(Messages.getInstance().getString(
+        "ArffViewerMainPanel_CreatePanel_Exit_JMenuItem_Text"),
+        ComponentHelper.getImageIcon("forward.gif"));
+    menuFileExit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X,
+        KeyEvent.ALT_MASK));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     menuFileExit.addActionListener(this);
     menuFile.add(menuFileOpen);
     menuFile.add(menuFileSave);
@@ -199,6 +317,10 @@ public class ArffViewerMainPanel extends JPanel implements ActionListener,
     menuFile.add(menuFileExit);
     menuBar.add(menuFile);
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     menuEdit = new JMenu("Edit");
     menuEditUndo = new JMenuItem("Undo",
       ComponentHelper.getImageIcon("undo.gif"));
@@ -240,6 +362,64 @@ public class ArffViewerMainPanel extends JPanel implements ActionListener,
     menuEditDeleteInstances.addActionListener(this);
     menuEditSortInstances = new JMenuItem("Sort data (ascending)",
       ComponentHelper.getImageIcon("sort.gif"));
+<<<<<<< HEAD
+=======
+=======
+    menuEdit = new JMenu(Messages.getInstance().getString(
+        "ArffViewerMainPanel_CreatePanel_Edit_JMenuItem_Text"));
+    menuEditUndo = new JMenuItem(Messages.getInstance().getString(
+        "ArffViewerMainPanel_CreatePanel_Undo_JMenuItem_Text"),
+        ComponentHelper.getImageIcon("undo.gif"));
+    menuEditUndo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z,
+        KeyEvent.CTRL_MASK));
+    menuEditUndo.addActionListener(this);
+    menuEditCopy = new JMenuItem(Messages.getInstance().getString(
+        "ArffViewerMainPanel_CreatePanel_Copy_JMenuItem_Text"),
+        ComponentHelper.getImageIcon("copy.gif"));
+    menuEditCopy.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_INSERT,
+        KeyEvent.CTRL_MASK));
+    menuEditCopy.addActionListener(this);
+    menuEditSearch = new JMenuItem(Messages.getInstance().getString(
+        "ArffViewerMainPanel_CreatePanel_Search_JMenuItem_Text"),
+        ComponentHelper.getImageIcon("find.gif"));
+    menuEditSearch.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F,
+        KeyEvent.CTRL_MASK));
+    menuEditSearch.addActionListener(this);
+    menuEditClearSearch = new JMenuItem(Messages.getInstance().getString(
+        "ArffViewerMainPanel_CreatePanel_ClearSearch_JMenuItem_Text"),
+        ComponentHelper.getImageIcon("empty.gif"));
+    menuEditClearSearch.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F,
+        KeyEvent.CTRL_MASK + KeyEvent.SHIFT_MASK));
+    menuEditClearSearch.addActionListener(this);
+    menuEditRenameAttribute = new JMenuItem(Messages.getInstance().getString(
+        "ArffViewerMainPanel_CreatePanel_RenameAttribute_JMenuItem_Text"),
+        ComponentHelper.getImageIcon("empty.gif"));
+    menuEditRenameAttribute.addActionListener(this);
+    menuEditAttributeAsClass = new JMenuItem(Messages.getInstance().getString(
+        "ArffViewerMainPanel_CreatePanel_AttributeAsClass_JMenuItem_Text"),
+        ComponentHelper.getImageIcon("empty.gif"));
+    menuEditAttributeAsClass.addActionListener(this);
+    menuEditDeleteAttribute = new JMenuItem(Messages.getInstance().getString(
+        "ArffViewerMainPanel_CreatePanel_DeleteAttribute_JMenuItem_Text"),
+        ComponentHelper.getImageIcon("empty.gif"));
+    menuEditDeleteAttribute.addActionListener(this);
+    menuEditDeleteAttributes = new JMenuItem(Messages.getInstance().getString(
+        "ArffViewerMainPanel_CreatePanel_DeleteAttributes_JMenuItem_Text"),
+        ComponentHelper.getImageIcon("empty.gif"));
+    menuEditDeleteAttributes.addActionListener(this);
+    menuEditDeleteInstance = new JMenuItem(Messages.getInstance().getString(
+        "ArffViewerMainPanel_CreatePanel_DeleteInstance_JMenuItem_Text"),
+        ComponentHelper.getImageIcon("empty.gif"));
+    menuEditDeleteInstance.addActionListener(this);
+    menuEditDeleteInstances = new JMenuItem(Messages.getInstance().getString(
+        "ArffViewerMainPanel_CreatePanel_DeleteInstances_JMenuItem_Text"),
+        ComponentHelper.getImageIcon("empty.gif"));
+    menuEditDeleteInstances.addActionListener(this);
+    menuEditSortInstances = new JMenuItem(Messages.getInstance().getString(
+        "ArffViewerMainPanel_CreatePanel_SortDataAscending_JMenuItem_Text"),
+        ComponentHelper.getImageIcon("sort.gif"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     menuEditSortInstances.addActionListener(this);
     menuEdit.add(menuEditUndo);
     menuEdit.addSeparator();
@@ -258,6 +438,10 @@ public class ArffViewerMainPanel extends JPanel implements ActionListener,
     menuEdit.add(menuEditSortInstances);
     menuBar.add(menuEdit);
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     menuView = new JMenu("View");
     menuViewAttributes = new JMenuItem("Attributes...",
       ComponentHelper.getImageIcon("objects.gif"));
@@ -271,6 +455,28 @@ public class ArffViewerMainPanel extends JPanel implements ActionListener,
     menuViewValues.addActionListener(this);
     menuViewOptimalColWidths = new JMenuItem("Optimal column width (all)",
       ComponentHelper.getImageIcon("resize.gif"));
+<<<<<<< HEAD
+=======
+=======
+    menuView = new JMenu(Messages.getInstance().getString(
+        "ArffViewerMainPanel_CreatePanel_View_JMenu_Text"));
+    menuViewAttributes = new JMenuItem(Messages.getInstance().getString(
+        "ArffViewerMainPanel_CreatePanel_ViewAttributes_JMenuItem_Text"),
+        ComponentHelper.getImageIcon("objects.gif"));
+    menuViewAttributes.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A,
+        KeyEvent.CTRL_MASK + KeyEvent.SHIFT_MASK));
+    menuViewAttributes.addActionListener(this);
+    menuViewValues = new JMenuItem(Messages.getInstance().getString(
+        "ArffViewerMainPanel_CreatePanel_ViewValues_JMenuItem_Text"),
+        ComponentHelper.getImageIcon("properties.gif"));
+    menuViewValues.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_V,
+        KeyEvent.CTRL_MASK + KeyEvent.SHIFT_MASK));
+    menuViewValues.addActionListener(this);
+    menuViewOptimalColWidths = new JMenuItem(Messages.getInstance().getString(
+        "ArffViewerMainPanel_CreatePanel_ViewOptimalColWidths_JMenuItem_Text"),
+        ComponentHelper.getImageIcon("resize.gif"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     menuViewOptimalColWidths.addActionListener(this);
     menuView.add(menuViewAttributes);
     menuView.add(menuViewValues);
@@ -293,11 +499,24 @@ public class ArffViewerMainPanel extends JPanel implements ActionListener,
    * @return the parent frame
    */
   public JFrame getParentFrame() {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (parent instanceof JFrame) {
       return (JFrame) parent;
     } else {
       return null;
     }
+<<<<<<< HEAD
+=======
+=======
+    if (parent instanceof JFrame)
+      return (JFrame) parent;
+    else
+      return null;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -306,11 +525,24 @@ public class ArffViewerMainPanel extends JPanel implements ActionListener,
    * @return the parent frame
    */
   public JInternalFrame getParentInternalFrame() {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (parent instanceof JInternalFrame) {
       return (JInternalFrame) parent;
     } else {
       return null;
     }
+<<<<<<< HEAD
+=======
+=======
+    if (parent instanceof JInternalFrame)
+      return (JInternalFrame) parent;
+    else
+      return null;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -391,23 +623,51 @@ public class ArffViewerMainPanel extends JPanel implements ActionListener,
    * @return the frame title
    */
   public String getFrameTitle() {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (getCurrentFilename().equals("")) {
       return frameTitle;
     } else {
       return frameTitle + " - " + getCurrentFilename();
     }
+<<<<<<< HEAD
+=======
+=======
+    if (getCurrentFilename().equals(""))
+      return frameTitle;
+    else
+      return frameTitle
+          + Messages.getInstance().getString(
+              "ArffViewerMainPanel_GetFrameTitle_Text") + getCurrentFilename();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * sets the title of the parent frame, if one was provided
    */
   public void updateFrameTitle() {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (getParentFrame() != null) {
       getParentFrame().setTitle(getFrameTitle());
     }
     if (getParentInternalFrame() != null) {
       getParentInternalFrame().setTitle(getFrameTitle());
     }
+<<<<<<< HEAD
+=======
+=======
+    if (getParentFrame() != null)
+      getParentFrame().setTitle(getFrameTitle());
+    if (getParentInternalFrame() != null)
+      getParentInternalFrame().setTitle(getFrameTitle());
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -456,6 +716,10 @@ public class ArffViewerMainPanel extends JPanel implements ActionListener,
   protected void setTabTitle(JComponent component) {
     int index;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (!(component instanceof ArffPanel)) {
       return;
     }
@@ -464,6 +728,17 @@ public class ArffViewerMainPanel extends JPanel implements ActionListener,
     if (index == -1) {
       return;
     }
+<<<<<<< HEAD
+=======
+=======
+    if (!(component instanceof ArffPanel))
+      return;
+
+    index = tabbedPane.indexOfComponent(component);
+    if (index == -1)
+      return;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     tabbedPane.setTitleAt(index, ((ArffPanel) component).getTitle());
     updateFrameTitle();
@@ -485,11 +760,24 @@ public class ArffViewerMainPanel extends JPanel implements ActionListener,
    * @return the panel
    */
   public ArffPanel getPanel(int index) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if ((index >= 0) && (index < getPanelCount())) {
       return (ArffPanel) tabbedPane.getComponentAt(index);
     } else {
       return null;
     }
+<<<<<<< HEAD
+=======
+=======
+    if ((index >= 0) && (index < getPanelCount()))
+      return (ArffPanel) tabbedPane.getComponentAt(index);
+    else
+      return null;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -532,9 +820,20 @@ public class ArffViewerMainPanel extends JPanel implements ActionListener,
     result = "";
     panel = getPanel(index);
 
+<<<<<<< HEAD
     if (panel != null) {
       result = panel.getFilename();
     }
+=======
+<<<<<<< HEAD
+    if (panel != null) {
+      result = panel.getFilename();
+    }
+=======
+    if (panel != null)
+      result = panel.getFilename();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     return result;
   }
@@ -595,14 +894,29 @@ public class ArffViewerMainPanel extends JPanel implements ActionListener,
     int button;
     boolean result;
 
+<<<<<<< HEAD
     if (!isPanelSelected()) {
       return true;
     }
+=======
+<<<<<<< HEAD
+    if (!isPanelSelected()) {
+      return true;
+    }
+=======
+    if (!isPanelSelected())
+      return true;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     result = !getCurrentPanel().isChanged();
 
     if (getCurrentPanel().isChanged()) {
       try {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         if (showCancel) {
           button = ComponentHelper.showMessageBox(this, "Changed",
             "The file is not saved - Do you want to save it?",
@@ -612,6 +926,38 @@ public class ArffViewerMainPanel extends JPanel implements ActionListener,
             "The file is not saved - Do you want to save it?",
             JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         }
+<<<<<<< HEAD
+=======
+=======
+        if (showCancel)
+          button = ComponentHelper
+              .showMessageBox(
+                  this,
+                  Messages
+                      .getInstance()
+                      .getString(
+                          "ArffViewerMainPanel_SaveChanges_ComponentHelperShowMessageBox_Text_First"),
+                  Messages
+                      .getInstance()
+                      .getString(
+                          "ArffViewerMainPanel_SaveChanges_ComponentHelperShowMessageBox_Text_Second"),
+                  JOptionPane.YES_NO_CANCEL_OPTION,
+                  JOptionPane.QUESTION_MESSAGE);
+        else
+          button = ComponentHelper
+              .showMessageBox(
+                  this,
+                  Messages
+                      .getInstance()
+                      .getString(
+                          "ArffViewerMainPanel_SaveChanges_ComponentHelperShowMessageBox_Text_Third"),
+                  Messages
+                      .getInstance()
+                      .getString(
+                          "ArffViewerMainPanel_SaveChanges_ComponentHelperShowMessageBox_Text_Fourth"),
+                  JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       } catch (Exception e) {
         button = JOptionPane.CANCEL_OPTION;
       }
@@ -637,12 +983,26 @@ public class ArffViewerMainPanel extends JPanel implements ActionListener,
    * loads the specified file
    * 
    * @param filename the file to load
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param loaders optional varargs loader to use
    */
   public void loadFile(String filename, AbstractFileLoader... loaders) {
     ArffPanel panel;
 
     panel = new ArffPanel(filename, loaders);
+<<<<<<< HEAD
+=======
+=======
+   */
+  public void loadFile(String filename) {
+    ArffPanel panel;
+
+    panel = new ArffPanel(filename);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     panel.addChangeListener(this);
     tabbedPane.addTab(panel.getTitle(), panel);
     tabbedPane.setSelectedIndex(tabbedPane.getTabCount() - 1);
@@ -657,15 +1017,34 @@ public class ArffViewerMainPanel extends JPanel implements ActionListener,
     String filename;
 
     retVal = fileChooser.showOpenDialog(this);
+<<<<<<< HEAD
     if (retVal != ConverterFileChooser.APPROVE_OPTION) {
       return;
     }
+=======
+<<<<<<< HEAD
+    if (retVal != ConverterFileChooser.APPROVE_OPTION) {
+      return;
+    }
+=======
+    if (retVal != ConverterFileChooser.APPROVE_OPTION)
+      return;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
 
     for (i = 0; i < fileChooser.getSelectedFiles().length; i++) {
       filename = fileChooser.getSelectedFiles()[i].getAbsolutePath();
+<<<<<<< HEAD
       loadFile(filename, fileChooser.getLoader());
+=======
+<<<<<<< HEAD
+      loadFile(filename, fileChooser.getLoader());
+=======
+      loadFile(filename);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
 
     setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
@@ -681,19 +1060,42 @@ public class ArffViewerMainPanel extends JPanel implements ActionListener,
 
     // no panel? -> exit
     panel = getCurrentPanel();
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (panel == null) {
       return;
     }
 
     filename = panel.getFilename();
 
+<<<<<<< HEAD
+=======
+=======
+    if (panel == null)
+      return;
+
+    filename = panel.getFilename();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (filename.equals(ArffPanel.TAB_INSTANCES)) {
       saveFileAs();
     } else {
       saver = ConverterUtils.getSaverForFile(filename);
       try {
+<<<<<<< HEAD
         saver.setFile(new File(filename));
         saver.setInstances(panel.getInstances());
+=======
+<<<<<<< HEAD
+        saver.setFile(new File(filename));
+        saver.setInstances(panel.getInstances());
+=======
+        saver.setInstances(panel.getInstances());
+        saver.setFile(new File(filename));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         saver.writeBatch();
         panel.setChanged(false);
         setCurrentFilename(filename);
@@ -713,7 +1115,16 @@ public class ArffViewerMainPanel extends JPanel implements ActionListener,
     // no panel? -> exit
     panel = getCurrentPanel();
     if (panel == null) {
+<<<<<<< HEAD
       System.out.println("nothing selected!");
+=======
+<<<<<<< HEAD
+      System.out.println("nothing selected!");
+=======
+      System.out.println(Messages.getInstance().getString(
+          "ArffViewerMainPanel_SaveFileAs_Text"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       return;
     }
 
@@ -728,15 +1139,34 @@ public class ArffViewerMainPanel extends JPanel implements ActionListener,
     // set filter for savers
     try {
       fileChooser.setCapabilitiesFilter(Capabilities.forInstances(panel
+<<<<<<< HEAD
         .getInstances()));
+=======
+<<<<<<< HEAD
+        .getInstances()));
+=======
+          .getInstances()));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     } catch (Exception e) {
       fileChooser.setCapabilitiesFilter(null);
     }
 
     retVal = fileChooser.showSaveDialog(this);
+<<<<<<< HEAD
     if (retVal != ConverterFileChooser.APPROVE_OPTION) {
       return;
     }
+=======
+<<<<<<< HEAD
+    if (retVal != ConverterFileChooser.APPROVE_OPTION) {
+      return;
+    }
+=======
+    if (retVal != ConverterFileChooser.APPROVE_OPTION)
+      return;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     panel.setChanged(false);
     setCurrentFilename(fileChooser.getSelectedFile().getAbsolutePath());
@@ -767,6 +1197,10 @@ public class ArffViewerMainPanel extends JPanel implements ActionListener,
    * @see #saveChanges(boolean)
    */
   public void closeFile(boolean showCancel) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (getCurrentIndex() == -1) {
       return;
     }
@@ -774,6 +1208,16 @@ public class ArffViewerMainPanel extends JPanel implements ActionListener,
     if (!saveChanges(showCancel)) {
       return;
     }
+<<<<<<< HEAD
+=======
+=======
+    if (getCurrentIndex() == -1)
+      return;
+
+    if (!saveChanges(showCancel))
+      return;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     tabbedPane.removeTabAt(getCurrentIndex());
     updateFrameTitle();
@@ -785,9 +1229,20 @@ public class ArffViewerMainPanel extends JPanel implements ActionListener,
    */
   public void closeAllFiles() {
     while (tabbedPane.getTabCount() > 0) {
+<<<<<<< HEAD
       if (!saveChanges(true)) {
         return;
       }
+=======
+<<<<<<< HEAD
+      if (!saveChanges(true)) {
+        return;
+      }
+=======
+      if (!saveChanges(true))
+        return;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
       tabbedPane.removeTabAt(getCurrentIndex());
       updateFrameTitle();
@@ -801,6 +1256,10 @@ public class ArffViewerMainPanel extends JPanel implements ActionListener,
   public void showProperties() {
     ArffPanel panel;
     ListSelectorDialog dialog;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     Vector<String> props;
     Instances inst;
 
@@ -825,6 +1284,44 @@ public class ArffViewerMainPanel extends JPanel implements ActionListener,
     props.add("# of attributes: " + inst.numAttributes());
     props.add("Class attribute: " + inst.classAttribute().name());
     props.add("# of class labels: " + inst.numClasses());
+<<<<<<< HEAD
+=======
+=======
+    Vector props;
+    Instances inst;
+
+    panel = getCurrentPanel();
+    if (panel == null)
+      return;
+
+    inst = panel.getInstances();
+    if (inst == null)
+      return;
+    if (inst.classIndex() < 0)
+      inst.setClassIndex(inst.numAttributes() - 1);
+
+    // get some data
+    props = new Vector();
+    props.add(Messages.getInstance().getString(
+        "ArffViewerMainPanel_ShowProperties_Filename_Text")
+        + panel.getFilename());
+    props.add(Messages.getInstance().getString(
+        "ArffViewerMainPanel_ShowProperties_Filename_Text")
+        + inst.relationName());
+    props.add(Messages.getInstance().getString(
+        "ArffViewerMainPanel_ShowProperties_Instances_Text")
+        + inst.numInstances());
+    props.add(Messages.getInstance().getString(
+        "ArffViewerMainPanel_ShowProperties_Attributes_Text")
+        + inst.numAttributes());
+    props.add(Messages.getInstance().getString(
+        "ArffViewerMainPanel_ShowProperties_ClassAttribute_Text")
+        + inst.classAttribute().name());
+    props.add(Messages.getInstance().getString(
+        "ArffViewerMainPanel_ShowProperties_ClassLabels_Text")
+        + inst.numClasses());
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     dialog = new ListSelectorDialog(getParentFrame(), new JList(props));
     dialog.showDialog();
@@ -835,21 +1332,46 @@ public class ArffViewerMainPanel extends JPanel implements ActionListener,
    * WindowListener interface it calls the windowClosing method
    */
   public void close() {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (getParentInternalFrame() != null) {
       getParentInternalFrame().doDefaultCloseAction();
     } else if (getParentFrame() != null) {
       ((Window) getParentFrame()).dispatchEvent(new WindowEvent(
         getParentFrame(), WindowEvent.WINDOW_CLOSING));
     }
+<<<<<<< HEAD
+=======
+=======
+    if (getParentInternalFrame() != null)
+      getParentInternalFrame().doDefaultCloseAction();
+    else if (getParentFrame() != null)
+      ((Window) getParentFrame()).dispatchEvent(new WindowEvent(
+          getParentFrame(), WindowEvent.WINDOW_CLOSING));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * undoes the last action
    */
   public void undo() {
+<<<<<<< HEAD
     if (!isPanelSelected()) {
       return;
     }
+=======
+<<<<<<< HEAD
+    if (!isPanelSelected()) {
+      return;
+    }
+=======
+    if (!isPanelSelected())
+      return;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     getCurrentPanel().undo();
   }
@@ -858,9 +1380,20 @@ public class ArffViewerMainPanel extends JPanel implements ActionListener,
    * copies the content of the selection to the clipboard
    */
   public void copyContent() {
+<<<<<<< HEAD
     if (!isPanelSelected()) {
       return;
     }
+=======
+<<<<<<< HEAD
+    if (!isPanelSelected()) {
+      return;
+    }
+=======
+    if (!isPanelSelected())
+      return;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     getCurrentPanel().copyContent();
   }
@@ -869,9 +1402,20 @@ public class ArffViewerMainPanel extends JPanel implements ActionListener,
    * searches for a string in the cells
    */
   public void search() {
+<<<<<<< HEAD
     if (!isPanelSelected()) {
       return;
     }
+=======
+<<<<<<< HEAD
+    if (!isPanelSelected()) {
+      return;
+    }
+=======
+    if (!isPanelSelected())
+      return;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     getCurrentPanel().search();
   }
@@ -880,9 +1424,20 @@ public class ArffViewerMainPanel extends JPanel implements ActionListener,
    * clears the search, i.e. resets the found cells
    */
   public void clearSearch() {
+<<<<<<< HEAD
     if (!isPanelSelected()) {
       return;
     }
+=======
+<<<<<<< HEAD
+    if (!isPanelSelected()) {
+      return;
+    }
+=======
+    if (!isPanelSelected())
+      return;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     getCurrentPanel().clearSearch();
   }
@@ -891,9 +1446,20 @@ public class ArffViewerMainPanel extends JPanel implements ActionListener,
    * renames the current selected Attribute
    */
   public void renameAttribute() {
+<<<<<<< HEAD
     if (!isPanelSelected()) {
       return;
     }
+=======
+<<<<<<< HEAD
+    if (!isPanelSelected()) {
+      return;
+    }
+=======
+    if (!isPanelSelected())
+      return;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     getCurrentPanel().renameAttribute();
   }
@@ -903,9 +1469,20 @@ public class ArffViewerMainPanel extends JPanel implements ActionListener,
    * the end of the attributes
    */
   public void attributeAsClass() {
+<<<<<<< HEAD
     if (!isPanelSelected()) {
       return;
     }
+=======
+<<<<<<< HEAD
+    if (!isPanelSelected()) {
+      return;
+    }
+=======
+    if (!isPanelSelected())
+      return;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     getCurrentPanel().attributeAsClass();
   }
@@ -916,6 +1493,10 @@ public class ArffViewerMainPanel extends JPanel implements ActionListener,
    * @param multiple whether to delete myultiple attributes
    */
   public void deleteAttribute(boolean multiple) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (!isPanelSelected()) {
       return;
     }
@@ -925,6 +1506,18 @@ public class ArffViewerMainPanel extends JPanel implements ActionListener,
     } else {
       getCurrentPanel().deleteAttribute();
     }
+<<<<<<< HEAD
+=======
+=======
+    if (!isPanelSelected())
+      return;
+
+    if (multiple)
+      getCurrentPanel().deleteAttributes();
+    else
+      getCurrentPanel().deleteAttribute();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -933,6 +1526,10 @@ public class ArffViewerMainPanel extends JPanel implements ActionListener,
    * @param multiple whether to delete multiple instances
    */
   public void deleteInstance(boolean multiple) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (!isPanelSelected()) {
       return;
     }
@@ -942,16 +1539,40 @@ public class ArffViewerMainPanel extends JPanel implements ActionListener,
     } else {
       getCurrentPanel().deleteInstance();
     }
+<<<<<<< HEAD
+=======
+=======
+    if (!isPanelSelected())
+      return;
+
+    if (multiple)
+      getCurrentPanel().deleteInstances();
+    else
+      getCurrentPanel().deleteInstance();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * sorts the current selected attribute
    */
   public void sortInstances() {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (!isPanelSelected()) {
       return;
     }
    
+<<<<<<< HEAD
+=======
+=======
+    if (!isPanelSelected())
+      return;
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     getCurrentPanel().sortInstances();
   }
 
@@ -968,9 +1589,20 @@ public class ArffViewerMainPanel extends JPanel implements ActionListener,
     String name;
     int result;
 
+<<<<<<< HEAD
     if (!isPanelSelected()) {
       return null;
     }
+=======
+<<<<<<< HEAD
+    if (!isPanelSelected()) {
+      return null;
+    }
+=======
+    if (!isPanelSelected())
+      return null;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     list = new JList(getCurrentPanel().getAttributes());
     dialog = new ListSelectorDialog(getParentFrame(), list);
@@ -995,18 +1627,41 @@ public class ArffViewerMainPanel extends JPanel implements ActionListener,
     String attribute;
     ArffSortedTableModel model;
     ArffTable table;
+<<<<<<< HEAD
     HashSet<String> values;
     Vector<String> items;
     Iterator<String> iter;
+=======
+<<<<<<< HEAD
+    HashSet<String> values;
+    Vector<String> items;
+    Iterator<String> iter;
+=======
+    HashSet values;
+    Vector items;
+    Iterator iter;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     ListSelectorDialog dialog;
     int i;
     int col;
 
     // choose attribute to retrieve values for
     attribute = showAttributes();
+<<<<<<< HEAD
     if (attribute == null) {
       return;
     }
+=======
+<<<<<<< HEAD
+    if (attribute == null) {
+      return;
+    }
+=======
+    if (attribute == null)
+      return;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     table = getCurrentPanel().getTable();
     model = (ArffSortedTableModel) table.getModel();
@@ -1020,6 +1675,10 @@ public class ArffViewerMainPanel extends JPanel implements ActionListener,
       }
     }
     // not found?
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (col == -1) {
       return;
     }
@@ -1037,6 +1696,24 @@ public class ArffViewerMainPanel extends JPanel implements ActionListener,
     while (iter.hasNext()) {
       items.add(iter.next());
     }
+<<<<<<< HEAD
+=======
+=======
+    if (col == -1)
+      return;
+
+    // get values
+    values = new HashSet();
+    items = new Vector();
+    for (i = 0; i < model.getRowCount(); i++)
+      values.add(model.getValueAt(i, col).toString());
+    if (values.isEmpty())
+      return;
+    iter = values.iterator();
+    while (iter.hasNext())
+      items.add(iter.next());
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     Collections.sort(items);
 
     dialog = new ListSelectorDialog(getParentFrame(), new JList(items));
@@ -1047,9 +1724,20 @@ public class ArffViewerMainPanel extends JPanel implements ActionListener,
    * sets the optimal column width for all columns
    */
   public void setOptimalColWidths() {
+<<<<<<< HEAD
     if (!isPanelSelected()) {
       return;
     }
+=======
+<<<<<<< HEAD
+    if (!isPanelSelected()) {
+      return;
+    }
+=======
+    if (!isPanelSelected())
+      return;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     getCurrentPanel().setOptimalColWidths();
   }
@@ -1065,6 +1753,10 @@ public class ArffViewerMainPanel extends JPanel implements ActionListener,
 
     o = e.getSource();
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (o == menuFileOpen) {
       loadFile();
     } else if (o == menuFileSave) {
@@ -1108,6 +1800,53 @@ public class ArffViewerMainPanel extends JPanel implements ActionListener,
     } else if (o == menuViewOptimalColWidths) {
       setOptimalColWidths();
     }
+<<<<<<< HEAD
+=======
+=======
+    if (o == menuFileOpen)
+      loadFile();
+    else if (o == menuFileSave)
+      saveFile();
+    else if (o == menuFileSaveAs)
+      saveFileAs();
+    else if (o == menuFileClose)
+      closeFile();
+    else if (o == menuFileCloseAll)
+      closeAllFiles();
+    else if (o == menuFileProperties)
+      showProperties();
+    else if (o == menuFileExit)
+      close();
+    else if (o == menuEditUndo)
+      undo();
+    else if (o == menuEditCopy)
+      copyContent();
+    else if (o == menuEditSearch)
+      search();
+    else if (o == menuEditClearSearch)
+      clearSearch();
+    else if (o == menuEditDeleteAttribute)
+      deleteAttribute(false);
+    else if (o == menuEditDeleteAttributes)
+      deleteAttribute(true);
+    else if (o == menuEditRenameAttribute)
+      renameAttribute();
+    else if (o == menuEditAttributeAsClass)
+      attributeAsClass();
+    else if (o == menuEditDeleteInstance)
+      deleteInstance(false);
+    else if (o == menuEditDeleteInstances)
+      deleteInstance(true);
+    else if (o == menuEditSortInstances)
+      sortInstances();
+    else if (o == menuViewAttributes)
+      showAttributes();
+    else if (o == menuViewValues)
+      showValues();
+    else if (o == menuViewOptimalColWidths)
+      setOptimalColWidths();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     updateMenu();
   }
@@ -1123,9 +1862,20 @@ public class ArffViewerMainPanel extends JPanel implements ActionListener,
     updateMenu();
 
     // did the content of panel change? -> change title of tab
+<<<<<<< HEAD
     if (e.getSource() instanceof JComponent) {
       setTabTitle((JComponent) e.getSource());
     }
+=======
+<<<<<<< HEAD
+    if (e.getSource() instanceof JComponent) {
+      setTabTitle((JComponent) e.getSource());
+    }
+=======
+    if (e.getSource() instanceof JComponent)
+      setTabTitle((JComponent) e.getSource());
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**

@@ -1,4 +1,8 @@
 /*
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,23 +15,64 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+<<<<<<< HEAD
+=======
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    AveragingResultProducer.java
+<<<<<<< HEAD
  *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
+=======
+<<<<<<< HEAD
+ *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 1999 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
 package weka.experiment;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.Collections;
+=======
+<<<<<<< HEAD
+import java.util.ArrayList;
+import java.util.Collections;
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Vector;
 
 import weka.core.AdditionalMeasureProducer;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+import weka.core.FastVector;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.core.Instances;
 import weka.core.Option;
 import weka.core.OptionHandler;
@@ -145,10 +190,24 @@ import weka.core.Utils;
  * All options after -- will be passed to the result producer.
  * 
  * @author Len Trigg (trigg@cs.waikato.ac.nz)
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  * @version $Revision: 10203 $
  */
 public class AveragingResultProducer implements ResultListener, ResultProducer,
   OptionHandler, AdditionalMeasureProducer, RevisionHandler {
+<<<<<<< HEAD
+=======
+=======
+ * @version $Revision: 11198 $
+ */
+public class AveragingResultProducer
+  implements ResultListener, ResultProducer, OptionHandler,
+  AdditionalMeasureProducer, RevisionHandler {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** for serialization */
   static final long serialVersionUID = 2551284958501991352L;
@@ -160,7 +219,16 @@ public class AveragingResultProducer implements ResultListener, ResultProducer,
   protected ResultListener m_ResultListener = new CSVResultListener();
 
   /** The ResultProducer used to generate results */
+<<<<<<< HEAD
   protected ResultProducer m_ResultProducer = new CrossValidationResultProducer();
+=======
+<<<<<<< HEAD
+  protected ResultProducer m_ResultProducer = new CrossValidationResultProducer();
+=======
+  protected ResultProducer m_ResultProducer =
+    new CrossValidationResultProducer();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** The names of any additional measures to look for in SplitEvaluators */
   protected String[] m_AdditionalMeasures = null;
@@ -175,20 +243,48 @@ public class AveragingResultProducer implements ResultListener, ResultProducer,
    * The name of the field that will contain the number of results averaged
    * over.
    */
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   protected String m_CountFieldName = "Num_"
     + CrossValidationResultProducer.FOLD_FIELD_NAME;
 
   /** The name of the key field to average over */
   protected String m_KeyFieldName = CrossValidationResultProducer.FOLD_FIELD_NAME;
+<<<<<<< HEAD
+=======
+=======
+  protected String m_CountFieldName = "Num_" + CrossValidationResultProducer
+    .FOLD_FIELD_NAME;
+
+  /** The name of the key field to average over */
+  protected String m_KeyFieldName = CrossValidationResultProducer
+    .FOLD_FIELD_NAME;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** The index of the field to average over in the resultproducers key */
   protected int m_KeyIndex = -1;
 
   /** Collects the keys from a single run */
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   protected ArrayList<Object[]> m_Keys = new ArrayList<Object[]>();
 
   /** Collects the results from a single run */
   protected ArrayList<Object[]> m_Results = new ArrayList<Object[]>();
+<<<<<<< HEAD
+=======
+=======
+  protected FastVector m_Keys = new FastVector();
+
+  /** Collects the results from a single run */
+  protected FastVector m_Results = new FastVector();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /**
    * Returns a string describing this result producer
@@ -261,13 +357,31 @@ public class AveragingResultProducer implements ResultListener, ResultProducer,
     m_ResultProducer.setInstances(m_Instances);
 
     // Clear the collected results
+<<<<<<< HEAD
     m_Keys.clear();
     m_Results.clear();
+=======
+<<<<<<< HEAD
+    m_Keys.clear();
+    m_Results.clear();
+=======
+    m_Keys.removeAllElements();
+    m_Results.removeAllElements();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     m_ResultProducer.doRunKeys(run);
     checkForMultipleDifferences();
 
+<<<<<<< HEAD
     Object[] template = m_Keys.get(0).clone();
+=======
+<<<<<<< HEAD
+    Object[] template = m_Keys.get(0).clone();
+=======
+    Object[] template = ((Object[]) m_Keys.elementAt(0)).clone();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     template[m_KeyIndex] = null;
     // Check for duplicate keys
     checkForDuplicateKeys(template);
@@ -290,7 +404,16 @@ public class AveragingResultProducer implements ResultListener, ResultProducer,
     Object[] template = determineTemplate(run);
     String[] newKey = new String[template.length - 1];
     System.arraycopy(template, 0, newKey, 0, m_KeyIndex);
+<<<<<<< HEAD
     System.arraycopy(template, m_KeyIndex + 1, newKey, m_KeyIndex,
+=======
+<<<<<<< HEAD
+    System.arraycopy(template, m_KeyIndex + 1, newKey, m_KeyIndex,
+=======
+    System.arraycopy(template, m_KeyIndex + 1,
+      newKey, m_KeyIndex,
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       template.length - m_KeyIndex - 1);
     m_ResultListener.acceptResult(this, newKey, null);
   }
@@ -310,13 +433,32 @@ public class AveragingResultProducer implements ResultListener, ResultProducer,
     Object[] template = determineTemplate(run);
     String[] newKey = new String[template.length - 1];
     System.arraycopy(template, 0, newKey, 0, m_KeyIndex);
+<<<<<<< HEAD
     System.arraycopy(template, m_KeyIndex + 1, newKey, m_KeyIndex,
+=======
+<<<<<<< HEAD
+    System.arraycopy(template, m_KeyIndex + 1, newKey, m_KeyIndex,
+=======
+    System.arraycopy(template, m_KeyIndex + 1,
+      newKey, m_KeyIndex,
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       template.length - m_KeyIndex - 1);
 
     if (m_ResultListener.isResultRequired(this, newKey)) {
       // Clear the collected keys
+<<<<<<< HEAD
       m_Keys.clear();
       m_Results.clear();
+=======
+<<<<<<< HEAD
+      m_Keys.clear();
+      m_Results.clear();
+=======
+      m_Keys.removeAllElements();
+      m_Results.removeAllElements();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
       m_ResultProducer.doRun(run);
 
@@ -326,7 +468,15 @@ public class AveragingResultProducer implements ResultListener, ResultProducer,
       // Check that the keys only differ on the selected key field
       checkForMultipleDifferences();
 
+<<<<<<< HEAD
       template = m_Keys.get(0).clone();
+=======
+<<<<<<< HEAD
+      template = m_Keys.get(0).clone();
+=======
+      template = ((Object[]) m_Keys.elementAt(0)).clone();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       template[m_KeyIndex] = null;
       // Check for duplicate keys
       checkForDuplicateKeys(template);
@@ -370,7 +520,16 @@ public class AveragingResultProducer implements ResultListener, ResultProducer,
     // Generate the key and ask whether the result is required
     String[] newKey = new String[template.length - 1];
     System.arraycopy(template, 0, newKey, 0, m_KeyIndex);
+<<<<<<< HEAD
     System.arraycopy(template, m_KeyIndex + 1, newKey, m_KeyIndex,
+=======
+<<<<<<< HEAD
+    System.arraycopy(template, m_KeyIndex + 1, newKey, m_KeyIndex,
+=======
+    System.arraycopy(template, m_KeyIndex + 1,
+      newKey, m_KeyIndex,
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       template.length - m_KeyIndex - 1);
     if (m_ResultListener.isResultRequired(this, newKey)) {
       Object[] resultTypes = m_ResultProducer.getResultTypes();
@@ -381,13 +540,29 @@ public class AveragingResultProducer implements ResultListener, ResultProducer,
       Object[] result = getResultTypes();
       int numMatches = 0;
       for (int i = 0; i < m_Keys.size(); i++) {
+<<<<<<< HEAD
         Object[] currentKey = m_Keys.get(i);
+=======
+<<<<<<< HEAD
+        Object[] currentKey = m_Keys.get(i);
+=======
+        Object[] currentKey = (Object[]) m_Keys.elementAt(i);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         // Skip non-matching keys
         if (!matchesTemplate(template, currentKey)) {
           continue;
         }
         // Add the results to the stats accumulator
+<<<<<<< HEAD
         Object[] currentResult = m_Results.get(i);
+=======
+<<<<<<< HEAD
+        Object[] currentResult = m_Results.get(i);
+=======
+        Object[] currentResult = (Object[]) m_Results.elementAt(i);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         numMatches++;
         for (int j = 0; j < resultTypes.length; j++) {
           if (resultTypes[j] instanceof Double) {
@@ -415,11 +590,27 @@ public class AveragingResultProducer implements ResultListener, ResultProducer,
       }
       if (numMatches != m_ExpectedResultsPerAverage) {
         throw new Exception("Expected " + m_ExpectedResultsPerAverage
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
           + " results matching key \"" + DatabaseUtils.arrayToString(template)
           + "\" but got " + numMatches);
       }
       result[0] = new Double(numMatches);
       Object[] currentResult = m_Results.get(0);
+<<<<<<< HEAD
+=======
+=======
+          + " results matching key \""
+          + DatabaseUtils.arrayToString(template)
+          + "\" but got "
+          + numMatches);
+      }
+      result[0] = new Double(numMatches);
+      Object[] currentResult = (Object[]) m_Results.elementAt(0);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       int k = 1;
       for (int j = 0; j < resultTypes.length; j++) {
         if (resultTypes[j] instanceof Double) {
@@ -453,10 +644,23 @@ public class AveragingResultProducer implements ResultListener, ResultProducer,
    */
   protected void checkForDuplicateKeys(Object[] template) throws Exception {
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     Hashtable<Object, Object> hash = new Hashtable<Object, Object>();
     int numMatches = 0;
     for (int i = 0; i < m_Keys.size(); i++) {
       Object[] current = m_Keys.get(i);
+<<<<<<< HEAD
+=======
+=======
+    Hashtable hash = new Hashtable();
+    int numMatches = 0;
+    for (int i = 0; i < m_Keys.size(); i++) {
+      Object[] current = (Object[]) m_Keys.elementAt(i);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       // Skip non-matching keys
       if (!matchesTemplate(template, current)) {
         continue;
@@ -470,8 +674,20 @@ public class AveragingResultProducer implements ResultListener, ResultProducer,
     }
     if (numMatches != m_ExpectedResultsPerAverage) {
       throw new Exception("Expected " + m_ExpectedResultsPerAverage
+<<<<<<< HEAD
         + " results matching key \"" + DatabaseUtils.arrayToString(template)
         + "\" but got " + numMatches);
+=======
+<<<<<<< HEAD
+        + " results matching key \"" + DatabaseUtils.arrayToString(template)
+        + "\" but got " + numMatches);
+=======
+        + " results matching key \""
+        + DatabaseUtils.arrayToString(template)
+        + "\" but got "
+        + numMatches);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
   }
 
@@ -486,8 +702,18 @@ public class AveragingResultProducer implements ResultListener, ResultProducer,
    */
   protected void checkForMultipleDifferences() throws Exception {
 
+<<<<<<< HEAD
     Object[] firstKey = m_Keys.get(0);
     Object[] lastKey = m_Keys.get(m_Keys.size() - 1);
+=======
+<<<<<<< HEAD
+    Object[] firstKey = m_Keys.get(0);
+    Object[] lastKey = m_Keys.get(m_Keys.size() - 1);
+=======
+    Object[] firstKey = (Object[]) m_Keys.elementAt(0);
+    Object[] lastKey = (Object[]) m_Keys.elementAt(m_Keys.size() - 1);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     /*
      * System.err.println("First key:" + DatabaseUtils.arrayToString(firstKey));
      * System.err.println("Last key :" + DatabaseUtils.arrayToString(lastKey));
@@ -495,7 +721,16 @@ public class AveragingResultProducer implements ResultListener, ResultProducer,
     for (int i = 0; i < firstKey.length; i++) {
       if ((i != m_KeyIndex) && !firstKey[i].equals(lastKey[i])) {
         throw new Exception("Keys differ on fields other than \""
+<<<<<<< HEAD
           + m_KeyFieldName + "\" -- time to implement multiple averaging");
+=======
+<<<<<<< HEAD
+          + m_KeyFieldName + "\" -- time to implement multiple averaging");
+=======
+          + m_KeyFieldName
+          + "\" -- time to implement multiple averaging");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
     }
   }
@@ -532,7 +767,16 @@ public class AveragingResultProducer implements ResultListener, ResultProducer,
     findKeyIndex();
     if (m_KeyIndex == -1) {
       throw new Exception("No key field called " + m_KeyFieldName
+<<<<<<< HEAD
         + " produced by " + m_ResultProducer.getClass().getName());
+=======
+<<<<<<< HEAD
+        + " produced by " + m_ResultProducer.getClass().getName());
+=======
+        + " produced by "
+        + m_ResultProducer.getClass().getName());
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
     m_ResultProducer.preProcess();
   }
@@ -580,8 +824,18 @@ public class AveragingResultProducer implements ResultListener, ResultProducer,
     if (m_ResultProducer != rp) {
       throw new Error("Unrecognized ResultProducer sending results!!");
     }
+<<<<<<< HEAD
     m_Keys.add(key);
     m_Results.add(result);
+=======
+<<<<<<< HEAD
+    m_Keys.add(key);
+    m_Results.add(result);
+=======
+    m_Keys.addElement(key);
+    m_Results.addElement(result);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -614,12 +868,30 @@ public class AveragingResultProducer implements ResultListener, ResultProducer,
 
     if (m_KeyIndex == -1) {
       throw new Exception("No key field called " + m_KeyFieldName
+<<<<<<< HEAD
         + " produced by " + m_ResultProducer.getClass().getName());
+=======
+<<<<<<< HEAD
+        + " produced by " + m_ResultProducer.getClass().getName());
+=======
+        + " produced by "
+        + m_ResultProducer.getClass().getName());
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
     String[] keyNames = m_ResultProducer.getKeyNames();
     String[] newKeyNames = new String[keyNames.length - 1];
     System.arraycopy(keyNames, 0, newKeyNames, 0, m_KeyIndex);
+<<<<<<< HEAD
     System.arraycopy(keyNames, m_KeyIndex + 1, newKeyNames, m_KeyIndex,
+=======
+<<<<<<< HEAD
+    System.arraycopy(keyNames, m_KeyIndex + 1, newKeyNames, m_KeyIndex,
+=======
+    System.arraycopy(keyNames, m_KeyIndex + 1,
+      newKeyNames, m_KeyIndex,
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       keyNames.length - m_KeyIndex - 1);
     return newKeyNames;
   }
@@ -638,13 +910,31 @@ public class AveragingResultProducer implements ResultListener, ResultProducer,
 
     if (m_KeyIndex == -1) {
       throw new Exception("No key field called " + m_KeyFieldName
+<<<<<<< HEAD
         + " produced by " + m_ResultProducer.getClass().getName());
+=======
+<<<<<<< HEAD
+        + " produced by " + m_ResultProducer.getClass().getName());
+=======
+        + " produced by "
+        + m_ResultProducer.getClass().getName());
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
     Object[] keyTypes = m_ResultProducer.getKeyTypes();
     // Find and remove the key field that is being averaged over
     Object[] newKeyTypes = new String[keyTypes.length - 1];
     System.arraycopy(keyTypes, 0, newKeyTypes, 0, m_KeyIndex);
+<<<<<<< HEAD
     System.arraycopy(keyTypes, m_KeyIndex + 1, newKeyTypes, m_KeyIndex,
+=======
+<<<<<<< HEAD
+    System.arraycopy(keyTypes, m_KeyIndex + 1, newKeyTypes, m_KeyIndex,
+=======
+    System.arraycopy(keyTypes, m_KeyIndex + 1,
+      newKeyTypes, m_KeyIndex,
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       keyTypes.length - m_KeyIndex - 1);
     return newKeyTypes;
   }
@@ -673,7 +963,16 @@ public class AveragingResultProducer implements ResultListener, ResultProducer,
           numNumeric++;
         }
       }
+<<<<<<< HEAD
       String[] newResultNames = new String[resultNames.length + 1 + numNumeric];
+=======
+<<<<<<< HEAD
+      String[] newResultNames = new String[resultNames.length + 1 + numNumeric];
+=======
+      String[] newResultNames = new String[resultNames.length +
+        1 + numNumeric];
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       newResultNames[0] = m_CountFieldName;
       int j = 1;
       for (int i = 0; i < resultNames.length; i++) {
@@ -711,7 +1010,16 @@ public class AveragingResultProducer implements ResultListener, ResultProducer,
           numNumeric++;
         }
       }
+<<<<<<< HEAD
       Object[] newResultTypes = new Object[resultTypes.length + 1 + numNumeric];
+=======
+<<<<<<< HEAD
+      Object[] newResultTypes = new Object[resultTypes.length + 1 + numNumeric];
+=======
+      Object[] newResultTypes = new Object[resultTypes.length +
+        1 + numNumeric];
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       newResultTypes[0] = new Double(0);
       int j = 1;
       for (Object resultType : resultTypes) {
@@ -746,7 +1054,15 @@ public class AveragingResultProducer implements ResultListener, ResultProducer,
   public String getCompatibilityState() {
 
     String result = // "-F " + Utils.quote(getKeyFieldName())
+<<<<<<< HEAD
     " -X " + getExpectedResultsPerAverage() + " ";
+=======
+<<<<<<< HEAD
+    " -X " + getExpectedResultsPerAverage() + " ";
+=======
+      " -X " + getExpectedResultsPerAverage() + " ";
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (getCalculateStdDevs()) {
       result += "-S ";
     }
@@ -766,6 +1082,10 @@ public class AveragingResultProducer implements ResultListener, ResultProducer,
    * @return an enumeration of all the available options.
    */
   @Override
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public Enumeration<Option> listOptions() {
 
     Vector<Option> newVector = new Vector<Option>(2);
@@ -791,6 +1111,46 @@ public class AveragingResultProducer implements ResultListener, ResultProducer,
 
       newVector.addAll(Collections.list(((OptionHandler) m_ResultProducer)
         .listOptions()));
+<<<<<<< HEAD
+=======
+=======
+  public Enumeration listOptions() {
+
+    Vector newVector = new Vector(2);
+
+    newVector.addElement(new Option(
+      "\tThe name of the field to average over.\n"
+        + "\t(default \"Fold\")",
+      "F", 1,
+      "-F <field name>"));
+    newVector.addElement(new Option(
+      "\tThe number of results expected per average.\n"
+        + "\t(default 10)",
+      "X", 1,
+      "-X <num results>"));
+    newVector.addElement(new Option(
+      "\tCalculate standard deviations.\n"
+        + "\t(default only averages)",
+      "S", 0,
+      "-S"));
+    newVector.addElement(new Option(
+      "\tThe full class name of a ResultProducer.\n"
+        + "\teg: weka.experiment.CrossValidationResultProducer",
+      "W", 1,
+      "-W <class name>"));
+
+    if ((m_ResultProducer != null) &&
+      (m_ResultProducer instanceof OptionHandler)) {
+      newVector.addElement(new Option(
+        "",
+        "", 0, "\nOptions specific to result producer "
+          + m_ResultProducer.getClass().getName() + ":"));
+      Enumeration enu = ((OptionHandler) m_ResultProducer).listOptions();
+      while (enu.hasMoreElements()) {
+        newVector.addElement(enu.nextElement());
+      }
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
     return newVector.elements();
   }
@@ -923,6 +1283,10 @@ public class AveragingResultProducer implements ResultListener, ResultProducer,
     setCalculateStdDevs(Utils.getFlag('S', options));
 
     String rpName = Utils.getOption('W', options);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (rpName.length() == 0) {
       throw new Exception("A ResultProducer must be specified with"
         + " the -W option.");
@@ -935,6 +1299,23 @@ public class AveragingResultProducer implements ResultListener, ResultProducer,
     if (getResultProducer() instanceof OptionHandler) {
       ((OptionHandler) getResultProducer()).setOptions(Utils
         .partitionOptions(options));
+<<<<<<< HEAD
+=======
+=======
+    if (rpName.length() > 0) {
+      // Do it first without options, so if an exception is thrown during
+      // the option setting, listOptions will contain options for the actual
+      // RP.
+      setResultProducer((ResultProducer) Utils.forName(
+        ResultProducer.class,
+        rpName,
+        null));
+    }
+    if (getResultProducer() instanceof OptionHandler) {
+      ((OptionHandler) getResultProducer())
+        .setOptions(Utils.partitionOptions(options));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
   }
 
@@ -947,8 +1328,18 @@ public class AveragingResultProducer implements ResultListener, ResultProducer,
   public String[] getOptions() {
 
     String[] seOptions = new String[0];
+<<<<<<< HEAD
     if ((m_ResultProducer != null)
       && (m_ResultProducer instanceof OptionHandler)) {
+=======
+<<<<<<< HEAD
+    if ((m_ResultProducer != null)
+      && (m_ResultProducer instanceof OptionHandler)) {
+=======
+    if ((m_ResultProducer != null) &&
+      (m_ResultProducer instanceof OptionHandler)) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       seOptions = ((OptionHandler) m_ResultProducer).getOptions();
     }
 
@@ -968,7 +1359,16 @@ public class AveragingResultProducer implements ResultListener, ResultProducer,
     }
     options[current++] = "--";
 
+<<<<<<< HEAD
     System.arraycopy(seOptions, 0, options, current, seOptions.length);
+=======
+<<<<<<< HEAD
+    System.arraycopy(seOptions, 0, options, current, seOptions.length);
+=======
+    System.arraycopy(seOptions, 0, options, current,
+      seOptions.length);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     current += seOptions.length;
     while (current < options.length) {
       options[current++] = "";
@@ -990,7 +1390,16 @@ public class AveragingResultProducer implements ResultListener, ResultProducer,
 
     if (m_ResultProducer != null) {
       System.err.println("AveragingResultProducer: setting additional "
+<<<<<<< HEAD
         + "measures for " + "ResultProducer");
+=======
+<<<<<<< HEAD
+        + "measures for " + "ResultProducer");
+=======
+        + "measures for "
+        + "ResultProducer");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       m_ResultProducer.setAdditionalMeasures(m_AdditionalMeasures);
     }
   }
@@ -1002,6 +1411,10 @@ public class AveragingResultProducer implements ResultListener, ResultProducer,
    * @return an enumeration of the measure names
    */
   @Override
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public Enumeration<String> enumerateMeasures() {
     Vector<String> newVector = new Vector<String>();
     if (m_ResultProducer instanceof AdditionalMeasureProducer) {
@@ -1009,6 +1422,18 @@ public class AveragingResultProducer implements ResultListener, ResultProducer,
         .enumerateMeasures();
       while (en.hasMoreElements()) {
         String mname = en.nextElement();
+<<<<<<< HEAD
+=======
+=======
+  public Enumeration enumerateMeasures() {
+    Vector newVector = new Vector();
+    if (m_ResultProducer instanceof AdditionalMeasureProducer) {
+      Enumeration en = ((AdditionalMeasureProducer) m_ResultProducer).
+        enumerateMeasures();
+      while (en.hasMoreElements()) {
+        String mname = (String) en.nextElement();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         newVector.addElement(mname);
       }
     }
@@ -1025,12 +1450,27 @@ public class AveragingResultProducer implements ResultListener, ResultProducer,
   @Override
   public double getMeasure(String additionalMeasureName) {
     if (m_ResultProducer instanceof AdditionalMeasureProducer) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       return ((AdditionalMeasureProducer) m_ResultProducer)
         .getMeasure(additionalMeasureName);
     } else {
       throw new IllegalArgumentException("AveragingResultProducer: "
         + "Can't return value for : " + additionalMeasureName + ". "
         + m_ResultProducer.getClass().getName() + " "
+<<<<<<< HEAD
+=======
+=======
+      return ((AdditionalMeasureProducer) m_ResultProducer).
+        getMeasure(additionalMeasureName);
+    } else {
+      throw new IllegalArgumentException("AveragingResultProducer: "
+        + "Can't return value for : " + additionalMeasureName
+        + ". " + m_ResultProducer.getClass().getName() + " "
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         + "is not an AdditionalMeasureProducer");
     }
   }
@@ -1210,6 +1650,14 @@ public class AveragingResultProducer implements ResultListener, ResultProducer,
    */
   @Override
   public String getRevision() {
+<<<<<<< HEAD
     return RevisionUtils.extract("$Revision: 10203 $");
+=======
+<<<<<<< HEAD
+    return RevisionUtils.extract("$Revision: 10203 $");
+=======
+    return RevisionUtils.extract("$Revision: 11198 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 } // AveragingResultProducer

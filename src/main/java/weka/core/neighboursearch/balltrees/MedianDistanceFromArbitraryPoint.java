@@ -1,4 +1,8 @@
 /*
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,26 +15,65 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+<<<<<<< HEAD
+=======
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  * MedianDistanceFromArbitraryPoint.java
+<<<<<<< HEAD
  * Copyright (C) 2007-2012 University of Waikato, Hamilton, New Zealand
+=======
+<<<<<<< HEAD
+ * Copyright (C) 2007-2012 University of Waikato, Hamilton, New Zealand
+=======
+ * Copyright (C) 2007 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 package weka.core.neighboursearch.balltrees;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.Random;
 import java.util.Vector;
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.core.EuclideanDistance;
 import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.Option;
 import weka.core.RevisionUtils;
 import weka.core.TechnicalInformation;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.core.TechnicalInformation.Field;
 import weka.core.TechnicalInformation.Type;
 import weka.core.TechnicalInformationHandler;
@@ -52,6 +95,34 @@ import weka.core.Utils;
  * 
  * <!-- technical-bibtex-start --> BibTeX:
  * 
+<<<<<<< HEAD
+=======
+=======
+import weka.core.TechnicalInformationHandler;
+import weka.core.Utils;
+import weka.core.TechnicalInformation.Field;
+import weka.core.TechnicalInformation.Type;
+
+import java.util.Enumeration;
+import java.util.Random;
+import java.util.Vector;
+
+/**
+ <!-- globalinfo-start -->
+ * Class that splits a BallNode of a ball tree using Uhlmann's described method.<br/>
+ * <br/>
+ * For information see:<br/>
+ * <br/>
+ * Jeffrey K. Uhlmann (1991). Satisfying general proximity/similarity queries with metric trees. Information Processing Letters. 40(4):175-179.<br/>
+ * <br/>
+ * Ashraf Masood Kibriya (2007). Fast Algorithms for Nearest Neighbour Search. Hamilton, New Zealand.
+ * <p/>
+ <!-- globalinfo-end -->
+ *
+ <!-- technical-bibtex-start -->
+ * BibTeX:
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  * <pre>
  * &#64;article{Uhlmann1991,
  *    author = {Jeffrey K. Uhlmann},
@@ -73,6 +144,10 @@ import weka.core.Utils;
  * }
  * </pre>
  * <p/>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  * <!-- technical-bibtex-end -->
  * 
  * <!-- options-start --> Valid options are:
@@ -128,6 +203,68 @@ public class MedianDistanceFromArbitraryPoint extends BallSplitter implements
   public String globalInfo() {
     return "Class that splits a BallNode of a ball tree using Uhlmann's "
       + "described method.\n\n" + "For information see:\n\n"
+<<<<<<< HEAD
+=======
+=======
+ <!-- technical-bibtex-end -->
+ * 
+ <!-- options-start -->
+ * Valid options are: <p/>
+ * 
+ * <pre> -S &lt;num&gt;
+ *  The seed value for the random number generator.
+ *  (default: 17)</pre>
+ * 
+ <!-- options-end -->
+ *
+ * @author Ashraf M. Kibriya (amk14[at-the-rate]cs[dot]waikato[dot]ac[dot]nz)
+ * @version $Revision: 1.2 $
+ */
+public class MedianDistanceFromArbitraryPoint
+  extends BallSplitter 
+  implements TechnicalInformationHandler {
+  
+  /** for serialization. */
+  private static final long serialVersionUID = 5617378551363700558L;
+  
+  /** Seed for random number generator. */
+  protected int m_RandSeed = 17;
+
+  /** 
+   * Random number generator for selecting
+   * an abitrary (random) point. 
+   */
+  protected Random m_Rand;
+  
+  /** Constructor. */
+  public MedianDistanceFromArbitraryPoint() {
+  }
+  
+  /**
+   * Constructor. 
+   * @param instList The master index array.
+   * @param insts The instances on which the tree
+   * is (or is to be) built.
+   * @param e The Euclidean distance function to 
+   * use for splitting.
+   */
+  public MedianDistanceFromArbitraryPoint(int[] instList, Instances insts, EuclideanDistance e) {
+    super(instList, insts, e);
+  }
+  
+  /**
+   * Returns a string describing this nearest neighbour search algorithm.
+   * 
+   * @return 		a description of the algorithm for displaying in the
+   *         		explorer/experimenter gui
+   */
+  public String globalInfo() {
+    return 
+        "Class that splits a BallNode of a ball tree using Uhlmann's "
+      + "described method.\n\n"
+      + "For information see:\n\n"
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       + getTechnicalInformation().toString();
   }
 
@@ -136,17 +273,37 @@ public class MedianDistanceFromArbitraryPoint extends BallSplitter implements
    * information about the technical background of this class, e.g., paper
    * reference or book this class is based on.
    * 
+<<<<<<< HEAD
    * @return the technical information about this class
    */
   @Override
+=======
+<<<<<<< HEAD
+   * @return the technical information about this class
+   */
+  @Override
+=======
+   * @return 		the technical information about this class
+   */
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public TechnicalInformation getTechnicalInformation() {
     TechnicalInformation result;
     TechnicalInformation additional;
 
     result = new TechnicalInformation(Type.ARTICLE);
     result.setValue(Field.AUTHOR, "Jeffrey K. Uhlmann");
+<<<<<<< HEAD
     result.setValue(Field.TITLE,
       "Satisfying general proximity/similarity queries with metric trees");
+=======
+<<<<<<< HEAD
+    result.setValue(Field.TITLE,
+      "Satisfying general proximity/similarity queries with metric trees");
+=======
+    result.setValue(Field.TITLE, "Satisfying general proximity/similarity queries with metric trees");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     result.setValue(Field.JOURNAL, "Information Processing Letters");
     result.setValue(Field.MONTH, "November");
     result.setValue(Field.YEAR, "1991");
@@ -156,6 +313,10 @@ public class MedianDistanceFromArbitraryPoint extends BallSplitter implements
 
     additional = result.add(Type.MASTERSTHESIS);
     additional.setValue(Field.AUTHOR, "Ashraf Masood Kibriya");
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     additional.setValue(Field.TITLE,
       "Fast Algorithms for Nearest Neighbour Search");
     additional.setValue(Field.YEAR, "2007");
@@ -165,11 +326,25 @@ public class MedianDistanceFromArbitraryPoint extends BallSplitter implements
         "Department of Computer Science, School of Computing and Mathematical Sciences, University of Waikato");
     additional.setValue(Field.ADDRESS, "Hamilton, New Zealand");
 
+<<<<<<< HEAD
+=======
+=======
+    additional.setValue(Field.TITLE, "Fast Algorithms for Nearest Neighbour Search");
+    additional.setValue(Field.YEAR, "2007");
+    additional.setValue(Field.SCHOOL, "Department of Computer Science, School of Computing and Mathematical Sciences, University of Waikato");
+    additional.setValue(Field.ADDRESS, "Hamilton, New Zealand");
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return result;
   }
 
   /**
    * Returns an enumeration describing the available options.
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return an enumeration of all the available options.
    */
@@ -184,12 +359,36 @@ public class MedianDistanceFromArbitraryPoint extends BallSplitter implements
 
     result.addAll(Collections.list(super.listOptions()));
 
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @return 		an enumeration of all the available options.
+   */
+  public Enumeration listOptions() {
+    Vector result = new Vector();
+    
+    Enumeration enm = super.listOptions();
+    while (enm.hasMoreElements())
+      result.addElement(enm.nextElement());
+      
+    result.addElement(new Option(
+        "\tThe seed value for the random number generator.\n"
+        + "\t(default: 17)",
+        "S", 1, "-S <num>"));
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return result.elements();
   }
 
   /**
    * Parses a given list of options.
    * 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * <!-- options-start --> Valid options are:
    * <p/>
    * 
@@ -216,10 +415,41 @@ public class MedianDistanceFromArbitraryPoint extends BallSplitter implements
     }
 
     super.setOptions(options);
+<<<<<<< HEAD
+=======
+=======
+   <!-- options-start -->
+   * Valid options are: <p/>
+   * 
+   * <pre> -S &lt;num&gt;
+   *  The seed value for the random number generator.
+   *  (default: 17)</pre>
+   * 
+   <!-- options-end -->
+   *
+   * @param options 	the list of options as an array of strings
+   * @throws Exception 	if an option is not supported
+   */
+  public void setOptions(String[] options) throws Exception {
+    String	tmpStr;
+    
+    super.setOptions(options);
+
+    tmpStr = Utils.getOption('S', options);
+    if (tmpStr.length() > 0)
+      setRandomSeed(Integer.parseInt(tmpStr));
+    else
+      setRandomSeed(17);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Gets the current settings of the object.
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return an array of strings suitable for passing to setOptions
    */
@@ -239,30 +469,89 @@ public class MedianDistanceFromArbitraryPoint extends BallSplitter implements
   /**
    * Sets the seed for random number generator.
    * 
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @return 		an array of strings suitable for passing to setOptions
+   */
+  public String[] getOptions() {
+    Vector<String>	result;
+    String[]		options;
+    int			i;
+    
+    result  = new Vector<String>();
+
+    options = super.getOptions();
+    for (i = 0; i < options.length; i++)
+      result.add(options[i]);
+    
+    result.add("-S");
+    result.add("" + getRandomSeed());
+    
+    return result.toArray(new String[result.size()]);
+  }
+  
+  /**
+   * Sets the seed for random number generator.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param seed The seed value to set.
    */
   public void setRandomSeed(int seed) {
     m_RandSeed = seed;
   }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /**
    * Returns the seed value of random number generator.
    * 
+<<<<<<< HEAD
+=======
+=======
+  
+  /**
+   * Returns the seed value of random 
+   * number generator.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @return The random seed currently in use.
    */
   public int getRandomSeed() {
     return m_RandSeed;
   }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /**
    * Returns the tip text for this property.
    * 
    * @return tip text for this property suitable for displaying in the
    *         explorer/experimenter gui.
+<<<<<<< HEAD
+=======
+=======
+  
+  /**
+   * Returns the tip text for this property.
+   * 
+   * @return tip text for this property suitable for
+   * displaying in the explorer/experimenter gui.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public String randomSeedTipText() {
     return "The seed value for the random number generator.";
   }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /**
    * Splits a ball into two.
@@ -274,10 +563,29 @@ public class MedianDistanceFromArbitraryPoint extends BallSplitter implements
    * @throws Exception If there is some problem in splitting the given node.
    */
   @Override
+<<<<<<< HEAD
+=======
+=======
+  
+  /** 
+   * Splits a ball into two. 
+   * @param node The node to split.
+   * @param numNodesCreated The number of nodes that so far have been
+   * created for the tree, so that the newly created nodes are 
+   * assigned correct/meaningful node numbers/ids.
+   * @throws Exception If there is some problem in splitting the
+   * given node.
+   */
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public void splitNode(BallNode node, int numNodesCreated) throws Exception {
     correctlyInitialized();
 
     m_Rand = new Random(m_RandSeed);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     int ridx = node.m_Start + m_Rand.nextInt(node.m_NumInstances);
     Instance randomInst = (Instance) m_Instances.instance(m_Instlist[ridx])
@@ -324,6 +632,67 @@ public class MedianDistanceFromArbitraryPoint extends BallSplitter implements
   protected int partition(double[] array, int[] index, int l, int r,
     final int indexStart) {
 
+<<<<<<< HEAD
+=======
+=======
+    
+    int ridx = node.m_Start+m_Rand.nextInt(node.m_NumInstances);
+    Instance randomInst = (Instance)
+                            m_Instances.instance( m_Instlist[ridx] ).copy();
+    double [] distList = new double[node.m_NumInstances-1];
+    Instance temp;
+    for(int i=node.m_Start, j=0; i<node.m_End; i++, j++) {
+      temp = m_Instances.instance( m_Instlist[i] );
+      distList[j] = m_DistanceFunction.distance(randomInst, temp, 
+	  Double.POSITIVE_INFINITY);
+    }
+    
+    int medianIdx = select(distList, m_Instlist, 0, distList.length-1, 
+                           node.m_Start, (node.m_End-node.m_Start)/2+1) + 
+                    node.m_Start;
+    
+    Instance pivot;
+    node.m_Left = new BallNode(node.m_Start, medianIdx, numNodesCreated+1,
+                              (pivot=BallNode.calcCentroidPivot(node.m_Start,
+                                                       medianIdx, m_Instlist, 
+                                                       m_Instances)), 
+                              BallNode.calcRadius(node.m_Start, medianIdx, 
+                                                  m_Instlist, m_Instances, 
+                                                  pivot, m_DistanceFunction)
+                              );
+    
+    node.m_Right = new BallNode(medianIdx+1, node.m_End, numNodesCreated+2,
+                              (pivot=BallNode.calcCentroidPivot(medianIdx+1,
+                                                       node.m_End, m_Instlist, 
+                                                       m_Instances)), 
+                              BallNode.calcRadius(medianIdx+1, node.m_End, 
+                                                  m_Instlist, m_Instances, 
+                                                  pivot, m_DistanceFunction)
+                              );
+  }
+  
+  /**
+   * Partitions the instances around a pivot. Used by quicksort and
+   * kthSmallestValue.
+   *
+   * @param array The array of distances of the points to the
+   * arbitrarily selected point.
+   * @param index The master index array containing indices of the 
+   * instances.
+   * @param l The relative begining index of the portion of master 
+   * index array that should be partitioned. 
+   * @param r The relative end index of the portion of master index 
+   * array that should be partitioned.
+   * @param indexStart The absolute begining index of the portion 
+   * of master index array that should be partitioned. 
+   * @return the index of the middle element (in the master 
+   * index array, i.e. index of the index of middle element).
+   */
+  protected int partition(double[] array, int[] index, int l, int r, 
+                        final int indexStart) {
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     double pivot = array[(l + r) / 2];
     int help;
 
@@ -335,15 +704,31 @@ public class MedianDistanceFromArbitraryPoint extends BallSplitter implements
         r--;
       }
       if (l < r) {
+<<<<<<< HEAD
         help = index[indexStart + l];
         index[indexStart + l] = index[indexStart + r];
         index[indexStart + r] = help;
+=======
+<<<<<<< HEAD
+        help = index[indexStart + l];
+        index[indexStart + l] = index[indexStart + r];
+        index[indexStart + r] = help;
+=======
+        help = index[indexStart+l];
+        index[indexStart+l] = index[indexStart+r];
+        index[indexStart+r] = help;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         l++;
         r--;
       }
     }
     if ((l == r) && (array[r] > pivot)) {
       r--;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
 
     return r;
@@ -368,6 +753,37 @@ public class MedianDistanceFromArbitraryPoint extends BallSplitter implements
   protected int select(double[] array, int[] indices, int left, int right,
     final int indexStart, int k) {
 
+<<<<<<< HEAD
+=======
+=======
+    } 
+
+    return r;
+  }
+  
+  /**
+   * Implements computation of the kth-smallest element according
+   * to Manber's "Introduction to Algorithms".
+   *
+   * @param array Array containing the distances of points from
+   * the arbitrarily selected.
+   * @param indices The master index array containing indices of 
+   * the instances.
+   * @param left The relative begining index of the portion of the 
+   * master index array in which to find the kth-smallest element.
+   * @param right The relative end index of the portion of the 
+   * master index array in which to find the kth-smallest element.
+   * @param indexStart The absolute begining index of the portion 
+   * of the master index array in which to find the kth-smallest 
+   * element. 
+   * @param k The value of k
+   * @return The index of the kth-smallest element
+   */
+  protected int select(double[] array, int[] indices, 
+                            int left, int right, final int indexStart, int k) {
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (left == right) {
       return left;
     } else {
@@ -375,6 +791,10 @@ public class MedianDistanceFromArbitraryPoint extends BallSplitter implements
       if ((middle - left + 1) >= k) {
         return select(array, indices, left, middle, indexStart, k);
       } else {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         return select(array, indices, middle + 1, right, indexStart, k
           - (middle - left + 1));
       }
@@ -389,5 +809,23 @@ public class MedianDistanceFromArbitraryPoint extends BallSplitter implements
   @Override
   public String getRevision() {
     return RevisionUtils.extract("$Revision: 10203 $");
+<<<<<<< HEAD
+=======
+=======
+        return select(array, indices, middle + 1, right, 
+                      indexStart, k - (middle - left + 1));
+      }
+    }
+  }
+  
+  /**
+   * Returns the revision string.
+   * 
+   * @return		the revision
+   */
+  public String getRevision() {
+    return RevisionUtils.extract("$Revision: 1.2 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 }

@@ -1,4 +1,8 @@
 /*
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,16 +15,55 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+<<<<<<< HEAD
+=======
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  * SVMLightLoader.java
+<<<<<<< HEAD
  * Copyright (C) 2006-2012 University of Waikato, Hamilton, NZ
+=======
+<<<<<<< HEAD
+ * Copyright (C) 2006-2012 University of Waikato, Hamilton, NZ
+=======
+ * Copyright (C) 2006 University of Waikato, Hamilton, NZ
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
 package weka.core.converters;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+import weka.core.Attribute;
+import weka.core.FastVector;
+import weka.core.Instance;
+import weka.core.Instances;
+import weka.core.RevisionUtils;
+import weka.core.SparseInstance;
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -28,6 +71,10 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.net.URL;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 import java.util.Vector;
@@ -38,6 +85,14 @@ import weka.core.Instances;
 import weka.core.RevisionUtils;
 import weka.core.SparseInstance;
 
+<<<<<<< HEAD
+=======
+=======
+import java.util.StringTokenizer;
+import java.util.Vector;
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 /**
  <!-- globalinfo-start -->
  * Reads a source that is in svm light format.<br/>
@@ -49,7 +104,15 @@ import weka.core.SparseInstance;
  <!-- globalinfo-end -->
  *
  * @author FracPete (fracpete at waikato dot ac dot nz)
+<<<<<<< HEAD
  * @version $Revision: 8034 $
+=======
+<<<<<<< HEAD
+ * @version $Revision: 8034 $
+=======
+ * @version $Revision: 4985 $
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  * @see Loader
  */
 public class SVMLightLoader 
@@ -69,7 +132,15 @@ public class SVMLightLoader
   protected transient Reader m_sourceReader = null;
 
   /** the buffer of the rows read so far. */
+<<<<<<< HEAD
   protected Vector<double[]> m_Buffer = null;
+=======
+<<<<<<< HEAD
+  protected Vector<double[]> m_Buffer = null;
+=======
+  protected Vector m_Buffer = null;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   
   /**
    * Returns a string describing this Loader.
@@ -280,7 +351,15 @@ public class SVMLightLoader
     Attribute	result;
     boolean	binary;
     int		i;
+<<<<<<< HEAD
     ArrayList<String>	values;
+=======
+<<<<<<< HEAD
+    ArrayList<String>	values;
+=======
+    FastVector	values;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     double[]	dbls;
     double	cls;
     
@@ -296,9 +375,21 @@ public class SVMLightLoader
     }
     
     if (binary) {
+<<<<<<< HEAD
       values = new ArrayList<String>();
       values.add("+1");
       values.add("-1");
+=======
+<<<<<<< HEAD
+      values = new ArrayList<String>();
+      values.add("+1");
+      values.add("-1");
+=======
+      values = new FastVector();
+      values.addElement("+1");
+      values.addElement("-1");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       result = new Attribute("class", values);
     }
     else {
@@ -321,7 +412,15 @@ public class SVMLightLoader
     int			cInt;
     char		c;
     int			numAtt;
+<<<<<<< HEAD
     ArrayList<Attribute>		atts;
+=======
+<<<<<<< HEAD
+    ArrayList<Attribute>		atts;
+=======
+    FastVector		atts;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     int			i;
     String		relName;
     
@@ -329,7 +428,15 @@ public class SVMLightLoader
       throw new IOException("No source has been specified");
 
     if (m_structure == null) {
+<<<<<<< HEAD
       m_Buffer = new Vector<double[]>();
+=======
+<<<<<<< HEAD
+      m_Buffer = new Vector<double[]>();
+=======
+      m_Buffer = new Vector();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       try {
 	// determine number of attributes
 	numAtt = 0;
@@ -361,10 +468,23 @@ public class SVMLightLoader
 	}
 	
 	// generate header
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 	atts = new ArrayList<Attribute>(numAtt);
 	for (i = 0; i < numAtt - 1; i++)
 	  atts.add(new Attribute("att_" + (i+1)));
 	atts.add(determineClassAttribute());
+<<<<<<< HEAD
+=======
+=======
+	atts = new FastVector(numAtt);
+	for (i = 0; i < numAtt - 1; i++)
+	  atts.addElement(new Attribute("att_" + (i+1)));
+	atts.addElement(determineClassAttribute());
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 	
 	if (!m_URL.equals("http://"))
 	  relName = m_URL;
@@ -466,7 +586,15 @@ public class SVMLightLoader
    * @return		the revision
    */
   public String getRevision() {
+<<<<<<< HEAD
     return RevisionUtils.extract("$Revision: 8034 $");
+=======
+<<<<<<< HEAD
+    return RevisionUtils.extract("$Revision: 8034 $");
+=======
+    return RevisionUtils.extract("$Revision: 4985 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**

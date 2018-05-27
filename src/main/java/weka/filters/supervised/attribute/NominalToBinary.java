@@ -1,4 +1,8 @@
 /*
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,10 +15,32 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+<<<<<<< HEAD
+=======
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    NominalToBinary.java
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
  *
  */
@@ -26,12 +52,41 @@ import java.util.Enumeration;
 import java.util.Vector;
 
 import weka.core.*;
+<<<<<<< HEAD
+=======
+=======
+ *    Copyright (C) 1999 University of Waikato, Hamilton, New Zealand
+ *
+ */
+
+
+package weka.filters.supervised.attribute;
+
+import weka.core.Attribute;
+import weka.core.Capabilities;
+import weka.core.FastVector;
+import weka.core.Instance;
+import weka.core.Instances;
+import weka.core.Option;
+import weka.core.OptionHandler;
+import weka.core.RevisionUtils;
+import weka.core.SparseInstance;
+import weka.core.TechnicalInformation;
+import weka.core.TechnicalInformationHandler;
+import weka.core.UnassignedClassException;
+import weka.core.Utils;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.core.Capabilities.Capability;
 import weka.core.TechnicalInformation.Field;
 import weka.core.TechnicalInformation.Type;
 import weka.filters.Filter;
 import weka.filters.SupervisedFilter;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 /**
  * <!-- globalinfo-start --> Converts all nominal attributes into binary numeric
  * attributes. An attribute with k values is transformed into k binary
@@ -51,6 +106,26 @@ import weka.filters.SupervisedFilter;
  * 
  * <!-- technical-bibtex-start --> BibTeX:
  * 
+<<<<<<< HEAD
+=======
+=======
+import java.util.Enumeration;
+import java.util.Vector;
+
+/** 
+ <!-- globalinfo-start -->
+ * Converts all nominal attributes into binary numeric attributes. An attribute with k values is transformed into k binary attributes if the class is nominal (using the one-attribute-per-value approach). Binary attributes are left binary, if option '-A' is not given.If the class is numeric, k - 1 new binary attributes are generated in the manner described in "Classification and Regression Trees" by Breiman et al. (i.e. taking the average class value associated with each attribute value into account)<br/>
+ * <br/>
+ * For more information, see:<br/>
+ * <br/>
+ * L. Breiman, J.H. Friedman, R.A. Olshen, C.J. Stone (1984). Classification and Regression Trees. Wadsworth Inc.
+ * <p/>
+ <!-- globalinfo-end -->
+ * 
+ <!-- technical-bibtex-start -->
+ * BibTeX:
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  * <pre>
  * &#64;book{Breiman1984,
  *    author = {L. Breiman and J.H. Friedman and R.A. Olshen and C.J. Stone},
@@ -61,6 +136,10 @@ import weka.filters.SupervisedFilter;
  * }
  * </pre>
  * <p/>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  * <!-- technical-bibtex-end -->
  * 
  * <!-- options-start --> Valid options are:
@@ -89,6 +168,32 @@ import weka.filters.SupervisedFilter;
 public class NominalToBinary extends Filter implements SupervisedFilter,
   OptionHandler, TechnicalInformationHandler, WeightedAttributesHandler, WeightedInstancesHandler {
 
+<<<<<<< HEAD
+=======
+=======
+ <!-- technical-bibtex-end -->
+ *
+ <!-- options-start -->
+ * Valid options are: <p/>
+ * 
+ * <pre> -N
+ *  Sets if binary attributes are to be coded as nominal ones.</pre>
+ * 
+ * <pre> -A
+ *  For each nominal value a new attribute is created, 
+ *  not only if there are more than 2 values.</pre>
+ * 
+ <!-- options-end -->
+ *
+ * @author Eibe Frank (eibe@cs.waikato.ac.nz) 
+ * @version $Revision: 8094 $ 
+ */
+public class NominalToBinary 
+  extends Filter 
+  implements SupervisedFilter, OptionHandler, TechnicalInformationHandler {
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /** for serialization */
   static final long serialVersionUID = -5004607029857673950L;
 
@@ -100,6 +205,10 @@ public class NominalToBinary extends Filter implements SupervisedFilter,
 
   /** Are all values transformed into new attributes? */
   private boolean m_TransformAll = false;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** Whether we need to transform at all */
   private boolean m_needToTransform = false;
@@ -112,12 +221,30 @@ public class NominalToBinary extends Filter implements SupervisedFilter,
    * 
    * @return a description of the filter suitable for displaying in the
    *         explorer/experimenter gui
+<<<<<<< HEAD
+=======
+=======
+  
+  /** Whether we need to transform at all */
+  private boolean m_needToTransform = false;
+
+  /**
+   * Returns a string describing this filter
+   *
+   * @return a description of the filter suitable for
+   * displaying in the explorer/experimenter gui
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public String globalInfo() {
 
     return "Converts all nominal attributes into binary numeric attributes. An "
       + "attribute with k values is transformed into k binary attributes if "
       + "the class is nominal (using the one-attribute-per-value approach). "
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       + "Binary attributes are left binary if option '-A' is not given. "
       + "If the class is numeric, k - 1 new binary attributes are generated "
       + "in the manner described in \"Classification and Regression "
@@ -140,10 +267,40 @@ public class NominalToBinary extends Filter implements SupervisedFilter,
     result = new TechnicalInformation(Type.BOOK);
     result.setValue(Field.AUTHOR,
       "L. Breiman and J.H. Friedman and R.A. Olshen and C.J. Stone");
+<<<<<<< HEAD
+=======
+=======
+      + "Binary attributes are left binary, if option '-A' is not given."
+      + "If the class is numeric, k - 1 new binary attributes are generated "
+      + "in the manner described in \"Classification and Regression "
+      + "Trees\" by Breiman et al. (i.e. taking the average class value associated "
+      + "with each attribute value into account)\n\n"
+      + "For more information, see:\n\n"
+      + getTechnicalInformation().toString();
+  }
+
+  /**
+   * Returns an instance of a TechnicalInformation object, containing 
+   * detailed information about the technical background of this class,
+   * e.g., paper reference or book this class is based on.
+   * 
+   * @return the technical information about this class
+   */
+  public TechnicalInformation getTechnicalInformation() {
+    TechnicalInformation 	result;
+    
+    result = new TechnicalInformation(Type.BOOK);
+    result.setValue(Field.AUTHOR, "L. Breiman and J.H. Friedman and R.A. Olshen and C.J. Stone");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     result.setValue(Field.TITLE, "Classification and Regression Trees");
     result.setValue(Field.YEAR, "1984");
     result.setValue(Field.PUBLISHER, "Wadsworth Inc");
     result.setValue(Field.ISBN, "0412048418");
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     return result;
   }
@@ -155,6 +312,21 @@ public class NominalToBinary extends Filter implements SupervisedFilter,
    * @see Capabilities
    */
   @Override
+<<<<<<< HEAD
+=======
+=======
+    
+    return result;
+  }
+
+  /** 
+   * Returns the Capabilities of this filter.
+   *
+   * @return            the capabilities of this object
+   * @see               Capabilities
+   */
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public Capabilities getCapabilities() {
     Capabilities result = super.getCapabilities();
     result.disableAll();
@@ -162,18 +334,39 @@ public class NominalToBinary extends Filter implements SupervisedFilter,
     // attributes
     result.enableAllAttributes();
     result.enable(Capability.MISSING_VALUES);
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     // class
     result.enable(Capability.NUMERIC_CLASS);
     result.enable(Capability.DATE_CLASS);
     result.enable(Capability.NOMINAL_CLASS);
+<<<<<<< HEAD
     result.enable(Capability.MISSING_CLASS_VALUES);
 
+=======
+<<<<<<< HEAD
+    result.enable(Capability.MISSING_CLASS_VALUES);
+
+=======
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return result;
   }
 
   /**
    * Sets the format of the input instances.
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param instanceInfo an Instances object containing the input instance
    *          structure (any instances contained in the object are ignored -
@@ -188,6 +381,25 @@ public class NominalToBinary extends Filter implements SupervisedFilter,
     if (instanceInfo.classIndex() < 0) {
       throw new UnassignedClassException(
         "No class has been assigned to the instances");
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @param instanceInfo an Instances object containing the input 
+   * instance structure (any instances contained in the object are 
+   * ignored - only the structure is required).
+   * @return true if the outputFormat may be collected immediately
+   * @throws Exception if the input format can't be set 
+   * successfully
+   */
+  public boolean setInputFormat(Instances instanceInfo) 
+       throws Exception {
+
+    super.setInputFormat(instanceInfo);
+    if (instanceInfo.classIndex() < 0) {
+      throw new UnassignedClassException("No class has been assigned to the instances");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
     setOutputFormat();
     m_Indices = null;
@@ -199,6 +411,10 @@ public class NominalToBinary extends Filter implements SupervisedFilter,
   }
 
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Input an instance for filtering. Filter requires all training instances be
    * read before producing output.
    * 
@@ -207,6 +423,19 @@ public class NominalToBinary extends Filter implements SupervisedFilter,
    * @throws IllegalStateException if no input format has been set
    */
   @Override
+<<<<<<< HEAD
+=======
+=======
+   * Input an instance for filtering. Filter requires all
+   * training instances be read before producing output.
+   *
+   * @param instance the input instance
+   * @return true if the filtered instance may now be
+   * collected with output().
+   * @throws IllegalStateException if no input format has been set
+   */
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public boolean input(Instance instance) {
 
     if (getInputFormat() == null) {
@@ -216,8 +445,19 @@ public class NominalToBinary extends Filter implements SupervisedFilter,
       resetQueue();
       m_NewBatch = false;
     }
+<<<<<<< HEAD
     if ((m_Indices != null) || (getInputFormat().classAttribute().isNominal())) {
       convertInstance((Instance)instance.copy());
+=======
+<<<<<<< HEAD
+    if ((m_Indices != null) || (getInputFormat().classAttribute().isNominal())) {
+      convertInstance((Instance)instance.copy());
+=======
+    if ((m_Indices != null) || 
+	(getInputFormat().classAttribute().isNominal())) {
+      convertInstance(instance);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       return true;
     }
     bufferInput(instance);
@@ -225,6 +465,10 @@ public class NominalToBinary extends Filter implements SupervisedFilter,
   }
 
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Signify that this batch of input to the filter is finished. If the filter
    * requires all instances prior to filtering, output() may now be called to
    * retrieve the filtered instances.
@@ -233,21 +477,55 @@ public class NominalToBinary extends Filter implements SupervisedFilter,
    * @throws IllegalStateException if no input structure has been defined
    */
   @Override
+<<<<<<< HEAD
+=======
+=======
+   * Signify that this batch of input to the filter is finished. 
+   * If the filter requires all instances prior to filtering,
+   * output() may now be called to retrieve the filtered instances.
+   *
+   * @return true if there are instances pending output
+   * @throws IllegalStateException if no input structure has been defined
+   */
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public boolean batchFinished() {
 
     if (getInputFormat() == null) {
       throw new IllegalStateException("No input instance format defined");
     }
+<<<<<<< HEAD
     if ((m_Indices == null) && (getInputFormat().classAttribute().isNumeric())) {
+=======
+<<<<<<< HEAD
+    if ((m_Indices == null) && (getInputFormat().classAttribute().isNumeric())) {
+=======
+    if ((m_Indices == null) && 
+	(getInputFormat().classAttribute().isNumeric())) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       computeAverageClassValues();
       setOutputFormat();
 
       // Convert pending input instances
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       for (int i = 0; i < getInputFormat().numInstances(); i++) {
         convertInstance(getInputFormat().instance(i));
       }
     }
+<<<<<<< HEAD
+=======
+=======
+      for(int i = 0; i < getInputFormat().numInstances(); i++) {
+	convertInstance(getInputFormat().instance(i));
+      }
+    } 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     flushInput();
 
     m_NewBatch = true;
@@ -256,6 +534,10 @@ public class NominalToBinary extends Filter implements SupervisedFilter,
 
   /**
    * Returns an enumeration describing the available options.
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return an enumeration of all the available options.
    */
@@ -275,10 +557,34 @@ public class NominalToBinary extends Filter implements SupervisedFilter,
     newVector.addElement(new Option("\tWhen generating binary attributes, spread weight of old "
             + "attribute across new attributes. Do not give each new attribute the old weight.\n\t",
             "spread-attribute-weight", 0, "-spread-attribute-weight"));
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @return an enumeration of all the available options.
+   */
+  public Enumeration listOptions() {
+
+    Vector newVector = new Vector(1);
+
+    newVector.addElement(new Option(
+	"\tSets if binary attributes are to be coded as nominal ones.",
+	"N", 0, "-N"));
+    
+    newVector.addElement(new Option(
+	"\tFor each nominal value a new attribute is created, \n"
+	+ "\tnot only if there are more than 2 values.",
+	"A", 0, "-A"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     return newVector.elements();
   }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /**
    * Parses a given list of options.
    * <p/>
@@ -307,12 +613,40 @@ public class NominalToBinary extends Filter implements SupervisedFilter,
    * @throws Exception if an option is not supported
    */
   @Override
+<<<<<<< HEAD
+=======
+=======
+
+  /**
+   * Parses a given list of options. <p/>
+   * 
+   <!-- options-start -->
+   * Valid options are: <p/>
+   * 
+   * <pre> -N
+   *  Sets if binary attributes are to be coded as nominal ones.</pre>
+   * 
+   * <pre> -A
+   *  For each nominal value a new attribute is created, 
+   *  not only if there are more than 2 values.</pre>
+   * 
+   <!-- options-end -->
+   *
+   * @param options the list of options as an array of strings
+   * @throws Exception if an option is not supported
+   */
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public void setOptions(String[] options) throws Exception {
 
     setBinaryAttributesNominal(Utils.getFlag('N', options));
 
     setTransformAllValues(Utils.getFlag('A', options));
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (getInputFormat() != null) {
       setInputFormat(getInputFormat());
     }
@@ -320,10 +654,21 @@ public class NominalToBinary extends Filter implements SupervisedFilter,
     setSpreadAttributeWeight(Utils.getFlag("spread-attribute-weight", options));
 
     Utils.checkForRemainingOptions(options);
+<<<<<<< HEAD
+=======
+=======
+    if (getInputFormat() != null)
+      setInputFormat(getInputFormat());
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Gets the current settings of the filter.
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return an array of strings suitable for passing to setOptions
    */
@@ -345,11 +690,40 @@ public class NominalToBinary extends Filter implements SupervisedFilter,
     }
 
     return options.toArray(new String[0]);
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @return an array of strings suitable for passing to setOptions
+   */
+  public String [] getOptions() {
+
+    String [] options = new String [1];
+    int current = 0;
+
+    if (getBinaryAttributesNominal()) {
+      options[current++] = "-N";
+    }
+
+    if (getTransformAllValues()) {
+      options[current++] = "-A";
+    }
+
+    while (current < options.length) {
+      options[current++] = "";
+    }
+    return options;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Returns the tip text for this property
    *
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @return tip text for this property suitable for displaying in the
    *         explorer/experimenter gui
    */
@@ -383,6 +757,13 @@ public class NominalToBinary extends Filter implements SupervisedFilter,
    * 
    * @return tip text for this property suitable for displaying in the
    *         explorer/experimenter gui
+<<<<<<< HEAD
+=======
+=======
+   * @return tip text for this property suitable for
+   * displaying in the explorer/experimenter gui
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public String binaryAttributesNominalTipText() {
     return "Whether resulting binary attributes will be nominal.";
@@ -390,7 +771,15 @@ public class NominalToBinary extends Filter implements SupervisedFilter,
 
   /**
    * Gets if binary attributes are to be treated as nominal ones.
+<<<<<<< HEAD
    * 
+=======
+<<<<<<< HEAD
+   * 
+=======
+   *
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @return true if binary attributes are to be treated as nominal ones
    */
   public boolean getBinaryAttributesNominal() {
@@ -400,7 +789,15 @@ public class NominalToBinary extends Filter implements SupervisedFilter,
 
   /**
    * Sets if binary attributes are to be treates as nominal ones.
+<<<<<<< HEAD
    * 
+=======
+<<<<<<< HEAD
+   * 
+=======
+   *
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param bool true if binary attributes are to be treated as nominal ones
    */
   public void setBinaryAttributesNominal(boolean bool) {
@@ -410,9 +807,21 @@ public class NominalToBinary extends Filter implements SupervisedFilter,
 
   /**
    * Returns the tip text for this property
+<<<<<<< HEAD
    * 
    * @return tip text for this property suitable for displaying in the
    *         explorer/experimenter gui
+=======
+<<<<<<< HEAD
+   * 
+   * @return tip text for this property suitable for displaying in the
+   *         explorer/experimenter gui
+=======
+   *
+   * @return tip text for this property suitable for
+   * displaying in the explorer/experimenter gui
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public String transformAllValuesTipText() {
     return "Whether all nominal values are turned into new attributes, not only if there are more than 2.";
@@ -421,7 +830,15 @@ public class NominalToBinary extends Filter implements SupervisedFilter,
   /**
    * Gets if all nominal values are turned into new attributes, not only if
    * there are more than 2.
+<<<<<<< HEAD
    * 
+=======
+<<<<<<< HEAD
+   * 
+=======
+   *
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @return true all nominal values are transformed into new attributes
    */
   public boolean getTransformAllValues() {
@@ -432,7 +849,15 @@ public class NominalToBinary extends Filter implements SupervisedFilter,
   /**
    * Sets whether all nominal values are transformed into new attributes, not
    * just if there are more than 2.
+<<<<<<< HEAD
    * 
+=======
+<<<<<<< HEAD
+   * 
+=======
+   *
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param bool true if all nominal value are transformed into new attributes
    */
   public void setTransformAllValues(boolean bool) {
@@ -445,13 +870,29 @@ public class NominalToBinary extends Filter implements SupervisedFilter,
 
     double totalCounts, sum;
     Instance instance;
+<<<<<<< HEAD
     double[] counts;
 
     double[][] avgClassValues = new double[getInputFormat().numAttributes()][0];
+=======
+<<<<<<< HEAD
+    double[] counts;
+
+    double[][] avgClassValues = new double[getInputFormat().numAttributes()][0];
+=======
+    double [] counts;
+
+    double [][] avgClassValues = new double[getInputFormat().numAttributes()][0];
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     m_Indices = new int[getInputFormat().numAttributes()][0];
     for (int j = 0; j < getInputFormat().numAttributes(); j++) {
       Attribute att = getInputFormat().attribute(j);
       if (att.isNominal()) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         avgClassValues[j] = new double[att.numValues()];
         counts = new double[att.numValues()];
         for (int i = 0; i < getInputFormat().numInstances(); i++) {
@@ -474,6 +915,34 @@ public class NominalToBinary extends Filter implements SupervisedFilter,
           }
         }
         m_Indices[j] = Utils.sort(avgClassValues[j]);
+<<<<<<< HEAD
+=======
+=======
+	avgClassValues[j] = new double [att.numValues()];
+	counts = new double [att.numValues()];
+	for (int i = 0; i < getInputFormat().numInstances(); i++) {
+	  instance = getInputFormat().instance(i);
+	  if (!instance.classIsMissing() && 
+	      (!instance.isMissing(j))) {
+	    counts[(int)instance.value(j)] += instance.weight();
+	    avgClassValues[j][(int)instance.value(j)] += 
+	      instance.weight() * instance.classValue();
+	  }
+	}
+	sum = Utils.sum(avgClassValues[j]);
+	totalCounts = Utils.sum(counts);
+	if (Utils.gr(totalCounts, 0)) {
+	  for (int k = 0; k < att.numValues(); k++) {
+	    if (Utils.gr(counts[k], 0)) {
+	      avgClassValues[j][k] /= (double)counts[k];
+	    } else {
+	      avgClassValues[j][k] = sum / (double)totalCounts;
+	    }
+	  }
+	}
+	m_Indices[j] = Utils.sort(avgClassValues[j]);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
     }
   }
@@ -489,10 +958,23 @@ public class NominalToBinary extends Filter implements SupervisedFilter,
   }
 
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Convert a single instance over. The converted instance is added to the end
    * of the output queue.
    * 
    * @param inst the instance to convert
+<<<<<<< HEAD
+=======
+=======
+   * Convert a single instance over. The converted instance is 
+   * added to the end of the output queue.
+   *
+   * @param instance the instance to convert
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   private void convertInstance(Instance inst) {
 
@@ -508,29 +990,65 @@ public class NominalToBinary extends Filter implements SupervisedFilter,
    */
   private void setOutputFormatNominal() {
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     ArrayList<Attribute> newAtts;
     int newClassIndex;
     StringBuffer attributeName;
     Instances outputFormat;
     ArrayList<String> vals;
+<<<<<<< HEAD
+=======
+=======
+    FastVector newAtts;
+    int newClassIndex;
+    StringBuffer attributeName;
+    Instances outputFormat;
+    FastVector vals;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     // Compute new attributes
     m_needToTransform = false;
     for (int i = 0; i < getInputFormat().numAttributes(); i++) {
       Attribute att = getInputFormat().attribute(i);
+<<<<<<< HEAD
       if (att.isNominal() && i != getInputFormat().classIndex()
         && (att.numValues() > 2 || m_TransformAll || m_Numeric)) {
+=======
+<<<<<<< HEAD
+      if (att.isNominal() && i != getInputFormat().classIndex()
+        && (att.numValues() > 2 || m_TransformAll || m_Numeric)) {
+=======
+      if (att.isNominal() && i != getInputFormat().classIndex() && 
+          (att.numValues() > 2 || m_TransformAll || m_Numeric)) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         m_needToTransform = true;
         break;
       }
     }
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (!m_needToTransform) {
       setOutputFormat(getInputFormat());
       return;
     }
 
     newClassIndex = getInputFormat().classIndex();
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     newAtts = new ArrayList<Attribute>();
     for (int j = 0; j < getInputFormat().numAttributes(); j++) {
       Attribute att = getInputFormat().attribute(j);
@@ -584,6 +1102,50 @@ public class NominalToBinary extends Filter implements SupervisedFilter,
       }
     }
     outputFormat = new Instances(getInputFormat().relationName(), newAtts, 0);
+<<<<<<< HEAD
+=======
+=======
+    newAtts = new FastVector();
+    for (int j = 0; j < getInputFormat().numAttributes(); j++) {
+      Attribute att = getInputFormat().attribute(j);
+      if ((!att.isNominal()) || 
+	  (j == getInputFormat().classIndex())) {
+	newAtts.addElement(att.copy());
+      } else {
+	if ( (att.numValues() <= 2) && (!m_TransformAll) ) {
+	  if (m_Numeric) {
+	    newAtts.addElement(new Attribute(att.name()));
+	  } else {
+	    newAtts.addElement(att.copy());
+	  }
+	} else {
+
+	  if (j < getInputFormat().classIndex()) {
+	    newClassIndex += att.numValues() - 1;
+	  }
+
+	  // Compute values for new attributes
+	  for (int k = 0; k < att.numValues(); k++) {
+	    attributeName = 
+	      new StringBuffer(att.name() + "=");
+	    attributeName.append(att.value(k));
+	    if (m_Numeric) {
+	      newAtts.
+		addElement(new Attribute(attributeName.toString()));
+	    } else {
+	      vals = new FastVector(2);
+	      vals.addElement("f"); vals.addElement("t");
+	      newAtts.
+		addElement(new Attribute(attributeName.toString(), vals));
+	    }
+	  }
+	}
+      }
+    }
+    outputFormat = new Instances(getInputFormat().relationName(),
+				 newAtts, 0);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     outputFormat.setClassIndex(newClassIndex);
     setOutputFormat(outputFormat);
   }
@@ -597,6 +1159,10 @@ public class NominalToBinary extends Filter implements SupervisedFilter,
       setOutputFormat(null);
       return;
     }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     ArrayList<Attribute> newAtts;
     int newClassIndex;
     StringBuffer attributeName;
@@ -610,17 +1176,46 @@ public class NominalToBinary extends Filter implements SupervisedFilter,
       Attribute att = getInputFormat().attribute(i);
       if (att.isNominal()
         && (att.numValues() > 2 || m_Numeric || m_TransformAll)) {
+<<<<<<< HEAD
+=======
+=======
+    FastVector newAtts;
+    int newClassIndex;
+    StringBuffer attributeName;
+    Instances outputFormat;
+    FastVector vals;
+
+    // Compute new attributes
+    
+    m_needToTransform = false;
+    for (int i = 0; i < getInputFormat().numAttributes(); i++) {
+      Attribute att = getInputFormat().attribute(i);
+      if (att.isNominal() && (att.numValues() > 2 || m_Numeric || m_TransformAll)) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         m_needToTransform = true;
         break;
       }
     }
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (!m_needToTransform) {
       setOutputFormat(getInputFormat());
       return;
     }
 
     newClassIndex = getInputFormat().classIndex();
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     newAtts = new ArrayList<Attribute>();
     for (int j = 0; j < getInputFormat().numAttributes(); j++) {
       Attribute att = getInputFormat().attribute(j);
@@ -665,11 +1260,55 @@ public class NominalToBinary extends Filter implements SupervisedFilter,
       }
     }
     outputFormat = new Instances(getInputFormat().relationName(), newAtts, 0);
+<<<<<<< HEAD
+=======
+=======
+    newAtts = new FastVector();
+    for (int j = 0; j < getInputFormat().numAttributes(); j++) {
+      Attribute att = getInputFormat().attribute(j);
+      if ((!att.isNominal()) || 
+	  (j == getInputFormat().classIndex())) {
+	newAtts.addElement(att.copy());
+      } else {
+	if (j < getInputFormat().classIndex())
+	  newClassIndex += att.numValues() - 2;
+	  
+	// Compute values for new attributes
+	  
+	for (int k = 1; k < att.numValues(); k++) {
+	  attributeName = 
+	    new StringBuffer(att.name() + "=");
+	  for (int l = k; l < att.numValues(); l++) {
+	    if (l > k) {
+	      attributeName.append(',');
+	    }
+	    attributeName.append(att.value(m_Indices[j][l]));
+	  }
+	  if (m_Numeric) {
+	    newAtts.
+	      addElement(new Attribute(attributeName.toString()));
+	  } else {
+	    vals = new FastVector(2);
+	    vals.addElement("f"); vals.addElement("t");
+	    newAtts.
+	      addElement(new Attribute(attributeName.toString(), vals));
+	  }
+	}
+      }
+    }
+    outputFormat = new Instances(getInputFormat().relationName(),
+				 newAtts, 0);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     outputFormat.setClassIndex(newClassIndex);
     setOutputFormat(outputFormat);
   }
 
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Convert a single instance over if the class is nominal. The converted
    * instance is added to the end of the output queue.
    * 
@@ -710,12 +1349,61 @@ public class NominalToBinary extends Filter implements SupervisedFilter,
           }
           attSoFar += att.numValues();
         }
+<<<<<<< HEAD
+=======
+=======
+   * Convert a single instance over if the class is nominal. The converted 
+   * instance is added to the end of the output queue.
+   *
+   * @param instance the instance to convert
+   */
+  private void convertInstanceNominal(Instance instance) {
+    
+    if (!m_needToTransform) {
+      push(instance);
+      return;
+    }
+
+    double [] vals = new double [outputFormatPeek().numAttributes()];
+    int attSoFar = 0;
+
+    for(int j = 0; j < getInputFormat().numAttributes(); j++) {
+      Attribute att = getInputFormat().attribute(j);
+      if ((!att.isNominal()) || (j == getInputFormat().classIndex())) {
+	vals[attSoFar] = instance.value(j);
+	attSoFar++;
+      } else {
+	if ( (att.numValues() <= 2) && (!m_TransformAll) ) {
+	  vals[attSoFar] = instance.value(j);
+	  attSoFar++;
+	} else {
+	  if (instance.isMissing(j)) {
+	    for (int k = 0; k < att.numValues(); k++) {
+              vals[attSoFar + k] = instance.value(j);
+	    }
+	  } else {
+	    for (int k = 0; k < att.numValues(); k++) {
+	      if (k == (int)instance.value(j)) {
+                vals[attSoFar + k] = 1;
+	      } else {
+                vals[attSoFar + k] = 0;
+	      }
+	    }
+	  }
+	  attSoFar += att.numValues();
+	}
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
     }
     Instance inst = null;
     if (instance instanceof SparseInstance) {
       inst = new SparseInstance(instance.weight(), vals);
     } else {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       inst = new DenseInstance(instance.weight(), vals);
     }
 
@@ -762,12 +1450,67 @@ public class NominalToBinary extends Filter implements SupervisedFilter,
           }
         }
         attSoFar += att.numValues() - 1;
+<<<<<<< HEAD
+=======
+=======
+      inst = new Instance(instance.weight(), vals);
+    }
+    inst.setDataset(getOutputFormat());
+    copyValues(inst, false, instance.dataset(), getOutputFormat());
+    inst.setDataset(getOutputFormat());
+    push(inst);
+  }
+
+  /**
+   * Convert a single instance over if the class is numeric. The converted 
+   * instance is added to the end of the output queue.
+   *
+   * @param instance the instance to convert
+   */
+  private void convertInstanceNumeric(Instance instance) {
+    
+    if (!m_needToTransform) {
+      push(instance);
+      return;
+    }
+
+    double [] vals = new double [outputFormatPeek().numAttributes()];
+    int attSoFar = 0;
+
+    for(int j = 0; j < getInputFormat().numAttributes(); j++) {
+      Attribute att = getInputFormat().attribute(j);
+      if ((!att.isNominal()) || (j == getInputFormat().classIndex())) {
+	vals[attSoFar] = instance.value(j);
+	attSoFar++;
+      } else {
+	if (instance.isMissing(j)) {
+	  for (int k = 0; k < att.numValues() - 1; k++) {
+            vals[attSoFar + k] = instance.value(j);
+	  }
+	} else {
+	  int k = 0;
+	  while ((int)instance.value(j) != m_Indices[j][k]) {
+            vals[attSoFar + k] = 1;
+	    k++;
+	  }
+	  while (k < att.numValues() - 1) {
+            vals[attSoFar + k] = 0;
+	    k++;
+	  }
+	}
+	attSoFar += att.numValues() - 1;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
     }
     Instance inst = null;
     if (instance instanceof SparseInstance) {
       inst = new SparseInstance(instance.weight(), vals);
     } else {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       inst = new DenseInstance(instance.weight(), vals);
     }
 
@@ -784,14 +1527,48 @@ public class NominalToBinary extends Filter implements SupervisedFilter,
   @Override
   public String getRevision() {
     return RevisionUtils.extract("$Revision: 14534 $");
+<<<<<<< HEAD
+=======
+=======
+      inst = new Instance(instance.weight(), vals);
+    }
+    inst.setDataset(getOutputFormat());
+    copyValues(inst, false, instance.dataset(), getOutputFormat());
+    inst.setDataset(getOutputFormat());
+    push(inst);
+  }
+  
+  /**
+   * Returns the revision string.
+   * 
+   * @return		the revision
+   */
+  public String getRevision() {
+    return RevisionUtils.extract("$Revision: 8094 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Main method for testing this class.
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param argv should contain arguments to the filter: use -h for help
    */
   public static void main(String[] argv) {
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @param argv should contain arguments to the filter: 
+   * use -h for help
+   */
+  public static void main(String [] argv) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     runFilter(new NominalToBinary(), argv);
   }
 }

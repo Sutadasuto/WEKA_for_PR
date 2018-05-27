@@ -1,4 +1,8 @@
 /*
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,16 +15,46 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+<<<<<<< HEAD
+=======
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    IBk.java
+<<<<<<< HEAD
  *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
+=======
+<<<<<<< HEAD
+ *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 1999 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
 package weka.classifiers.lazy;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.Vector;
@@ -34,12 +68,30 @@ import weka.core.Capabilities;
 import weka.core.Capabilities.Capability;
 import weka.core.Instance;
 import weka.core.Instances;
+<<<<<<< HEAD
+=======
+=======
+import weka.classifiers.Classifier;
+import weka.classifiers.UpdateableClassifier;
+import weka.classifiers.rules.ZeroR;
+import weka.core.Attribute;
+import weka.core.Capabilities;
+import weka.core.Instance;
+import weka.core.Instances;
+import weka.core.neighboursearch.LinearNNSearch;
+import weka.core.neighboursearch.NearestNeighbourSearch;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.core.Option;
 import weka.core.OptionHandler;
 import weka.core.RevisionUtils;
 import weka.core.SelectedTag;
 import weka.core.Tag;
 import weka.core.TechnicalInformation;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.core.TechnicalInformation.Field;
 import weka.core.TechnicalInformation.Type;
 import weka.core.TechnicalInformationHandler;
@@ -47,6 +99,21 @@ import weka.core.Utils;
 import weka.core.WeightedInstancesHandler;
 import weka.core.neighboursearch.LinearNNSearch;
 import weka.core.neighboursearch.NearestNeighbourSearch;
+<<<<<<< HEAD
+=======
+=======
+import weka.core.TechnicalInformationHandler;
+import weka.core.Utils;
+import weka.core.WeightedInstancesHandler;
+import weka.core.Capabilities.Capability;
+import weka.core.TechnicalInformation.Field;
+import weka.core.TechnicalInformation.Type;
+import weka.core.AdditionalMeasureProducer;
+
+import java.util.Enumeration;
+import java.util.Vector;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
 /**
  <!-- globalinfo-start -->
@@ -110,10 +177,23 @@ import weka.core.neighboursearch.NearestNeighbourSearch;
  * @author Stuart Inglis (singlis@cs.waikato.ac.nz)
  * @author Len Trigg (trigg@cs.waikato.ac.nz)
  * @author Eibe Frank (eibe@cs.waikato.ac.nz)
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  * @version $Revision: 10141 $
  */
 public class IBk 
   extends AbstractClassifier 
+<<<<<<< HEAD
+=======
+=======
+ * @version $Revision: 10069 $
+ */
+public class IBk 
+  extends Classifier 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   implements OptionHandler, UpdateableClassifier, WeightedInstancesHandler,
              TechnicalInformationHandler, AdditionalMeasureProducer {
 
@@ -163,9 +243,18 @@ public class IBk
    * error when cross-validating on numeric prediction tasks.
    */
   protected boolean m_MeanSquared;
+<<<<<<< HEAD
   
   /** Default ZeroR model to use when there are no training instances */
   protected ZeroR m_defaultModel;
+=======
+<<<<<<< HEAD
+  
+  /** Default ZeroR model to use when there are no training instances */
+  protected ZeroR m_defaultModel;
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** no weighting. */
   public static final int WEIGHT_NONE = 1;
@@ -186,6 +275,15 @@ public class IBk
   /** The number of attributes the contribute to a prediction. */
   protected double m_NumAttributesUsed;
   
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+  /** Default ZeroR model to use when there are no training instances */
+  protected ZeroR m_defaultModel;
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /**
    * IBk classifier. Simple instance-based learner that uses the class
    * of the nearest k training instances for the class of the test
@@ -386,8 +484,18 @@ public class IBk
   public String crossValidateTipText() {
 
     return "Whether hold-one-out cross-validation will be used to " +
+<<<<<<< HEAD
     		"select the best k value between 1 and the value specified as " +
     		"the KNN parameter.";
+=======
+<<<<<<< HEAD
+    		"select the best k value between 1 and the value specified as " +
+    		"the KNN parameter.";
+=======
+      "select the best k value between 1 and the value specified as " +
+      "the KNN parameter.";
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
   
   /**
@@ -530,7 +638,15 @@ public class IBk
   public void updateClassifier(Instance instance) throws Exception {
 
     if (m_Train.equalHeaders(instance.dataset()) == false) {
+<<<<<<< HEAD
       throw new Exception("Incompatible instance types\n" + m_Train.equalHeadersMsg(instance.dataset()));
+=======
+<<<<<<< HEAD
+      throw new Exception("Incompatible instance types\n" + m_Train.equalHeadersMsg(instance.dataset()));
+=======
+      throw new Exception("Incompatible instance types");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
     if (instance.classIsMissing()) {
       return;
@@ -594,9 +710,21 @@ public class IBk
    *
    * @return an enumeration of all the available options.
    */
+<<<<<<< HEAD
   public Enumeration<Option> listOptions() {
 
     Vector<Option> newVector = new Vector<Option>(7);
+=======
+<<<<<<< HEAD
+  public Enumeration<Option> listOptions() {
+
+    Vector<Option> newVector = new Vector<Option>(7);
+=======
+  public Enumeration listOptions() {
+
+    Vector newVector = new Vector(8);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     newVector.addElement(new Option(
 	      "\tWeight neighbours by the inverse of their distance\n"+
@@ -628,8 +756,16 @@ public class IBk
           "(default: weka.core.neighboursearch.LinearNNSearch).\n",
 	      "A", 0, "-A"));
 
+<<<<<<< HEAD
     newVector.addAll(Collections.list(super.listOptions()));
     
+=======
+<<<<<<< HEAD
+    newVector.addAll(Collections.list(super.listOptions()));
+    
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return newVector.elements();
   }
 
@@ -716,8 +852,16 @@ public class IBk
     else 
       this.setNearestNeighbourSearchAlgorithm(new LinearNNSearch());
     
+<<<<<<< HEAD
     super.setOptions(options);
     
+=======
+<<<<<<< HEAD
+    super.setOptions(options);
+    
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     Utils.checkForRemainingOptions(options);
   }
 
@@ -728,6 +872,10 @@ public class IBk
    */
   public String [] getOptions() {
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     Vector<String> options = new Vector<String>();
     options.add("-K"); options.add("" + getKNN());
     options.add("-W"); options.add("" + m_WindowSize);
@@ -749,6 +897,35 @@ public class IBk
     Collections.addAll(options, super.getOptions());
     
     return options.toArray(new String[0]);
+<<<<<<< HEAD
+=======
+=======
+    String [] options = new String [11];
+    int current = 0;
+    options[current++] = "-K"; options[current++] = "" + getKNN();
+    options[current++] = "-W"; options[current++] = "" + m_WindowSize;
+    if (getCrossValidate()) {
+      options[current++] = "-X";
+    }
+    if (getMeanSquared()) {
+      options[current++] = "-E";
+    }
+    if (m_DistanceWeighting == WEIGHT_INVERSE) {
+      options[current++] = "-I";
+    } else if (m_DistanceWeighting == WEIGHT_SIMILARITY) {
+      options[current++] = "-F";
+    }
+
+    options[current++] = "-A";
+    options[current++] = m_NNSearch.getClass().getName()+" "+Utils.joinOptions(m_NNSearch.getOptions()); 
+    
+    while (current < options.length) {
+      options[current++] = "";
+    }
+    
+    return options;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -758,10 +935,23 @@ public class IBk
    * 
    * @return an enumeration of the measure names
    */
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public Enumeration<String> enumerateMeasures() {
     if (m_CrossValidate) {
       Enumeration<String> enm = m_NNSearch.enumerateMeasures();
       Vector<String> measures = new Vector<String>();
+<<<<<<< HEAD
+=======
+=======
+  public Enumeration enumerateMeasures() {
+    if (m_CrossValidate) {
+      Enumeration enm = m_NNSearch.enumerateMeasures();
+      Vector measures = new Vector();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       while (enm.hasMoreElements())
 	measures.add(enm.nextElement());
       measures.add("measureKNN");
@@ -802,12 +992,28 @@ public class IBk
     
     if (m_Train.numInstances() == 0) {
       return "Warning: no training instances - ZeroR model used.";
+<<<<<<< HEAD
     }
+=======
+<<<<<<< HEAD
+    }
+=======
+    }    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     if (!m_kNNValid && m_CrossValidate) {
       crossValidate();
     }
     
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+    
+
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     String result = "IB1 instance-based classifier\n" +
       "using " + m_kNN;
 
@@ -1055,7 +1261,15 @@ public class IBk
    * @return		the revision
    */
   public String getRevision() {
+<<<<<<< HEAD
     return RevisionUtils.extract("$Revision: 10141 $");
+=======
+<<<<<<< HEAD
+    return RevisionUtils.extract("$Revision: 10141 $");
+=======
+    return RevisionUtils.extract("$Revision: 10069 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
   
   /**

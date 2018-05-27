@@ -1,4 +1,8 @@
 /*
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,24 +15,63 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+<<<<<<< HEAD
+=======
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    LWL.java
+<<<<<<< HEAD
  *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
+=======
+<<<<<<< HEAD
+ *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 1999, 2002, 2003 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
 package weka.classifiers.lazy;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.Vector;
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.classifiers.Classifier;
 import weka.classifiers.SingleClassifierEnhancer;
 import weka.classifiers.UpdateableClassifier;
 import weka.core.Capabilities;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.core.Capabilities.Capability;
 import weka.core.Instance;
 import weka.core.Instances;
@@ -42,6 +85,27 @@ import weka.core.Utils;
 import weka.core.WeightedInstancesHandler;
 import weka.core.neighboursearch.LinearNNSearch;
 import weka.core.neighboursearch.NearestNeighbourSearch;
+<<<<<<< HEAD
+=======
+=======
+import weka.core.Instance;
+import weka.core.Instances;
+import weka.core.neighboursearch.LinearNNSearch;
+import weka.core.neighboursearch.NearestNeighbourSearch;
+import weka.core.Option;
+import weka.core.RevisionUtils;
+import weka.core.TechnicalInformation;
+import weka.core.TechnicalInformationHandler;
+import weka.core.Utils;
+import weka.core.WeightedInstancesHandler;
+import weka.core.Capabilities.Capability;
+import weka.core.TechnicalInformation.Field;
+import weka.core.TechnicalInformation.Type;
+
+import java.util.Enumeration;
+import java.util.Vector;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
 /**
  <!-- globalinfo-start -->
@@ -115,7 +179,15 @@ import weka.core.neighboursearch.NearestNeighbourSearch;
  * @author Len Trigg (trigg@cs.waikato.ac.nz)
  * @author Eibe Frank (eibe@cs.waikato.ac.nz)
  * @author Ashraf M. Kibriya (amk14[at-the-rate]cs[dot]waikato[dot]ac[dot]nz)
+<<<<<<< HEAD
  * @version $Revision: 10141 $ 
+=======
+<<<<<<< HEAD
+ * @version $Revision: 10141 $ 
+=======
+ * @version $Revision: 5011 $ 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 public class LWL 
   extends SingleClassifierEnhancer
@@ -143,12 +215,27 @@ public class LWL
   protected NearestNeighbourSearch m_NNSearch =  new LinearNNSearch();
   
   /** The available kernel weighting methods. */
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public static final int LINEAR       = 0;
   public static final int EPANECHNIKOV = 1;
   public static final int TRICUBE      = 2;  
   public static final int INVERSE      = 3;
   public static final int GAUSS        = 4;
   public static final int CONSTANT     = 5;
+<<<<<<< HEAD
+=======
+=======
+  protected static final int LINEAR       = 0;
+  protected static final int EPANECHNIKOV = 1;
+  protected static final int TRICUBE      = 2;  
+  protected static final int INVERSE      = 3;
+  protected static final int GAUSS        = 4;
+  protected static final int CONSTANT     = 5;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** a ZeroR model in case no model can be built from the data. */
   protected Classifier m_ZeroR;
@@ -219,7 +306,15 @@ public class LWL
    * produced by the neighbour search algorithm.
    * @return an enumeration of the measure names
    */
+<<<<<<< HEAD
   public Enumeration<String> enumerateMeasures() {
+=======
+<<<<<<< HEAD
+  public Enumeration<String> enumerateMeasures() {
+=======
+  public Enumeration enumerateMeasures() {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return m_NNSearch.enumerateMeasures();
   }
   
@@ -239,9 +334,21 @@ public class LWL
    *
    * @return an enumeration of all the available options.
    */
+<<<<<<< HEAD
   public Enumeration<Option> listOptions() {
     
     Vector<Option> newVector = new Vector<Option>(3);
+=======
+<<<<<<< HEAD
+  public Enumeration<Option> listOptions() {
+    
+    Vector<Option> newVector = new Vector<Option>(3);
+=======
+  public Enumeration listOptions() {
+    
+    Vector newVector = new Vector(3);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     newVector.addElement(new Option("\tThe nearest neighbour search " +
                                     "algorithm to use " +
                                     "(default: weka.core.neighboursearch.LinearNNSearch).\n",
@@ -256,7 +363,18 @@ public class LWL
 				    +"\t(default 0 = Linear)",
 				    "U", 1,"-U <number of weighting method>"));
     
+<<<<<<< HEAD
     newVector.addAll(Collections.list(super.listOptions()));
+=======
+<<<<<<< HEAD
+    newVector.addAll(Collections.list(super.listOptions()));
+=======
+    Enumeration enu = super.listOptions();
+    while (enu.hasMoreElements()) {
+      newVector.addElement(enu.nextElement());
+    }
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     return newVector.elements();
   }
@@ -346,6 +464,10 @@ public class LWL
    */
   public String [] getOptions() {
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     Vector<String> options = new Vector<String>();
 
     options.add("-U"); options.add("" + getWeightingKernel());
@@ -361,6 +483,30 @@ public class LWL
     Collections.addAll(options, super.getOptions());
     
     return options.toArray(new String[0]);
+<<<<<<< HEAD
+=======
+=======
+    String [] superOptions = super.getOptions();
+    String [] options = new String [superOptions.length + 6];
+
+    int current = 0;
+
+    options[current++] = "-U"; options[current++] = "" + getWeightingKernel();
+    if ( (getKNN() == 0) && m_UseAllK) {
+      options[current++] = "-K"; options[current++] = "-1";
+    }
+    else {
+      options[current++] = "-K"; options[current++] = "" + getKNN();
+    }
+    options[current++] = "-A";
+    options[current++] = m_NNSearch.getClass().getName()+" "+Utils.joinOptions(m_NNSearch.getOptions()); 
+
+    System.arraycopy(superOptions, 0, options, current,
+                     superOptions.length);
+
+    return options;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
   
   /**
@@ -480,11 +626,24 @@ public class LWL
   public Capabilities getCapabilities() {
     Capabilities      result;
     
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (m_Classifier != null) {
       result = m_Classifier.getCapabilities();
     } else {
       result = super.getCapabilities();
     }
+<<<<<<< HEAD
+=======
+=======
+    if (m_Classifier != null)
+      result = m_Classifier.getCapabilities();
+    else
+      result = super.getCapabilities();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     
     result.setMinimumNumberInstances(0);
     
@@ -546,7 +705,15 @@ public class LWL
       throw new Exception("No training instance structure set!");
     }
     else if (m_Train.equalHeaders(instance.dataset()) == false) {
+<<<<<<< HEAD
       throw new Exception("Incompatible instance types\n" + m_Train.equalHeadersMsg(instance.dataset()));
+=======
+<<<<<<< HEAD
+      throw new Exception("Incompatible instance types\n" + m_Train.equalHeadersMsg(instance.dataset()));
+=======
+      throw new Exception("Incompatible instance types");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
     if (!instance.classIsMissing()) {
       m_NNSearch.update(instance);
@@ -575,9 +742,21 @@ public class LWL
     m_NNSearch.addInstanceInfo(instance);
     
     int k = m_Train.numInstances();
+<<<<<<< HEAD
     if( (!m_UseAllK && (m_kNN < k)) /*&&
        !(m_WeightKernel==INVERSE ||
          m_WeightKernel==GAUSS)*/ ) {
+=======
+<<<<<<< HEAD
+    if( (!m_UseAllK && (m_kNN < k)) /*&&
+       !(m_WeightKernel==INVERSE ||
+         m_WeightKernel==GAUSS)*/ ) {
+=======
+    if( (!m_UseAllK && (m_kNN < k)) &&
+       !(m_WeightKernel==INVERSE ||
+         m_WeightKernel==GAUSS) ) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       k = m_kNN;
     }
     
@@ -732,7 +911,15 @@ public class LWL
    * @return		the revision
    */
   public String getRevision() {
+<<<<<<< HEAD
     return RevisionUtils.extract("$Revision: 10141 $");
+=======
+<<<<<<< HEAD
+    return RevisionUtils.extract("$Revision: 10141 $");
+=======
+    return RevisionUtils.extract("$Revision: 5011 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
   
   /**

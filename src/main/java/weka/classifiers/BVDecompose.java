@@ -1,4 +1,8 @@
 /*
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,16 +15,46 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+<<<<<<< HEAD
+=======
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    BVDecompose.java
+<<<<<<< HEAD
  *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
+=======
+<<<<<<< HEAD
+ *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 1999 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
 package weka.classifiers;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.Reader;
@@ -29,6 +63,11 @@ import java.util.Enumeration;
 import java.util.Random;
 import java.util.Vector;
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.core.Attribute;
 import weka.core.Instance;
 import weka.core.Instances;
@@ -37,10 +76,30 @@ import weka.core.OptionHandler;
 import weka.core.RevisionHandler;
 import weka.core.RevisionUtils;
 import weka.core.TechnicalInformation;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.core.TechnicalInformation.Field;
 import weka.core.TechnicalInformation.Type;
 import weka.core.TechnicalInformationHandler;
 import weka.core.Utils;
+<<<<<<< HEAD
+=======
+=======
+import weka.core.TechnicalInformationHandler;
+import weka.core.Utils;
+import weka.core.TechnicalInformation.Field;
+import weka.core.TechnicalInformation.Type;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.Reader;
+import java.util.Enumeration;
+import java.util.Random;
+import java.util.Vector;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
 /**
  <!-- globalinfo-start -->
@@ -49,7 +108,15 @@ import weka.core.Utils;
  * Ron Kohavi, David H. Wolpert: Bias Plus Variance Decomposition for Zero-One Loss Functions. In: Machine Learning: Proceedings of the Thirteenth International Conference, 275-283, 1996.
  * <p/>
  <!-- globalinfo-end -->
+<<<<<<< HEAD
  *
+=======
+<<<<<<< HEAD
+ *
+=======
+ * 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  <!-- technical-bibtex-start -->
  * BibTeX:
  * <pre>
@@ -69,6 +136,10 @@ import weka.core.Utils;
  *
  <!-- options-start -->
  * Valid options are: <p/>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  * <pre> -c &lt;class index&gt;
  *  The index of the class attribute.
@@ -103,12 +174,59 @@ import weka.core.Utils;
  *  If set, classifier is run in debug mode and
  *  may output additional info to the console</pre>
  *
+<<<<<<< HEAD
+=======
+=======
+ * 
+ * <pre> -c &lt;class index&gt;
+ *  The index of the class attribute.
+ *  (default last)</pre>
+ * 
+ * <pre> -t &lt;name of arff file&gt;
+ *  The name of the arff file used for the decomposition.</pre>
+ * 
+ * <pre> -T &lt;training pool size&gt;
+ *  The number of instances placed in the training pool.
+ *  The remainder will be used for testing. (default 100)</pre>
+ * 
+ * <pre> -s &lt;seed&gt;
+ *  The random number seed used.</pre>
+ * 
+ * <pre> -x &lt;num&gt;
+ *  The number of training repetitions used.
+ *  (default 50)</pre>
+ * 
+ * <pre> -D
+ *  Turn on debugging output.</pre>
+ * 
+ * <pre> -W &lt;classifier class name&gt;
+ *  Full class name of the learner used in the decomposition.
+ *  eg: weka.classifiers.bayes.NaiveBayes</pre>
+ * 
+ * <pre> 
+ * Options specific to learner weka.classifiers.rules.ZeroR:
+ * </pre>
+ * 
+ * <pre> -D
+ *  If set, classifier is run in debug mode and
+ *  may output additional info to the console</pre>
+ * 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  <!-- options-end -->
  *
  * Options after -- are passed to the designated sub-learner. <p>
  *
  * @author Len Trigg (trigg@cs.waikato.ac.nz)
+<<<<<<< HEAD
  * @version $Revision: 10141 $
+=======
+<<<<<<< HEAD
+ * @version $Revision: 10141 $
+=======
+ * @version $Revision: 1.15 $
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 public class BVDecompose
   implements OptionHandler, TechnicalInformationHandler, RevisionHandler {
@@ -148,7 +266,15 @@ public class BVDecompose
 
   /** The number of instances used in the training pool */
   protected int m_TrainPoolSize = 100;
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /**
    * Returns a string describing this object
    * @return a description of the classifier suitable for
@@ -156,22 +282,51 @@ public class BVDecompose
    */
   public String globalInfo() {
 
+<<<<<<< HEAD
     return
+=======
+<<<<<<< HEAD
+    return
+=======
+    return 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         "Class for performing a Bias-Variance decomposition on any classifier "
       + "using the method specified in:\n\n"
       + getTechnicalInformation().toString();
   }
 
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Returns an instance of a TechnicalInformation object, containing
    * detailed information about the technical background of this class,
    * e.g., paper reference or book this class is based on.
    *
+<<<<<<< HEAD
+=======
+=======
+   * Returns an instance of a TechnicalInformation object, containing 
+   * detailed information about the technical background of this class,
+   * e.g., paper reference or book this class is based on.
+   * 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @return the technical information about this class
    */
   public TechnicalInformation getTechnicalInformation() {
     TechnicalInformation 	result;
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     result = new TechnicalInformation(Type.INPROCEEDINGS);
     result.setValue(Field.AUTHOR, "Ron Kohavi and David H. Wolpert");
     result.setValue(Field.YEAR, "1996");
@@ -190,6 +345,10 @@ public class BVDecompose
    *
    * @return an enumeration of all the available options.
    */
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public Enumeration<Option> listOptions() {
 
     Vector<Option> newVector = new Vector<Option>(7);
@@ -228,6 +387,52 @@ public class BVDecompose
             + m_Classifier.getClass().getName()
             + ":"));
       newVector.addAll(Collections.list(((OptionHandler)m_Classifier).listOptions()));
+<<<<<<< HEAD
+=======
+=======
+  public Enumeration listOptions() {
+
+    Vector newVector = new Vector(7);
+
+    newVector.addElement(new Option(
+	      "\tThe index of the class attribute.\n"+
+	      "\t(default last)",
+	      "c", 1, "-c <class index>"));
+    newVector.addElement(new Option(
+	      "\tThe name of the arff file used for the decomposition.",
+	      "t", 1, "-t <name of arff file>"));
+    newVector.addElement(new Option(
+	      "\tThe number of instances placed in the training pool.\n"
+	      + "\tThe remainder will be used for testing. (default 100)",
+	      "T", 1, "-T <training pool size>"));
+    newVector.addElement(new Option(
+	      "\tThe random number seed used.",
+	      "s", 1, "-s <seed>"));
+    newVector.addElement(new Option(
+	      "\tThe number of training repetitions used.\n"
+	      +"\t(default 50)",
+	      "x", 1, "-x <num>"));
+    newVector.addElement(new Option(
+	      "\tTurn on debugging output.",
+	      "D", 0, "-D"));
+    newVector.addElement(new Option(
+	      "\tFull class name of the learner used in the decomposition.\n"
+	      +"\teg: weka.classifiers.bayes.NaiveBayes",
+	      "W", 1, "-W <classifier class name>"));
+
+    if ((m_Classifier != null) &&
+	(m_Classifier instanceof OptionHandler)) {
+      newVector.addElement(new Option(
+				      "",
+				      "", 0, "\nOptions specific to learner "
+				      + m_Classifier.getClass().getName()
+				      + ":"));
+      Enumeration enu = ((OptionHandler)m_Classifier).listOptions();
+      while (enu.hasMoreElements()) {
+	newVector.addElement(enu.nextElement());
+      }
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
     return newVector.elements();
   }
@@ -237,6 +442,10 @@ public class BVDecompose
    *
    <!-- options-start -->
    * Valid options are: <p/>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    *
    * <pre> -c &lt;class index&gt;
    *  The index of the class attribute.
@@ -271,6 +480,45 @@ public class BVDecompose
    *  If set, classifier is run in debug mode and
    *  may output additional info to the console</pre>
    *
+<<<<<<< HEAD
+=======
+=======
+   * 
+   * <pre> -c &lt;class index&gt;
+   *  The index of the class attribute.
+   *  (default last)</pre>
+   * 
+   * <pre> -t &lt;name of arff file&gt;
+   *  The name of the arff file used for the decomposition.</pre>
+   * 
+   * <pre> -T &lt;training pool size&gt;
+   *  The number of instances placed in the training pool.
+   *  The remainder will be used for testing. (default 100)</pre>
+   * 
+   * <pre> -s &lt;seed&gt;
+   *  The random number seed used.</pre>
+   * 
+   * <pre> -x &lt;num&gt;
+   *  The number of training repetitions used.
+   *  (default 50)</pre>
+   * 
+   * <pre> -D
+   *  Turn on debugging output.</pre>
+   * 
+   * <pre> -W &lt;classifier class name&gt;
+   *  Full class name of the learner used in the decomposition.
+   *  eg: weka.classifiers.bayes.NaiveBayes</pre>
+   * 
+   * <pre> 
+   * Options specific to learner weka.classifiers.rules.ZeroR:
+   * </pre>
+   * 
+   * <pre> -D
+   *  If set, classifier is run in debug mode and
+   *  may output additional info to the console</pre>
+   * 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    <!-- options-end -->
    *
    * Options after -- are passed to the designated sub-learner. <p>
@@ -281,6 +529,10 @@ public class BVDecompose
   public void setOptions(String[] options) throws Exception {
 
     setDebug(Utils.getFlag('D', options));
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     String classIndex = Utils.getOption('c', options);
     if (classIndex.length() != 0) {
@@ -290,6 +542,20 @@ public class BVDecompose
         setClassIndex(1);
       } else {
         setClassIndex(Integer.parseInt(classIndex));
+<<<<<<< HEAD
+=======
+=======
+        
+    String classIndex = Utils.getOption('c', options);
+    if (classIndex.length() != 0) {
+      if (classIndex.toLowerCase().equals("last")) {
+	setClassIndex(0);
+      } else if (classIndex.toLowerCase().equals("first")) {
+	setClassIndex(1);
+      } else {
+	setClassIndex(Integer.parseInt(classIndex));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
     } else {
       setClassIndex(0);
@@ -319,7 +585,15 @@ public class BVDecompose
     String dataFile = Utils.getOption('t', options);
     if (dataFile.length() == 0) {
       throw new Exception("An arff file must be specified"
+<<<<<<< HEAD
           + " with the -t option.");
+=======
+<<<<<<< HEAD
+          + " with the -t option.");
+=======
+			  + " with the -t option.");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
     setDataFileName(dataFile);
 
@@ -327,8 +601,18 @@ public class BVDecompose
     if (classifierName.length() == 0) {
       throw new Exception("A learner must be specified with the -W option.");
     }
+<<<<<<< HEAD
     setClassifier(AbstractClassifier.forName(classifierName,
           Utils.partitionOptions(options)));
+=======
+<<<<<<< HEAD
+    setClassifier(AbstractClassifier.forName(classifierName,
+          Utils.partitionOptions(options)));
+=======
+    setClassifier(Classifier.forName(classifierName,
+				     Utils.partitionOptions(options)));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -339,10 +623,23 @@ public class BVDecompose
   public String [] getOptions() {
 
     String [] classifierOptions = new String [0];
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if ((m_Classifier != null) &&
         (m_Classifier instanceof OptionHandler)) {
       classifierOptions = ((OptionHandler)m_Classifier).getOptions();
         }
+<<<<<<< HEAD
+=======
+=======
+    if ((m_Classifier != null) && 
+	(m_Classifier instanceof OptionHandler)) {
+      classifierOptions = ((OptionHandler)m_Classifier).getOptions();
+    }
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     String [] options = new String [classifierOptions.length + 14];
     int current = 0;
     if (getDebug()) {
@@ -360,35 +657,79 @@ public class BVDecompose
       options[current++] = getClassifier().getClass().getName();
     }
     options[current++] = "--";
+<<<<<<< HEAD
     System.arraycopy(classifierOptions, 0, options, current,
         classifierOptions.length);
+=======
+<<<<<<< HEAD
+    System.arraycopy(classifierOptions, 0, options, current,
+        classifierOptions.length);
+=======
+    System.arraycopy(classifierOptions, 0, options, current, 
+		     classifierOptions.length);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     current += classifierOptions.length;
     while (current < options.length) {
       options[current++] = "";
     }
     return options;
   }
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /**
    * Get the number of instances in the training pool.
    *
    * @return number of instances in the training pool.
    */
   public int getTrainPoolSize() {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     return m_TrainPoolSize;
   }
 
+<<<<<<< HEAD
+=======
+=======
+    
+    return m_TrainPoolSize;
+  }
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /**
    * Set the number of instances in the training pool.
    *
    * @param numTrain number of instances in the training pool.
    */
   public void setTrainPoolSize(int numTrain) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     m_TrainPoolSize = numTrain;
   }
 
+<<<<<<< HEAD
+=======
+=======
+    
+    m_TrainPoolSize = numTrain;
+  }
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /**
    * Set the classifiers being analysed
    *
@@ -431,7 +772,15 @@ public class BVDecompose
 
   /**
    * Sets the random number seed
+<<<<<<< HEAD
    *
+=======
+<<<<<<< HEAD
+   *
+=======
+   * 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param seed the random number seed
    */
   public void setSeed(int seed) {
@@ -451,7 +800,15 @@ public class BVDecompose
 
   /**
    * Sets the maximum number of boost iterations
+<<<<<<< HEAD
    *
+=======
+<<<<<<< HEAD
+   *
+=======
+   * 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param trainIterations the number of boost iterations
    */
   public void setTrainIterations(int trainIterations) {
@@ -471,7 +828,15 @@ public class BVDecompose
 
   /**
    * Sets the name of the data file used for the decomposition
+<<<<<<< HEAD
    *
+=======
+<<<<<<< HEAD
+   *
+=======
+   * 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param dataFileName the data file to use
    */
   public void setDataFileName(String dataFileName) {
@@ -517,7 +882,15 @@ public class BVDecompose
   public double getBias() {
 
     return m_Bias;
+<<<<<<< HEAD
   }
+=======
+<<<<<<< HEAD
+  }
+=======
+  } 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /**
    * Get the calculated variance
@@ -576,34 +949,82 @@ public class BVDecompose
 
     if (data.numInstances() < 2 * m_TrainPoolSize) {
       throw new Exception("The dataset must contain at least "
+<<<<<<< HEAD
           + (2 * m_TrainPoolSize) + " instances");
+=======
+<<<<<<< HEAD
+          + (2 * m_TrainPoolSize) + " instances");
+=======
+			  + (2 * m_TrainPoolSize) + " instances");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
     Random random = new Random(m_Seed);
     data.randomize(random);
     Instances trainPool = new Instances(data, 0, m_TrainPoolSize);
+<<<<<<< HEAD
     Instances test = new Instances(data, m_TrainPoolSize,
         data.numInstances() - m_TrainPoolSize);
+=======
+<<<<<<< HEAD
+    Instances test = new Instances(data, m_TrainPoolSize,
+        data.numInstances() - m_TrainPoolSize);
+=======
+    Instances test = new Instances(data, m_TrainPoolSize, 
+				   data.numInstances() - m_TrainPoolSize);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     int numTest = test.numInstances();
     double [][] instanceProbs = new double [numTest][numClasses];
 
     m_Error = 0;
     for (int i = 0; i < m_TrainIterations; i++) {
       if (m_Debug) {
+<<<<<<< HEAD
         System.err.println("Iteration " + (i + 1));
+=======
+<<<<<<< HEAD
+        System.err.println("Iteration " + (i + 1));
+=======
+	System.err.println("Iteration " + (i + 1));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
       trainPool.randomize(random);
       Instances train = new Instances(trainPool, 0, m_TrainPoolSize / 2);
 
+<<<<<<< HEAD
       Classifier current = AbstractClassifier.makeCopy(m_Classifier);
+=======
+<<<<<<< HEAD
+      Classifier current = AbstractClassifier.makeCopy(m_Classifier);
+=======
+      Classifier current = Classifier.makeCopy(m_Classifier);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       current.buildClassifier(train);
 
       //// Evaluate the classifier on test, updating BVD stats
       for (int j = 0; j < numTest; j++) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         int pred = (int)current.classifyInstance(test.instance(j));
         if (pred != test.instance(j).classValue()) {
           m_Error++;
         }
         instanceProbs[j][pred]++;
+<<<<<<< HEAD
+=======
+=======
+	int pred = (int)current.classifyInstance(test.instance(j));
+	if (pred != test.instance(j).classValue()) {
+	  m_Error++;
+	}
+	instanceProbs[j][pred]++;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
     }
     m_Error /= (m_TrainIterations * numTest);
@@ -618,12 +1039,27 @@ public class BVDecompose
       double pActual, pPred;
       double bsum = 0, vsum = 0, ssum = 0;
       for (int j = 0; j < numClasses; j++) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         pActual = (current.classValue() == j) ? 1 : 0; // Or via 1NN from test data?
         pPred = predProbs[j] / m_TrainIterations;
         bsum += (pActual - pPred) * (pActual - pPred)
           - pPred * (1 - pPred) / (m_TrainIterations - 1);
         vsum += pPred * pPred;
         ssum += pActual * pActual;
+<<<<<<< HEAD
+=======
+=======
+	pActual = (current.classValue() == j) ? 1 : 0; // Or via 1NN from test data?
+	pPred = predProbs[j] / m_TrainIterations;
+	bsum += (pActual - pPred) * (pActual - pPred) 
+	- pPred * (1 - pPred) / (m_TrainIterations - 1);
+	vsum += pPred * pPred;
+	ssum += pActual * pActual;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
       m_Bias += bsum;
       m_Variance += (1 - vsum);
@@ -673,6 +1109,10 @@ public class BVDecompose
 
     return result + "\n";
   }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /**
    * Returns the revision string.
@@ -681,6 +1121,19 @@ public class BVDecompose
    */
   public String getRevision() {
     return RevisionUtils.extract("$Revision: 10141 $");
+<<<<<<< HEAD
+=======
+=======
+  
+  /**
+   * Returns the revision string.
+   * 
+   * @return		the revision
+   */
+  public String getRevision() {
+    return RevisionUtils.extract("$Revision: 1.15 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -694,6 +1147,10 @@ public class BVDecompose
       BVDecompose bvd = new BVDecompose();
 
       try {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         bvd.setOptions(args);
         Utils.checkForRemainingOptions(args);
       } catch (Exception ex) {
@@ -704,6 +1161,21 @@ public class BVDecompose
           result += option.synopsis() + "\n" + option.description() + "\n";
         }
         throw new Exception(result);
+<<<<<<< HEAD
+=======
+=======
+	bvd.setOptions(args);
+	Utils.checkForRemainingOptions(args);
+      } catch (Exception ex) {
+	String result = ex.getMessage() + "\nBVDecompose Options:\n\n";
+	Enumeration enu = bvd.listOptions();
+	while (enu.hasMoreElements()) {
+	  Option option = (Option) enu.nextElement();
+	  result += option.synopsis() + "\n" + option.description() + "\n";
+	}
+	throw new Exception(result);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
 
       bvd.decompose();

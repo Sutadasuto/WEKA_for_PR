@@ -1,4 +1,8 @@
 /*
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,11 +15,37 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+<<<<<<< HEAD
+=======
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    PruneableDecList.java
+<<<<<<< HEAD
  *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
+=======
+<<<<<<< HEAD
+ *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 1999 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
@@ -29,6 +59,10 @@ import weka.core.RevisionUtils;
 import weka.core.Utils;
 
 /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  * Class for handling a partial tree structure that can be pruned using a
  * pruning set.
  * 
@@ -58,6 +92,43 @@ public class PruneableDecList extends ClassifierDecList {
    */
   public void buildRule(Instances train, Instances test) throws Exception {
 
+<<<<<<< HEAD
+=======
+=======
+ * Class for handling a partial tree structure that
+ * can be pruned using a pruning set.
+ *
+ * @author Eibe Frank (eibe@cs.waikato.ac.nz)
+ * @version $Revision: 1.10 $
+ */
+public class PruneableDecList
+  extends ClassifierDecList {
+
+  /** for serialization */
+  private static final long serialVersionUID = -7228103346297172921L;
+  
+  /**
+   * Constructor for pruneable partial tree structure. 
+   *
+   * @param toSelectLocModel selection method for local splitting model
+   * @param minNum minimum number of objects in leaf
+   */
+  public PruneableDecList(ModelSelection toSelectLocModel,
+			  int minNum) {
+			       
+    super(toSelectLocModel, minNum);
+  }
+  
+  /**
+   * Method for building a pruned partial tree.
+   *
+   * @throws Exception if tree can't be built successfully
+   */
+  public void buildRule(Instances train,
+			Instances test) throws Exception { 
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     buildDecList(train, test, false);
 
     cleanup(new Instances(train, 0));
@@ -65,6 +136,10 @@ public class PruneableDecList extends ClassifierDecList {
 
   /**
    * Builds the partial tree with hold out set
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @throws Exception if something goes wrong
    */
@@ -77,24 +152,59 @@ public class PruneableDecList extends ClassifierDecList {
     double sumOfWeights;
     NoSplit noSplit;
 
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @throws Exception if something goes wrong
+   */
+  public void buildDecList(Instances train, Instances test, 
+			   boolean leaf) throws Exception {
+    
+    Instances [] localTrain,localTest;
+    int index,ind;
+    int i,j;
+    double sumOfWeights;
+    NoSplit noSplit;
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     m_train = null;
     m_isLeaf = false;
     m_isEmpty = false;
     m_sons = null;
     indeX = 0;
     sumOfWeights = train.sumOfWeights();
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     noSplit = new NoSplit(new Distribution(train));
     if (leaf) {
       m_localModel = noSplit;
     } else {
       m_localModel = m_toSelectModel.selectModel(train, test);
     }
+<<<<<<< HEAD
+=======
+=======
+    noSplit = new NoSplit (new Distribution((Instances)train));
+    if (leaf)
+      m_localModel = noSplit;
+    else
+      m_localModel = m_toSelectModel.selectModel(train, test);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     m_test = new Distribution(test, m_localModel);
     if (m_localModel.numSubsets() > 1) {
       localTrain = m_localModel.split(train);
       localTest = m_localModel.split(test);
       train = null;
       test = null;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       m_sons = new ClassifierDecList[m_localModel.numSubsets()];
       i = 0;
       do {
@@ -147,11 +257,63 @@ public class PruneableDecList extends ClassifierDecList {
   /**
    * Returns a newly created tree.
    * 
+<<<<<<< HEAD
+=======
+=======
+      m_sons = new ClassifierDecList [m_localModel.numSubsets()];
+      i = 0;
+      do {
+	i++;
+	ind = chooseIndex();
+	if (ind == -1) {
+	  for (j = 0; j < m_sons.length; j++) 
+	    if (m_sons[j] == null)
+	      m_sons[j] = getNewDecList(localTrain[j],localTest[j],true);
+	  if (i < 2) {
+	    m_localModel = noSplit;
+	    m_isLeaf = true;
+	    m_sons = null;
+	    if (Utils.eq(sumOfWeights,0))
+	      m_isEmpty = true;
+	    return;
+	  }
+	  ind = 0;
+	  break;
+	} else 
+	  m_sons[ind] = getNewDecList(localTrain[ind],localTest[ind],false);
+      } while ((i < m_sons.length) && (m_sons[ind].m_isLeaf));
+      
+      // Check if all successors are leaves
+      for (j = 0; j < m_sons.length; j++) 
+	if ((m_sons[j] == null) || (!m_sons[j].m_isLeaf))
+	  break;
+      if (j == m_sons.length) {
+	pruneEnd();
+	if (!m_isLeaf) 
+	  indeX = chooseLastIndex();
+      }else 
+	indeX = chooseLastIndex();
+    }else{
+      m_isLeaf = true;
+      if (Utils.eq(sumOfWeights, 0))
+	m_isEmpty = true;
+    }
+  }
+  
+  /**
+   * Returns a newly created tree.
+   *
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param train train data
    * @param test test data
    * @param leaf
    * @throws Exception if something goes wrong
    */
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   protected ClassifierDecList getNewDecList(Instances train, Instances test,
     boolean leaf) throws Exception {
 
@@ -160,6 +322,19 @@ public class PruneableDecList extends ClassifierDecList {
 
     newDecList.buildDecList(train, test, leaf);
 
+<<<<<<< HEAD
+=======
+=======
+  protected ClassifierDecList getNewDecList(Instances train, Instances test, 
+					    boolean leaf) throws Exception {
+	 
+    PruneableDecList newDecList = 
+      new PruneableDecList(m_toSelectModel, m_minNumObj);
+    
+    newDecList.buildDecList((Instances)train, test, leaf);
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return newDecList;
   }
 
@@ -167,12 +342,27 @@ public class PruneableDecList extends ClassifierDecList {
    * Prunes the end of the rule.
    */
   protected void pruneEnd() throws Exception {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     double errorsLeaf, errorsTree;
 
     errorsTree = errorsForTree();
     errorsLeaf = errorsForLeaf();
     if (Utils.smOrEq(errorsLeaf, errorsTree)) {
+<<<<<<< HEAD
+=======
+=======
+    
+    double errorsLeaf, errorsTree;
+    
+    errorsTree = errorsForTree();
+    errorsLeaf = errorsForLeaf();
+    if (Utils.smOrEq(errorsLeaf,errorsTree)){ 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       m_isLeaf = true;
       m_sons = null;
       m_localModel = new NoSplit(localModel().distribution());
@@ -184,6 +374,10 @@ public class PruneableDecList extends ClassifierDecList {
    */
   private double errorsForTree() throws Exception {
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (m_isLeaf) {
       return errorsForLeaf();
     } else {
@@ -196,6 +390,24 @@ public class PruneableDecList extends ClassifierDecList {
           error += ((PruneableDecList) son(i)).errorsForTree();
         }
       }
+<<<<<<< HEAD
+=======
+=======
+    Distribution test;
+
+    if (m_isLeaf)
+      return errorsForLeaf();
+    else {
+      double error = 0;
+      for (int i = 0; i < m_sons.length; i++) 
+	if (Utils.eq(son(i).localModel().distribution().total(),0)) {
+	  error += m_test.perBag(i)-
+	    m_test.perClassPerBag(i,localModel().distribution().
+				maxClass());
+	} else
+	  error += ((PruneableDecList)son(i)).errorsForTree();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
       return error;
     }
@@ -206,6 +418,10 @@ public class PruneableDecList extends ClassifierDecList {
    */
   private double errorsForLeaf() throws Exception {
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return m_test.total()
       - m_test.perClass(localModel().distribution().maxClass());
   }
@@ -218,5 +434,21 @@ public class PruneableDecList extends ClassifierDecList {
   @Override
   public String getRevision() {
     return RevisionUtils.extract("$Revision: 10153 $");
+<<<<<<< HEAD
+=======
+=======
+    return m_test.total()-
+	    m_test.perClass(localModel().distribution().maxClass());
+  }
+  
+  /**
+   * Returns the revision string.
+   * 
+   * @return		the revision
+   */
+  public String getRevision() {
+    return RevisionUtils.extract("$Revision: 1.10 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 }

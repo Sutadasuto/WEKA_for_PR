@@ -1,4 +1,8 @@
 /*
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,11 +15,37 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+<<<<<<< HEAD
+=======
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    BeanInstance.java
+<<<<<<< HEAD
  *    Copyright (C) 2002-2012 University of Waikato, Hamilton, New Zealand
+=======
+<<<<<<< HEAD
+ *    Copyright (C) 2002-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 2002 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
@@ -29,24 +59,52 @@ import java.awt.Point;
 import java.awt.Rectangle;
 import java.beans.Beans;
 import java.io.Serializable;
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
+=======
+<<<<<<< HEAD
+import java.util.ArrayList;
+import java.util.List;
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.util.Vector;
 
 import javax.swing.JComponent;
 
 /**
  * Class that manages a set of beans.
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  * 
  * @author <a href="mailto:mhall@cs.waikato.ac.nz">Mark Hall</a>
  * @version $Revision: 10221 $
  * @since 1.0
  */
 public class BeanInstance implements Serializable {
+<<<<<<< HEAD
+=======
+=======
+ *
+ * @author <a href="mailto:mhall@cs.waikato.ac.nz">Mark Hall</a>
+ * @version  $Revision: 7059 $
+ * @since 1.0
+ */
+public class BeanInstance
+  implements Serializable {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** for serialization */
   private static final long serialVersionUID = -7575653109025406342L;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   private static ArrayList<Vector<Object>> TABBED_COMPONENTS = new ArrayList<Vector<Object>>();
 
   /*
@@ -70,6 +128,19 @@ public class BeanInstance implements Serializable {
   public static final int IDLE = 0;
   public static final int BEAN_EXECUTING = 1;
 
+<<<<<<< HEAD
+=======
+=======
+  /**
+   * class variable holding all the beans
+   */
+  private static Vector COMPONENTS = new Vector();
+
+  public static final int IDLE = 0;
+  public static final int BEAN_EXECUTING = 1;
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /**
    * Holds the bean encapsulated in this instance
    */
@@ -77,6 +148,10 @@ public class BeanInstance implements Serializable {
   private int m_x;
   private int m_y;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /**
    * Removes all beans from containing component
    * 
@@ -104,6 +179,36 @@ public class BeanInstance implements Serializable {
             container.remove((JComponent) tempBean);
           }
         }
+<<<<<<< HEAD
+=======
+=======
+
+  /**
+   * Reset the list of beans
+   */
+  public static void reset(JComponent container) {
+    // remove beans from container if necessary
+    removeAllBeansFromContainer(container);
+    COMPONENTS = new Vector();
+  }
+
+  /**
+   * Removes all beans from containing component
+   *
+   * @param container a <code>JComponent</code> value
+   */
+  public static void removeAllBeansFromContainer(JComponent container) {
+    if (container != null) {
+      if (COMPONENTS != null) {
+	for (int i = 0; i < COMPONENTS.size(); i++) {
+	  BeanInstance tempInstance = (BeanInstance)COMPONENTS.elementAt(i);
+	  Object tempBean = tempInstance.getBean();
+	  if (Beans.isInstanceOf(tempBean, JComponent.class)) {
+	    container.remove((JComponent)tempBean);
+	  }
+	}
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
       container.revalidate();
     }
@@ -111,6 +216,10 @@ public class BeanInstance implements Serializable {
 
   /**
    * Adds all beans to the supplied component
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param container a <code>JComponent</code> value
    */
@@ -135,6 +244,24 @@ public class BeanInstance implements Serializable {
             container.add((JComponent) tempBean);
           }
         }
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @param container a <code>JComponent</code> value
+   */
+  public static void addAllBeansToContainer(JComponent container) {
+    if (container != null) {
+      if (COMPONENTS != null) {
+	for (int i = 0; i < COMPONENTS.size(); i++) {
+	  BeanInstance tempInstance = (BeanInstance)COMPONENTS.elementAt(i);
+	  Object tempBean = tempInstance.getBean();
+	  if (Beans.isInstanceOf(tempBean, JComponent.class)) {
+	    container.add((JComponent)tempBean);
+	  }
+	}
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
       container.revalidate();
     }
@@ -142,6 +269,10 @@ public class BeanInstance implements Serializable {
 
   /**
    * Return the list of displayed beans
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param tab varargs parameter specifying the index of the collection of
    *          beans to return - if omitted then the first (i.e. primary)
@@ -215,10 +346,42 @@ public class BeanInstance implements Serializable {
         if (Beans.isInstanceOf(bean, JComponent.class)) {
           container.add((JComponent) bean);
         }
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @return a vector of beans
+   */
+  public static Vector getBeanInstances() {
+    return COMPONENTS;
+  }
+
+  /**
+   * Describe <code>setBeanInstances</code> method here.
+   *
+   * @param beanInstances a <code>Vector</code> value
+   * @param container a <code>JComponent</code> value
+   */
+  public static void setBeanInstances(Vector beanInstances, 
+				      JComponent container) {
+    reset(container);
+    
+    if (container != null) {
+      for (int i = 0; i < beanInstances.size(); i++) {
+	Object bean = ((BeanInstance)beanInstances.elementAt(i)).getBean();
+	if (Beans.isInstanceOf(bean, JComponent.class)) {
+	  container.add((JComponent)bean);
+	}
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
       container.revalidate();
       container.repaint();
     }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     TABBED_COMPONENTS.add(beanInstances);
   }
@@ -236,10 +399,20 @@ public class BeanInstance implements Serializable {
       removeAllBeansFromContainer(container, tab);
       TABBED_COMPONENTS.remove(tab.intValue());
     }
+<<<<<<< HEAD
+=======
+=======
+    COMPONENTS = beanInstances;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Renders the textual labels for the beans.
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param gx a <code>Graphics</code> object on which to render the labels
    */
@@ -373,10 +546,73 @@ public class BeanInstance implements Serializable {
     }
 
     return found;
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @param gx a <code>Graphics</code> object on which to render
+   * the labels
+   */
+  public static void paintLabels(Graphics gx) {
+    gx.setFont(new Font(null, Font.PLAIN, 9));
+    FontMetrics fm = gx.getFontMetrics();
+    int hf = fm.getAscent();
+    for (int i = 0; i < COMPONENTS.size(); i++) {
+      BeanInstance bi = (BeanInstance)COMPONENTS.elementAt(i);
+      if (!(bi.getBean() instanceof Visible)) {
+	continue;
+      }
+      int cx = bi.getX(); int cy = bi.getY();
+      int width = ((JComponent)bi.getBean()).getWidth();
+      int height = ((JComponent)bi.getBean()).getHeight();
+      String label = ((Visible)bi.getBean()).getVisual().getText();
+      int labelwidth = fm.stringWidth(label);
+      if (labelwidth < width) {
+	gx.drawString(label, (cx+(width/2)) - (labelwidth / 2), cy+height+hf+2);
+      } else {
+	// split label
+
+	// find mid point
+	int mid = label.length() / 2;
+	// look for split point closest to the mid
+	int closest = label.length();
+	int closestI = -1;
+	for (int z = 0; z < label.length(); z++) {
+	  if (label.charAt(z) < 'a') {
+	    if (Math.abs(mid - z) < closest) {
+	      closest = Math.abs(mid - z);
+	      closestI = z;
+	    }
+	  }
+	}
+	if (closestI != -1) {
+	  String left = label.substring(0, closestI);
+	  String right = label.substring(closestI, label.length());
+	  if (left.length() > 1 && right.length() > 1) {
+	    gx.drawString(left, (cx+(width/2)) - (fm.stringWidth(left) / 2), 
+			  cy+height+(hf * 1)+2);
+	    gx.drawString(right, (cx+(width/2)) - (fm.stringWidth(right) / 2), 
+			  cy+height+(hf * 2)+2);
+	  } else {
+	    gx.drawString(label, (cx+(width/2)) - (fm.stringWidth(label) / 2), 
+			  cy+height+(hf * 1)+2);
+	  }
+	} else {
+	  gx.drawString(label, (cx+(width/2)) - (fm.stringWidth(label) / 2), 
+			cy+height+(hf * 1)+2);
+	}
+      }
+    }
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Looks for a bean (if any) whose bounds contain the supplied point
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param p a point
    * @return a bean that contains the supplied point or null if no bean contains
@@ -402,12 +638,36 @@ public class BeanInstance implements Serializable {
       tempBounds = temp.getBounds(tempBounds);
       if (tempBounds.contains(p)) {
         return t;
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @param p a point
+   * @return a bean that contains the supplied point or null if no bean
+   * contains the point
+   */
+  public static BeanInstance findInstance(Point p) {
+    Rectangle tempBounds = new Rectangle();
+    for (int i=0; i < COMPONENTS.size(); i++) {
+      
+      BeanInstance t = (BeanInstance)COMPONENTS.elementAt(i);
+      JComponent temp = (JComponent)t.getBean();
+				      
+      tempBounds = temp.getBounds(tempBounds);
+      if (tempBounds.contains(p)) {
+	return t;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
     }
     return null;
   }
 
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Looks for all beans (if any) located within the supplied bounding box. Also
    * adjusts the bounding box to be a tight fit around all contained beans
    * 
@@ -430,10 +690,37 @@ public class BeanInstance implements Serializable {
     FontMetrics fm = null;
 
     int centerX, centerY;
+<<<<<<< HEAD
+=======
+=======
+   * Looks for all beans (if any) located within
+   * the supplied bounding box. Also adjusts the
+   * bounding box to be a tight fit around all
+   * contained beans
+   *
+   * @param boundingBox the bounding rectangle
+   * @return a Vector of BeanInstances
+   */
+  public static Vector findInstances(Rectangle boundingBox) {
+    Graphics gx = null;
+    FontMetrics fm = null;
+    
+    int centerX, centerY;
+    int startX, startY, endX, endY;
+    startX = (int)boundingBox.getX();
+    startY = (int)boundingBox.getY();
+    endX = (int)boundingBox.getMaxX();
+    endY = (int)boundingBox.getMaxY();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     int minX = Integer.MAX_VALUE;
     int minY = Integer.MAX_VALUE;
     int maxX = Integer.MIN_VALUE;
     int maxY = Integer.MIN_VALUE;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     Vector<Object> result = new Vector<Object>();
     for (int i = 0; i < components.size(); i++) {
       BeanInstance t = (BeanInstance) components.elementAt(i);
@@ -484,17 +771,88 @@ public class BeanInstance implements Serializable {
     }
     boundingBox.setBounds(minX, minY, maxX - minX, maxY - minY);
 
+<<<<<<< HEAD
+=======
+=======
+    Vector result = new Vector();
+    for (int i = 0; i < COMPONENTS.size(); i++) {
+      BeanInstance t = (BeanInstance)COMPONENTS.elementAt(i);
+      centerX = t.getX() + (t.getWidth()/2);
+      centerY = t.getY() + (t.getHeight()/2);
+      if (boundingBox.contains(centerX, centerY)) {
+	result.addElement(t);
+
+
+	// adjust bounding box stuff
+//	int hf = 0;
+	if (gx == null) {
+	  gx = ((JComponent)t.getBean()).getGraphics();
+	  gx.setFont(new Font(null, Font.PLAIN, 9));
+	  fm = gx.getFontMetrics();
+//	  hf = fm.getAscent();
+	}
+	String label = "";
+	if (t.getBean() instanceof Visible) {
+	  label = ((Visible)t.getBean()).getVisual().getText();
+	}
+	int labelwidth = fm.stringWidth(label);
+	int heightMultiplier = (labelwidth > t.getWidth())
+	? 2
+	: 1;
+	/*if (label.length() == 0) {
+	  heightMultiplier = 0;
+	}*/
+	int brx = 0;
+	int blx = 0;
+	if (centerX - (labelwidth / 2) - 2 < t.getX()) {
+	  blx = (centerX - (labelwidth / 2) - 2);
+	  brx = centerX + (labelwidth / 2) + 2;
+	} else {
+	  blx = t.getX() - 2;
+	  brx = t.getX() + t.getWidth() + 2;
+	}
+
+	if (blx < minX) {
+	  minX = blx;
+	}
+	if (brx > maxX) {
+	  maxX = brx;
+	}
+	if (t.getY() - 2 < minY) {
+	  minY = t.getY() - 2;
+	}
+	if (t.getY() + t.getHeight() + 2 > maxY) {
+	  maxY = t.getY() + t.getHeight()  + 2;
+	}
+      }
+    }
+    boundingBox.setBounds(minX, minY, maxX - minX, maxY - minY);
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return result;
   }
 
   /**
    * Creates a new <code>BeanInstance</code> instance.
+<<<<<<< HEAD
    * 
+=======
+<<<<<<< HEAD
+   * 
+=======
+   *
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param container a <code>JComponent</code> to add the bean to
    * @param bean the bean to add
    * @param x the x coordinate of the bean
    * @param y the y coordinate of the bean
    */
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public BeanInstance(JComponent container, Object bean, int x, int y,
     Integer... tab) {
     m_bean = bean;
@@ -507,16 +865,45 @@ public class BeanInstance implements Serializable {
    * Creates a new <code>BeanInstance</code> instance given the fully qualified
    * name of the bean
    * 
+<<<<<<< HEAD
+=======
+=======
+  public BeanInstance(JComponent container, Object bean, int x, int y) {
+    m_bean = bean;
+    m_x = x;
+    m_y = y;
+    addBean(container);
+  }
+
+  /**
+   * Creates a new <code>BeanInstance</code> instance given the fully
+   * qualified name of the bean
+   *
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param container a <code>JComponent</code> to add the bean to
    * @param beanName the fully qualified name of the bean
    * @param x the x coordinate of the bean
    * @param y th y coordinate of the bean
    */
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public BeanInstance(JComponent container, String beanName, int x, int y,
     Integer... tab) {
     m_x = x;
     m_y = y;
 
+<<<<<<< HEAD
+=======
+=======
+  public BeanInstance(JComponent container, String beanName, int x, int y) {
+    m_x = x;
+    m_y = y;
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     // try and instantiate the named component
     try {
       m_bean = Beans.instantiate(null, beanName);
@@ -525,11 +912,23 @@ public class BeanInstance implements Serializable {
       return;
     }
 
+<<<<<<< HEAD
     addBean(container, tab);
+=======
+<<<<<<< HEAD
+    addBean(container, tab);
+=======
+    addBean(container);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Remove this bean from the list of beans and from the containing component
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param container the <code>JComponent</code> that holds the bean
    */
@@ -552,11 +951,32 @@ public class BeanInstance implements Serializable {
     }
     if (container != null) {
       container.remove((JComponent) m_bean);
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @param container the <code>JComponent</code> that holds the bean
+   */
+  public void removeBean(JComponent container) {
+    for (int i = 0; i < COMPONENTS.size(); i++) {
+      if ((BeanInstance)COMPONENTS.elementAt(i) == this) {
+	System.err.println(Messages.getInstance().getString("BeanInstance_RemoveBean_Error_Text"));
+	COMPONENTS.removeElementAt(i);
+      }
+    }
+    if (container != null) {
+      container.remove((JComponent)m_bean);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       container.revalidate();
       container.repaint();
     }
   }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public static void appendBeans(JComponent container, Vector<Object> beans,
     int tab) {
     if (TABBED_COMPONENTS.size() > 0 && tab < TABBED_COMPONENTS.size()) {
@@ -601,11 +1021,34 @@ public class BeanInstance implements Serializable {
 
     // do nothing if we are already in the list
     if (components.contains(this)) {
+<<<<<<< HEAD
+=======
+=======
+  /**
+   * Adds this bean to the global list of beans and
+   * to the supplied container. The constructor
+   * calls this method, so a client should not need
+   * to unless they have called removeBean and then
+   * wish to have it added again.
+   *
+   * @param container the Component on which this
+   * BeanInstance will be displayed
+   */
+  public void addBean(JComponent container) {
+
+    // do nothing if we are already in the list
+    if (COMPONENTS.contains(this)) {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       return;
     }
 
     // Ignore invisible components
     if (!Beans.isInstanceOf(m_bean, JComponent.class)) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       System.out.println("Component is invisible!");
       return;
     }
@@ -624,6 +1067,29 @@ public class BeanInstance implements Serializable {
     c.validate();
     // bp.addBean(c);
     // c.repaint();
+<<<<<<< HEAD
+=======
+=======
+      System.err.println(Messages.getInstance().getString("BeanInstance_AddBean_Error_Text"));
+      return;
+    }
+    
+    COMPONENTS.addElement(this);
+    
+    // Position and layout the component
+    JComponent c = (JComponent)m_bean;
+    Dimension d = c.getPreferredSize();
+    int dx = (int)(d.getWidth() / 2);
+    int dy = (int)(d.getHeight() / 2);
+    m_x -= dx;
+    m_y -= dy;
+    c.setLocation(m_x, m_y);
+    //    c.doLayout();
+    c.validate();
+    //    bp.addBean(c);
+    //    c.repaint();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (container != null) {
       container.add(c);
       container.revalidate();
@@ -632,7 +1098,15 @@ public class BeanInstance implements Serializable {
 
   /**
    * Gets the bean encapsulated in this instance
+<<<<<<< HEAD
    * 
+=======
+<<<<<<< HEAD
+   * 
+=======
+   *
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @return an <code>Object</code> value
    */
   public Object getBean() {
@@ -641,7 +1115,15 @@ public class BeanInstance implements Serializable {
 
   /**
    * Gets the x coordinate of this bean
+<<<<<<< HEAD
    * 
+=======
+<<<<<<< HEAD
+   * 
+=======
+   *
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @return an <code>int</code> value
    */
   public int getX() {
@@ -650,7 +1132,15 @@ public class BeanInstance implements Serializable {
 
   /**
    * Gets the y coordinate of this bean
+<<<<<<< HEAD
    * 
+=======
+<<<<<<< HEAD
+   * 
+=======
+   *
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @return an <code>int</code> value
    */
   public int getY() {
@@ -659,15 +1149,33 @@ public class BeanInstance implements Serializable {
 
   /**
    * Gets the width of this bean
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return an <code>int</code> value
    */
   public int getWidth() {
     return ((JComponent) m_bean).getWidth();
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @return an <code>int</code> value
+   */
+  public int getWidth() {
+    return ((JComponent)m_bean).getWidth();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Gets the height of this bean
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return an <code>int</code> value
    */
@@ -678,6 +1186,21 @@ public class BeanInstance implements Serializable {
   /**
    * Set the x and y coordinates of this bean
    * 
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @return an <code>int</code> value
+   */
+  public int getHeight() {
+    return ((JComponent)m_bean).getHeight();
+  }
+ 
+  /**
+   * Set the x and y coordinates of this bean
+   *
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param newX the x coordinate
    * @param newY the y coordinate
    */
@@ -685,29 +1208,73 @@ public class BeanInstance implements Serializable {
     setX(newX);
     setY(newY);
     if (getBean() instanceof MetaBean) {
+<<<<<<< HEAD
       ((MetaBean) getBean()).shiftBeans(this, false);
+=======
+<<<<<<< HEAD
+      ((MetaBean) getBean()).shiftBeans(this, false);
+=======
+      ((MetaBean)getBean()).shiftBeans(this, false);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
   }
 
   /**
    * Sets the x coordinate of this bean
+<<<<<<< HEAD
    * 
+=======
+<<<<<<< HEAD
+   * 
+=======
+   *
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param newX an <code>int</code> value
    */
   public void setX(int newX) {
     m_x = newX;
+<<<<<<< HEAD
     ((JComponent) m_bean).setLocation(m_x, m_y);
     ((JComponent) m_bean).validate();
+=======
+<<<<<<< HEAD
+    ((JComponent) m_bean).setLocation(m_x, m_y);
+    ((JComponent) m_bean).validate();
+=======
+    ((JComponent)m_bean).setLocation(m_x, m_y);
+    ((JComponent)m_bean).validate();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Sets the y coordinate of this bean
+<<<<<<< HEAD
    * 
+=======
+<<<<<<< HEAD
+   * 
+=======
+   *
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param newY an <code>int</code> value
    */
   public void setY(int newY) {
     m_y = newY;
+<<<<<<< HEAD
     ((JComponent) m_bean).setLocation(m_x, m_y);
     ((JComponent) m_bean).validate();
+=======
+<<<<<<< HEAD
+    ((JComponent) m_bean).setLocation(m_x, m_y);
+    ((JComponent) m_bean).validate();
+=======
+    ((JComponent)m_bean).setLocation(m_x, m_y);
+    ((JComponent)m_bean).validate();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 }

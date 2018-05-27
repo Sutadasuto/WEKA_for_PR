@@ -1,4 +1,8 @@
 /*
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,16 +15,46 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+<<<<<<< HEAD
+=======
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    AdditiveRegression.java
+<<<<<<< HEAD
  *    Copyright (C) 2000-2012 University of Waikato, Hamilton, New Zealand
+=======
+<<<<<<< HEAD
+ *    Copyright (C) 2000-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 2000 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
 package weka.classifiers.meta;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.Vector;
@@ -35,18 +69,46 @@ import weka.classifiers.rules.ZeroR;
 import weka.core.AdditionalMeasureProducer;
 import weka.core.Capabilities;
 import weka.core.Capabilities.Capability;
+<<<<<<< HEAD
+=======
+=======
+import weka.classifiers.Classifier;
+import weka.classifiers.IteratedSingleClassifierEnhancer;
+import weka.classifiers.rules.ZeroR;
+import weka.core.AdditionalMeasureProducer;
+import weka.core.Capabilities;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.Option;
 import weka.core.OptionHandler;
 import weka.core.RevisionUtils;
 import weka.core.TechnicalInformation;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.core.TechnicalInformation.Field;
 import weka.core.TechnicalInformation.Type;
 import weka.core.TechnicalInformationHandler;
 import weka.core.Utils;
 import weka.core.WeightedInstancesHandler;
 import weka.core.UnassignedClassException;
+<<<<<<< HEAD
+=======
+=======
+import weka.core.TechnicalInformationHandler;
+import weka.core.Utils;
+import weka.core.WeightedInstancesHandler;
+import weka.core.Capabilities.Capability;
+import weka.core.TechnicalInformation.Field;
+import weka.core.TechnicalInformation.Type;
+
+import java.util.Enumeration;
+import java.util.Vector;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
 /**
  <!-- globalinfo-start -->
@@ -82,9 +144,18 @@ import weka.core.UnassignedClassException;
  * <pre> -I &lt;num&gt;
  *  Number of iterations.
  *  (default 10)</pre>
+<<<<<<< HEAD
  *
  * <pre> -A
  *  Minimize absolute error instead of squared error (assumes that base learner minimizes absolute error).
+=======
+<<<<<<< HEAD
+ *
+ * <pre> -A
+ *  Minimize absolute error instead of squared error (assumes that base learner minimizes absolute error).
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  * 
  * <pre> -D
  *  If set, classifier is run in debug mode and
@@ -105,6 +176,10 @@ import weka.core.UnassignedClassException;
  <!-- options-end -->
  *
  * @author Mark Hall (mhall@cs.waikato.ac.nz)
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  * @version $Revision: 12091 $
  */
 public class AdditiveRegression extends IteratedSingleClassifierEnhancer implements OptionHandler, 
@@ -137,6 +212,36 @@ public class AdditiveRegression extends IteratedSingleClassifierEnhancer impleme
   
   /** Whether to minimise absolute error instead of squared error. */
   protected boolean m_MinimizeAbsoluteError = false;
+<<<<<<< HEAD
+=======
+=======
+ * @version $Revision: 1.25 $
+ */
+public class AdditiveRegression 
+  extends IteratedSingleClassifierEnhancer 
+  implements OptionHandler,
+	     AdditionalMeasureProducer,
+	     WeightedInstancesHandler,
+	     TechnicalInformationHandler {
+
+  /** for serialization */
+  static final long serialVersionUID = -2368937577670527151L;
+  
+  /**
+   * Shrinkage (Learning rate). Default = no shrinkage.
+   */
+  protected double m_shrinkage = 1.0;
+
+  /** The number of successfully generated base classifiers. */
+  protected int m_NumIterationsPerformed;
+
+  /** The model for the mean */
+  protected ZeroR m_zeroR;
+
+  /** whether we have suitable data or nor (if not, ZeroR model is used) */
+  protected boolean m_SuitableData = true;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   
   /**
    * Returns a string describing this attribute evaluator
@@ -208,6 +313,10 @@ public class AdditiveRegression extends IteratedSingleClassifierEnhancer impleme
    *
    * @return an enumeration of all the available options.
    */
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public Enumeration<Option> listOptions() {
 
     Vector<Option> newVector = new Vector<Option>(2);
@@ -222,6 +331,24 @@ public class AdditiveRegression extends IteratedSingleClassifierEnhancer impleme
 
     newVector.addAll(Collections.list(super.listOptions()));
     
+<<<<<<< HEAD
+=======
+=======
+  public Enumeration listOptions() {
+
+    Vector newVector = new Vector(4);
+
+    newVector.addElement(new Option(
+	      "\tSpecify shrinkage rate. "
+	      +"(default = 1.0, ie. no shrinkage)\n", 
+	      "S", 1, "-S"));
+
+    Enumeration enu = super.listOptions();
+    while (enu.hasMoreElements()) {
+      newVector.addElement(enu.nextElement());
+    }
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return newVector.elements();
   }
 
@@ -238,10 +365,20 @@ public class AdditiveRegression extends IteratedSingleClassifierEnhancer impleme
    * <pre> -I &lt;num&gt;
    *  Number of iterations.
    *  (default 10)</pre>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    *
    * <pre> -A
    *  Minimize absolute error instead of squared error (assumes that base learner minimizes absolute error).
    *  
+<<<<<<< HEAD
+=======
+=======
+   * 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * <pre> -D
    *  If set, classifier is run in debug mode and
    *  may output additional info to the console</pre>
@@ -270,11 +407,22 @@ public class AdditiveRegression extends IteratedSingleClassifierEnhancer impleme
       Double temp = Double.valueOf(optionString);
       setShrinkage(temp.doubleValue());
     }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     setMinimizeAbsoluteError(Utils.getFlag('A', options));
 
     super.setOptions(options);
     
     Utils.checkForRemainingOptions(options);
+<<<<<<< HEAD
+=======
+=======
+
+    super.setOptions(options);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -284,6 +432,10 @@ public class AdditiveRegression extends IteratedSingleClassifierEnhancer impleme
    */
   public String [] getOptions() {
     
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     Vector<String> options = new Vector<String>();
 
     options.add("-S"); options.add("" + getShrinkage());
@@ -295,6 +447,25 @@ public class AdditiveRegression extends IteratedSingleClassifierEnhancer impleme
     Collections.addAll(options, super.getOptions());
     
     return options.toArray(new String[0]);
+<<<<<<< HEAD
+=======
+=======
+    String [] superOptions = super.getOptions();
+    String [] options = new String [superOptions.length + 2];
+    int current = 0;
+
+    options[current++] = "-S"; options[current++] = "" + getShrinkage();
+
+    System.arraycopy(superOptions, 0, options, current, 
+		     superOptions.length);
+
+    current += superOptions.length;
+    while (current < options.length) {
+      options[current++] = "";
+    }
+    return options;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -304,8 +475,18 @@ public class AdditiveRegression extends IteratedSingleClassifierEnhancer impleme
    */
   public String shrinkageTipText() {
     return "Shrinkage rate. Smaller values help prevent overfitting and "
+<<<<<<< HEAD
             + "have a smoothing effect (but increase learning time). "
             +"Default = 1.0, ie. no shrinkage.";
+=======
+<<<<<<< HEAD
+            + "have a smoothing effect (but increase learning time). "
+            +"Default = 1.0, ie. no shrinkage.";
+=======
+      + "have a smoothing effect (but increase learning time). "
+      +"Default = 1.0, ie. no shrinkage."; 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -327,6 +508,10 @@ public class AdditiveRegression extends IteratedSingleClassifierEnhancer impleme
   }
 
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Returns the tip text for this property
    * @return tip text for this property suitable for
    * displaying in the explorer/experimenter gui
@@ -354,6 +539,11 @@ public class AdditiveRegression extends IteratedSingleClassifierEnhancer impleme
   }
 
   /**
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Returns default capabilities of the classifier.
    *
    * @return      the capabilities of this classifier
@@ -371,6 +561,10 @@ public class AdditiveRegression extends IteratedSingleClassifierEnhancer impleme
   }
 
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Method used to build the classifier.
    */
   public void buildClassifier(Instances data) throws Exception {
@@ -392,11 +586,28 @@ public class AdditiveRegression extends IteratedSingleClassifierEnhancer impleme
    * @throws Exception if the classifier could not be initialized successfully
    */
   public void initializeClassifier(Instances data) throws Exception {
+<<<<<<< HEAD
+=======
+=======
+   * Build the classifier on the supplied data
+   *
+   * @param data the training data
+   * @throws Exception if the classifier could not be built successfully
+   */
+  public void buildClassifier(Instances data) throws Exception {
+
+    super.buildClassifier(data);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     // can classifier handle the data?
     getCapabilities().testWithFail(data);
 
     // remove instances with missing class
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     m_Data = new Instances(data);
     m_Data.deleteWithMissingClass();
 
@@ -482,6 +693,61 @@ public class AdditiveRegression extends IteratedSingleClassifierEnhancer impleme
   public void done() {
     
     m_Data = null;
+<<<<<<< HEAD
+=======
+=======
+    Instances newData = new Instances(data);
+    newData.deleteWithMissingClass();
+
+    double sum = 0;
+    double temp_sum = 0;
+    // Add the model for the mean first
+    m_zeroR = new ZeroR();
+    m_zeroR.buildClassifier(newData);
+    
+    // only class? -> use only ZeroR model
+    if (newData.numAttributes() == 1) {
+      System.err.println(
+	  "Cannot build model (only class attribute present in data!), "
+	  + "using ZeroR model instead!");
+      m_SuitableData = false;
+      return;
+    }
+    else {
+      m_SuitableData = true;
+    }
+    
+    newData = residualReplace(newData, m_zeroR, false);
+    for (int i = 0; i < newData.numInstances(); i++) {
+      sum += newData.instance(i).weight() *
+	newData.instance(i).classValue() * newData.instance(i).classValue();
+    }
+    if (m_Debug) {
+      System.err.println("Sum of squared residuals "
+			 +"(predicting the mean) : " + sum);
+    }
+
+    m_NumIterationsPerformed = 0;
+    do {
+      temp_sum = sum;
+
+      // Build the classifier
+      m_Classifiers[m_NumIterationsPerformed].buildClassifier(newData);
+
+      newData = residualReplace(newData, m_Classifiers[m_NumIterationsPerformed], true);
+      sum = 0;
+      for (int i = 0; i < newData.numInstances(); i++) {
+	sum += newData.instance(i).weight() *
+	  newData.instance(i).classValue() * newData.instance(i).classValue();
+      }
+      if (m_Debug) {
+	System.err.println("Sum of squared residuals : "+sum);
+      }
+      m_NumIterationsPerformed++;
+    } while (((temp_sum - sum) > Utils.SMALL) && 
+	     (m_NumIterationsPerformed < m_Classifiers.length));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -493,19 +759,40 @@ public class AdditiveRegression extends IteratedSingleClassifierEnhancer impleme
    */
   public double classifyInstance(Instance inst) throws Exception {
 
+<<<<<<< HEAD
     double prediction = m_InitialPrediction;
+=======
+<<<<<<< HEAD
+    double prediction = m_InitialPrediction;
+=======
+    double prediction = m_zeroR.classifyInstance(inst);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     // default model?
     if (!m_SuitableData) {
       return prediction;
     }
     
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     for (Classifier classifier : m_Classifiers) {
       double toAdd = classifier.classifyInstance(inst);
       if (Utils.isMissingValue(toAdd)) {
         throw new UnassignedClassException("AdditiveRegression: base learner predicted missing value.");
       }
       prediction += (toAdd * getShrinkage());
+<<<<<<< HEAD
+=======
+=======
+    for (int i = 0; i < m_NumIterationsPerformed; i++) {
+      double toAdd = m_Classifiers[i].classifyInstance(inst);
+      toAdd *= getShrinkage();
+      prediction += toAdd;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
 
     return prediction;
@@ -513,6 +800,10 @@ public class AdditiveRegression extends IteratedSingleClassifierEnhancer impleme
 
   /**
    * Replace the class values of the instances from the current iteration
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * with residuals after predicting with the supplied classifier.
    *
    * @param data the instances to predict
@@ -548,6 +839,33 @@ public class AdditiveRegression extends IteratedSingleClassifierEnhancer impleme
     for (int i = 0; i < newInst.numInstances(); i++) {
       newInst.instance(i).setClassValue(newInst.instance(i).classValue() - c);
     }
+<<<<<<< HEAD
+=======
+=======
+   * with residuals ater predicting with the supplied classifier.
+   *
+   * @param data the instances to predict
+   * @param c the classifier to use
+   * @param useShrinkage whether shrinkage is to be applied to the model's output
+   * @return a new set of instances with class values replaced by residuals
+   * @throws Exception if something goes wrong
+   */
+  private Instances residualReplace(Instances data, Classifier c, 
+				    boolean useShrinkage) throws Exception {
+    double pred,residual;
+    Instances newInst = new Instances(data);
+
+    for (int i = 0; i < newInst.numInstances(); i++) {
+      pred = c.classifyInstance(newInst.instance(i));
+      if (useShrinkage) {
+	pred *= getShrinkage();
+      }
+      residual = newInst.instance(i).classValue() - pred;
+      newInst.instance(i).setClassValue(residual);
+    }
+    //    System.err.print(newInst);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return newInst;
   }
 
@@ -555,8 +873,18 @@ public class AdditiveRegression extends IteratedSingleClassifierEnhancer impleme
    * Returns an enumeration of the additional measure names
    * @return an enumeration of the measure names
    */
+<<<<<<< HEAD
   public Enumeration<String> enumerateMeasures() {
     Vector<String> newVector = new Vector<String>(1);
+=======
+<<<<<<< HEAD
+  public Enumeration<String> enumerateMeasures() {
+    Vector<String> newVector = new Vector<String>(1);
+=======
+  public Enumeration enumerateMeasures() {
+    Vector newVector = new Vector(1);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     newVector.addElement("measureNumIterations");
     return newVector.elements();
   }
@@ -582,7 +910,15 @@ public class AdditiveRegression extends IteratedSingleClassifierEnhancer impleme
    * models)
    */
   public double measureNumIterations() {
+<<<<<<< HEAD
     return m_Classifiers.size();
+=======
+<<<<<<< HEAD
+    return m_Classifiers.size();
+=======
+    return m_NumIterationsPerformed;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -592,16 +928,29 @@ public class AdditiveRegression extends IteratedSingleClassifierEnhancer impleme
    */
   public String toString() {
     StringBuffer text = new StringBuffer();
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     
     if (m_SuitableData && m_Classifiers == null) {
       return "Classifier hasn't been built yet!";
     }
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     // only ZeroR model?
     if (!m_SuitableData) {
       StringBuffer buf = new StringBuffer();
       buf.append(this.getClass().getName().replaceAll(".*\\.", "") + "\n");
       buf.append(this.getClass().getName().replaceAll(".*\\.", "").replaceAll(".", "=") + "\n\n");
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       buf.append("Warning: Non-trivial model could not be built, initial prediction is: ");
       buf.append(m_InitialPrediction);
       return buf.toString();
@@ -610,15 +959,46 @@ public class AdditiveRegression extends IteratedSingleClassifierEnhancer impleme
     text.append("Additive Regression\n\n");
 
     text.append("Initial prediction: " + m_InitialPrediction + "\n\n");
+<<<<<<< HEAD
+=======
+=======
+      buf.append("Warning: No model could be built, hence ZeroR model is used:\n\n");
+      buf.append(m_zeroR.toString());
+      return buf.toString();
+    }
+    
+    if (m_NumIterations == 0) {
+      return "Classifier hasn't been built yet!";
+    }
+
+    text.append("Additive Regression\n\n");
+
+    text.append("ZeroR model\n\n" + m_zeroR + "\n\n");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     text.append("Base classifier " 
 		+ getClassifier().getClass().getName()
 		+ "\n\n");
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     text.append("" + m_Classifiers.size() + " models generated.\n");
 
     for (int i = 0; i < m_Classifiers.size(); i++) {
       text.append("\nModel number " + i + "\n\n" +
 		  m_Classifiers.get(i) + "\n");
+<<<<<<< HEAD
+=======
+=======
+    text.append("" + m_NumIterationsPerformed + " models generated.\n");
+
+    for (int i = 0; i < m_NumIterationsPerformed; i++) {
+      text.append("\nModel number " + i + "\n\n" +
+		  m_Classifiers[i] + "\n");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
 
     return text.toString();
@@ -630,7 +1010,15 @@ public class AdditiveRegression extends IteratedSingleClassifierEnhancer impleme
    * @return		the revision
    */
   public String getRevision() {
+<<<<<<< HEAD
     return RevisionUtils.extract("$Revision: 12091 $");
+=======
+<<<<<<< HEAD
+    return RevisionUtils.extract("$Revision: 12091 $");
+=======
+    return RevisionUtils.extract("$Revision: 1.25 $");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**

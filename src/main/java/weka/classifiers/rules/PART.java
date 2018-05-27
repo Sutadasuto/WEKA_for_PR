@@ -1,4 +1,8 @@
 /*
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -11,21 +15,57 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+<<<<<<< HEAD
+=======
+=======
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    PART.java
+<<<<<<< HEAD
  *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
+=======
+<<<<<<< HEAD
+ *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
+=======
+ *    Copyright (C) 1999 University of Waikato, Hamilton, New Zealand
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
 package weka.classifiers.rules;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.Vector;
 
 import weka.classifiers.AbstractClassifier;
+<<<<<<< HEAD
+=======
+=======
+import weka.classifiers.Classifier;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.classifiers.rules.part.MakeDecList;
 import weka.classifiers.trees.j48.BinC45ModelSelection;
 import weka.classifiers.trees.j48.C45ModelSelection;
@@ -39,6 +79,10 @@ import weka.core.OptionHandler;
 import weka.core.RevisionUtils;
 import weka.core.Summarizable;
 import weka.core.TechnicalInformation;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.core.TechnicalInformation.Field;
 import weka.core.TechnicalInformation.Type;
 import weka.core.TechnicalInformationHandler;
@@ -62,6 +106,32 @@ import weka.core.Capabilities.Capability;
  * 
  * <!-- technical-bibtex-start --> BibTeX:
  * 
+<<<<<<< HEAD
+=======
+=======
+import weka.core.TechnicalInformationHandler;
+import weka.core.Utils;
+import weka.core.WeightedInstancesHandler;
+import weka.core.TechnicalInformation.Field;
+import weka.core.TechnicalInformation.Type;
+
+import java.util.Enumeration;
+import java.util.Vector;
+
+/**
+ <!-- globalinfo-start -->
+ * Class for generating a PART decision list. Uses separate-and-conquer. Builds a partial C4.5 decision tree in each iteration and makes the "best" leaf into a rule.<br/>
+ * <br/>
+ * For more information, see:<br/>
+ * <br/>
+ * Eibe Frank, Ian H. Witten: Generating Accurate Rule Sets Without Global Optimization. In: Fifteenth International Conference on Machine Learning, 144-151, 1998.
+ * <p/>
+ <!-- globalinfo-end -->
+ *
+ <!-- technical-bibtex-start -->
+ * BibTeX:
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  * <pre>
  * &#64;inproceedings{Frank1998,
  *    author = {Eibe Frank and Ian H. Witten},
@@ -75,6 +145,10 @@ import weka.core.Capabilities.Capability;
  * }
  * </pre>
  * <p/>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  * <!-- technical-bibtex-end -->
  * 
  * <!-- options-start --> Valid options are:
@@ -141,6 +215,54 @@ public class PART extends AbstractClassifier implements OptionHandler,
   /** for serialization */
   static final long serialVersionUID = 8121455039782598361L;
 
+<<<<<<< HEAD
+=======
+=======
+ <!-- technical-bibtex-end -->
+ *
+ <!-- options-start -->
+ * Valid options are: <p/>
+ * 
+ * <pre> -C &lt;pruning confidence&gt;
+ *  Set confidence threshold for pruning.
+ *  (default 0.25)</pre>
+ * 
+ * <pre> -M &lt;minimum number of objects&gt;
+ *  Set minimum number of objects per leaf.
+ *  (default 2)</pre>
+ * 
+ * <pre> -R
+ *  Use reduced error pruning.</pre>
+ * 
+ * <pre> -N &lt;number of folds&gt;
+ *  Set number of folds for reduced error
+ *  pruning. One fold is used as pruning set.
+ *  (default 3)</pre>
+ * 
+ * <pre> -B
+ *  Use binary splits only.</pre>
+ * 
+ * <pre> -U
+ *  Generate unpruned decision list.</pre>
+ * 
+ * <pre> -Q &lt;seed&gt;
+ *  Seed for random data shuffling (default 1).</pre>
+ * 
+ <!-- options-end -->
+ *
+ * @author Eibe Frank (eibe@cs.waikato.ac.nz)
+ * @version $Revision: 1.10 $
+ */
+public class PART 
+  extends Classifier 
+  implements OptionHandler, WeightedInstancesHandler, Summarizable, 
+             AdditionalMeasureProducer, TechnicalInformationHandler {
+
+  /** for serialization */
+  static final long serialVersionUID = 8121455039782598361L;
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /** The decision list */
   private MakeDecList m_root;
 
@@ -150,9 +272,18 @@ public class PART extends AbstractClassifier implements OptionHandler,
   /** Minimum number of objects */
   private int m_minNumObj = 2;
 
+<<<<<<< HEAD
   /** Use MDL correction? */
   private boolean m_useMDLcorrection = true;
 
+=======
+<<<<<<< HEAD
+  /** Use MDL correction? */
+  private boolean m_useMDLcorrection = true;
+
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /** Use reduced error pruning? */
   private boolean m_reducedErrorPruning = false;
 
@@ -161,12 +292,24 @@ public class PART extends AbstractClassifier implements OptionHandler,
 
   /** Binary splits on nominal attributes? */
   private boolean m_binarySplits = false;
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /** Generate unpruned list? */
   private boolean m_unpruned = false;
 
   /** The seed for random number generation. */
   private int m_Seed = 1;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** Do not relocate split point to actual data value */
   private boolean m_doNotMakeSplitPointActualValue;
@@ -202,18 +345,67 @@ public class PART extends AbstractClassifier implements OptionHandler,
       "Generating Accurate Rule Sets Without Global Optimization");
     result.setValue(Field.BOOKTITLE,
       "Fifteenth International Conference on Machine Learning");
+<<<<<<< HEAD
+=======
+=======
+    
+  /**
+   * Returns a string describing classifier
+   * @return a description suitable for
+   * displaying in the explorer/experimenter gui
+   */
+  public String globalInfo() {
+
+    return  "Class for generating a PART decision list. Uses "
+      + "separate-and-conquer. Builds a partial C4.5 decision tree "
+      + "in each iteration and makes the \"best\" leaf into a rule.\n\n"
+      + "For more information, see:\n\n"
+      + getTechnicalInformation().toString();
+  }
+
+  /**
+   * Returns an instance of a TechnicalInformation object, containing 
+   * detailed information about the technical background of this class,
+   * e.g., paper reference or book this class is based on.
+   * 
+   * @return the technical information about this class
+   */
+  public TechnicalInformation getTechnicalInformation() {
+    TechnicalInformation 	result;
+    
+    result = new TechnicalInformation(Type.INPROCEEDINGS);
+    result.setValue(Field.AUTHOR, "Eibe Frank and Ian H. Witten");
+    result.setValue(Field.TITLE, "Generating Accurate Rule Sets Without Global Optimization");
+    result.setValue(Field.BOOKTITLE, "Fifteenth International Conference on Machine Learning");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     result.setValue(Field.EDITOR, "J. Shavlik");
     result.setValue(Field.YEAR, "1998");
     result.setValue(Field.PAGES, "144-151");
     result.setValue(Field.PUBLISHER, "Morgan Kaufmann");
+<<<<<<< HEAD
     result.setValue(Field.PS,
       "http://www.cs.waikato.ac.nz/~eibe/pubs/ML98-57.ps.gz");
 
+=======
+<<<<<<< HEAD
+    result.setValue(Field.PS,
+      "http://www.cs.waikato.ac.nz/~eibe/pubs/ML98-57.ps.gz");
+
+=======
+    result.setValue(Field.PS, "http://www.cs.waikato.ac.nz/~eibe/pubs/ML98-57.ps.gz");
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return result;
   }
 
   /**
    * Returns default capabilities of the classifier.
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return the capabilities of this classifier
    */
@@ -236,17 +428,50 @@ public class PART extends AbstractClassifier implements OptionHandler,
     // instances
     result.setMinimumNumberInstances(0);
 
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @return      the capabilities of this classifier
+   */
+  public Capabilities getCapabilities() {
+    Capabilities      result;
+
+    if (m_unpruned) 
+      result = new MakeDecList(null, m_minNumObj).getCapabilities();
+    else if (m_reducedErrorPruning) 
+      result = new MakeDecList(null, m_numFolds, m_minNumObj, m_Seed).getCapabilities();
+    else
+      result = new MakeDecList(null, m_CF, m_minNumObj).getCapabilities();
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return result;
   }
 
   /**
    * Generates the classifier.
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param instances the data to train with
    * @throws Exception if classifier can't be built successfully
    */
   @Override
   public void buildClassifier(Instances instances) throws Exception {
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @param instances the data to train with
+   * @throws Exception if classifier can't be built successfully
+   */
+  public void buildClassifier(Instances instances) 
+       throws Exception {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     // can classifier handle the data?
     getCapabilities().testWithFail(instances);
@@ -254,6 +479,10 @@ public class PART extends AbstractClassifier implements OptionHandler,
     // remove instances with missing class
     instances = new Instances(instances);
     instances.deleteWithMissingClass();
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     ModelSelection modSelection;
 
@@ -276,38 +505,106 @@ public class PART extends AbstractClassifier implements OptionHandler,
       ((BinC45ModelSelection) modSelection).cleanup();
     } else {
       ((C45ModelSelection) modSelection).cleanup();
+<<<<<<< HEAD
+=======
+=======
+    
+    ModelSelection modSelection;	 
+
+    if (m_binarySplits)
+      modSelection = new BinC45ModelSelection(m_minNumObj, instances);
+    else
+      modSelection = new C45ModelSelection(m_minNumObj, instances);
+    if (m_unpruned) 
+      m_root = new MakeDecList(modSelection, m_minNumObj);
+    else if (m_reducedErrorPruning) 
+      m_root = new MakeDecList(modSelection, m_numFolds, m_minNumObj, m_Seed);
+    else
+      m_root = new MakeDecList(modSelection, m_CF, m_minNumObj);
+    m_root.buildClassifier(instances);
+    if (m_binarySplits) {
+      ((BinC45ModelSelection)modSelection).cleanup();
+    } else {
+      ((C45ModelSelection)modSelection).cleanup();
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
   }
 
   /**
    * Classifies an instance.
+<<<<<<< HEAD
    * 
+=======
+<<<<<<< HEAD
+   * 
+=======
+   *
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param instance the instance to classify
    * @return the classification
    * @throws Exception if instance can't be classified successfully
    */
+<<<<<<< HEAD
   @Override
   public double classifyInstance(Instance instance) throws Exception {
+=======
+<<<<<<< HEAD
+  @Override
+  public double classifyInstance(Instance instance) throws Exception {
+=======
+  public double classifyInstance(Instance instance) 
+       throws Exception {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     return m_root.classifyInstance(instance);
   }
 
+<<<<<<< HEAD
   /**
    * Returns class probabilities for an instance.
    * 
+=======
+<<<<<<< HEAD
+  /**
+   * Returns class probabilities for an instance.
+   * 
+=======
+  /** 
+   * Returns class probabilities for an instance.
+   *
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param instance the instance to get the distribution for
    * @return the class probabilities
    * @throws Exception if the distribution can't be computed successfully
    */
+<<<<<<< HEAD
   @Override
   public final double[] distributionForInstance(Instance instance)
     throws Exception {
+=======
+<<<<<<< HEAD
+  @Override
+  public final double[] distributionForInstance(Instance instance)
+    throws Exception {
+=======
+  public final double [] distributionForInstance(Instance instance) 
+       throws Exception {
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     return m_root.distributionForInstance(instance);
   }
 
   /**
    * Returns an enumeration describing the available options.
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * Valid options are:
    * <p>
@@ -370,11 +667,76 @@ public class PART extends AbstractClassifier implements OptionHandler,
       "-doNotMakeSplitPointActualValue", 0, "-doNotMakeSplitPointActualValue"));
 
     newVector.addAll(Collections.list(super.listOptions()));
+<<<<<<< HEAD
+=======
+=======
+   *
+   * Valid options are: <p>
+   *
+   * -C confidence <br>
+   * Set confidence threshold for pruning. (Default: 0.25) <p>
+   *
+   * -M number <br>
+   * Set minimum number of instances per leaf. (Default: 2) <p>
+   *
+   * -R <br>
+   * Use reduced error pruning. <p>
+   *
+   * -N number <br>
+   * Set number of folds for reduced error pruning. One fold is
+   * used as the pruning set. (Default: 3) <p>
+   *
+   * -B <br>
+   * Use binary splits for nominal attributes. <p>
+   *
+   * -U <br>
+   * Generate unpruned decision list. <p>
+   *
+   * -Q <br>
+   * The seed for reduced-error pruning. <p>
+   *
+   * @return an enumeration of all the available options.
+   */
+  public Enumeration listOptions() {
+
+    Vector newVector = new Vector(7);
+
+    newVector.
+	addElement(new Option("\tSet confidence threshold for pruning.\n" +
+			      "\t(default 0.25)",
+			      "C", 1, "-C <pruning confidence>"));
+    newVector.
+	addElement(new Option("\tSet minimum number of objects per leaf.\n" +
+			      "\t(default 2)",
+			      "M", 1, "-M <minimum number of objects>"));
+    newVector.
+	addElement(new Option("\tUse reduced error pruning.",
+			      "R", 0, "-R"));
+    newVector.
+	addElement(new Option("\tSet number of folds for reduced error\n" +
+			      "\tpruning. One fold is used as pruning set.\n" +
+			      "\t(default 3)",
+			      "N", 1, "-N <number of folds>"));
+    newVector.
+	addElement(new Option("\tUse binary splits only.",
+			      "B", 0, "-B"));
+    newVector.
+	addElement(new Option("\tGenerate unpruned decision list.",
+			      "U", 0, "-U"));
+    newVector.
+      addElement(new Option("\tSeed for random data shuffling (default 1).",
+			    "Q", 1, "-Q <seed>"));
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     return newVector.elements();
   }
 
   /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Parses a given list of options.
    * <p/>
    * 
@@ -436,12 +798,56 @@ public class PART extends AbstractClassifier implements OptionHandler,
    * @throws Exception if an option is not supported
    */
   @Override
+<<<<<<< HEAD
+=======
+=======
+   * Parses a given list of options. <p/>
+   * 
+   <!-- options-start -->
+   * Valid options are: <p/>
+   * 
+   * <pre> -C &lt;pruning confidence&gt;
+   *  Set confidence threshold for pruning.
+   *  (default 0.25)</pre>
+   * 
+   * <pre> -M &lt;minimum number of objects&gt;
+   *  Set minimum number of objects per leaf.
+   *  (default 2)</pre>
+   * 
+   * <pre> -R
+   *  Use reduced error pruning.</pre>
+   * 
+   * <pre> -N &lt;number of folds&gt;
+   *  Set number of folds for reduced error
+   *  pruning. One fold is used as pruning set.
+   *  (default 3)</pre>
+   * 
+   * <pre> -B
+   *  Use binary splits only.</pre>
+   * 
+   * <pre> -U
+   *  Generate unpruned decision list.</pre>
+   * 
+   * <pre> -Q &lt;seed&gt;
+   *  Seed for random data shuffling (default 1).</pre>
+   * 
+   <!-- options-end -->
+   *
+   * @param options the list of options as an array of strings
+   * @throws Exception if an option is not supported
+   */
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public void setOptions(String[] options) throws Exception {
 
     // Pruning options
     m_unpruned = Utils.getFlag('U', options);
     m_reducedErrorPruning = Utils.getFlag('R', options);
     m_binarySplits = Utils.getFlag('B', options);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     m_useMDLcorrection = !Utils.getFlag('J', options);
     m_doNotMakeSplitPointActualValue = Utils.getFlag(
       "doNotMakeSplitPointActualValue", options);
@@ -456,6 +862,21 @@ public class PART extends AbstractClassifier implements OptionHandler,
           throw new Exception(
             "CF has to be greater than zero and smaller than one!");
         }
+<<<<<<< HEAD
+=======
+=======
+    String confidenceString = Utils.getOption('C', options);
+    if (confidenceString.length() != 0) {
+      if (m_reducedErrorPruning) {
+	throw new Exception("Setting CF doesn't make sense " +
+			    "for reduced error pruning.");
+      } else {
+	m_CF = (new Float(confidenceString)).floatValue();
+	if ((m_CF <= 0) || (m_CF >= 1)) {
+	  throw new Exception("CF has to be greater than zero and smaller than one!");
+	} 
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
     } else {
       m_CF = 0.25f;
@@ -463,10 +884,24 @@ public class PART extends AbstractClassifier implements OptionHandler,
     String numFoldsString = Utils.getOption('N', options);
     if (numFoldsString.length() != 0) {
       if (!m_reducedErrorPruning) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         throw new Exception("Setting the number of folds"
           + " does only make sense for" + " reduced error pruning.");
       } else {
         m_numFolds = Integer.parseInt(numFoldsString);
+<<<<<<< HEAD
+=======
+=======
+	throw new Exception("Setting the number of folds" +
+			    " does only make sense for" +
+			    " reduced error pruning.");
+      } else {
+	m_numFolds = Integer.parseInt(numFoldsString);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
     } else {
       m_numFolds = 3;
@@ -485,12 +920,24 @@ public class PART extends AbstractClassifier implements OptionHandler,
     } else {
       m_Seed = 1;
     }
+<<<<<<< HEAD
 
     super.setOptions(options);
+=======
+<<<<<<< HEAD
+
+    super.setOptions(options);
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Gets the current settings of the Classifier.
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return an array of strings suitable for passing to setOptions
    */
@@ -530,6 +977,41 @@ public class PART extends AbstractClassifier implements OptionHandler,
     Collections.addAll(options, super.getOptions());
 
     return options.toArray(new String[0]);
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @return an array of strings suitable for passing to setOptions
+   */
+  public String [] getOptions() {
+
+    String [] options = new String [11];
+    int current = 0;
+
+    if (m_unpruned) {
+      options[current++] = "-U";
+    }
+    if (m_reducedErrorPruning) {
+      options[current++] = "-R";
+    }
+    if (m_binarySplits) {
+      options[current++] = "-B";
+    }
+    options[current++] = "-M"; options[current++] = "" + m_minNumObj;
+    if (!m_reducedErrorPruning) {
+      options[current++] = "-C"; options[current++] = "" + m_CF;
+    }
+    if (m_reducedErrorPruning) {
+      options[current++] = "-N"; options[current++] = "" + m_numFolds;
+    }
+    options[current++] = "-Q"; options[current++] = "" + m_Seed;
+
+    while (current < options.length) {
+      options[current++] = "";
+    }
+    return options;
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -537,7 +1019,14 @@ public class PART extends AbstractClassifier implements OptionHandler,
    * 
    * @return a string representation of the classifier
    */
+<<<<<<< HEAD
   @Override
+=======
+<<<<<<< HEAD
+  @Override
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public String toString() {
 
     if (m_root == null) {
@@ -545,26 +1034,57 @@ public class PART extends AbstractClassifier implements OptionHandler,
     }
     return "PART decision list\n------------------\n\n" + m_root.toString();
   }
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+  
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /**
    * Returns a superconcise version of the model
    * 
    * @return a concise version of the model
    */
+<<<<<<< HEAD
   @Override
+=======
+<<<<<<< HEAD
+  @Override
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public String toSummaryString() {
 
     return "Number of rules: " + m_root.numRules() + "\n";
   }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /**
    * Return the number of rules.
    * 
+<<<<<<< HEAD
+=======
+=======
+  
+  /**
+   * Return the number of rules.
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @return the number of rules
    */
   public double measureNumRules() {
     return m_root.numRules();
   }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /**
    * Returns an enumeration of the additional measure names
@@ -574,32 +1094,79 @@ public class PART extends AbstractClassifier implements OptionHandler,
   @Override
   public Enumeration<String> enumerateMeasures() {
     Vector<String> newVector = new Vector<String>(1);
+<<<<<<< HEAD
+=======
+=======
+  
+  /**
+   * Returns an enumeration of the additional measure names
+   * @return an enumeration of the measure names
+   */
+  public Enumeration enumerateMeasures() {
+    Vector newVector = new Vector(1);
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     newVector.addElement("measureNumRules");
     return newVector.elements();
   }
 
   /**
    * Returns the value of the named measure
+<<<<<<< HEAD
    * 
+=======
+<<<<<<< HEAD
+   * 
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param additionalMeasureName the name of the measure to query for its value
    * @return the value of the named measure
    * @throws IllegalArgumentException if the named measure is not supported
    */
+<<<<<<< HEAD
   @Override
+=======
+<<<<<<< HEAD
+  @Override
+=======
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public double getMeasure(String additionalMeasureName) {
     if (additionalMeasureName.compareToIgnoreCase("measureNumRules") == 0) {
       return measureNumRules();
     } else {
+<<<<<<< HEAD
       throw new IllegalArgumentException(additionalMeasureName
         + " not supported (PART)");
+=======
+<<<<<<< HEAD
+      throw new IllegalArgumentException(additionalMeasureName
+        + " not supported (PART)");
+=======
+      throw new IllegalArgumentException(additionalMeasureName 
+			  + " not supported (PART)");
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
   }
 
   /**
    * Returns the tip text for this property
+<<<<<<< HEAD
    * 
    * @return tip text for this property suitable for displaying in the
    *         explorer/experimenter gui
+=======
+<<<<<<< HEAD
+   * 
+   * @return tip text for this property suitable for displaying in the
+   *         explorer/experimenter gui
+=======
+   * @return tip text for this property suitable for
+   * displaying in the explorer/experimenter gui
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public String confidenceFactorTipText() {
     return "The confidence factor used for pruning (smaller values incur "
@@ -608,6 +1175,10 @@ public class PART extends AbstractClassifier implements OptionHandler,
 
   /**
    * Get the value of CF.
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return Value of CF.
    */
@@ -631,6 +1202,33 @@ public class PART extends AbstractClassifier implements OptionHandler,
    * 
    * @return tip text for this property suitable for displaying in the
    *         explorer/experimenter gui
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @return Value of CF.
+   */
+  public float getConfidenceFactor() {
+    
+    return m_CF;
+  }
+  
+  /**
+   * Set the value of CF.
+   *
+   * @param v  Value to assign to CF.
+   */
+  public void setConfidenceFactor(float v) {
+    
+    m_CF = v;
+  }
+  
+  /**
+   * Returns the tip text for this property
+   * @return tip text for this property suitable for
+   * displaying in the explorer/experimenter gui
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public String minNumObjTipText() {
     return "The minimum number of instances per rule.";
@@ -638,6 +1236,10 @@ public class PART extends AbstractClassifier implements OptionHandler,
 
   /**
    * Get the value of minNumObj.
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return Value of minNumObj.
    */
@@ -661,6 +1263,33 @@ public class PART extends AbstractClassifier implements OptionHandler,
    * 
    * @return tip text for this property suitable for displaying in the
    *         explorer/experimenter gui
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @return Value of minNumObj.
+   */
+  public int getMinNumObj() {
+    
+    return m_minNumObj;
+  }
+  
+  /**
+   * Set the value of minNumObj.
+   *
+   * @param v  Value to assign to minNumObj.
+   */
+  public void setMinNumObj(int v) {
+    
+    m_minNumObj = v;
+  }
+  
+  /**
+   * Returns the tip text for this property
+   * @return tip text for this property suitable for
+   * displaying in the explorer/experimenter gui
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public String reducedErrorPruningTipText() {
     return "Whether reduced-error pruning is used instead of C.4.5 pruning.";
@@ -668,6 +1297,10 @@ public class PART extends AbstractClassifier implements OptionHandler,
 
   /**
    * Get the value of reducedErrorPruning.
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return Value of reducedErrorPruning.
    */
@@ -691,6 +1324,33 @@ public class PART extends AbstractClassifier implements OptionHandler,
    * 
    * @return tip text for this property suitable for displaying in the
    *         explorer/experimenter gui
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @return Value of reducedErrorPruning.
+   */
+  public boolean getReducedErrorPruning() {
+    
+    return m_reducedErrorPruning;
+  }
+  
+  /**
+   * Set the value of reducedErrorPruning.
+   *
+   * @param v  Value to assign to reducedErrorPruning.
+   */
+  public void setReducedErrorPruning(boolean v) {
+    
+    m_reducedErrorPruning = v;
+  }
+  
+  /**
+   * Returns the tip text for this property
+   * @return tip text for this property suitable for
+   * displaying in the explorer/experimenter gui
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public String unprunedTipText() {
     return "Whether pruning is performed.";
@@ -698,6 +1358,10 @@ public class PART extends AbstractClassifier implements OptionHandler,
 
   /**
    * Get the value of unpruned.
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return Value of unpruned.
    */
@@ -751,6 +1415,33 @@ public class PART extends AbstractClassifier implements OptionHandler,
    * 
    * @return tip text for this property suitable for displaying in the
    *         explorer/experimenter gui
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @return Value of unpruned.
+   */
+  public boolean getUnpruned() {
+    
+    return m_unpruned;
+  }
+  
+  /**
+   * Set the value of unpruned.
+   *
+   * @param newunpruned Value to assign to unpruned.
+   */
+  public void setUnpruned(boolean newunpruned) {
+    
+    m_unpruned = newunpruned;
+  }
+  
+  /**
+   * Returns the tip text for this property
+   * @return tip text for this property suitable for
+   * displaying in the explorer/experimenter gui
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public String numFoldsTipText() {
     return "Determines the amount of data used for reduced-error pruning. "
@@ -759,6 +1450,10 @@ public class PART extends AbstractClassifier implements OptionHandler,
 
   /**
    * Get the value of numFolds.
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return Value of numFolds.
    */
@@ -786,10 +1481,45 @@ public class PART extends AbstractClassifier implements OptionHandler,
   public String seedTipText() {
     return "The seed used for randomizing the data "
       + "when reduced-error pruning is used.";
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @return Value of numFolds.
+   */
+  public int getNumFolds() {
+    
+    return m_numFolds;
+  }
+  
+  /**
+   * Set the value of numFolds.
+   *
+   * @param v  Value to assign to numFolds.
+   */
+  public void setNumFolds(int v) {
+    
+    m_numFolds = v;
+  }
+  
+  /**
+   * Returns the tip text for this property
+   * @return tip text for this property suitable for
+   * displaying in the explorer/experimenter gui
+   */
+  public String seedTipText() {
+    return "The seed used for randomizing the data " +
+      "when reduced-error pruning is used.";
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Get the value of Seed.
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return Value of Seed.
    */
@@ -805,19 +1535,54 @@ public class PART extends AbstractClassifier implements OptionHandler,
    */
   public void setSeed(int newSeed) {
 
+<<<<<<< HEAD
+=======
+=======
+   *
+   * @return Value of Seed.
+   */
+  public int getSeed() {
+    
+    return m_Seed;
+  }
+  
+  /**
+   * Set the value of Seed.
+   *
+   * @param newSeed Value to assign to Seed.
+   */
+  public void setSeed(int newSeed) {
+    
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     m_Seed = newSeed;
   }
 
   /**
    * Returns the tip text for this property
+<<<<<<< HEAD
    * 
    * @return tip text for this property suitable for displaying in the
    *         explorer/experimenter gui
+=======
+<<<<<<< HEAD
+   * 
+   * @return tip text for this property suitable for displaying in the
+   *         explorer/experimenter gui
+=======
+   * @return tip text for this property suitable for
+   * displaying in the explorer/experimenter gui
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public String binarySplitsTipText() {
     return "Whether to use binary splits on nominal attributes when "
       + "building the partial trees.";
   }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /**
    * Get the value of binarySplits.
@@ -885,6 +1650,47 @@ public class PART extends AbstractClassifier implements OptionHandler,
    * @param argv command line options
    */
   public static void main(String[] argv) {
+<<<<<<< HEAD
+=======
+=======
+  
+  /**
+   * Get the value of binarySplits.
+   *
+   * @return Value of binarySplits.
+   */
+  public boolean getBinarySplits() {
+    
+    return m_binarySplits;
+  }
+  
+  /**
+   * Set the value of binarySplits.
+   *
+   * @param v  Value to assign to binarySplits.
+   */
+  public void setBinarySplits(boolean v) {
+    
+    m_binarySplits = v;
+  }
+  
+  /**
+   * Returns the revision string.
+   * 
+   * @return		the revision
+   */
+  public String getRevision() {
+    return RevisionUtils.extract("$Revision: 1.10 $");
+  }
+  
+  /**
+   * Main method for testing this class.
+   *
+   * @param argv command line options 
+   */
+  public static void main(String [] argv){
+>>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
+>>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     runClassifier(new PART(), argv);
   }
 }
