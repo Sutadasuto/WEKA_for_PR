@@ -1,8 +1,4 @@
 /*
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -15,37 +11,11 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
-<<<<<<< HEAD
-=======
-=======
- *    This program is free software; you can redistribute it and/or modify
- *    it under the terms of the GNU General Public License as published by
- *    the Free Software Foundation; either version 2 of the License, or
- *    (at your option) any later version.
- *
- *    This program is distributed in the hope that it will be useful,
- *    but WITHOUT ANY WARRANTY; without even the implied warranty of
- *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *    GNU General Public License for more details.
- *
- *    You should have received a copy of the GNU General Public License
- *    along with this program; if not, write to the Free Software
- *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    TestSetMaker.java
-<<<<<<< HEAD
  *    Copyright (C) 2002-2012 University of Waikato, Hamilton, New Zealand
-=======
-<<<<<<< HEAD
- *    Copyright (C) 2002-2012 University of Waikato, Hamilton, New Zealand
-=======
- *    Copyright (C) 2002 University of Waikato, Hamilton, New Zealand
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
@@ -54,48 +24,23 @@ package weka.gui.beans;
 import java.io.Serializable;
 import java.util.Vector;
 
-<<<<<<< HEAD
 import weka.core.Instances;
 
-=======
-<<<<<<< HEAD
-import weka.core.Instances;
-
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 /**
  * Bean that accepts data sets and produces test sets
  * 
  * @author <a href="mailto:mhall@cs.waikato.ac.nz">Mark Hall</a>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  * @version $Revision: 10216 $
  */
 public class TestSetMaker extends AbstractTestSetProducer implements
   DataSourceListener, TrainingSetListener, EventConstraints, Serializable,
   StructureProducer {
-<<<<<<< HEAD
-=======
-=======
- * @version $Revision: 9752 $
- */
-public class TestSetMaker extends AbstractTestSetProducer implements
-    DataSourceListener, TrainingSetListener, EventConstraints, Serializable {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** for serialization */
   private static final long serialVersionUID = -8473882857628061841L;
 
   protected boolean m_receivedStopNotification = false;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /**
    * Get the structure of the output encapsulated in the named event. If the
    * structure can't be determined in advance of seeing input, or this
@@ -126,14 +71,6 @@ public class TestSetMaker extends AbstractTestSetProducer implements
   public TestSetMaker() {
     m_visual.loadIcons(BeanVisual.ICON_PATH + "TestSetMaker.gif",
       BeanVisual.ICON_PATH + "TestSetMaker_animated.gif");
-<<<<<<< HEAD
-=======
-=======
-  public TestSetMaker() {
-    m_visual.loadIcons(BeanVisual.ICON_PATH + "TestSetMaker.gif",
-        BeanVisual.ICON_PATH + "TestSetMaker_animated.gif");
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     m_visual.setText("TestSetMaker");
   }
 
@@ -163,15 +100,7 @@ public class TestSetMaker extends AbstractTestSetProducer implements
    * @return a <code>String</code> value
    */
   public String globalInfo() {
-<<<<<<< HEAD
     return "Designate an incoming data set as a test set.";
-=======
-<<<<<<< HEAD
-    return "Designate an incoming data set as a test set.";
-=======
-    return Messages.getInstance().getString("TestSetMaker_GlobalInfo_Text");
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -202,68 +131,24 @@ public class TestSetMaker extends AbstractTestSetProducer implements
    * 
    * @param tse a <code>TestSetEvent</code> value
    */
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   @SuppressWarnings("unchecked")
   protected void notifyTestSetProduced(TestSetEvent tse) {
     Vector<TestSetListener> l;
     synchronized (this) {
       l = (Vector<TestSetListener>) m_listeners.clone();
-<<<<<<< HEAD
-=======
-=======
-  protected void notifyTestSetProduced(TestSetEvent tse) {
-    Vector l;
-    synchronized (this) {
-      l = (Vector) m_listeners.clone();
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
     if (l.size() > 0) {
       for (int i = 0; i < l.size(); i++) {
         if (m_receivedStopNotification) {
           if (m_logger != null) {
-<<<<<<< HEAD
             m_logger.logMessage("[TestSetMaker] " + statusMessagePrefix()
               + " stopping.");
             m_logger.statusMessage(statusMessagePrefix() + "INTERRUPTED");
-=======
-<<<<<<< HEAD
-            m_logger.logMessage("[TestSetMaker] " + statusMessagePrefix()
-              + " stopping.");
-            m_logger.statusMessage(statusMessagePrefix() + "INTERRUPTED");
-=======
-            m_logger
-                .logMessage(Messages.getInstance().getString(
-                    "TestSetMaker_NotifyTestSetProduced_LogMessage_Text_First")
-                    + statusMessagePrefix()
-                    + Messages
-                        .getInstance()
-                        .getString(
-                            "TestSetMaker_NotifyTestSetProduced_LogMessage_Text_Second"));
-            m_logger
-                .statusMessage(statusMessagePrefix()
-                    + Messages
-                        .getInstance()
-                        .getString(
-                            "TestSetMaker_NotifyTestSetProduced_LogMessage_Text_Third"));
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
           }
           m_receivedStopNotification = false;
           break;
         }
-<<<<<<< HEAD
         l.elementAt(i).acceptTestSet(tse);
-=======
-<<<<<<< HEAD
-        l.elementAt(i).acceptTestSet(tse);
-=======
-        ((TestSetListener) l.elementAt(i)).acceptTestSet(tse);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
     }
   }

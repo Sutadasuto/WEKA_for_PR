@@ -1,8 +1,4 @@
 /*
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -15,49 +11,16 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
-<<<<<<< HEAD
-=======
-=======
- *    This program is free software; you can redistribute it and/or modify
- *    it under the terms of the GNU General Public License as published by
- *    the Free Software Foundation; either version 2 of the License, or
- *    (at your option) any later version.
- *
- *    This program is distributed in the hope that it will be useful,
- *    but WITHOUT ANY WARRANTY; without even the implied warranty of
- *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *    GNU General Public License for more details.
- *
- *    You should have received a copy of the GNU General Public License
- *    along with this program; if not, write to the Free Software
- *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  * NGramTokenizer.java
-<<<<<<< HEAD
  * Copyright (C) 2007-2012 University of Waikato
-=======
-<<<<<<< HEAD
- * Copyright (C) 2007-2012 University of Waikato
-=======
- * Copyright (C) 2007 University of Waikato
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 package weka.core.tokenizers;
 
-<<<<<<< HEAD
 import java.util.Collections;
-=======
-<<<<<<< HEAD
-import java.util.Collections;
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.util.Enumeration;
 import java.util.LinkedList;
 import java.util.Vector;
@@ -95,22 +58,9 @@ import weka.core.Utils;
  * 
  * @author Sebastian Germesin (sebastian.germesin@dfki.de)
  * @author FracPete (fracpete at waikato dot ac dot nz)
-<<<<<<< HEAD
  * @version $Revision: 10971 $
  */
 public class NGramTokenizer extends CharacterDelimitedTokenizer {
-=======
-<<<<<<< HEAD
- * @version $Revision: 10971 $
- */
-public class NGramTokenizer extends CharacterDelimitedTokenizer {
-=======
- * @version $Revision: 1.4 $
- */
-public class NGramTokenizer
-  extends CharacterDelimitedTokenizer {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** for serialization */
   private static final long serialVersionUID = -2181896254171647219L;
@@ -150,10 +100,6 @@ public class NGramTokenizer
    * @return an enumeration of all available options.
    */
   @Override
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public Enumeration<Option> listOptions() {
     Vector<Option> result = new Vector<Option>();
 
@@ -165,30 +111,6 @@ public class NGramTokenizer
 
     result.addAll(Collections.list(super.listOptions()));
 
-<<<<<<< HEAD
-=======
-=======
-  public Enumeration listOptions() {
-    Vector result;
-    Enumeration enm;
-
-    result = new Vector();
-
-    enm = super.listOptions();
-    while (enm.hasMoreElements()) {
-      result.addElement(enm.nextElement());
-    }
-
-    result.addElement(new Option(
-      "\tThe max size of the Ngram (default = 3).",
-      "max", 1, "-max <int>"));
-
-    result.addElement(new Option(
-      "\tThe min size of the Ngram (default = 1).",
-      "min", 1, "-min <int>"));
-
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return result.elements();
   }
 
@@ -199,24 +121,7 @@ public class NGramTokenizer
    */
   @Override
   public String[] getOptions() {
-<<<<<<< HEAD
     Vector<String> result = new Vector<String>();
-=======
-<<<<<<< HEAD
-    Vector<String> result = new Vector<String>();
-=======
-    Vector<String> result;
-    String[] options;
-    int i;
-
-    result = new Vector<String>();
-
-    options = super.getOptions();
-    for (i = 0; i < options.length; i++) {
-      result.add(options[i]);
-    }
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     result.add("-max");
     result.add("" + getNGramMaxSize());
@@ -224,16 +129,8 @@ public class NGramTokenizer
     result.add("-min");
     result.add("" + getNGramMinSize());
 
-<<<<<<< HEAD
     Collections.addAll(result, super.getOptions());
 
-=======
-<<<<<<< HEAD
-    Collections.addAll(result, super.getOptions());
-
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return result.toArray(new String[result.size()]);
   }
 
@@ -269,14 +166,6 @@ public class NGramTokenizer
   public void setOptions(String[] options) throws Exception {
     String value;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-    super.setOptions(options);
-
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     value = Utils.getOption("max", options);
     if (value.length() != 0) {
       setNGramMaxSize(Integer.parseInt(value));
@@ -290,16 +179,8 @@ public class NGramTokenizer
     } else {
       setNGramMinSize(1);
     }
-<<<<<<< HEAD
 
     super.setOptions(options);
-=======
-<<<<<<< HEAD
-
-    super.setOptions(options);
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -373,21 +254,9 @@ public class NGramTokenizer
    */
   @Override
   public boolean hasMoreElements() {
-<<<<<<< HEAD
     // return (m_CurrentPosition < m_MaxPosition
     // && m_N - 1 + m_CurrentPosition < m_MaxPosition && m_N >= m_NMin);
     //
-=======
-<<<<<<< HEAD
-    // return (m_CurrentPosition < m_MaxPosition
-    // && m_N - 1 + m_CurrentPosition < m_MaxPosition && m_N >= m_NMin);
-    //
-=======
-    // return (m_CurrentPosition < m_MaxPosition &&
-    // m_N - 1 + m_CurrentPosition < m_MaxPosition &&
-    // m_N >= m_NMin);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return (m_N >= m_NMin);
   }
 
@@ -397,10 +266,6 @@ public class NGramTokenizer
    * @return the next element
    */
   @Override
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public String nextElement() {
     String retValue = "";
 
@@ -408,17 +273,6 @@ public class NGramTokenizer
     // retValue += " " + m_SplitString[m_CurrentPosition + i];
     // }
 
-<<<<<<< HEAD
-=======
-=======
-  public Object nextElement() {
-    String retValue = "";
-
-    // for (int i = 0; i < m_N && i + m_CurrentPosition < m_MaxPosition; i++)
-    // retValue += " " + m_SplitString[m_CurrentPosition + i];
-    //
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     for (int i = 0; i < m_N; i++) {
       retValue += " " + m_SplitString[m_CurrentPosition + i];
     }
@@ -484,15 +338,7 @@ public class NGramTokenizer
    */
   @Override
   public String getRevision() {
-<<<<<<< HEAD
     return RevisionUtils.extract("$Revision: 10971 $");
-=======
-<<<<<<< HEAD
-    return RevisionUtils.extract("$Revision: 10971 $");
-=======
-    return RevisionUtils.extract("$Revision: 1.4 $");
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**

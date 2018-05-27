@@ -1,8 +1,4 @@
 /*
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -15,46 +11,16 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
-<<<<<<< HEAD
-=======
-=======
- *    This program is free software; you can redistribute it and/or modify
- *    it under the terms of the GNU General Public License as published by
- *    the Free Software Foundation; either version 2 of the License, or
- *    (at your option) any later version.
- *
- *    This program is distributed in the hope that it will be useful,
- *    but WITHOUT ANY WARRANTY; without even the implied warranty of
- *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *    GNU General Public License for more details.
- *
- *    You should have received a copy of the GNU General Public License
- *    along with this program; if not, write to the Free Software
- *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    KernelEstimator.java
-<<<<<<< HEAD
  *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
-=======
-<<<<<<< HEAD
- *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
-=======
- *    Copyright (C) 1999 University of Waikato, Hamilton, New Zealand
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
 package weka.estimators;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.core.Capabilities;
 import weka.core.Capabilities.Capability;
 import weka.core.Aggregateable;
@@ -71,47 +37,15 @@ import weka.core.Utils;
  */
 public class KernelEstimator extends Estimator implements IncrementalEstimator,
     Aggregateable<KernelEstimator> {
-<<<<<<< HEAD
-=======
-=======
-import weka.core.Capabilities.Capability;
-import weka.core.Capabilities;
-import weka.core.RevisionUtils;
-import weka.core.Utils;
-import weka.core.Statistics;
-
-/** 
- * Simple kernel density estimator. Uses one gaussian kernel per observed
- * data value.
- *
- * @author Len Trigg (trigg@cs.waikato.ac.nz)
- * @version $Revision: 5540 $
- */
-public class KernelEstimator extends Estimator implements IncrementalEstimator {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** for serialization */
   private static final long serialVersionUID = 3646923563367683925L;
 
   /** Vector containing all of the values seen */
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   private double[] m_Values;
 
   /** Vector containing the associated weights */
   private double[] m_Weights;
-<<<<<<< HEAD
-=======
-=======
-  private double [] m_Values;
-
-  /** Vector containing the associated weights */
-  private double [] m_Weights;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** Number of values stored in m_Weights and m_Values so far */
   private int m_NumValues;
@@ -131,63 +65,27 @@ public class KernelEstimator extends Estimator implements IncrementalEstimator {
   /** Maximum percentage error permitted in probability calculations */
   private static double MAX_ERROR = 0.01;
 
-<<<<<<< HEAD
   /**
    * Execute a binary search to locate the nearest data value
    * 
-=======
-<<<<<<< HEAD
-  /**
-   * Execute a binary search to locate the nearest data value
-   * 
-=======
-
-  /**
-   * Execute a binary search to locate the nearest data value
-   *
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param the data value to locate
    * @return the index of the nearest data value
    */
   private int findNearestValue(double key) {
 
-<<<<<<< HEAD
     int low = 0;
-=======
-<<<<<<< HEAD
-    int low = 0;
-=======
-    int low = 0; 
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     int high = m_NumValues;
     int middle = 0;
     while (low < high) {
       middle = (low + high) / 2;
       double current = m_Values[middle];
       if (current == key) {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         return middle;
       }
       if (current > key) {
         high = middle;
       } else if (current < key) {
         low = middle + 1;
-<<<<<<< HEAD
-=======
-=======
-	return middle;
-      }
-      if (current > key) {
-	high = middle;
-      } else if (current < key) {
-	low = middle + 1;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
     }
     return low;
@@ -195,15 +93,7 @@ public class KernelEstimator extends Estimator implements IncrementalEstimator {
 
   /**
    * Round a data value using the defined precision for this estimator
-<<<<<<< HEAD
    * 
-=======
-<<<<<<< HEAD
-   * 
-=======
-   *
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param data the value to round
    * @return the rounded data value
    */
@@ -211,10 +101,6 @@ public class KernelEstimator extends Estimator implements IncrementalEstimator {
 
     return Math.rint(data / m_Precision) * m_Precision;
   }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   // ===============
   // Public methods.
@@ -231,56 +117,20 @@ public class KernelEstimator extends Estimator implements IncrementalEstimator {
 
     m_Values = new double[50];
     m_Weights = new double[50];
-<<<<<<< HEAD
-=======
-=======
-  
-  // ===============
-  // Public methods.
-  // ===============
-  
-  /**
-   * Constructor that takes a precision argument.
-   *
-   * @param precision the  precision to which numeric values are given. For
-   * example, if the precision is stated to be 0.1, the values in the
-   * interval (0.25,0.35] are all treated as 0.3. 
-   */
-  public KernelEstimator(double precision) {
-
-    m_Values = new double [50];
-    m_Weights = new double [50];
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     m_NumValues = 0;
     m_SumOfWeights = 0;
     m_AllWeightsOne = true;
     m_Precision = precision;
     // precision cannot be zero
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (m_Precision < Utils.SMALL)
       m_Precision = Utils.SMALL;
     // m_StandardDev = 1e10 * m_Precision; // Set the standard deviation
     // initially very wide
-<<<<<<< HEAD
-=======
-=======
-    if (m_Precision < Utils.SMALL) m_Precision = Utils.SMALL;
-    //    m_StandardDev = 1e10 * m_Precision; // Set the standard deviation initially very wide
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     m_StandardDev = m_Precision / (2 * 3);
   }
 
   /**
    * Add a new data value to the current estimator.
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param data the new data value
    * @param weight the weight assigned to the data value
@@ -288,17 +138,6 @@ public class KernelEstimator extends Estimator implements IncrementalEstimator {
   @Override
   public void addValue(double data, double weight) {
 
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param data the new data value 
-   * @param weight the weight assigned to the data value 
-   */
-  public void addValue(double data, double weight) {
-    
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (weight == 0) {
       return;
     }
@@ -306,67 +145,27 @@ public class KernelEstimator extends Estimator implements IncrementalEstimator {
     int insertIndex = findNearestValue(data);
     if ((m_NumValues <= insertIndex) || (m_Values[insertIndex] != data)) {
       if (m_NumValues < m_Values.length) {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         int left = m_NumValues - insertIndex;
         System
             .arraycopy(m_Values, insertIndex, m_Values, insertIndex + 1, left);
         System.arraycopy(m_Weights, insertIndex, m_Weights, insertIndex + 1,
             left);
 
-<<<<<<< HEAD
-=======
-=======
-        int left = m_NumValues - insertIndex; 
-        System.arraycopy(m_Values, insertIndex, 
-            m_Values, insertIndex + 1, left);
-        System.arraycopy(m_Weights, insertIndex, 
-            m_Weights, insertIndex + 1, left);
-        
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         m_Values[insertIndex] = data;
         m_Weights[insertIndex] = weight;
         m_NumValues++;
       } else {
-<<<<<<< HEAD
         double[] newValues = new double[m_Values.length * 2];
         double[] newWeights = new double[m_Values.length * 2];
         int left = m_NumValues - insertIndex;
-=======
-<<<<<<< HEAD
-        double[] newValues = new double[m_Values.length * 2];
-        double[] newWeights = new double[m_Values.length * 2];
-        int left = m_NumValues - insertIndex;
-=======
-        double [] newValues = new double [m_Values.length * 2];
-        double [] newWeights = new double [m_Values.length * 2];
-        int left = m_NumValues - insertIndex; 
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         System.arraycopy(m_Values, 0, newValues, 0, insertIndex);
         System.arraycopy(m_Weights, 0, newWeights, 0, insertIndex);
         newValues[insertIndex] = data;
         newWeights[insertIndex] = weight;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         System.arraycopy(m_Values, insertIndex, newValues, insertIndex + 1,
             left);
         System.arraycopy(m_Weights, insertIndex, newWeights, insertIndex + 1,
             left);
-<<<<<<< HEAD
-=======
-=======
-        System.arraycopy(m_Values, insertIndex, 
-            newValues, insertIndex + 1, left);
-        System.arraycopy(m_Weights, insertIndex, 
-            newWeights, insertIndex + 1, left);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         m_NumValues++;
         m_Values = newValues;
         m_Weights = newWeights;
@@ -376,23 +175,11 @@ public class KernelEstimator extends Estimator implements IncrementalEstimator {
       }
     } else {
       m_Weights[insertIndex] += weight;
-<<<<<<< HEAD
       m_AllWeightsOne = false;
-=======
-<<<<<<< HEAD
-      m_AllWeightsOne = false;
-=======
-      m_AllWeightsOne = false;      
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
     m_SumOfWeights += weight;
     double range = m_Values[m_NumValues - 1] - m_Values[0];
     if (range > 0) {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       m_StandardDev = Math.max(range / Math.sqrt(m_SumOfWeights),
       // allow at most 3 sds within one interval
           m_Precision / (2 * 3));
@@ -406,23 +193,6 @@ public class KernelEstimator extends Estimator implements IncrementalEstimator {
    * @return the estimated probability of the supplied value
    */
   @Override
-<<<<<<< HEAD
-=======
-=======
-      m_StandardDev = Math.max(range / Math.sqrt(m_SumOfWeights), 
-          // allow at most 3 sds within one interval
-          m_Precision / (2 * 3));
-    }
-  }
-  
-  /**
-   * Get a probability estimate for a value.
-   *
-   * @param data the value to estimate the probability of
-   * @return the estimated probability of the supplied value
-   */
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public double getProbability(double data) {
 
     double delta = 0, sum = 0, currentProb = 0;
@@ -430,18 +200,8 @@ public class KernelEstimator extends Estimator implements IncrementalEstimator {
     if (m_NumValues == 0) {
       zLower = (data - (m_Precision / 2)) / m_StandardDev;
       zUpper = (data + (m_Precision / 2)) / m_StandardDev;
-<<<<<<< HEAD
       return (Statistics.normalProbability(zUpper) - Statistics
           .normalProbability(zLower));
-=======
-<<<<<<< HEAD
-      return (Statistics.normalProbability(zUpper) - Statistics
-          .normalProbability(zLower));
-=======
-      return (Statistics.normalProbability(zUpper)
-	      - Statistics.normalProbability(zLower));
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
     double weightSum = 0;
     int start = findNearestValue(data);
@@ -449,10 +209,6 @@ public class KernelEstimator extends Estimator implements IncrementalEstimator {
       delta = m_Values[i] - data;
       zLower = (delta - (m_Precision / 2)) / m_StandardDev;
       zUpper = (delta + (m_Precision / 2)) / m_StandardDev;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       currentProb = (Statistics.normalProbability(zUpper) - Statistics
           .normalProbability(zLower));
       sum += currentProb * m_Weights[i];
@@ -465,85 +221,35 @@ public class KernelEstimator extends Estimator implements IncrementalEstimator {
       weightSum += m_Weights[i];
       if (currentProb * (m_SumOfWeights - weightSum) < sum * MAX_ERROR) {
         break;
-<<<<<<< HEAD
-=======
-=======
-      currentProb = (Statistics.normalProbability(zUpper)
-		     - Statistics.normalProbability(zLower));
-      sum += currentProb * m_Weights[i];
-      /*
-      System.out.print("zL" + (i + 1) + ": " + zLower + " ");
-      System.out.print("zU" + (i + 1) + ": " + zUpper + " ");
-      System.out.print("P" + (i + 1) + ": " + currentProb + " ");
-      System.out.println("total: " + (currentProb * m_Weights[i]) + " ");
-      */
-      weightSum += m_Weights[i];
-      if (currentProb * (m_SumOfWeights - weightSum) < sum * MAX_ERROR) {
-	break;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
     }
     for (int i = start - 1; i >= 0; i--) {
       delta = m_Values[i] - data;
       zLower = (delta - (m_Precision / 2)) / m_StandardDev;
       zUpper = (delta + (m_Precision / 2)) / m_StandardDev;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       currentProb = (Statistics.normalProbability(zUpper) - Statistics
           .normalProbability(zLower));
       sum += currentProb * m_Weights[i];
       weightSum += m_Weights[i];
       if (currentProb * (m_SumOfWeights - weightSum) < sum * MAX_ERROR) {
         break;
-<<<<<<< HEAD
-=======
-=======
-      currentProb = (Statistics.normalProbability(zUpper)
-		     - Statistics.normalProbability(zLower));
-      sum += currentProb * m_Weights[i];
-      weightSum += m_Weights[i];
-      if (currentProb * (m_SumOfWeights - weightSum) < sum * MAX_ERROR) {
-	break;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
     }
     return sum / m_SumOfWeights;
   }
 
   /** Display a representation of this estimator */
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   @Override
   public String toString() {
 
     String result = m_NumValues + " Normal Kernels. \nStandardDev = "
         + Utils.doubleToString(m_StandardDev, 6, 4) + " Precision = "
         + m_Precision;
-<<<<<<< HEAD
-=======
-=======
-  public String toString() {
-
-    String result = m_NumValues + " Normal Kernels. \nStandardDev = " 
-      + Utils.doubleToString(m_StandardDev,6,4)
-      + " Precision = " + m_Precision;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (m_NumValues == 0) {
       result += "  \nMean = 0";
     } else {
       result += "  \nMeans =";
       for (int i = 0; i < m_NumValues; i++) {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         result += " " + m_Values[i];
       }
       if (!m_AllWeightsOne) {
@@ -551,18 +257,6 @@ public class KernelEstimator extends Estimator implements IncrementalEstimator {
         for (int i = 0; i < m_NumValues; i++) {
           result += " " + m_Weights[i];
         }
-<<<<<<< HEAD
-=======
-=======
-	result += " " + m_Values[i];
-      }
-      if (!m_AllWeightsOne) {
-	result += "\nWeights = ";
-	for (int i = 0; i < m_NumValues; i++) {
-	  result += " " + m_Weights[i];
-	}
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
     }
     return result + "\n";
@@ -570,15 +264,7 @@ public class KernelEstimator extends Estimator implements IncrementalEstimator {
 
   /**
    * Return the number of kernels in this kernel estimator
-<<<<<<< HEAD
    * 
-=======
-<<<<<<< HEAD
-   * 
-=======
-   *
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @return the number of kernels
    */
   public int getNumKernels() {
@@ -587,15 +273,7 @@ public class KernelEstimator extends Estimator implements IncrementalEstimator {
 
   /**
    * Return the means of the kernels.
-<<<<<<< HEAD
    * 
-=======
-<<<<<<< HEAD
-   * 
-=======
-   *
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @return the means of the kernels
    */
   public double[] getMeans() {
@@ -604,15 +282,7 @@ public class KernelEstimator extends Estimator implements IncrementalEstimator {
 
   /**
    * Return the weights of the kernels.
-<<<<<<< HEAD
    * 
-=======
-<<<<<<< HEAD
-   * 
-=======
-   *
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @return the weights of the kernels
    */
   public double[] getWeights() {
@@ -621,15 +291,7 @@ public class KernelEstimator extends Estimator implements IncrementalEstimator {
 
   /**
    * Return the precision of this kernel estimator.
-<<<<<<< HEAD
    * 
-=======
-<<<<<<< HEAD
-   * 
-=======
-   *
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @return the precision
    */
   public double getPrecision() {
@@ -638,15 +300,7 @@ public class KernelEstimator extends Estimator implements IncrementalEstimator {
 
   /**
    * Return the standard deviation of this kernel estimator.
-<<<<<<< HEAD
    * 
-=======
-<<<<<<< HEAD
-   * 
-=======
-   *
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @return the standard deviation
    */
   public double getStdDev() {
@@ -655,22 +309,10 @@ public class KernelEstimator extends Estimator implements IncrementalEstimator {
 
   /**
    * Returns default capabilities of the classifier.
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return the capabilities of this classifier
    */
   @Override
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @return      the capabilities of this classifier
-   */
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public Capabilities getCapabilities() {
     Capabilities result = super.getCapabilities();
     result.disableAll();
@@ -681,23 +323,11 @@ public class KernelEstimator extends Estimator implements IncrementalEstimator {
     } else {
       result.enable(Capability.NO_CLASS);
     }
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     // attributes
     result.enable(Capability.NUMERIC_ATTRIBUTES);
     return result;
   }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /**
    * Returns the revision string.
@@ -763,27 +393,10 @@ public class KernelEstimator extends Estimator implements IncrementalEstimator {
     } catch (Exception ex) {
       ex.printStackTrace();
     }
-<<<<<<< HEAD
-=======
-=======
-  
-  /**
-   * Returns the revision string.
-   * 
-   * @return		the revision
-   */
-  public String getRevision() {
-    return RevisionUtils.extract("$Revision: 5540 $");
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Main method for testing this class.
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param argv should contain a sequence of numeric values
    */
@@ -798,50 +411,17 @@ public class KernelEstimator extends Estimator implements IncrementalEstimator {
       for (int i = 0; i < argv.length - 3; i += 2) {
         newEst.addValue(Double.valueOf(argv[i]).doubleValue(),
             Double.valueOf(argv[i + 1]).doubleValue());
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param argv should contain a sequence of numeric values
-   */
-  public static void main(String [] argv) {
-
-    try {
-      if (argv.length < 2) {
-	System.out.println("Please specify a set of instances.");
-	return;
-      }
-      KernelEstimator newEst = new KernelEstimator(0.01);
-      for (int i = 0; i < argv.length - 3; i += 2) {
-	newEst.addValue(Double.valueOf(argv[i]).doubleValue(), 
-			Double.valueOf(argv[i + 1]).doubleValue());
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
       System.out.println(newEst);
 
       double start = Double.valueOf(argv[argv.length - 2]).doubleValue();
       double finish = Double.valueOf(argv[argv.length - 1]).doubleValue();
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       for (double current = start; current < finish; current += (finish - start) / 50) {
         System.out.println("Data: " + current + " "
             + newEst.getProbability(current));
       }
 
       KernelEstimator.testAggregation();
-<<<<<<< HEAD
-=======
-=======
-      for (double current = start; current < finish; 
-	  current += (finish - start) / 50) {
-	System.out.println("Data: " + current + " " 
-			   + newEst.getProbability(current));
-      }
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     } catch (Exception e) {
       System.out.println(e.getMessage());
     }

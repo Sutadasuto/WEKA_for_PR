@@ -1,8 +1,4 @@
 /*
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -15,46 +11,16 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
-<<<<<<< HEAD
-=======
-=======
- *    This program is free software; you can redistribute it and/or modify
- *    it under the terms of the GNU General Public License as published by
- *    the Free Software Foundation; either version 2 of the License, or
- *    (at your option) any later version.
- *
- *    This program is distributed in the hope that it will be useful,
- *    but WITHOUT ANY WARRANTY; without even the implied warranty of
- *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *    GNU General Public License for more details.
- *
- *    You should have received a copy of the GNU General Public License
- *    along with this program; if not, write to the Free Software
- *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    ModelPerformanceChart.java
-<<<<<<< HEAD
  *    Copyright (C) 2004-2012 University of Waikato, Hamilton, New Zealand
-=======
-<<<<<<< HEAD
- *    Copyright (C) 2004-2012 University of Waikato, Hamilton, New Zealand
-=======
- *    Copyright (C) 2004 University of Waikato, Hamilton, New Zealand
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
 package weka.gui.beans;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.core.Attribute;
 import weka.core.DenseInstance;
 import weka.core.Environment;
@@ -72,77 +38,33 @@ import java.awt.BorderLayout;
 import java.awt.GraphicsEnvironment;
 import java.awt.image.BufferedImage;
 import java.beans.EventSetDescriptor;
-<<<<<<< HEAD
-=======
-=======
-import java.awt.BorderLayout;
-import java.awt.GraphicsEnvironment;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.beans.PropertyChangeListener;
 import java.beans.VetoableChangeListener;
 import java.beans.beancontext.BeanContext;
 import java.beans.beancontext.BeanContextChild;
 import java.beans.beancontext.BeanContextChildSupport;
 import java.io.Serializable;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.EventObject;
 import java.util.List;
 import java.util.Vector;
 
-<<<<<<< HEAD
-=======
-=======
-import java.util.Enumeration;
-import java.util.Vector;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-
-import weka.core.Instances;
-import weka.gui.visualize.PlotData2D;
-import weka.gui.visualize.VisualizePanel;
-
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 /**
  * Bean that can be used for displaying threshold curves (e.g. ROC curves) and
  * scheme error plots
  * 
  * @author Mark Hall
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  * @version $Revision: 12409 $
  */
 public class ModelPerformanceChart extends JPanel implements
   ThresholdDataListener, VisualizableErrorListener, Visible,
   UserRequestAcceptor, EventConstraints, Serializable, BeanContextChild,
   HeadlessEventCollector, BeanCommon, EnvironmentHandler {
-<<<<<<< HEAD
-=======
-=======
- * @version $Revision: 9454 $
- */
-public class ModelPerformanceChart extends JPanel implements
-    ThresholdDataListener, VisualizableErrorListener, Visible,
-    UserRequestAcceptor, Serializable, BeanContextChild {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** for serialization */
   private static final long serialVersionUID = -4602034200071195924L;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   protected BeanVisual m_visual = new BeanVisual("ModelPerformanceChart",
     BeanVisual.ICON_PATH + "ModelPerformanceChart.gif", BeanVisual.ICON_PATH
       + "ModelPerformanceChart_animated.gif");
@@ -180,23 +102,10 @@ public class ModelPerformanceChart extends JPanel implements
   /** Height of offscreen plots */
   protected String m_height = "400";
 
-<<<<<<< HEAD
-=======
-=======
-  protected BeanVisual m_visual;
-
-  protected transient PlotData2D m_masterPlot;
-
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   protected transient JFrame m_popupFrame;
 
   protected boolean m_framePoppedUp = false;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /** Events received and stored during headless execution */
   protected List<EventObject> m_headlessEvents;
 
@@ -211,11 +120,6 @@ public class ModelPerformanceChart extends JPanel implements
 
   protected List<Object> m_listenees = new ArrayList<Object>();
 
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /**
    * True if this bean's appearance is the design mode appearance
    */
@@ -229,10 +133,6 @@ public class ModelPerformanceChart extends JPanel implements
   private transient VisualizePanel m_visPanel;
 
   /**
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * The environment variables.
    */
   protected transient Environment m_env;
@@ -250,21 +150,6 @@ public class ModelPerformanceChart extends JPanel implements
       appearanceFinal();
     } else {
       m_headlessEvents = new ArrayList<EventObject>();
-<<<<<<< HEAD
-=======
-=======
-   * BeanContextChild support
-   */
-  protected BeanContextChildSupport m_bcSupport = new BeanContextChildSupport(
-      this);
-
-  public ModelPerformanceChart() {
-    java.awt.GraphicsEnvironment ge = java.awt.GraphicsEnvironment
-        .getLocalGraphicsEnvironment();
-    if (!ge.isHeadless()) {
-      appearanceFinal();
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
   }
 
@@ -274,31 +159,12 @@ public class ModelPerformanceChart extends JPanel implements
    * @return a <code>String</code> value
    */
   public String globalInfo() {
-<<<<<<< HEAD
     return "Visualize performance charts (such as ROC).";
-=======
-<<<<<<< HEAD
-    return "Visualize performance charts (such as ROC).";
-=======
-    return Messages.getInstance().getString(
-        "ModelPerformanceChart_GlobalInfo_Text");
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   protected void appearanceDesign() {
     removeAll();
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-
-=======
-    m_visual = new BeanVisual("ModelPerformanceChart", BeanVisual.ICON_PATH
-        + "ModelPerformanceChart.gif", BeanVisual.ICON_PATH
-        + "ModelPerformanceChart_animated.gif");
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     setLayout(new BorderLayout());
     add(m_visual, BorderLayout.CENTER);
   }
@@ -316,10 +182,6 @@ public class ModelPerformanceChart extends JPanel implements
     add(m_visPanel, BorderLayout.CENTER);
   }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   protected void setupOffscreenRenderer() {
     if (m_offscreenRenderer == null) {
       if (m_offscreenRendererName == null
@@ -348,32 +210,17 @@ public class ModelPerformanceChart extends JPanel implements
     }
   }
 
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /**
    * Display a threshold curve.
    * 
    * @param e a ThresholdDataEvent
    */
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   @Override
   public synchronized void acceptDataSet(ThresholdDataEvent e) {
     if (m_env == null) {
       m_env = Environment.getSystemWide();
     }
 
-<<<<<<< HEAD
-=======
-=======
-  public synchronized void acceptDataSet(ThresholdDataEvent e) {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (!GraphicsEnvironment.isHeadless()) {
       if (m_visPanel == null) {
         m_visPanel = new VisualizePanel();
@@ -384,15 +231,7 @@ public class ModelPerformanceChart extends JPanel implements
       try {
         // check for compatable data sets
         if (!m_masterPlot.getPlotInstances().relationName()
-<<<<<<< HEAD
           .equals(e.getDataSet().getPlotInstances().relationName())) {
-=======
-<<<<<<< HEAD
-          .equals(e.getDataSet().getPlotInstances().relationName())) {
-=======
-            .equals(e.getDataSet().getPlotInstances().relationName())) {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
           // if not equal then remove all plots and set as new master plot
           m_masterPlot = e.getDataSet();
@@ -408,10 +247,6 @@ public class ModelPerformanceChart extends JPanel implements
         m_visPanel.setXIndex(4);
         m_visPanel.setYIndex(5);
       } catch (Exception ex) {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         System.err
           .println("Problem setting up visualization (ModelPerformanceChart)");
         ex.printStackTrace();
@@ -494,15 +329,6 @@ public class ModelPerformanceChart extends JPanel implements
       } catch (Exception e1) {
         e1.printStackTrace();
       }
-<<<<<<< HEAD
-=======
-=======
-        System.err.println(Messages.getInstance().getString(
-            "ModelPerformanceChart_AcceptDataSet_Error_Text"));
-        ex.printStackTrace();
-      }
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
   }
 
@@ -511,22 +337,12 @@ public class ModelPerformanceChart extends JPanel implements
    * 
    * @param e a VisualizableErrorEvent
    */
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   @Override
   public synchronized void acceptDataSet(VisualizableErrorEvent e) {
     if (m_env == null) {
       m_env = Environment.getSystemWide();
     }
 
-<<<<<<< HEAD
-=======
-=======
-  public synchronized void acceptDataSet(VisualizableErrorEvent e) {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (!GraphicsEnvironment.isHeadless()) {
       if (m_visPanel == null) {
         m_visPanel = new VisualizePanel();
@@ -537,26 +353,12 @@ public class ModelPerformanceChart extends JPanel implements
       try {
         m_visPanel.setMasterPlot(m_masterPlot);
       } catch (Exception ex) {
-<<<<<<< HEAD
         System.err
           .println("Problem setting up visualization (ModelPerformanceChart)");
-=======
-<<<<<<< HEAD
-        System.err
-          .println("Problem setting up visualization (ModelPerformanceChart)");
-=======
-        System.err.println(Messages.getInstance().getString(
-            "ModelPerformanceChart_AcceptDataSet_Error_Text"));
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         ex.printStackTrace();
       }
       m_visPanel.validate();
       m_visPanel.repaint();
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     } else {
       m_headlessEvents = new ArrayList<EventObject>();
       m_headlessEvents.add(e);
@@ -766,12 +568,6 @@ public class ModelPerformanceChart extends JPanel implements
       }
     }
     m_processingHeadlessEvents = false;
-<<<<<<< HEAD
-=======
-=======
-    }
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -779,14 +575,7 @@ public class ModelPerformanceChart extends JPanel implements
    * 
    * @param newVisual a <code>BeanVisual</code> value
    */
-<<<<<<< HEAD
   @Override
-=======
-<<<<<<< HEAD
-  @Override
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public void setVisual(BeanVisual newVisual) {
     m_visual = newVisual;
   }
@@ -794,14 +583,7 @@ public class ModelPerformanceChart extends JPanel implements
   /**
    * Return the visual appearance of this bean
    */
-<<<<<<< HEAD
   @Override
-=======
-<<<<<<< HEAD
-  @Override
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public BeanVisual getVisual() {
     return m_visual;
   }
@@ -809,22 +591,10 @@ public class ModelPerformanceChart extends JPanel implements
   /**
    * Use the default appearance for this bean
    */
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   @Override
   public void useDefaultVisual() {
     m_visual.loadIcons(BeanVisual.ICON_PATH + "ModelPerformanceChart.gif",
       BeanVisual.ICON_PATH + "ModelPerformanceChart_animated.gif");
-<<<<<<< HEAD
-=======
-=======
-  public void useDefaultVisual() {
-    m_visual.loadIcons(BeanVisual.ICON_PATH + "DefaultDataVisualizer.gif",
-        BeanVisual.ICON_PATH + "DefaultDataVisualizer_animated.gif");
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -832,20 +602,9 @@ public class ModelPerformanceChart extends JPanel implements
    * 
    * @return an <code>Enumeration</code> value
    */
-<<<<<<< HEAD
   @Override
   public Enumeration<String> enumerateRequests() {
     Vector<String> newVector = new Vector<String>(0);
-=======
-<<<<<<< HEAD
-  @Override
-  public Enumeration<String> enumerateRequests() {
-    Vector<String> newVector = new Vector<String>(0);
-=======
-  public Enumeration enumerateRequests() {
-    Vector newVector = new Vector(0);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (m_masterPlot != null) {
       newVector.addElement("Show chart");
       newVector.addElement("?Clear all plots");
@@ -872,15 +631,7 @@ public class ModelPerformanceChart extends JPanel implements
    */
   @Override
   public void removePropertyChangeListener(String name,
-<<<<<<< HEAD
     PropertyChangeListener pcl) {
-=======
-<<<<<<< HEAD
-    PropertyChangeListener pcl) {
-=======
-      PropertyChangeListener pcl) {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     m_bcSupport.removePropertyChangeListener(name, pcl);
   }
 
@@ -890,14 +641,7 @@ public class ModelPerformanceChart extends JPanel implements
    * @param name the name of the property of interest
    * @param vcl a <code>VetoableChangeListener</code> value
    */
-<<<<<<< HEAD
   @Override
-=======
-<<<<<<< HEAD
-  @Override
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public void addVetoableChangeListener(String name, VetoableChangeListener vcl) {
     m_bcSupport.addVetoableChangeListener(name, vcl);
   }
@@ -908,20 +652,9 @@ public class ModelPerformanceChart extends JPanel implements
    * @param name the name of the property of interest
    * @param vcl a <code>VetoableChangeListener</code> value
    */
-<<<<<<< HEAD
   @Override
   public void removeVetoableChangeListener(String name,
     VetoableChangeListener vcl) {
-=======
-<<<<<<< HEAD
-  @Override
-  public void removeVetoableChangeListener(String name,
-    VetoableChangeListener vcl) {
-=======
-  public void removeVetoableChangeListener(String name,
-      VetoableChangeListener vcl) {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     m_bcSupport.removeVetoableChangeListener(name, vcl);
   }
 
@@ -930,31 +663,14 @@ public class ModelPerformanceChart extends JPanel implements
    * 
    * @param bc a <code>BeanContext</code> value
    */
-<<<<<<< HEAD
   @Override
-=======
-<<<<<<< HEAD
-  @Override
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public void setBeanContext(BeanContext bc) {
     m_beanContext = bc;
     m_design = m_beanContext.isDesignTime();
     if (m_design) {
       appearanceDesign();
     } else {
-<<<<<<< HEAD
       if (!GraphicsEnvironment.isHeadless()) {
-=======
-<<<<<<< HEAD
-      if (!GraphicsEnvironment.isHeadless()) {
-=======
-      java.awt.GraphicsEnvironment ge = java.awt.GraphicsEnvironment
-          .getLocalGraphicsEnvironment();
-      if (!ge.isHeadless()) {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         appearanceFinal();
       }
     }
@@ -965,14 +681,7 @@ public class ModelPerformanceChart extends JPanel implements
    * 
    * @return a <code>BeanContext</code> value
    */
-<<<<<<< HEAD
   @Override
-=======
-<<<<<<< HEAD
-  @Override
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public BeanContext getBeanContext() {
     return m_beanContext;
   }
@@ -983,14 +692,7 @@ public class ModelPerformanceChart extends JPanel implements
    * @param request a <code>String</code> value
    * @exception IllegalArgumentException if an error occurs
    */
-<<<<<<< HEAD
   @Override
-=======
-<<<<<<< HEAD
-  @Override
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public void performRequest(String request) {
     if (request.compareTo("Show chart") == 0) {
       try {
@@ -998,19 +700,8 @@ public class ModelPerformanceChart extends JPanel implements
         if (!m_framePoppedUp) {
           m_framePoppedUp = true;
 
-<<<<<<< HEAD
           final javax.swing.JFrame jf = new javax.swing.JFrame(
             "Model Performance Chart");
-=======
-<<<<<<< HEAD
-          final javax.swing.JFrame jf = new javax.swing.JFrame(
-            "Model Performance Chart");
-=======
-          final javax.swing.JFrame jf = new javax.swing.JFrame(Messages
-              .getInstance().getString(
-                  "ModelPerformanceChart_PerformRequest_Jf_JFRame_Text"));
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
           jf.setSize(800, 600);
           jf.getContentPane().setLayout(new BorderLayout());
           jf.getContentPane().add(m_visPanel, BorderLayout.CENTER);
@@ -1036,52 +727,21 @@ public class ModelPerformanceChart extends JPanel implements
       m_visPanel.repaint();
       m_visPanel = null;
       m_masterPlot = null;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       m_offscreenPlotData = null;
     } else {
       throw new IllegalArgumentException(request
         + " not supported (Model Performance Chart)");
-<<<<<<< HEAD
-=======
-=======
-    } else {
-      throw new IllegalArgumentException(
-          request
-              + Messages
-                  .getInstance()
-                  .getString(
-                      "ModelPerformanceChart_PerformRequest_IllegalArgumentException_Text"));
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
   }
 
   public static void main(String[] args) {
     try {
       if (args.length != 1) {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         System.err.println("Usage: ModelPerformanceChart <dataset>");
         System.exit(1);
       }
       java.io.Reader r = new java.io.BufferedReader(new java.io.FileReader(
         args[0]));
-<<<<<<< HEAD
-=======
-=======
-        System.err.println(Messages.getInstance().getString(
-            "ModelPerformanceChart_Main_Error_Text"));
-        System.exit(1);
-      }
-      java.io.Reader r = new java.io.BufferedReader(new java.io.FileReader(
-          args[0]));
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       Instances inst = new Instances(r);
       final javax.swing.JFrame jf = new javax.swing.JFrame();
       jf.getContentPane().setLayout(new java.awt.BorderLayout());
@@ -1106,10 +766,6 @@ public class ModelPerformanceChart extends JPanel implements
       System.err.println(ex.getMessage());
     }
   }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /**
    * Set a custom (descriptive) name for this bean
@@ -1375,9 +1031,4 @@ public class ModelPerformanceChart extends JPanel implements
   public String getOffscreenAdditionalOpts() {
     return m_additionalOptions;
   }
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 }

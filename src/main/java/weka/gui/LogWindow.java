@@ -1,8 +1,4 @@
 /*
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -15,51 +11,16 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
-<<<<<<< HEAD
-=======
-=======
- *    This program is free software; you can redistribute it and/or modify
- *    it under the terms of the GNU General Public License as published by
- *    the Free Software Foundation; either version 2 of the License, or
- *    (at your option) any later version.
- *
- *    This program is distributed in the hope that it will be useful,
- *    but WITHOUT ANY WARRANTY; without even the implied warranty of
- *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *    GNU General Public License for more details.
- *
- *    You should have received a copy of the GNU General Public License
- *    along with this program; if not, write to the Free Software
- *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  * LogWindow.java
-<<<<<<< HEAD
  * Copyright (C) 2005-2012 University of Waikato, Hamilton, New Zealand
-=======
-<<<<<<< HEAD
- * Copyright (C) 2005-2012 University of Waikato, Hamilton, New Zealand
-=======
- * Copyright (C) 2005 University of Waikato, Hamilton, New Zealand
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
 package weka.gui;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-import weka.core.Tee;
-import weka.core.Utils;
-
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
@@ -90,10 +51,6 @@ import javax.swing.text.StyleConstants;
 import javax.swing.text.StyleContext;
 import javax.swing.text.StyledDocument;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.core.Tee;
 import weka.core.Utils;
 
@@ -104,20 +61,6 @@ import weka.core.Utils;
  * @version $Revision: 10216 $
  */
 public class LogWindow extends JFrame implements CaretListener, ChangeListener {
-<<<<<<< HEAD
-=======
-=======
-/** 
- * Frame that shows the output from stdout and stderr.
- *
- * @author  FracPete (fracpete at waikato dot ac dot nz)
- * @version $Revision: 7059 $
- */
-public class LogWindow 
-  extends JFrame
-  implements CaretListener, ChangeListener {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** for serialization */
   private static final long serialVersionUID = 5650947361381061112L;
@@ -139,23 +82,11 @@ public class LogWindow
 
   /** whether the JTextPane has wordwrap or not */
   public boolean m_UseWordwrap = true;
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-
-=======
-  
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /** the output */
   protected JTextPane m_Output = new JTextPane();
 
   /** the clear button */
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   protected JButton m_ButtonClear = new JButton("Clear");
 
   /** the close button */
@@ -163,32 +94,12 @@ public class LogWindow
 
   /** the current size */
   protected JLabel m_LabelCurrentSize = new JLabel("currently: 0");
-<<<<<<< HEAD
-=======
-=======
-  protected JButton m_ButtonClear = new JButton(Messages.getInstance().getString("LogWindow_ButtonClear_JButton_Text"));
-
-  /** the close button */
-  protected JButton m_ButtonClose = new JButton(Messages.getInstance().getString("LogWindow_ButtonClose_JButton_Text"));
-
-  /** the current size */
-  protected JLabel m_LabelCurrentSize = new JLabel(Messages.getInstance().getString("LogWindow_LabelCurrentSize_JLabel_Text"));
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** the spinner for the max number of chars */
   protected JSpinner m_SpinnerMaxSize = new JSpinner();
 
   /** whether to allow wordwrap or not */
-<<<<<<< HEAD
   protected JCheckBox m_CheckBoxWordwrap = new JCheckBox("Use wordwrap");
-=======
-<<<<<<< HEAD
-  protected JCheckBox m_CheckBoxWordwrap = new JCheckBox("Use wordwrap");
-=======
-  protected JCheckBox m_CheckBoxWordwrap = new JCheckBox(Messages.getInstance().getString("LogWindow_CheckBoxWordwrap_JCheckBox_Text"));
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** for redirecting stdout */
   protected static Tee m_TeeOut = null;
@@ -196,31 +107,16 @@ public class LogWindow
   /** for redirecting stderr */
   protected static Tee m_TeeErr = null;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /**
    * inner class for printing to the window, is used instead of standard
    * System.out and System.err
    */
-<<<<<<< HEAD
-=======
-=======
-  /** inner class for printing to the window, is used instead of standard
-   * System.out and System.err */
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   protected class LogWindowPrintStream extends PrintStream {
     /** the parent */
     protected LogWindow m_Parent = null;
 
     /** the style of the printstream */
     protected String m_Style = null;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     /**
      * the constructor
@@ -241,30 +137,6 @@ public class LogWindow
      * flushes the printstream
      */
     @Override
-<<<<<<< HEAD
-=======
-=======
-    
-    /**
-     * the constructor
-     * @param parent      the parent frame
-     * @param stream      the stream (used for constructor of superclass)
-     * @param style       the style name associated with this output
-     */
-    public LogWindowPrintStream( LogWindow parent, 
-                                 PrintStream stream, 
-                                 String style ) {
-      super(stream);
-
-      m_Parent = parent;
-      m_Style  = style;
-    }
-    
-    /**
-     * flushes the printstream
-     */
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     public synchronized void flush() {
       // ignored
     }
@@ -272,89 +144,37 @@ public class LogWindow
     /**
      * prints the given int
      */
-<<<<<<< HEAD
     @Override
-=======
-<<<<<<< HEAD
-    @Override
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     public synchronized void print(int x) {
       print(new Integer(x).toString());
     }
 
     /**
-<<<<<<< HEAD
      * prints the given boolean
      */
     @Override
-=======
-<<<<<<< HEAD
-     * prints the given boolean
-     */
-    @Override
-=======
-     * prints the given boolean 
-     */
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     public synchronized void print(boolean x) {
       print(new Boolean(x).toString());
     }
 
     /**
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
      * prints the given string
      */
     @Override
     public synchronized void print(String x) {
       StyledDocument doc;
-<<<<<<< HEAD
-=======
-=======
-     * prints the given string 
-     */
-    public synchronized void print(String x) {
-      StyledDocument      doc;
-      int                 size;
-      int                 maxSize;
-      int                 pos;
-      
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       doc = m_Parent.m_Output.getStyledDocument();
 
       try {
         // insert text
         doc.insertString(doc.getLength(), x, doc.getStyle(m_Style));
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-
-=======
-        
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         // move cursor to end
         m_Parent.m_Output.setCaretPosition(doc.getLength());
 
         // trim size if necessary
         m_Parent.trim();
-<<<<<<< HEAD
       } catch (Exception e) {
-=======
-<<<<<<< HEAD
-      } catch (Exception e) {
-=======
-      }
-      catch (Exception e) {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         e.printStackTrace();
       }
     }
@@ -362,10 +182,6 @@ public class LogWindow
     /**
      * prints the given object
      */
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     @Override
     public synchronized void print(Object x) {
       String line;
@@ -388,43 +204,12 @@ public class LogWindow
       } else {
         print(x.toString());
       }
-<<<<<<< HEAD
-=======
-=======
-    public synchronized void print(Object x) {
-      String                  line;
-      Throwable               t;
-      StackTraceElement[]     trace;
-      int                     i;
-
-      if (x instanceof Throwable) {
-        t     = (Throwable) x;
-        trace = t.getStackTrace();
-        line  = t.getMessage() + "\n";
-        for (i = 0; i < trace.length; i++)
-          line += "\t" + trace[i].toString() + "\n";
-        x = line;
-      }
-
-      if (x == null)
-        print("null");
-      else
-        print(x.toString());
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
 
     /**
      * prints a new line
      */
-<<<<<<< HEAD
     @Override
-=======
-<<<<<<< HEAD
-    @Override
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     public synchronized void println() {
       print("\n");
     }
@@ -432,14 +217,7 @@ public class LogWindow
     /**
      * prints the given int
      */
-<<<<<<< HEAD
     @Override
-=======
-<<<<<<< HEAD
-    @Override
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     public synchronized void println(int x) {
       print(x);
       println();
@@ -448,14 +226,7 @@ public class LogWindow
     /**
      * prints the given boolean
      */
-<<<<<<< HEAD
     @Override
-=======
-<<<<<<< HEAD
-    @Override
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     public synchronized void println(boolean x) {
       print(x);
       println();
@@ -464,14 +235,7 @@ public class LogWindow
     /**
      * prints the given string
      */
-<<<<<<< HEAD
     @Override
-=======
-<<<<<<< HEAD
-    @Override
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     public synchronized void println(String x) {
       print(x);
       println();
@@ -480,49 +244,22 @@ public class LogWindow
     /**
      * prints the given object (for Throwables we print the stack trace)
      */
-<<<<<<< HEAD
     @Override
-=======
-<<<<<<< HEAD
-    @Override
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     public synchronized void println(Object x) {
       print(x);
       println();
     }
   }
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-
-=======
-  
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /**
    * creates the frame
    */
   public LogWindow() {
-<<<<<<< HEAD
     super("Weka - Log");
-=======
-<<<<<<< HEAD
-    super("Weka - Log");
-=======
-    super(Messages.getInstance().getString("LogWindow_Text"));
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     createFrame();
 
     // styles
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     StyledDocument doc;
     Style style;
     boolean teeDone;
@@ -536,24 +273,6 @@ public class LogWindow
 
     style = StyleContext.getDefaultStyleContext().getStyle(
       StyleContext.DEFAULT_STYLE);
-<<<<<<< HEAD
-=======
-=======
-    StyledDocument      doc;
-    Style               style;
-    boolean             teeDone;
-
-    doc   = m_Output.getStyledDocument();
-    style = StyleContext.getDefaultStyleContext()
-                        .getStyle(StyleContext.DEFAULT_STYLE);
-    style = doc.addStyle(STYLE_STDOUT, style);
-    StyleConstants.setFontFamily(style, "monospaced");
-    StyleConstants.setForeground(style, COLOR_STDOUT);
-    
-    style = StyleContext.getDefaultStyleContext()
-                        .getStyle(StyleContext.DEFAULT_STYLE);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     style = doc.addStyle(STYLE_STDERR, style);
     StyleConstants.setFontFamily(style, "monospaced");
     StyleConstants.setForeground(style, COLOR_STDERR);
@@ -565,46 +284,22 @@ public class LogWindow
         m_TeeOut = new Tee(System.out);
         System.setOut(m_TeeOut);
       }
-<<<<<<< HEAD
       m_TeeOut.add(new LogWindowPrintStream(this, m_TeeOut.getDefault(),
         STYLE_STDOUT));
-=======
-<<<<<<< HEAD
-      m_TeeOut.add(new LogWindowPrintStream(this, m_TeeOut.getDefault(),
-        STYLE_STDOUT));
-=======
-      m_TeeOut.add(
-          new LogWindowPrintStream(this, m_TeeOut.getDefault(), STYLE_STDOUT));
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
 
     if (!teeDone) {
       m_TeeErr = new Tee(System.err);
       System.setErr(m_TeeErr);
     }
-<<<<<<< HEAD
     m_TeeErr.add(new LogWindowPrintStream(this, m_TeeErr.getDefault(),
       STYLE_STDERR));
-=======
-<<<<<<< HEAD
-    m_TeeErr.add(new LogWindowPrintStream(this, m_TeeErr.getDefault(),
-      STYLE_STDERR));
-=======
-    m_TeeErr.add(
-        new LogWindowPrintStream(this, m_TeeErr.getDefault(), STYLE_STDERR));
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * creates the frame and all its components
    */
   protected void createFrame() {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     JPanel panel;
     JPanel panel2;
     JPanel panel3;
@@ -612,26 +307,10 @@ public class LogWindow
     SpinnerNumberModel model;
     int width;
     JLabel label;
-<<<<<<< HEAD
-=======
-=======
-    JPanel                panel;
-    JPanel                panel2;
-    JPanel                panel3;
-    JPanel                panel4;
-    SpinnerNumberModel    model;
-    int                   width;
-    JLabel                label;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     // set layout
     setSize(600, 400);
     width = getBounds().width;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     setLocation(getGraphicsConfiguration().getBounds().width - width,
       getLocation().y);
     getContentPane().setLayout(new BorderLayout());
@@ -640,19 +319,6 @@ public class LogWindow
     getContentPane().add(new JScrollPane(m_Output), BorderLayout.CENTER);
     setWordwrap(m_UseWordwrap);
 
-<<<<<<< HEAD
-=======
-=======
-    setLocation(
-        getGraphicsConfiguration().getBounds().width - width, getLocation().y);
-    getContentPane().setLayout(new BorderLayout());
-    
-    // output 
-    getContentPane().add(new JScrollPane(m_Output), BorderLayout.CENTER);
-    setWordwrap(m_UseWordwrap);
-    
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     // button(s)
     panel = new JPanel(new BorderLayout());
     getContentPane().add(panel, BorderLayout.SOUTH);
@@ -663,60 +329,26 @@ public class LogWindow
 
     m_ButtonClear.setMnemonic('C');
     m_ButtonClear.addActionListener(new ActionListener() {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       @Override
       public void actionPerformed(ActionEvent e) {
         clear();
       }
     });
-<<<<<<< HEAD
-=======
-=======
-	public void actionPerformed(ActionEvent e) {
-	  clear();
-	}
-      });
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     panel2.add(m_ButtonClear);
 
     m_ButtonClose.setMnemonic('l');
     m_ButtonClose.addActionListener(new ActionListener() {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       @Override
       public void actionPerformed(ActionEvent e) {
         close();
       }
     });
-<<<<<<< HEAD
-=======
-=======
-	public void actionPerformed(ActionEvent e) {
-	  close();
-	}
-      });
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     panel2.add(m_ButtonClose);
 
     // size + current size + wordwrap
     panel2 = new JPanel(new GridLayout(1, 3));
     panel3.add(panel2, BorderLayout.WEST);
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     // size
     panel4 = new JPanel(new FlowLayout());
     panel2.add(panel4);
@@ -726,15 +358,7 @@ public class LogWindow
     model.setValue(new Integer(100000));
     model.addChangeListener(this);
 
-<<<<<<< HEAD
     label = new JLabel("max. Size");
-=======
-<<<<<<< HEAD
-    label = new JLabel("max. Size");
-=======
-    label = new JLabel(Messages.getInstance().getString("LogWindow_CreateFrame_JLabel_Text"));
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     label.setDisplayedMnemonic('m');
     label.setLabelFor(m_SpinnerMaxSize);
 
@@ -751,24 +375,11 @@ public class LogWindow
     panel2.add(panel4);
     m_CheckBoxWordwrap.setSelected(m_UseWordwrap);
     m_CheckBoxWordwrap.addItemListener(new ItemListener() {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       @Override
       public void itemStateChanged(ItemEvent e) {
         setWordwrap(m_CheckBoxWordwrap.isSelected());
       }
     });
-<<<<<<< HEAD
-=======
-=======
-	public void itemStateChanged(ItemEvent e) {
-	  setWordwrap(m_CheckBoxWordwrap.isSelected());
-	}
-      });
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     panel4.add(m_CheckBoxWordwrap);
   }
 
@@ -790,10 +401,6 @@ public class LogWindow
    * trims the JTextPane, if too big
    */
   public void trim() {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     StyledDocument doc;
     int size;
     int maxSize;
@@ -803,29 +410,11 @@ public class LogWindow
 
     // too large?
     size = doc.getLength();
-<<<<<<< HEAD
-=======
-=======
-    StyledDocument      doc;
-    int                 size;
-    int                 maxSize;
-    int                 pos;
-    
-    doc = m_Output.getStyledDocument();
-
-    // too large?
-    size    = doc.getLength();
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     maxSize = ((Integer) m_SpinnerMaxSize.getValue()).intValue();
     if (size > maxSize) {
       try {
         // determine EOL after which to cut
         pos = size - maxSize;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         while (!doc.getText(pos, 1).equals("\n")) {
           pos++;
         }
@@ -842,25 +431,6 @@ public class LogWindow
       }
     }
 
-<<<<<<< HEAD
-=======
-=======
-        while (!doc.getText(pos, 1).equals("\n"))
-          pos++;
-        while (doc.getText(pos, 1).equals("\n")) 
-          pos++;
-        // delete text
-        doc.remove(0, pos);
-      }
-      catch (Exception ex) {
-        // don't print it, otherwise we get an endless loop!
-        if (DEBUG)
-          System.out.println(ex);
-      }
-    }
-    
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     // move cursor to end
     m_Output.setCaretPosition(doc.getLength());
   }
@@ -869,10 +439,6 @@ public class LogWindow
    * returns a string representation (#RGB) of the given color
    */
   protected String colorToString(Color c) {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     String result;
 
     result = "#" + Utils.padLeft(Integer.toHexString(c.getRed()), 2)
@@ -881,28 +447,11 @@ public class LogWindow
 
     result = result.replaceAll("\\ ", "0").toUpperCase();
 
-<<<<<<< HEAD
-=======
-=======
-    String      result;
-    
-    result = "#" + Utils.padLeft(Integer.toHexString(c.getRed()),   2)
-                 + Utils.padLeft(Integer.toHexString(c.getGreen()), 2)
-                 + Utils.padLeft(Integer.toHexString(c.getBlue()),  2);
-
-    result = result.replaceAll("\\ ", "0").toUpperCase();
-    
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return result;
   }
 
   /**
    * toggles the wordwrap<br/>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * override wordwrap from:
    * http://forum.java.sun.com/thread.jspa?threadID=498535&messageID=2356174
    */
@@ -938,59 +487,13 @@ public class LogWindow
         }
       };
     }
-<<<<<<< HEAD
-=======
-=======
-   * override wordwrap from: 
-   * http://forum.java.sun.com/thread.jspa?threadID=498535&messageID=2356174
-   */
-  public void setWordwrap(boolean wrap) {
-    Container   parent;
-    JTextPane   outputOld;
-    
-    m_UseWordwrap = wrap;
-    if (m_CheckBoxWordwrap.isSelected() != m_UseWordwrap)
-      m_CheckBoxWordwrap.setSelected(m_UseWordwrap);
-
-    // create new JTextPane
-    parent    = m_Output.getParent();
-    outputOld = m_Output;
-    if (m_UseWordwrap)
-      m_Output = new JTextPane();
-    else
-      m_Output = new JTextPane(){
-        private static final long serialVersionUID = -8275856175921425981L;
-        public void setSize(Dimension d) {    
-          if (d.width < getGraphicsConfiguration().getBounds().width) 
-            d.width = getGraphicsConfiguration().getBounds().width; 
-          super.setSize(d);
-        }
-
-        public boolean getScrollableTracksViewportWidth() { 
-          return false; 
-        }
-      };
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     m_Output.setEditable(false);
     m_Output.addCaretListener(this);
     m_Output.setDocument(outputOld.getDocument());
     m_Output.setCaretPosition(m_Output.getDocument().getLength());
-<<<<<<< HEAD
     // m_Output.setToolTipText(
     // "stdout = " + colorToString(COLOR_STDOUT) + ", "
     // + "stderr = " + colorToString(COLOR_STDERR));
-=======
-<<<<<<< HEAD
-    // m_Output.setToolTipText(
-    // "stdout = " + colorToString(COLOR_STDOUT) + ", "
-    // + "stderr = " + colorToString(COLOR_STDERR));
-=======
-    //m_Output.setToolTipText(
-    //      "stdout = " + colorToString(COLOR_STDOUT) + ", "
-    //    + "stderr = " + colorToString(COLOR_STDERR));
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     parent.add(m_Output);
     parent.remove(outputOld);
   }
@@ -998,10 +501,6 @@ public class LogWindow
   /**
    * Called when the caret position is updated.
    */
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   @Override
   public void caretUpdate(CaretEvent e) {
     m_LabelCurrentSize.setText("currently: "
@@ -1010,30 +509,12 @@ public class LogWindow
     if (DEBUG) {
       System.out.println(e);
     }
-<<<<<<< HEAD
-=======
-=======
-  public void caretUpdate(CaretEvent e) {
-    m_LabelCurrentSize.setText(
-    		Messages.getInstance().getString("LogWindow_CaretUpdate_Text") + m_Output.getStyledDocument().getLength());
-
-    if (DEBUG)
-      System.out.println(e);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Invoked when the target of the listener has changed its state.
    */
-<<<<<<< HEAD
   @Override
-=======
-<<<<<<< HEAD
-  @Override
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public void stateChanged(ChangeEvent e) {
     // check max size if Spinner is changed
     if (e.getSource() == m_SpinnerMaxSize.getModel()) {
@@ -1047,43 +528,18 @@ public class LogWindow
    * for testing only
    */
   public static void main(String[] args) {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     LogWindow log;
 
     LookAndFeel.setLookAndFeel();
 
-<<<<<<< HEAD
-=======
-=======
-    LogWindow       log;
-
-    LookAndFeel.setLookAndFeel();
-    
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     log = new LogWindow();
     log.setVisible(true);
     log.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
     // test output
-<<<<<<< HEAD
     System.out.print("a");
     System.err.print("a");
     System.out.print("a");
-=======
-<<<<<<< HEAD
-    System.out.print("a");
-    System.err.print("a");
-    System.out.print("a");
-=======
-    System.out.print(Messages.getInstance().getString("LogWindow_Main_Text_First"));
-    System.err.print(Messages.getInstance().getString("LogWindow_Main_Error_Text_First"));
-    System.out.print(Messages.getInstance().getString("LogWindow_Main_Text_Second"));
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     System.out.println();
     System.err.println(new java.util.Date());
   }

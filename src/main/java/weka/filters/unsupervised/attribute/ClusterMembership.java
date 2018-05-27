@@ -1,8 +1,4 @@
 /*
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -15,46 +11,16 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
-<<<<<<< HEAD
-=======
-=======
- *    This program is free software; you can redistribute it and/or modify
- *    it under the terms of the GNU General Public License as published by
- *    the Free Software Foundation; either version 2 of the License, or
- *    (at your option) any later version.
- *
- *    This program is distributed in the hope that it will be useful,
- *    but WITHOUT ANY WARRANTY; without even the implied warranty of
- *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *    GNU General Public License for more details.
- *
- *    You should have received a copy of the GNU General Public License
- *    along with this program; if not, write to the Free Software
- *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    ClusterMembership.java
-<<<<<<< HEAD
  *    Copyright (C) 2004-2012 University of Waikato, Hamilton, New Zealand
-=======
-<<<<<<< HEAD
- *    Copyright (C) 2004-2012 University of Waikato, Hamilton, New Zealand
-=======
- *    Copyright (C) 2004 University of Waikato, Hamilton, New Zealand
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
 package weka.filters.unsupervised.attribute;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Enumeration;
@@ -104,60 +70,6 @@ import weka.filters.UnsupervisedFilter;
 public class ClusterMembership extends Filter implements UnsupervisedFilter,
   OptionHandler, WeightedInstancesHandler, WeightedAttributesHandler {
 
-<<<<<<< HEAD
-=======
-=======
-import weka.clusterers.DensityBasedClusterer;
-import weka.clusterers.AbstractDensityBasedClusterer;
-import weka.core.Attribute;
-import weka.core.Capabilities;
-import weka.core.FastVector;
-import weka.core.Instance;
-import weka.core.Instances;
-import weka.core.Option;
-import weka.core.OptionHandler;
-import weka.core.Range;
-import weka.core.RevisionUtils;
-import weka.core.Utils;
-import weka.filters.Filter;
-import weka.filters.UnsupervisedFilter;
-
-import java.util.Enumeration;
-import java.util.Vector;
-
-/** 
- <!-- globalinfo-start -->
- * A filter that uses a density-based clusterer to generate cluster membership values; filtered instances are composed of these values plus the class attribute (if set in the input data). If a (nominal) class attribute is set, the clusterer is run separately for each class. The class attribute (if set) and any user-specified attributes are ignored during the clustering operation
- * <p/>
- <!-- globalinfo-end -->
- * 
- <!-- options-start -->
- * Valid options are: <p/>
- * 
- * <pre> -W &lt;clusterer name&gt;
- *  Full name of clusterer to use. eg:
- *   weka.clusterers.EM
- *  Additional options after the '--'.
- *  (default: weka.clusterers.EM)</pre>
- * 
- * <pre> -I &lt;att1,att2-att4,...&gt;
- *  The range of attributes the clusterer should ignore.
- *  (the class attribute is automatically ignored)</pre>
- * 
- <!-- options-end -->
- *
- * Options after the -- are passed on to the clusterer.
- *
- * @author Mark Hall (mhall@cs.waikato.ac.nz)
- * @author Eibe Frank
- * @version $Revision: 1.16 $
- */
-public class ClusterMembership 
-  extends Filter 
-  implements UnsupervisedFilter, OptionHandler {
-  
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /** for serialization */
   static final long serialVersionUID = 6675702504667714026L;
 
@@ -176,10 +88,6 @@ public class ClusterMembership
   /** The prior probability for each class */
   protected double[] m_priors;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /**
    * Returns the Capabilities of this filter.
    * 
@@ -237,63 +145,6 @@ public class ClusterMembership
   @Override
   public boolean setInputFormat(Instances instanceInfo) throws Exception {
 
-<<<<<<< HEAD
-=======
-=======
-  /** 
-   * Returns the Capabilities of this filter.
-   *
-   * @return            the capabilities of this object
-   * @see               Capabilities
-   */
-  public Capabilities getCapabilities() {
-    Capabilities result = m_clusterer.getCapabilities();
-    
-    result.setMinimumNumberInstances(0);
-    
-    return result;
-  }
-
-  /** 
-   * Returns the Capabilities of this filter, makes sure that the class is
-   * never set (for the clusterer).
-   *
-   * @param data	the data to use for customization
-   * @return            the capabilities of this object, based on the data
-   * @see               #getCapabilities()
-   */
-  public Capabilities getCapabilities(Instances data) {
-    Instances	newData;
-    
-    newData = new Instances(data, 0);
-    newData.setClassIndex(-1);
-    
-    return super.getCapabilities(newData);
-  }
-  
-  /**
-   * tests the data whether the filter can actually handle it
-   * 
-   * @param instanceInfo	the data to test
-   * @throws Exception		if the test fails
-   */
-  protected void testInputFormat(Instances instanceInfo) throws Exception {
-    getCapabilities(instanceInfo).testWithFail(removeIgnored(instanceInfo));
-  }
-  
-  /**
-   * Sets the format of the input instances.
-   *
-   * @param instanceInfo an Instances object containing the input instance
-   * structure (any instances contained in the object are ignored - only the
-   * structure is required).
-   * @return true if the outputFormat may be collected immediately
-   * @throws Exception if the inputFormat can't be set successfully 
-   */ 
-  public boolean setInputFormat(Instances instanceInfo) throws Exception {
-    
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     super.setInputFormat(instanceInfo);
     m_removeAttributes = null;
     m_priors = null;
@@ -304,10 +155,6 @@ public class ClusterMembership
   /**
    * filters all attributes that should be ignored
    * 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param data the data to filter
    * @return the filtered data
    * @throws Exception if filtering fails
@@ -315,27 +162,11 @@ public class ClusterMembership
   protected Instances removeIgnored(Instances data) throws Exception {
     Instances result = data;
 
-<<<<<<< HEAD
-=======
-=======
-   * @param data	the data to filter
-   * @return		the filtered data
-   * @throws Exception	if filtering fails
-   */
-  protected Instances removeIgnored(Instances data) throws Exception {
-    Instances result = data;
-    
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (m_ignoreAttributesRange != null || data.classIndex() >= 0) {
       result = new Instances(data);
       m_removeAttributes = new Remove();
       String rangeString = "";
       if (m_ignoreAttributesRange != null) {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         rangeString += m_ignoreAttributesRange.getRanges();
       }
       if (data.classIndex() >= 0) {
@@ -344,57 +175,23 @@ public class ClusterMembership
         } else {
           rangeString = "" + (data.classIndex() + 1);
         }
-<<<<<<< HEAD
-=======
-=======
-	rangeString += m_ignoreAttributesRange.getRanges();
-      }
-      if (data.classIndex() >= 0) {
-	if (rangeString.length() > 0) {
-	  rangeString += "," + (data.classIndex() + 1);
-	} else {
-	  rangeString = "" + (data.classIndex() + 1);
-	}
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
       ((Remove) m_removeAttributes).setAttributeIndices(rangeString);
       ((Remove) m_removeAttributes).setInvertSelection(false);
       m_removeAttributes.setInputFormat(data);
       result = Filter.useFilter(data, m_removeAttributes);
     }
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return result;
   }
 
   /**
    * Signify that this batch of input to the filter is finished.
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return true if there are instances pending output
    * @throws IllegalStateException if no input structure has been defined
    */
   @Override
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @return true if there are instances pending output
-   * @throws IllegalStateException if no input structure has been defined 
-   */  
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public boolean batchFinished() throws Exception {
 
     if (getInputFormat() == null) {
@@ -407,10 +204,6 @@ public class ClusterMembership
 
       // Make subsets if class is nominal
       if ((toFilter.classIndex() >= 0) && toFilter.classAttribute().isNominal()) {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         toFilterIgnoringAttributes = new Instances[toFilter.numClasses()];
         for (int i = 0; i < toFilter.numClasses(); i++) {
           toFilterIgnoringAttributes[i] = new Instances(toFilter,
@@ -472,81 +265,12 @@ public class ClusterMembership
         + "_clusterMembership", attInfo, 0);
       if (toFilter.classIndex() >= 0) {
         filtered.setClassIndex(filtered.numAttributes() - 1);
-<<<<<<< HEAD
-=======
-=======
-	toFilterIgnoringAttributes = new Instances[toFilter.numClasses()];
-	for (int i = 0; i < toFilter.numClasses(); i++) {
-	  toFilterIgnoringAttributes[i] = new Instances(toFilter, toFilter.numInstances());
-	}
-	for (int i = 0; i < toFilter.numInstances(); i++) {
-	  toFilterIgnoringAttributes[(int)toFilter.instance(i).classValue()].add(toFilter.instance(i));
-	}
-	m_priors = new double[toFilter.numClasses()];
-	for (int i = 0; i < toFilter.numClasses(); i++) {
-	  toFilterIgnoringAttributes[i].compactify();
-	  m_priors[i] = toFilterIgnoringAttributes[i].sumOfWeights();
-	}
-	Utils.normalize(m_priors);
-      } else {
-	toFilterIgnoringAttributes = new Instances[1];
-	toFilterIgnoringAttributes[0] = toFilter;
-	m_priors = new double[1];
-	m_priors[0] = 1;
-      }
-
-      // filter out attributes if necessary
-      for (int i = 0; i < toFilterIgnoringAttributes.length; i++)
-	toFilterIgnoringAttributes[i] = removeIgnored(toFilterIgnoringAttributes[i]);
-
-      // build the clusterers
-      if ((toFilter.classIndex() <= 0) || !toFilter.classAttribute().isNominal()) {
-	m_clusterers = AbstractDensityBasedClusterer.makeCopies(m_clusterer, 1);
-	m_clusterers[0].buildClusterer(toFilterIgnoringAttributes[0]);
-      } else {
-	m_clusterers = AbstractDensityBasedClusterer.makeCopies(m_clusterer, toFilter.numClasses());
-	for (int i = 0; i < m_clusterers.length; i++) {
-	  if (toFilterIgnoringAttributes[i].numInstances() == 0) {
-	    m_clusterers[i] = null;
-	  } else {
-	    m_clusterers[i].buildClusterer(toFilterIgnoringAttributes[i]);
-	  }
-	}
-      }
-      
-      // create output dataset
-      FastVector attInfo = new FastVector();
-      for (int j = 0; j < m_clusterers.length; j++) {
-	if (m_clusterers[j] != null) {
-	  for (int i = 0; i < m_clusterers[j].numberOfClusters(); i++) {
-	    attInfo.addElement(new Attribute("pCluster_" + j + "_" + i));
-	  }
-	}
-      }
-      if (toFilter.classIndex() >= 0) {
-	attInfo.addElement(toFilter.classAttribute().copy());
-      }
-      attInfo.trimToSize();
-      Instances filtered = new Instances(toFilter.relationName()+"_clusterMembership",
-					 attInfo, 0);
-      if (toFilter.classIndex() >= 0) {
-	filtered.setClassIndex(filtered.numAttributes() - 1);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
       setOutputFormat(filtered);
 
       // build new dataset
       for (int i = 0; i < toFilter.numInstances(); i++) {
-<<<<<<< HEAD
         convertInstance(toFilter.instance(i));
-=======
-<<<<<<< HEAD
-        convertInstance(toFilter.instance(i));
-=======
-	convertInstance(toFilter.instance(i));
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
     }
     flushInput();
@@ -556,10 +280,6 @@ public class ClusterMembership
   }
 
   /**
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Input an instance for filtering. Ordinarily the instance is processed and
    * made available for output immediately. Some filters require all instances
    * be read before producing output.
@@ -569,20 +289,6 @@ public class ClusterMembership
    * @throws IllegalStateException if no input format has been defined.
    */
   @Override
-<<<<<<< HEAD
-=======
-=======
-   * Input an instance for filtering. Ordinarily the instance is processed
-   * and made available for output immediately. Some filters require all
-   * instances be read before producing output.
-   *
-   * @param instance the input instance
-   * @return true if the filtered instance may now be
-   * collected with output().
-   * @throws IllegalStateException if no input format has been defined.
-   */
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public boolean input(Instance instance) throws Exception {
 
     if (getInputFormat() == null) {
@@ -592,15 +298,7 @@ public class ClusterMembership
       resetQueue();
       m_NewBatch = false;
     }
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (outputFormatPeek() != null) {
       convertInstance(instance);
       return true;
@@ -629,42 +327,17 @@ public class ClusterMembership
   }
 
   /**
-<<<<<<< HEAD
    * Convert a single instance over. The converted instance is added to the end
    * of the output queue.
    * 
-=======
-<<<<<<< HEAD
-   * Convert a single instance over. The converted instance is added to the end
-   * of the output queue.
-   * 
-=======
-   * Convert a single instance over. The converted instance is added to 
-   * the end of the output queue.
-   *
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param instance the instance to convert
    * @throws Exception if something goes wrong
    */
   protected void convertInstance(Instance instance) throws Exception {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     // set up values
     double[] instanceVals = new double[outputFormatPeek().numAttributes()];
     double[] tempvals;
-<<<<<<< HEAD
-=======
-=======
-    
-    // set up values
-    double [] instanceVals = new double[outputFormatPeek().numAttributes()];
-    double [] tempvals;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (instance.classIndex() >= 0) {
       tempvals = new double[outputFormatPeek().numAttributes() - 1];
     } else {
@@ -673,10 +346,6 @@ public class ClusterMembership
     int pos = 0;
     for (int j = 0; j < m_clusterers.length; j++) {
       if (m_clusterers[j] != null) {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         double[] probs;
         if (m_removeAttributes != null) {
           m_removeAttributes.input(instance);
@@ -686,20 +355,6 @@ public class ClusterMembership
         }
         System.arraycopy(probs, 0, tempvals, pos, probs.length);
         pos += probs.length;
-<<<<<<< HEAD
-=======
-=======
-	double [] probs;
-	if (m_removeAttributes != null) {
-	  m_removeAttributes.input(instance);
-	  probs = logs2densities(j, m_removeAttributes.output());
-	} else {
-	  probs = logs2densities(j, instance);
-	}
-	System.arraycopy(probs, 0, tempvals, pos, probs.length);
-	pos += probs.length;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
     }
     tempvals = Utils.logs2probs(tempvals);
@@ -707,26 +362,12 @@ public class ClusterMembership
     if (instance.classIndex() >= 0) {
       instanceVals[instanceVals.length - 1] = instance.classValue();
     }
-<<<<<<< HEAD
 
     push(new DenseInstance(instance.weight(), instanceVals));
-=======
-<<<<<<< HEAD
-
-    push(new DenseInstance(instance.weight(), instanceVals));
-=======
-    
-    push(new Instance(instance.weight(), instanceVals));
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Returns an enumeration describing the available options.
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return an enumeration of all the available options.
    */
@@ -743,38 +384,11 @@ public class ClusterMembership
       "\tThe range of attributes the clusterer should ignore."
         + "\n\t(the class attribute is automatically ignored)", "I", 1,
       "-I <att1,att2-att4,...>"));
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @return an enumeration of all the available options.
-   */
-  public Enumeration listOptions() {
-    
-    Vector newVector = new Vector(2);
-    
-    newVector.
-      addElement(new Option("\tFull name of clusterer to use. eg:\n"
-	                    + "\t\tweka.clusterers.EM\n"
-			    + "\tAdditional options after the '--'.\n"
-			    + "\t(default: weka.clusterers.EM)",
-			    "W", 1, "-W <clusterer name>"));
-
-    newVector.
-      addElement(new Option("\tThe range of attributes the clusterer should ignore."
-			    +"\n\t(the class attribute is automatically ignored)",
-			    "I", 1,"-I <att1,att2-att4,...>"));
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     return newVector.elements();
   }
 
   /**
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Parses a given list of options.
    * <p/>
    * 
@@ -812,41 +426,6 @@ public class ClusterMembership
     setDensityBasedClusterer((DensityBasedClusterer) Utils.forName(
       DensityBasedClusterer.class, clustererString,
       Utils.partitionOptions(options)));
-<<<<<<< HEAD
-=======
-=======
-   * Parses a given list of options. <p/>
-   * 
-   <!-- options-start -->
-   * Valid options are: <p/>
-   * 
-   * <pre> -W &lt;clusterer name&gt;
-   *  Full name of clusterer to use. eg:
-   *   weka.clusterers.EM
-   *  Additional options after the '--'.
-   *  (default: weka.clusterers.EM)</pre>
-   * 
-   * <pre> -I &lt;att1,att2-att4,...&gt;
-   *  The range of attributes the clusterer should ignore.
-   *  (the class attribute is automatically ignored)</pre>
-   * 
-   <!-- options-end -->
-   *
-   * Options after the -- are passed on to the clusterer.
-   *
-   * @param options the list of options as an array of strings
-   * @throws Exception if an option is not supported
-   */
-  public void setOptions(String[] options) throws Exception {
-
-    String clustererString = Utils.getOption('W', options);
-    if (clustererString.length() == 0)
-      clustererString = weka.clusterers.EM.class.getName();
-    setDensityBasedClusterer((DensityBasedClusterer)Utils.
-			     forName(DensityBasedClusterer.class, clustererString,
-				     Utils.partitionOptions(options)));
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     setIgnoredAttributeIndices(Utils.getOption('I', options));
     Utils.checkForRemainingOptions(options);
@@ -854,10 +433,6 @@ public class ClusterMembership
 
   /**
    * Gets the current settings of the filter.
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return an array of strings suitable for passing to setOptions
    */
@@ -884,62 +459,13 @@ public class ClusterMembership
       }
     }
     return options.toArray(new String[0]);
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @return an array of strings suitable for passing to setOptions
-   */
-  public String [] getOptions() {
-
-    String [] clustererOptions = new String [0];
-    if ((m_clusterer != null) &&
-	(m_clusterer instanceof OptionHandler)) {
-      clustererOptions = ((OptionHandler)m_clusterer).getOptions();
-    }
-    String [] options = new String [clustererOptions.length + 5];
-    int current = 0;
-
-    if (!getIgnoredAttributeIndices().equals("")) {
-      options[current++] = "-I";
-      options[current++] = getIgnoredAttributeIndices();
-    }
-    
-    if (m_clusterer != null) {
-      options[current++] = "-W"; 
-      options[current++] = getDensityBasedClusterer().getClass().getName();
-    }
-
-    options[current++] = "--";
-    System.arraycopy(clustererOptions, 0, options, current,
-		     clustererOptions.length);
-    current += clustererOptions.length;
-    
-    while (current < options.length) {
-      options[current++] = "";
-    }
-    return options;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Returns a string describing this filter
-<<<<<<< HEAD
    * 
    * @return a description of the filter suitable for displaying in the
    *         explorer/experimenter gui
-=======
-<<<<<<< HEAD
-   * 
-   * @return a description of the filter suitable for displaying in the
-   *         explorer/experimenter gui
-=======
-   *
-   * @return a description of the filter suitable for
-   * displaying in the explorer/experimenter gui
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public String globalInfo() {
 
@@ -950,25 +476,11 @@ public class ClusterMembership
       + "class. The class attribute (if set) and any user-specified "
       + "attributes are ignored during the clustering operation";
   }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /**
    * Returns a description of this option suitable for display as a tip text in
    * the gui.
    * 
-<<<<<<< HEAD
-=======
-=======
-  
-  /**
-   * Returns a description of this option suitable for display
-   * as a tip text in the gui.
-   *
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @return description of this option
    */
   public String densityBasedClustererTipText() {
@@ -977,15 +489,7 @@ public class ClusterMembership
 
   /**
    * Set the clusterer for use in filtering
-<<<<<<< HEAD
    * 
-=======
-<<<<<<< HEAD
-   * 
-=======
-   *
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param newClusterer the clusterer to use
    */
   public void setDensityBasedClusterer(DensityBasedClusterer newClusterer) {
@@ -994,15 +498,7 @@ public class ClusterMembership
 
   /**
    * Get the clusterer used by this filter
-<<<<<<< HEAD
    * 
-=======
-<<<<<<< HEAD
-   * 
-=======
-   *
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @return the clusterer used
    */
   public DensityBasedClusterer getDensityBasedClusterer() {
@@ -1011,21 +507,9 @@ public class ClusterMembership
 
   /**
    * Returns the tip text for this property
-<<<<<<< HEAD
    * 
    * @return tip text for this property suitable for displaying in the
    *         explorer/experimenter gui
-=======
-<<<<<<< HEAD
-   * 
-   * @return tip text for this property suitable for displaying in the
-   *         explorer/experimenter gui
-=======
-   *
-   * @return tip text for this property suitable for
-   * displaying in the explorer/experimenter gui
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public String ignoredAttributeIndicesTipText() {
 
@@ -1034,15 +518,7 @@ public class ClusterMembership
 
   /**
    * Gets ranges of attributes to be ignored.
-<<<<<<< HEAD
    * 
-=======
-<<<<<<< HEAD
-   * 
-=======
-   *
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @return a string containing a comma-separated list of ranges
    */
   public String getIgnoredAttributeIndices() {
@@ -1055,27 +531,12 @@ public class ClusterMembership
   }
 
   /**
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Sets the ranges of attributes to be ignored. If provided string is null, no
    * attributes will be ignored.
    * 
    * @param rangeList a string representing the list of attributes. eg:
    *          first-3,5,6-last
    * @throws IllegalArgumentException if an invalid range list is supplied
-<<<<<<< HEAD
-=======
-=======
-   * Sets the ranges of attributes to be ignored. If provided string
-   * is null, no attributes will be ignored.
-   *
-   * @param rangeList a string representing the list of attributes. 
-   * eg: first-3,5,6-last
-   * @throws IllegalArgumentException if an invalid range list is supplied 
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public void setIgnoredAttributeIndices(String rangeList) {
 
@@ -1086,10 +547,6 @@ public class ClusterMembership
       m_ignoreAttributesRange.setRanges(rangeList);
     }
   }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /**
    * Returns the revision string.
@@ -1099,40 +556,14 @@ public class ClusterMembership
   @Override
   public String getRevision() {
     return RevisionUtils.extract("$Revision: 14534 $");
-<<<<<<< HEAD
-=======
-=======
-  
-  /**
-   * Returns the revision string.
-   * 
-   * @return		the revision
-   */
-  public String getRevision() {
-    return RevisionUtils.extract("$Revision: 1.16 $");
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Main method for testing this class.
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param argv should contain arguments to the filter: use -h for help
    */
   public static void main(String[] argv) {
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param argv should contain arguments to the filter: use -h for help
-   */
-  public static void main(String [] argv) {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     runFilter(new ClusterMembership(), argv);
   }
 }

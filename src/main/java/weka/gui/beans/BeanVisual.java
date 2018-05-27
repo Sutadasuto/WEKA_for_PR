@@ -1,8 +1,4 @@
 /*
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -15,71 +11,26 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
-<<<<<<< HEAD
-=======
-=======
- *    This program is free software; you can redistribute it and/or modify
- *    it under the terms of the GNU General Public License as published by
- *    the Free Software Foundation; either version 2 of the License, or
- *    (at your option) any later version.
- *
- *    This program is distributed in the hope that it will be useful,
- *    but WITHOUT ANY WARRANTY; without even the implied warranty of
- *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *    GNU General Public License for more details.
- *
- *    You should have received a copy of the GNU General Public License
- *    along with this program; if not, write to the Free Software
- *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    BeanVisual.java
-<<<<<<< HEAD
  *    Copyright (C) 2002-2012 University of Waikato, Hamilton, New Zealand
-=======
-<<<<<<< HEAD
- *    Copyright (C) 2002-2012 University of Waikato, Hamilton, New Zealand
-=======
- *    Copyright (C) 2002 University of Waikato, Hamilton, New Zealand
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
 package weka.gui.beans;
 
-<<<<<<< HEAD
 import weka.core.WekaPackageClassLoaderManager;
 
-=======
-<<<<<<< HEAD
-import weka.core.WekaPackageClassLoaderManager;
-
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.RenderingHints;
-<<<<<<< HEAD
-=======
-=======
-import java.awt.Image;
-import java.awt.Point;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.awt.Toolkit;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
@@ -92,54 +43,22 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  * BeanVisual encapsulates icons and label for a given bean. Has methods to load
  * icons, set label text and toggle between static and animated versions of a
  * bean's icon.
  * 
  * @author <a href="mailto:mhall@cs.waikato.ac.nz">Mark Hall</a>
  * @version $Revision: 13477 $
-<<<<<<< HEAD
-=======
-=======
- * BeanVisual encapsulates icons and label for a given bean. Has methods
- * to load icons, set label text and toggle between static and animated
- * versions of a bean's icon.
- *
- * @author <a href="mailto:mhall@cs.waikato.ac.nz">Mark Hall</a>
- * @version $Revision: 1.10 $
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  * @since 1.0
  * @see JPanel
  * @see Serializable
  */
-<<<<<<< HEAD
 public class BeanVisual extends JPanel {
-=======
-<<<<<<< HEAD
-public class BeanVisual extends JPanel {
-=======
-public class BeanVisual
-  extends JPanel {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** for serialization */
   private static final long serialVersionUID = -6677473561687129614L;
 
-<<<<<<< HEAD
   public static final String ICON_PATH = "weka/gui/beans/icons/";
-=======
-<<<<<<< HEAD
-  public static final String ICON_PATH = "weka/gui/beans/icons/";
-=======
-  public static final String ICON_PATH="weka/gui/beans/icons/";
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   public static final int NORTH_CONNECTOR = 0;
   public static final int SOUTH_CONNECTOR = 1;
@@ -157,21 +76,9 @@ public class BeanVisual
   protected String m_animatedIconPath;
 
   /**
-<<<<<<< HEAD
    * ImageIcons for the icons. Is transient because for some reason animated
    * gifs cease to be animated after restoring from serialization. Icons are
    * re-loaded from source after deserialization
-=======
-<<<<<<< HEAD
-   * ImageIcons for the icons. Is transient because for some reason animated
-   * gifs cease to be animated after restoring from serialization. Icons are
-   * re-loaded from source after deserialization
-=======
-   * ImageIcons for the icons. Is transient because for some reason
-   * animated gifs cease to be animated after restoring from serialization.
-   * Icons are re-loaded from source after deserialization
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   protected transient ImageIcon m_icon;
   protected transient ImageIcon m_animatedIcon;
@@ -182,10 +89,6 @@ public class BeanVisual
   protected String m_visualName;
 
   protected JLabel m_visualLabel;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /**
    * Container for the icon
@@ -197,44 +100,16 @@ public class BeanVisual
 
   private final PropertyChangeSupport m_pcs = new PropertyChangeSupport(this);
 
-<<<<<<< HEAD
-=======
-=======
-  
-  /**
-   * Container for the icon
-   */
-  //  protected IconHolder m_visualHolder;
-
-  //  protected JLabel m_textLabel;
-  private boolean m_stationary = true;
-
-  private PropertyChangeSupport m_pcs = new PropertyChangeSupport(this);
-  
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   private boolean m_displayConnectors = false;
   private Color m_connectorColor = Color.blue;
 
   /**
    * Constructor
-<<<<<<< HEAD
    * 
-=======
-<<<<<<< HEAD
-   * 
-=======
-   *
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param visualName name for the bean
    * @param iconPath path to the icon file
    * @param animatedIconPath path to the animated icon file
    */
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public BeanVisual(String visualName, String iconPath, String animatedIconPath) {
 
     loadIcons(iconPath, animatedIconPath);
@@ -251,28 +126,6 @@ public class BeanVisual
     // this.setSize((int)d.getWidth()+50, (int)d.getHeight()+50);
     Dimension d2 = new Dimension((int) d.getWidth() + 10,
       (int) d.getHeight() + 10);
-<<<<<<< HEAD
-=======
-=======
-  public BeanVisual(String visualName, String iconPath, 
-		    String animatedIconPath) {
-
-    loadIcons(iconPath, animatedIconPath);
-    m_visualName = visualName;
-    //    m_textLabel = new JLabel(m_visualName, JLabel.CENTER);
-    m_visualLabel = new JLabel(m_icon);
-
-    setLayout(new BorderLayout());
-   
-    //    m_visualHolder = new IconHolder(m_visualLabel);
-    
-    add(m_visualLabel, BorderLayout.CENTER);
-    Dimension d = m_visualLabel.getPreferredSize();
-    //      this.setSize((int)d.getWidth()+50, (int)d.getHeight()+50);
-    Dimension d2 = new Dimension((int)d.getWidth() + 10, 
-				 (int)d.getHeight() + 10);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     setMinimumSize(d2);
     setPreferredSize(d2);
     setMaximumSize(d2);
@@ -280,15 +133,7 @@ public class BeanVisual
 
   /**
    * Reduce this BeanVisual's icon size by the given factor
-<<<<<<< HEAD
    * 
-=======
-<<<<<<< HEAD
-   * 
-=======
-   *
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param factor the factor by which to reduce the icon size by
    */
   public void scale(int factor) {
@@ -305,10 +150,6 @@ public class BeanVisual
       m_visualLabel = new JLabel(m_icon);
       add(m_visualLabel, BorderLayout.CENTER);
       Dimension d = m_visualLabel.getPreferredSize();
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       // this.setSize((int)d.getWidth()+50, (int)d.getHeight()+50);
       Dimension d2 = new Dimension((int) d.getWidth() + 10,
         (int) d.getHeight() + 10);
@@ -345,39 +186,11 @@ public class BeanVisual
    * specific instantiations of these beans (eg. J48, DiscretizeFilter etc) at
    * their leisure.
    * 
-<<<<<<< HEAD
-=======
-=======
-      //      this.setSize((int)d.getWidth()+50, (int)d.getHeight()+50);
-      Dimension d2 = new Dimension((int)d.getWidth() + 10, 
-				   (int)d.getHeight() + 10);
-      setMinimumSize(d2);
-      setPreferredSize(d2);
-      setMaximumSize(d2);   
-    }
-  }
-
-  /**
-   * Loads static and animated versions of a beans icons. These are
-   * assumed to be defined in the system resource location (i.e. in the
-   * CLASSPATH). If the named icons do not exist, no changes to the
-   * visual appearance is made. Since default icons for generic
-   * types of beans (eg. DataSource, Classifier etc)
-   * are assumed to exist, it allows developers to add custom icons for
-   * for specific instantiations of these beans 
-   * (eg. J48, DiscretizeFilter etc) at their leisure.
-   *
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param iconPath path to
    * @param animatedIconPath a <code>String</code> value
    */
   public boolean loadIcons(String iconPath, String animatedIconPath) {
     boolean success = true;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     // java.net.URL imageURL = ClassLoader.getSystemResource(iconPath);
     java.net.URL imageURL = WekaPackageClassLoaderManager.getWekaPackageClassLoaderManager().findResource(iconPath);
     //java.net.URL imageURL = this.getClass().getClassLoader()
@@ -401,33 +214,6 @@ public class BeanVisual
       success = false;
     } else {
       Image pic2 = Toolkit.getDefaultToolkit().getImage(imageURL);
-<<<<<<< HEAD
-=======
-=======
-    //    java.net.URL imageURL = ClassLoader.getSystemResource(iconPath);
-    java.net.URL imageURL = this.getClass().getClassLoader().getResource(iconPath);
-    if (imageURL == null) {
-      //      System.err.println("Warning: unable to load "+iconPath);
-    } else {
-      Image pic = Toolkit.getDefaultToolkit().
-	getImage(imageURL);
-
-      m_icon = new ImageIcon(pic);
-      if (m_visualLabel != null) {
-	m_visualLabel.setIcon(m_icon);
-      }
-    }
-    
-    //    imageURL = ClassLoader.getSystemResource(animatedIconPath);
-    imageURL = this.getClass().getClassLoader().getResource(animatedIconPath);
-    if (imageURL == null) {
-      //      System.err.println("Warning: unable to load "+animatedIconPath);
-      success = false;
-    } else {
-      Image pic2 = Toolkit.getDefaultToolkit().
-	getImage(imageURL);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       m_animatedIcon = new ImageIcon(pic2);
     }
     m_iconPath = iconPath;
@@ -437,44 +223,18 @@ public class BeanVisual
 
   /**
    * Set the label for the visual. Informs any property change listeners
-<<<<<<< HEAD
    * 
-=======
-<<<<<<< HEAD
-   * 
-=======
-   *
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param text the label
    */
   public void setText(String text) {
     m_visualName = text;
-<<<<<<< HEAD
     // m_textLabel.setText(m_visualName);
     m_pcs.firePropertyChange("label", null, null);
-=======
-<<<<<<< HEAD
-    // m_textLabel.setText(m_visualName);
-    m_pcs.firePropertyChange("label", null, null);
-=======
-    //    m_textLabel.setText(m_visualName);
-    m_pcs.firePropertyChange("label",null,null);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Get the visual's label
-<<<<<<< HEAD
    * 
-=======
-<<<<<<< HEAD
-   * 
-=======
-   *
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @return a <code>String</code> value
    */
   public String getText() {
@@ -482,10 +242,6 @@ public class BeanVisual
   }
 
   /**
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Set the static version of the icon.
    * 
    * This method has been deprecated and now has no affect. A future version of
@@ -496,24 +252,10 @@ public class BeanVisual
   public void setStatic() {
     // setDisplayConnectors(false);
     // m_visualLabel.setIcon(m_icon);
-<<<<<<< HEAD
-=======
-=======
-   * Set the static version of the icon
-   *
-   */
-  public void setStatic() {
-    m_visualLabel.setIcon(m_icon);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Set the animated version of the icon
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * This method has been deprecated and now has no affect. A future version of
    * the KnowledgeFlow application may orchestrate the display of which
@@ -529,22 +271,6 @@ public class BeanVisual
    * Returns the coordinates of the closest "connector" point to the supplied
    * point. Coordinates are in the parent containers coordinate space.
    * 
-<<<<<<< HEAD
-=======
-=======
-   *
-   */
-  public void setAnimated() {
-    m_visualLabel.setIcon(m_animatedIcon);
-  }
-
-  /**
-   * Returns the coordinates of the closest "connector" point to the
-   * supplied point. Coordinates are in the parent containers coordinate
-   * space.
-   *
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param pt the reference point
    * @return the closest connector point
    */
@@ -555,10 +281,6 @@ public class BeanVisual
     int sourceHeight = getHeight();
     int sourceMidX = sourceX + (sourceWidth / 2);
     int sourceMidY = sourceY + (sourceHeight / 2);
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     int x = (int) pt.getX();
     int y = (int) pt.getY();
 
@@ -567,36 +289,13 @@ public class BeanVisual
       : ((x < sourceMidX) ? sourceX : sourceX + sourceWidth);
     int cy = (Math.abs(y - sourceMidY) < Math.abs(x - sourceMidX)) ? sourceMidY
       : ((y < sourceMidY) ? sourceY : sourceY + sourceHeight);
-<<<<<<< HEAD
-=======
-=======
-    int x = (int)pt.getX();
-    int y = (int)pt.getY();
-    
-    Point closest = new Point();
-    int cx = (Math.abs(x - sourceMidX) < Math.abs(y - sourceMidY)) ? 
-      sourceMidX :
-      ((x < sourceMidX) ? sourceX : sourceX + sourceWidth);
-    int cy = (Math.abs(y - sourceMidY) < Math.abs(x - sourceMidX)) ? 
-      sourceMidY :
-      ((y < sourceMidY) ? sourceY : sourceY + sourceHeight) ;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     closest.setLocation(cx, cy);
     return closest;
   }
 
   /**
    * Returns the coordinates of the connector point given a compass point
-<<<<<<< HEAD
    * 
-=======
-<<<<<<< HEAD
-   * 
-=======
-   *
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param compassPoint a compass point
    * @return a <code>Point</code> value
    */
@@ -609,10 +308,6 @@ public class BeanVisual
     int sourceMidY = sourceY + (sourceHeight / 2);
 
     switch (compassPoint) {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     case NORTH_CONNECTOR:
       return new Point(sourceMidX, sourceY);
     case SOUTH_CONNECTOR:
@@ -623,31 +318,13 @@ public class BeanVisual
       return new Point(sourceX + sourceWidth, sourceMidY);
     default:
       System.err.println("Unrecognised connectorPoint (BeanVisual)");
-<<<<<<< HEAD
-=======
-=======
-    case NORTH_CONNECTOR : return new Point(sourceMidX, sourceY);
-    case SOUTH_CONNECTOR : return new Point(sourceMidX, sourceY+sourceHeight);
-    case WEST_CONNECTOR :  return new Point(sourceX, sourceMidY);
-    case EAST_CONNECTOR :  return new Point(sourceX+sourceWidth, sourceMidY);
-    default : System.err.println("Unrecognised connectorPoint (BeanVisual)");
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
     return new Point(sourceX, sourceY);
   }
 
   /**
    * Returns the static icon
-<<<<<<< HEAD
    * 
-=======
-<<<<<<< HEAD
-   * 
-=======
-   *
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @return an <code>ImageIcon</code> value
    */
   public ImageIcon getStaticIcon() {
@@ -656,15 +333,7 @@ public class BeanVisual
 
   /**
    * Returns the animated icon
-<<<<<<< HEAD
    * 
-=======
-<<<<<<< HEAD
-   * 
-=======
-   *
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @return an <code>ImageIcon</code> value
    */
   public ImageIcon getAnimatedIcon() {
@@ -691,25 +360,11 @@ public class BeanVisual
 
   /**
    * Turn on/off the connector points
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param dc a <code>boolean</code> value
    */
   public void setDisplayConnectors(boolean dc) {
     // m_visualHolder.setDisplayConnectors(dc);
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param dc a <code>boolean</code> value
-   */
-  public void setDisplayConnectors(boolean dc) {
-    //    m_visualHolder.setDisplayConnectors(dc);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     m_displayConnectors = dc;
     m_connectorColor = Color.blue;
     repaint();
@@ -717,36 +372,17 @@ public class BeanVisual
 
   /**
    * Turn on/off the connector points
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param dc a <code>boolean</code> value
    * @param c the Color to use
    */
   public void setDisplayConnectors(boolean dc, Color c) {
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param dc a <code>boolean</code> value
-   * @param c the Color to use
-   */
-  public void setDisplayConnectors(boolean dc,
-                                   Color c) {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     setDisplayConnectors(dc);
     m_connectorColor = c;
   }
 
   /**
    * Add a listener for property change events
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param pcl a <code>PropertyChangeListener</code> value
    */
@@ -756,24 +392,10 @@ public class BeanVisual
     if (m_pcs != null && pcl != null) {
       m_pcs.addPropertyChangeListener(pcl);
     }
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param pcl a <code>PropertyChangeListener</code> value
-   */
-  public void addPropertyChangeListener(PropertyChangeListener pcl) {
-    m_pcs.addPropertyChangeListener(pcl);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Remove a property change listener
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param pcl a <code>PropertyChangeListener</code> value
    */
@@ -800,66 +422,20 @@ public class BeanVisual
       gx.fillOval(midx - 2, this.getHeight() - 5, 5, 5);
       gx.fillOval(0, midy - 2, 5, 5);
       gx.fillOval(this.getWidth() - 5, midy - 2, 5, 5);
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param pcl a <code>PropertyChangeListener</code> value
-   */
-  public void removePropertyChangeListener(PropertyChangeListener pcl) {
-    m_pcs.removePropertyChangeListener(pcl);
-  }
-
-  public void paintComponent(Graphics gx) {
-    super.paintComponent(gx);
-    if (m_displayConnectors) {
-      gx.setColor(m_connectorColor);
-      
-      int midx = (int)(this.getWidth() / 2.0);
-      int midy = (int)(this.getHeight() / 2.0);
-      gx.fillOval(midx-2, 0, 5, 5);
-      gx.fillOval(midx-2, this.getHeight()-5, 5, 5);
-      gx.fillOval(0, midy-2, 5, 5);
-      gx.fillOval(this.getWidth()-5, midy-2, 5, 5);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
   }
 
   /**
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Overides default read object in order to reload icons. This is necessary
    * because for some strange reason animated gifs stop being animated after
    * being serialized/deserialized.
    * 
-<<<<<<< HEAD
-=======
-=======
-   * Overides default read object in order to reload icons.
-   * This is necessary because for some strange reason animated
-   * gifs stop being animated after being serialized/deserialized.
-   *
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param ois an <code>ObjectInputStream</code> value
    * @exception IOException if an error occurs
    * @exception ClassNotFoundException if an error occurs
    */
-<<<<<<< HEAD
   private void readObject(ObjectInputStream ois) throws IOException,
     ClassNotFoundException {
-=======
-<<<<<<< HEAD
-  private void readObject(ObjectInputStream ois) throws IOException,
-    ClassNotFoundException {
-=======
-  private void readObject(ObjectInputStream ois) 
-    throws IOException, ClassNotFoundException {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     try {
       ois.defaultReadObject();
       remove(m_visualLabel);
@@ -867,25 +443,11 @@ public class BeanVisual
       loadIcons(m_iconPath, m_animatedIconPath);
       add(m_visualLabel, BorderLayout.CENTER);
       Dimension d = m_visualLabel.getPreferredSize();
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       Dimension d2 = new Dimension((int) d.getWidth() + 10,
         (int) d.getHeight() + 10);
       setMinimumSize(d2);
       setPreferredSize(d2);
       setMaximumSize(d2);
-<<<<<<< HEAD
-=======
-=======
-      Dimension d2 = new Dimension((int)d.getWidth() + 10, 
-				   (int)d.getHeight() + 10);
-      setMinimumSize(d2);
-      setPreferredSize(d2);
-      setMaximumSize(d2);   
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     } catch (Exception ex) {
       ex.printStackTrace();
     }

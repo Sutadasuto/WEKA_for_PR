@@ -1,8 +1,4 @@
 /*
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -15,50 +11,16 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
-<<<<<<< HEAD
-=======
-=======
- *    This program is free software; you can redistribute it and/or modify
- *    it under the terms of the GNU General Public License as published by
- *    the Free Software Foundation; either version 2 of the License, or
- *    (at your option) any later version.
- *
- *    This program is distributed in the hope that it will be useful,
- *    but WITHOUT ANY WARRANTY; without even the implied warranty of
- *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *    GNU General Public License for more details.
- *
- *    You should have received a copy of the GNU General Public License
- *    along with this program; if not, write to the Free Software
- *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    HostListPanel.java
-<<<<<<< HEAD
  *    Copyright (C) 2000-2012 University of Waikato, Hamilton, New Zealand
-=======
-<<<<<<< HEAD
- *    Copyright (C) 2000-2012 University of Waikato, Hamilton, New Zealand
-=======
- *    Copyright (C) 2000 University of Waikato, Hamilton, New Zealand
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
 package weka.gui.experiment;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-import weka.experiment.RemoteExperiment;
-
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.awt.BorderLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -77,30 +39,14 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
-<<<<<<< HEAD
 import weka.experiment.RemoteExperiment;
 
-=======
-<<<<<<< HEAD
-import weka.experiment.RemoteExperiment;
-
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 /** 
  * This panel controls setting a list of hosts for a RemoteExperiment to
  * use.
  *
  * @author Mark Hall (mhall@cs.waikato.ac.nz)
-<<<<<<< HEAD
  * @version $Revision: 8034 $
-=======
-<<<<<<< HEAD
- * @version $Revision: 8034 $
-=======
- * @version $Revision: 7059 $
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 public class HostListPanel
   extends JPanel
@@ -116,15 +62,7 @@ public class HostListPanel
   protected JList m_List;
 
   /** Click to remove the selected host from the list */
-<<<<<<< HEAD
   protected JButton m_DeleteBut = new JButton("Delete selected");
-=======
-<<<<<<< HEAD
-  protected JButton m_DeleteBut = new JButton("Delete selected");
-=======
-  protected JButton m_DeleteBut = new JButton(Messages.getInstance().getString("HostListPanel_DeleteBut_JButton_Text"));
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** The field with which to enter host names */
   protected JTextField m_HostField = new JTextField(25);
@@ -149,15 +87,7 @@ public class HostListPanel
     m_DeleteBut.addActionListener(this);
     m_HostField.addActionListener(this);
     setLayout(new BorderLayout());
-<<<<<<< HEAD
     setBorder(BorderFactory.createTitledBorder("Hosts"));
-=======
-<<<<<<< HEAD
-    setBorder(BorderFactory.createTitledBorder("Hosts"));
-=======
-    setBorder(BorderFactory.createTitledBorder(Messages.getInstance().getString("HostListPanel_BorderFactoryCreateTitledBorder_Text")));
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     JPanel topLab = new JPanel();
     GridBagLayout gb = new GridBagLayout();
@@ -230,15 +160,7 @@ public class HostListPanel
   public static void main(String [] args) {
 
     try {
-<<<<<<< HEAD
       final JFrame jf = new JFrame("Host List Editor");
-=======
-<<<<<<< HEAD
-      final JFrame jf = new JFrame("Host List Editor");
-=======
-      final JFrame jf = new JFrame(Messages.getInstance().getString("HostListPanel_Main_JFrame_Text"));
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       jf.getContentPane().setLayout(new BorderLayout());
       HostListPanel dp = new HostListPanel();
       jf.getContentPane().add(dp,

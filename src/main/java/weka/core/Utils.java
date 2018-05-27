@@ -1,8 +1,4 @@
 /*
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -15,46 +11,16 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
-<<<<<<< HEAD
-=======
-=======
- *    This program is free software; you can redistribute it and/or modify
- *    it under the terms of the GNU General Public License as published by
- *    the Free Software Foundation; either version 2 of the License, or
- *    (at your option) any later version.
- *
- *    This program is distributed in the hope that it will be useful,
- *    but WITHOUT ANY WARRANTY; without even the implied warranty of
- *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *    GNU General Public License for more details.
- *
- *    You should have received a copy of the GNU General Public License
- *    along with this program; if not, write to the Free Software
- *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    Utils.java
-<<<<<<< HEAD
  *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
-=======
-<<<<<<< HEAD
- *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
-=======
- *    Copyright (C) 1999-2004 University of Waikato, Hamilton, New Zealand
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
 package weka.core;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import javax.swing.*;
 import java.awt.*;
 import java.beans.BeanInfo;
@@ -79,35 +45,10 @@ import java.util.Vector;
 /**
  * Class implementing some simple utility methods.
  *
-<<<<<<< HEAD
-=======
-=======
-import java.beans.BeanInfo;
-import java.beans.Introspector;
-import java.beans.MethodDescriptor;
-import java.io.File;
-import java.io.FileInputStream;
-import java.lang.reflect.Array;
-import java.lang.reflect.Method;
-import java.text.BreakIterator;
-import java.util.Properties;
-import java.util.Random;
-
-import weka.gui.PropertySheetPanel;
-
-/**
- * Class implementing some simple utility methods.
- * 
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  * @author Eibe Frank
  * @author Yong Wang
  * @author Len Trigg
  * @author Julien Prados
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  * @version $Revision: 14606 $
  */
 public final class Utils implements RevisionHandler {
@@ -196,28 +137,6 @@ public final class Utils implements RevisionHandler {
    * settings. Properties defined in the current directory (optional) override
    * all these settings.
    *
-<<<<<<< HEAD
-=======
-=======
- * @version $Revision: 10570 $
- */
-public final class Utils implements RevisionHandler {
-
-  /** The natural logarithm of 2. */
-  public static double log2 = Math.log(2);
-
-  /** The small deviation allowed in double comparisons. */
-  public static double SMALL = 1e-6;
-
-  /**
-   * Reads properties that inherit from three locations. Properties are first
-   * defined in the system resource location (i.e. in the CLASSPATH). These
-   * default properties must exist. Properties defined in the users home
-   * directory (optional) override default settings. Properties defined in the
-   * current directory (optional) override all these settings.
-   * 
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param resourceName the location of the resource that should be loaded.
    *          e.g.: "weka/core/Utils.props". (The use of hardcoded forward
    *          slashes here is OK - see jdk1.1/docs/guide/misc/resources.html)
@@ -229,10 +148,6 @@ public final class Utils implements RevisionHandler {
    *              occurs reading the properties files.
    */
   public static Properties readProperties(String resourceName) throws Exception {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return ResourceUtils.readProperties(resourceName);
   }
 
@@ -259,59 +174,6 @@ public final class Utils implements RevisionHandler {
     ClassLoader loader) throws Exception {
 
     return ResourceUtils.readProperties(resourceName, loader);
-<<<<<<< HEAD
-=======
-=======
-
-    Properties defaultProps = new Properties();
-    try {
-      // Apparently hardcoded slashes are OK here
-      // jdk1.1/docs/guide/misc/resources.html
-      // defaultProps.load(ClassLoader.getSystemResourceAsStream(resourceName));
-      defaultProps.load((new Utils()).getClass().getClassLoader()
-        .getResourceAsStream(resourceName));
-    } catch (Exception ex) {
-      /*
-       * throw new Exception("Problem reading default properties: " +
-       * ex.getMessage());
-       */
-      System.err.println("Warning, unable to load properties file from "
-        + "system resource (Utils.java)");
-    }
-
-    // Hardcoded slash is OK here
-    // eg: see jdk1.1/docs/guide/misc/resources.html
-    int slInd = resourceName.lastIndexOf('/');
-    if (slInd != -1) {
-      resourceName = resourceName.substring(slInd + 1);
-    }
-
-    // Allow a properties file in the home directory to override
-    Properties userProps = new Properties(defaultProps);
-    File propFile = new File(System.getProperties().getProperty("user.home")
-      + File.separatorChar + resourceName);
-    if (propFile.exists()) {
-      try {
-        userProps.load(new FileInputStream(propFile));
-      } catch (Exception ex) {
-        throw new Exception("Problem reading user properties: " + propFile);
-      }
-    }
-
-    // Allow a properties file in the current directory to override
-    Properties localProps = new Properties(userProps);
-    propFile = new File(resourceName);
-    if (propFile.exists()) {
-      try {
-        localProps.load(new FileInputStream(propFile));
-      } catch (Exception ex) {
-        throw new Exception("Problem reading local properties: " + propFile);
-      }
-    }
-
-    return localProps;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -394,44 +256,19 @@ public final class Utils implements RevisionHandler {
 
   /**
    * Pads a string to a specified length, inserting spaces on the left as
-<<<<<<< HEAD
    * required. If the string is too long, it is simply returned unchanged.
-=======
-<<<<<<< HEAD
-   * required. If the string is too long, it is simply returned unchanged.
-=======
-   * required. If the string is too long, characters are removed (from the
-   * right).
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param inString the input string
    * @param length the desired length of the output string
    * @return the output string
    */
-<<<<<<< HEAD
   public static String padLeftAndAllowOverflow(String inString, int length) {
 
     return String.format("%1$" + length + "s", inString);
-=======
-<<<<<<< HEAD
-  public static String padLeftAndAllowOverflow(String inString, int length) {
-
-    return String.format("%1$" + length + "s", inString);
-=======
-  public static String padLeft(String inString, int length) {
-
-    return fixStringLength(inString, length, false);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Pads a string to a specified length, inserting spaces on the right as
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * required. If the string is too long, it is simply returned unchanged.
    * 
    * @param inString the input string
@@ -445,11 +282,6 @@ public final class Utils implements RevisionHandler {
 
   /**
    * Pads a string to a specified length, inserting spaces on the left as
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * required. If the string is too long, characters are removed (from the
    * right).
    * 
@@ -457,10 +289,6 @@ public final class Utils implements RevisionHandler {
    * @param length the desired length of the output string
    * @return the output string
    */
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public static String padLeft(String inString, int length) {
 
     return String.format("%1$" + length + "." + length + "s", inString);
@@ -478,36 +306,6 @@ public final class Utils implements RevisionHandler {
   public static String padRight(String inString, int length) {
 
     return String.format("%1$-" + length + "." + length + "s", inString);
-<<<<<<< HEAD
-=======
-=======
-  public static String padRight(String inString, int length) {
-
-    return fixStringLength(inString, length, true);
-  }
-
-  /**
-   * Pads a string to a specified length, inserting spaces as required. If the
-   * string is too long, characters are removed (from the right).
-   * 
-   * @param inString the input string
-   * @param length the desired length of the output string
-   * @param right true if inserted spaces should be added to the right
-   * @return the output string
-   */
-  private static/* @pure@ */String fixStringLength(String inString, int length,
-    boolean right) {
-
-    if (inString.length() < length) {
-      while (inString.length() < length) {
-        inString = (right ? inString.concat(" ") : " ".concat(inString));
-      }
-    } else if (inString.length() > length) {
-      inString = inString.substring(0, length);
-    }
-    return inString;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -521,60 +319,8 @@ public final class Utils implements RevisionHandler {
   public static/* @pure@ */String doubleToString(double value,
     int afterDecimalPoint) {
 
-<<<<<<< HEAD
     DF.get().setMaximumFractionDigits(afterDecimalPoint);
     return DF.get().format(value);
-=======
-<<<<<<< HEAD
-    DF.get().setMaximumFractionDigits(afterDecimalPoint);
-    return DF.get().format(value);
-=======
-    StringBuffer stringBuffer;
-    double temp;
-    int dotPosition;
-    long precisionValue;
-
-    temp = value * Math.pow(10.0, afterDecimalPoint);
-    if (Math.abs(temp) < Long.MAX_VALUE) {
-      precisionValue = (temp > 0) ? (long) (temp + 0.5) : -(long) (Math
-        .abs(temp) + 0.5);
-      if (precisionValue == 0) {
-        stringBuffer = new StringBuffer(String.valueOf(0));
-      } else {
-        stringBuffer = new StringBuffer(String.valueOf(precisionValue));
-      }
-      if (afterDecimalPoint == 0) {
-        return stringBuffer.toString();
-      }
-      dotPosition = stringBuffer.length() - afterDecimalPoint;
-      while (((precisionValue < 0) && (dotPosition < 1)) || (dotPosition < 0)) {
-        if (precisionValue < 0) {
-          stringBuffer.insert(1, '0');
-        } else {
-          stringBuffer.insert(0, '0');
-        }
-        dotPosition++;
-      }
-      stringBuffer.insert(dotPosition, '.');
-      if ((precisionValue < 0) && (stringBuffer.charAt(1) == '.')) {
-        stringBuffer.insert(1, '0');
-      } else if (stringBuffer.charAt(0) == '.') {
-        stringBuffer.insert(0, '0');
-      }
-      int currentPos = stringBuffer.length() - 1;
-      while ((currentPos > dotPosition)
-        && (stringBuffer.charAt(currentPos) == '0')) {
-        stringBuffer.setCharAt(currentPos--, ' ');
-      }
-      if (stringBuffer.charAt(currentPos) == '.') {
-        stringBuffer.setCharAt(currentPos, ' ');
-      }
-
-      return stringBuffer.toString().trim();
-    }
-    return new String("" + value);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -593,17 +339,7 @@ public final class Utils implements RevisionHandler {
     char[] result;
     int dotPosition;
 
-<<<<<<< HEAD
     if (afterDecimalPoint >= width) {
-=======
-<<<<<<< HEAD
-    if (afterDecimalPoint >= width) {
-=======
-    if ((afterDecimalPoint >= width) || (tempString.indexOf('E') != -1)) { // Protects
-                                                                           // sci
-                                                                           // notation
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       return tempString;
     }
 
@@ -655,15 +391,7 @@ public final class Utils implements RevisionHandler {
    * @param c the array to inspect
    * @return the class of the innermost elements
    */
-<<<<<<< HEAD
   public static Class<?> getArrayClass(Class<?> c) {
-=======
-<<<<<<< HEAD
-  public static Class<?> getArrayClass(Class<?> c) {
-=======
-  public static Class getArrayClass(Class c) {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (c.getComponentType().isArray()) {
       return getArrayClass(c.getComponentType());
     } else {
@@ -679,15 +407,7 @@ public final class Utils implements RevisionHandler {
    * @param array the array to determine the dimensions for
    * @return the dimensions of the array
    */
-<<<<<<< HEAD
   public static int getArrayDimensions(Class<?> array) {
-=======
-<<<<<<< HEAD
-  public static int getArrayDimensions(Class<?> array) {
-=======
-  public static int getArrayDimensions(Class array) {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (array.getComponentType().isArray()) {
       return 1 + getArrayDimensions(array.getComponentType());
     } else {
@@ -756,15 +476,7 @@ public final class Utils implements RevisionHandler {
    */
   public static/* @pure@ */boolean eq(double a, double b) {
 
-<<<<<<< HEAD
     return (a == b) || ((a - b < SMALL) && (b - a < SMALL));
-=======
-<<<<<<< HEAD
-    return (a == b) || ((a - b < SMALL) && (b - a < SMALL));
-=======
-    return (a == b) || (a - b < SMALL) && (b - a < SMALL);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -1006,18 +718,8 @@ public final class Utils implements RevisionHandler {
 
     // replace each of the following characters with the backquoted version
     char charsFind[] = { '\\', '\'', '\t', '\n', '\r', '"', '%', '\u001E' };
-<<<<<<< HEAD
     String charsReplace[] =
       { "\\\\", "\\'", "\\t", "\\n", "\\r", "\\\"", "\\%", "\\u001E" };
-=======
-<<<<<<< HEAD
-    String charsReplace[] =
-      { "\\\\", "\\'", "\\t", "\\n", "\\r", "\\\"", "\\%", "\\u001E" };
-=======
-    String charsReplace[] = { "\\\\", "\\'", "\\t", "\\n", "\\r", "\\\"",
-      "\\%", "\\u001E" };
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     for (int i = 0; i < charsFind.length; i++) {
       if (string.indexOf(charsFind[i]) != -1) {
         newStringBuffer = new StringBuffer();
@@ -1166,18 +868,8 @@ public final class Utils implements RevisionHandler {
     StringBuffer newStringBuffer;
 
     // replace each of the following characters with the backquoted version
-<<<<<<< HEAD
     String charsFind[] =
       { "\\\\", "\\'", "\\t", "\\n", "\\r", "\\\"", "\\%", "\\u001E" };
-=======
-<<<<<<< HEAD
-    String charsFind[] =
-      { "\\\\", "\\'", "\\t", "\\n", "\\r", "\\\"", "\\%", "\\u001E" };
-=======
-    String charsFind[] = { "\\\\", "\\'", "\\t", "\\n", "\\r", "\\\"", "\\%",
-      "\\u001E" };
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     char charsReplace[] = { '\\', '\'', '\t', '\n', '\r', '"', '%', '\u001E' };
     int pos[] = new int[charsFind.length];
     int curPos;
@@ -1222,15 +914,7 @@ public final class Utils implements RevisionHandler {
   public static String[] splitOptions(String quotedOptionString)
     throws Exception {
 
-<<<<<<< HEAD
     Vector<String> optionsVec = new Vector<String>();
-=======
-<<<<<<< HEAD
-    Vector<String> optionsVec = new Vector<String>();
-=======
-    FastVector optionsVec = new FastVector();
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     String str = new String(quotedOptionString);
     int i;
 
@@ -1291,15 +975,7 @@ public final class Utils implements RevisionHandler {
     // convert optionsVec to an array of String
     String[] options = new String[optionsVec.size()];
     for (i = 0; i < optionsVec.size(); i++) {
-<<<<<<< HEAD
       options[i] = optionsVec.elementAt(i);
-=======
-<<<<<<< HEAD
-      options[i] = optionsVec.elementAt(i);
-=======
-      options[i] = (String) optionsVec.elementAt(i);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
     return options;
   }
@@ -1320,17 +996,8 @@ public final class Utils implements RevisionHandler {
       }
       boolean escape = false;
       for (int n = 0; n < element.length(); n++) {
-<<<<<<< HEAD
         if (Character.isWhitespace(element.charAt(n))
           || element.charAt(n) == '"' || element.charAt(n) == '\'') {
-=======
-<<<<<<< HEAD
-        if (Character.isWhitespace(element.charAt(n))
-          || element.charAt(n) == '"' || element.charAt(n) == '\'') {
-=======
-        if (Character.isWhitespace(element.charAt(n))) {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
           escape = true;
           break;
         }
@@ -1366,25 +1033,12 @@ public final class Utils implements RevisionHandler {
    * @param options an array of options suitable for passing to setOptions. May
    *          be null. Any options accepted by the object will be removed from
    *          the array.
-<<<<<<< HEAD
    * @return the newly created object, ready for use (if it is an array, it will
    *         have size zero).
-=======
-<<<<<<< HEAD
-   * @return the newly created object, ready for use (if it is an array, it will
-   *         have size zero).
-=======
-   * @return the newly created object, ready for use.
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @exception Exception if the class name is invalid, or if the class is not
    *              assignable to the desired class type, or the options supplied
    *              are not acceptable to the object
    */
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public static Object forName(Class<?> classType, String className,
     String[] options) throws Exception {
 
@@ -1437,30 +1091,6 @@ public final class Utils implements RevisionHandler {
     }
 
     return result.toString().trim();
-<<<<<<< HEAD
-=======
-=======
-  public static Object forName(Class classType, String className,
-    String[] options) throws Exception {
-
-    Class c = null;
-    try {
-      c = Class.forName(className);
-    } catch (Exception ex) {
-      throw new Exception("Can't find class called: " + className);
-    }
-    if (!classType.isAssignableFrom(c)) {
-      throw new Exception(classType.getName() + " is not assignable from "
-        + className);
-    }
-    Object o = c.newInstance();
-    if ((o instanceof OptionHandler) && (options != null)) {
-      ((OptionHandler) o).setOptions(options);
-      Utils.checkForRemainingOptions(options);
-    }
-    return o;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -1756,18 +1386,8 @@ public final class Utils implements RevisionHandler {
    */
   public static/* @pure@ */int round(double value) {
 
-<<<<<<< HEAD
     int roundedValue =
       value > 0 ? (int) (value + 0.5) : -(int) (Math.abs(value) + 0.5);
-=======
-<<<<<<< HEAD
-    int roundedValue =
-      value > 0 ? (int) (value + 0.5) : -(int) (Math.abs(value) + 0.5);
-=======
-    int roundedValue = value > 0 ? (int) (value + 0.5) : -(int) (Math
-      .abs(value) + 0.5);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     return roundedValue;
   }
@@ -1812,15 +1432,7 @@ public final class Utils implements RevisionHandler {
   public static void replaceMissingWithMAX_VALUE(double[] array) {
 
     for (int i = 0; i < array.length; i++) {
-<<<<<<< HEAD
       if (isMissingValue(array[i])) {
-=======
-<<<<<<< HEAD
-      if (isMissingValue(array[i])) {
-=======
-      if (Instance.isMissingValue(array[i])) {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         array[i] = Double.MAX_VALUE;
       }
     }
@@ -1852,28 +1464,11 @@ public final class Utils implements RevisionHandler {
    */
   public static/* @pure@ */int[] sort(int[] array) {
 
-<<<<<<< HEAD
     int[] index = initialIndex(array.length);
-=======
-<<<<<<< HEAD
-    int[] index = initialIndex(array.length);
-=======
-    int[] index = new int[array.length];
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     int[] newIndex = new int[array.length];
     int[] helpIndex;
     int numEqual;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-    for (int i = 0; i < index.length; i++) {
-      index[i] = i;
-    }
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     quickSort(array, index, 0, array.length - 1);
 
     // Make sort stable
@@ -2003,10 +1598,6 @@ public final class Utils implements RevisionHandler {
    */
   public static/* @pure@ */double variance(double[] vector) {
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (vector.length <= 1)
       return Double.NaN;
 
@@ -2026,28 +1617,6 @@ public final class Utils implements RevisionHandler {
       return 0;
     } else {
       return var;
-<<<<<<< HEAD
-=======
-=======
-    double sum = 0, sumSquared = 0;
-
-    if (vector.length <= 1) {
-      return 0;
-    }
-    for (double element : vector) {
-      sum += element;
-      sumSquared += (element * element);
-    }
-    double result = (sumSquared - (sum * sum / vector.length))
-      / (vector.length - 1);
-
-    // We don't like negative variance
-    if (result < 0) {
-      return 0;
-    } else {
-      return result;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
   }
 
@@ -2256,17 +1825,8 @@ public final class Utils implements RevisionHandler {
 
       // Move pivot to the right, partition, and restore pivot
       swap(index, pivotLocation, right - 1);
-<<<<<<< HEAD
       int center =
         partition(array, index, left, right, array[index[right - 1]]);
-=======
-<<<<<<< HEAD
-      int center =
-        partition(array, index, left, right, array[index[right - 1]]);
-=======
-      int center = partition(array, index, left, right, array[index[right - 1]]);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       swap(index, center, right - 1);
 
       // Sort recursively
@@ -2339,17 +1899,8 @@ public final class Utils implements RevisionHandler {
 
       // Move pivot to the right, partition, and restore pivot
       swap(index, pivotLocation, right - 1);
-<<<<<<< HEAD
       int center =
         partition(array, index, left, right, array[index[right - 1]]);
-=======
-<<<<<<< HEAD
-      int center =
-        partition(array, index, left, right, array[index[right - 1]]);
-=======
-      int center = partition(array, index, left, right, array[index[right - 1]]);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       swap(index, center, right - 1);
 
       // Proceed recursively
@@ -2405,18 +1956,8 @@ public final class Utils implements RevisionHandler {
   protected static File createRelativePath(File absolute) throws Exception {
     File userDir = new File(System.getProperty("user.dir"));
     String userPath = userDir.getAbsolutePath() + File.separator;
-<<<<<<< HEAD
     String targetPath =
       (new File(absolute.getParent())).getPath() + File.separator;
-=======
-<<<<<<< HEAD
-    String targetPath =
-      (new File(absolute.getParent())).getPath() + File.separator;
-=======
-    String targetPath = (new File(absolute.getParent())).getPath()
-      + File.separator;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     String fileName = absolute.getName();
     StringBuffer relativePath = new StringBuffer();
     // relativePath.append("."+File.separator);
@@ -2506,10 +2047,6 @@ public final class Utils implements RevisionHandler {
   }
 
   /**
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * For a named dialog, returns true if the user has opted not to view it again
    * in the future.
    * 
@@ -2682,11 +2219,6 @@ public final class Utils implements RevisionHandler {
   }
 
   /**
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Utility method for grabbing the global info help (if it exists) from an
    * arbitrary object. Can also append capabilities information if the object is
    * a CapabilitiesHandler.
@@ -2758,46 +2290,21 @@ public final class Utils implements RevisionHandler {
         if (!result.toString().endsWith("<br><br>")) {
           result.append("<br>");
         }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         String caps =
           CapabilitiesUtils.addCapabilities(
             "<font color=red>CAPABILITIES</font>",
             ((CapabilitiesHandler) object).getCapabilities());
-<<<<<<< HEAD
-=======
-=======
-        String caps = PropertySheetPanel.addCapabilities(
-          "<font color=red>CAPABILITIES</font>",
-          ((CapabilitiesHandler) object).getCapabilities());
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         caps = Utils.lineWrap(caps, lineWidth).replace("\n", "<br>");
         result.append(caps);
       }
 
       if (object instanceof MultiInstanceCapabilitiesHandler) {
         result.append("<br>");
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         String caps =
           CapabilitiesUtils.addCapabilities(
             "<font color=red>MI CAPABILITIES</font>",
             ((MultiInstanceCapabilitiesHandler) object)
               .getMultiInstanceCapabilities());
-<<<<<<< HEAD
-=======
-=======
-        String caps = PropertySheetPanel.addCapabilities(
-          "<font color=red>MI CAPABILITIES</font>",
-          ((MultiInstanceCapabilitiesHandler) object)
-            .getMultiInstanceCapabilities());
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         caps = Utils.lineWrap(caps, lineWidth).replace("\n", "<br>");
         result.append(caps);
       }
@@ -2851,10 +2358,6 @@ public final class Utils implements RevisionHandler {
   }
 
   /**
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Returns a configured Range object given a 1-based range index string (such
    * as 1-20,35,last) or a comma-separated list of attribute names.
    * 
@@ -2970,26 +2473,13 @@ public final class Utils implements RevisionHandler {
   }
 
   /**
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Returns the revision string.
    * 
    * @return the revision
    */
   @Override
   public String getRevision() {
-<<<<<<< HEAD
     return RevisionUtils.extract("$Revision: 14606 $");
-=======
-<<<<<<< HEAD
-    return RevisionUtils.extract("$Revision: 14606 $");
-=======
-    return RevisionUtils.extract("$Revision: 10570 $");
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**

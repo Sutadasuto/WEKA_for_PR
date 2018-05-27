@@ -1,8 +1,4 @@
 /*
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -15,32 +11,10 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
-<<<<<<< HEAD
-=======
-=======
- *    This program is free software; you can redistribute it and/or modify
- *    it under the terms of the GNU General Public License as published by
- *    the Free Software Foundation; either version 2 of the License, or
- *    (at your option) any later version.
- *
- *    This program is distributed in the hope that it will be useful,
- *    but WITHOUT ANY WARRANTY; without even the implied warranty of
- *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *    GNU General Public License for more details.
- *
- *    You should have received a copy of the GNU General Public License
- *    along with this program; if not, write to the Free Software
- *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    NonSparseToSparse.java
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *    Copyright (C) 2000-2012 University of Waikato, Hamilton, New Zealand
  *
  */
@@ -52,32 +26,11 @@ import java.util.Enumeration;
 import java.util.Vector;
 
 import weka.core.*;
-<<<<<<< HEAD
-=======
-=======
- *    Copyright (C) 2000 University of Waikato, Hamilton, New Zealand
- *
- */
-
-
-package weka.filters.unsupervised.instance;
-
-import weka.core.Capabilities;
-import weka.core.Instance;
-import weka.core.Instances;
-import weka.core.RevisionUtils;
-import weka.core.SparseInstance;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.core.Capabilities.Capability;
 import weka.filters.Filter;
 import weka.filters.StreamableFilter;
 import weka.filters.UnsupervisedFilter;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 /**
  * <!-- globalinfo-start --> An instance filter that converts all incoming
  * instances into sparse format.
@@ -100,42 +53,12 @@ public class NonSparseToSparse extends Filter implements UnsupervisedFilter,
    * 
    * @return a description of the filter suitable for displaying in the
    *         explorer/experimenter gui
-<<<<<<< HEAD
-=======
-=======
-/** 
- <!-- globalinfo-start -->
- * An instance filter that converts all incoming instances into sparse format.
- * <p/>
- <!-- globalinfo-end -->
- * 
- * @author Eibe Frank (eibe@cs.waikato.ac.nz)
- * @version $Revision: 5548 $
- */
-public class NonSparseToSparse 
-  extends Filter
-  implements UnsupervisedFilter, StreamableFilter {
-
-  /** for serialization */
-  static final long serialVersionUID = 4694489111366063852L;
-  
-  /**
-   * Returns a string describing this filter
-   *
-   * @return a description of the filter suitable for
-   * displaying in the explorer/experimenter gui
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public String globalInfo() {
     return "An instance filter that converts all incoming instances"
       + " into sparse format.";
   }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /**
    * Returns the Capabilities of this filter.
    * 
@@ -143,17 +66,6 @@ public class NonSparseToSparse
    * @see Capabilities
    */
   @Override
-<<<<<<< HEAD
-=======
-=======
-  /** 
-   * Returns the Capabilities of this filter.
-   *
-   * @return            the capabilities of this object
-   * @see               Capabilities
-   */
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public Capabilities getCapabilities() {
     Capabilities result = super.getCapabilities();
     result.disableAll();
@@ -161,36 +73,16 @@ public class NonSparseToSparse
     // attributes
     result.enableAllAttributes();
     result.enable(Capability.MISSING_VALUES);
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     // class
     result.enableAllClasses();
     result.enable(Capability.MISSING_CLASS_VALUES);
     result.enable(Capability.NO_CLASS);
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return result;
   }
 
   /**
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Returns an enumeration describing the available options.
    * 
    * @return an enumeration of all the available options.
@@ -285,39 +177,6 @@ public class NonSparseToSparse
 
     Instance newInstance = null;
 
-<<<<<<< HEAD
-=======
-=======
-   * Sets the format of the input instances.
-   *
-   * @param instanceInfo an Instances object containing the input instance
-   * structure (any instances contained in the object are ignored - only the
-   * structure is required).
-   * @return true if the outputFormat may be collected immediately
-   * @throws Exception if format cannot be processed
-   */
-  public boolean setInputFormat(Instances instanceInfo) throws Exception {
-
-    super.setInputFormat(instanceInfo);
-    setOutputFormat(instanceInfo);
-    return true;
-  }
-
-
-  /**
-   * Input an instance for filtering. Ordinarily the instance is processed
-   * and made available for output immediately. Some filters require all
-   * instances be read before producing output.
-   *
-   * @param instance the input instance.
-   * @return true if the filtered instance may now be
-   * collected with output().
-   * @throws IllegalStateException if no input format has been set.
-   */
-  public boolean input(Instance instance) {
-
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (getInputFormat() == null) {
       throw new IllegalStateException("No input instance format defined");
     }
@@ -325,10 +184,6 @@ public class NonSparseToSparse
       resetQueue();
       m_NewBatch = false;
     }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     if (m_encodeMissingAsZero) {
       Instance tempInst = (Instance) instance.copy();
@@ -362,45 +217,14 @@ public class NonSparseToSparse
   @Override
   public String getRevision() {
     return RevisionUtils.extract("$Revision: 14534 $");
-<<<<<<< HEAD
-=======
-=======
-    Instance inst = new SparseInstance(instance);
-    inst.setDataset(instance.dataset());
-    push(inst);
-    return true;
-  }
-  
-  /**
-   * Returns the revision string.
-   * 
-   * @return		the revision
-   */
-  public String getRevision() {
-    return RevisionUtils.extract("$Revision: 5548 $");
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Main method for testing this class.
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param argv should contain arguments to the filter: use -h for help
    */
   public static void main(String[] argv) {
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param argv should contain arguments to the filter: use -h for help
-   */
-  public static void main(String [] argv) {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     runFilter(new NonSparseToSparse(), argv);
   }
 }

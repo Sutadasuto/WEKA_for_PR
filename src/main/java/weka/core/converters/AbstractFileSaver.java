@@ -1,8 +1,4 @@
 /*
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -15,37 +11,11 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
-<<<<<<< HEAD
-=======
-=======
- *    This program is free software; you can redistribute it and/or modify
- *    it under the terms of the GNU General Public License as published by
- *    the Free Software Foundation; either version 2 of the License, or
- *    (at your option) any later version.
- *
- *    This program is distributed in the hope that it will be useful,
- *    but WITHOUT ANY WARRANTY; without even the implied warranty of
- *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *    GNU General Public License for more details.
- *
- *    You should have received a copy of the GNU General Public License
- *    along with this program; if not, write to the Free Software
- *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    AbstractFileSaver.java
-<<<<<<< HEAD
  *    Copyright (C) 2004-2012 University of Waikato, Hamilton, New Zealand
-=======
-<<<<<<< HEAD
- *    Copyright (C) 2004-2012 University of Waikato, Hamilton, New Zealand
-=======
- *    Copyright (C) 2004 University of Waikato, Hamilton, New Zealand
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
@@ -68,10 +38,6 @@ import weka.core.Utils;
 
 /**
  * Abstract class for Savers that save to a file
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  * 
  * Valid options are:
  * 
@@ -94,29 +60,6 @@ public abstract class AbstractFileSaver extends AbstractSaver implements
 
   /** ID to avoid warning */
   private static final long serialVersionUID = 2399441762235754491L;
-<<<<<<< HEAD
-=======
-=======
- *
- * Valid options are:
- *
- * -i input arff file <br>
- * The input filw in arff format. <p>
- *
- * -o the output file <br>
- * The output file. The prefix of the output file is sufficient. If no output file is given, Saver tries to use standard out. <p>
- *
- *
- * @author Richard Kirkby (rkirkby@cs.waikato.ac.nz)
- * @author Stefan Mutter (mutter@cs.waikato.ac.nz)
- * @version $Revision: 9023 $
- */
-public abstract class AbstractFileSaver
-  extends AbstractSaver
-  implements OptionHandler, FileSourcedConverter, EnvironmentHandler {
-
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** The destination file. */
   private File m_outputFile;
@@ -126,29 +69,13 @@ public abstract class AbstractFileSaver
 
   /** The file extension of the destination file. */
   private String FILE_EXTENSION;
-<<<<<<< HEAD
 
   /** the extension for compressed files */
   private final String FILE_EXTENSION_COMPRESSED = ".gz";
-=======
-<<<<<<< HEAD
-
-  /** the extension for compressed files */
-  private final String FILE_EXTENSION_COMPRESSED = ".gz";
-=======
-  
-  /** the extension for compressed files */
-  private String FILE_EXTENSION_COMPRESSED = ".gz";
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** The prefix for the filename (chosen in the GUI). */
   private String m_prefix;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /** The directory of the file (chosen in the GUI). */
   private String m_dir;
 
@@ -156,15 +83,6 @@ public abstract class AbstractFileSaver
    * Counter. In incremental mode after reading 100 instances they will be
    * written to a file.
    */
-<<<<<<< HEAD
-=======
-=======
-  /** The directory of the file (chosen in the GUI).*/
-  private String m_dir;
-
-  /** Counter. In incremental mode after reading 100 instances they will be written to a file.*/
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   protected int m_incrementalCounter;
 
   /** use relative file paths */
@@ -173,10 +91,6 @@ public abstract class AbstractFileSaver
   /** Environment variables */
   protected transient Environment m_env;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /**
    * resets the options
    * 
@@ -206,50 +120,10 @@ public abstract class AbstractFileSaver
   public void resetWriter() {
 
     m_writer = null;
-<<<<<<< HEAD
-=======
-=======
-
-  /**
-   * resets the options
-   *
-   */
-  public void resetOptions(){
-
-     super.resetOptions();
-     m_outputFile = null;
-     m_writer = null;
-     m_prefix = "";
-     m_dir = "";
-     m_incrementalCounter = 0;
-  }
-
-
-
-  /**
-   * Gets the writer
-   *
-   * @return the BufferedWriter
-   */
-  public BufferedWriter getWriter(){
-
-      return m_writer;
-  }
-
-  /** Sets the writer to null. */
-  public void resetWriter(){
-
-      m_writer = null;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Gets ihe file extension.
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return the file extension as a string.
    */
@@ -257,25 +131,10 @@ public abstract class AbstractFileSaver
   public String getFileExtension() {
 
     return FILE_EXTENSION;
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @return the file extension as a string.
-   */
-  public String getFileExtension(){
-
-      return FILE_EXTENSION;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Gets all the file extensions used for this type of file
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return the file extensions
    */
@@ -348,80 +207,10 @@ public abstract class AbstractFileSaver
    */
   @Override
   public void setDir(String dir) {
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @return the file extensions
-   */
-  public String[] getFileExtensions() {
-    return new String[]{getFileExtension()};
-  }
-
-
-  /**
-   * Sets ihe file extension.
-   *
-   * @param ext the file extension as a string startin with '.'.
-   */
-  protected void setFileExtension(String ext){
-
-      FILE_EXTENSION = ext;
-  }
-
-
-  /**
-   * Gets the destination file.
-   *
-   * @return the destination file.
-   */
-  public File retrieveFile(){
-
-      return m_outputFile;
-  }
-
-  /** Sets the destination file.
-   * @param outputFile the destination file.
-   * @throws IOException throws an IOException if file cannot be set
-   */
-  public void setFile(File outputFile) throws IOException  {
-
-      m_outputFile = outputFile;
-      setDestination(outputFile);
-
-  }
-
-
-  /** Sets the file name prefix
-   * @param prefix the file name prefix
-   */
-  public void setFilePrefix(String prefix){
-
-      m_prefix = prefix;
-  }
-
-  /** Gets the file name prefix
-   * @return the prefix of the filename
-   */
-  public String filePrefix(){
-
-      return m_prefix;
-  }
-
-  /** Sets the directory where the instances should be stored
-   * @param dir a string containing the directory path and name
-   */
-  public void setDir(String dir){
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     m_dir = dir;
   }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /**
    * Gets the directory
    * 
@@ -431,37 +220,14 @@ public abstract class AbstractFileSaver
   public String retrieveDir() {
 
     return m_dir;
-<<<<<<< HEAD
-=======
-=======
-  /** Gets the directory
-   * @return a string with the file name
-   */
-  public String retrieveDir(){
-
-      return m_dir;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Set the environment variables to use.
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param env the environment variables to use
    */
   @Override
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param env the environment variables to use
-   */
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public void setEnvironment(Environment env) {
     m_env = env;
     if (m_outputFile != null) {
@@ -474,10 +240,6 @@ public abstract class AbstractFileSaver
     }
   }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /**
    * Returns an enumeration describing the available options.
    * 
@@ -496,36 +258,10 @@ public abstract class AbstractFileSaver
 
     newVector.addElement(new Option("\tThe output file", "o", 1,
       "-o <the output file>"));
-<<<<<<< HEAD
-=======
-=======
-
-  /**
-   * Returns an enumeration describing the available options.
-   *
-   * @return an enumeration of all the available options.
-   */
-  public Enumeration listOptions() {
-
-    Vector<Option> newVector = new Vector<Option>();
-
-    newVector.addElement(new Option(
-	"\tThe input file",
-	"i", 1, "-i <the input file>"));
-
-    newVector.addElement(new Option(
-	"\tThe output file",
-	"o", 1, "-o <the output file>"));
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     return newVector.elements();
   }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /**
    * Parses a given list of options. Valid option is:
    * <p>
@@ -547,27 +283,6 @@ public abstract class AbstractFileSaver
   public void setOptions(String[] options) throws Exception {
 
     Option.setOptionsForHierarchy(options, this, AbstractFileSaver.class);
-<<<<<<< HEAD
-=======
-=======
-
-/**
-   * Parses a given list of options. Valid option is:<p>
-   *
-   * -i input arff file <br>
-   * The input filw in arff format. <p>
-   *
-   * -o the output file <br>
-   * The output file. The prefix of the output file is sufficient. If no output file is given, Saver tries to use standard out. <p>
-   *
-   *
-   * @param options the list of options as an array of strings
-   * @exception Exception if an option is not supported
-   */
-  public void setOptions(String[] options) throws Exception {
-
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     String outputString = Utils.getOption('o', options);
     String inputString = Utils.getOption('i', options);
 
@@ -575,10 +290,6 @@ public abstract class AbstractFileSaver
 
     resetOptions();
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (inputString.length() != 0) {
       try {
         File input = new File(inputString);
@@ -614,51 +325,12 @@ public abstract class AbstractFileSaver
       } catch (Exception ex) {
         throw new IOException("Cannot create output file (Reason: "
           + ex.toString() + "). Standard out is used.");
-<<<<<<< HEAD
-=======
-=======
-    if(inputString.length() != 0){
-        try{
-            File input = new File(inputString);
-            loader.setFile(input);
-            setInstances(loader.getDataSet());
-        } catch(Exception ex){
-          ex.printStackTrace();
-            throw new IOException("No data set loaded. Data set has to be in ARFF format.");
-        }
-    }
-    if (outputString.length() != 0){
-      boolean validExt = false;
-      for (String ext: getFileExtensions()) {
-	if (outputString.endsWith(ext)) {
-	  validExt = true;
-	  break;
-	}
-      }
-      //add appropriate file extension
-      if(!validExt){
-	if(outputString.lastIndexOf('.') != -1)
-	  outputString = (outputString.substring(0,outputString.lastIndexOf('.'))) + FILE_EXTENSION;
-	else
-	  outputString = outputString + FILE_EXTENSION;
-      }
-      try{
-	File output = new File(outputString);
-	setFile(output);
-      } catch(Exception ex) {
-	throw new IOException("Cannot create output file (Reason: " + ex.toString() + "). Standard out is used.");
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
     }
   }
 
   /**
    * Gets the current settings of the Saver object.
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return an array of strings suitable for passing to setOptions
    */
@@ -680,36 +352,11 @@ public abstract class AbstractFileSaver
     if (getInstances() != null) {
       result.add("-i");
       result.add("" + getInstances().relationName());
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @return an array of strings suitable for passing to setOptions
-   */
-  public String [] getOptions() {
-    Vector<String>	result;
-
-    result = new Vector<String>();
-
-    if(m_outputFile != null){
-        result.add("-o");
-        result.add("" + m_outputFile);
-    }
-
-    if(getInstances() != null){
-        result.add("-i");
-        result.add("" + getInstances().relationName());
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
 
     return result.toArray(new String[result.size()]);
   }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /** Cancels the incremental saving process. */
   @Override
   public void cancel() {
@@ -722,44 +369,15 @@ public abstract class AbstractFileSaver
       }
       resetOptions();
     }
-<<<<<<< HEAD
-=======
-=======
-
-  /** Cancels the incremental saving process. */
-  public void cancel(){
-
-      if(getWriteMode() == CANCEL){
-        if(m_outputFile != null && m_outputFile.exists()){
-            if(m_outputFile.delete())
-                System.out.println("File deleted.");
-        }
-        resetOptions();
-      }
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Sets the destination file (and directories if necessary).
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param file the File
    * @exception IOException always
    */
   @Override
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param file the File
-   * @exception IOException always
-   */
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public void setDestination(File file) throws IOException {
 
     boolean success = false;
@@ -775,10 +393,6 @@ public abstract class AbstractFileSaver
     }
     file = new File(tempOut);
     String out = file.getAbsolutePath();
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (m_outputFile != null) {
       try {
         if (file.exists()) {
@@ -831,67 +445,11 @@ public abstract class AbstractFileSaver
    * @throws IOException throws an IOException if destination cannot be set
    */
   @Override
-<<<<<<< HEAD
-=======
-=======
-    if(m_outputFile != null){
-        try{
-            if(file.exists()){
-                if(!file.delete())
-                    throw new IOException("File already exists.");
-            }
-            if(out.lastIndexOf(File.separatorChar) == -1){
-                success = file.createNewFile();
-            }
-            else{
-                String outPath = out.substring(0,out.lastIndexOf(File.separatorChar));
-                File dir = new File(outPath);
-                if(dir.exists())
-                    success = file.createNewFile();
-                else{
-                    dir.mkdirs();
-                    success = file.createNewFile();
-                }
-            }
-            if(success){
-              if (m_useRelativePath) {
-                try {
-                  m_outputFile = Utils.convertToRelativePath(file);
-                } catch (Exception e) {
-                  m_outputFile = file;
-                }
-              } else {
-                m_outputFile = file;
-              }
-              setDestination(new FileOutputStream(m_outputFile));
-            }
-        } catch(Exception ex){
-            throw new IOException("Cannot create a new output file (Reason: " + ex.toString() + "). Standard out is used.");
-        } finally{
-            if(!success){
-                System.err.println("Cannot create a new output file. Standard out is used.");
-                m_outputFile = null; //use standard out
-            }
-        }
-    }
-  }
-
-
-  /** Sets the destination output stream.
-   * @param output the output stream.
-   * @throws IOException throws an IOException if destination cannot be set
-   */
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public void setDestination(OutputStream output) throws IOException {
 
     m_writer = new BufferedWriter(new OutputStreamWriter(output));
   }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /**
    * Sets the directory and the file prefix. This method is used in the
    * KnowledgeFlow GUI
@@ -936,81 +494,19 @@ public abstract class AbstractFileSaver
         .println("File prefix and/or directory could not have been set.");
       ex.printStackTrace();
     }
-<<<<<<< HEAD
-=======
-=======
-
-  /** Sets the directory and the file prefix.
-   * This method is used in the KnowledgeFlow GUI
-   * @param relationName the name of the relation to save
-   * @param add additional string which should be part of the filename
-   */
-  public void setDirAndPrefix(String relationName, String add){
-
-      try{
-        if(m_dir.equals("")) {
-          setDir(System.getProperty("user.dir"));
-        }
-        if(m_prefix.equals("")) {
-          if (relationName.length() == 0) {
-            throw new IOException("[Saver] Empty filename!!");
-          }
-          String concat = (m_dir + File.separator + relationName+ add + FILE_EXTENSION);
-          if (!concat.toLowerCase().endsWith(FILE_EXTENSION) && 
-              !concat.toLowerCase().endsWith(FILE_EXTENSION + FILE_EXTENSION_COMPRESSED)) {
-            concat += FILE_EXTENSION;
-          }
-          setFile(new File(concat));
-        } else {
-          if (relationName.length() > 0) {
-            relationName = "_" + relationName;
-          }
-          String concat = (m_dir + File.separator + m_prefix + relationName+ add);
-          if (!concat.toLowerCase().endsWith(FILE_EXTENSION) && 
-              !concat.toLowerCase().endsWith(FILE_EXTENSION + FILE_EXTENSION_COMPRESSED)) {
-            concat += FILE_EXTENSION;
-          }
-           setFile(new File(concat));
-        }
-      }catch(Exception ex){
-        System.err.println("File prefix and/or directory could not have been set.");
-        ex.printStackTrace();
-      }
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * to be pverridden
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return the file type description.
    */
   @Override
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @return the file type description.
-   */
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public abstract String getFileDescription();
 
   /**
    * Tip text suitable for displaying int the GUI
-<<<<<<< HEAD
    * 
-=======
-<<<<<<< HEAD
-   * 
-=======
-   *
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @return a description of this property as a String
    */
   public String useRelativePathTipText() {
@@ -1019,53 +515,25 @@ public abstract class AbstractFileSaver
 
   /**
    * Set whether to use relative rather than absolute paths
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param rp true if relative paths are to be used
    */
   @Override
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param rp true if relative paths are to be used
-   */
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public void setUseRelativePath(boolean rp) {
     m_useRelativePath = rp;
   }
 
   /**
    * Gets whether relative paths are to be used
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return true if relative paths are to be used
    */
   @Override
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @return true if relative paths are to be used
-   */
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public boolean getUseRelativePath() {
     return m_useRelativePath;
   }
 
   /**
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * generates a string suitable for output on the command line displaying all
    * available options.
    * 
@@ -1075,20 +543,6 @@ public abstract class AbstractFileSaver
   protected static String makeOptionStr(AbstractFileSaver saver) {
     StringBuffer result;
     Option option;
-<<<<<<< HEAD
-=======
-=======
-   * generates a string suitable for output on the command line displaying
-   * all available options.
-   *
-   * @param saver	the saver to create the option string for
-   * @return		the option string
-   */
-  protected static String makeOptionStr(AbstractFileSaver saver) {
-    StringBuffer 	result;
-    Option 		option;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     result = new StringBuffer();
 
@@ -1096,21 +550,9 @@ public abstract class AbstractFileSaver
     result.append("\n");
     result.append(saver.getClass().getName().replaceAll(".*\\.", ""));
     result.append(" options:\n\n");
-<<<<<<< HEAD
     Enumeration<Option> enm = saver.listOptions();
     while (enm.hasMoreElements()) {
       option = enm.nextElement();
-=======
-<<<<<<< HEAD
-    Enumeration<Option> enm = saver.listOptions();
-    while (enm.hasMoreElements()) {
-      option = enm.nextElement();
-=======
-    Enumeration enm = saver.listOptions();
-    while (enm.hasMoreElements()) {
-      option = (Option) enm.nextElement();
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       result.append(option.synopsis() + "\n");
       result.append(option.description() + "\n");
     }
@@ -1120,57 +562,25 @@ public abstract class AbstractFileSaver
 
   /**
    * runs the given saver with the specified options
-<<<<<<< HEAD
    * 
    * @param saver the saver to run
    * @param options the commandline options
-=======
-<<<<<<< HEAD
-   * 
-   * @param saver the saver to run
-   * @param options the commandline options
-=======
-   *
-   * @param saver	the saver to run
-   * @param options	the commandline options
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public static void runFileSaver(AbstractFileSaver saver, String[] options) {
     // help request?
     try {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       String[] tmpOptions = options.clone();
       if (Utils.getFlag('h', tmpOptions)) {
         System.err.println("\nHelp requested\n" + makeOptionStr(saver));
         return;
       }
     } catch (Exception e) {
-<<<<<<< HEAD
-=======
-=======
-      String[] tmpOptions = (String[]) options.clone();
-      if (Utils.getFlag('h', tmpOptions)) {
-	System.err.println("\nHelp requested\n" + makeOptionStr(saver));
-	return;
-      }
-    }
-    catch (Exception e) {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       // ignore it
     }
 
     try {
       // set options
       try {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         saver.setOptions(options);
       } catch (Exception ex) {
         System.err.println(makeOptionStr(saver));
@@ -1179,21 +589,6 @@ public abstract class AbstractFileSaver
 
       saver.writeBatch();
     } catch (Exception ex) {
-<<<<<<< HEAD
-=======
-=======
-	saver.setOptions(options);
-      }
-      catch (Exception ex) {
-	System.err.println(makeOptionStr(saver));
-	System.exit(1);
-      }
-
-      saver.writeBatch();
-    }
-    catch (Exception ex) {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       ex.printStackTrace();
     }
   }

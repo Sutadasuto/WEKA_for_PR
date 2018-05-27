@@ -1,8 +1,4 @@
 /*
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -15,37 +11,11 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
-<<<<<<< HEAD
-=======
-=======
- *    This program is free software; you can redistribute it and/or modify
- *    it under the terms of the GNU General Public License as published by
- *    the Free Software Foundation; either version 2 of the License, or
- *    (at your option) any later version.
- *
- *    This program is distributed in the hope that it will be useful,
- *    but WITHOUT ANY WARRANTY; without even the implied warranty of
- *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *    GNU General Public License for more details.
- *
- *    You should have received a copy of the GNU General Public License
- *    along with this program; if not, write to the Free Software
- *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  * KMeansInpiredMethod.java
-<<<<<<< HEAD
  * Copyright (C) 2007-2012 University of Waikato, Hamilton, New Zealand
-=======
-<<<<<<< HEAD
- * Copyright (C) 2007-2012 University of Waikato, Hamilton, New Zealand
-=======
- * Copyright (C) 2007 University of Waikato, Hamilton, New Zealand
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 package weka.core.neighboursearch.kdtrees;
@@ -54,10 +24,6 @@ import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.RevisionUtils;
 import weka.core.TechnicalInformation;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.core.TechnicalInformation.Field;
 import weka.core.TechnicalInformation.Type;
 import weka.core.TechnicalInformationHandler;
@@ -76,27 +42,6 @@ import weka.core.TechnicalInformationHandler;
  * 
  * <!-- technical-bibtex-start --> BibTeX:
  * 
-<<<<<<< HEAD
-=======
-=======
-import weka.core.TechnicalInformationHandler;
-import weka.core.TechnicalInformation.Field;
-import weka.core.TechnicalInformation.Type;
-
-/**
- <!-- globalinfo-start -->
- * The class that splits a node into two such that the overall sum of squared distances of points to their centres on both sides of the (axis-parallel) splitting plane is minimum.<br/>
- * <br/>
- * For more information see also:<br/>
- * <br/>
- * Ashraf Masood Kibriya (2007). Fast Algorithms for Nearest Neighbour Search. Hamilton, New Zealand.
- * <p/>
- <!-- globalinfo-end -->
- *
- <!-- technical-bibtex-start -->
- * BibTeX:
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  * <pre>
  * &#64;mastersthesis{Kibriya2007,
  *    address = {Hamilton, New Zealand},
@@ -107,10 +52,6 @@ import weka.core.TechnicalInformation.Type;
  * }
  * </pre>
  * <p/>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  * <!-- technical-bibtex-end -->
  * 
  * <!-- options-start --> <!-- options-end -->
@@ -121,51 +62,18 @@ import weka.core.TechnicalInformation.Type;
 public class KMeansInpiredMethod extends KDTreeNodeSplitter implements
   TechnicalInformationHandler {
 
-<<<<<<< HEAD
-=======
-=======
- <!-- technical-bibtex-end -->
- *
- <!-- options-start -->
- <!-- options-end -->
- *
- * @author Ashraf M. Kibriya (amk14[at-the-rate]cs[dot]waikato[dot]ac[dot]nz)
- * @version $Revision: 1.2 $
- */
-public class KMeansInpiredMethod
-  extends KDTreeNodeSplitter
-  implements TechnicalInformationHandler {
-  
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /** for serialization. */
   private static final long serialVersionUID = -866783749124714304L;
 
   /**
    * Returns a string describing this nearest neighbour search algorithm.
    * 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @return a description of the algorithm for displaying in the
    *         explorer/experimenter gui
    */
   public String globalInfo() {
     return "The class that splits a node into two such that the overall sum "
       + "of squared distances of points to their centres on both sides "
-<<<<<<< HEAD
-=======
-=======
-   * @return 		a description of the algorithm for displaying in the
-   *         		explorer/experimenter gui
-   */
-  public String globalInfo() {
-    return 
-        "The class that splits a node into two such that the overall sum "
-      + "of squared distances of points to their centres on both sides " 
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       + "of the (axis-parallel) splitting plane is minimum.\n\n"
       + "For more information see also:\n\n"
       + getTechnicalInformation().toString();
@@ -176,29 +84,14 @@ public class KMeansInpiredMethod
    * information about the technical background of this class, e.g., paper
    * reference or book this class is based on.
    * 
-<<<<<<< HEAD
    * @return the technical information about this class
    */
   @Override
-=======
-<<<<<<< HEAD
-   * @return the technical information about this class
-   */
-  @Override
-=======
-   * @return		the technical information about this class
-   */
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public TechnicalInformation getTechnicalInformation() {
     TechnicalInformation result;
 
     result = new TechnicalInformation(Type.MASTERSTHESIS);
     result.setValue(Field.AUTHOR, "Ashraf Masood Kibriya");
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     result
       .setValue(Field.TITLE, "Fast Algorithms for Nearest Neighbour Search");
     result.setValue(Field.YEAR, "2007");
@@ -206,23 +99,11 @@ public class KMeansInpiredMethod
       .setValue(
         Field.SCHOOL,
         "Department of Computer Science, School of Computing and Mathematical Sciences, University of Waikato");
-<<<<<<< HEAD
-=======
-=======
-    result.setValue(Field.TITLE, "Fast Algorithms for Nearest Neighbour Search");
-    result.setValue(Field.YEAR, "2007");
-    result.setValue(Field.SCHOOL, "Department of Computer Science, School of Computing and Mathematical Sciences, University of Waikato");
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     result.setValue(Field.ADDRESS, "Hamilton, New Zealand");
 
     return result;
   }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /**
    * Splits a node into two such that the overall sum of squared distances of
    * points to their centres on both sides of the (axis-parallel) splitting
@@ -241,83 +122,29 @@ public class KMeansInpiredMethod
   @Override
   public void splitNode(KDTreeNode node, int numNodesCreated,
     double[][] nodeRanges, double[][] universe) throws Exception {
-<<<<<<< HEAD
-=======
-=======
-  /** 
-   * Splits a node into two such that the overall sum of squared distances 
-   * of points to their centres on both sides of the (axis-parallel) 
-   * splitting plane is minimum. The two nodes created after the whole 
-   * splitting are correctly initialised. And, node.left and node.right 
-   * are set appropriately.
-   * @param node The node to split.
-   * @param numNodesCreated The number of nodes that so far have been
-   * created for the tree, so that the newly created nodes are 
-   * assigned correct/meaningful node numbers/ids.
-   * @param nodeRanges The attributes' range for the points inside
-   * the node that is to be split.
-   * @param universe The attributes' range for the whole 
-   * point-space.
-   * @throws Exception If there is some problem in splitting the
-   * given node.
-   */
-  public void splitNode(KDTreeNode node, int numNodesCreated,
-      double[][] nodeRanges, double[][] universe) throws Exception {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     correctlyInitialized();
 
     int splitDim = -1;
     double splitVal = Double.NEGATIVE_INFINITY;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     double leftAttSum[] = new double[m_Instances.numAttributes()], rightAttSum[] = new double[m_Instances
       .numAttributes()], leftAttSqSum[] = new double[m_Instances
       .numAttributes()], rightAttSqSum[] = new double[m_Instances
       .numAttributes()], rightSqMean, leftSqMean, leftSqSum, rightSqSum, minSum = Double.POSITIVE_INFINITY, val;
-<<<<<<< HEAD
-=======
-=======
-    double leftAttSum[] = new double[m_Instances.numAttributes()], 
-           rightAttSum[] = new double[m_Instances.numAttributes()], 
-           leftAttSqSum[] = new double[m_Instances.numAttributes()], 
-           rightAttSqSum[] = new double[m_Instances.numAttributes()], 
-           rightSqMean, leftSqMean, leftSqSum, rightSqSum, 
-           minSum = Double.POSITIVE_INFINITY, val;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     for (int dim = 0; dim < m_Instances.numAttributes(); dim++) {
       // m_MaxRelativeWidth in KDTree ensure there'll be atleast one dim with
       // width > 0.0
       if (node.m_NodeRanges[dim][WIDTH] == 0.0
-<<<<<<< HEAD
         || dim == m_Instances.classIndex()) {
         continue;
       }
-=======
-<<<<<<< HEAD
-        || dim == m_Instances.classIndex()) {
-        continue;
-      }
-=======
-          || dim == m_Instances.classIndex())
-        continue;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
       quickSort(m_Instances, m_InstList, dim, node.m_Start, node.m_End);
 
       for (int i = node.m_Start; i <= node.m_End; i++) {
         for (int j = 0; j < m_Instances.numAttributes(); j++) {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
           if (j == m_Instances.classIndex()) {
             continue;
           }
@@ -330,21 +157,6 @@ public class KMeansInpiredMethod
               val = ((val - universe[j][MIN]) / universe[j][WIDTH]); // normalizing
                                                                      // value
             }
-<<<<<<< HEAD
-=======
-=======
-          if (j == m_Instances.classIndex())
-            continue;
-          val = m_Instances.instance(m_InstList[i]).value(j);
-          if (m_NormalizeNodeWidth) {
-            if (Double.isNaN(universe[j][MIN])
-                || universe[j][MIN] == universe[j][MAX])
-              val = 0.0;
-            else
-              val = ((val - universe[j][MIN]) / universe[j][WIDTH]); // normalizing
-                                                                      // value
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
           }
           if (i == node.m_Start) {
             leftAttSum[j] = rightAttSum[j] = leftAttSqSum[j] = rightAttSqSum[j] = 0.0;
@@ -358,44 +170,19 @@ public class KMeansInpiredMethod
         Instance inst = m_Instances.instance(m_InstList[i]);
         leftSqSum = rightSqSum = 0.0;
         for (int j = 0; j < m_Instances.numAttributes(); j++) {
-<<<<<<< HEAD
           if (j == m_Instances.classIndex()) {
             continue;
           }
-=======
-<<<<<<< HEAD
-          if (j == m_Instances.classIndex()) {
-            continue;
-          }
-=======
-          if (j == m_Instances.classIndex())
-            continue;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
           val = inst.value(j);
 
           if (m_NormalizeNodeWidth) {
             if (Double.isNaN(universe[j][MIN])
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
               || universe[j][MIN] == universe[j][MAX]) {
               val = 0.0;
             } else {
               val = ((val - universe[j][MIN]) / universe[j][WIDTH]); // normalizing
                                                                      // value
             }
-<<<<<<< HEAD
-=======
-=======
-                || universe[j][MIN] == universe[j][MAX])
-              val = 0.0;
-            else
-              val = ((val - universe[j][MIN]) / universe[j][WIDTH]); // normalizing
-                                                                      // value
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
           }
 
           leftAttSum[j] += val;
@@ -414,26 +201,12 @@ public class KMeansInpiredMethod
         if (minSum > (leftSqSum + rightSqSum)) {
           minSum = leftSqSum + rightSqSum;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
           if (i < node.m_End) {
             splitVal = (m_Instances.instance(m_InstList[i]).value(dim) + m_Instances
               .instance(m_InstList[i + 1]).value(dim)) / 2;
           } else {
             splitVal = m_Instances.instance(m_InstList[i]).value(dim);
           }
-<<<<<<< HEAD
-=======
-=======
-          if (i < node.m_End)
-            splitVal = (m_Instances.instance(m_InstList[i]).value(dim) + m_Instances
-                .instance(m_InstList[i + 1]).value(dim)) / 2;
-          else
-            splitVal = m_Instances.instance(m_InstList[i]).value(dim);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
           splitDim = dim;
         }
@@ -441,10 +214,6 @@ public class KMeansInpiredMethod
     }// end for attribute dim
 
     int rightStart = rearrangePoints(m_InstList, node.m_Start, node.m_End,
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       splitDim, splitVal);
 
     if (rightStart == node.m_Start || rightStart > node.m_End) {
@@ -463,60 +232,20 @@ public class KMeansInpiredMethod
           + ". Not possible with "
           + "KMeansInspiredMethod splitting method. Please " + "check code.");
       }
-<<<<<<< HEAD
-=======
-=======
-        splitDim, splitVal);
-
-    if (rightStart == node.m_Start || rightStart > node.m_End) {
-      System.out.println("node.m_Start: " + node.m_Start + " node.m_End: "
-          + node.m_End + " splitDim: " + splitDim + " splitVal: " + splitVal
-          + " node.min: " + node.m_NodeRanges[splitDim][MIN] + " node.max: "
-          + node.m_NodeRanges[splitDim][MAX] + " node.numInstances: "
-          + node.numInstances());
-
-      if (rightStart == node.m_Start)
-        throw new Exception("Left child is empty in node " + node.m_NodeNumber
-            + ". Not possible with "
-            + "KMeanInspiredMethod splitting method. Please " + "check code.");
-      else
-        throw new Exception("Right child is empty in node " + node.m_NodeNumber
-            + ". Not possible with "
-            + "KMeansInspiredMethod splitting method. Please " + "check code.");
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
 
     node.m_SplitDim = splitDim;
     node.m_SplitValue = splitVal;
     node.m_Left = new KDTreeNode(numNodesCreated + 1, node.m_Start,
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       rightStart - 1, m_EuclideanDistance.initializeRanges(m_InstList,
         node.m_Start, rightStart - 1));
     node.m_Right = new KDTreeNode(numNodesCreated + 2, rightStart, node.m_End,
       m_EuclideanDistance.initializeRanges(m_InstList, rightStart, node.m_End));
-<<<<<<< HEAD
-=======
-=======
-        rightStart - 1, m_EuclideanDistance.initializeRanges(m_InstList,
-            node.m_Start, rightStart - 1));
-    node.m_Right = new KDTreeNode(numNodesCreated + 2, rightStart, node.m_End,
-        m_EuclideanDistance
-            .initializeRanges(m_InstList, rightStart, node.m_End));
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Partitions the instances around a pivot. Used by quicksort and
    * kthSmallestValue.
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param insts The instances on which the tree is (or is to be) built.
    * @param index The master index array containing indices of the instances.
@@ -531,26 +260,6 @@ public class KMeansInpiredMethod
   protected static int partition(Instances insts, int[] index, int attidx,
     int l, int r) {
 
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param insts	The instances on which the tree is (or is 
-   * to be) built.
-   * @param index The master index array containing indices 
-   * of the instances.
-   * @param attidx The attribution/dimension based on which
-   * the instances should be partitioned.
-   * @param l	The begining index of the portion of master index 
-   * array that should be partitioned. 
-   * @param r	The end index of the portion of master index array 
-   * that should be partitioned.
-   * @return the index of the middle element
-   */
-  protected static int partition(Instances insts, int[] index, int attidx, int l, int r) {
-    
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     double pivot = insts.instance(index[(l + r) / 2]).value(attidx);
     int help;
 
@@ -571,10 +280,6 @@ public class KMeansInpiredMethod
     }
     if ((l == r) && (insts.instance(index[r]).value(attidx) > pivot)) {
       r--;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
 
     return r;
@@ -595,43 +300,12 @@ public class KMeansInpiredMethod
    */
   protected static void quickSort(Instances insts, int[] indices, int attidx,
     int left, int right) {
-<<<<<<< HEAD
-=======
-=======
-    } 
-
-    return r;
-  }
-  
-  /**
-   * Sorts the instances according to the given attribute/dimension.
-   * The sorting is done on the master index array and not on the
-   * actual instances object.
-   * 
-   * @param insts The instances on which the tree is (or is 
-   * to be) built.
-   * @param indices The master index array containing indices 
-   * of the instances.
-   * @param attidx The dimension/attribute based on which 
-   * the instances should be sorted.
-   * @param left The begining index of the portion of the master 
-   * index array that needs to be sorted.
-   * @param right The end index of the portion of the master index 
-   * array that needs to be sorted.
-   */
-  protected static void quickSort(Instances insts, int[] indices, int attidx, int left, int right) {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     if (left < right) {
       int middle = partition(insts, indices, attidx, left, right);
       quickSort(insts, indices, attidx, left, middle);
       quickSort(insts, indices, attidx, middle + 1, right);
     }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -655,69 +329,6 @@ public class KMeansInpiredMethod
     for (int i = startidx; i <= endidx; i++) {
       if (m_EuclideanDistance.valueIsSmallerEqual(
         m_Instances.instance(indices[i]), splitDim, splitVal)) {
-<<<<<<< HEAD
-=======
-=======
-  }  
-
-  /**
-   * Method to validate the sorting done by quickSort().
-   * 
-   * @param insts The instances on which the tree is (or is 
-   * to be) built.
-   * @param indices The master index array containing indices 
-   * of the instances.
-   * @param attidx The dimension/attribute based on which 
-   * the instances should be sorted.
-   * @param start The start of the portion in master index
-   * array that needs to be sorted.
-   * @param end The end of the portion in master index 
-   * array that needs to be sorted.
-   * @throws Exception If the indices of the instances 
-   * are not in sorted order.
-   */
-  private static void checkSort(Instances insts, int[] indices, int attidx, 
-                               int start, int end) throws Exception {
-    for(int i=start+1; i<=end; i++) {
-      if( insts.instance(indices[i-1]).value(attidx) > 
-          insts.instance(indices[i]).value(attidx) ) {
-        System.out.println("value[i-1]: "+insts.instance(indices[i-1]).value(attidx));
-        System.out.println("value[i]: "+insts.instance(indices[i]).value(attidx));
-        System.out.println("indices[i-1]: "+indices[i-1]);
-        System.out.println("indices[i]: "+indices[i]);
-        System.out.println("i: "+i);
-        if(insts.instance(indices[i-1]).value(attidx) > insts.instance(indices[i]).value(attidx))
-          System.out.println("value[i-1] > value[i]");
-        
-        throw new Exception("Indices not sorted correctly.");
-      }//end if
-    }
-  }
-  
-  /** 
-   * Re-arranges the indices array so that in the portion of the array
-   * belonging to the node to be split, the points <= to the splitVal 
-   * are on the left of the portion and those > the splitVal are on the right.
-   * 
-   * @param indices The master index array.
-   * @param startidx The begining index of portion of indices that needs 
-   * re-arranging. 
-   * @param endidx The end index of portion of indices that needs 
-   * re-arranging. 
-   * @param splitDim The split dimension/attribute.
-   * @param splitVal The split value.
-   * @return The startIdx of the points > the splitVal (the points 
-   * belonging to the right child of the node).
-   */
-  protected int rearrangePoints(int[] indices, final int startidx, final int endidx,
-      			      final int splitDim, final double splitVal) {
-    
-    int tmp, left = startidx - 1;
-    for (int i = startidx; i <= endidx; i++) {
-      if (m_EuclideanDistance.valueIsSmallerEqual(m_Instances
-          .instance(indices[i]), splitDim, splitVal)) {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         left++;
         tmp = indices[left];
         indices[left] = indices[i];
@@ -726,10 +337,6 @@ public class KMeansInpiredMethod
     }// endfor
     return left + 1;
   }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /**
    * Returns the revision string.
@@ -739,18 +346,5 @@ public class KMeansInpiredMethod
   @Override
   public String getRevision() {
     return RevisionUtils.extract("$Revision: 10203 $");
-<<<<<<< HEAD
-=======
-=======
-  
-  /**
-   * Returns the revision string.
-   * 
-   * @return		the revision
-   */
-  public String getRevision() {
-    return RevisionUtils.extract("$Revision: 1.2 $");
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 }

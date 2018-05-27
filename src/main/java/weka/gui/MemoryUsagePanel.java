@@ -1,8 +1,4 @@
 /*
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -15,51 +11,15 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
-<<<<<<< HEAD
-=======
-=======
- *    This program is free software; you can redistribute it and/or modify
- *    it under the terms of the GNU General Public License as published by
- *    the Free Software Foundation; either version 2 of the License, or
- *    (at your option) any later version.
- *
- *    This program is distributed in the hope that it will be useful,
- *    but WITHOUT ANY WARRANTY; without even the implied warranty of
- *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *    GNU General Public License for more details.
- *
- *    You should have received a copy of the GNU General Public License
- *    along with this program; if not, write to the Free Software
- *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  * MemoryUsagePanel.java
-<<<<<<< HEAD
  * Copyright (C) 2008-2012 University of Waikato, Hamilton, New Zealand
-=======
-<<<<<<< HEAD
- * Copyright (C) 2008-2012 University of Waikato, Hamilton, New Zealand
-=======
- * Copyright (C) 2008 University of Waikato, Hamilton, New Zealand
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 package weka.gui;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-import weka.core.Memory;
-import weka.core.Utils;
-import weka.gui.visualize.VisualizeUtils;
-
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -78,10 +38,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.core.Memory;
 import weka.core.Utils;
 import weka.gui.visualize.VisualizeUtils;
@@ -93,19 +49,6 @@ import weka.gui.visualize.VisualizeUtils;
  * @version $Revision: 10216 $
  */
 public class MemoryUsagePanel extends JPanel {
-<<<<<<< HEAD
-=======
-=======
-/**
- * A panel for displaying the memory usage.
- * 
- * @author  fracpete (fracpete at waikato dot ac dot nz)
- * @version $Revision: 7059 $
- */
-public class MemoryUsagePanel
-  extends JPanel {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** for serialization. */
   private static final long serialVersionUID = -4812319791687471721L;
@@ -113,10 +56,6 @@ public class MemoryUsagePanel
   /**
    * Specialized thread for monitoring the memory usage.
    * 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @author fracpete (fracpete at waikato dot ac dot nz)
    * @version $Revision: 10216 $
    */
@@ -128,33 +67,12 @@ public class MemoryUsagePanel
     /** whether the thread is still running. */
     protected boolean m_Monitoring;
 
-<<<<<<< HEAD
-=======
-=======
-   * @author  fracpete (fracpete at waikato dot ac dot nz)
-   * @version $Revision: 7059 $
-   */
-  protected class MemoryMonitor
-    extends Thread {
-    
-    /** the refresh interval in msecs. */
-    protected int m_Interval;
-    
-    /** whether the thread is still running. */
-    protected boolean m_Monitoring;
-    
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     /**
      * default constructor.
      */
     public MemoryMonitor() {
       super();
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       setInterval(1000); // TODO: via props file
     }
 
@@ -162,77 +80,29 @@ public class MemoryUsagePanel
      * Returns the refresh interval in msecs.
      * 
      * @return returns the refresh interval
-<<<<<<< HEAD
-=======
-=======
-      setInterval(1000);  // TODO: via props file
-    }
-    
-    /**
-     * Returns the refresh interval in msecs.
-     * 
-     * @return		returns the refresh interval
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
      */
     public int getInterval() {
       return m_Interval;
     }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     /**
      * Sets the refresh interval in msecs.
      * 
      * @param value the refresh interval
-<<<<<<< HEAD
-=======
-=======
-    
-    /**
-     * Sets the refresh interval in msecs.
-     * 
-     * @param value	the refresh interval
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
      */
     public void setInterval(int value) {
       m_Interval = value;
     }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     /**
      * Returns whether the thread is still running.
      * 
      * @return true if the thread is still running
-<<<<<<< HEAD
-=======
-=======
-    
-    /**
-     * Returns whether the thread is still running.
-     * 
-     * @return		true if the thread is still running
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
      */
     public boolean isMonitoring() {
       return m_Monitoring;
     }
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     /**
      * stops the monitoring thread.
      */
@@ -243,10 +113,6 @@ public class MemoryUsagePanel
     /**
      * The run method.
      */
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     @Override
     public void run() {
       m_Monitoring = true;
@@ -271,58 +137,16 @@ public class MemoryUsagePanel
       }
     }
 
-<<<<<<< HEAD
-=======
-=======
-    public void run() {
-      m_Monitoring = true;
-      
-      while (m_Monitoring) {
-	try {
-	  Thread.sleep(m_Interval);
-	  
-	  // update GUI
-	  if (m_Monitoring) {
-	    Runnable doUpdate = new Runnable() {
-	      public void run() {
-		update();
-	      }
-	    };
-	    SwingUtilities.invokeLater(doUpdate);
-	  }
-	} 
-	catch(InterruptedException ex) { 
-	  ex.printStackTrace();
-	}
-      }
-    }
-    
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     /**
      * Updates the GUI.
      */
     protected void update() {
-<<<<<<< HEAD
       double perc;
       Dimension size;
-=======
-<<<<<<< HEAD
-      double perc;
-      Dimension size;
-=======
-      double		perc;
-      Dimension		size;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
       // current usage
       perc = (double) m_Memory.getCurrent() / (double) m_Memory.getMax();
       perc = Math.round(perc * 1000) / 10;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
       // tool tip
       setToolTipText("" + perc + "% used");
@@ -334,29 +158,10 @@ public class MemoryUsagePanel
         m_History.remove(m_History.size() - 1);
       }
 
-<<<<<<< HEAD
-=======
-=======
-      
-      // tool tip
-      setToolTipText("" + perc + Messages.getInstance().getString("MemoryUsagePanel_MemoryMonitor_Update_SetToolTipText_Text"));
-      
-      // update history
-      m_History.insertElementAt(perc, 0);
-      size = getSize();
-      while (m_History.size() > size.getWidth())
-	m_History.remove(m_History.size() - 1);
-      
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       // display history
       repaint();
     }
   }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** The name of the properties file. */
   protected static String PROPERTY_FILE = "weka/gui/MemoryUsage.props";
@@ -364,18 +169,6 @@ public class MemoryUsagePanel
   /** Contains the properties. */
   protected static Properties PROPERTIES;
 
-<<<<<<< HEAD
-=======
-=======
-  
-  /** The name of the properties file. */
-  protected static String PROPERTY_FILE = "weka/gui/MemoryUsage.props";
-    
-  /** Contains the properties. */
-  protected static Properties PROPERTIES;
-  
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /** the memory usage over time. */
   protected Vector<Double> m_History;
 
@@ -384,24 +177,12 @@ public class MemoryUsagePanel
 
   /** the thread for monitoring the memory usage. */
   protected MemoryMonitor m_Monitor;
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-
-=======
-  
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /** the button for running the garbage collector. */
   protected JButton m_ButtonGC;
 
   /** the threshold percentages to change color. */
   protected Vector<Double> m_Percentages;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** the corresponding colors for the thresholds. */
   protected Hashtable<Double, Color> m_Colors;
@@ -409,41 +190,16 @@ public class MemoryUsagePanel
   /** the default color. */
   protected Color m_DefaultColor;
 
-<<<<<<< HEAD
-=======
-=======
-  
-  /** the corresponding colors for the thresholds. */
-  protected Hashtable<Double,Color> m_Colors;
-  
-  /** the default color. */
-  protected Color m_DefaultColor;
-  
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /** the background color. */
   protected Color m_BackgroundColor;
 
   /** the position for the dialog. */
   protected Point m_FrameLocation;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /**
    * Loads the configuration property file (USE_DYNAMIC is FALSE) or determines
    * the classes dynamically (USE_DYNAMIC is TRUE)
    * 
-<<<<<<< HEAD
-=======
-=======
-  
-  /** 
-   * Loads the configuration property file (USE_DYNAMIC is FALSE) or determines
-   * the classes dynamically (USE_DYNAMIC is TRUE)
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @see #USE_DYNAMIC
    * @see GenericPropertiesCreator
    */
@@ -451,10 +207,6 @@ public class MemoryUsagePanel
     // Allow a properties file in the current directory to override
     try {
       PROPERTIES = Utils.readProperties(PROPERTY_FILE);
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       Enumeration<?> keys = PROPERTIES.propertyNames();
       if (!keys.hasMoreElements()) {
         throw new Exception("Failed to read a property file for the "
@@ -472,26 +224,6 @@ public class MemoryUsagePanel
     }
   }
 
-<<<<<<< HEAD
-=======
-=======
-      Enumeration keys = PROPERTIES.propertyNames();
-      if (!keys.hasMoreElements())
-	throw new Exception(Messages.getInstance().getString("MemoryUsagePanel_Exception_Text"));
-    }
-    catch (Exception ex) {
-      JOptionPane.showMessageDialog(
-	  null,
-	  Messages.getInstance().getString("MemoryUsagePanel_Exception_JOptionPaneShowMessageDialog_Text_First") 
-	  + System.getProperties().getProperty("user.home") 
-	  + Messages.getInstance().getString("MemoryUsagePanel_Exception_JOptionPaneShowMessageDialog_Text_Third"),
-	  Messages.getInstance().getString("MemoryUsagePanel_Exception_JOptionPaneShowMessageDialog_Text_Fourth"),
-	  JOptionPane.ERROR_MESSAGE);
-    }
-  }
-  
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /**
    * default constructor.
    */
@@ -499,10 +231,6 @@ public class MemoryUsagePanel
     super();
 
     // initializes members
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     m_Memory = new Memory();
     m_History = new Vector<Double>();
     m_Percentages = new Vector<Double>();
@@ -545,63 +273,11 @@ public class MemoryUsagePanel
     }
     Collections.sort(m_Percentages);
 
-<<<<<<< HEAD
-=======
-=======
-    m_Memory      = new Memory();
-    m_History     = new Vector<Double>();
-    m_Percentages = new Vector<Double>();
-    m_Colors      = new Hashtable<Double,Color>();
-
-    // colors and percentages
-    m_BackgroundColor = parseColor("BackgroundColor", Color.WHITE);
-    m_DefaultColor    = parseColor("DefaultColor", Color.GREEN);
-    String[] percs    = PROPERTIES.getProperty("Percentages", "70,80,90").split(",");
-    for (int i = 0; i < percs.length; i++) {
-      // do we have a color associated with percentage?
-      if (PROPERTIES.getProperty(percs[i]) != null) {
-	double perc;
-	Color color;
-	
-	// try parsing the number
-	try {
-	  perc = Double.parseDouble(percs[i]);
-	}
-	catch (Exception e) {
-	  System.err.println(
-			  Messages.getInstance().getString("MemoryUsagePanel_Error_First") 
-	      + percs[i] + Messages.getInstance().getString("MemoryUsagePanel_Error_Second"));
-	  continue;
-	}
-
-	// try parsing the color
-	color = parseColor(percs[i], null);
-	if (color == null)
-	  continue;
-	
-	// store color and percentage
-	m_Percentages.add(perc);
-	m_Colors.put(perc, color);
-      }
-      else {
-	System.err.println(
-			Messages.getInstance().getString("MemoryUsagePanel_Error_Third") 
-	    + percs[i] + Messages.getInstance().getString("MemoryUsagePanel_Error_Fourth"));
-      }
-    }
-    Collections.sort(m_Percentages);
-    
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     // layout
     setLayout(new BorderLayout());
 
     JPanel panel = new JPanel(new BorderLayout());
     add(panel, BorderLayout.EAST);
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     m_ButtonGC = new JButton("GC");
     m_ButtonGC.setToolTipText("Runs the garbage collector.");
@@ -609,17 +285,6 @@ public class MemoryUsagePanel
       @Override
       public void actionPerformed(ActionEvent evt) {
         System.gc();
-<<<<<<< HEAD
-=======
-=======
-    
-    m_ButtonGC = new JButton(Messages.getInstance().getString("MemoryUsagePanel_ButtonGC_JButton_Text"));
-    m_ButtonGC.setToolTipText(Messages.getInstance().getString("MemoryUsagePanel_ButtonGC_SetToolTipText_Text"));
-    m_ButtonGC.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent evt) {
-	System.gc();
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
     });
     panel.add(m_ButtonGC, BorderLayout.NORTH);
@@ -628,26 +293,12 @@ public class MemoryUsagePanel
     int height;
     int width;
     try {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       height = Integer.parseInt(PROPERTIES.getProperty("Height", ""
         + (int) m_ButtonGC.getPreferredSize().getHeight()));
       width = Integer.parseInt(PROPERTIES.getProperty("Width", "400"));
     } catch (Exception e) {
       System.err.println("MemoryUsagePanel: Problem parsing the dimensions - "
         + e);
-<<<<<<< HEAD
-=======
-=======
-      height = Integer.parseInt(PROPERTIES.getProperty("Height", "" + (int) m_ButtonGC.getPreferredSize().getHeight()));
-      width  = Integer.parseInt(PROPERTIES.getProperty("Width", "400"));
-    }
-    catch (Exception e) {
-      System.err.println(Messages.getInstance().getString("MemoryUsagePanel_Error_Fifth") + e);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       height = (int) m_ButtonGC.getPreferredSize().getHeight();
       width = 400;
     }
@@ -657,10 +308,6 @@ public class MemoryUsagePanel
     int top;
     int left;
     try {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       top = Integer.parseInt(PROPERTIES.getProperty("Top", "0"));
       left = Integer.parseInt(PROPERTIES.getProperty("Left", "0"));
     } catch (Exception e) {
@@ -671,41 +318,14 @@ public class MemoryUsagePanel
     }
     m_FrameLocation = new Point(left, top);
 
-<<<<<<< HEAD
-=======
-=======
-      top  = Integer.parseInt(PROPERTIES.getProperty("Top", "0"));
-      left = Integer.parseInt(PROPERTIES.getProperty("Left", "0"));
-    }
-    catch (Exception e) {
-      System.err.println(Messages.getInstance().getString("MemoryUsagePanel_Error_Sixth") + e);
-      top  = 0;
-      left = 0;
-    }
-    m_FrameLocation = new Point(left, top);
-    
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     // monitoring thread
     int interval;
     try {
       interval = Integer.parseInt(PROPERTIES.getProperty("Interval", "1000"));
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     } catch (Exception e) {
       System.err
         .println("MemoryUsagePanel: Problem parsing the refresh interval - "
           + e);
-<<<<<<< HEAD
-=======
-=======
-    }
-    catch (Exception e) {
-      System.err.println(Messages.getInstance().getString("MemoryUsagePanel_Error_Seventh") + e);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       interval = 1000;
     }
     m_Monitor = new MemoryMonitor();
@@ -717,10 +337,6 @@ public class MemoryUsagePanel
   /**
    * parses the color and returns the corresponding Color object.
    * 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param prop the color property to read and parse
    * @param defValue the default color
    * @return the parsed color or the default color of the
@@ -751,88 +367,26 @@ public class MemoryUsagePanel
    * Returns whether the thread is still running.
    * 
    * @return true if the thread is still running
-<<<<<<< HEAD
-=======
-=======
-   * @param prop	the color property to read and parse
-   * @param defValue	the default color
-   * @return		the parsed color or the default color of the 
-   */
-  protected Color parseColor(String prop, Color defValue) {
-    Color	result;
-    Color	color;
-    String 	colorStr;
-    
-    result = defValue;
-    
-    try {
-      colorStr = PROPERTIES.getProperty(prop);
-      color    = VisualizeUtils.processColour(colorStr, result);
-      if (color == null)
-	throw new Exception(colorStr);
-      result = color;
-    }
-    catch (Exception e) {
-      System.err.println(
-    		  Messages.getInstance().getString("MemoryUsagePanel_Error_Eighth") 
-	  + e.getMessage() + Messages.getInstance().getString("MemoryUsagePanel_Error_Nineth"));
-    }
-    
-    return result;
-  }
-  
-  /**
-   * Returns whether the thread is still running.
-   * 
-   * @return		true if the thread is still running
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public boolean isMonitoring() {
     return m_Monitor.isMonitoring();
   }
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-
-=======
-  
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /**
    * stops the monitoring thread.
    */
   public void stopMonitoring() {
     m_Monitor.stopMonitoring();
   }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /**
    * Returns the default position for the dialog.
    * 
    * @return the default position
-<<<<<<< HEAD
-=======
-=======
-  
-  /**
-   * Returns the default position for the dialog.
-   * 
-   * @return		the default position
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public Point getFrameLocation() {
     return m_FrameLocation;
   }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /**
    * draws the background image.
@@ -865,42 +419,6 @@ public class MemoryUsagePanel
         }
       }
 
-<<<<<<< HEAD
-=======
-=======
-  
-  /**
-   * draws the background image.
-   * 
-   * @param g		the graphics context
-   */
-  public void paintComponent(Graphics g) {
-    int		i;
-    int		n;
-    int		len;
-    double	scale;
-    double	perc;
-    Color	color;
-    
-    super.paintComponent(g);
-    
-    g.setColor(m_BackgroundColor);
-    g.fillRect(0, 0, getWidth(), getHeight());
-    scale = (double) getHeight() / 100.0;
-    for (i = 0; i < m_History.size(); i++) {
-      perc = m_History.get(i);
-      
-      // determine color
-      color = m_DefaultColor;
-      for (n = m_Percentages.size() - 1; n >= 0; n--) {
-	if (perc >= m_Percentages.get(n)) {
-	  color = m_Colors.get(m_Percentages.get(n));
-	  break;
-	}
-      }
-      
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       // paint line
       g.setColor(color);
       len = (int) Math.round(perc * scale);

@@ -1,8 +1,4 @@
 /*
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -15,46 +11,16 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
-<<<<<<< HEAD
-=======
-=======
- *    This program is free software; you can redistribute it and/or modify
- *    it under the terms of the GNU General Public License as published by
- *    the Free Software Foundation; either version 2 of the License, or
- *    (at your option) any later version.
- *
- *    This program is distributed in the hope that it will be useful,
- *    but WITHOUT ANY WARRANTY; without even the implied warranty of
- *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *    GNU General Public License for more details.
- *
- *    You should have received a copy of the GNU General Public License
- *    along with this program; if not, write to the Free Software
- *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    CVParameterSelection.java
-<<<<<<< HEAD
  *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
-=======
-<<<<<<< HEAD
- *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
-=======
- *    Copyright (C) 1999 University of Waikato, Hamilton, New Zealand
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
 package weka.classifiers.meta;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.io.Serializable;
 import java.util.Collections;
 import java.util.Enumeration;
@@ -63,22 +29,10 @@ import java.util.Vector;
 
 import weka.classifiers.AbstractClassifier;
 import weka.classifiers.Classifier;
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.classifiers.Evaluation;
 import weka.classifiers.RandomizableSingleClassifierEnhancer;
 import weka.core.Capabilities;
 import weka.core.Drawable;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-import weka.core.FastVector;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.Option;
@@ -87,30 +41,10 @@ import weka.core.RevisionHandler;
 import weka.core.RevisionUtils;
 import weka.core.Summarizable;
 import weka.core.TechnicalInformation;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.core.TechnicalInformation.Field;
 import weka.core.TechnicalInformation.Type;
 import weka.core.TechnicalInformationHandler;
 import weka.core.Utils;
-<<<<<<< HEAD
-=======
-=======
-import weka.core.TechnicalInformationHandler;
-import weka.core.Utils;
-import weka.core.TechnicalInformation.Field;
-import weka.core.TechnicalInformation.Type;
-
-import java.io.Serializable;
-import java.io.StreamTokenizer;
-import java.io.StringReader;
-import java.util.Enumeration;
-import java.util.Random;
-import java.util.Vector;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
 /**
  <!-- globalinfo-start -->
@@ -178,15 +112,7 @@ import java.util.Vector;
  * Options after -- are passed to the designated sub-classifier. <p>
  *
  * @author Len Trigg (trigg@cs.waikato.ac.nz)
-<<<<<<< HEAD
  * @version $Revision: 13370 $ 
-=======
-<<<<<<< HEAD
- * @version $Revision: 13370 $ 
-=======
- * @version $Revision: 8180 $ 
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 */
 public class CVParameterSelection 
   extends RandomizableSingleClassifierEnhancer
@@ -225,15 +151,7 @@ public class CVParameterSelection
 
     /**  True if the parameter should be rounded to an integer */
     private boolean m_RoundParam;
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     /**
      * Constructs a CVParameter.
      * 
@@ -324,15 +242,7 @@ public class CVParameterSelection
      * @return		the revision
      */
     public String getRevision() {
-<<<<<<< HEAD
       return RevisionUtils.extract("$Revision: 13370 $");
-=======
-<<<<<<< HEAD
-      return RevisionUtils.extract("$Revision: 13370 $");
-=======
-      return RevisionUtils.extract("$Revision: 8180 $");
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
   }
 
@@ -353,15 +263,7 @@ public class CVParameterSelection
   protected double m_BestPerformance;
 
   /** The set of parameters to cross-validate over */
-<<<<<<< HEAD
   protected Vector<CVParameter> m_CVParams = new Vector<CVParameter>();
-=======
-<<<<<<< HEAD
-  protected Vector<CVParameter> m_CVParams = new Vector<CVParameter>();
-=======
-  protected FastVector m_CVParams = new FastVector();
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** The number of attributes in the data */
   protected int m_NumAttributes;
@@ -395,19 +297,8 @@ public class CVParameterSelection
       }
       boolean isInt = ((paramValue - (int)paramValue) == 0);
       
-<<<<<<< HEAD
       if (cvParam.m_AddAtEnd) {
         options[--end] = "" + ((cvParam.m_RoundParam || isInt) ? 
-=======
-<<<<<<< HEAD
-      if (cvParam.m_AddAtEnd) {
-        options[--end] = "" + ((cvParam.m_RoundParam || isInt) ? 
-=======
-      
-      if (cvParam.m_AddAtEnd) {
-	options[--end] = "" + ((cvParam.m_RoundParam || isInt) ? 
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
             Utils.doubleToString(paramValue,4) : cvParam.m_ParamValue);
 	//Utils.doubleToString(paramValue,4);
 	options[--end] = "-" + cvParam.m_ParamChar;
@@ -440,10 +331,6 @@ public class CVParameterSelection
     throws Exception {
 
     if (depth < m_CVParams.size()) {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       CVParameter cvParam = (CVParameter) m_CVParams.elementAt(depth);
 
       double upper;
@@ -482,54 +369,10 @@ public class CVParameterSelection
         System.err.println("");
       }
       ((OptionHandler) copiedClassifier).setOptions(options);
-<<<<<<< HEAD
-=======
-=======
-      CVParameter cvParam = (CVParameter)m_CVParams.elementAt(depth);
-
-      double upper;
-      switch ((int)(cvParam.m_Lower - cvParam.m_Upper + 0.5)) {
-      case 1:
-	upper = m_NumAttributes;
-	break;
-      case 2:
-	upper = m_TrainFoldSize;
-	break;
-      default:
-	upper = cvParam.m_Upper;
-	break;
-      }
-      double increment = (upper - cvParam.m_Lower) / (cvParam.m_Steps - 1);
-      for(cvParam.m_ParamValue = cvParam.m_Lower; 
-	  cvParam.m_ParamValue <= upper; 
-	  cvParam.m_ParamValue += increment) {
-	findParamsByCrossValidation(depth + 1, trainData, random);
-      }
-    } else {
-      
-      Evaluation evaluation = new Evaluation(trainData);
-
-      // Set the classifier options
-      String [] options = createOptions();
-      if (m_Debug) {
-	System.err.print("Setting options for " 
-			 + m_Classifier.getClass().getName() + ":");
-	for (int i = 0; i < options.length; i++) {
-	  System.err.print(" " + options[i]);
-	}
-	System.err.println("");
-      }
-      ((OptionHandler)m_Classifier).setOptions(options);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       for (int j = 0; j < m_NumFolds; j++) {
 
         // We want to randomize the data the same way for every 
         // learning scheme.
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         Instances train = trainData.trainCV(m_NumFolds, j, new Random(1));
         Instances test = trainData.testCV(m_NumFolds, j);
         copiedClassifier.buildClassifier(train);
@@ -545,26 +388,6 @@ public class CVParameterSelection
 
         m_BestPerformance = error;
         m_BestClassifierOptions = createOptions();
-<<<<<<< HEAD
-=======
-=======
-	Instances train = trainData.trainCV(m_NumFolds, j, new Random(1));
-	Instances test = trainData.testCV(m_NumFolds, j);
-	m_Classifier.buildClassifier(train);
-	evaluation.setPriors(train);
-	evaluation.evaluateModel(m_Classifier, test);
-      }
-      double error = evaluation.errorRate();
-      if (m_Debug) {
-	System.err.println("Cross-validated error rate: " 
-			   + Utils.doubleToString(error, 6, 4));
-      }
-      if ((m_BestPerformance == -99) || (error < m_BestPerformance)) {
-	
-	m_BestPerformance = error;
-	m_BestClassifierOptions = createOptions();
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
     }
   }
@@ -606,21 +429,9 @@ public class CVParameterSelection
    *
    * @return an enumeration of all the available options.
    */
-<<<<<<< HEAD
   public Enumeration<Option> listOptions() {
 
     Vector<Option> newVector = new Vector<Option>(2);
-=======
-<<<<<<< HEAD
-  public Enumeration<Option> listOptions() {
-
-    Vector<Option> newVector = new Vector<Option>(2);
-=======
-  public Enumeration listOptions() {
-
-    Vector newVector = new Vector(2);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     newVector.addElement(new Option(
 	      "\tNumber of folds used for cross validation (default 10).",
@@ -637,21 +448,8 @@ public class CVParameterSelection
 	      + "\tsimultaneously.",
 	      "P", 1, "-P <classifier parameter>"));
 
-<<<<<<< HEAD
     newVector.addAll(Collections.list(super.listOptions()));
     
-=======
-<<<<<<< HEAD
-    newVector.addAll(Collections.list(super.listOptions()));
-    
-=======
-
-    Enumeration enu = super.listOptions();
-    while (enu.hasMoreElements()) {
-      newVector.addElement(enu.nextElement());
-    }
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return newVector.elements();
   }
 
@@ -713,15 +511,7 @@ public class CVParameterSelection
     }
 
     String cvParam;
-<<<<<<< HEAD
     m_CVParams = new Vector<CVParameter>();
-=======
-<<<<<<< HEAD
-    m_CVParams = new Vector<CVParameter>();
-=======
-    m_CVParams = new FastVector();
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     do {
       cvParam = Utils.getOption('P', options);
       if (cvParam.length() != 0) {
@@ -730,16 +520,8 @@ public class CVParameterSelection
     } while (cvParam.length() != 0);
 
     super.setOptions(options);
-<<<<<<< HEAD
 
     Utils.checkForRemainingOptions(options);
-=======
-<<<<<<< HEAD
-
-    Utils.checkForRemainingOptions(options);
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -749,10 +531,6 @@ public class CVParameterSelection
    */
   public String [] getOptions() {
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     Vector<String> options = new Vector<String>();
 
     for (int i = 0; i < m_CVParams.size(); i++) {
@@ -763,37 +541,6 @@ public class CVParameterSelection
     Collections.addAll(options, super.getOptions());
     
     return options.toArray(new String[0]);
-<<<<<<< HEAD
-=======
-=======
-    String[] superOptions;
-
-    if (m_InitOptions != null) {
-      try {
-	m_Classifier.setOptions((String[])m_InitOptions.clone());
-	superOptions = super.getOptions();
-	m_Classifier.setOptions((String[])m_BestClassifierOptions.clone());
-      } catch (Exception e) {
-	throw new RuntimeException("CVParameterSelection: could not set options " +
-				   "in getOptions().");
-      } 
-    } else {
-      superOptions = super.getOptions();
-    }
-    String [] options = new String [superOptions.length + m_CVParams.size() * 2 + 2];
-
-    int current = 0;
-    for (int i = 0; i < m_CVParams.size(); i++) {
-      options[current++] = "-P"; options[current++] = "" + getCVParameter(i);
-    }
-    options[current++] = "-X"; options[current++] = "" + getNumFolds();
-
-    System.arraycopy(superOptions, 0, options, current, 
-		     superOptions.length);
-
-    return options;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -832,14 +579,7 @@ public class CVParameterSelection
     // remove instances with missing class
     Instances trainData = new Instances(instances);
     trainData.deleteWithMissingClass();
-<<<<<<< HEAD
     Instances trainDataCopy = new Instances(trainData); // Just in case base classifier is sensitive to order of data.
-=======
-<<<<<<< HEAD
-    Instances trainDataCopy = new Instances(trainData); // Just in case base classifier is sensitive to order of data.
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     
     if (!(m_Classifier instanceof OptionHandler)) {
       throw new IllegalArgumentException("Base classifier should be OptionHandler.");
@@ -853,15 +593,7 @@ public class CVParameterSelection
 
     // Check whether there are any parameters to optimize
     if (m_CVParams.size() == 0) {
-<<<<<<< HEAD
        m_Classifier.buildClassifier(trainDataCopy);
-=======
-<<<<<<< HEAD
-       m_Classifier.buildClassifier(trainDataCopy);
-=======
-       m_Classifier.buildClassifier(trainData);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
        m_BestClassifierOptions = m_InitOptions;
        return;
     }
@@ -882,15 +614,7 @@ public class CVParameterSelection
 
     String [] options = (String [])m_BestClassifierOptions.clone();
     ((OptionHandler)m_Classifier).setOptions(options);
-<<<<<<< HEAD
     m_Classifier.buildClassifier(trainDataCopy);
-=======
-<<<<<<< HEAD
-    m_Classifier.buildClassifier(trainDataCopy);
-=======
-    m_Classifier.buildClassifier(trainData);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
 
@@ -978,18 +702,8 @@ public class CVParameterSelection
    */
   public void setCVParameters(Object[] params) throws Exception {
       
-<<<<<<< HEAD
       Vector<CVParameter> backup = m_CVParams;
       m_CVParams = new Vector<CVParameter>();
-=======
-<<<<<<< HEAD
-      Vector<CVParameter> backup = m_CVParams;
-      m_CVParams = new Vector<CVParameter>();
-=======
-      FastVector backup = m_CVParams;
-      m_CVParams = new FastVector();
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       
       for(int i=0; i<params.length; i++) {
           try{
@@ -1122,15 +836,7 @@ public class CVParameterSelection
    * @return		the revision
    */
   public String getRevision() {
-<<<<<<< HEAD
     return RevisionUtils.extract("$Revision: 13370 $");
-=======
-<<<<<<< HEAD
-    return RevisionUtils.extract("$Revision: 13370 $");
-=======
-    return RevisionUtils.extract("$Revision: 8180 $");
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
   
   /**

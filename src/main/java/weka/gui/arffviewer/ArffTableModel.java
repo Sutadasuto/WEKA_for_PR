@@ -1,8 +1,4 @@
 /*
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -15,79 +11,32 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
-<<<<<<< HEAD
-=======
-=======
- *    This program is free software; you can redistribute it and/or modify
- *    it under the terms of the GNU General Public License as published by
- *    the Free Software Foundation; either version 2 of the License, or
- *    (at your option) any later version.
- *
- *    This program is distributed in the hope that it will be useful,
- *    but WITHOUT ANY WARRANTY; without even the implied warranty of
- *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *    GNU General Public License for more details.
- *
- *    You should have received a copy of the GNU General Public License
- *    along with this program; if not, write to the Free Software
- *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  * ArffTableModel.java
-<<<<<<< HEAD
  * Copyright (C) 2005-2012 University of Waikato, Hamilton, New Zealand
-=======
-<<<<<<< HEAD
- * Copyright (C) 2005-2012 University of Waikato, Hamilton, New Zealand
-=======
- * Copyright (C) 2005 University of Waikato, Hamilton, New Zealand
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
 package weka.gui.arffviewer;
 
 import weka.core.Attribute;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.core.DenseInstance;
 import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.Undoable;
 import weka.core.Utils;
-<<<<<<< HEAD
-=======
-=======
-import weka.core.Instance;
-import weka.core.Instances;
-import weka.core.Undoable;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.core.converters.AbstractFileLoader;
 import weka.core.converters.ConverterUtils;
 import weka.filters.Filter;
 import weka.filters.unsupervised.attribute.Reorder;
 import weka.gui.ComponentHelper;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import javax.swing.JOptionPane;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -97,10 +46,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Arrays;
 import java.util.HashSet;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Vector;
@@ -152,43 +97,6 @@ public class ArffTableModel extends DefaultTableModel implements Undoable {
    * display.
    */
   protected Hashtable<String, String> m_Cache;
-<<<<<<< HEAD
-=======
-=======
-import java.util.Iterator;
-import java.util.Vector;
-
-import javax.swing.JOptionPane;
-import javax.swing.event.TableModelEvent;
-import javax.swing.event.TableModelListener;
-import javax.swing.table.TableModel;
-
-/**
- * The model for the Arff-Viewer.
- *
- *
- * @author FracPete (fracpete at waikato dot ac dot nz)
- * @version $Revision: 9014 $
- */
-public class ArffTableModel
-  implements TableModel, Undoable {
-
-  /** the listeners */
-  private HashSet m_Listeners;
-  /** the data */
-  private Instances m_Data;
-  /** whether notfication is enabled */
-  private boolean m_NotificationEnabled;
-  /** whether undo is active */
-  private boolean m_UndoEnabled;
-  /** whether to ignore changes, i.e. not adding to undo history */
-  private boolean m_IgnoreChanges;
-  /** the undo list (contains temp. filenames) */
-  private Vector m_UndoList;
-  /** whether the table is read-only */
-  private boolean m_ReadOnly;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /**
    * performs some initialization
@@ -196,10 +104,6 @@ public class ArffTableModel
   private ArffTableModel() {
     super();
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     m_Listeners = new HashSet<TableModelListener>();
     m_Data = null;
     m_NotificationEnabled = true;
@@ -211,26 +115,10 @@ public class ArffTableModel
     m_ShowAttributeWeights = false;
     m_ShowInstanceWeights = false;
     m_Cache = new Hashtable<String, String>();
-<<<<<<< HEAD
-=======
-=======
-    m_Listeners           = new HashSet();
-    m_Data                = null;
-    m_NotificationEnabled = true;
-    m_UndoList            = new Vector();
-    m_IgnoreChanges       = false;
-    m_UndoEnabled         = true;
-    m_ReadOnly            = false;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * initializes the object and loads the given file
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param filename the file to load
    * @param loaders optional varargs for a loader to use
@@ -241,44 +129,17 @@ public class ArffTableModel
     if ((filename != null) && (!filename.equals(""))) {
       loadFile(filename, loaders);
     }
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param filename	the file to load
-   */
-  public ArffTableModel(String filename) {
-    this();
-
-    if ( (filename != null) && (!filename.equals("")) )
-      loadFile(filename);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * initializes the model with the given data
-<<<<<<< HEAD
    * 
    * @param data the data to use
-=======
-<<<<<<< HEAD
-   * 
-   * @param data the data to use
-=======
-   *
-   * @param data 	the data to use
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public ArffTableModel(Instances data) {
     this();
 
     this.m_Data = data;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     for (int i = 0; i < data.numAttributes(); i++) {
       if (data.attribute(i).weight() != 1.0) {
         m_ShowAttributeWeights = true;
@@ -291,27 +152,12 @@ public class ArffTableModel
         break;
       }
     }
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * returns whether the notification of changes is enabled
-<<<<<<< HEAD
    * 
    * @return true if notification of changes is enabled
-=======
-<<<<<<< HEAD
-   * 
-   * @return true if notification of changes is enabled
-=======
-   *
-   * @return 		true if notification of changes is enabled
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public boolean isNotificationEnabled() {
     return m_NotificationEnabled;
@@ -319,18 +165,8 @@ public class ArffTableModel
 
   /**
    * sets whether the notification of changes is enabled
-<<<<<<< HEAD
    * 
    * @param enabled enables/disables the notification
-=======
-<<<<<<< HEAD
-   * 
-   * @param enabled enables/disables the notification
-=======
-   *
-   * @param enabled	enables/disables the notification
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public void setNotificationEnabled(boolean enabled) {
     m_NotificationEnabled = enabled;
@@ -338,62 +174,28 @@ public class ArffTableModel
 
   /**
    * returns whether undo support is enabled
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return true if undo support is enabled
    */
   @Override
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @return 		true if undo support is enabled
-   */
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public boolean isUndoEnabled() {
     return m_UndoEnabled;
   }
 
   /**
    * sets whether undo support is enabled
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param enabled whether to enable/disable undo support
    */
   @Override
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param enabled	whether to enable/disable undo support
-   */
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public void setUndoEnabled(boolean enabled) {
     m_UndoEnabled = enabled;
   }
 
   /**
    * returns whether the model is read-only
-<<<<<<< HEAD
    * 
    * @return true if model is read-only
-=======
-<<<<<<< HEAD
-   * 
-   * @return true if model is read-only
-=======
-   *
-   * @return 		true if model is read-only
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public boolean isReadOnly() {
     return m_ReadOnly;
@@ -401,18 +203,8 @@ public class ArffTableModel
 
   /**
    * sets whether the model is read-only
-<<<<<<< HEAD
    * 
    * @param value if true the model is set to read-only
-=======
-<<<<<<< HEAD
-   * 
-   * @param value if true the model is set to read-only
-=======
-   *
-   * @param value	if true the model is set to read-only
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public void setReadOnly(boolean value) {
     m_ReadOnly = value;
@@ -420,10 +212,6 @@ public class ArffTableModel
 
   /**
    * loads the specified ARFF file
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param filename the file to load
    * @param loaders optional varargs for a loader to use
@@ -436,26 +224,10 @@ public class ArffTableModel
     } else {
       loader = loaders[0];
     }
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param filename	the file to load
-   */
-  private void loadFile(String filename) {
-    AbstractFileLoader          loader;
-
-    loader = ConverterUtils.getLoaderForFile(filename);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     if (loader != null) {
       try {
         loader.setFile(new File(filename));
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         setInstances(loader.getDataSet());
       } catch (Exception e) {
         ComponentHelper
@@ -463,32 +235,12 @@ public class ArffTableModel
             JOptionPane.OK_CANCEL_OPTION, JOptionPane.ERROR_MESSAGE);
         System.out.println(e);
         setInstances(null);
-<<<<<<< HEAD
-=======
-=======
-        m_Data = loader.getDataSet();
-      }
-      catch (Exception e) {
-        ComponentHelper.showMessageBox(
-            null,
-            Messages.getInstance().getString("ArffTableModel_LoadFile_ComponentHelperShowMessageBox_Text"),
-            e.toString(),
-            JOptionPane.OK_CANCEL_OPTION,
-            JOptionPane.ERROR_MESSAGE );
-        System.out.println(e);
-        m_Data = null;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
     }
   }
 
   /**
    * sets the data
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param data the data to use
    */
@@ -510,42 +262,18 @@ public class ArffTableModel
     }
     m_Cache.clear();
     fireTableDataChanged();
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param data	the data to use
-   */
-  public void setInstances(Instances data) {
-    m_Data = data;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * returns the data
-<<<<<<< HEAD
    * 
    * @return the current data
-=======
-<<<<<<< HEAD
-   * 
-   * @return the current data
-=======
-   *
-   * @return		the current data
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public Instances getInstances() {
     return m_Data;
   }
 
   /**
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Returns the attribute index for the given column index.
    *
    * @param columnIndex the column index
@@ -590,55 +318,20 @@ public class ArffTableModel
     } else {
       return null;
     }
-<<<<<<< HEAD
-=======
-=======
-   * returns the attribute at the given index, can be NULL if not an attribute
-   * column
-   *
-   * @param columnIndex		the index of the column
-   * @return			the attribute at the position
-   */
-  public Attribute getAttributeAt(int columnIndex) {
-    if ( (columnIndex > 0) && (columnIndex < getColumnCount()) )
-      return m_Data.attribute(columnIndex - 1);
-    else
-      return null;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * returns the TYPE of the attribute at the given position
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param columnIndex the index of the column
    * @return the attribute type
    */
   public int getType(int columnIndex) {
     return getType(-1, columnIndex);
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param columnIndex		the index of the column
-   * @return			the attribute type
-   */
-  public int getType(int columnIndex) {
-    return getType(0, columnIndex);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * returns the TYPE of the attribute at the given position
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param rowIndex the index of the row
    * @param columnIndex the index of the column
@@ -654,42 +347,14 @@ public class ArffTableModel
     } else if ((rowIndex >= 0) && (rowIndex < getRowCount()) && isAttribute(columnIndex)) {
       result = m_Data.instance(rowIndex).attribute(getAttributeIndex(columnIndex)).type();
     }
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param rowIndex		the index of the row
-   * @param columnIndex		the index of the column
-   * @return			the attribute type
-   */
-  public int getType(int rowIndex, int columnIndex) {
-    int            result;
-
-    result = Attribute.STRING;
-
-    if (    (rowIndex >= 0) && (rowIndex < getRowCount())
-         && (columnIndex > 0) && (columnIndex < getColumnCount()) )
-      result = m_Data.instance(rowIndex).attribute(columnIndex - 1).type();
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     return result;
   }
 
   /**
    * deletes the attribute at the given col index. notifies the listeners.
-<<<<<<< HEAD
    * 
    * @param columnIndex the index of the attribute to delete
-=======
-<<<<<<< HEAD
-   * 
-   * @param columnIndex the index of the attribute to delete
-=======
-   *
-   * @param columnIndex     the index of the attribute to delete
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public void deleteAttributeAt(int columnIndex) {
     deleteAttributeAt(columnIndex, true);
@@ -697,10 +362,6 @@ public class ArffTableModel
 
   /**
    * deletes the attribute at the given col index
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param columnIndex the index of the attribute to delete
    * @param notify whether to notify the listeners
@@ -714,66 +375,25 @@ public class ArffTableModel
       if (notify) {
         notifyListener(new TableModelEvent(this, TableModelEvent.HEADER_ROW));
       }
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param columnIndex     the index of the attribute to delete
-   * @param notify          whether to notify the listeners
-   */
-  public void deleteAttributeAt(int columnIndex, boolean notify) {
-    if ( (columnIndex > 0) && (columnIndex < getColumnCount()) ) {
-      if (!m_IgnoreChanges)
-        addUndoPoint();
-      m_Data.deleteAttributeAt(columnIndex - 1);
-      if (notify)
-        notifyListener(new TableModelEvent(this, TableModelEvent.HEADER_ROW));
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
   }
 
   /**
    * deletes the attributes at the given indices
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param columnIndices the column indices
    */
   public void deleteAttributes(int[] columnIndices) {
     int i;
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param columnIndices	the column indices
-   */
-  public void deleteAttributes(int[] columnIndices) {
-    int            i;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     Arrays.sort(columnIndices);
 
     addUndoPoint();
 
     m_IgnoreChanges = true;
-<<<<<<< HEAD
     for (i = columnIndices.length - 1; i >= 0; i--) {
       deleteAttributeAt(columnIndices[i], false);
     }
-=======
-<<<<<<< HEAD
-    for (i = columnIndices.length - 1; i >= 0; i--) {
-      deleteAttributeAt(columnIndices[i], false);
-    }
-=======
-    for (i = columnIndices.length - 1; i >= 0; i--)
-      deleteAttributeAt(columnIndices[i], false);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     m_IgnoreChanges = false;
 
     notifyListener(new TableModelEvent(this, TableModelEvent.HEADER_ROW));
@@ -781,10 +401,6 @@ public class ArffTableModel
 
   /**
    * renames the attribute at the given col index
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param columnIndex the index of the column
    * @param newName the new name of the attribute
@@ -818,19 +434,6 @@ public class ArffTableModel
           }
         }
       }
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param columnIndex		the index of the column
-   * @param newName		the new name of the attribute
-   */
-  public void renameAttributeAt(int columnIndex, String newName) {
-    if ( (columnIndex > 0) && (columnIndex < getColumnCount()) ) {
-      addUndoPoint();
-      m_Data.renameAttribute(columnIndex - 1, newName);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       notifyListener(new TableModelEvent(this, TableModelEvent.HEADER_ROW));
     }
   }
@@ -838,10 +441,6 @@ public class ArffTableModel
   /**
    * sets the attribute at the given col index as the new class attribute, i.e.
    * it moves it to the end of the attributes
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param columnIndex the index of the column
    */
@@ -851,20 +450,6 @@ public class ArffTableModel
     int i;
 
     if (isAttribute(columnIndex)) {
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param columnIndex		the index of the column
-   */
-  public void attributeAsClassAt(int columnIndex) {
-    Reorder     reorder;
-    String      order;
-    int         i;
-
-    if ( (columnIndex > 0) && (columnIndex < getColumnCount()) ) {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       addUndoPoint();
 
       try {
@@ -872,10 +457,6 @@ public class ArffTableModel
         order = "";
         for (i = 1; i < m_Data.numAttributes() + 1; i++) {
           // skip new class
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
           if (i - 1 == getAttributeIndex(columnIndex)){
             continue;
           }
@@ -889,21 +470,6 @@ public class ArffTableModel
           order += ",";
         }
         order += Integer.toString(getAttributeIndex(columnIndex) + 1);
-<<<<<<< HEAD
-=======
-=======
-          if (i == columnIndex)
-            continue;
-
-          if (!order.equals(""))
-            order += ",";
-          order += Integer.toString(i);
-        }
-        if (!order.equals(""))
-          order += ",";
-        order += Integer.toString(columnIndex);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
         // process data
         reorder = new Reorder();
@@ -913,16 +479,7 @@ public class ArffTableModel
 
         // set class index
         m_Data.setClassIndex(m_Data.numAttributes() - 1);
-<<<<<<< HEAD
       } catch (Exception e) {
-=======
-<<<<<<< HEAD
-      } catch (Exception e) {
-=======
-      }
-      catch (Exception e) {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         e.printStackTrace();
         undo();
       }
@@ -933,18 +490,8 @@ public class ArffTableModel
 
   /**
    * deletes the instance at the given index
-<<<<<<< HEAD
    * 
    * @param rowIndex the index of the row
-=======
-<<<<<<< HEAD
-   * 
-   * @param rowIndex the index of the row
-=======
-   *
-   * @param rowIndex		the index of the row
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public void deleteInstanceAt(int rowIndex) {
     deleteInstanceAt(rowIndex, true);
@@ -952,10 +499,6 @@ public class ArffTableModel
 
   /**
    * deletes the instance at the given index
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param rowIndex the index of the row
    * @param notify whether to notify the listeners
@@ -1023,59 +566,22 @@ public class ArffTableModel
       notifyListener(new TableModelEvent(this, m_Data.numInstances() - 1,
         m_Data.numInstances() - 1, TableModelEvent.ALL_COLUMNS,
         TableModelEvent.INSERT));
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param rowIndex		the index of the row
-   * @param notify		whether to notify the listeners
-   */
-  public void deleteInstanceAt(int rowIndex, boolean notify) {
-    if ( (rowIndex >= 0) && (rowIndex < getRowCount()) ) {
-      if (!m_IgnoreChanges)
-        addUndoPoint();
-      m_Data.delete(rowIndex);
-      if (notify)
-        notifyListener(
-            new TableModelEvent(
-                this, rowIndex, rowIndex,
-                TableModelEvent.ALL_COLUMNS, TableModelEvent.DELETE));
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
   }
 
   /**
    * deletes the instances at the given positions
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param rowIndices the indices to delete
    */
   public void deleteInstances(int[] rowIndices) {
     int i;
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param rowIndices		the indices to delete
-   */
-  public void deleteInstances(int[] rowIndices) {
-    int               i;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     Arrays.sort(rowIndices);
 
     addUndoPoint();
 
     m_IgnoreChanges = true;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     for (i = rowIndices.length - 1; i >= 0; i--) {
       deleteInstanceAt(rowIndices[i], false);
     }
@@ -1084,27 +590,10 @@ public class ArffTableModel
     notifyListener(new TableModelEvent(this, rowIndices[0],
       rowIndices[rowIndices.length - 1], TableModelEvent.ALL_COLUMNS,
       TableModelEvent.DELETE));
-<<<<<<< HEAD
-=======
-=======
-    for (i = rowIndices.length - 1; i >= 0; i--)
-      deleteInstanceAt(rowIndices[i], false);
-    m_IgnoreChanges = false;
-
-    notifyListener(
-        new TableModelEvent(
-            this, rowIndices[0], rowIndices[rowIndices.length - 1],
-            TableModelEvent.ALL_COLUMNS, TableModelEvent.DELETE));
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * sorts the instances via the given attribute
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param columnIndex the index of the column
    */
@@ -1161,28 +650,12 @@ public class ArffTableModel
         }
         m_Data = reversedData;
       }
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param columnIndex		the index of the column
-   */
-  public void sortInstances(int columnIndex) {
-    if ( (columnIndex > 0) && (columnIndex < getColumnCount()) ) {
-      addUndoPoint();
-      m_Data.sort(columnIndex - 1);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       notifyListener(new TableModelEvent(this));
     }
   }
 
   /**
    * returns the column of the given attribute name, -1 if not found
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param name the name of the attribute
    * @return the column index or -1 if not found
@@ -1190,32 +663,12 @@ public class ArffTableModel
   public int getAttributeColumn(String name) {
     int i;
     int result;
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param name		the name of the attribute
-   * @return			the column index or -1 if not found
-   */
-  public int getAttributeColumn(String name) {
-    int            i;
-    int            result;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     result = -1;
 
     for (i = 0; i < m_Data.numAttributes(); i++) {
       if (m_Data.attribute(i).name().equals(name)) {
-<<<<<<< HEAD
         result = i + (m_ShowInstanceWeights ? 2 : 1);
-=======
-<<<<<<< HEAD
-        result = i + (m_ShowInstanceWeights ? 2 : 1);
-=======
-        result = i + 1;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         break;
       }
     }
@@ -1224,10 +677,6 @@ public class ArffTableModel
   }
 
   /**
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * returns the most specific superclass for all the cell values in the column
    * (always String)
    * 
@@ -1248,29 +697,6 @@ public class ArffTableModel
       } else {
         result = String.class; // otherwise no input of "?"!!!
       }
-<<<<<<< HEAD
-=======
-=======
-   * returns the most specific superclass for all the cell values in the
-   * column (always String)
-   *
-   * @param columnIndex		the column index
-   * @return			the class of the column
-   */
-  public Class getColumnClass(int columnIndex) {
-    Class       result;
-
-    result = null;
-
-    if ( (columnIndex >= 0) && (columnIndex < getColumnCount()) ) {
-      if (columnIndex == 0)
-        result = Integer.class;
-      else if (getType(columnIndex) == Attribute.NUMERIC)
-        result = Double.class;
-      else
-        result = String.class;   // otherwise no input of "?"!!!
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
 
     return result;
@@ -1278,10 +704,6 @@ public class ArffTableModel
 
   /**
    * returns the number of columns in the model
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return the number of columns
    */
@@ -1296,30 +718,12 @@ public class ArffTableModel
     if (m_Data != null) {
       result += m_Data.numAttributes();
     }
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @return		the number of columns
-   */
-  public int getColumnCount() {
-    int         result;
-
-    result = 1;
-    if (m_Data != null)
-      result += m_Data.numAttributes();
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     return result;
   }
 
   /**
    * checks whether the column represents the class or not
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param columnIndex the index of the column
    * @return true if the column is the class attribute
@@ -1332,32 +736,12 @@ public class ArffTableModel
     result =
       ((index == -1) && (m_Data.numAttributes() - 1 == getAttributeIndex(columnIndex)))
         || (index == getAttributeIndex(columnIndex));
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param columnIndex		the index of the column
-   * @return			true if the column is the class attribute
-   */
-  private boolean isClassIndex(int columnIndex) {
-    boolean        result;
-    int            index;
-
-    index  = m_Data.classIndex();
-    result =    ((index == - 1) && (m_Data.numAttributes() == columnIndex))
-             || (index == columnIndex - 1);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     return result;
   }
 
   /**
    * returns the name of the column at columnIndex
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param columnIndex the index of the column
    * @return the name of the column
@@ -1398,43 +782,10 @@ public class ArffTableModel
             } else {
               result += m_Data.attribute(getAttributeIndex(columnIndex)).name();
             }
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param columnIndex		the index of the column
-   * @return			the name of the column
-   */
-  public String getColumnName(int columnIndex) {
-    String      result;
-
-    result = "";
-
-    if ( (columnIndex >= 0) && (columnIndex < getColumnCount()) ) {
-      if (columnIndex == 0) {
-        result = Messages.getInstance().getString("ArffTableModel_GetColumnName_Result_Text_First");
-      }
-      else {
-        if (m_Data != null) {
-          if ( (columnIndex - 1 < m_Data.numAttributes()) ) {
-            result = Messages.getInstance().getString("ArffTableModel_GetColumnName_Result_Text_Second");
-            // name
-            if (isClassIndex(columnIndex))
-              result +=   Messages.getInstance().getString("ArffTableModel_GetColumnName_Result_Text_Third")
-                + m_Data.attribute(columnIndex - 1).name()
-                + Messages.getInstance().getString("ArffTableModel_GetColumnName_Result_Text_Forth");
-            else
-              result += m_Data.attribute(columnIndex - 1).name();
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
             // attribute type
             switch (getType(columnIndex)) {
               case Attribute.DATE:
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
                 result += "<br><font size=\"-2\">Date</font>";
                 break;
               case Attribute.NOMINAL:
@@ -1461,30 +812,6 @@ public class ArffTableModel
 
 
             result += "</center></html>";
-<<<<<<< HEAD
-=======
-=======
-                result += Messages.getInstance().getString("ArffTableModel_GetColumnName_Result_Date_Text");
-                break;
-              case Attribute.NOMINAL:
-                result += Messages.getInstance().getString("ArffTableModel_GetColumnName_Result_Nominal_Text");
-                break;
-              case Attribute.STRING:
-                result += Messages.getInstance().getString("ArffTableModel_GetColumnName_Result_String_Text");
-                break;
-              case Attribute.NUMERIC:
-                result += Messages.getInstance().getString("ArffTableModel_GetColumnName_Result_Numeric_Text");
-                break;
-              case Attribute.RELATIONAL:
-                result += Messages.getInstance().getString("ArffTableModel_GetColumnName_Result_Relational_Text");
-                break;
-              default:
-                result += Messages.getInstance().getString("ArffTableModel_GetColumnName_Result_Default_Text");
-            }
-
-            result += Messages.getInstance().getString("ArffTableModel_GetColumnName_Result_Text_End");
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
           }
         }
       }
@@ -1495,10 +822,6 @@ public class ArffTableModel
 
   /**
    * returns the number of rows in the model
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return the number of rows
    */
@@ -1509,27 +832,10 @@ public class ArffTableModel
     } else {
       return m_Data.numInstances();
     }
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @return		the number of rows
-   */
-  public int getRowCount() {
-    if (m_Data == null)
-      return 0;
-    else
-      return m_Data.numInstances();
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * checks whether the value at the given position is missing
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param rowIndex the row index
    * @param columnIndex the column index
@@ -1543,33 +849,11 @@ public class ArffTableModel
     if ((rowIndex >= 0) && (rowIndex < getRowCount()) && isAttribute(columnIndex)) {
       result = (m_Data.instance(rowIndex).isMissing(getAttributeIndex(columnIndex)));
     }
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param rowIndex		the row index
-   * @param columnIndex		the column index
-   * @return			true if the value at the position is missing
-   */
-  public boolean isMissingAt(int rowIndex, int columnIndex) {
-    boolean           result;
-
-    result = false;
-
-    if (    (rowIndex >= 0) && (rowIndex < getRowCount())
-         && (columnIndex > 0) && (columnIndex < getColumnCount()) )
-      result = (m_Data.instance(rowIndex).isMissing(columnIndex - 1));
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     return result;
   }
 
   /**
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * returns the double value of the underlying Instances object at the given
    * position, -1 if out of bounds
    * 
@@ -1585,36 +869,12 @@ public class ArffTableModel
     if ((rowIndex >= 0) && (rowIndex < getRowCount()) && isAttribute(columnIndex)) {
       result = m_Data.instance(rowIndex).value(getAttributeIndex(columnIndex));
     }
-<<<<<<< HEAD
-=======
-=======
-   * returns the double value of the underlying Instances object at the
-   * given position, -1 if out of bounds
-   *
-   * @param rowIndex		the row index
-   * @param columnIndex		the column index
-   * @return			the underlying value in the Instances object
-   */
-  public double getInstancesValueAt(int rowIndex, int columnIndex) {
-    double	result;
-
-    result = -1;
-
-    if (    (rowIndex >= 0) && (rowIndex < getRowCount())
-         && (columnIndex > 0) && (columnIndex < getColumnCount()) )
-      result = m_Data.instance(rowIndex).value(columnIndex - 1);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     return result;
   }
 
   /**
    * returns the value for the cell at columnindex and rowIndex
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param rowIndex the row index
    * @param columnIndex the column index
@@ -1643,41 +903,10 @@ public class ArffTableModel
             result = m_Cache.get(key);
           } else {
             switch (getType(columnIndex)) {
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param rowIndex		the row index
-   * @param columnIndex		the column index
-   * @return 			the value at the position
-   */
-  public Object getValueAt(int rowIndex, int columnIndex) {
-    Object            result;
-    String            tmp;
-
-    result = null;
-
-    if (    (rowIndex >= 0) && (rowIndex < getRowCount())
-        && (columnIndex >= 0) && (columnIndex < getColumnCount()) ) {
-      if (columnIndex == 0) {
-        result = new Integer(rowIndex + 1);
-      }
-      else {
-        if (isMissingAt(rowIndex, columnIndex)) {
-          result = null;
-        }
-        else {
-          switch (getType(columnIndex)) {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
             case Attribute.DATE:
             case Attribute.NOMINAL:
             case Attribute.STRING:
             case Attribute.RELATIONAL:
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
               result = m_Data.instance(rowIndex).stringValue(getAttributeIndex(columnIndex));
               break;
             case Attribute.NUMERIC:
@@ -1719,38 +948,6 @@ public class ArffTableModel
               }
             }
           }
-<<<<<<< HEAD
-=======
-=======
-              result = m_Data.instance(rowIndex).stringValue(columnIndex - 1);
-              break;
-            case Attribute.NUMERIC:
-              result = new Double(m_Data.instance(rowIndex).value(columnIndex - 1));
-              break;
-            default:
-              result = "-can't display-";
-          }
-
-          if (getType(columnIndex) != Attribute.NUMERIC) {
-            if (result != null) {
-              tmp = result.toString();
-              // fix html tags, otherwise Java parser hangs
-              if ((tmp.indexOf('<') > -1) || (tmp.indexOf('>') > -1)) {
-                tmp = tmp.replace("<", "(");
-                tmp = tmp.replace(">", ")");
-              }
-              // does it contain "\n" or "\r"? -> replace with red html tag
-              if ( (tmp.indexOf("\n") > -1) || (tmp.indexOf("\r") > -1) ) {
-                tmp = tmp.replaceAll("\\r\\n", "<font color=\"red\"><b>\\\\r\\\\n</b></font>");
-                tmp = tmp.replaceAll("\\r", "<font color=\"red\"><b>\\\\r</b></font>");
-                tmp = tmp.replaceAll("\\n", "<font color=\"red\"><b>\\\\n</b></font>");
-                tmp = "<html>" + tmp + "</html>";
-              }
-              result = tmp;
-            }
-          }          
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         }
       }
     }
@@ -1760,10 +957,6 @@ public class ArffTableModel
 
   /**
    * returns true if the cell at rowindex and columnindexis editable
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param rowIndex the index of the row
    * @param columnIndex the index of the column
@@ -1783,37 +976,11 @@ public class ArffTableModel
    * @param columnIndex the column index
    */
   @Override
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param rowIndex		the index of the row
-   * @param columnIndex		the index of the column
-   * @return			true if the cell is editable
-   */
-  public boolean isCellEditable(int rowIndex, int columnIndex) {
-    return (columnIndex > 0) && !isReadOnly();
-  }
-
-  /**
-   * sets the value in the cell at columnIndex and rowIndex to aValue.
-   * but only the value and the value can be changed
-   *
-   * @param aValue		the new value
-   * @param rowIndex		the row index
-   * @param columnIndex		the column index
-   */
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
     setValueAt(aValue, rowIndex, columnIndex, true);
   }
 
   /**
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * sets the value in the cell at columnIndex and rowIndex to aValue. but only
    * the value and the value can be changed
    * 
@@ -1907,158 +1074,39 @@ public class ArffTableModel
       default:
         throw new IllegalArgumentException("Unsupported Attribute type: "
           + type + "!");
-<<<<<<< HEAD
-=======
-=======
-   * sets the value in the cell at columnIndex and rowIndex to aValue.
-   * but only the value and the value can be changed
-   *
-   * @param aValue		the new value
-   * @param rowIndex		the row index
-   * @param columnIndex		the column index
-   * @param notify		whether to notify the listeners
-   */
-  public void setValueAt(Object aValue, int rowIndex, int columnIndex, boolean notify) {
-    int            type;
-    int            index;
-    String         tmp;
-    Instance       inst;
-    Attribute      att;
-    Object         oldValue;
-
-    if (!m_IgnoreChanges)
-      addUndoPoint();
-
-    oldValue = getValueAt(rowIndex, columnIndex);
-    type     = getType(rowIndex, columnIndex);
-    index    = columnIndex - 1;
-    inst     = m_Data.instance(rowIndex);
-    att      = inst.attribute(index);
-
-    // missing?
-    if (aValue == null) {
-      inst.setValue(index, Instance.missingValue());
-    }
-    else {
-      tmp = aValue.toString();
-
-      switch (type) {
-        case Attribute.DATE:
-          try {
-            att.parseDate(tmp);
-            inst.setValue(index, att.parseDate(tmp));
-          }
-          catch (Exception e) {
-            // ignore
-          }
-          break;
-
-        case Attribute.NOMINAL:
-          if (att.indexOfValue(tmp) > -1)
-            inst.setValue(index, att.indexOfValue(tmp));
-          break;
-
-        case Attribute.STRING:
-          inst.setValue(index, tmp);
-          break;
-
-        case Attribute.NUMERIC:
-          try {
-            Double.parseDouble(tmp);
-            inst.setValue(index, Double.parseDouble(tmp));
-          }
-          catch (Exception e) {
-            // ignore
-          }
-          break;
-
-        case Attribute.RELATIONAL:
-          try {
-            inst.setValue(index, inst.attribute(index).addRelation((Instances) aValue));
-          }
-          catch (Exception e) {
-            // ignore
-          }
-          break;
-
-        default:
-          throw new IllegalArgumentException(Messages.getInstance().getString("ArffTableModel_SetValueAt_Default_Error_Text_Front") + type + Messages.getInstance().getString("ArffTableModel_SetValueAt_Default_Error_Text_End"));
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
     }
 
     // notify only if the value has changed!
-<<<<<<< HEAD
     if (notify && (!("" + oldValue).equals("" + aValue))) {
       notifyListener(new TableModelEvent(this, rowIndex, columnIndex));
     }
-=======
-<<<<<<< HEAD
-    if (notify && (!("" + oldValue).equals("" + aValue))) {
-      notifyListener(new TableModelEvent(this, rowIndex, columnIndex));
-    }
-=======
-    if (notify && (!("" + oldValue).equals("" + aValue)) )
-        notifyListener(new TableModelEvent(this, rowIndex, columnIndex));
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * adds a listener to the list that is notified each time a change to data
    * model occurs
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param l the listener to add
    */
   @Override
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param l		the listener to add
-   */
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public void addTableModelListener(TableModelListener l) {
     m_Listeners.add(l);
   }
 
   /**
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * removes a listener from the list that is notified each time a change to the
    * data model occurs
    * 
    * @param l the listener to remove
    */
   @Override
-<<<<<<< HEAD
-=======
-=======
-   * removes a listener from the list that is notified each time a change to
-   * the data model occurs
-   *
-   * @param l		the listener to remove
-   */
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public void removeTableModelListener(TableModelListener l) {
     m_Listeners.remove(l);
   }
 
   /**
    * notfies all listener of the change of the model
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param e the event to send to the listeners
    */
@@ -2074,25 +1122,6 @@ public class ArffTableModel
     iter = m_Listeners.iterator();
     while (iter.hasNext()) {
       l = iter.next();
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param e		the event to send to the listeners
-   */
-  public void notifyListener(TableModelEvent e) {
-    Iterator                iter;
-    TableModelListener      l;
-
-    // is notification enabled?
-    if (!isNotificationEnabled())
-      return;
-
-    iter = m_Listeners.iterator();
-    while (iter.hasNext()) {
-      l = (TableModelListener) iter.next();
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       l.tableChanged(e);
     }
   }
@@ -2100,41 +1129,18 @@ public class ArffTableModel
   /**
    * removes the undo history
    */
-<<<<<<< HEAD
   @Override
   public void clearUndo() {
     m_UndoList = new Vector<File>();
-=======
-<<<<<<< HEAD
-  @Override
-  public void clearUndo() {
-    m_UndoList = new Vector<File>();
-=======
-  public void clearUndo() {
-    m_UndoList = new Vector();
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * returns whether an undo is possible, i.e. whether there are any undo points
    * saved so far
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return returns TRUE if there is an undo possible
    */
   @Override
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @return returns TRUE if there is an undo possible
-   */
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public boolean canUndo() {
     return !m_UndoList.isEmpty();
   }
@@ -2142,10 +1148,6 @@ public class ArffTableModel
   /**
    * undoes the last action
    */
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   @Override
   public void undo() {
     File tempFile;
@@ -2160,22 +1162,6 @@ public class ArffTableModel
         ooi =
           new ObjectInputStream(new BufferedInputStream(new FileInputStream(
             tempFile)));
-<<<<<<< HEAD
-=======
-=======
-  public void undo() {
-    File                  tempFile;
-    Instances             inst;
-    ObjectInputStream     ooi;
-
-    if (canUndo()) {
-      // load file
-      tempFile = (File) m_UndoList.get(m_UndoList.size() - 1);
-      try {
-        // read serialized data
-        ooi = new ObjectInputStream(new BufferedInputStream(new FileInputStream(tempFile)));
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         inst = (Instances) ooi.readObject();
         ooi.close();
 
@@ -2183,16 +1169,7 @@ public class ArffTableModel
         setInstances(inst);
         notifyListener(new TableModelEvent(this, TableModelEvent.HEADER_ROW));
         notifyListener(new TableModelEvent(this));
-<<<<<<< HEAD
       } catch (Exception e) {
-=======
-<<<<<<< HEAD
-      } catch (Exception e) {
-=======
-      }
-      catch (Exception e) {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         e.printStackTrace();
       }
       tempFile.delete();
@@ -2204,10 +1181,6 @@ public class ArffTableModel
 
   /**
    * adds an undo point to the undo history, if the undo support is enabled
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @see #isUndoEnabled()
    * @see #setUndoEnabled(boolean)
@@ -2221,21 +1194,6 @@ public class ArffTableModel
     if (!isUndoEnabled()) {
       return;
     }
-<<<<<<< HEAD
-=======
-=======
-   * @see #isUndoEnabled()
-   * @see #setUndoEnabled(boolean)
-   */
-  public void addUndoPoint() {
-    File                  tempFile;
-    ObjectOutputStream    oos;
-
-    // undo support currently on?
-    if (!isUndoEnabled())
-      return;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     if (getInstances() != null) {
       try {
@@ -2244,43 +1202,20 @@ public class ArffTableModel
         tempFile.deleteOnExit();
 
         // serialize instances
-<<<<<<< HEAD
         oos =
           new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(
             tempFile)));
-=======
-<<<<<<< HEAD
-        oos =
-          new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(
-            tempFile)));
-=======
-        oos = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(tempFile)));
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         oos.writeObject(getInstances());
         oos.flush();
         oos.close();
 
         // add to undo list
         m_UndoList.add(tempFile);
-<<<<<<< HEAD
       } catch (Exception e) {
-=======
-<<<<<<< HEAD
-      } catch (Exception e) {
-=======
-      }
-      catch (Exception e) {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         e.printStackTrace();
       }
     }
   }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /**
    * Sets whether to display the attribute index in the header.
@@ -2301,9 +1236,4 @@ public class ArffTableModel
   public boolean getShowAttributeIndex() {
     return m_ShowAttributeIndex;
   }
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 }

@@ -4,10 +4,6 @@ KnowledgeFlow GUI Quick Primer
 
 What's new in the KnowledgeFlow:
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 The KnowledgeFlow has undergone a major UI overhaul in Weka 3.7.4. New
 features include:
 
@@ -27,31 +23,10 @@ features include:
 * Template flows demonstrating example learning processes
 * Plugin "perspectives" that allow additional functionality to take over
   the main UI
-<<<<<<< HEAD
-=======
-=======
-Components can now be grouped together under a "meta" component. Start
-by placing some components on the layout and connecting them
-together. Then select a subset of components with the mouse by holding
-down the left button and dragging the resulting rectangle. You will
-then be asked whether you wish to group the selected components and
-for a name to give the group. The selected components will then be
-replaced by a single icon on the layout. All grouped beans can still
-be configured and connections made by right-clicking on the icon to
-display a pop-up menu. At the moment meta components can't form part
-of another group (this functionality will be added in a later
-release). Eventually, functionality will be added to allow the user
-to store custom groups in a user toolbar for reuse.
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
 Introduction:
 
 The KnowledgeFlow provides an alternative to the Explorer as a
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 graphical front end to Weka's core algorithms. It presents a
 "data-flow" inspired interface to Weka. The user can select Weka
 components from a pallete, place them on a layout canvas and connect
@@ -59,75 +34,28 @@ them together in order to form a "knowledge flow" for processing and
 analyzing data. At present, all of Weka's classifiers, filters,
 clusterers, loaders and savers are available in the KnowledgeFlow
 along with some extra tools.
-<<<<<<< HEAD
-=======
-=======
-graphical front end to Weka's core algorithms. The KnowledgeFlow is a
-work in progress so some of the functionality from the Explorer is not
-yet available. On the other hand, there are things that can be done in
-the KnowledgeFlow but not in the Explorer.
-
-The KnowledgeFlow presents a "data-flow" inspired interface to
-Weka. The user can select Weka components from a tool bar, place them
-on a layout canvas and connect them together in order to form a
-"knowledge flow" for processing and analyzing data. At present, all of
-Weka's classifiers, filters, clusterers, loaders and savers are
-available in the KnowledgeFlow along with some extra tools.
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
 The KnowledgeFlow can handle data either incrementally or in batches
 (the Explorer handles batch data only). Of course learning from data
 incrementally requires a classifier that can be updated on an instance
-<<<<<<< HEAD
 by instance basis. There are a number of schemes that can handle data
 incrementally: NaiveBayesUpdateable, IB1, IBk, LWR (locally weighted
 regression), SGD, SPegasos, Cobweb and RacedIncrementalLogitBoost.
-=======
-<<<<<<< HEAD
-by instance basis. There are a number of schemes that can handle data
-incrementally: NaiveBayesUpdateable, IB1, IBk, LWR (locally weighted
-regression), SGD, SPegasos, Cobweb and RacedIncrementalLogitBoost.
-=======
-by instance basis. Currently in Weka there are five classifiers that
-can handle data incrementally: NaiveBayesUpdateable, IB1, IBk, LWR
-(locally weighted regression). There is also one meta classifier -
-RacedIncrementalLogitBoost - that can use of any regression base
-learner to learn from discrete class data incrementally.
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
 Features of the KnowledgeFlow:
 
 * intuitive data flow style layout
 * process data in batches or incrementally 
 * process multiple batches or streams in parallel! (each separate flow 
-<<<<<<< HEAD
   executes in its own thread). Alternatively, multiple streams can be
   executed sequentially, in a user-specified order
-=======
-<<<<<<< HEAD
-  executes in its own thread). Alternatively, multiple streams can be
-  executed sequentially, in a user-specified order
-=======
-  executes in its own thread)
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 * chain filters together
 * view models produced by classifiers for each fold in a cross validation
 * visualize performance of incremental classifiers during 
   processing (scrolling plots of classification accuracy, RMS error, 
   predictions etc)
-<<<<<<< HEAD
 * access additional non flow-based functionality through plugin 
   "perspectives"
-=======
-<<<<<<< HEAD
-* access additional non flow-based functionality through plugin 
-  "perspectives"
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
 Components available in the KnowledgeFlow:
 
@@ -167,14 +95,7 @@ Evaluation:
   PredictionAppender - append classifier predictions to a test set. For
     discrete class problems, can either append predicted class labels or
     probability distributions
-<<<<<<< HEAD
   SerializedModelSaver - save a classifier out to a file for later use.
-=======
-<<<<<<< HEAD
-  SerializedModelSaver - save a classifier out to a file for later use.
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
 Visualization:
   DataVisualizer - component that can pop up a panel for visualizing data in
@@ -193,16 +114,8 @@ Visualization:
   StripChart - component that can pop up a panel that displays a scrolling
     plot of data (used for viewing the online performance of incremental
     classifiers)
-<<<<<<< HEAD
   CostBenefitAnalysis - interactively and graphically explore the effects 
     of changing costs/benefits and adjusting prediction thresholds.
-=======
-<<<<<<< HEAD
-  CostBenefitAnalysis - interactively and graphically explore the effects 
-    of changing costs/benefits and adjusting prediction thresholds.
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
 
 ---------------
@@ -214,10 +127,6 @@ environments. Select the button labeled "KnowledgeFlow" to start the
 KnowledgeFlow. Alternatively, you can launch the KnowledgeFlow from a
 terminal window by typing "java weka.gui.beans.KnowledgeFlow".
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 EXAMPLE:
 -----------------
 Setting up a flow to load an arff file (batch mode) and
@@ -230,24 +139,6 @@ First start the KnowlegeFlow.
 
 Next expand the DataSources entry in the tree and choose "ArffLoader"
 from the toolbar (the mouse pointer will change to a "cross hairs").
-<<<<<<< HEAD
-=======
-=======
-At the top of the KnowledgeFlow window is are seven tabs: DataSources,
-DataSinks, Filters, Classifiers, Clusterers, Evaluation and
-Visualization. The names are pretty much self explanatory.
-
-EXAMPLE:
------------------
-Setting up a flow to load an arff file (batch mode) and
-perform a cross validation using J48 (Weka's C4.5 implementation).
-
-First start the KnowlegeFlow.
-
-Next click on the DataSources tab and choose "ArffLoader" from the
-toolbar (the mouse pointer will change to a "cross hairs").
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
 Next place the ArffLoader component on the layout area by clicking
 somewhere on the layout (A copy of the ArffLoader icon will appear on
@@ -260,15 +151,7 @@ browse to the location of your arff file. Alternatively, you can
 double-click on the icon to bring up the configuration dialog (if
 the component in question has one).
 
-<<<<<<< HEAD
 Next expand the "Evaluation" entry in the tree and choose the
-=======
-<<<<<<< HEAD
-Next expand the "Evaluation" entry in the tree and choose the
-=======
-Next click the "Evaluation" tab at the top of the window and choose the
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 "ClassAssigner" (allows you to choose which column to be the class)
 component from the toolbar. Place this on the layout.
 
@@ -282,10 +165,6 @@ Next right click over the ClassAssigner and choose "Configure" from
 the menu. This will pop up a window from which you can specify which
 column is the class in your data (last is the default).
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 Next grab a "CrossValidationFoldMaker" component from Evaluation
 and place it on the layout. Connect the ClassAssigner to the
 CrossValidationFoldMaker by right clicking over "ClassAssigner" and
@@ -293,70 +172,25 @@ selecting "dataSet" from under "Connections" in the menu.
 
 Next expand the "Classifiers" entry in the tree, then the "trees"
 sub-entry and select the "J48" component. Place it on the layout.
-<<<<<<< HEAD
-=======
-=======
-Next grab a "CrossValidationFoldMaker" component from the Evaluation
-toolbar and place it on the layout. Connect the ClassAssigner to the
-CrossValidationFoldMaker by right clicking over "ClassAssigner" and
-selecting "dataSet" from under "Connections" in the menu.
-
-Next click on the "Classifiers" tab at the top of the window and
-scroll along the toolbar until you reach the "J48" component in the
-"trees" section. Place a J48 component on the layout.
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
 Connect the CrossValidationFoldMaker to J48 TWICE by first choosing
 "trainingSet" and then "testSet" from the pop-up menu for the
 CrossValidationFoldMaker.
 
-<<<<<<< HEAD
 Next go back to the "Evaluation" entry and place a
-=======
-<<<<<<< HEAD
-Next go back to the "Evaluation" entry and place a
-=======
-Next go back to the "Evaluation" tab and place a
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 "ClassifierPerformanceEvaluator" component on the layout. Connect J48
 to this component by selecting the "batchClassifier" entry from the
 pop-up menu for J48.
 
-<<<<<<< HEAD
 Next expand the "Visualization" entry and place a "TextViewer"
-=======
-<<<<<<< HEAD
-Next expand the "Visualization" entry and place a "TextViewer"
-=======
-Next go to the "Visualization" toolbar and place a "TextViewer"
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 component on the layout. Connect the ClassifierPerformanceEvaluator to
 the TextViewer by selecting the "text" entry from the pop-up menu for
 ClassifierPerformanceEvaluator.
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 Now start the flow executing by pressing the blue "play" icon at the
 top-left of the display. Progress information for the executing
 components willa appear in the "Status" area and "Log" at the bottom
 of the window.
-<<<<<<< HEAD
-=======
-=======
-Now start the flow executing by selecting "Start loading" from the
-pop-up menu for ArffLoader. Depending on how big the data set is and
-how long cross validation takes you will see some animation from some
-of the icons in the layout (J48's tree will "grow" in the icon and the
-ticks will animate on the ClassifierPerformanceEvaluator). You will
-also see some progress information in the "Status" bar and "Log" at
-the bottom of the window.
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
 When finished you can view the results by choosing show results from
 the pop-up menu for the TextViewer component.
@@ -366,10 +200,3 @@ GraphViewer to J48 in order to view the textual or graphical
 representations of the trees produced for each fold of the cross
 validation (this is something that is not possible in the Explorer).
 -----------------------------
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb

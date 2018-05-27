@@ -1,8 +1,4 @@
 /*
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -15,46 +11,16 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
-<<<<<<< HEAD
-=======
-=======
- *    This program is free software; you can redistribute it and/or modify
- *    it under the terms of the GNU General Public License as published by
- *    the Free Software Foundation; either version 2 of the License, or
- *    (at your option) any later version.
- *
- *    This program is distributed in the hope that it will be useful,
- *    but WITHOUT ANY WARRANTY; without even the implied warranty of
- *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *    GNU General Public License for more details.
- *
- *    You should have received a copy of the GNU General Public License
- *    along with this program; if not, write to the Free Software
- *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    RegressionByDiscretization.java
-<<<<<<< HEAD
  *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
-=======
-<<<<<<< HEAD
- *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
-=======
- *    Copyright (C) 1999 University of Waikato, Hamilton, New Zealand
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
 package weka.classifiers.meta;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Enumeration;
@@ -83,27 +49,6 @@ import weka.estimators.UnivariateQuantileEstimator;
 import weka.filters.Filter;
 import weka.filters.unsupervised.attribute.Discretize;
 
-<<<<<<< HEAD
-=======
-=======
-import weka.classifiers.SingleClassifierEnhancer;
-import weka.core.Capabilities;
-import weka.core.Instance;
-import weka.core.Instances;
-import weka.core.Attribute;
-import weka.core.FastVector;
-import weka.core.Option;
-import weka.core.RevisionUtils;
-import weka.core.Utils;
-import weka.core.Capabilities.Capability;
-import weka.filters.Filter;
-import weka.filters.unsupervised.attribute.Discretize;
-
-import java.util.Enumeration;
-import java.util.Vector;
-
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 /**
  <!-- globalinfo-start -->
  * A regression scheme that employs any classifier on a copy of the data that has the class attribute (equal-width) discretized. The predicted value is the expected value of the mean class value for each discretized interval (based on the predicted probabilities for each interval).
@@ -176,10 +121,6 @@ import java.util.Vector;
  *
  * @author Len Trigg (trigg@cs.waikato.ac.nz)
  * @author Eibe Frank (eibe@cs.waikato.ac.nz)
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  * @version $Revision: 11326 $
  */
 public class RegressionByDiscretization 
@@ -188,19 +129,6 @@ extends SingleClassifierEnhancer implements IntervalEstimator, ConditionalDensit
   /** for serialization */
   static final long serialVersionUID = 5066426153134050378L;
 
-<<<<<<< HEAD
-=======
-=======
- * @version $Revision: 4746 $
- */
-public class RegressionByDiscretization 
-  extends SingleClassifierEnhancer {
-  
-  /** for serialization */
-  static final long serialVersionUID = 5066426153134050378L;
-  
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /** The discretization filter. */
   protected Discretize m_Discretizer = new Discretize();
 
@@ -210,10 +138,6 @@ public class RegressionByDiscretization
   /** The mean values for each Discretized class interval. */
   protected double [] m_ClassMeans;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /** The class counts for each Discretized class interval. */
   protected int [] m_ClassCounts;
 
@@ -223,24 +147,12 @@ public class RegressionByDiscretization
   /** Mapping to convert indices in case empty bins are deleted. */
   protected int[] m_OldIndexToNewIndex;
 
-<<<<<<< HEAD
-=======
-=======
-  /** Whether to delete empty intervals. */
-  protected boolean m_DeleteEmptyBins;
-
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /** Header of discretized data. */
   protected Instances m_DiscretizedHeader = null;
 
   /** Use equal-frequency binning */
   protected boolean m_UseEqualFrequency = false;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /** Whether to minimize absolute error, rather than squared error. */
   protected boolean m_MinimizeAbsoluteError = false;
 
@@ -253,11 +165,6 @@ public class RegressionByDiscretization
   /** The converted target values in the training data */
   protected int[] m_NewTargetValues = null;
 
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /**
    * Returns a string describing classifier
    * @return a description suitable for
@@ -266,10 +173,6 @@ public class RegressionByDiscretization
   public String globalInfo() {
 
     return "A regression scheme that employs any "
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       + "classifier on a copy of the data that has the class attribute "
       + "discretized. The predicted value is the expected value of the "
       + "mean class value for each discretized interval (based on the "
@@ -301,15 +204,6 @@ public class RegressionByDiscretization
     result.setValue(Field.ADDRESS, "Berlin");
 
     return result;
-<<<<<<< HEAD
-=======
-=======
-      + "classifier on a copy of the data that has the class attribute (equal-width) "
-      + "discretized. The predicted value is the expected value of the "
-      + "mean class value for each discretized interval (based on the "
-      + "predicted probabilities for each interval).";
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -318,15 +212,7 @@ public class RegressionByDiscretization
    * @return the default classifier classname
    */
   protected String defaultClassifierString() {
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return "weka.classifiers.trees.J48";
   }
 
@@ -351,21 +237,9 @@ public class RegressionByDiscretization
     result.disableAllClassDependencies();
     result.enable(Capability.NUMERIC_CLASS);
     result.enable(Capability.DATE_CLASS);
-<<<<<<< HEAD
 
     result.setMinimumNumberInstances(2);
 
-=======
-<<<<<<< HEAD
-
-    result.setMinimumNumberInstances(2);
-
-=======
-    
-    result.setMinimumNumberInstances(2);
-    
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return result;
   }
 
@@ -383,15 +257,7 @@ public class RegressionByDiscretization
     // remove instances with missing class
     instances = new Instances(instances);
     instances.deleteWithMissingClass();
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     // Discretize the training data
     m_Discretizer.setIgnoreClass(true);
     m_Discretizer.setAttributeIndices("" + (instances.classIndex() + 1));
@@ -401,14 +267,7 @@ public class RegressionByDiscretization
     Instances newTrain = Filter.useFilter(instances, m_Discretizer);
 
     // Should empty bins be deleted?
-<<<<<<< HEAD
     m_OldIndexToNewIndex = null;
-=======
-<<<<<<< HEAD
-    m_OldIndexToNewIndex = null;
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (m_DeleteEmptyBins) {
 
       // Figure out which classes are empty after discretization
@@ -420,10 +279,6 @@ public class RegressionByDiscretization
           notEmptyClass[(int)newTrain.instance(i).classValue()] = true;
         }
       }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
       // Compute new list of non-empty classes and mapping of indices
       ArrayList<String> newClassVals = new ArrayList<String>(numNonEmptyClasses);
@@ -451,47 +306,11 @@ public class RegressionByDiscretization
       Instances newTrainTransformed = new Instances(newTrain.relationName(), 
         newAttributes,
         newTrain.numInstances());
-<<<<<<< HEAD
-=======
-=======
-      
-      // Compute new list of non-empty classes and mapping of indices
-      FastVector newClassVals = new FastVector(numNonEmptyClasses);
-      int[] oldIndexToNewIndex = new int[newTrain.numClasses()];
-      for (int i = 0; i < newTrain.numClasses(); i++) {
-        if (notEmptyClass[i]) {
-          oldIndexToNewIndex[i] = newClassVals.size();
-          newClassVals.addElement(newTrain.classAttribute().value(i));
-        }
-      }
-      
-      // Compute new header information
-      Attribute newClass = new Attribute(newTrain.classAttribute().name(), 
-                                         newClassVals);
-      FastVector newAttributes = new FastVector(newTrain.numAttributes());
-      for (int i = 0; i < newTrain.numAttributes(); i++) {
-        if (i != newTrain.classIndex()) {
-          newAttributes.addElement(newTrain.attribute(i).copy());
-        } else {
-          newAttributes.addElement(newClass);
-        }
-      }
-      
-      // Create new header and modify instances
-      Instances newTrainTransformed = new Instances(newTrain.relationName(), 
-                                                    newAttributes,
-                                                    newTrain.numInstances());
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       newTrainTransformed.setClassIndex(newTrain.classIndex());
       for (int i = 0; i < newTrain.numInstances(); i++) {
         Instance inst = newTrain.instance(i);
         newTrainTransformed.add(inst);
         newTrainTransformed.lastInstance().
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         setClassValue(m_OldIndexToNewIndex[(int)inst.classValue()]);
       }
       newTrain = newTrainTransformed;
@@ -505,25 +324,12 @@ public class RegressionByDiscretization
       m_NewTargetValues[i] = (int)newTrain.instance(i).classValue();
     }
 
-<<<<<<< HEAD
-=======
-=======
-          setClassValue(oldIndexToNewIndex[(int)inst.classValue()]);
-      }
-      newTrain = newTrainTransformed;
-    }
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     m_DiscretizedHeader = new Instances(newTrain, 0);
 
     int numClasses = newTrain.numClasses();
 
     // Calculate the mean value for each bin of the new class attribute
     m_ClassMeans = new double [numClasses];
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     m_ClassCounts = new int [numClasses];
     for (int i = 0; i < instances.numInstances(); i++) {
       Instance inst = newTrain.instance(i);
@@ -531,34 +337,12 @@ public class RegressionByDiscretization
         int classVal = (int) inst.classValue();
         m_ClassCounts[classVal]++;
         m_ClassMeans[classVal] += instances.instance(i).classValue();
-<<<<<<< HEAD
-=======
-=======
-    int [] classCounts = new int [numClasses];
-    for (int i = 0; i < instances.numInstances(); i++) {
-      Instance inst = newTrain.instance(i);
-      if (!inst.classIsMissing()) {
-	int classVal = (int) inst.classValue();
-	classCounts[classVal]++;
-	m_ClassMeans[classVal] += instances.instance(i).classValue();
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
     }
 
     for (int i = 0; i < numClasses; i++) {
-<<<<<<< HEAD
       if (m_ClassCounts[i] > 0) {
         m_ClassMeans[i] /= m_ClassCounts[i];
-=======
-<<<<<<< HEAD
-      if (m_ClassCounts[i] > 0) {
-        m_ClassMeans[i] /= m_ClassCounts[i];
-=======
-      if (classCounts[i] > 0) {
-	m_ClassMeans[i] /= classCounts[i];
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
     }
 
@@ -566,15 +350,7 @@ public class RegressionByDiscretization
       System.out.println("Bin Means");
       System.out.println("==========");
       for (int i = 0; i < m_ClassMeans.length; i++) {
-<<<<<<< HEAD
         System.out.println(m_ClassMeans[i]);
-=======
-<<<<<<< HEAD
-        System.out.println(m_ClassMeans[i]);
-=======
-	System.out.println(m_ClassMeans[i]);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
       System.out.println();
     }
@@ -584,10 +360,6 @@ public class RegressionByDiscretization
   }
 
   /**
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Get density estimator for given instance.
    * 
    * @param inst the instance
@@ -674,11 +446,6 @@ public class RegressionByDiscretization
   }
 
   /**
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Returns a predicted class for the test instance.
    *
    * @param instance the instance to be classified
@@ -688,10 +455,6 @@ public class RegressionByDiscretization
   public double classifyInstance(Instance instance) throws Exception {  
 
     // Make sure structure of class attribute correct
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     m_Discretizer.input(instance);
     m_Discretizer.batchFinished();
     Instance newInstance = m_Discretizer.output();//(Instance)instance.copy();
@@ -719,23 +482,6 @@ public class RegressionByDiscretization
       // Return estimate
       return e.predictQuantile(0.5);
     }
-<<<<<<< HEAD
-=======
-=======
-    Instance newInstance = (Instance)instance.copy();
-    newInstance.setDataset(m_DiscretizedHeader);
-    double [] probs = m_Classifier.distributionForInstance(newInstance);
-
-    // Copmute actual prediction
-    double prediction = 0, probSum = 0;
-    for (int j = 0; j < probs.length; j++) {
-      prediction += probs[j] * m_ClassMeans[j];
-      probSum += probs[j];
-    }
-    
-    return prediction /  probSum;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -743,10 +489,6 @@ public class RegressionByDiscretization
    *
    * @return an enumeration of all the available options.
    */
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public Enumeration<Option> listOptions() {
 
     Vector<Option> newVector = new Vector<Option>(5);
@@ -775,33 +517,6 @@ public class RegressionByDiscretization
       "K", 1, "-K <estimator name and parameters"));
 
     newVector.addAll(Collections.list(super.listOptions()));
-<<<<<<< HEAD
-=======
-=======
-  public Enumeration listOptions() {
-
-    Vector newVector = new Vector(3);
-
-    newVector.addElement(new Option(
-	      "\tNumber of bins for equal-width discretization\n"
-	      + "\t(default 10).\n",
-	      "B", 1, "-B <int>"));
-
-    newVector.addElement(new Option(
-	      "\tWhether to delete empty bins after discretization\n"
-	      + "\t(default false).\n",
-	      "E", 0, "-E"));
-    
-    newVector.addElement(new Option(
-	     "\tUse equal-frequency instead of equal-width discretization.",
-	     "F", 0, "-F"));
-
-    Enumeration enu = super.listOptions();
-    while (enu.hasMoreElements()) {
-      newVector.addElement(enu.nextElement());
-    }
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     return newVector.elements();
   }
@@ -810,73 +525,6 @@ public class RegressionByDiscretization
    * Parses a given list of options. <p/>
    *
    <!-- options-start -->
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-   * Valid options are: <p/>
-   * 
-   * <pre> -B &lt;int&gt;
-   *  Number of bins for equal-width discretization
-   *  (default 10).
-   * </pre>
-   * 
-   * <pre> -E
-   *  Whether to delete empty bins after discretization
-   *  (default false).
-   * </pre>
-   * 
-   * <pre> -F
-   *  Use equal-frequency instead of equal-width discretization.</pre>
-   * 
-   * <pre> -D
-   *  If set, classifier is run in debug mode and
-   *  may output additional info to the console</pre>
-   * 
-   * <pre> -W
-   *  Full name of base classifier.
-   *  (default: weka.classifiers.trees.J48)</pre>
-   * 
-   * <pre> 
-   * Options specific to classifier weka.classifiers.trees.J48:
-   * </pre>
-   * 
-   * <pre> -U
-   *  Use unpruned tree.</pre>
-   * 
-   * <pre> -C &lt;pruning confidence&gt;
-   *  Set confidence threshold for pruning.
-   *  (default 0.25)</pre>
-   * 
-   * <pre> -M &lt;minimum number of instances&gt;
-   *  Set minimum number of instances per leaf.
-   *  (default 2)</pre>
-   * 
-   * <pre> -R
-   *  Use reduced error pruning.</pre>
-   * 
-   * <pre> -N &lt;number of folds&gt;
-   *  Set number of folds for reduced error
-   *  pruning. One fold is used as pruning set.
-   *  (default 3)</pre>
-   * 
-   * <pre> -B
-   *  Use binary splits only.</pre>
-   * 
-   * <pre> -S
-   *  Don't perform subtree raising.</pre>
-   * 
-   * <pre> -L
-   *  Do not clean up after the tree has been built.</pre>
-   * 
-   * <pre> -A
-   *  Laplace smoothing for predicted probabilities.</pre>
-   * 
-   * <pre> -Q &lt;seed&gt;
-   *  Seed for random data shuffling (default 1).</pre>
-   * 
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    <!-- options-end -->
    *
    * @param options the list of options as an array of strings
@@ -893,10 +541,6 @@ public class RegressionByDiscretization
 
     setDeleteEmptyBins(Utils.getFlag('E', options));
     setUseEqualFrequency(Utils.getFlag('F', options));
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     setMinimizeAbsoluteError(Utils.getFlag('A', options));
 
     String tmpStr = Utils.getOption('K', options);
@@ -911,13 +555,6 @@ public class RegressionByDiscretization
     super.setOptions(options);
 
     Utils.checkForRemainingOptions(options);
-<<<<<<< HEAD
-=======
-=======
-
-    super.setOptions(options);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -927,10 +564,6 @@ public class RegressionByDiscretization
    */
   public String [] getOptions() {
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     Vector<String> options = new Vector<String>();
 
     options.add("-B");
@@ -959,35 +592,6 @@ public class RegressionByDiscretization
     Collections.addAll(options, super.getOptions());
 
     return options.toArray(new String[0]);
-<<<<<<< HEAD
-=======
-=======
-    String [] superOptions = super.getOptions();
-    String [] options = new String [superOptions.length + 4];
-    int current = 0;
-
-    options[current++] = "-B";
-    options[current++] = "" + getNumBins();
-
-    if (getDeleteEmptyBins()) {
-      options[current++] = "-E";
-    }
-    
-    if (getUseEqualFrequency()) {
-      options[current++] = "-F";
-    }
-
-    System.arraycopy(superOptions, 0, options, current, 
-		     superOptions.length);
-
-    current += superOptions.length;
-    while (current < options.length) {
-      options[current++] = "";
-    }
-
-    return options;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -1035,21 +639,9 @@ public class RegressionByDiscretization
 
 
   /**
-<<<<<<< HEAD
    * Gets whether empty bins are deleted.
    *
    * @return true if empty bins get deleted.
-=======
-<<<<<<< HEAD
-   * Gets whether empty bins are deleted.
-   *
-   * @return true if empty bins get deleted.
-=======
-   * Gets the number of bins numeric attributes will be divided into
-   *
-   * @return the number of bins.
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public boolean getDeleteEmptyBins() {
 
@@ -1057,30 +649,14 @@ public class RegressionByDiscretization
   }
 
   /**
-<<<<<<< HEAD
    * Sets whether to delete empty bins.
    *
    * @param b if true, empty bins will be deleted
-=======
-<<<<<<< HEAD
-   * Sets whether to delete empty bins.
-   *
-   * @param b if true, empty bins will be deleted
-=======
-   * Sets the number of bins to divide each selected numeric attribute into
-   *
-   * @param numBins the number of bins
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public void setDeleteEmptyBins(boolean b) {
 
     m_DeleteEmptyBins = b;
   }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /**
    * Returns the tip text for this property
@@ -1114,12 +690,6 @@ public class RegressionByDiscretization
     m_MinimizeAbsoluteError = b;
   }
 
-<<<<<<< HEAD
-=======
-=======
-  
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /**
    * Returns the tip text for this property
    *
@@ -1131,61 +701,28 @@ public class RegressionByDiscretization
     return "If set to true, equal-frequency binning will be used instead of" +
       " equal-width binning.";
   }
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-
-=======
-  
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /**
    * Get the value of UseEqualFrequency.
    *
    * @return Value of UseEqualFrequency.
    */
   public boolean getUseEqualFrequency() {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     return m_UseEqualFrequency;
   }
 
-<<<<<<< HEAD
-=======
-=======
-    
-    return m_UseEqualFrequency;
-  }
-  
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /**
    * Set the value of UseEqualFrequency.
    *
    * @param newUseEqualFrequency Value to assign to UseEqualFrequency.
    */
   public void setUseEqualFrequency(boolean newUseEqualFrequency) {
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     m_UseEqualFrequency = newUseEqualFrequency;
   }
 
   /**
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Returns the tip text for this property
    *
    * @return tip text for this property suitable for
@@ -1217,11 +754,6 @@ public class RegressionByDiscretization
   }
 
   /**
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Returns a description of the classifier.
    *
    * @return a description of the classifier as a string.
@@ -1235,57 +767,24 @@ public class RegressionByDiscretization
       text.append(": No model built yet.");
     } else {
       text.append("\n\nClass attribute discretized into " 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         + m_ClassMeans.length + " values\n");
 
       text.append("\nClassifier spec: " + getClassifierSpec() 
         + "\n");
-<<<<<<< HEAD
-=======
-=======
-		  + m_ClassMeans.length + " values\n");
-
-      text.append("\nClassifier spec: " + getClassifierSpec() 
-		  + "\n");
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       text.append(m_Classifier.toString());
     }
     return text.toString();
   }
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-
-=======
-  
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /**
    * Returns the revision string.
    * 
    * @return		the revision
    */
   public String getRevision() {
-<<<<<<< HEAD
     return RevisionUtils.extract("$Revision: 11326 $");
   }
 
-=======
-<<<<<<< HEAD
-    return RevisionUtils.extract("$Revision: 11326 $");
-  }
-
-=======
-    return RevisionUtils.extract("$Revision: 4746 $");
-  }
- 
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /**
    * Main method for testing this class.
    *

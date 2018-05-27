@@ -1,8 +1,4 @@
 /*
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -15,68 +11,24 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
-<<<<<<< HEAD
-=======
-=======
- *    This program is free software; you can redistribute it and/or modify
- *    it under the terms of the GNU General Public License as published by
- *    the Free Software Foundation; either version 2 of the License, or
- *    (at your option) any later version.
- *
- *    This program is distributed in the hope that it will be useful,
- *    but WITHOUT ANY WARRANTY; without even the implied warranty of
- *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *    GNU General Public License for more details.
- *
- *    You should have received a copy of the GNU General Public License
- *    along with this program; if not, write to the Free Software
- *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    RuleNode.java
-<<<<<<< HEAD
  *    Copyright (C) 2000-2012 University of Waikato, Hamilton, New Zealand
-=======
-<<<<<<< HEAD
- *    Copyright (C) 2000-2012 University of Waikato, Hamilton, New Zealand
-=======
- *    Copyright (C) 2000 University of Waikato, Hamilton, New Zealand
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
 package weka.classifiers.trees.m5;
 
-<<<<<<< HEAD
 import java.io.Serializable;
 
 import weka.classifiers.AbstractClassifier;
-=======
-<<<<<<< HEAD
-import java.io.Serializable;
-
-import weka.classifiers.AbstractClassifier;
-=======
-import weka.classifiers.Classifier;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.RevisionUtils;
 import weka.core.Utils;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-import java.io.Serializable;
-
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 /**
  * This class encapsulates a linear regression function. It is a classifier
  * but does not learn the function itself, instead it is constructed with
@@ -85,23 +37,10 @@ import java.io.Serializable;
  * header for use in printing the model to the console.
  *
  * @author Mark Hall (mhall@cs.waikato.ac.nz)
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  * @version $Revision: 8034 $
  */
 public class PreConstructedLinearModel 
   extends AbstractClassifier 
-<<<<<<< HEAD
-=======
-=======
- * @version $Revision: 1.6 $
- */
-public class PreConstructedLinearModel 
-  extends Classifier 
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   implements Serializable {
   
   /** for serialization */
@@ -233,14 +172,6 @@ public class PreConstructedLinearModel
    * @return		the revision
    */
   public String getRevision() {
-<<<<<<< HEAD
     return RevisionUtils.extract("$Revision: 8034 $");
-=======
-<<<<<<< HEAD
-    return RevisionUtils.extract("$Revision: 8034 $");
-=======
-    return RevisionUtils.extract("$Revision: 1.6 $");
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 }

@@ -1,8 +1,4 @@
 /*
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -15,37 +11,11 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
-<<<<<<< HEAD
-=======
-=======
- *    This program is free software; you can redistribute it and/or modify
- *    it under the terms of the GNU General Public License as published by
- *    the Free Software Foundation; either version 2 of the License, or
- *    (at your option) any later version.
- *
- *    This program is distributed in the hope that it will be useful,
- *    but WITHOUT ANY WARRANTY; without even the implied warranty of
- *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *    GNU General Public License for more details.
- *
- *    You should have received a copy of the GNU General Public License
- *    along with this program; if not, write to the Free Software
- *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  * ResultMatrixLatex.java
-<<<<<<< HEAD
  * Copyright (C) 2005-2012 University of Waikato, Hamilton, New Zealand
-=======
-<<<<<<< HEAD
- * Copyright (C) 2005-2012 University of Waikato, Hamilton, New Zealand
-=======
- * Copyright (C) 2005 University of Waikato, Hamilton, New Zealand
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
@@ -55,10 +25,6 @@ import weka.core.RevisionUtils;
 import weka.core.Utils;
 
 /**
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  <!-- globalinfo-start -->
  * Generates the matrix output in LaTeX-syntax.
  * <p/>
@@ -134,86 +100,38 @@ import weka.core.Utils;
  *
  * @author FracPete (fracpete at waikato dot ac dot nz)
  * @version $Revision: 8034 $
-<<<<<<< HEAD
-=======
-=======
- * This matrix is a container for the datasets and classifier setups and 
- * their statistics. It outputs the matrix in Latex.
- *
- *
- * @author FracPete (fracpete at waikato dot ac dot nz)
- * @version $Revision: 1.6 $
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 public class ResultMatrixLatex
   extends ResultMatrix {
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /** for serialization. */
   private static final long serialVersionUID = 777690788447600978L;
   
   /**
    * initializes the matrix as 1x1 matrix.
-<<<<<<< HEAD
-=======
-=======
-  /** for serialization */
-  private static final long serialVersionUID = 777690788447600978L;
-  
-  /**
-   * initializes the matrix as 1x1 matrix
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public ResultMatrixLatex() {
     this(1, 1);
   }
 
   /**
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * initializes the matrix with the given dimensions.
    * 
    * @param cols	the number of columns
    * @param rows	the number of rows
-<<<<<<< HEAD
-=======
-=======
-   * initializes the matrix with the given dimensions
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public ResultMatrixLatex(int cols, int rows) {
     super(cols, rows);
   }
 
   /**
-<<<<<<< HEAD
    * initializes the matrix with the values from the given matrix.
    * 
-=======
-<<<<<<< HEAD
-   * initializes the matrix with the values from the given matrix.
-   * 
-=======
-   * initializes the matrix with the values from the given matrix
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param matrix      the matrix to get the values from
    */
   public ResultMatrixLatex(ResultMatrix matrix) {
     super(matrix);
   }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   
   /**
    * Returns a string describing the matrix.
@@ -229,47 +147,20 @@ public class ResultMatrixLatex
    * returns the name of the output format.
    * 
    * @return		the display name
-<<<<<<< HEAD
-=======
-=======
-
-  /**
-   * returns the name of the output format
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public String getDisplayName() {
     return "LaTeX";
   }
 
   /**
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * removes the stored data but retains the dimensions of the matrix.
    */
   public void clear() {
     super.clear();
-<<<<<<< HEAD
-=======
-=======
-   * removes the stored data but retains the dimensions of the matrix
-   */
-  public void clear() {
-    super.clear();
-    setPrintColNames(false);
-    setEnumerateColNames(true);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     TIE_STRING  = " ";
     WIN_STRING  = "$\\circ$";
     LOSS_STRING = "$\\bullet$";
   }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /**
    * returns the default of whether column names or numbers instead are printed.
@@ -295,35 +186,15 @@ public class ResultMatrixLatex
    * @return		the header
    * @see 		#m_HeaderKeys
    * @see 		#m_HeaderValues
-<<<<<<< HEAD
-=======
-=======
-  
-  /**
-   * returns the header of the matrix as a string
-   * @see #m_HeaderKeys
-   * @see #m_HeaderValues
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public String toStringHeader() {
     return new ResultMatrixPlainText(this).toStringHeader();
   }
 
   /**
-<<<<<<< HEAD
    * returns the matrix as latex table.
    * 
    * @return		the matrix
-=======
-<<<<<<< HEAD
-   * returns the matrix as latex table.
-   * 
-   * @return		the matrix
-=======
-   * returns the matrix as latex table
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public String toStringMatrix() {
     StringBuffer    result;
@@ -455,19 +326,9 @@ public class ResultMatrixLatex
 
   /**
    * returns returns a key for all the col names, for better readability if
-<<<<<<< HEAD
    * the names got cut off.
    * 
    * @return		the key
-=======
-<<<<<<< HEAD
-   * the names got cut off.
-   * 
-   * @return		the key
-=======
-   * the names got cut off
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public String toStringKey() {
     String          result;
@@ -495,19 +356,9 @@ public class ResultMatrixLatex
   }
 
   /**
-<<<<<<< HEAD
    * returns the summary as string.
    * 
    * @return		the summary
-=======
-<<<<<<< HEAD
-   * returns the summary as string.
-   * 
-   * @return		the summary
-=======
-   * returns the summary as string
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public String toStringSummary() {
     int           resultsetLength;
@@ -567,19 +418,9 @@ public class ResultMatrixLatex
   }
 
   /**
-<<<<<<< HEAD
    * returns the ranking in a string representation.
    * 
    * @return 		the ranking
-=======
-<<<<<<< HEAD
-   * returns the ranking in a string representation.
-   * 
-   * @return 		the ranking
-=======
-   * returns the ranking in a string representation
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public String toStringRanking() {
     int           biggest;
@@ -626,10 +467,6 @@ public class ResultMatrixLatex
    * @return		the revision
    */
   public String getRevision() {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return RevisionUtils.extract("$Revision: 8034 $");
   }
 
@@ -637,16 +474,6 @@ public class ResultMatrixLatex
    * for testing only.
    * 
    * @param args	ignored
-<<<<<<< HEAD
-=======
-=======
-    return RevisionUtils.extract("$Revision: 1.6 $");
-  }
-
-  /**
-   * for testing only
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public static void main(String[] args) {
     ResultMatrix        matrix;

@@ -1,8 +1,4 @@
 /*
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -15,37 +11,11 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
-<<<<<<< HEAD
-=======
-=======
- *    This program is free software; you can redistribute it and/or modify
- *    it under the terms of the GNU General Public License as published by
- *    the Free Software Foundation; either version 2 of the License, or
- *    (at your option) any later version.
- *
- *    This program is distributed in the hope that it will be useful,
- *    but WITHOUT ANY WARRANTY; without even the implied warranty of
- *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *    GNU General Public License for more details.
- *
- *    You should have received a copy of the GNU General Public License
- *    along with this program; if not, write to the Free Software
- *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    ContingencyTables.java
-<<<<<<< HEAD
  *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
-=======
-<<<<<<< HEAD
- *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
-=======
- *    Copyright (C) 1999 University of Waikato, Hamilton, New Zealand
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
@@ -55,24 +25,12 @@ package weka.core;
  * Class implementing some statistical routines for contingency tables.
  *
  * @author Eibe Frank (eibe@cs.waikato.ac.nz)
-<<<<<<< HEAD
  * @version $Revision: 10057 $
-=======
-<<<<<<< HEAD
- * @version $Revision: 10057 $
-=======
- * @version $Revision: 8923 $
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 public class ContingencyTables
   implements RevisionHandler {
 
   /** The natural logarithm of 2 */
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public static final double log2 = Math.log(2);
 
   /** Cache of integer logs */
@@ -87,12 +45,6 @@ public class ContingencyTables
     }
   }
 
-<<<<<<< HEAD
-=======
-=======
-  private static double log2 = Math.log(2);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /**
    * Returns chi-squared probability for a given matrix.
@@ -589,23 +541,11 @@ public class ContingencyTables
   /**
    * Help method for computing entropy.
    */
-<<<<<<< HEAD
   public static double lnFunc(double num){
-=======
-<<<<<<< HEAD
-  public static double lnFunc(double num){
-=======
-  private static double lnFunc(double num){
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     
     if (num <= 0) {
       return 0;
     } else {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
       // Use cache if we have a sufficiently small integer
       if (num < MAX_INT_FOR_CACHE_PLUS_ONE) {
@@ -614,11 +554,6 @@ public class ContingencyTables
           return INT_N_LOG_N_CACHE[n];
         }
       }
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       return num * Math.log(num);
     }
   }
@@ -662,15 +597,7 @@ public class ContingencyTables
    * @return		the revision
    */
   public String getRevision() {
-<<<<<<< HEAD
     return RevisionUtils.extract("$Revision: 10057 $");
-=======
-<<<<<<< HEAD
-    return RevisionUtils.extract("$Revision: 10057 $");
-=======
-    return RevisionUtils.extract("$Revision: 8923 $");
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**

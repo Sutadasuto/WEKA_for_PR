@@ -1,8 +1,4 @@
 /*
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -15,37 +11,11 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
-<<<<<<< HEAD
-=======
-=======
- *    This program is free software; you can redistribute it and/or modify
- *    it under the terms of the GNU General Public License as published by
- *    the Free Software Foundation; either version 2 of the License, or
- *    (at your option) any later version.
- *
- *    This program is distributed in the hope that it will be useful,
- *    but WITHOUT ANY WARRANTY; without even the implied warranty of
- *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *    GNU General Public License for more details.
- *
- *    You should have received a copy of the GNU General Public License
- *    along with this program; if not, write to the Free Software
- *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    RegressionSplitEvaluator.java
-<<<<<<< HEAD
  *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
-=======
-<<<<<<< HEAD
- *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
-=======
- *    Copyright (C) 1999 University of Waikato, Hamilton, New Zealand
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
@@ -57,10 +27,6 @@ import java.io.ObjectStreamClass;
 import java.io.Serializable;
 import java.lang.management.ManagementFactory;
 import java.lang.management.ThreadMXBean;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -75,20 +41,6 @@ import weka.classifiers.evaluation.AbstractEvaluationMetric;
 import weka.classifiers.rules.ZeroR;
 import weka.core.AdditionalMeasureProducer;
 import weka.core.Attribute;
-<<<<<<< HEAD
-=======
-=======
-import java.util.Enumeration;
-import java.util.Vector;
-
-import weka.classifiers.Classifier;
-import weka.classifiers.Evaluation;
-import weka.classifiers.rules.ZeroR;
-import weka.core.AdditionalMeasureProducer;
-import weka.core.Attribute;
-import weka.core.Instance;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.core.Instances;
 import weka.core.Option;
 import weka.core.OptionHandler;
@@ -102,10 +54,6 @@ import weka.core.Utils;
  * classification scheme on a numeric class attribute.
  * <p/>
  * <!-- globalinfo-end -->
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  * <!-- options-start --> Valid options are:
  * <p/>
@@ -116,48 +64,21 @@ import weka.core.Utils;
  *  (default: sizes are determined)
  * </pre>
  *
-<<<<<<< HEAD
-=======
-=======
- * 
- * <!-- options-start --> Valid options are:
- * <p/>
- * 
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  * <pre>
  * -W &lt;class name&gt;
  *  The full class name of the classifier.
  *  eg: weka.classifiers.bayes.NaiveBayes
  * </pre>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  * <pre>
  * Options specific to classifier weka.classifiers.rules.ZeroR:
  * </pre>
  *
-<<<<<<< HEAD
-=======
-=======
- * 
- * <pre>
- * Options specific to classifier weka.classifiers.rules.ZeroR:
- * </pre>
- * 
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  * <pre>
  * -D
  *  If set, classifier is run in debug mode and
  *  may output additional info to the console
  * </pre>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  * <!-- options-end -->
  *
@@ -165,16 +86,6 @@ import weka.core.Utils;
  *
  * @author Len Trigg (trigg@cs.waikato.ac.nz)
  * @version $Revision: 11323 $
-<<<<<<< HEAD
-=======
-=======
- * 
- * <!-- options-end -->
- * 
- * @author Len Trigg (trigg@cs.waikato.ac.nz)
- * @version $Revision: 11198 $
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 public class RegressionSplitEvaluator implements SplitEvaluator, OptionHandler,
   AdditionalMeasureProducer, RevisionHandler {
@@ -188,18 +99,9 @@ public class RegressionSplitEvaluator implements SplitEvaluator, OptionHandler,
   /** The classifier used for evaluation */
   protected Classifier m_Classifier;
 
-<<<<<<< HEAD
   /** Holds the most recently used Evaluation object */
   protected Evaluation m_Evaluation;
 
-=======
-<<<<<<< HEAD
-  /** Holds the most recently used Evaluation object */
-  protected Evaluation m_Evaluation;
-
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /** The names of any additional measures to look for in SplitEvaluators */
   protected String[] m_AdditionalMeasures = null;
 
@@ -219,37 +121,18 @@ public class RegressionSplitEvaluator implements SplitEvaluator, OptionHandler,
   /** The classifier version */
   protected String m_ClassifierVersion = "";
 
-<<<<<<< HEAD
   /** whether to skip determination of sizes (train/test/classifier). */
   private boolean m_NoSizeDetermination;
 
-=======
-<<<<<<< HEAD
-  /** whether to skip determination of sizes (train/test/classifier). */
-  private boolean m_NoSizeDetermination;
-
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /** The length of a key */
   private static final int KEY_SIZE = 3;
 
   /** The length of a result */
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   private static final int RESULT_SIZE = 27;
 
   protected final List<AbstractEvaluationMetric> m_pluginMetrics =
     new ArrayList<AbstractEvaluationMetric>();
   protected int m_numPluginStatistics = 0;
-<<<<<<< HEAD
-=======
-=======
-  private static final int RESULT_SIZE = 23;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /**
    * No args constructor.
@@ -257,10 +140,6 @@ public class RegressionSplitEvaluator implements SplitEvaluator, OptionHandler,
   public RegressionSplitEvaluator() {
 
     updateOptions();
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     List<AbstractEvaluationMetric> pluginMetrics = AbstractEvaluationMetric
       .getPluginMetrics();
@@ -272,24 +151,11 @@ public class RegressionSplitEvaluator implements SplitEvaluator, OptionHandler,
         }
       }
     }
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Returns a string describing this split evaluator
-<<<<<<< HEAD
    *
-=======
-<<<<<<< HEAD
-   *
-=======
-   * 
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @return a description of the split evaluator suitable for displaying in the
    *         explorer/experimenter gui
    */
@@ -300,10 +166,6 @@ public class RegressionSplitEvaluator implements SplitEvaluator, OptionHandler,
 
   /**
    * Returns an enumeration describing the available options..
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    *
    * @return an enumeration of all the available options.
    */
@@ -315,19 +177,6 @@ public class RegressionSplitEvaluator implements SplitEvaluator, OptionHandler,
     newVector.addElement(new Option(
       "\tSkips the determination of sizes (train/test/classifier)\n"
         + "\t(default: sizes are determined)", "no-size", 0, "-no-size"));
-<<<<<<< HEAD
-=======
-=======
-   * 
-   * @return an enumeration of all the available options.
-   */
-  @Override
-  public Enumeration listOptions() {
-
-    Vector newVector = new Vector(1);
-
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     newVector
       .addElement(new Option("\tThe full class name of the classifier.\n"
         + "\teg: weka.classifiers.bayes.NaiveBayes", "W", 1, "-W <class name>"));
@@ -336,20 +185,8 @@ public class RegressionSplitEvaluator implements SplitEvaluator, OptionHandler,
       newVector.addElement(new Option("", "", 0,
         "\nOptions specific to classifier " + m_Template.getClass().getName()
           + ":"));
-<<<<<<< HEAD
       newVector.addAll(Collections.list(((OptionHandler) m_Template)
         .listOptions()));
-=======
-<<<<<<< HEAD
-      newVector.addAll(Collections.list(((OptionHandler) m_Template)
-        .listOptions()));
-=======
-      Enumeration enu = ((OptionHandler) m_Template).listOptions();
-      while (enu.hasMoreElements()) {
-        newVector.addElement(enu.nextElement());
-      }
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
     return newVector.elements();
   }
@@ -357,10 +194,6 @@ public class RegressionSplitEvaluator implements SplitEvaluator, OptionHandler,
   /**
    * Parses a given list of options.
    * <p/>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    *
    * <!-- options-start --> Valid options are:
    * <p/>
@@ -371,72 +204,31 @@ public class RegressionSplitEvaluator implements SplitEvaluator, OptionHandler,
    *  (default: sizes are determined)
    * </pre>
    *
-<<<<<<< HEAD
-=======
-=======
-   * 
-   * <!-- options-start --> Valid options are:
-   * <p/>
-   * 
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * <pre>
    * -W &lt;class name&gt;
    *  The full class name of the classifier.
    *  eg: weka.classifiers.bayes.NaiveBayes
    * </pre>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    *
    * <pre>
    * Options specific to classifier weka.classifiers.rules.ZeroR:
    * </pre>
    *
-<<<<<<< HEAD
-=======
-=======
-   * 
-   * <pre>
-   * Options specific to classifier weka.classifiers.rules.ZeroR:
-   * </pre>
-   * 
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * <pre>
    * -D
    *  If set, classifier is run in debug mode and
    *  may output additional info to the console
    * </pre>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    *
    * <!-- options-end -->
    *
    * All option after -- will be passed to the classifier.
    *
-<<<<<<< HEAD
-=======
-=======
-   * 
-   * <!-- options-end -->
-   * 
-   * All option after -- will be passed to the classifier.
-   * 
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param options the list of options as an array of strings
    * @throws Exception if an option is not supported
    */
   @Override
   public void setOptions(String[] options) throws Exception {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     m_NoSizeDetermination = Utils.getFlag("no-size", options);
 
     String cName = Utils.getOption('W', options);
@@ -448,20 +240,6 @@ public class RegressionSplitEvaluator implements SplitEvaluator, OptionHandler,
     // the option setting, listOptions will contain options for the actual
     // Classifier.
     setClassifier(AbstractClassifier.forName(cName, null));
-<<<<<<< HEAD
-=======
-=======
-
-    String cName = Utils.getOption('W', options);
-    if (cName.length() > 0) {
-
-      // Do it first without options, so if an exception is thrown during
-      // the option setting, listOptions will contain options for the actual
-      // Classifier.
-      setClassifier(Classifier.forName(cName, null));
-    }
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (getClassifier() instanceof OptionHandler) {
       ((OptionHandler) getClassifier()).setOptions(Utils
         .partitionOptions(options));
@@ -471,44 +249,21 @@ public class RegressionSplitEvaluator implements SplitEvaluator, OptionHandler,
 
   /**
    * Gets the current settings of the Classifier.
-<<<<<<< HEAD
    *
-=======
-<<<<<<< HEAD
-   *
-=======
-   * 
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @return an array of strings suitable for passing to setOptions
    */
   @Override
   public String[] getOptions() {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     Vector<String> result;
     String[] classifierOptions;
 
     result = new Vector<String>();
 
     classifierOptions = new String[0];
-<<<<<<< HEAD
-=======
-=======
-
-    String[] classifierOptions = new String[0];
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if ((m_Template != null) && (m_Template instanceof OptionHandler)) {
       classifierOptions = ((OptionHandler) m_Template).getOptions();
     }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (getNoSizeDetermination()) {
       result.add("-no-size");
     }
@@ -521,27 +276,6 @@ public class RegressionSplitEvaluator implements SplitEvaluator, OptionHandler,
     result.addAll(Arrays.asList(classifierOptions));
 
     return result.toArray(new String[result.size()]);
-<<<<<<< HEAD
-=======
-=======
-    String[] options = new String[classifierOptions.length + 3];
-    int current = 0;
-
-    if (getClassifier() != null) {
-      options[current++] = "-W";
-      options[current++] = getClassifier().getClass().getName();
-    }
-    options[current++] = "--";
-
-    System.arraycopy(classifierOptions, 0, options, current,
-      classifierOptions.length);
-    current += classifierOptions.length;
-    while (current < options.length) {
-      options[current++] = "";
-    }
-    return options;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -549,15 +283,7 @@ public class RegressionSplitEvaluator implements SplitEvaluator, OptionHandler,
    * Classifiers. This could contain many measures (of which only a subset may
    * be produceable by the current Classifier) if an experiment is the type that
    * iterates over a set of properties.
-<<<<<<< HEAD
    *
-=======
-<<<<<<< HEAD
-   *
-=======
-   * 
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param additionalMeasures an array of method names.
    */
   @Override
@@ -570,23 +296,10 @@ public class RegressionSplitEvaluator implements SplitEvaluator, OptionHandler,
       m_doesProduce = new boolean[m_AdditionalMeasures.length];
 
       if (m_Template instanceof AdditionalMeasureProducer) {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         Enumeration<String> en = ((AdditionalMeasureProducer) m_Template)
           .enumerateMeasures();
         while (en.hasMoreElements()) {
           String mname = en.nextElement();
-<<<<<<< HEAD
-=======
-=======
-        Enumeration en = ((AdditionalMeasureProducer) m_Template)
-          .enumerateMeasures();
-        while (en.hasMoreElements()) {
-          String mname = (String) en.nextElement();
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
           for (int j = 0; j < m_AdditionalMeasures.length; j++) {
             if (mname.compareToIgnoreCase(m_AdditionalMeasures[j]) == 0) {
               m_doesProduce[j] = true;
@@ -602,10 +315,6 @@ public class RegressionSplitEvaluator implements SplitEvaluator, OptionHandler,
   /**
    * Returns an enumeration of any additional measure names that might be in the
    * classifier
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    *
    * @return an enumeration of the measure names
    */
@@ -618,23 +327,6 @@ public class RegressionSplitEvaluator implements SplitEvaluator, OptionHandler,
       while (en.hasMoreElements()) {
         String mname = en.nextElement();
         newVector.add(mname);
-<<<<<<< HEAD
-=======
-=======
-   * 
-   * @return an enumeration of the measure names
-   */
-  @Override
-  public Enumeration enumerateMeasures() {
-    Vector newVector = new Vector();
-    if (m_Template instanceof AdditionalMeasureProducer) {
-      Enumeration en = ((AdditionalMeasureProducer) m_Template)
-        .enumerateMeasures();
-      while (en.hasMoreElements()) {
-        String mname = (String) en.nextElement();
-        newVector.addElement(mname);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
     }
     return newVector.elements();
@@ -642,15 +334,7 @@ public class RegressionSplitEvaluator implements SplitEvaluator, OptionHandler,
 
   /**
    * Returns the value of the named measure
-<<<<<<< HEAD
    *
-=======
-<<<<<<< HEAD
-   *
-=======
-   * 
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param additionalMeasureName the name of the measure to query for its value
    * @return the value of the named measure
    * @throws IllegalArgumentException if the named measure is not supported
@@ -676,15 +360,7 @@ public class RegressionSplitEvaluator implements SplitEvaluator, OptionHandler,
   /**
    * Gets the data types of each of the key columns produced for a single run.
    * The number of key fields must be constant for a given SplitEvaluator.
-<<<<<<< HEAD
    *
-=======
-<<<<<<< HEAD
-   *
-=======
-   * 
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @return an array containing objects of the type of each key column. The
    *         objects should be Strings, or Doubles.
    */
@@ -701,15 +377,7 @@ public class RegressionSplitEvaluator implements SplitEvaluator, OptionHandler,
   /**
    * Gets the names of each of the key columns produced for a single run. The
    * number of key fields must be constant for a given SplitEvaluator.
-<<<<<<< HEAD
    *
-=======
-<<<<<<< HEAD
-   *
-=======
-   * 
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @return an array containing the name of each key column
    */
   @Override
@@ -727,15 +395,7 @@ public class RegressionSplitEvaluator implements SplitEvaluator, OptionHandler,
    * contain the name of the classifier used for classifier predictive
    * evaluation. The number of key fields must be constant for a given
    * SplitEvaluator.
-<<<<<<< HEAD
    *
-=======
-<<<<<<< HEAD
-   *
-=======
-   * 
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @return an array of objects containing the key.
    */
   @Override
@@ -752,32 +412,15 @@ public class RegressionSplitEvaluator implements SplitEvaluator, OptionHandler,
    * Gets the data types of each of the result columns produced for a single
    * run. The number of result fields must be constant for a given
    * SplitEvaluator.
-<<<<<<< HEAD
    *
-=======
-<<<<<<< HEAD
-   *
-=======
-   * 
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @return an array containing objects of the type of each result column. The
    *         objects should be Strings, or Doubles.
    */
   @Override
   public Object[] getResultTypes() {
     int addm = (m_AdditionalMeasures != null) ? m_AdditionalMeasures.length : 0;
-<<<<<<< HEAD
     Object[] resultTypes = new Object[RESULT_SIZE + addm
       + m_numPluginStatistics];
-=======
-<<<<<<< HEAD
-    Object[] resultTypes = new Object[RESULT_SIZE + addm
-      + m_numPluginStatistics];
-=======
-    Object[] resultTypes = new Object[RESULT_SIZE + addm];
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     Double doub = new Double(0);
     int current = 0;
     resultTypes[current++] = doub;
@@ -803,45 +446,24 @@ public class RegressionSplitEvaluator implements SplitEvaluator, OptionHandler,
     resultTypes[current++] = doub;
     resultTypes[current++] = doub;
     resultTypes[current++] = doub;
-<<<<<<< HEAD
     resultTypes[current++] = doub;
     resultTypes[current++] = doub;
-=======
-<<<<<<< HEAD
-    resultTypes[current++] = doub;
-    resultTypes[current++] = doub;
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     // sizes
     resultTypes[current++] = doub;
     resultTypes[current++] = doub;
     resultTypes[current++] = doub;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     // Prediction interval statistics
     resultTypes[current++] = doub;
     resultTypes[current++] = doub;
 
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     resultTypes[current++] = "";
 
     // add any additional measures
     for (int i = 0; i < addm; i++) {
       resultTypes[current++] = doub;
     }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     // plugin metrics
     for (int i = 0; i < m_numPluginStatistics; i++) {
@@ -849,12 +471,6 @@ public class RegressionSplitEvaluator implements SplitEvaluator, OptionHandler,
     }
 
     if (current != RESULT_SIZE + addm + m_numPluginStatistics) {
-<<<<<<< HEAD
-=======
-=======
-    if (current != RESULT_SIZE + addm) {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       throw new Error("ResultTypes didn't fit RESULT_SIZE");
     }
     return resultTypes;
@@ -863,31 +479,14 @@ public class RegressionSplitEvaluator implements SplitEvaluator, OptionHandler,
   /**
    * Gets the names of each of the result columns produced for a single run. The
    * number of result fields must be constant for a given SplitEvaluator.
-<<<<<<< HEAD
    *
-=======
-<<<<<<< HEAD
-   *
-=======
-   * 
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @return an array containing the name of each result column
    */
   @Override
   public String[] getResultNames() {
     int addm = (m_AdditionalMeasures != null) ? m_AdditionalMeasures.length : 0;
-<<<<<<< HEAD
     String[] resultNames = new String[RESULT_SIZE + addm
       + m_numPluginStatistics];
-=======
-<<<<<<< HEAD
-    String[] resultNames = new String[RESULT_SIZE + addm
-      + m_numPluginStatistics];
-=======
-    String[] resultNames = new String[RESULT_SIZE + addm];
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     int current = 0;
     resultNames[current++] = "Number_of_training_instances";
     resultNames[current++] = "Number_of_testing_instances";
@@ -914,45 +513,24 @@ public class RegressionSplitEvaluator implements SplitEvaluator, OptionHandler,
     resultNames[current++] = "Elapsed_Time_testing";
     resultNames[current++] = "UserCPU_Time_training";
     resultNames[current++] = "UserCPU_Time_testing";
-<<<<<<< HEAD
     resultNames[current++] = "UserCPU_Time_millis_training";
     resultNames[current++] = "UserCPU_Time_millis_testing";
-=======
-<<<<<<< HEAD
-    resultNames[current++] = "UserCPU_Time_millis_training";
-    resultNames[current++] = "UserCPU_Time_millis_testing";
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     // sizes
     resultNames[current++] = "Serialized_Model_Size";
     resultNames[current++] = "Serialized_Train_Set_Size";
     resultNames[current++] = "Serialized_Test_Set_Size";
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     // Prediction interval statistics
     resultNames[current++] = "Coverage_of_Test_Cases_By_Regions";
     resultNames[current++] = "Size_of_Predicted_Regions";
 
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     // Classifier defined extras
     resultNames[current++] = "Summary";
     // add any additional measures
     for (int i = 0; i < addm; i++) {
       resultNames[current++] = m_AdditionalMeasures[i];
     }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     for (AbstractEvaluationMetric m : m_pluginMetrics) {
       List<String> statNames = m.getStatisticNames();
@@ -962,12 +540,6 @@ public class RegressionSplitEvaluator implements SplitEvaluator, OptionHandler,
     }
 
     if (current != RESULT_SIZE + addm + m_numPluginStatistics) {
-<<<<<<< HEAD
-=======
-=======
-    if (current != RESULT_SIZE + addm) {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       throw new Error("ResultNames didn't fit RESULT_SIZE");
     }
     return resultNames;
@@ -977,15 +549,7 @@ public class RegressionSplitEvaluator implements SplitEvaluator, OptionHandler,
    * Gets the results for the supplied train and test datasets. Now performs a
    * deep copy of the classifier before it is built and evaluated (just in case
    * the classifier is not initialized properly in buildClassifier()).
-<<<<<<< HEAD
    *
-=======
-<<<<<<< HEAD
-   *
-=======
-   * 
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param train the training Instances.
    * @param test the testing Instances.
    * @return the results stored in an array. The objects stored in the array may
@@ -1008,25 +572,11 @@ public class RegressionSplitEvaluator implements SplitEvaluator, OptionHandler,
     }
 
     int addm = (m_AdditionalMeasures != null) ? m_AdditionalMeasures.length : 0;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     Object[] result = new Object[RESULT_SIZE + addm + m_numPluginStatistics];
     long thID = Thread.currentThread().getId();
     long CPUStartTime = -1, trainCPUTimeElapsed = -1, testCPUTimeElapsed = -1, trainTimeStart, trainTimeElapsed, testTimeStart, testTimeElapsed;
     Evaluation eval = new Evaluation(train);
     m_Classifier = AbstractClassifier.makeCopy(m_Template);
-<<<<<<< HEAD
-=======
-=======
-    Object[] result = new Object[RESULT_SIZE + addm];
-    long thID = Thread.currentThread().getId();
-    long CPUStartTime = -1, trainCPUTimeElapsed = -1, testCPUTimeElapsed = -1, trainTimeStart, trainTimeElapsed, testTimeStart, testTimeElapsed;
-    Evaluation eval = new Evaluation(train);
-    m_Classifier = Classifier.makeCopy(m_Template);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     trainTimeStart = System.currentTimeMillis();
     if (canMeasureCPUTime) {
@@ -1077,10 +627,6 @@ public class RegressionSplitEvaluator implements SplitEvaluator, OptionHandler,
       result[current++] =
         new Double((trainCPUTimeElapsed / 1000000.0) / 1000.0);
       result[current++] = new Double((testCPUTimeElapsed / 1000000.0) / 1000.0);
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
       result[current++] =
         new Double(trainCPUTimeElapsed / 1000000.0);
@@ -1116,29 +662,6 @@ public class RegressionSplitEvaluator implements SplitEvaluator, OptionHandler,
     result[current++] =
       new Double(eval.coverageOfTestCasesByPredictedRegions());
     result[current++] = new Double(eval.sizeOfPredictedRegions());
-<<<<<<< HEAD
-=======
-=======
-    } else {
-      result[current++] = new Double(Instance.missingValue());
-      result[current++] = new Double(Instance.missingValue());
-    }
-
-    // sizes
-    ByteArrayOutputStream bastream = new ByteArrayOutputStream();
-    ObjectOutputStream oostream = new ObjectOutputStream(bastream);
-    oostream.writeObject(m_Classifier);
-    result[current++] = new Double(bastream.size());
-    bastream = new ByteArrayOutputStream();
-    oostream = new ObjectOutputStream(bastream);
-    oostream.writeObject(train);
-    result[current++] = new Double(bastream.size());
-    bastream = new ByteArrayOutputStream();
-    oostream = new ObjectOutputStream(bastream);
-    oostream.writeObject(test);
-    result[current++] = new Double(bastream.size());
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     if (m_Classifier instanceof Summarizable) {
       result[current++] = ((Summarizable) m_Classifier).toSummaryString();
@@ -1151,15 +674,7 @@ public class RegressionSplitEvaluator implements SplitEvaluator, OptionHandler,
         try {
           double dv = ((AdditionalMeasureProducer) m_Classifier)
             .getMeasure(m_AdditionalMeasures[i]);
-<<<<<<< HEAD
           if (!Utils.isMissingValue(dv)) {
-=======
-<<<<<<< HEAD
-          if (!Utils.isMissingValue(dv)) {
-=======
-          if (!Instance.isMissingValue(dv)) {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
             Double value = new Double(dv);
             result[current++] = value;
           } else {
@@ -1173,10 +688,6 @@ public class RegressionSplitEvaluator implements SplitEvaluator, OptionHandler,
       }
     }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     // get the actual metrics from the evaluation object
     List<AbstractEvaluationMetric> metrics = eval.getPluginMetrics();
     if (metrics != null) {
@@ -1196,28 +707,12 @@ public class RegressionSplitEvaluator implements SplitEvaluator, OptionHandler,
 
     m_Evaluation = eval;
 
-<<<<<<< HEAD
-=======
-=======
-    if (current != RESULT_SIZE + addm) {
-      throw new Error("Results didn't fit RESULT_SIZE");
-    }
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return result;
   }
 
   /**
    * Returns the tip text for this property
-<<<<<<< HEAD
    *
-=======
-<<<<<<< HEAD
-   *
-=======
-   * 
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @return tip text for this property suitable for displaying in the
    *         explorer/experimenter gui
    */
@@ -1227,15 +722,7 @@ public class RegressionSplitEvaluator implements SplitEvaluator, OptionHandler,
 
   /**
    * Get the value of Classifier.
-<<<<<<< HEAD
    *
-=======
-<<<<<<< HEAD
-   *
-=======
-   * 
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @return Value of Classifier.
    */
   public Classifier getClassifier() {
@@ -1245,15 +732,7 @@ public class RegressionSplitEvaluator implements SplitEvaluator, OptionHandler,
 
   /**
    * Sets the classifier.
-<<<<<<< HEAD
    *
-=======
-<<<<<<< HEAD
-   *
-=======
-   * 
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param newClassifier the new classifier to use.
    */
   public void setClassifier(Classifier newClassifier) {
@@ -1265,10 +744,6 @@ public class RegressionSplitEvaluator implements SplitEvaluator, OptionHandler,
   }
 
   /**
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Returns whether the size determination (train/test/classifer) is skipped.
    *
    * @return true if size determination skipped
@@ -1297,11 +772,6 @@ public class RegressionSplitEvaluator implements SplitEvaluator, OptionHandler,
   }
 
   /**
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Updates the options that the current classifier is using.
    */
   protected void updateOptions() {
@@ -1323,15 +793,7 @@ public class RegressionSplitEvaluator implements SplitEvaluator, OptionHandler,
   /**
    * Set the Classifier to use, given it's class name. A new classifier will be
    * instantiated.
-<<<<<<< HEAD
    *
-=======
-<<<<<<< HEAD
-   *
-=======
-   * 
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param newClassifierName the Classifier class name.
    * @throws Exception if the class name is invalid.
    */
@@ -1347,15 +809,7 @@ public class RegressionSplitEvaluator implements SplitEvaluator, OptionHandler,
 
   /**
    * Gets the raw output from the classifier
-<<<<<<< HEAD
    *
-=======
-<<<<<<< HEAD
-   *
-=======
-   * 
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @return the raw output from the classifier
    */
   @Override
@@ -1378,15 +832,7 @@ public class RegressionSplitEvaluator implements SplitEvaluator, OptionHandler,
             try {
               double dv = ((AdditionalMeasureProducer) m_Classifier)
                 .getMeasure(m_AdditionalMeasures[i]);
-<<<<<<< HEAD
               if (!Utils.isMissingValue(dv)) {
-=======
-<<<<<<< HEAD
-              if (!Utils.isMissingValue(dv)) {
-=======
-              if (!Instance.isMissingValue(dv)) {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
                 Double value = new Double(dv);
                 result.append(m_AdditionalMeasures[i] + " : " + value + '\n');
               } else {
@@ -1404,15 +850,7 @@ public class RegressionSplitEvaluator implements SplitEvaluator, OptionHandler,
 
   /**
    * Returns a text description of the split evaluator.
-<<<<<<< HEAD
    *
-=======
-<<<<<<< HEAD
-   *
-=======
-   * 
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @return a text description of the split evaluator.
    */
   @Override
@@ -1428,31 +866,11 @@ public class RegressionSplitEvaluator implements SplitEvaluator, OptionHandler,
 
   /**
    * Returns the revision string.
-<<<<<<< HEAD
    *
-=======
-<<<<<<< HEAD
-   *
-=======
-   * 
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @return the revision
    */
   @Override
   public String getRevision() {
-<<<<<<< HEAD
     return RevisionUtils.extract("$Revision: 11323 $");
   }
 }
-=======
-<<<<<<< HEAD
-    return RevisionUtils.extract("$Revision: 11323 $");
-  }
-}
-=======
-    return RevisionUtils.extract("$Revision: 11198 $");
-  }
-} // RegressionSplitEvaluator
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb

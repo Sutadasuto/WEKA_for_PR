@@ -1,8 +1,4 @@
 /*
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -15,46 +11,16 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
-<<<<<<< HEAD
-=======
-=======
- *    This program is free software; you can redistribute it and/or modify
- *    it under the terms of the GNU General Public License as published by
- *    the Free Software Foundation; either version 2 of the License, or
- *    (at your option) any later version.
- *
- *    This program is distributed in the hope that it will be useful,
- *    but WITHOUT ANY WARRANTY; without even the implied warranty of
- *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *    GNU General Public License for more details.
- *
- *    You should have received a copy of the GNU General Public License
- *    along with this program; if not, write to the Free Software
- *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    PKIDiscretize.java
-<<<<<<< HEAD
  *    Copyright (C) 2003-2012 University of Waikato, Hamilton, New Zealand
-=======
-<<<<<<< HEAD
- *    Copyright (C) 2003-2012 University of Waikato, Hamilton, New Zealand
-=======
- *    Copyright (C) 2003 University of Waikato, Hamilton, New Zealand
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
 package weka.filters.unsupervised.attribute;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.util.Enumeration;
 import java.util.Vector;
 
@@ -77,35 +43,6 @@ import weka.core.TechnicalInformation.Type;
  * 
  * <!-- technical-bibtex-start --> BibTeX:
  * 
-<<<<<<< HEAD
-=======
-=======
-import weka.core.Instances;
-import weka.core.Option;
-import weka.core.RevisionUtils;
-import weka.core.TechnicalInformation;
-import weka.core.TechnicalInformationHandler;
-import weka.core.Utils;
-import weka.core.TechnicalInformation.Field;
-import weka.core.TechnicalInformation.Type;
-
-import java.util.Enumeration;
-import java.util.Vector;
-
-/**
- <!-- globalinfo-start -->
- * Discretizes numeric attributes using equal frequency binning, where the number of bins is equal to the square root of the number of non-missing values.<br/>
- * <br/>
- * For more information, see:<br/>
- * <br/>
- * Ying Yang, Geoffrey I. Webb: Proportional k-Interval Discretization for Naive-Bayes Classifiers. In: 12th European Conference on Machine Learning, 564-575, 2001.
- * <p/>
- <!-- globalinfo-end -->
- * 
- <!-- technical-bibtex-start -->
- * BibTeX:
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  * <pre>
  * &#64;inproceedings{Yang2001,
  *    author = {Ying Yang and Geoffrey I. Webb},
@@ -119,10 +56,6 @@ import java.util.Vector;
  * }
  * </pre>
  * <p/>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  * <!-- technical-bibtex-end -->
  * 
  * <!-- options-start --> Valid options are:
@@ -159,49 +92,11 @@ import java.util.Vector;
 public class PKIDiscretize extends Discretize implements
   TechnicalInformationHandler, WeightedAttributesHandler, WeightedInstancesHandler {
 
-<<<<<<< HEAD
-=======
-=======
- <!-- technical-bibtex-end -->
- *
- <!-- options-start -->
- * Valid options are: <p/>
- * 
- * <pre> -unset-class-temporarily
- *  Unsets the class index temporarily before the filter is
- *  applied to the data.
- *  (default: no)</pre>
- * 
- * <pre> -R &lt;col1,col2-col4,...&gt;
- *  Specifies list of columns to Discretize. First and last are valid indexes.
- *  (default: first-last)</pre>
- * 
- * <pre> -V
- *  Invert matching sense of column indexes.</pre>
- * 
- * <pre> -D
- *  Output binary attributes for discretized attributes.</pre>
- * 
- <!-- options-end -->
- *
- * @author Richard Kirkby (rkirkby@cs.waikato.ac.nz)
- * @version $Revision: 1.9 $
- */
-public class PKIDiscretize 
-  extends Discretize
-  implements TechnicalInformationHandler {
-  
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   /** for serialization */
   static final long serialVersionUID = 6153101248977702675L;
 
   /**
    * Sets the format of the input instances.
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param instanceInfo an Instances object containing the input instance
    *          structure (any instances contained in the object are ignored -
@@ -210,18 +105,6 @@ public class PKIDiscretize
    * @throws Exception if the input format can't be set successfully
    */
   @Override
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param instanceInfo an Instances object containing the input instance
-   * structure (any instances contained in the object are ignored - only the
-   * structure is required).
-   * @return true if the outputFormat may be collected immediately
-   * @throws Exception if the input format can't be set successfully
-   */
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public boolean setInputFormat(Instances instanceInfo) throws Exception {
 
     // alter child behaviour to do what we want
@@ -231,31 +114,15 @@ public class PKIDiscretize
 
   /**
    * Finds the number of bins to use and creates the cut points.
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param index the attribute index
    */
   @Override
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param index the attribute index
-   */
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   protected void findNumBins(int index) {
 
     Instances toFilter = getInputFormat();
 
     // Find number of instances for attribute where not missing
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     double sum = 0;
     for (Instance inst : toFilter) {
       if (!inst.isMissing(index)) {
@@ -264,18 +131,6 @@ public class PKIDiscretize
     }
 
     m_NumBins = (int) Math.sqrt(sum);
-<<<<<<< HEAD
-=======
-=======
-    int numOfInstances = toFilter.numInstances();
-    for (int i = 0; i < toFilter.numInstances(); i++) {
-      if (toFilter.instance(i).isMissing(index))
-	numOfInstances--;
-    }
-
-    m_NumBins = (int)(Math.sqrt(numOfInstances));
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     if (m_NumBins > 0) {
       calculateCutPointsByEqualFrequencyBinning(index);
@@ -284,10 +139,6 @@ public class PKIDiscretize
 
   /**
    * Gets an enumeration describing the available options.
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return an enumeration of all the available options.
    */
@@ -351,81 +202,12 @@ public class PKIDiscretize
    * @throws Exception if an option is not supported
    */
   @Override
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @return an enumeration of all the available options.
-   */
-  public Enumeration listOptions() {
-    Vector result = new Vector();
-    
-    result.addElement(new Option(
-	"\tUnsets the class index temporarily before the filter is\n"
-	+ "\tapplied to the data.\n"
-	+ "\t(default: no)",
-	"unset-class-temporarily", 1, "-unset-class-temporarily"));
-    
-    result.addElement(new Option(
-	"\tSpecifies list of columns to Discretize. First"
-	+ " and last are valid indexes.\n"
-	+ "\t(default: first-last)",
-	"R", 1, "-R <col1,col2-col4,...>"));
-    
-    result.addElement(new Option(
-	"\tInvert matching sense of column indexes.",
-	"V", 0, "-V"));
-    
-    result.addElement(new Option(
-	"\tOutput binary attributes for discretized attributes.",
-	"D", 0, "-D"));
-    
-    return result.elements();
-  }
-
-
-  /**
-   * Parses a given list of options. <p/>
-   * 
-   <!-- options-start -->
-   * Valid options are: <p/>
-   * 
-   * <pre> -unset-class-temporarily
-   *  Unsets the class index temporarily before the filter is
-   *  applied to the data.
-   *  (default: no)</pre>
-   * 
-   * <pre> -R &lt;col1,col2-col4,...&gt;
-   *  Specifies list of columns to Discretize. First and last are valid indexes.
-   *  (default: first-last)</pre>
-   * 
-   * <pre> -V
-   *  Invert matching sense of column indexes.</pre>
-   * 
-   * <pre> -D
-   *  Output binary attributes for discretized attributes.</pre>
-   * 
-   <!-- options-end -->
-   *
-   * @param options the list of options as an array of strings
-   * @throws Exception if an option is not supported
-   */
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public void setOptions(String[] options) throws Exception {
 
     setIgnoreClass(Utils.getFlag("unset-class-temporarily", options));
     setMakeBinary(Utils.getFlag('D', options));
     setInvertSelection(Utils.getFlag('V', options));
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     String convertList = Utils.getOption('R', options);
     if (convertList.length() != 0) {
       setAttributeIndices(convertList);
@@ -436,10 +218,6 @@ public class PKIDiscretize
     if (getInputFormat() != null) {
       setInputFormat(getInputFormat());
     }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     Utils.checkForRemainingOptions(options);
   }
@@ -462,50 +240,16 @@ public class PKIDiscretize
       result.add("-V");
     }
 
-<<<<<<< HEAD
-=======
-=======
-  }
-  /**
-   * Gets the current settings of the filter.
-   *
-   * @return an array of strings suitable for passing to setOptions
-   */
-  public String[] getOptions() {
-    Vector        result;
-
-    result = new Vector();
-
-    if (getMakeBinary())
-      result.add("-D");
-    
-    if (getInvertSelection())
-      result.add("-V");
-    
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (!getAttributeIndices().equals("")) {
       result.add("-R");
       result.add(getAttributeIndices());
     }
 
-<<<<<<< HEAD
     return result.toArray(new String[result.size()]);
-=======
-<<<<<<< HEAD
-    return result.toArray(new String[result.size()]);
-=======
-    return (String[]) result.toArray(new String[result.size()]);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Returns a string describing this filter
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return a description of the filter suitable for displaying in the
    *         explorer/experimenter gui
@@ -517,29 +261,10 @@ public class PKIDiscretize
             " frequency binning and forces the number of bins to be equal to the square root of" +
             " the number of values of the numeric attribute.\n\n" +
             "For more information, see:\n\n"
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @return a description of the filter suitable for
-   * displaying in the explorer/experimenter gui
-   */
-  public String globalInfo() {
-
-    return "Discretizes numeric attributes using equal frequency binning,"
-      + " where the number of bins is equal to the square root of the"
-      + " number of non-missing values.\n\n"
-      + "For more information, see:\n\n"
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       + getTechnicalInformation().toString();
   }
 
   /**
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Returns an instance of a TechnicalInformation object, containing detailed
    * information about the technical background of this class, e.g., paper
    * reference or book this class is based on.
@@ -556,33 +281,11 @@ public class PKIDiscretize
       "Proportional k-Interval Discretization for Naive-Bayes Classifiers");
     result.setValue(Field.BOOKTITLE,
       "12th European Conference on Machine Learning");
-<<<<<<< HEAD
-=======
-=======
-   * Returns an instance of a TechnicalInformation object, containing 
-   * detailed information about the technical background of this class,
-   * e.g., paper reference or book this class is based on.
-   * 
-   * @return the technical information about this class
-   */
-  public TechnicalInformation getTechnicalInformation() {
-    TechnicalInformation 	result;
-    
-    result = new TechnicalInformation(Type.INPROCEEDINGS);
-    result.setValue(Field.AUTHOR, "Ying Yang and Geoffrey I. Webb");
-    result.setValue(Field.TITLE, "Proportional k-Interval Discretization for Naive-Bayes Classifiers");
-    result.setValue(Field.BOOKTITLE, "12th European Conference on Machine Learning");
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     result.setValue(Field.YEAR, "2001");
     result.setValue(Field.PAGES, "564-575");
     result.setValue(Field.PUBLISHER, "Springer");
     result.setValue(Field.SERIES, "LNCS");
     result.setValue(Field.VOLUME, "2167");
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     return result;
   }
@@ -594,21 +297,6 @@ public class PKIDiscretize
    *         explorer/experimenter gui
    */
   @Override
-<<<<<<< HEAD
-=======
-=======
-    
-    return result;
-  }
-  
-  /**
-   * Returns the tip text for this property
-   *
-   * @return tip text for this property suitable for
-   * displaying in the explorer/experimenter gui
-   */
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public String findNumBinsTipText() {
 
     return "Ignored.";
@@ -616,10 +304,6 @@ public class PKIDiscretize
 
   /**
    * Get the value of FindNumBins.
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return Value of FindNumBins.
    */
@@ -646,34 +330,6 @@ public class PKIDiscretize
    *         explorer/experimenter gui
    */
   @Override
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @return Value of FindNumBins.
-   */
-  public boolean getFindNumBins() {
-    
-    return false;
-  }
-  
-  /**
-   * Set the value of FindNumBins.
-   *
-   * @param newFindNumBins Value to assign to FindNumBins.
-   */
-  public void setFindNumBins(boolean newFindNumBins) {
-    
-  }
-  
-  /**
-   * Returns the tip text for this property
-   *
-   * @return tip text for this property suitable for
-   * displaying in the explorer/experimenter gui
-   */
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public String useEqualFrequencyTipText() {
 
     return "Always true.";
@@ -681,10 +337,6 @@ public class PKIDiscretize
 
   /**
    * Get the value of UseEqualFrequency.
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return Value of UseEqualFrequency.
    */
@@ -702,48 +354,15 @@ public class PKIDiscretize
   @Override
   public void setUseEqualFrequency(boolean newUseEqualFrequency) {
 
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @return Value of UseEqualFrequency.
-   */
-  public boolean getUseEqualFrequency() {
-    
-    return true;
-  }
-  
-  /**
-   * Set the value of UseEqualFrequency.
-   *
-   * @param newUseEqualFrequency Value to assign to UseEqualFrequency.
-   */
-  public void setUseEqualFrequency(boolean newUseEqualFrequency) {
-    
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Returns the tip text for this property
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return tip text for this property suitable for displaying in the
    *         explorer/experimenter gui
    */
   @Override
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @return tip text for this property suitable for
-   * displaying in the explorer/experimenter gui
-   */
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public String binsTipText() {
 
     return "Ignored.";
@@ -751,22 +370,10 @@ public class PKIDiscretize
 
   /**
    * Ignored
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return the number of bins.
    */
   @Override
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @return the number of bins.
-   */
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public int getBins() {
 
     return 0;
@@ -774,10 +381,6 @@ public class PKIDiscretize
 
   /**
    * Ignored
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param numBins the number of bins
    */
@@ -794,46 +397,14 @@ public class PKIDiscretize
   @Override
   public String getRevision() {
     return RevisionUtils.extract("$Revision: 14534 $");
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param numBins the number of bins
-   */
-  public void setBins(int numBins) {
-
-  }
-  
-  /**
-   * Returns the revision string.
-   * 
-   * @return		the revision
-   */
-  public String getRevision() {
-    return RevisionUtils.extract("$Revision: 1.9 $");
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Main method for testing this class.
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param argv should contain arguments to the filter: use -h for help
    */
   public static void main(String[] argv) {
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param argv should contain arguments to the filter: use -h for help
-   */
-  public static void main(String [] argv) {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     runFilter(new PKIDiscretize(), argv);
   }
 }

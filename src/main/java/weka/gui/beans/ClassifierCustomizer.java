@@ -1,8 +1,4 @@
 /*
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -15,93 +11,32 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
-<<<<<<< HEAD
-=======
-=======
- *    This program is free software; you can redistribute it and/or modify
- *    it under the terms of the GNU General Public License as published by
- *    the Free Software Foundation; either version 2 of the License, or
- *    (at your option) any later version.
- *
- *    This program is distributed in the hope that it will be useful,
- *    but WITHOUT ANY WARRANTY; without even the implied warranty of
- *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *    GNU General Public License for more details.
- *
- *    You should have received a copy of the GNU General Public License
- *    along with this program; if not, write to the Free Software
- *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    ClassifierCustomizer.java
-<<<<<<< HEAD
  *    Copyright (C) 2002-2012 University of Waikato, Hamilton, New Zealand
-=======
-<<<<<<< HEAD
- *    Copyright (C) 2002-2012 University of Waikato, Hamilton, New Zealand
-=======
- *    Copyright (C) 2002 University of Waikato, Hamilton, New Zealand
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
 package weka.gui.beans;
 
-<<<<<<< HEAD
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.Window;
-=======
-<<<<<<< HEAD
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
-import java.awt.Window;
-=======
-import weka.classifiers.Classifier;
-import weka.gui.GenericObjectEditor;
-import weka.gui.PropertySheetPanel;
-
-import java.awt.BorderLayout;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
-<<<<<<< HEAD
-=======
-=======
-import java.beans.Customizer;
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeSupport;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.BorderFactory;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
 import weka.classifiers.Classifier;
 import weka.core.Environment;
@@ -117,33 +52,11 @@ import weka.gui.PropertySheetPanel;
  */
 public class ClassifierCustomizer extends JPanel implements BeanCustomizer,
     CustomizerClosingListener, CustomizerCloseRequester, EnvironmentHandler {
-<<<<<<< HEAD
-=======
-=======
-import javax.swing.JButton;
-import javax.swing.JFrame;
-
-/**
- * GUI customizer for the classifier wrapper bean
- *
- * @author <a href="mailto:mhall@cs.waikato.ac.nz">Mark Hall</a>
- * @version $Revision: 7059 $
- */
-public class ClassifierCustomizer
-  extends JPanel
-  implements Customizer, CustomizerClosingListener,
-             CustomizerCloseRequester {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** for serialization */
   private static final long serialVersionUID = -6688000820160821429L;
 
   static {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     GenericObjectEditor.registerEditors();
   }
 
@@ -175,40 +88,10 @@ public class ClassifierCustomizer
   private FileEnvironmentField m_loadModelField;
 
   private Window m_parentWindow;
-<<<<<<< HEAD
-=======
-=======
-     GenericObjectEditor.registerEditors();
-  }
-
-  private PropertyChangeSupport m_pcSupport = 
-    new PropertyChangeSupport(this);
-  
-  private weka.gui.beans.Classifier m_dsClassifier;
-  /*  private GenericObjectEditor m_ClassifierEditor = 
-      new GenericObjectEditor(true); */
-  private PropertySheetPanel m_ClassifierEditor = 
-    new PropertySheetPanel();
-
-  private JPanel m_incrementalPanel = new JPanel();
-  private JCheckBox m_updateIncrementalClassifier 
-    = new JCheckBox(Messages.getInstance().getString("ClassifierCustomizer_UpdateIncrementalClassifier_JCheckBox_Text"));
-  private boolean m_panelVisible = false;
-  
-  private JPanel m_holderPanel = new JPanel();
-  private JTextField m_executionSlotsText = new JTextField();
-
-  private JFrame m_parentFrame;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** Copy of the current classifier in case cancel is selected */
   protected weka.classifiers.Classifier m_backup;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   private Environment m_env = Environment.getSystemWide();
 
   /**
@@ -256,43 +139,11 @@ public class ClassifierCustomizer
       public void actionPerformed(ActionEvent e) {
         if (m_dsClassifier != null
             && m_executionSlotsText.getText().length() > 0) {
-<<<<<<< HEAD
-=======
-=======
-  public ClassifierCustomizer() {
-    
-    m_ClassifierEditor.
-      setBorder(BorderFactory.createTitledBorder(Messages.getInstance().getString("ClassifierCustomizer_ClassifierEditor_SetBorder_BorderFactory_CreateTitledBorder_Text")));
-    
-    m_updateIncrementalClassifier.
-      setToolTipText(Messages.getInstance().getString("ClassifierCustomizer_UpdateIncrementalClassifier_SetToolTipText_Text"));
-    m_updateIncrementalClassifier.
-      addActionListener(new ActionListener() {
-	  public void actionPerformed(ActionEvent e) {
-	    if (m_dsClassifier != null) {
-	      m_dsClassifier.
-		setUpdateIncrementalClassifier(m_updateIncrementalClassifier.
-					       isSelected());
-	    }
-	  }
-	});
-    m_incrementalPanel.add(m_updateIncrementalClassifier);
-    
-    m_executionSlotsText.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        if (m_dsClassifier != null &&
-            m_executionSlotsText.getText().length() > 0) {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
           int newSlots = Integer.parseInt(m_executionSlotsText.getText());
           m_dsClassifier.setExecutionSlots(newSlots);
         }
       }
     });
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     m_executionSlotsText.addFocusListener(new FocusListener() {
       @Override
@@ -303,27 +154,11 @@ public class ClassifierCustomizer
       public void focusLost(FocusEvent e) {
         if (m_dsClassifier != null
             && m_executionSlotsText.getText().length() > 0) {
-<<<<<<< HEAD
-=======
-=======
-    
-    m_executionSlotsText.addFocusListener(new FocusListener() {
-      public void focusGained(FocusEvent e) {}
-      
-      public void focusLost(FocusEvent e) {
-        if (m_dsClassifier != null && 
-            m_executionSlotsText.getText().length() > 0) {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
           int newSlots = Integer.parseInt(m_executionSlotsText.getText());
           m_dsClassifier.setExecutionSlots(newSlots);
         }
       }
     });
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     m_blockOnLastFold.addActionListener(new ActionListener() {
       @Override
@@ -346,31 +181,10 @@ public class ClassifierCustomizer
     m_holderPanel.add(m_executionSlotsPanel, BorderLayout.NORTH);
     // m_blockOnLastFold.setHorizontalTextPosition(SwingConstants.RIGHT);
     m_holderPanel.add(m_blockOnLastFold, BorderLayout.SOUTH);
-<<<<<<< HEAD
-=======
-=======
-    
-    JPanel executionSlotsPanel = new JPanel();
-    executionSlotsPanel.
-      setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
-    JLabel executionSlotsLabel = new JLabel(Messages.getInstance().getString("ClassifierCustomizer_ExecutionSlotsLabel_JLabel_Text"));
-    executionSlotsPanel.setLayout(new BorderLayout());
-    executionSlotsPanel.add(executionSlotsLabel, BorderLayout.WEST);
-    executionSlotsPanel.add(m_executionSlotsText, BorderLayout.CENTER);
-    m_holderPanel.
-      setBorder(BorderFactory.createTitledBorder(Messages.getInstance().getString("ClassifierCustomizer_HolderPanel_SetBorder_BorderFactory_CreateTitledBorder_Text")));
-    m_holderPanel.setLayout(new BorderLayout());
-    m_holderPanel.add(executionSlotsPanel, BorderLayout.NORTH);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     JPanel holder2 = new JPanel();
     holder2.setLayout(new BorderLayout());
     holder2.add(m_holderPanel, BorderLayout.NORTH);
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     JButton OKBut = new JButton("OK");
     JButton CancelBut = new JButton("Cancel");
     OKBut.addActionListener(new ActionListener() {
@@ -420,44 +234,10 @@ public class ClassifierCustomizer
     butHolder.add(CancelBut);
     holder2.add(butHolder, BorderLayout.SOUTH);
 
-<<<<<<< HEAD
-=======
-=======
-    JButton OKBut = new JButton(Messages.getInstance().getString("ClassifierCustomizer_OKBut_JButton_Text"));
-    JButton CancelBut = new JButton(Messages.getInstance().getString("ClassifierCustomizer_CancelBut_JButton_Text"));
-    OKBut.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-          m_parentFrame.dispose();
-        }
-      });
-    
-    CancelBut.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-          // cancel requested, so revert to backup and then
-          // close the dialog
-          if (m_backup != null) {
-            m_dsClassifier.setClassifierTemplate(m_backup);
-          }
-          m_parentFrame.dispose();
-        }
-      });
-    
-    JPanel butHolder = new JPanel();
-    butHolder.setLayout(new GridLayout(1,2));
-    butHolder.add(OKBut);
-    butHolder.add(CancelBut);
-    holder2.add(butHolder, BorderLayout.SOUTH);
-    
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     setLayout(new BorderLayout());
     add(m_ClassifierEditor, BorderLayout.CENTER);
     add(holder2, BorderLayout.SOUTH);
   }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   private void checkOnClassifierType() {
     Classifier editedC = m_dsClassifier.getClassifierTemplate();
@@ -498,36 +278,12 @@ public class ClassifierCustomizer
             m_env);
         m_holderPanel.add(m_loadModelField, BorderLayout.SOUTH);
         m_loadModelField.setText(m_dsClassifier.getLoadClassifierFileName());
-<<<<<<< HEAD
-=======
-=======
-  
-  private void checkOnClassifierType() {
-    Classifier editedC = m_dsClassifier.getClassifierTemplate();
-    if (editedC instanceof weka.classifiers.UpdateableClassifier && 
-	m_dsClassifier.hasIncomingStreamInstances()) {
-      if (!m_panelVisible) {
-	m_holderPanel.add(m_incrementalPanel, BorderLayout.SOUTH);
-	m_panelVisible = true;
-	m_executionSlotsText.setEnabled(false);
-      }
-    } else {
-      if (m_panelVisible) {
-	m_holderPanel.remove(m_incrementalPanel);
-	m_executionSlotsText.setEnabled(true);
-	m_panelVisible = false;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
     }
   }
 
   /**
    * Set the classifier object to be edited
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param object an <code>Object</code> value
    */
@@ -558,34 +314,6 @@ public class ClassifierCustomizer
    * @see weka.gui.beans.CustomizerClosingListener#customizerClosing()
    */
   @Override
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param object an <code>Object</code> value
-   */
-  public void setObject(Object object) {
-    m_dsClassifier = (weka.gui.beans.Classifier)object;
-    //    System.err.println(Utils.joinOptions(((OptionHandler)m_dsClassifier.getClassifier()).getOptions()));
-    try {
-      m_backup = 
-        (weka.classifiers.Classifier)GenericObjectEditor.makeCopy(m_dsClassifier.getClassifierTemplate());
-    } catch (Exception ex) {
-      // ignore
-    }
-
-    m_ClassifierEditor.setTarget(m_dsClassifier.getClassifierTemplate());
-    m_updateIncrementalClassifier.
-      setSelected(m_dsClassifier.getUpdateIncrementalClassifier());
-    m_executionSlotsText.setText(""+m_dsClassifier.getExecutionSlots());
-    checkOnClassifierType();
-  }
-  
-  /* (non-Javadoc)
-   * @see weka.gui.beans.CustomizerClosingListener#customizerClosing()
-   */
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public void customizerClosing() {
     if (m_executionSlotsText.getText().length() > 0) {
       int newSlots = Integer.parseInt(m_executionSlotsText.getText());
@@ -595,52 +323,24 @@ public class ClassifierCustomizer
 
   /**
    * Add a property change listener
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param pcl a <code>PropertyChangeListener</code> value
    */
   @Override
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param pcl a <code>PropertyChangeListener</code> value
-   */
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public void addPropertyChangeListener(PropertyChangeListener pcl) {
     m_pcSupport.addPropertyChangeListener(pcl);
   }
 
   /**
    * Remove a property change listener
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param pcl a <code>PropertyChangeListener</code> value
    */
   @Override
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param pcl a <code>PropertyChangeListener</code> value
-   */
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public void removePropertyChangeListener(PropertyChangeListener pcl) {
     m_pcSupport.removePropertyChangeListener(pcl);
   }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   @Override
   public void setParentWindow(Window parent) {
     m_parentWindow = parent;
@@ -659,12 +359,5 @@ public class ClassifierCustomizer
   @Override
   public void setModifiedListener(ModifyListener l) {
     m_modifyListener = l;
-<<<<<<< HEAD
-=======
-=======
-  public void setParentFrame(JFrame parent) {
-    m_parentFrame = parent;    
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 }

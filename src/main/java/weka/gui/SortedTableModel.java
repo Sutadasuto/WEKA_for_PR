@@ -1,8 +1,4 @@
 /*
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -15,55 +11,17 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
-<<<<<<< HEAD
-=======
-=======
- *    This program is free software; you can redistribute it and/or modify
- *    it under the terms of the GNU General Public License as published by
- *    the Free Software Foundation; either version 2 of the License, or
- *    (at your option) any later version.
- *
- *    This program is distributed in the hope that it will be useful,
- *    but WITHOUT ANY WARRANTY; without even the implied warranty of
- *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *    GNU General Public License for more details.
- *
- *    You should have received a copy of the GNU General Public License
- *    along with this program; if not, write to the Free Software
- *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  * SortedTableModel.java
-<<<<<<< HEAD
  * Copyright (C) 2005-2012 University of Waikato, Hamilton, New Zealand
-=======
-<<<<<<< HEAD
- * Copyright (C) 2005-2012 University of Waikato, Hamilton, New Zealand
-=======
- * Copyright (C) 2005-2010 University of Waikato, Hamilton, New Zealand
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
 package weka.gui;
 
-<<<<<<< HEAD
 import weka.core.InheritanceUtils;
-=======
-<<<<<<< HEAD
-import weka.core.InheritanceUtils;
-=======
-import java.awt.event.InputEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.util.ArrayList;
-import java.util.Collections;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
 import javax.swing.JTable;
 import javax.swing.event.TableModelEvent;
@@ -72,10 +30,6 @@ import javax.swing.table.AbstractTableModel;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableModel;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.awt.event.InputEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -91,24 +45,6 @@ import java.util.Collections;
 
 public class SortedTableModel extends AbstractTableModel implements
   TableModelListener {
-<<<<<<< HEAD
-=======
-=======
-
-import weka.core.ClassDiscovery;
-
-/**
- * Represents a TableModel with sorting functionality.
- *
- * @author FracPete (fracpete at waikato dot ac dot nz)
- * @version $Revision: 7059 $
- */
-
-public class SortedTableModel
-  extends AbstractTableModel
-  implements TableModelListener {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** for serialization */
   static final long serialVersionUID = 4030907921461127548L;
@@ -116,49 +52,21 @@ public class SortedTableModel
   /**
    * Helper class for sorting the columns.
    */
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public static class SortContainer implements Comparable<SortContainer> {
 
     /** the value to sort. */
     protected Comparable<?> m_Value;
-<<<<<<< HEAD
-=======
-=======
-  public static class SortContainer
-    implements Comparable<SortContainer> {
-
-    /** the value to sort. */
-    protected Comparable m_Value;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     /** the index of the value. */
     protected int m_Index;
 
     /**
      * Initializes the container.
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
      * 
      * @param value the value to sort on
      * @param index the original index
      */
     public SortContainer(Comparable<?> value, int index) {
-<<<<<<< HEAD
-=======
-=======
-     *
-     * @param value	the value to sort on
-     * @param index	the original index
-     */
-    public SortContainer(Comparable value, int index) {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       super();
 
       m_Value = value;
@@ -167,50 +75,23 @@ public class SortedTableModel
 
     /**
      * Returns the value to sort on.
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
      * 
      * @return the value
      */
     public Comparable<?> getValue() {
-<<<<<<< HEAD
-=======
-=======
-     *
-     * @return		the value
-     */
-    public Comparable getValue() {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       return m_Value;
     }
 
     /**
      * Returns the original index of the item.
-<<<<<<< HEAD
      * 
      * @return the index
-=======
-<<<<<<< HEAD
-     * 
-     * @return the index
-=======
-     *
-     * @return		the index
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
      */
     public int getIndex() {
       return m_Index;
     }
 
     /**
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
      * Compares this object with the specified object for order. Returns a
      * negative integer, zero, or a positive integer as this object is less
      * than, equal to, or greater than the specified object. Null is considered
@@ -236,42 +117,11 @@ public class SortedTableModel
         }
       } else {
         return ((Comparable) m_Value).compareTo(o.getValue());
-<<<<<<< HEAD
-=======
-=======
-     * Compares this object with the specified object for order.  Returns a
-     * negative integer, zero, or a positive integer as this object is less
-     * than, equal to, or greater than the specified object. Null is considered
-     * smallest. If both values are null, then 0 is returned.
-     *
-     * @param o 	the object to be compared.
-     * @return  	a negative integer, zero, or a positive integer as this object
-     *			is less than, equal to, or greater than the specified object.
-     * @throws ClassCastException 	if the specified object's type prevents it
-     *         				from being compared to this object.
-     */
-    public int compareTo(SortContainer o) {
-      if ((m_Value == null) || (o.getValue() == null)) {
-	if (m_Value == o.getValue())
-	  return 0;
-	if (m_Value == null)
-	  return -1;
-	else
-	  return +1;
-      }
-      else {
-	return m_Value.compareTo(o.getValue());
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
     }
 
     /**
      * Indicates whether some other object is "equal to" this one.
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
      * 
      * @param obj the reference object with which to compare.
      * @return true if this object is the same as the obj argument; false
@@ -280,44 +130,18 @@ public class SortedTableModel
      *           from being compared to this object.
      */
     @Override
-<<<<<<< HEAD
-=======
-=======
-     *
-     * @param obj	the reference object with which to compare.
-     * @return		true if this object is the same as the obj argument;
-     * 			false otherwise.
-     * @throws ClassCastException 	if the specified object's type prevents it
-     *         				from being compared to this object.
-     */
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     public boolean equals(Object obj) {
       return (compareTo((SortContainer) obj) == 0);
     }
 
     /**
      * Returns a string representation of the sort container.
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
      * 
      * @return the string representation (value + index)
      */
     @Override
     public String toString() {
       return "value=" + m_Value + ", index=" + m_Index;
-<<<<<<< HEAD
-=======
-=======
-     *
-     * @return		the string representation (value + index)
-     */
-    public String toString() {
-      return Messages.getInstance().getString("SortedTableModel_ToString_Text_First") + m_Value + Messages.getInstance().getString("SortedTableModel_ToString_Text_Second") + m_Index;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
   }
 
@@ -342,18 +166,8 @@ public class SortedTableModel
 
   /**
    * initializes with the given model
-<<<<<<< HEAD
    * 
    * @param model the model to initialize the sorted model with
-=======
-<<<<<<< HEAD
-   * 
-   * @param model the model to initialize the sorted model with
-=======
-   *
-   * @param model       the model to initialize the sorted model with
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public SortedTableModel(TableModel model) {
     setModel(model);
@@ -361,18 +175,8 @@ public class SortedTableModel
 
   /**
    * sets the model to use
-<<<<<<< HEAD
    * 
    * @param value the model to use
-=======
-<<<<<<< HEAD
-   * 
-   * @param value the model to use
-=======
-   *
-   * @param value       the model to use
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public void setModel(TableModel value) {
     mModel = value;
@@ -380,24 +184,10 @@ public class SortedTableModel
     // initialize indices
     if (mModel == null) {
       mIndices = null;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     } else {
       initializeIndices();
       mSortColumn = -1;
       mAscending = true;
-<<<<<<< HEAD
-=======
-=======
-    }
-    else {
-      initializeIndices();
-      mSortColumn = -1;
-      mAscending  = true;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       mModel.addTableModelListener(this);
     }
   }
@@ -406,42 +196,18 @@ public class SortedTableModel
    * (re-)initializes the indices
    */
   protected void initializeIndices() {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     int i;
 
     mIndices = new int[mModel.getRowCount()];
     for (i = 0; i < mIndices.length; i++) {
       mIndices[i] = i;
     }
-<<<<<<< HEAD
-=======
-=======
-    int       i;
-
-    mIndices = new int[mModel.getRowCount()];
-    for (i = 0; i < mIndices.length; i++)
-      mIndices[i] = i;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * returns the current model, can be null
-<<<<<<< HEAD
    * 
    * @return the current model
-=======
-<<<<<<< HEAD
-   * 
-   * @return the current model
-=======
-   *
-   * @return            the current model
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public TableModel getModel() {
     return mModel;
@@ -449,18 +215,8 @@ public class SortedTableModel
 
   /**
    * returns whether the table was sorted
-<<<<<<< HEAD
    * 
    * @return true if the table was sorted
-=======
-<<<<<<< HEAD
-   * 
-   * @return true if the table was sorted
-=======
-   *
-   * @return        true if the table was sorted
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public boolean isSorted() {
     return (mSortColumn > -1);
@@ -468,21 +224,9 @@ public class SortedTableModel
 
   /**
    * whether the model is initialized
-<<<<<<< HEAD
    * 
    * @return true if the model is not null and the sort indices match the number
    *         of rows
-=======
-<<<<<<< HEAD
-   * 
-   * @return true if the model is not null and the sort indices match the number
-   *         of rows
-=======
-   *
-   * @return            true if the model is not null and the sort indices
-   *                    match the number of rows
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   protected boolean isInitialized() {
     return (getModel() != null);
@@ -491,10 +235,6 @@ public class SortedTableModel
   /**
    * Returns the actual underlying row the given visible one represents. Useful
    * for retrieving "non-visual" data that is also stored in a TableModel.
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param visibleRow the displayed row to retrieve the original row for
    * @return the original row
@@ -520,42 +260,10 @@ public class SortedTableModel
     } else {
       return getModel().getColumnClass(columnIndex);
     }
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param visibleRow	the displayed row to retrieve the original row for
-   * @return		the original row
-   */
-  public int getActualRow(int visibleRow) {
-    if (!isInitialized())
-      return -1;
-    else
-      return mIndices[visibleRow];
-  }
-
-  /**
-   * Returns the most specific superclass for all the cell values in the
-   * column.
-   *
-   * @param columnIndex     the index of the column
-   * @return                the class of the specified column
-   */
-  public Class getColumnClass(int columnIndex) {
-    if (!isInitialized())
-      return null;
-    else
-      return getModel().getColumnClass(columnIndex);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Returns the number of columns in the model
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return the number of columns in the model
    */
@@ -566,27 +274,10 @@ public class SortedTableModel
     } else {
       return getModel().getColumnCount();
     }
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @return          the number of columns in the model
-   */
-  public int getColumnCount() {
-    if (!isInitialized())
-      return 0;
-    else
-      return getModel().getColumnCount();
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Returns the name of the column at columnIndex
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param columnIndex the column to retrieve the name for
    * @return the name of the specified column
@@ -598,28 +289,10 @@ public class SortedTableModel
     } else {
       return getModel().getColumnName(columnIndex);
     }
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param columnIndex   the column to retrieve the name for
-   * @return              the name of the specified column
-   */
-  public String getColumnName(int columnIndex) {
-    if (!isInitialized())
-      return null;
-    else
-      return getModel().getColumnName(columnIndex);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Returns the number of rows in the model.
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return the number of rows in the model
    */
@@ -630,27 +303,10 @@ public class SortedTableModel
     } else {
       return getModel().getRowCount();
     }
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @return              the number of rows in the model
-   */
-  public int getRowCount() {
-    if (!isInitialized())
-      return 0;
-    else
-      return getModel().getRowCount();
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Returns the value for the cell at columnIndex and rowIndex.
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param rowIndex the row
    * @param columnIndex the column
@@ -663,29 +319,10 @@ public class SortedTableModel
     } else {
       return getModel().getValueAt(mIndices[rowIndex], columnIndex);
     }
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param rowIndex      the row
-   * @param columnIndex   the column
-   * @return              the value of the sepcified cell
-   */
-  public Object getValueAt(int rowIndex, int columnIndex) {
-    if (!isInitialized())
-      return null;
-    else
-      return getModel().getValueAt(mIndices[rowIndex], columnIndex);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Returns true if the cell at rowIndex and columnIndex is editable.
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param rowIndex the row
    * @param columnIndex the column
@@ -698,29 +335,10 @@ public class SortedTableModel
     } else {
       return getModel().isCellEditable(mIndices[rowIndex], columnIndex);
     }
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param rowIndex      the row
-   * @param columnIndex   the column
-   * @return              true if the cell is editable
-   */
-  public boolean isCellEditable(int rowIndex, int columnIndex) {
-    if (!isInitialized())
-      return false;
-    else
-      return getModel().isCellEditable(mIndices[rowIndex], columnIndex);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Sets the value in the cell at columnIndex and rowIndex to aValue.
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param aValue the new value of the cell
    * @param rowIndex the row
@@ -731,35 +349,12 @@ public class SortedTableModel
     if (isInitialized()) {
       getModel().setValueAt(aValue, mIndices[rowIndex], columnIndex);
     }
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param aValue        the new value of the cell
-   * @param rowIndex      the row
-   * @param columnIndex   the column
-   */
-  public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
-    if (isInitialized())
-      getModel().setValueAt(aValue, mIndices[rowIndex], columnIndex);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * sorts the table over the given column (ascending)
-<<<<<<< HEAD
    * 
    * @param columnIndex the column to sort over
-=======
-<<<<<<< HEAD
-   * 
-   * @param columnIndex the column to sort over
-=======
-   *
-   * @param columnIndex     the column to sort over
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public void sort(int columnIndex) {
     sort(columnIndex, true);
@@ -767,10 +362,6 @@ public class SortedTableModel
 
   /**
    * sorts the table over the given column, either ascending or descending
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param columnIndex the column to sort over
    * @param ascending ascending if true, otherwise descending
@@ -787,38 +378,12 @@ public class SortedTableModel
 
       System.out.println(this.getClass().getName()
         + ": Table model not initialized!");
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param columnIndex     the column to sort over
-   * @param ascending       ascending if true, otherwise descending
-   */
-  public void sort(int columnIndex, boolean ascending) {
-    int       			columnType;
-    int       			i;
-    ArrayList<SortContainer>	sorted;
-    SortContainer		cont;
-    Object			value;
-
-    // can we sort?
-    if (    (!isInitialized())
-         || (getModel().getRowCount() != mIndices.length) ) {
-
-      System.out.println(
-          this.getClass().getName() + Messages.getInstance().getString("SortedTableModel_Sort_Text_Firt"));
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
       return;
     }
 
     // init
     mSortColumn = columnIndex;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     mAscending = ascending;
     initializeIndices();
 
@@ -829,66 +394,27 @@ public class SortedTableModel
     } else {
       columnType = 0;
     }
-<<<<<<< HEAD
-=======
-=======
-    mAscending  = ascending;
-    initializeIndices();
-
-    // determine the column type: 0=string/other, 1=comparable
-    if (ClassDiscovery.hasInterface(Comparable.class, getColumnClass(mSortColumn)))
-      columnType = 1;
-    else
-      columnType = 0;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     // create list for sorting
     sorted = new ArrayList<SortContainer>();
     for (i = 0; i < getRowCount(); i++) {
       value = mModel.getValueAt(mIndices[i], mSortColumn);
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       if (columnType == 0) {
         cont = new SortContainer((value == null) ? null : value.toString(),
           mIndices[i]);
       } else {
         cont = new SortContainer((Comparable<?>) value, mIndices[i]);
       }
-<<<<<<< HEAD
-=======
-=======
-      if (columnType == 0)
-	cont = new SortContainer((value == null) ? null : value.toString(), mIndices[i]);
-      else
-	cont = new SortContainer((Comparable) value, mIndices[i]);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       sorted.add(cont);
     }
     Collections.sort(sorted);
 
     for (i = 0; i < sorted.size(); i++) {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       if (mAscending) {
         mIndices[i] = sorted.get(i).getIndex();
       } else {
         mIndices[i] = sorted.get(sorted.size() - 1 - i).getIndex();
       }
-<<<<<<< HEAD
-=======
-=======
-      if (mAscending)
-	mIndices[i] = sorted.get(i).getIndex();
-      else
-	mIndices[i] = sorted.get(sorted.size() - 1 - i).getIndex();
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
 
     sorted.clear();
@@ -898,10 +424,6 @@ public class SortedTableModel
   /**
    * This fine grain notification tells listeners the exact range of cells,
    * rows, or columns that changed.
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param e the event
    */
@@ -911,18 +433,6 @@ public class SortedTableModel
     if (isSorted()) {
       sort(mSortColumn, mAscending);
     }
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param e       the event
-   */
-  public void tableChanged(TableModelEvent e) {
-    initializeIndices();
-    if (isSorted())
-      sort(mSortColumn, mAscending);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     fireTableChanged(e);
   }
@@ -930,18 +440,8 @@ public class SortedTableModel
   /**
    * Adds a mouselistener to the header: left-click on the header sorts in
    * ascending manner, using shift-left-click in descending manner.
-<<<<<<< HEAD
    * 
    * @param table the table to add the listener to
-=======
-<<<<<<< HEAD
-   * 
-   * @param table the table to add the listener to
-=======
-   *
-   * @param table       the table to add the listener to
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    */
   public void addMouseListenerToHeader(JTable table) {
     final SortedTableModel modelFinal = this;
@@ -951,32 +451,13 @@ public class SortedTableModel
 
     if (header != null) {
       MouseAdapter listMouseListener = new MouseAdapter() {
-<<<<<<< HEAD
         @Override
-=======
-<<<<<<< HEAD
-        @Override
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         public void mouseClicked(MouseEvent e) {
           TableColumnModel columnModel = tableFinal.getColumnModel();
           int viewColumn = columnModel.getColumnIndexAtX(e.getX());
           int column = tableFinal.convertColumnIndexToModel(viewColumn);
-<<<<<<< HEAD
           if (e.getButton() == MouseEvent.BUTTON1 && e.getClickCount() == 1
             && !e.isAltDown() && column != -1) {
-=======
-<<<<<<< HEAD
-          if (e.getButton() == MouseEvent.BUTTON1 && e.getClickCount() == 1
-            && !e.isAltDown() && column != -1) {
-=======
-          if (    e.getButton() == MouseEvent.BUTTON1
-               && e.getClickCount() == 1
-               && !e.isAltDown()
-               && column != -1 ) {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
             int shiftPressed = e.getModifiers() & InputEvent.SHIFT_MASK;
             boolean ascending = (shiftPressed == 0);
             modelFinal.sort(column, ascending);

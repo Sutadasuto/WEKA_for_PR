@@ -1,45 +1,20 @@
 # Properties for visualization
 #
-<<<<<<< HEAD
 # Version: $Revision: 14589 $
-=======
-<<<<<<< HEAD
-# Version: $Revision: 14589 $
-=======
-# Version: $Revision: 1.9 $
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
 # Maximum precision for numeric values
 weka.gui.visualize.precision=10
 
 # Colour for the axis in the 2D plot (can use R,G,B format)
-<<<<<<< HEAD
 weka.gui.visualize.Plot2D.axisColour=black
-=======
-<<<<<<< HEAD
-weka.gui.visualize.Plot2D.axisColour=black
-=======
-weka.gui.visualize.Plot2D.axisColour=green
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
 # Colour for the background of the 2D plot (can use R,G,B format)
 weka.gui.visualize.Plot2D.backgroundColour=white
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 # The JFrame (needs to implement the interface weka.gui.visualize.InstanceInfo) 
 # for displaying Instance information.
 weka.gui.visualize.Plot2D.instanceInfoFrame=weka.gui.visualize.InstanceInfoFrame
 
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 # Display the list of one dimensional attribute visualizations
 weka.gui.visualize.VisualizePanel.displayAttributeBars=true
 

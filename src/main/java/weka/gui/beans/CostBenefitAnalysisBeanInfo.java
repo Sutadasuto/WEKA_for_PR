@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 /*
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -23,11 +19,6 @@
  *
  */
 
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 package weka.gui.beans;
 
 import java.beans.EventSetDescriptor;
@@ -37,15 +28,7 @@ import java.beans.SimpleBeanInfo;
  * Bean info class for the cost/benefit analysis
  * 
  * @author Mark Hall (mhall{[at]}pentaho{[dot]}com)
-<<<<<<< HEAD
  * @version $Revision: 8046 $
-=======
-<<<<<<< HEAD
- * @version $Revision: 8046 $
-=======
- * @version $Revision: 5821 $
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 public class CostBenefitAnalysisBeanInfo extends SimpleBeanInfo {
   

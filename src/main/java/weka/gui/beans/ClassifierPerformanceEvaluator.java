@@ -1,8 +1,4 @@
 /*
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -15,46 +11,16 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
-<<<<<<< HEAD
-=======
-=======
- *    This program is free software; you can redistribute it and/or modify
- *    it under the terms of the GNU General Public License as published by
- *    the Free Software Foundation; either version 2 of the License, or
- *    (at your option) any later version.
- *
- *    This program is distributed in the hope that it will be useful,
- *    but WITHOUT ANY WARRANTY; without even the implied warranty of
- *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *    GNU General Public License for more details.
- *
- *    You should have received a copy of the GNU General Public License
- *    along with this program; if not, write to the Free Software
- *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    ClassifierPerformanceEvaluator.java
-<<<<<<< HEAD
  *    Copyright (C) 2002-2012 University of Waikato, Hamilton, New Zealand
-=======
-<<<<<<< HEAD
- *    Copyright (C) 2002-2012 University of Waikato, Hamilton, New Zealand
-=======
- *    Copyright (C) 2002 University of Waikato, Hamilton, New Zealand
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
 package weka.gui.beans;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Enumeration;
@@ -69,23 +35,10 @@ import weka.classifiers.Classifier;
 import weka.classifiers.Evaluation;
 import weka.classifiers.evaluation.ThresholdCurve;
 import weka.core.BatchPredictor;
-<<<<<<< HEAD
-=======
-=======
-import weka.classifiers.Classifier;
-import weka.classifiers.Evaluation;
-import weka.classifiers.evaluation.ThresholdCurve;
-import weka.core.FastVector;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.OptionHandler;
 import weka.core.Utils;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.experiment.Task;
 import weka.experiment.TaskStatusInfo;
 import weka.gui.explorer.ClassifierErrorsPlotInstances;
@@ -100,27 +53,6 @@ import weka.gui.visualize.PlotData2D;
  */
 public class ClassifierPerformanceEvaluator extends AbstractEvaluator implements
   BatchClassifierListener, Serializable, UserRequestAcceptor, EventConstraints {
-<<<<<<< HEAD
-=======
-=======
-import weka.gui.visualize.PlotData2D;
-
-import java.io.Serializable;
-import java.util.Enumeration;
-import java.util.Vector;
-
-/**
- * A bean that evaluates the performance of batch trained classifiers
- *
- * @author <a href="mailto:mhall@cs.waikato.ac.nz">Mark Hall</a>
- * @version $Revision: 7059 $
- */
-public class ClassifierPerformanceEvaluator 
-  extends AbstractEvaluator
-  implements BatchClassifierListener, 
-	     Serializable, UserRequestAcceptor, EventConstraints {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** for serialization */
   private static final long serialVersionUID = -3511801418192148690L;
@@ -128,10 +60,6 @@ public class ClassifierPerformanceEvaluator
   /**
    * Evaluation object used for evaluating a classifier
    */
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   private transient AggregateableEvaluation m_eval;
   private transient Instances m_aggregatedPlotInstances = null;
   private transient ArrayList<Object> m_aggregatedPlotSizes = null;
@@ -283,28 +211,6 @@ public class ClassifierPerformanceEvaluator
     m_executorPool =
       new ThreadPoolExecutor(m_executionSlots, m_executionSlots, 120,
         TimeUnit.SECONDS, new LinkedBlockingQueue<Runnable>());
-<<<<<<< HEAD
-=======
-=======
-  private transient Evaluation m_eval;
-
-  private transient Thread m_evaluateThread = null;
-  
-  private transient long m_currentBatchIdentifier;
-  private transient int m_setsComplete;
-  
-  private Vector m_textListeners = new Vector();
-  private Vector m_thresholdListeners = new Vector();
-  private Vector m_visualizableErrorListeners = new Vector();
-
-  public ClassifierPerformanceEvaluator() {
-    m_visual.loadIcons(BeanVisual.ICON_PATH
-		       +"ClassifierPerformanceEvaluator.gif",
-		       BeanVisual.ICON_PATH
-		       +"ClassifierPerformanceEvaluator_animated.gif");
-    m_visual.setText("ClassifierPerformanceEvaluator");
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -312,14 +218,7 @@ public class ClassifierPerformanceEvaluator
    * 
    * @param name the name to use
    */
-<<<<<<< HEAD
   @Override
-=======
-<<<<<<< HEAD
-  @Override
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public void setCustomName(String name) {
     m_visual.setText(name);
   }
@@ -329,10 +228,6 @@ public class ClassifierPerformanceEvaluator
    * 
    * @return the custom name (or the default name)
    */
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   @Override
   public String getCustomName() {
     return m_visual.getText();
@@ -869,257 +764,10 @@ public class ClassifierPerformanceEvaluator
       ex.printStackTrace();
       // stop everything
       stop();
-<<<<<<< HEAD
-=======
-=======
-  public String getCustomName() {
-    return m_visual.getText();
-  }
-  
-  /**
-   * Global info for this bean
-   *
-   * @return a <code>String</code> value
-   */
-  public String globalInfo() {
-    return Messages.getInstance().getString("ClassifierPerformanceEvaluator_GlobalInfo_Text");
-  }
-
-  // ----- Stuff for ROC curves
-  private boolean m_rocListenersConnected = false;
-  // Plottable Instances with predictions appended
-  private transient Instances m_predInstances = null;
-  // Actual predictions
-  private transient FastVector m_plotShape = null;
-  private transient FastVector m_plotSize = null;
-
-  /**
-   * Accept a classifier to be evaluated
-   *
-   * @param ce a <code>BatchClassifierEvent</code> value
-   */
-  public void acceptClassifier(final BatchClassifierEvent ce) {
-    if (ce.getTestSet() == null || ce.getTestSet().isStructureOnly()) {
-      return; // cant evaluate empty/non-existent test instances
-    }
-    try {
-      if (m_evaluateThread == null) {
-	m_evaluateThread = new Thread() {
-	    public void run() {
-	      boolean errorOccurred = false;
-//	      final String oldText = m_visual.getText();
-	      Classifier classifier = ce.getClassifier();
-	      try {
-		//if (ce.getSetNumber() == 1) {
-	        if (ce.getGroupIdentifier() != m_currentBatchIdentifier) {
-                  if (ce.getTrainSet().getDataSet() == null ||
-                      ce.getTrainSet().getDataSet().numInstances() == 0) {
-                    // we have no training set to estimate majority class
-                    // or mean of target from
-                    m_eval = new Evaluation(ce.getTestSet().getDataSet());
-                    m_eval.useNoPriors();
-                  } else {
-                    m_eval = new Evaluation(ce.getTrainSet().getDataSet());
-                  }
-
-//		  m_classifier = ce.getClassifier();
-		  if (m_visualizableErrorListeners.size() > 0) {
-		    m_predInstances = 
-		      weka.gui.explorer.ClassifierPanel.
-		      setUpVisualizableInstances(new Instances(ce.getTestSet().getDataSet()));
-		    m_plotShape = new FastVector();
-		    m_plotSize = new FastVector();
-		  }
-		  
-		  m_currentBatchIdentifier = ce.getGroupIdentifier();
-                  m_setsComplete = 0;
-		}
-//		if (ce.getSetNumber() <= ce.getMaxSetNumber()) {
-	        if (m_setsComplete < ce.getMaxSetNumber()) {
-		  if (ce.getTrainSet().getDataSet() != null &&
-                      ce.getTrainSet().getDataSet().numInstances() > 0) {
-                    // set the priors
-                    m_eval.setPriors(ce.getTrainSet().getDataSet());
-                  }
-		  
-//		  m_visual.setText("Evaluating ("+ce.getSetNumber()+")...");
-		  if (m_logger != null) {
-		    m_logger.statusMessage(statusMessagePrefix()
-					   + Messages.getInstance().getString("ClassifierPerformanceEvaluator_AcceptClassifier_Visual_SetText_Text_First") + ce.getSetNumber()
-					   + Messages.getInstance().getString("ClassifierPerformanceEvaluator_AcceptClassifier_Visual_SetText_Text_Second"));
-		  }
-		  m_visual.setAnimated();
-		  /*
-		  m_eval.evaluateModel(ce.getClassifier(), 
-		  ce.getTestSet().getDataSet()); */
-		  for (int i = 0; i < ce.getTestSet().getDataSet().numInstances(); i++) {
-		    Instance temp = ce.getTestSet().getDataSet().instance(i);
-		    weka.gui.explorer.ClassifierPanel.
-		    processClassifierPrediction(temp, ce.getClassifier(),
-						m_eval, m_predInstances, m_plotShape,
-						m_plotSize);
-		  }
-		  
-		  m_setsComplete++;
-		}
-		
-		if (ce.getSetNumber() == ce.getMaxSetNumber()) {
-                  //		  System.err.println(m_eval.toSummaryString());
-		  // m_resultsString.append(m_eval.toSummaryString());
-		  // m_outText.setText(m_resultsString.toString());
-		  String textTitle = classifier.getClass().getName();
-		  String textOptions = "";
-		  if (classifier instanceof OptionHandler) {
-	             textOptions = 
-	               Utils.joinOptions(((OptionHandler)classifier).getOptions()); 
-		  }
-		  textTitle = 
-		    textTitle.substring(textTitle.lastIndexOf('.')+1,
-					textTitle.length());
-		  String resultT = Messages.getInstance().getString("ClassifierPerformanceEvaluator_AcceptClassifier_ResultT_Text_First") + textTitle + "\n"
-		    + ((textOptions.length() > 0) ? Messages.getInstance().getString("ClassifierPerformanceEvaluator_AcceptClassifier_ResultT_Text_Second") + textOptions + "\n": "")
-		    + Messages.getInstance().getString("ClassifierPerformanceEvaluator_AcceptClassifier_ResultT_Text_Third") + ce.getTestSet().getDataSet().relationName()
-		    + "\n\n" + m_eval.toSummaryString();
-                  
-                  if (ce.getTestSet().getDataSet().
-                      classAttribute().isNominal()) {
-                    resultT += "\n" + m_eval.toClassDetailsString()
-                      + "\n" + m_eval.toMatrixString();
-                  }
-                  
-		  TextEvent te = 
-		    new TextEvent(ClassifierPerformanceEvaluator.this, 
-				  resultT,
-				  textTitle);
-		  notifyTextListeners(te);
-
-                  // set up visualizable errors
-                  if (m_visualizableErrorListeners.size() > 0) {
-                    PlotData2D errorD = new PlotData2D(m_predInstances);
-                    errorD.setShapeSize(m_plotSize);
-                    errorD.setShapeType(m_plotShape);
-                    errorD.setPlotName(textTitle + " " +textOptions + " ("
-                                       +ce.getTestSet().getDataSet().relationName()
-                                       +")");
-                    errorD.addInstanceNumberAttribute();
-                    VisualizableErrorEvent vel = 
-                      new VisualizableErrorEvent(ClassifierPerformanceEvaluator.this,
-                                                 errorD);
-                    notifyVisualizableErrorListeners(vel);
-                  }
-                  
-
-		  if (ce.getTestSet().getDataSet().classAttribute().isNominal() &&
-		      m_thresholdListeners.size() > 0) {
-		    ThresholdCurve tc = new ThresholdCurve();
-		    Instances result = tc.getCurve(m_eval.predictions(), 0);
-		    result.
-		      setRelationName(ce.getTestSet().getDataSet().relationName());
-		    PlotData2D pd = new PlotData2D(result);
-		    String htmlTitle = Messages.getInstance().getString("ClassifierPerformanceEvaluator_AcceptClassifier_HtmlTitle_Text_First")
-		      + textTitle;
-		    String newOptions = "";
-		    if (classifier instanceof OptionHandler) {
-		      String[] options = 
-		        ((OptionHandler) classifier).getOptions();
-		      if (options.length > 0) {
-		        for (int ii = 0; ii < options.length; ii++) {
-		          if (options[ii].length() == 0) {
-		            continue;
-		          }
-		          if (options[ii].charAt(0) == '-' && 
-		              !(options[ii].charAt(1) >= '0' &&
-		                  options[ii].charAt(1)<= '9')) {
-		            newOptions += "<br>";
-		          }
-		          newOptions += options[ii];
-		        }
-		      }
-		    }
-		    
-		   htmlTitle += " " + newOptions +  
-		      Messages.getInstance().getString("ClassifierPerformanceEvaluator_AcceptClassifier_HtmlTitle_Text_Second")
-                      +ce.getTestSet().getDataSet().
-                        classAttribute().value(0) + ")" 
-                      + Messages.getInstance().getString("ClassifierPerformanceEvaluator_AcceptClassifier_HtmlTitle_Text_Third");
-		    pd.setPlotName(textTitle + Messages.getInstance().getString("ClassifierPerformanceEvaluator_AcceptClassifier_HtmlTitle_Text_Fourth")
-	                      +ce.getTestSet().getDataSet().
-	                        classAttribute().value(0) + Messages.getInstance().getString("ClassifierPerformanceEvaluator_AcceptClassifier_HtmlTitle_Text_Fifth"));
-		    pd.setPlotNameHTML(htmlTitle);
-		    boolean [] connectPoints = 
-		      new boolean [result.numInstances()];
-		    for (int jj = 1; jj < connectPoints.length; jj++) {
-		      connectPoints[jj] = true;
-		    }
-		    pd.setConnectPoints(connectPoints);
-		    ThresholdDataEvent rde = 
-		      new ThresholdDataEvent(ClassifierPerformanceEvaluator.this,
-				       pd, ce.getTestSet().getDataSet().classAttribute());
-		    notifyThresholdListeners(rde);
-		    /*te = new TextEvent(ClassifierPerformanceEvaluator.this,
-				       result.toString(),
-				       "ThresholdCurveInst");
-				       notifyTextListeners(te); */
-		  }
-		  if (m_logger != null) {
-		    m_logger.statusMessage(statusMessagePrefix() + Messages.getInstance().getString("ClassifierPerformanceEvaluator_AcceptClassifier_StatusMessage_Text_Third"));
-		  }
-
-		  // save memory
-		  m_predInstances = null;
-		  m_plotShape = null;
-		  m_plotSize = null;
-		}
-	      } catch (Exception ex) {
-	        errorOccurred = true;
-	        ClassifierPerformanceEvaluator.this.stop(); // stop all processing
-	        if (m_logger != null) {
-	          m_logger.logMessage(Messages.getInstance().getString("ClassifierPerformanceEvaluator_AcceptClassifier_LogMessage_Text_First")
-	              + statusMessagePrefix() 
-	              + Messages.getInstance().getString("ClassifierPerformanceEvaluator_AcceptClassifier_LogMessage_Text_Second") 
-	              + ex.getMessage());
-	        }
-		ex.printStackTrace();
-	      } finally {
-//		m_visual.setText(oldText);
-		m_visual.setStatic();
-		m_evaluateThread = null;
-				
-		if (m_logger != null) {
-		  if (errorOccurred) {
-		    m_logger.statusMessage(statusMessagePrefix() 
-		        + Messages.getInstance().getString("ClassifierPerformanceEvaluator_AcceptClassifier_StatusMessage_Text_Fourth"));
-		  } else if (isInterrupted()) {
-		    m_logger.logMessage(Messages.getInstance().getString("ClassifierPerformanceEvaluator_AcceptClassifier_LogMessage_Text_Third") + getCustomName() + Messages.getInstance().getString("ClassifierPerformanceEvaluator_AcceptClassifier_LogMessage_Text_Fourth"));
-		    m_logger.statusMessage(statusMessagePrefix() 
-		        + Messages.getInstance().getString("ClassifierPerformanceEvaluator_AcceptClassifier_StatusMessage_Text_Fifth"));
-		  }
-		}
-		block(false);
-	      }
-	    }
-	  };
-	m_evaluateThread.setPriority(Thread.MIN_PRIORITY);
-	m_evaluateThread.start();
-
-	// make sure the thread is still running before we block
-	//	if (m_evaluateThread.isAlive()) {
-	block(true);
-	  //	}
-	m_evaluateThread = null;
-      }
-    }  catch (Exception ex) {
-      ex.printStackTrace();
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
   }
 
   /**
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Returns true if. at this time, the bean is busy with some (i.e. perhaps a
    * worker thread is performing some calculation).
    * 
@@ -1201,127 +849,29 @@ public class ClassifierPerformanceEvaluator
       newVector.addElement("Stop");
     }
 
-<<<<<<< HEAD
-=======
-=======
-   * Returns true if. at this time, the bean is busy with some
-   * (i.e. perhaps a worker thread is performing some calculation).
-   * 
-   * @return true if the bean is busy.
-   */
-  public boolean isBusy() {
-    return (m_evaluateThread != null);
-  }
-    
-  /**
-   * Try and stop any action
-   */
-  public void stop() {
-    // tell the listenee (upstream bean) to stop
-    if (m_listenee instanceof BeanCommon) {
-      //      System.err.println("Listener is BeanCommon");
-      ((BeanCommon)m_listenee).stop();
-    }
-
-    // stop the evaluate thread
-    if (m_evaluateThread != null) {
-      m_evaluateThread.interrupt();
-      m_evaluateThread.stop();
-      m_evaluateThread = null;
-      m_visual.setStatic();
-    }
-  }
-  
-  /**
-   * Function used to stop code that calls acceptClassifier. This is 
-   * needed as classifier evaluation is performed inside a separate
-   * thread of execution.
-   *
-   * @param tf a <code>boolean</code> value
-   */
-  private synchronized void block(boolean tf) {
-    if (tf) {
-      try {
-	// only block if thread is still doing something useful!
-	if (m_evaluateThread != null && m_evaluateThread.isAlive()) {
-	  wait();
-	}
-      } catch (InterruptedException ex) {
-      }
-    } else {
-      notifyAll();
-    }
-  }
-
-  /**
-   * Return an enumeration of user activated requests for this bean
-   *
-   * @return an <code>Enumeration</code> value
-   */
-  public Enumeration enumerateRequests() {
-    Vector newVector = new Vector(0);
-    if (m_evaluateThread != null) {
-      newVector.addElement("Stop");
-    }
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     return newVector.elements();
   }
 
   /**
    * Perform the named request
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param request the request to perform
    * @exception IllegalArgumentException if an error occurs
    */
   @Override
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param request the request to perform
-   * @exception IllegalArgumentException if an error occurs
-   */
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public void performRequest(String request) {
     if (request.compareTo("Stop") == 0) {
       stop();
     } else {
-<<<<<<< HEAD
       throw new IllegalArgumentException(request
 
       + " not supported (ClassifierPerformanceEvaluator)");
-=======
-<<<<<<< HEAD
-      throw new IllegalArgumentException(request
-
-      + " not supported (ClassifierPerformanceEvaluator)");
-=======
-      throw new 
-	IllegalArgumentException(request
-
-		    + Messages.getInstance().getString("ClassifierPerformanceEvaluator_PerformRequest_IllegalArgumentException_Text"));
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
   }
 
   /**
    * Add a text listener
-<<<<<<< HEAD
    * 
-=======
-<<<<<<< HEAD
-   * 
-=======
-   *
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param cl a <code>TextListener</code> value
    */
   public synchronized void addTextListener(TextListener cl) {
@@ -1330,37 +880,16 @@ public class ClassifierPerformanceEvaluator
 
   /**
    * Remove a text listener
-<<<<<<< HEAD
    * 
-=======
-<<<<<<< HEAD
-   * 
-=======
-   *
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param cl a <code>TextListener</code> value
    */
   public synchronized void removeTextListener(TextListener cl) {
     m_textListeners.remove(cl);
   }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /**
    * Add a threshold data listener
    * 
-<<<<<<< HEAD
-=======
-=======
-  
-  /**
-   * Add a threshold data listener
-   *
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param cl a <code>ThresholdDataListener</code> value
    */
   public synchronized void addThresholdDataListener(ThresholdDataListener cl) {
@@ -1369,79 +898,36 @@ public class ClassifierPerformanceEvaluator
 
   /**
    * Remove a Threshold data listener
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param cl a <code>ThresholdDataListener</code> value
    */
   public synchronized void
     removeThresholdDataListener(ThresholdDataListener cl) {
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param cl a <code>ThresholdDataListener</code> value
-   */
-  public synchronized void removeThresholdDataListener(ThresholdDataListener cl) {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     m_thresholdListeners.remove(cl);
   }
 
   /**
    * Add a visualizable error listener
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param vel a <code>VisualizableErrorListener</code> value
    */
   public synchronized void addVisualizableErrorListener(
     VisualizableErrorListener vel) {
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param vel a <code>VisualizableErrorListener</code> value
-   */
-  public synchronized void addVisualizableErrorListener(VisualizableErrorListener vel) {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     m_visualizableErrorListeners.add(vel);
   }
 
   /**
    * Remove a visualizable error listener
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param vel a <code>VisualizableErrorListener</code> value
    */
   public synchronized void removeVisualizableErrorListener(
     VisualizableErrorListener vel) {
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param vel a <code>VisualizableErrorListener</code> value
-   */
-  public synchronized void removeVisualizableErrorListener(VisualizableErrorListener vel) {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     m_visualizableErrorListeners.remove(vel);
   }
 
   /**
    * Notify all text listeners of a TextEvent
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param te a <code>TextEvent</code> value
    */
@@ -1456,34 +942,12 @@ public class ClassifierPerformanceEvaluator
         // System.err.println("Notifying text listeners "
         // +"(ClassifierPerformanceEvaluator)");
         l.elementAt(i).acceptText(te);
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param te a <code>TextEvent</code> value
-   */
-  private void notifyTextListeners(TextEvent te) {
-    Vector l;
-    synchronized (this) {
-      l = (Vector)m_textListeners.clone();
-    }
-    if (l.size() > 0) {
-      for(int i = 0; i < l.size(); i++) {
-	//	System.err.println("Notifying text listeners "
-	//			   +"(ClassifierPerformanceEvaluator)");
-	((TextListener)l.elementAt(i)).acceptText(te);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
     }
   }
 
   /**
    * Notify all ThresholdDataListeners of a ThresholdDataEvent
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param te a <code>ThresholdDataEvent</code> value
    */
@@ -1498,34 +962,12 @@ public class ClassifierPerformanceEvaluator
         // System.err.println("Notifying text listeners "
         // +"(ClassifierPerformanceEvaluator)");
         l.elementAt(i).acceptDataSet(re);
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param te a <code>ThresholdDataEvent</code> value
-   */
-  private void notifyThresholdListeners(ThresholdDataEvent re) {
-    Vector l;
-    synchronized (this) {
-      l = (Vector)m_thresholdListeners.clone();
-    }
-    if (l.size() > 0) {
-      for(int i = 0; i < l.size(); i++) {
-	//	System.err.println("Notifying text listeners "
-	//			   +"(ClassifierPerformanceEvaluator)");
-	((ThresholdDataListener)l.elementAt(i)).acceptDataSet(re);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
     }
   }
 
   /**
    * Notify all VisualizableErrorListeners of a VisualizableErrorEvent
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param te a <code>VisualizableErrorEvent</code> value
    */
@@ -1542,33 +984,11 @@ public class ClassifierPerformanceEvaluator
         // System.err.println("Notifying text listeners "
         // +"(ClassifierPerformanceEvaluator)");
         l.elementAt(i).acceptDataSet(re);
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param te a <code>VisualizableErrorEvent</code> value
-   */
-  private void notifyVisualizableErrorListeners(VisualizableErrorEvent re) {
-    Vector l;
-    synchronized (this) {
-      l = (Vector)m_visualizableErrorListeners.clone();
-    }
-    if (l.size() > 0) {
-      for(int i = 0; i < l.size(); i++) {
-	//	System.err.println("Notifying text listeners "
-	//			   +"(ClassifierPerformanceEvaluator)");
-	((VisualizableErrorListener)l.elementAt(i)).acceptDataSet(re);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
     }
   }
 
   /**
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Returns true, if at the current time, the named event could be generated.
    * Assumes that supplied event names are names of events that could be
    * generated by this bean.
@@ -1577,59 +997,20 @@ public class ClassifierPerformanceEvaluator
    * @return true if the named event could be generated at this point in time
    */
   @Override
-<<<<<<< HEAD
-=======
-=======
-   * Returns true, if at the current time, the named event could
-   * be generated. Assumes that supplied event names are names of
-   * events that could be generated by this bean.
-   *
-   * @param eventName the name of the event in question
-   * @return true if the named event could be generated at this point in
-   * time
-   */
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public boolean eventGeneratable(String eventName) {
     if (m_listenee == null) {
       return false;
     }
 
     if (m_listenee instanceof EventConstraints) {
-<<<<<<< HEAD
       if (!((EventConstraints) m_listenee).eventGeneratable("batchClassifier")) {
         return false;
-=======
-<<<<<<< HEAD
-      if (!((EventConstraints) m_listenee).eventGeneratable("batchClassifier")) {
-        return false;
-=======
-      if (!((EventConstraints)m_listenee).
-	  eventGeneratable("batchClassifier")) {
-	return false;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       }
     }
     return true;
   }
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-
-=======
-  
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   private String statusMessagePrefix() {
     return getCustomName() + "$" + hashCode() + "|";
   }
 }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb

@@ -1,8 +1,4 @@
 /*
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -15,79 +11,29 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
-<<<<<<< HEAD
-=======
-=======
- *    This program is free software; you can redistribute it and/or modify
- *    it under the terms of the GNU General Public License as published by
- *    the Free Software Foundation; either version 2 of the License, or
- *    (at your option) any later version.
- *
- *    This program is distributed in the hope that it will be useful,
- *    but WITHOUT ANY WARRANTY; without even the implied warranty of
- *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *    GNU General Public License for more details.
- *
- *    You should have received a copy of the GNU General Public License
- *    along with this program; if not, write to the Free Software
- *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    ClassifierSplitModel.java
-<<<<<<< HEAD
  *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
-=======
-<<<<<<< HEAD
- *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
-=======
- *    Copyright (C) 1999 University of Waikato, Hamilton, New Zealand
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
 package weka.classifiers.trees.j48;
 
-<<<<<<< HEAD
 import java.io.Serializable;
 
-=======
-<<<<<<< HEAD
-import java.io.Serializable;
-
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.RevisionHandler;
 import weka.core.Utils;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-import java.io.Serializable;
-
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 /** 
  * Abstract class for classification models that can be used 
  * recursively to split the data.
  *
  * @author Eibe Frank (eibe@cs.waikato.ac.nz)
-<<<<<<< HEAD
  * @version $Revision: 13477 $
-=======
-<<<<<<< HEAD
- * @version $Revision: 13477 $
-=======
- * @version $Revision: 1.11 $
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 public abstract class ClassifierSplitModel
   implements Cloneable, Serializable, RevisionHandler {
@@ -289,10 +235,6 @@ public abstract class ClassifierSplitModel
   }
 
   /**
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Sets the distribution associated with model.
    *
    * @param dist
@@ -302,11 +244,6 @@ public abstract class ClassifierSplitModel
   }
 
   /**
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Splits the given set of instances into subsets.
    *
    * @exception Exception if something goes wrong
@@ -314,10 +251,6 @@ public abstract class ClassifierSplitModel
   public final Instances [] split(Instances data) 
        throws Exception { 
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     // Find size and constitution of subsets
     int[] subsetSize = new int[m_numSubsets];
     for (Instance instance : data) {
@@ -354,36 +287,6 @@ public abstract class ClassifierSplitModel
 	}
       }
     }
-<<<<<<< HEAD
-=======
-=======
-    Instances [] instances = new Instances [m_numSubsets];
-    double [] weights;
-    double newWeight;
-    Instance instance;
-    int subset, i, j;
-
-    for (j=0;j<m_numSubsets;j++)
-      instances[j] = new Instances((Instances)data,
-					    data.numInstances());
-    for (i = 0; i < data.numInstances(); i++) {
-      instance = ((Instances) data).instance(i);
-      weights = weights(instance);
-      subset = whichSubset(instance);
-      if (subset > -1)
-	instances[subset].add(instance);
-      else
-	for (j = 0; j < m_numSubsets; j++)
-	  if (Utils.gr(weights[j],0)) {
-	    newWeight = weights[j]*instance.weight();
-	    instances[j].add(instance);
-	    instances[j].lastInstance().setWeight(newWeight);
-	  }
-    }
-    for (j = 0; j < m_numSubsets; j++)
-      instances[j].compactify();
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     
     return instances;
   }

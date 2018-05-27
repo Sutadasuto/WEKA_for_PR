@@ -1,8 +1,4 @@
 /*
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -15,37 +11,11 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
-<<<<<<< HEAD
-=======
-=======
- *    This program is free software; you can redistribute it and/or modify
- *    it under the terms of the GNU General Public License as published by
- *    the Free Software Foundation; either version 2 of the License, or
- *    (at your option) any later version.
- *
- *    This program is distributed in the hope that it will be useful,
- *    but WITHOUT ANY WARRANTY; without even the implied warranty of
- *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *    GNU General Public License for more details.
- *
- *    You should have received a copy of the GNU General Public License
- *    along with this program; if not, write to the Free Software
- *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    C45Saver.java
-<<<<<<< HEAD
  *    Copyright (C) 2004-2012 University of Waikato, Hamilton, New Zealand
-=======
-<<<<<<< HEAD
- *    Copyright (C) 2004-2012 University of Waikato, Hamilton, New Zealand
-=======
- *    Copyright (C) 2004 University of Waikato, Hamilton, New Zealand
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
@@ -54,30 +24,13 @@ package weka.core.converters;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-<<<<<<< HEAD
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.Vector;
-=======
-<<<<<<< HEAD
-import java.util.Collections;
-import java.util.Enumeration;
-import java.util.Vector;
-=======
-import java.util.Enumeration;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
 import weka.core.Attribute;
 import weka.core.Capabilities;
 import weka.core.Capabilities.Capability;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-import weka.core.FastVector;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.Option;
@@ -113,26 +66,11 @@ import weka.core.Utils;
  * <!-- options-end -->
  * 
  * @author Stefan Mutter (mutter@cs.waikato.ac.nz)
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  * @version $Revision: 10203 $
  * @see Saver
  */
 public class C45Saver extends AbstractFileSaver implements BatchConverter,
   IncrementalConverter, OptionHandler {
-<<<<<<< HEAD
-=======
-=======
- * @version $Revision: 1.7 $
- * @see Saver
- */
-public class C45Saver
-  extends AbstractFileSaver
-  implements BatchConverter, IncrementalConverter, OptionHandler {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
   /** for serialization */
   static final long serialVersionUID = -821428878384253377L;
@@ -314,18 +252,8 @@ public class C45Saver
           if (j != structure.classIndex()) {
             if (inst.isMissing(j)) {
               outW.write("?,");
-<<<<<<< HEAD
             } else if (structure.attribute(j).isNominal()
               || structure.attribute(j).isString()) {
-=======
-<<<<<<< HEAD
-            } else if (structure.attribute(j).isNominal()
-              || structure.attribute(j).isString()) {
-=======
-            } else if (structure.attribute(j).isNominal() ||
-              structure.attribute(j).isString()) {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
               outW.write(structure.attribute(j).value((int) inst.value(j))
                 + ",");
             } else {
@@ -336,16 +264,7 @@ public class C45Saver
         // write the class value
         if (inst.isMissing(structure.classIndex())) {
           outW.write("?");
-<<<<<<< HEAD
         } else {
-=======
-<<<<<<< HEAD
-        } else {
-=======
-        }
-        else {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
           outW.write(structure.attribute(structure.classIndex()).value(
             (int) inst.value(structure.classIndex())));
         }
@@ -356,16 +275,7 @@ public class C45Saver
           m_incrementalCounter = 0;
           outW.flush();
         }
-<<<<<<< HEAD
       } else {
-=======
-<<<<<<< HEAD
-      } else {
-=======
-      }
-      else {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         // close
         if (outW != null) {
           outW.flush();
@@ -469,18 +379,8 @@ public class C45Saver
         if (j != instances.classIndex()) {
           if (temp.isMissing(j)) {
             outW.write("?,");
-<<<<<<< HEAD
           } else if (instances.attribute(j).isNominal()
             || instances.attribute(j).isString()) {
-=======
-<<<<<<< HEAD
-          } else if (instances.attribute(j).isNominal()
-            || instances.attribute(j).isString()) {
-=======
-          } else if (instances.attribute(j).isNominal() ||
-            instances.attribute(j).isString()) {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
             outW.write(instances.attribute(j).value((int) temp.value(j)) + ",");
           } else {
             outW.write("" + temp.value(j) + ",");
@@ -490,16 +390,7 @@ public class C45Saver
       // write the class value
       if (temp.isMissing(instances.classIndex())) {
         outW.write("?");
-<<<<<<< HEAD
       } else {
-=======
-<<<<<<< HEAD
-      } else {
-=======
-      }
-      else {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         outW.write(instances.attribute(instances.classIndex()).value(
           (int) temp.value(instances.classIndex())));
       }
@@ -520,10 +411,6 @@ public class C45Saver
    * @return an enumeration of all the available options.
    */
   @Override
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public Enumeration<Option> listOptions() {
     Vector<Option> result = new Vector<Option>();
 
@@ -531,22 +418,6 @@ public class C45Saver
       "-c <the class index>"));
 
     result.addAll(Collections.list(super.listOptions()));
-<<<<<<< HEAD
-=======
-=======
-  public Enumeration listOptions() {
-    FastVector result = new FastVector();
-
-    Enumeration en = super.listOptions();
-    while (en.hasMoreElements()) {
-      result.addElement(en.nextElement());
-    }
-
-    result.addElement(new Option(
-      "The class index",
-      "c", 1, "-c <the class index>"));
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     return result.elements();
   }
@@ -619,37 +490,17 @@ public class C45Saver
           "No data set loaded. Data set has to be arff format (Reason: "
             + ex.toString() + ").");
       }
-<<<<<<< HEAD
     } else {
       throw new IOException("No data set to save.");
-=======
-<<<<<<< HEAD
-    } else {
-      throw new IOException("No data set to save.");
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
 
     if (outputString.length() != 0) {
       // add appropriate file extension
       if (!outputString.endsWith(getFileExtension())) {
         if (outputString.lastIndexOf('.') != -1) {
-<<<<<<< HEAD
           outputString = (outputString.substring(0,
             outputString.lastIndexOf('.')))
             + getFileExtension();
-=======
-<<<<<<< HEAD
-          outputString = (outputString.substring(0,
-            outputString.lastIndexOf('.')))
-            + getFileExtension();
-=======
-          outputString =
-            (outputString.substring(0, outputString.lastIndexOf('.')))
-              + getFileExtension();
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
         } else {
           outputString = outputString + getFileExtension();
         }
@@ -662,10 +513,6 @@ public class C45Saver
       }
     }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     if (index == -1) {
       index = getInstances().numAttributes() - 1;
     }
@@ -674,17 +521,6 @@ public class C45Saver
     super.setOptions(options);
 
     Utils.checkForRemainingOptions(options);
-<<<<<<< HEAD
-=======
-=======
-    if (getInstances() != null) {
-      if (index == -1) {
-        index = getInstances().numAttributes() - 1;
-      }
-      getInstances().setClassIndex(index);
-    }
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -695,10 +531,6 @@ public class C45Saver
   @Override
   public String[] getOptions() {
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     Vector<String> options = new Vector<String>();
 
     if (retrieveFile() != null) {
@@ -723,29 +555,6 @@ public class C45Saver
     Collections.addAll(options, super.getOptions());
 
     return options.toArray(new String[0]);
-<<<<<<< HEAD
-=======
-=======
-    String[] options = new String[10];
-    int current = 0;
-    if (retrieveFile() != null) {
-      options[current++] = "-o";
-      options[current++] = "" + retrieveFile();
-    }
-
-    if (getInstances() != null) {
-      options[current++] = "-i";
-      options[current++] = "" + getInstances().relationName();
-      options[current++] = "-c";
-      options[current++] = "" + getInstances().classIndex();
-    }
-
-    while (current < options.length) {
-      options[current++] = "";
-    }
-    return options;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
@@ -755,15 +564,7 @@ public class C45Saver
    */
   @Override
   public String getRevision() {
-<<<<<<< HEAD
     return RevisionUtils.extract("$Revision: 10203 $");
-=======
-<<<<<<< HEAD
-    return RevisionUtils.extract("$Revision: 10203 $");
-=======
-    return RevisionUtils.extract("$Revision: 1.7 $");
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**

@@ -1,8 +1,4 @@
 /*
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -15,37 +11,11 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
-<<<<<<< HEAD
-=======
-=======
- *    This program is free software; you can redistribute it and/or modify
- *    it under the terms of the GNU General Public License as published by
- *    the Free Software Foundation; either version 2 of the License, or
- *    (at your option) any later version.
- *
- *    This program is distributed in the hope that it will be useful,
- *    but WITHOUT ANY WARRANTY; without even the implied warranty of
- *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *    GNU General Public License for more details.
- *
- *    You should have received a copy of the GNU General Public License
- *    along with this program; if not, write to the Free Software
- *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  *    GenericArrayEditor.java
-<<<<<<< HEAD
  *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
-=======
-<<<<<<< HEAD
- *    Copyright (C) 1999-2012 University of Waikato, Hamilton, New Zealand
-=======
- *    Copyright (C) 1999 University of Waikato, Hamilton, New Zealand
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
@@ -53,10 +23,6 @@ package weka.gui;
 
 import weka.core.SerializedObject;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -69,11 +35,6 @@ import javax.swing.ListCellRenderer;
 import javax.swing.SwingConstants;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -98,10 +59,6 @@ import java.beans.PropertyEditor;
 import java.beans.PropertyEditorManager;
 import java.lang.reflect.Array;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 /**
  * A PropertyEditor for arrays of objects that themselves have property editors.
  * 
@@ -264,180 +221,6 @@ public class GenericArrayEditor implements PropertyEditor {
     private final MouseListener m_InnerMouseListener = new MouseAdapter() {
 
       @Override
-<<<<<<< HEAD
-=======
-=======
-import javax.swing.DefaultListCellRenderer;
-import javax.swing.DefaultListModel;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.ListCellRenderer;
-import javax.swing.SwingConstants;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-
-/**
- * A PropertyEditor for arrays of objects that themselves have
- * property editors.
- *
- * @author Len Trigg (trigg@cs.waikato.ac.nz)
- * @version $Revision: 7917 $
- */
-public class GenericArrayEditor
-  extends JPanel
-  implements PropertyEditor {
-
-  /** for serialization. */
-  private static final long serialVersionUID = 3914616975334750480L;
-
-  /** Handles property change notification. */
-  private PropertyChangeSupport m_Support = new PropertyChangeSupport(this);
-
-  /** The label for when we can't edit that type. */
-  private JLabel m_Label = new JLabel(Messages.getInstance().getString("GenericArrayEditor_Label_JLabel_Text"), SwingConstants.CENTER);
-
-  /** The list component displaying current values. */
-  private JList m_ElementList = new JList();
-
-  /** The class of objects allowed in the array. */
-  private Class m_ElementClass = String.class;
-
-  /** The defaultlistmodel holding our data. */
-  private DefaultListModel m_ListModel;
-
-  /** The property editor for the class we are editing. */
-  private PropertyEditor m_ElementEditor;
-
-  /** Click this to delete the selected array values. */
-  private JButton m_DeleteBut = new JButton(Messages.getInstance().getString("GenericArrayEditor_DeleteBut_JButton_Text"));
-
-  /** Click this to edit the selected array value. */
-  private JButton m_EditBut = new JButton(Messages.getInstance().getString("GenericArrayEditor_EditBut_JButton_Text"));
-
-  /** Click this to move the selected array value(s) one up. */
-  private JButton m_UpBut = new JButton(Messages.getInstance().getString("GenericArrayEditor_UpBut_JButton_Text"));
-
-  /** Click this to move the selected array value(s) one down. */
-  private JButton m_DownBut = new JButton(Messages.getInstance().getString("GenericArrayEditor_DownBut_JButton_Text"));
-
-  /** Click to add the current object configuration to the array. */
-  private JButton m_AddBut = new JButton(Messages.getInstance().getString("GenericArrayEditor_AddBut_JButton_Text"));
-
-  /** The property editor for editing existing elements. */
-  private PropertyEditor m_Editor = new GenericObjectEditor();
-
-  /** The currently displayed property dialog, if any. */
-  private PropertyDialog m_PD;
-
-  /** Listens to buttons being pressed and taking the appropriate action. */
-  private ActionListener m_InnerActionListener =
-    new ActionListener() {
-
-    public void actionPerformed(ActionEvent e) {
-
-      if (e.getSource() == m_DeleteBut) {
-	int [] selected = m_ElementList.getSelectedIndices();
-	if (selected != null) {
-	  for (int i = selected.length - 1; i >= 0; i--) {
-	    int current = selected[i];
-	    m_ListModel.removeElementAt(current);
-	    if (m_ListModel.size() > current) {
-	      m_ElementList.setSelectedIndex(current);
-	    }
-	  }
-	  m_Support.firePropertyChange("", null, null);
-	}
-      } else if (e.getSource() == m_EditBut) {
-        if (m_Editor instanceof GenericObjectEditor) {
-          ((GenericObjectEditor) m_Editor).setClassType(m_ElementClass);
-        }
-        try {
-          m_Editor.setValue(GenericObjectEditor.makeCopy(m_ElementList.getSelectedValue()));
-        }
-        catch (Exception ex) {
-          // not possible to serialize?
-          m_Editor.setValue(m_ElementList.getSelectedValue());
-        }
-        if (m_Editor.getValue() != null) {
-          int x = getLocationOnScreen().x;
-          int y = getLocationOnScreen().y;
-          if (PropertyDialog.getParentDialog(GenericArrayEditor.this) != null)
-            m_PD = new PropertyDialog(
-        	PropertyDialog.getParentDialog(GenericArrayEditor.this),
-        	m_Editor, x, y);
-          else
-            m_PD = new PropertyDialog(
-        	PropertyDialog.getParentFrame(GenericArrayEditor.this),
-        	m_Editor, x, y);
-          m_PD.setVisible(true);
-          m_ListModel.set(m_ElementList.getSelectedIndex(), m_Editor.getValue());
-          m_Support.firePropertyChange("", null, null);
-        }
-      } else if (e.getSource() == m_UpBut) {
-        JListHelper.moveUp(m_ElementList);
-	m_Support.firePropertyChange("", null, null);
-      } else if (e.getSource() == m_DownBut) {
-        JListHelper.moveDown(m_ElementList);
-	m_Support.firePropertyChange("", null, null);
-      } else if (e.getSource() == m_AddBut) {
-	int selected = m_ElementList.getSelectedIndex();
-	Object addObj = m_ElementEditor.getValue();
-
-	// Make a full copy of the object using serialization
-	try {
-          SerializedObject so = new SerializedObject(addObj);
-	  addObj = so.getObject();
-	  if (selected != -1) {
-	    m_ListModel.insertElementAt(addObj, selected);
-	  } else {
-	    m_ListModel.addElement(addObj);
-	  }
-	  m_Support.firePropertyChange("", null, null);
-	} catch (Exception ex) {
-	  JOptionPane.showMessageDialog(GenericArrayEditor.this,
-			  Messages.getInstance().getString("GenericArrayEditor_InnerActionListener_JOptionPaneShowMessageDialog_Text"),
-					null,
-					JOptionPane.ERROR_MESSAGE);
-	}
-      }
-    }
-  };
-
-  /** Listens to list items being selected and takes appropriate action. */
-  private ListSelectionListener m_InnerSelectionListener =
-    new ListSelectionListener() {
-
-      public void valueChanged(ListSelectionEvent e) {
-
-	if (e.getSource() == m_ElementList) {
-	  // Enable the delete/edit button
-	  if (m_ElementList.getSelectedIndex() != -1) {
-	    m_DeleteBut.setEnabled(true);
-	    m_EditBut.setEnabled(m_ElementList.getSelectedIndices().length == 1);
-	    m_UpBut.setEnabled(JListHelper.canMoveUp(m_ElementList));
-	    m_DownBut.setEnabled(JListHelper.canMoveDown(m_ElementList));
-	  }
-          // disable delete/edit button
-          else {
-	    m_DeleteBut.setEnabled(false);
-	    m_EditBut.setEnabled(false);
-	    m_UpBut.setEnabled(false);
-	    m_DownBut.setEnabled(false);
-          }
-	}
-      }
-  };
-
-  /** Listens to mouse events and takes appropriate action. */
-  private MouseListener m_InnerMouseListener =
-    new MouseAdapter() {
-
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       public void mouseClicked(MouseEvent e) {
         if (e.getSource() == m_ElementList) {
           if (e.getClickCount() == 2) {
@@ -446,10 +229,6 @@ public class GenericArrayEditor
             // one doublelclicks somewhere in the list, this index will be
             // returned
             int index = m_ElementList.locationToIndex(e.getPoint());
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
             if (index > -1) {
               m_InnerActionListener.actionPerformed(new ActionEvent(m_EditBut,
                 0, ""));
@@ -666,212 +445,6 @@ public class GenericArrayEditor
           panel.add(m_AddBut, BorderLayout.EAST);
           add(panel, BorderLayout.NORTH);
           add(new JScrollPane(m_ElementList), BorderLayout.CENTER);
-<<<<<<< HEAD
-=======
-=======
-            if (index > -1)
-              m_InnerActionListener.actionPerformed(
-                  new ActionEvent(m_EditBut, 0, ""));
-          }
-        }
-      }
-  };
-
-
-  /**
-   * Sets up the array editor.
-   */
-  public GenericArrayEditor() {
-
-    setLayout(new BorderLayout());
-    add(m_Label, BorderLayout.CENTER);
-    m_DeleteBut.addActionListener(m_InnerActionListener);
-    m_EditBut.addActionListener(m_InnerActionListener);
-    m_UpBut.addActionListener(m_InnerActionListener);
-    m_DownBut.addActionListener(m_InnerActionListener);
-    m_AddBut.addActionListener(m_InnerActionListener);
-    m_ElementList.addListSelectionListener(m_InnerSelectionListener);
-    m_ElementList.addMouseListener(m_InnerMouseListener);
-    m_AddBut.setToolTipText(Messages.getInstance().getString("GenericArrayEditor_AddBut_SetToolTipText_Text"));
-    m_DeleteBut.setToolTipText(Messages.getInstance().getString("GenericArrayEditor_DeleteBut_SetToolTipText_Text"));
-    m_EditBut.setToolTipText(Messages.getInstance().getString("GenericArrayEditor_EditBut_SetToolTipText_Text"));
-    m_UpBut.setToolTipText(Messages.getInstance().getString("GenericArrayEditor_UpBut_SetToolTipText_Text"));
-    m_DownBut.setToolTipText(Messages.getInstance().getString("GenericArrayEditor_DownBut_SetToolTipText_Text"));
-  }
-
-  /** This class handles the creation of list cell renderers from the
-   * property editors.
-   */
-  private class EditorListCellRenderer implements ListCellRenderer {
-
-    /** The class of the property editor for array objects. */
-    private Class m_EditorClass;
-
-    /** The class of the array values. */
-    private Class m_ValueClass;
-
-    /**
-     * Creates the list cell renderer.
-     *
-     * @param editorClass The class of the property editor for array objects
-     * @param valueClass The class of the array values
-     */
-    public EditorListCellRenderer(Class editorClass, Class valueClass) {
-      m_EditorClass = editorClass;
-      m_ValueClass = valueClass;
-    }
-
-    /**
-     * Creates a cell rendering component.
-     *
-     * @param list the list that will be rendered in
-     * @param value the cell value
-     * @param index which element of the list to render
-     * @param isSelected true if the cell is selected
-     * @param cellHasFocus true if the cell has the focus
-     * @return the rendering component
-     */
-    public Component getListCellRendererComponent(final JList list,
-						  final Object value,
-						  final int index,
-						  final boolean isSelected,
-						  final boolean cellHasFocus) {
-      try {
-	final PropertyEditor e = (PropertyEditor)m_EditorClass.newInstance();
-	if (e instanceof GenericObjectEditor) {
-	  //	  ((GenericObjectEditor) e).setDisplayOnly(true);
-	  ((GenericObjectEditor) e).setClassType(m_ValueClass);
-	}
-	e.setValue(value);
-	return new JPanel() {
-
-	  private static final long serialVersionUID = -3124434678426673334L;
-
-	  public void paintComponent(Graphics g) {
-
-	    Insets i = this.getInsets();
-	    Rectangle box = new Rectangle(i.left, i.top,
-					  this.getWidth() - i.right,
-					  this.getHeight() - i.bottom );
-	    g.setColor(isSelected
-		       ? list.getSelectionBackground()
-		       : list.getBackground());
-	    g.fillRect(0, 0, this.getWidth(), this.getHeight());
-	    g.setColor(isSelected
-		       ? list.getSelectionForeground()
-		       : list.getForeground());
-	    e.paintValue(g, box);
-	  }
-
-	  public Dimension getPreferredSize() {
-
-	    Font f = this.getFont();
-	    FontMetrics fm = this.getFontMetrics(f);
-	    return new Dimension(0, fm.getHeight());
-	  }
-	};
-      } catch (Exception ex) {
-	return null;
-      }
-    }
-  }
-
-  /**
-   * Updates the type of object being edited, so attempts to find an
-   * appropriate propertyeditor.
-   *
-   * @param o a value of type 'Object'
-   */
-  private void updateEditorType(Object o) {
-
-    // Determine if the current object is an array
-    m_ElementEditor = null; m_ListModel = null;
-    removeAll();
-    if ((o != null) && (o.getClass().isArray())) {
-      Class elementClass = o.getClass().getComponentType();
-      PropertyEditor editor = PropertyEditorManager.findEditor(elementClass);
-      Component view = null;
-      ListCellRenderer lcr = new DefaultListCellRenderer();
-      if (editor != null) {
-	if (editor instanceof GenericObjectEditor) {
-	  ((GenericObjectEditor) editor).setClassType(elementClass);
-	}
-
-        //setting the value in the editor so that
-        //we don't get a NullPointerException
-        //when we do getAsText() in the constructor of
-        //PropertyValueSelector()
-	if(Array.getLength(o) > 0) {
-	  editor.setValue(makeCopy(Array.get(o,0)));
-	} else {
-	  if (editor instanceof GenericObjectEditor) {
-	    ((GenericObjectEditor)editor).setDefaultValue();
-	  } else {
-            try {
-	    editor.setValue(elementClass.newInstance());
-            } catch(Exception ex) {
-              m_ElementEditor=null;
-              System.err.println(ex.getMessage());
-              add(m_Label, BorderLayout.CENTER);
-              m_Support.firePropertyChange("", null, null);
-              validate();
-              return;
-            }
-	  }
-	}
-
-	if (editor.isPaintable() && editor.supportsCustomEditor()) {
-	  view = new PropertyPanel(editor);
-	  lcr = new EditorListCellRenderer(editor.getClass(), elementClass);
-	} else if (editor.getTags() != null) {
-	  view = new PropertyValueSelector(editor);
-	} else if (editor.getAsText() != null) {
-	  view = new PropertyText(editor);
-	}
-      }
-      if (view == null) {
-	System.err.println(Messages.getInstance().getString("GenericArrayEditor_UpdateEditorType_Error_Text")
-			   + elementClass.getName());
-      } else {
-	m_ElementEditor = editor;
-
-	// Create the ListModel and populate it
-	m_ListModel = new DefaultListModel();
-	m_ElementClass = elementClass;
-	for (int i = 0; i < Array.getLength(o); i++) {
-	  m_ListModel.addElement(Array.get(o,i));
-	}
-	m_ElementList.setCellRenderer(lcr);
-	m_ElementList.setModel(m_ListModel);
-	if (m_ListModel.getSize() > 0) {
-	  m_ElementList.setSelectedIndex(0);
-	} else {
-	  m_DeleteBut.setEnabled(false);
-	  m_EditBut.setEnabled(false);
-	}
-	m_UpBut.setEnabled(JListHelper.canMoveDown(m_ElementList));
-	m_DownBut.setEnabled(JListHelper.canMoveDown(m_ElementList));
-
-        //have already set the value above in the editor
-	//try {
-	  //if (m_ListModel.getSize() > 0) {
-	  //  m_ElementEditor.setValue(m_ListModel.getElementAt(0));
-	  //} else {
-	  //  if (m_ElementEditor instanceof GenericObjectEditor) {
-	  //    ((GenericObjectEditor)m_ElementEditor).setDefaultValue();
-	  //  } else {
-	  //    m_ElementEditor.setValue(m_ElementClass.newInstance());
-	  //  }
-	  //}
-
-	  JPanel panel = new JPanel();
-	  panel.setLayout(new BorderLayout());
-	  panel.add(view, BorderLayout.CENTER);
-	  panel.add(m_AddBut, BorderLayout.EAST);
-	  add(panel, BorderLayout.NORTH);
-	  add(new JScrollPane(m_ElementList), BorderLayout.CENTER);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
           JPanel panel2 = new JPanel();
           panel2.setLayout(new GridLayout(1, 4));
           panel2.add(m_DeleteBut);
@@ -879,10 +452,6 @@ public class GenericArrayEditor
           panel2.add(m_UpBut);
           panel2.add(m_DownBut);
           add(panel2, BorderLayout.SOUTH);
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
           m_ElementEditor
             .addPropertyChangeListener(new PropertyChangeListener() {
               @Override
@@ -906,36 +475,10 @@ public class GenericArrayEditor
 
   public GenericArrayEditor() {
     m_customEditor = new CustomEditor();
-<<<<<<< HEAD
-=======
-=======
-	  m_ElementEditor
-	    .addPropertyChangeListener(new PropertyChangeListener() {
-	    public void propertyChange(PropertyChangeEvent e) {
-	      repaint();
-	    }
-	  });
-	//} catch (Exception ex) {
-	//  System.err.println(ex.getMessage());
-	//  m_ElementEditor = null;
-	//}
-      }
-    }
-    if (m_ElementEditor == null) {
-      add(m_Label, BorderLayout.CENTER);
-    }
-    m_Support.firePropertyChange("", null, null);
-    validate();
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Sets the current object array.
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param o an object that must be an array.
    */
@@ -944,26 +487,10 @@ public class GenericArrayEditor
 
     // Create a new list model, put it in the list and resize?
     m_customEditor.updateEditorType(o);
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param o an object that must be an array.
-   */
-  public void setValue(Object o) {
-
-    // Create a new list model, put it in the list and resize?
-    updateEditorType(o);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Gets the current object array.
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return the current object array
    */
@@ -978,34 +505,12 @@ public class GenericArrayEditor
     Object result = Array.newInstance(m_customEditor.m_ElementClass, length);
     for (int i = 0; i < length; i++) {
       Array.set(result, i, m_customEditor.m_ListModel.elementAt(i));
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @return the current object array
-   */
-  public Object getValue() {
-
-    if (m_ListModel == null) {
-      return null;
-    }
-    // Convert the listmodel to an array of strings and return it.
-    int length = m_ListModel.getSize();
-    Object result = Array.newInstance(m_ElementClass, length);
-    for (int i = 0; i < length; i++) {
-      Array.set(result, i, m_ListModel.elementAt(i));
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     }
     return result;
   }
 
   /**
    * Supposedly returns an initialization string to create a classifier
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * identical to the current one, including it's state, but this doesn't appear
    * possible given that the initialization string isn't supposed to contain
    * multiple statements.
@@ -1013,284 +518,122 @@ public class GenericArrayEditor
    * @return the java source code initialisation string
    */
   @Override
-<<<<<<< HEAD
-=======
-=======
-   * identical to the current one, including it's state, but this doesn't
-   * appear possible given that the initialization string isn't supposed to
-   * contain multiple statements.
-   *
-   * @return the java source code initialisation string
-   */
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public String getJavaInitializationString() {
 
     return "null";
   }
 
   /**
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * Returns true to indicate that we can paint a representation of the string
    * array.
    * 
    * @return true
    */
   @Override
-<<<<<<< HEAD
-=======
-=======
-   * Returns true to indicate that we can paint a representation of the
-   * string array.
-   *
-   * @return true
-   */
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public boolean isPaintable() {
     return true;
   }
 
   /**
    * Paints a representation of the current classifier.
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param gfx the graphics context to use
    * @param box the area we are allowed to paint into
    */
   @Override
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param gfx the graphics context to use
-   * @param box the area we are allowed to paint into
-   */
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public void paintValue(java.awt.Graphics gfx, java.awt.Rectangle box) {
 
     FontMetrics fm = gfx.getFontMetrics();
     int vpad = (box.height - fm.getHeight()) / 2;
-<<<<<<< HEAD
     String rep = m_customEditor.m_ListModel.getSize() + " "
       + m_customEditor.m_ElementClass.getName();
-=======
-<<<<<<< HEAD
-    String rep = m_customEditor.m_ListModel.getSize() + " "
-      + m_customEditor.m_ElementClass.getName();
-=======
-    String rep = m_ListModel.getSize() + " " + m_ElementClass.getName();
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     gfx.drawString(rep, 2, fm.getAscent() + vpad + 2);
   }
 
   /**
    * Returns null as we don't support getting/setting values as text.
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return null
    */
   @Override
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @return null
-   */
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public String getAsText() {
     return null;
   }
 
   /**
    * Returns null as we don't support getting/setting values as text.
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param text the text value
    * @exception IllegalArgumentException as we don't support getting/setting
    *              values as text.
    */
   @Override
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param text the text value
-   * @exception IllegalArgumentException as we don't support
-   * getting/setting values as text.
-   */
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public void setAsText(String text) {
     throw new IllegalArgumentException(text);
   }
 
   /**
    * Returns null as we don't support getting values as tags.
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return null
    */
   @Override
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @return null
-   */
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public String[] getTags() {
     return null;
   }
 
   /**
    * Returns true because we do support a custom editor.
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return true
    */
   @Override
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @return true
-   */
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   public boolean supportsCustomEditor() {
     return true;
   }
 
   /**
    * Returns the array editing component.
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @return a value of type 'java.awt.Component'
    */
   @Override
   public java.awt.Component getCustomEditor() {
     return m_customEditor;
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @return a value of type 'java.awt.Component'
-   */
-  public java.awt.Component getCustomEditor() {
-    return this;
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Adds a PropertyChangeListener who will be notified of value changes.
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param l a value of type 'PropertyChangeListener'
    */
   @Override
   public void addPropertyChangeListener(PropertyChangeListener l) {
     m_customEditor.m_Support.addPropertyChangeListener(l);
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param l a value of type 'PropertyChangeListener'
-   */
-  public void addPropertyChangeListener(PropertyChangeListener l) {
-    m_Support.addPropertyChangeListener(l);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Removes a PropertyChangeListener.
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param l a value of type 'PropertyChangeListener'
    */
   @Override
   public void removePropertyChangeListener(PropertyChangeListener l) {
     m_customEditor.m_Support.removePropertyChangeListener(l);
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param l a value of type 'PropertyChangeListener'
-   */
-  public void removePropertyChangeListener(PropertyChangeListener l) {
-    m_Support.removePropertyChangeListener(l);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
   }
 
   /**
    * Makes a copy of an object using serialization.
-<<<<<<< HEAD
    * 
-=======
-<<<<<<< HEAD
-   * 
-=======
-   *
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * @param source the object to copy
    * @return a copy of the source object, null if copying fails
    */
   public static Object makeCopy(Object source) {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     Object result;
 
     try {
       result = GenericObjectEditor.makeCopy(source);
     } catch (Exception e) {
-<<<<<<< HEAD
-=======
-=======
-    Object	result;
-
-    try {
-      result = GenericObjectEditor.makeCopy(source);
-    }
-    catch (Exception e) {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       result = null;
     }
 
@@ -1299,33 +642,16 @@ public class GenericArrayEditor
 
   /**
    * Tests out the array editor from the command line.
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
    * 
    * @param args ignored
    */
   public static void main(String[] args) {
-<<<<<<< HEAD
-=======
-=======
-   *
-   * @param args ignored
-   */
-  public static void main(String [] args) {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
     try {
       GenericObjectEditor.registerEditors();
 
       final GenericArrayEditor ce = new GenericArrayEditor();
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       final weka.filters.Filter[] initial = new weka.filters.Filter[0];
       /*
        * { new weka.filters.AddFilter() };
@@ -1344,33 +670,6 @@ public class GenericArrayEditor
       ce.setValue(initial);
       pd.setVisible(true);
       // ce.validate();
-<<<<<<< HEAD
-=======
-=======
-      final weka.filters.Filter [] initial = new weka.filters.Filter [0];
-	/*
-      {
-	new weka.filters.AddFilter()
-	};*/
-      /*
-      final String [] initial = {
-	"Hello",
-	"There",
-	"Bob"
-	};*/
-      PropertyDialog pd = new PropertyDialog((Frame) null, ce, 100, 100);
-      pd.setSize(200,200);
-      pd.addWindowListener(new WindowAdapter() {
-	private static final long serialVersionUID = -3124434678426673334L;
-	public void windowClosing(WindowEvent e) {
-	  System.exit(0);
-	}
-      });
-      ce.setValue(initial);
-      pd.setVisible(true);
-      //ce.validate();
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     } catch (Exception ex) {
       ex.printStackTrace();
       System.err.println(ex.getMessage());
@@ -1378,10 +677,3 @@ public class GenericArrayEditor
   }
 
 }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb

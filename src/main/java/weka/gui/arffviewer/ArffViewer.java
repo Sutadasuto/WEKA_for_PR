@@ -1,8 +1,4 @@
 /*
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -15,37 +11,11 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
-<<<<<<< HEAD
-=======
-=======
- *    This program is free software; you can redistribute it and/or modify
- *    it under the terms of the GNU General Public License as published by
- *    the Free Software Foundation; either version 2 of the License, or
- *    (at your option) any later version.
- *
- *    This program is distributed in the hope that it will be useful,
- *    but WITHOUT ANY WARRANTY; without even the implied warranty of
- *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *    GNU General Public License for more details.
- *
- *    You should have received a copy of the GNU General Public License
- *    along with this program; if not, write to the Free Software
- *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 /*
  * ArffViewer.java
-<<<<<<< HEAD
  * Copyright (C) 2005-2012 University of Waikato, Hamilton, New Zealand
-=======
-<<<<<<< HEAD
- * Copyright (C) 2005-2012 University of Waikato, Hamilton, New Zealand
-=======
- * Copyright (C) 2005 University of Waikato, Hamilton, New Zealand
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  *
  */
 
@@ -67,15 +37,7 @@ import weka.gui.LookAndFeel;
  * 
  * 
  * @author FracPete (fracpete at waikato dot ac dot nz)
-<<<<<<< HEAD
  * @version $Revision: 10434 $
-=======
-<<<<<<< HEAD
- * @version $Revision: 10434 $
-=======
- * @version $Revision: 10438 $
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
  */
 
 public class ArffViewer extends JFrame implements WindowListener {
@@ -102,15 +64,7 @@ public class ArffViewer extends JFrame implements WindowListener {
    * initializes the object
    */
   public ArffViewer() {
-<<<<<<< HEAD
     super("ARFF-Viewer");
-=======
-<<<<<<< HEAD
-    super("ARFF-Viewer");
-=======
-    super(Messages.getInstance().getString("ArffViewer_ArffViewer_Text"));
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     createFrame();
   }
 
@@ -269,31 +223,9 @@ public class ArffViewer extends JFrame implements WindowListener {
     }
 
     if (getConfirmExit()) {
-<<<<<<< HEAD
       button = ComponentHelper.showMessageBox(this, "Quit - " + getTitle(),
         "Do you really want to quit?", JOptionPane.YES_NO_OPTION,
         JOptionPane.QUESTION_MESSAGE);
-=======
-<<<<<<< HEAD
-      button = ComponentHelper.showMessageBox(this, "Quit - " + getTitle(),
-        "Do you really want to quit?", JOptionPane.YES_NO_OPTION,
-        JOptionPane.QUESTION_MESSAGE);
-=======
-      button = ComponentHelper
-        .showMessageBox(
-          this,
-          Messages
-            .getInstance()
-            .getString(
-              "ArffViewer_WindowClosing_ComponentHelperShowMessageBox_Text_First")
-            + getTitle(),
-          Messages
-            .getInstance()
-            .getString(
-              "ArffViewer_WindowClosing_ComponentHelperShowMessageBox_Text_Second"),
-          JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
       if (button == JOptionPane.YES_OPTION) {
         dispose();
       }
@@ -360,18 +292,8 @@ public class ArffViewer extends JFrame implements WindowListener {
    * @throws Exception if something goes wrong
    */
   public static void main(String[] args) throws Exception {
-<<<<<<< HEAD
     weka.core.logging.Logger.log(weka.core.logging.Logger.Level.INFO,
       "Logging started");
-=======
-<<<<<<< HEAD
-    weka.core.logging.Logger.log(weka.core.logging.Logger.Level.INFO,
-      "Logging started");
-=======
-    weka.core.logging.Logger.log(weka.core.logging.Logger.Level.INFO, Messages
-      .getInstance().getString("ArffViewer_Main_Logger_Text"));
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
     LookAndFeel.setLookAndFeel();
 
     try {
@@ -401,17 +323,7 @@ public class ArffViewer extends JFrame implements WindowListener {
             }
 
             // System.out.println("before sleeping");
-<<<<<<< HEAD
             // Thread.sleep(10);
-=======
-<<<<<<< HEAD
-            // Thread.sleep(10);
-=======
-            // Thread.sleep(4000);
-            //
-            // System.gc();
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
             if (m_Memory.isOutOfMemory()) {
               // clean up
@@ -419,28 +331,10 @@ public class ArffViewer extends JFrame implements WindowListener {
               m_Viewer = null;
               System.gc();
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
               // display error
               System.err.println("\ndisplayed message:");
               m_Memory.showOutOfMemory();
               System.err.println("\nrestarting...");
-<<<<<<< HEAD
-=======
-=======
-              // stop threads
-              m_Memory.stopThreads();
-
-              // display error
-              System.err.println(Messages.getInstance().getString(
-                "ArffViewer_Main_Error_DisplayedMessage_Text"));
-              m_Memory.showOutOfMemory();
-              System.err.println(Messages.getInstance().getString(
-                "ArffViewer_Main_Error_Restarting_Text"));
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
 
               // restart GUI
               System.gc();
@@ -450,16 +344,7 @@ public class ArffViewer extends JFrame implements WindowListener {
               // Note: no re-loading of datasets, otherwise we could end up
               // in an endless loop!
             }
-<<<<<<< HEAD
             // } catch (InterruptedException ex) {
-=======
-<<<<<<< HEAD
-            // } catch (InterruptedException ex) {
-=======
-            // }
-            // catch(InterruptedException ex) {
->>>>>>> 25da024d9b6316e99e1931459ffa9a6f3d5c90eb
->>>>>>> ef2ab6295a3053865d54c2bdb992ca1d99d638cb
             // ex.printStackTrace();
             // }
           }
