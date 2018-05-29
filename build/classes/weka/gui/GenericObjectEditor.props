@@ -241,7 +241,9 @@ weka.classifiers.Classifier=\
  weka.classifiers.rules.PART,\
  weka.classifiers.rules.Prism,\
  weka.classifiers.rules.Ridor,\
- weka.classifiers.rules.ZeroR
+ weka.classifiers.rules.ZeroR, \
+ weka.classifiers.LC.CRplus, \
+ weka.classifiers.LC.KORAomega
 
 # Lists the AbstractOutput classes I want to choose from
 weka.classifiers.evaluation.output.prediction.AbstractOutput=\
