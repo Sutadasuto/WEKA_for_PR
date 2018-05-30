@@ -33,7 +33,7 @@ import weka.classifiers.evaluation.ThresholdCurve;
 import weka.classifiers.evaluation.output.prediction.AbstractOutput;
 import weka.classifiers.evaluation.output.prediction.Null;
 import weka.classifiers.pmml.consumer.PMMLClassifier;
-import weka.classifiers.rules.ZeroR;
+import weka.classifiers.LC.KORAomega;
 import weka.core.Attribute;
 import weka.core.BatchPredictor;
 import weka.core.Capabilities;
@@ -3731,7 +3731,7 @@ public class ClassifierPanel extends AbstractPerspective implements
     protected static final Settings.SettingKey CLASSIFIER_KEY =
       new Settings.SettingKey(ID + ".initialClassifier", "Initial classifier",
         "On startup, set this classifier as the default one");
-    protected static final Classifier CLASSIFIER = new ZeroR();
+    protected static final Classifier CLASSIFIER = new KORAomega();
 
     protected static final Settings.SettingKey TEST_MODE_KEY =
       new Settings.SettingKey(ID + ".initialTestMode", "Default test mode", "");

@@ -136,6 +136,7 @@ public class KORAomega
     m_NumClasses = instances.numClasses();
     m_ClassType = instances.classAttribute().type();
     m_Train = new Instances(instances, 0, instances.numInstances());
+    m_SimilarityMeasure.setInstances(m_Train);
 
     //lista de omega partes para cada clase
     ArrayList<omegasSet> listaOSetClass = new ArrayList<omegasSet>();
@@ -155,37 +156,6 @@ public class KORAomega
            * que corresponden a el numero de clases*/
           listaOSetClass.add(set);
       }
-      /*despues de crear las omegas partes para cada clase*/
-      System.out.println("Lista de omegaspartes para cada clase");
-      for(int x=0;x<listaOSetClass.size();x++) {
-          /*extrago el primer elemento que corresponde
-           * a la primera clase en mi archivo
-           */
-          omegasSet omegasClase = listaOSetClass.get(x);
-          /*obtengo el nombre de la clase que esta en mi archivo
-           * como por ejemplo A: .., puede ser adultos: ..
-           */
-          String name_class =omegasClase.getOmegasClassName();
-          System.out.println(name_class);
-          /*Se obtienen todas las omegas partes de esa clase
-           * recordemos que pueden ser n y de distinto tamaño*/
-          ArrayList<omegas> sub_indices_omegas = omegasClase.getOmegasSet();
-          //se recuperar cada uno de esos subconjuntos
-          for(int y=0;y<sub_indices_omegas.size();y++) {
-              System.out.println("Subconjuto "+(y+1)+":");
-              //esto me devuelve una de las omega partes
-              omegas subconjunto = sub_indices_omegas.get(y);
-              /*lo devuelve en forma de array de int
-               * esto por que los filter de atributos
-               * usan array de int con esto quedara
-               * directo para futuras aplicaciones
-               */
-              int[] indices = subconjunto.getOmegas();
-
-              System.out.println(Arrays.toString(indices));
-          }
-      }
-
     }else {
         //busco subconjuntos de n cuando no se especifican con el archivo
         System.out.println("Sera con n partes= "+numOmegas);
@@ -234,11 +204,13 @@ public class KORAomega
          * usan array de int con esto quedara
          * directo para futuras aplicaciones
          */
-        int[] indices = subconjunto.getOmegas();
-
-        //Se deben obtener todas las posibles combinaciones de instanciaciones
-
-
+        String indices = subconjunto.getOmegas();
+        m_SimilarityMeasure.setAttributeIndices(indices);
+        //m_SimilarityMeasure.distance(m_Train.get(0), m_Train.get(1));
+        System.out.println(indices);
+        System.out.println(m_Train.get(0));
+        System.out.println(m_Train.get(1));
+        System.out.println(String.valueOf(m_SimilarityMeasure.distance(m_Train.get(0), m_Train.get(1))));
       }
     }
   }

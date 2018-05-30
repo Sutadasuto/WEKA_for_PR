@@ -20,16 +20,12 @@ public class omegasSet {
 		String[] div1 = indices.split("\\:",2);
 		this.setOmegasClassName(div1[0]);
 		String[] div2 = div1[1].split(";");
-		System.out.println(div2.length);
+		//System.out.println(div2.length);
 		for(int i=0;i<div2.length;i++) {
 			omegas n_omega= new omegas();
 			//System.out.println(div2[i]);
 			n_omega.setOmegasFromFile(div2[i]);
 			omegaset.add(n_omega);
-		}
-		for (int i=0; i<omegaset.size();i++) {
-			//System.out.println("Hi");
-			System.out.println(Arrays.toString(omegaset.get(i).getOmegas()));
 		}
 		//class_name=indices;
 		//System.out.println(indices);

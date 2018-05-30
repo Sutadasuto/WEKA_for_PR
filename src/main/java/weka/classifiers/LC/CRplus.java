@@ -155,9 +155,9 @@ WeightedInstancesHandler, WeightedAttributesHandler, TechnicalInformationHandler
 					 * usan array de int con esto quedara 
 					 * directo para futuras aplicaciones
 					 */
-					int[] indices = subconjunto.getOmegas();
+					String indices = subconjunto.getOmegas();
 
-					System.out.println(Arrays.toString(indices));
+					System.out.println(indices);
 				}
 			}
 

@@ -194,16 +194,16 @@ public class ExplorerDefaults implements Serializable {
   /**
    * returns the default classifier (fully configured) for the classify panel.
    * 
-   * @return the default classifier, ZeroR by default
+   * @return the default classifier, KORAomega by default
    */
   public static Object getClassifier() {
     Object result;
 
     result = getObject("Classifier",
-      weka.classifiers.rules.ZeroR.class.getName(),
+      weka.classifiers.LC.KORAomega.class.getName(),
       weka.classifiers.Classifier.class);
     if (result == null) {
-      result = new weka.classifiers.rules.ZeroR();
+      result = new weka.classifiers.LC.KORAomega();
     }
 
     return result;

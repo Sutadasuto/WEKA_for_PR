@@ -56,8 +56,8 @@ undoDirectory=%t
 Filter=
 
 # the default classifier in the classify tab, including options
-# (default is ZeroR)
-Classifier=weka.classifiers.rules.ZeroR
+# (default is KORAomega)
+Classifier=weka.classifiers.LC.KORAomega
 
 # the default test mode in the classify tab 
 # (according to "testMode" variable in startClassifier method)

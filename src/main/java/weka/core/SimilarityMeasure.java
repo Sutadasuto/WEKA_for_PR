@@ -141,7 +141,7 @@ public class SimilarityMeasure
    * @return 		the distance between the two given instances
    */
   public double distance(Instance first, Instance second) {
-    return Math.sqrt(distance(first, second, Double.POSITIVE_INFINITY));
+    return Math.sqrt(distance(first, second, Double.POSITIVE_INFINITY) / this.m_AttributeIndices.m_RangeStrings.size());
   }
   
   /**
@@ -161,7 +161,7 @@ public class SimilarityMeasure
    * 			Double.POSITIVE_INFINITY.
    */
   public double distance(Instance first, Instance second, PerformanceStats stats) { //debug method pls remove after use
-    return Math.sqrt(distance(first, second, Double.POSITIVE_INFINITY, stats));
+    return Math.sqrt(distance(first, second, Double.POSITIVE_INFINITY, stats) / this.m_AttributeIndices.m_RangeStrings.size());
   }
   
   /**
@@ -178,7 +178,7 @@ public class SimilarityMeasure
     double	result;
     
     result  = currDist;
-    result += (1-diff) * (1-diff);
+    result += (1-Math.abs(diff)) * (1-Math.abs(diff));
     
     return result;
   }

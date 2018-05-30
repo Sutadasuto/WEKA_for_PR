@@ -2,264 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6c5587d5-5d1e-41a2-a3e5-49c8872b6423" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/KORAomega.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/weka/core/SimilarityMeasure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/arpack_combined_all.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/core.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java_cup/runtime/ComplexSymbolFactory$ComplexSymbol.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java_cup/runtime/ComplexSymbolFactory$Location.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java_cup/runtime/ComplexSymbolFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java_cup/runtime/DefaultSymbolFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java_cup/runtime/Scanner.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java_cup/runtime/ScannerBuffer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java_cup/runtime/Symbol.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java_cup/runtime/SymbolFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java_cup/runtime/XMLElement$Error.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java_cup/runtime/XMLElement$NonTerminal.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java_cup/runtime/XMLElement$Terminal.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java_cup/runtime/XMLElement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java_cup/runtime/lr_parser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java_cup/runtime/virtual_parse_stack.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/mtj.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/PasswordRequiredException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/ArchiveEntry.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/ArchiveException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/ArchiveInputStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/ArchiveOutputStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/ArchiveStreamFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/Lister.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/StreamingNotSupportedException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/ar/ArArchiveEntry.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/ar/ArArchiveInputStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/ar/ArArchiveOutputStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/arj/ArjArchiveEntry$HostOs.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/arj/ArjArchiveEntry.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/arj/ArjArchiveInputStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/arj/LocalFileHeader$FileTypes.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/arj/LocalFileHeader$Flags.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/arj/LocalFileHeader$Methods.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/arj/LocalFileHeader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/arj/MainHeader$Flags.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/arj/MainHeader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/cpio/CpioArchiveEntry.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/cpio/CpioArchiveInputStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/cpio/CpioArchiveOutputStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/cpio/CpioConstants.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/cpio/CpioUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/dump/Dirent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/dump/DumpArchiveConstants$COMPRESSION_TYPE.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/dump/DumpArchiveConstants$SEGMENT_TYPE.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/dump/DumpArchiveConstants.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/dump/DumpArchiveEntry$PERMISSION.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/dump/DumpArchiveEntry$TYPE.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/dump/DumpArchiveEntry$TapeSegmentHeader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/dump/DumpArchiveEntry.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/dump/DumpArchiveException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/dump/DumpArchiveInputStream$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/dump/DumpArchiveInputStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/dump/DumpArchiveSummary.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/dump/DumpArchiveUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/dump/InvalidFormatException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/dump/ShortFileException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/dump/TapeInputStream$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/dump/TapeInputStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/dump/UnrecognizedFormatException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/dump/UnsupportedCompressionAlgorithmException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/jar/JarArchiveEntry.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/jar/JarArchiveInputStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/jar/JarArchiveOutputStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/sevenz/AES256SHA256Decoder$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/sevenz/AES256SHA256Decoder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/sevenz/Archive.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/sevenz/BindPair.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/sevenz/BoundedRandomAccessFileInputStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/sevenz/CLI$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/sevenz/CLI$Mode$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/sevenz/CLI$Mode$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/sevenz/CLI$Mode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/sevenz/CLI.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/sevenz/Coder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/sevenz/CoderBase.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/sevenz/Coders$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/sevenz/Coders$BCJDecoder$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/sevenz/Coders$BCJDecoder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/sevenz/Coders$BZIP2Decoder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/sevenz/Coders$CopyDecoder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/sevenz/Coders$DeflateDecoder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/sevenz/Coders$DummyByteAddingInputStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/sevenz/Coders$LZMADecoder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/sevenz/Coders.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/sevenz/DeltaDecoder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/sevenz/Folder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/sevenz/LZMA2Decoder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/sevenz/NID.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/sevenz/SevenZArchiveEntry.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/sevenz/SevenZFile.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/sevenz/SevenZMethod.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/sevenz/SevenZMethodConfiguration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/sevenz/SevenZOutputFile$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/sevenz/SevenZOutputFile$OutputStreamWrapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/sevenz/SevenZOutputFile.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/sevenz/StartHeader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/sevenz/StreamMap.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/sevenz/SubStreamsInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/tar/TarArchiveEntry.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/tar/TarArchiveSparseEntry.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/tar/TarConstants.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/tar/TarUtils$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/tar/TarUtils.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/AbstractUnicodeExtraField.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/AsiExtraField.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/BinaryTree.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/BitStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/CircularBuffer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/ExplodingInputStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/ExtraFieldUtils$UnparseableExtraField.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/ExtraFieldUtils.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/FallbackZipEncoding.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/GeneralPurposeBit.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/JarMarker.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/NioZipEncoding.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/ParallelScatterZipCreator$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/ParallelScatterZipCreator$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/ParallelScatterZipCreator$DefaultBackingStoreSupplier.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/ParallelScatterZipCreator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/ScatterStatistics.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/ScatterZipOutputStream$CompressedEntry.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/ScatterZipOutputStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/Simple8BitZipEncoding$Simple8BitChar.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/Simple8BitZipEncoding.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/StreamCompressor$DataOutputCompressor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/StreamCompressor$OutputStreamCompressor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/StreamCompressor$ScatterGatherBackingStoreCompressor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/StreamCompressor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/UnicodeCommentExtraField.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/UnicodePathExtraField.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/UnixStat.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/UnparseableExtraFieldData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/UnrecognizedExtraField.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/UnshrinkingInputStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/UnsupportedZipFeatureException$Feature.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/UnsupportedZipFeatureException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/X5455_ExtendedTimestamp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/X7875_NewUnix.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/Zip64ExtendedInformationExtraField.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/Zip64Mode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/Zip64RequiredException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/ZipArchiveEntryPredicate.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/ZipArchiveEntryRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream$BoundedInputStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream$CurrentEntry.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/ZipArchiveOutputStream$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/ZipArchiveOutputStream$CurrentEntry.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/ZipArchiveOutputStream$UnicodeExtraFieldPolicy.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/ZipArchiveOutputStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/ZipConstants.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/ZipEightByteInteger.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/ZipEncoding.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/ZipEncodingHelper$SimpleEncodingHolder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/ZipEncodingHelper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/ZipExtraField.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/ZipFile$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/ZipFile$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/ZipFile$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/ZipFile$BoundedInputStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/ZipFile$Entry.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/ZipFile$NameAndComment.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/ZipFile$OffsetEntry.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/ZipFile.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/ZipLong.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/ZipMethod.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/ZipShort.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/archivers/zip/ZipUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/changes/Change.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/changes/ChangeSet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/changes/ChangeSetPerformer$ArchiveEntryIterator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/changes/ChangeSetPerformer$ArchiveInputStreamIterator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/changes/ChangeSetPerformer$ZipFileIterator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/changes/ChangeSetPerformer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/changes/ChangeSetResults.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/compressors/CompressorException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/compressors/CompressorInputStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/compressors/CompressorOutputStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/compressors/CompressorStreamFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/compressors/FileNameUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/compressors/bzip2/BZip2CompressorInputStream$Data.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/compressors/bzip2/BZip2CompressorInputStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/compressors/bzip2/BZip2CompressorOutputStream$Data.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/compressors/bzip2/BZip2CompressorOutputStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/compressors/bzip2/BZip2Constants.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/compressors/bzip2/BZip2Utils.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/compressors/bzip2/BlockSort.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/compressors/bzip2/CRC.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/compressors/bzip2/Rand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/compressors/deflate/DeflateCompressorInputStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/compressors/deflate/DeflateCompressorOutputStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/compressors/deflate/DeflateParameters.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/compressors/gzip/GzipCompressorInputStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/compressors/gzip/GzipCompressorOutputStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/compressors/gzip/GzipParameters.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/compressors/gzip/GzipUtils.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/compressors/lzma/LZMACompressorInputStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/compressors/lzma/LZMAUtils$CachedAvailability.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/compressors/lzma/LZMAUtils.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/compressors/lzw/LZWInputStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/compressors/pack200/InMemoryCachingStreamBridge.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/compressors/pack200/Pack200CompressorInputStream$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/compressors/pack200/Pack200CompressorInputStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/compressors/pack200/Pack200CompressorOutputStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/compressors/pack200/Pack200Strategy$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/compressors/pack200/Pack200Strategy$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/compressors/pack200/Pack200Strategy.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/compressors/pack200/Pack200Utils.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/compressors/pack200/StreamBridge.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/compressors/pack200/TempFileCachingStreamBridge$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/compressors/pack200/TempFileCachingStreamBridge.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/compressors/snappy/FramedSnappyCompressorInputStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/compressors/snappy/PureJavaCrc32C.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/compressors/snappy/SnappyCompressorInputStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/compressors/xz/XZCompressorInputStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/compressors/xz/XZCompressorOutputStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/compressors/xz/XZUtils$CachedAvailability.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/compressors/xz/XZUtils.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/compressors/z/ZCompressorInputStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/parallel/FileBasedScatterGatherBackingStore.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/parallel/InputStreamSupplier.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/parallel/ScatterGatherBackingStore.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/parallel/ScatterGatherBackingStoreSupplier.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/utils/ArchiveUtils.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/utils/BitInputStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/utils/BoundedInputStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/utils/CRC32VerifyingInputStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/utils/CharsetNames.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/utils/Charsets.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/utils/ChecksumVerifyingInputStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/utils/CountingInputStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/utils/CountingOutputStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/apache/commons/compress/utils/IOUtils.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/bounce/FormConstraints.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/bounce/FormLayout.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/bounce/net/DefaultAuthenticator$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/bounce/net/DefaultAuthenticator$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/bounce/net/DefaultAuthenticator$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/org/bounce/net/DefaultAuthenticator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/weka/core/expressionlanguage/package-info.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/weka/experiment/RemoteEngine_Skel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/weka/experiment/RemoteEngine_Stub.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/weka/gui/GenericObjectEditor.props" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/weka/gui/GenericObjectEditor.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/weka/gui/GenericPropertiesCreator.props" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/weka/gui/GenericPropertiesCreator.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/weka/gui/beans/README_KnowledgeFlow" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/weka.jar" beforeDir="false" afterPath="$PROJECT_DIR$/dist/weka.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/weka/gui/GenericObjectEditor.props" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weka/gui/GenericObjectEditor.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/weka/gui/GenericPropertiesCreator.props" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weka/gui/GenericPropertiesCreator.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/weka-stable.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/weka/classifiers/LC/CRplus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/weka/classifiers/LC/KORAomega.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/weka/classifiers/LC/omegas.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/weka/classifiers/LC/omegasSet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/weka/core/SimilarityMeasure.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/CRplus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/CRplus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/KORAomega.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/KORAomega.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/omegas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/omegas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/omegasSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/omegasSet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/weka/core/SimilarityMeasure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weka/core/SimilarityMeasure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/weka/gui/explorer/ClassifierPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weka/gui/explorer/ClassifierPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/weka/gui/explorer/ExplorerDefaults.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weka/gui/explorer/ExplorerDefaults.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <ignored path="$PROJECT_DIR$/build/testcases/" />
@@ -277,30 +32,19 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/weka/core/NormalizableDistance.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
-              <caret line="515" column="40" selection-start-line="515" selection-start-column="36" selection-end-line="515" selection-end-column="40" />
+              <caret line="454" selection-start-line="454" selection-end-line="454" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="KORAomega.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="KORAomega.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/weka/classifiers/LC/KORAomega.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="99">
-              <caret line="230" selection-start-line="230" selection-end-line="230" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="omegasSet.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/weka/classifiers/LC/omegasSet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="21" selection-start-line="21" selection-end-line="21" />
+            <state relative-caret-position="225">
+              <caret line="217" column="5" lean-forward="true" selection-start-line="217" selection-start-column="5" selection-end-line="217" selection-end-column="5" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#160#168#0" expanded="true" />
-                <element signature="e#245#246#0" expanded="true" />
-                <element signature="e#267#268#0" expanded="true" />
+                <element signature="e#8955#8956#0" expanded="true" />
+                <element signature="e#9003#9004#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -309,20 +53,17 @@
       <file leaf-file-name="SimilarityMeasure.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/weka/core/SimilarityMeasure.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1980">
-              <caret line="157" column="17" selection-start-line="157" selection-start-column="17" selection-end-line="157" selection-end-column="17" />
+            <state relative-caret-position="240">
+              <caret line="180" column="43" selection-start-line="180" selection-start-column="43" selection-end-line="180" selection-end-column="43" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IBk.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/weka/classifiers/lazy/IBk.java">
+      <file leaf-file-name="ClassifierPanel.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/weka/gui/explorer/ClassifierPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7590">
-              <caret line="529" column="30" selection-start-line="529" selection-start-column="14" selection-end-line="529" selection-end-column="30" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="165">
+              <caret line="3733" column="67" lean-forward="true" selection-start-line="3733" selection-start-column="67" selection-end-line="3733" selection-end-column="67" />
             </state>
           </provider>
         </entry>
@@ -331,25 +72,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>first-last</find>
-      <find>firs</find>
-      <find>range</find>
-      <find>public</find>
-      <find>koraome</find>
-      <find>instances</find>
-      <find>buildcla</find>
-      <find>ranges</find>
-      <find>distance</find>
-      <find>distancef</find>
-      <find>m_train</find>
-      <find>distancefun</find>
-      <find>p1</find>
-      <find>m_NumClasses</find>
-      <find>m_nnsearch</find>
-      <find>m_simi</find>
-      <find>m_ClassDistri</find>
-      <find>m_attributeI</find>
-      <find>numOmegas</find>
       <find>options</find>
       <find>distanceWeigh</find>
       <find>result.en</find>
@@ -361,6 +83,25 @@
       <find>buildclassifier</find>
       <find>initializeClassifier</find>
       <find>type</find>
+      <find>list</find>
+      <find>get</find>
+      <find>distance</find>
+      <find>knn</find>
+      <find>search</find>
+      <find>m_distance</find>
+      <find>m_distanceFunction.</find>
+      <find>m_distanceFunction</find>
+      <find>m_Da</find>
+      <find>lista</find>
+      <find>instances</find>
+      <find>getRanges</find>
+      <find>print</find>
+      <find>distance()</find>
+      <find>distance(</find>
+      <find>omega</find>
+      <find>postProcessDis</find>
+      <find>post</find>
+      <find>println</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -369,8 +110,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/weka/core/SimilarityMeasure.java" />
+        <option value="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/omegas.java" />
+        <option value="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/CRplus.java" />
+        <option value="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/omegasSet.java" />
         <option value="$PROJECT_DIR$/src/main/java/weka/core/NormalizableDistance.java" />
+        <option value="$PROJECT_DIR$/src/main/java/weka/core/SimilarityMeasure.java" />
         <option value="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/KORAomega.java" />
       </list>
     </option>
@@ -427,7 +171,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="weka" type="462c0819:PsiDirectoryNode" />
-              <item name="classifiers" type="462c0819:PsiDirectoryNode" />
+              <item name="gui" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="weka-src" type="b2602c69:ProjectViewProjectNode" />
@@ -436,47 +180,8 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="weka" type="462c0819:PsiDirectoryNode" />
-              <item name="classifiers" type="462c0819:PsiDirectoryNode" />
-              <item name="bayes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="weka-src" type="b2602c69:ProjectViewProjectNode" />
-              <item name="weka-src" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="weka" type="462c0819:PsiDirectoryNode" />
-              <item name="classifiers" type="462c0819:PsiDirectoryNode" />
-              <item name="functions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="weka-src" type="b2602c69:ProjectViewProjectNode" />
-              <item name="weka-src" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="weka" type="462c0819:PsiDirectoryNode" />
-              <item name="classifiers" type="462c0819:PsiDirectoryNode" />
-              <item name="LC" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="weka-src" type="b2602c69:ProjectViewProjectNode" />
-              <item name="weka-src" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="weka" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="weka-src" type="b2602c69:ProjectViewProjectNode" />
-              <item name="weka-src" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="weka" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="neighboursearch" type="462c0819:PsiDirectoryNode" />
+              <item name="gui" type="462c0819:PsiDirectoryNode" />
+              <item name="explorer" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -589,28 +294,28 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="48" y="-11" width="1319" height="780" extended-state="6" />
+    <frame x="49" y="-4" width="1317" height="772" extended-state="6" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49962035" weight="0.3298193" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49962035" visible="true" weight="0.3298193" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info id="Image Layers" order="2" />
-      <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" x="49" y="272" width="1317" height="219" id="Event Log" order="7" sideWeight="0.5003796" side_tool="true" weight="0.3298193" />
-      <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="bottom" x="49" y="272" width="1317" height="219" id="Event Log" order="8" sideWeight="0.5003796" side_tool="true" weight="0.3298193" />
+      <window_info anchor="right" id="Maven Projects" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3298193" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info id="Capture Tool" order="2" />
-      <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22779043" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Designer" order="3" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22779043" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info id="UI Designer" order="2" />
-      <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3990964" />
+      <window_info id="UI Designer" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3990964" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -625,65 +330,62 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/weka/classifiers/LC/KORAomega.java</url>
-          <line>230</line>
-          <properties />
-          <option name="timeStamp" value="6" />
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/weka/core/NormalizableDistance.java</url>
+          <line>333</line>
+          <properties class="weka.core.NormalizableDistance" method="postProcessDistances">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="7" />
+      <option name="time" value="43" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
       <expression>
-        <expression-string>instances.attribute(1).m_AttributeInfo.m_Values.size()</expression-string>
+        <expression-string>System.out.println(m_Train.m_Instances)</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>instances.attribute(1).m_AttributeInfo.m_Values</expression-string>
+        <expression-string>m_Train.m_Instances</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>instances.attribute(1).m_AttributeInfo</expression-string>
+        <expression-string>System.out.println(m_Train)</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>instances.attribute(1).m_AttributeInfo(1)</expression-string>
+        <expression-string>m_Train</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>instances.attribute(1)</expression-string>
+        <expression-string>m_Ranges</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>Attribute.</expression-string>
+        <expression-string>m_DontNormalize</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>instances.attribute(10).type()</expression-string>
+        <expression-string>m_ActiveIndices</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>instances.attribute(7).type()</expression-string>
+        <expression-string>return Math.sqrt(distance(first, second, Double.POSITIVE_INFINITY) / this.m_AttributeIndices.m_RangeStrings.size())</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>instances.attribute(8).type()</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>instances.attribute(9).type()</expression-string>
+        <expression-string>m_AttributeIndices</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -701,6 +403,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="585">
           <caret line="39" column="32" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="32" />
+          <folding>
+            <element signature="e#8955#8956#0" expanded="true" />
+            <element signature="e#9003#9004#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -749,34 +455,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/weka/classifiers/LC/omegas.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/weka/core/neighboursearch/NearestNeighbourSearch.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7170">
-          <caret line="534" column="2" selection-start-line="534" selection-start-column="2" selection-end-line="535" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/weka/classifiers/LC/CRplus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/weka/core/Tee.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="226" column="30" lean-forward="true" selection-start-line="226" selection-start-column="30" selection-end-line="226" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/weka/gui/GUIChooserApp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -791,30 +469,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/weka/core/SimilarityMeasure.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1980">
-          <caret line="157" column="17" selection-start-line="157" selection-start-column="17" selection-end-line="157" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/weka/gui/explorer/ClassifierPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22320">
-          <caret line="1624" selection-start-line="1624" selection-end-line="1624" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/weka/classifiers/lazy/IBk.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7590">
-          <caret line="529" column="30" selection-start-line="529" selection-start-column="14" selection-end-line="529" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/weka/classifiers/functions/MultilayerPerceptron.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3047">
@@ -822,10 +476,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/weka/classifiers/LC/CRplus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="159" column="46" lean-forward="true" selection-start-line="159" selection-start-column="46" selection-end-line="159" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/weka/classifiers/lazy/IBk.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="438" column="39" selection-start-line="438" selection-start-column="33" selection-end-line="438" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/weka/core/neighboursearch/NearestNeighbourSearch.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-930">
+          <caret line="669" column="22" selection-start-line="669" selection-start-column="4" selection-end-line="669" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/weka/core/Range.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="188" selection-start-line="188" selection-end-line="188" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/weka/classifiers/LC/omegas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+          <folding>
+            <element signature="e#166#167#0" expanded="true" />
+            <element signature="e#195#196#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/weka/classifiers/LC/omegasSet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        <state relative-caret-position="105">
+          <caret line="22" column="10" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#160#168#0" expanded="true" />
@@ -835,17 +531,81 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/weka/core/DenseInstance.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="219" selection-start-line="219" selection-end-line="219" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/weka/core/Tee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="233" selection-start-line="233" selection-end-line="233" />
+          <folding>
+            <element signature="e#5641#5642#0" expanded="true" />
+            <element signature="e#5674#5675#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/weka/core/Instances.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="400" selection-start-line="400" selection-end-line="400" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/weka/core/AbstractInstance.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="828" selection-start-line="828" selection-end-line="828" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/weka/core/Attribute.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="747" selection-start-line="747" selection-end-line="747" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/weka/core/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="107" selection-start-line="107" selection-end-line="107" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/weka/core/SimilarityMeasure.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="180" column="43" selection-start-line="180" selection-start-column="43" selection-end-line="180" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/weka/core/NormalizableDistance.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
-          <caret line="515" column="40" selection-start-line="515" selection-start-column="36" selection-end-line="515" selection-end-column="40" />
+          <caret line="454" selection-start-line="454" selection-end-line="454" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/weka/classifiers/LC/KORAomega.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="230" selection-start-line="230" selection-end-line="230" />
+        <state relative-caret-position="225">
+          <caret line="217" column="5" lean-forward="true" selection-start-line="217" selection-start-column="5" selection-end-line="217" selection-end-column="5" />
+          <folding>
+            <element signature="e#8955#8956#0" expanded="true" />
+            <element signature="e#9003#9004#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/weka/gui/explorer/ClassifierPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="3733" column="67" lean-forward="true" selection-start-line="3733" selection-start-column="67" selection-end-line="3733" selection-end-column="67" />
         </state>
       </provider>
     </entry>
