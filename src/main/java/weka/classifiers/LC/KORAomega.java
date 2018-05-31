@@ -81,9 +81,7 @@ public class KORAomega
    * @throws IOException
    */
   public String getOmegasFilePath() {
-      String result= omegasFilePath;
-
-      return result;
+     return omegasFilePath;
   }
   /**
    * Returns default capabilities of the classifier.
