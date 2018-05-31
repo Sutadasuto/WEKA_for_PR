@@ -198,6 +198,7 @@ public class KORAomega
       //Para cada uno de estos subconjuntos...
       for(int y=0;y<sub_indices_omegas.size();y++)
       {
+        ArrayList<omegaSimilarity> similarities = new ArrayList<omegaSimilarity>();
         omegas subconjunto = sub_indices_omegas.get(y);
         /*lo devuelve en forma de array de int
          * esto por que los filter de atributos
@@ -205,12 +206,42 @@ public class KORAomega
          * directo para futuras aplicaciones
          */
         String indices = subconjunto.getOmegas();
+
+        //Acá se define el omega-conjunto a evaluar
         m_SimilarityMeasure.setAttributeIndices(indices);
-        //m_SimilarityMeasure.distance(m_Train.get(0), m_Train.get(1));
-        System.out.println(indices);
-        System.out.println(m_Train.get(0));
-        System.out.println(m_Train.get(1));
-        System.out.println(String.valueOf(m_SimilarityMeasure.distance(m_Train.get(0), m_Train.get(1))));
+        //Inician las comparaciones de todos los pares de instancias
+        for(int i1=0; i1<m_Train.size(); i1++)
+        {
+          for(int i2=0; i2<m_Train.size(); i2++)
+          {
+            System.out.println(i1);
+            System.out.println(i2);
+            System.out.println("\n");
+            //Objeto que guarda la evaluación entre un par de instancias
+            omegaSimilarity similarity = new omegaSimilarity();
+
+            //Se guarda el omega-set evaluado
+            similarity.setOmega(indices);
+            //Se guardan las instancia comparadas
+            similarity.setInstances(m_Train.get(i1), m_Train.get(i2));
+            similarity.setSimilarity(m_SimilarityMeasure.distance(m_Train.get(i1), m_Train.get(i2)));
+            //Se guarda la clase de la instancia 1 (es decir, la clase para la cual queremos obtener rasgos)
+            try
+            {
+              similarity.setClass(m_Train.get(i1).stringValue(m_Train.get(i2).classIndex()));
+            }
+            catch(IllegalArgumentException exception)
+            {
+              similarity.setClass(String.valueOf(m_Train.get(i1).valueSparse(m_Train.get(i2).classIndex())));
+            }
+            //Se registra si las clases de las instancias son iguales
+            similarity.setSameClass(
+                    m_Train.get(i1).valueSparse(m_Train.get(i1).classIndex()) ==
+                            m_Train.get(i2).valueSparse(m_Train.get(i2).classIndex())
+            );
+            similarities.add(similarity);
+          }
+        }
       }
     }
   }
