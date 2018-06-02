@@ -7,10 +7,11 @@ import java.util.ArrayList;
 
 public class omegaSimilarity {
 	private String omega;
-	ArrayList<Instance> instances = new ArrayList<Instance>();
+	private ArrayList<Instance> instances = new ArrayList<Instance>();
 	private double similarity;
 	private boolean sameClass;
 	private String classToAnalyze;
+	private String[] values;
 
 
 	//private String indice_omegas;
@@ -48,5 +49,12 @@ public class omegaSimilarity {
 	}
 	public String getAnalyzedClass() {
 		return classToAnalyze;
+	}
+
+	public void setValues(String[] code) {
+		values = code;
+	}
+	public String[] getValues() {
+		return values;
 	}
 }

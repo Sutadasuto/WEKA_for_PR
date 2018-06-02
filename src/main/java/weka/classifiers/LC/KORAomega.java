@@ -36,10 +36,19 @@ public class KORAomega
   protected String omegasFilePath="null";
   /*variable n omegas parts*/
   protected int numOmegas=3;
+  /**/
+  protected double acceptedPercentage=80;
+
+  /*list of thresholds*/
+  protected ArrayList<ArrayList<Double>> deltas = new ArrayList<>();
 
   public String numOmegasTipText(){
       return "Indicate the number of n omega parts, this is the defualt option if you do not specify"
               + " a file path";
+  }
+
+  public String acceptedPercentageTipText(){
+    return "Indicate the percentage of instances needed to be considered a complex trait. Overrided by numOmegas text file";
   }
   /**
    * Set the path
@@ -49,6 +58,7 @@ public class KORAomega
   public void setNumOmegas(int _num) {
       numOmegas=_num;
   }
+  public void setAcceptedPercentage(double _percentage) { acceptedPercentage=_percentage;}
   /**
    * Get the paths to omegas
    *
@@ -58,6 +68,9 @@ public class KORAomega
   public int getNumOmegas() {
       int result = numOmegas;
       return result;
+  }
+  public double getAcceptedPercentage() {
+    return acceptedPercentage;
   }
 
   public String omegasFilePathTipText() {
@@ -138,6 +151,15 @@ public class KORAomega
     m_Train = new Instances(instances, 0, instances.numInstances());
     m_SimilarityMeasure.setInstances(m_Train);
 
+    ArrayList<Double> t1= new ArrayList<>();
+    t1.add(m_Train.numInstances() * acceptedPercentage/100);
+    t1.add(m_Train.numInstances() * (100 - acceptedPercentage)/100);
+    ArrayList<Double> t2= new ArrayList<>();
+    t2.add(m_Train.numInstances() * acceptedPercentage/100);
+    t2.add(m_Train.numInstances() * (100 - acceptedPercentage)/100);
+    deltas.add(t1);
+    deltas.add(t2);
+
     //lista de omega partes para cada clase
     ArrayList<omegasSet> listaOSetClass = new ArrayList<omegasSet>();
     //Si se tiene un ruta de archivo se utiliza, si no, se utiliza un k predefinido
@@ -212,34 +234,69 @@ public class KORAomega
         //Inician las comparaciones de todos los pares de instancias
         for(int i1=0; i1<m_Train.size(); i1++)
         {
-          for(int i2=0; i2<m_Train.size(); i2++)
+          //Se analiza si la instancia a evaluar es de la misma clase que la omega parte
+          if(m_Train.get(i1).stringValue(m_Train.get(i1).classIndex()).equals(name_class))
           {
-            System.out.println(i1);
-            System.out.println(i2);
-            System.out.println("\n");
-            //Objeto que guarda la evaluación entre un par de instancias
-            omegaSimilarity similarity = new omegaSimilarity();
+            //Se inician los contadores para evaluar si el subconjunto es un rasgo complejo
+            double delta = deltas.get(y).get(0);
+            double positive = 0;
+            double deltaPrime = deltas.get(y).get(1);
+            double negative = 0;
 
-            //Se guarda el omega-set evaluado
-            similarity.setOmega(indices);
-            //Se guardan las instancia comparadas
-            similarity.setInstances(m_Train.get(i1), m_Train.get(i2));
-            similarity.setSimilarity(m_SimilarityMeasure.distance(m_Train.get(i1), m_Train.get(i2)));
-            //Se guarda la clase de la instancia 1 (es decir, la clase para la cual queremos obtener rasgos)
-            try
+            boolean sameClass;
+            double calculatedSimilarity;
+            for(int i2=0; i2<m_Train.size(); i2++)
             {
-              similarity.setClass(m_Train.get(i1).stringValue(m_Train.get(i2).classIndex()));
+              System.out.println(i1);
+              System.out.println(i2);
+              System.out.println("\n");
+
+              if(negative <= deltaPrime) {
+                sameClass = (m_Train.get(i1).valueSparse(m_Train.get(i1).classIndex()) ==
+                        m_Train.get(i2).valueSparse(m_Train.get(i2).classIndex()));
+
+                if(sameClass)
+                {
+                  if (positive < delta) {
+                    calculatedSimilarity = m_SimilarityMeasure.distance(m_Train.get(i1), m_Train.get(i2));
+                    positive += calculatedSimilarity;
+                  }
+                }
+                else{
+                  calculatedSimilarity = m_SimilarityMeasure.distance(m_Train.get(i1), m_Train.get(i2));
+                  negative += calculatedSimilarity;
+                }
+              }
+              else break;
             }
-            catch(IllegalArgumentException exception)
-            {
-              similarity.setClass(String.valueOf(m_Train.get(i1).valueSparse(m_Train.get(i2).classIndex())));
+            if(positive >= delta && negative <= deltaPrime){
+              //Objeto equivalente a un rasgo complejo
+              omegaSimilarity similarity = new omegaSimilarity();
+              //Se guarda la clase de la instancia 1 (es decir, la clase para la cual queremos obtener rasgos)
+              try {
+                similarity.setClass(m_Train.get(i1).stringValue(m_Train.get(i1).classIndex()));
+              } catch (IllegalArgumentException exception) {
+                similarity.setClass(String.valueOf(m_Train.get(i1).valueSparse(m_Train.get(i1).classIndex())));
+              }
+              int[] omegaIndices = subconjunto.getOmegaIndices();
+              String[] code = new String[m_Train.numAttributes()];
+              for(int index=0; index<m_Train.numAttributes(); index++)
+              {
+                code[index] = "-";
+              }
+              for(int index=0; index<omegaIndices.length; index++)
+              {
+                String value;
+                try {
+                  value = m_Train.get(i1).stringValue(omegaIndices[index]);
+                } catch (IllegalArgumentException exception) {
+                  value = String.valueOf(m_Train.get(i1).valueSparse(omegaIndices[index]));
+                }
+                code[omegaIndices[index]] = value;
+              }
+              similarity.setValues(code);
+              similarity.setOmega(indices);
             }
-            //Se registra si las clases de las instancias son iguales
-            similarity.setSameClass(
-                    m_Train.get(i1).valueSparse(m_Train.get(i1).classIndex()) ==
-                            m_Train.get(i2).valueSparse(m_Train.get(i2).classIndex())
-            );
-            similarities.add(similarity);
           }
         }
       }
