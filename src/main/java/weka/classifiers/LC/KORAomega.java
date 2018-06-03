@@ -303,9 +303,8 @@ public class KORAomega
     }
 
     // Para cada clase...
-    for(int x=0;x<listaOSetClass.size();x++)
+    for(omegasSet omegasClase:listaOSetClass)
     {
-      omegasSet omegasClase = listaOSetClass.get(x);
       /*obtengo el nombre de la clase que esta en mi archivo
        * como por ejemplo A: .., puede ser adultos: ..
        */
