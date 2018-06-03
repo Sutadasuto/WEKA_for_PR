@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6c5587d5-5d1e-41a2-a3e5-49c8872b6423" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/weka/classifiers/LC/CRplus.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/weka/classifiers/LC/CRplus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/weka/classifiers/LC/KORAomega.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/weka/classifiers/LC/KORAomega.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/weka/classifiers/LC/omegas.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/weka/classifiers/LC/omegas.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/weka/classifiers/LC/omegasSet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/weka/classifiers/LC/omegasSet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/weka/core/SimilarityMeasure.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/weka/core/SimilarityMeasure.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/CRplus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/CRplus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/KORAomega.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/KORAomega.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/omegas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/omegas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/omegasSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/omegasSet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/weka/core/SimilarityMeasure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weka/core/SimilarityMeasure.java" afterDir="false" />
-    </list>
+    <list default="true" id="6c5587d5-5d1e-41a2-a3e5-49c8872b6423" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <ignored path="$PROJECT_DIR$/build/testcases/" />
     <ignored path="$PROJECT_DIR$/dist/" />
