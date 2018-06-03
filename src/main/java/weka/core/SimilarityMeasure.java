@@ -105,7 +105,7 @@ public class SimilarityMeasure
    */
   public String globalInfo() {
     return 
-        "Implementing Euclidean distance (or similarity) function.\n\n"
+        "Implementing a normalized similarity function  based on Euclidean distances.\n\n"
       + "One object defines not one distance but the data model in which "
       + "the distances between objects of that data model can be computed.\n\n"
       + "Attention: For efficiency reasons the use of consistency checks "
@@ -126,9 +126,9 @@ public class SimilarityMeasure
     TechnicalInformation 	result;
     
     result = new TechnicalInformation(Type.MISC);
-    result.setValue(Field.AUTHOR, "Wikipedia");
-    result.setValue(Field.TITLE, "Euclidean distance");
-    result.setValue(Field.URL, "http://en.wikipedia.org/wiki/Euclidean_distance");
+    result.setValue(Field.AUTHOR, "Rodrigo Rill-Garcia");
+    result.setValue(Field.TITLE, "Normalized Euclidean Based");
+    result.setValue(Field.URL, "NA");
 
     return result;
   }

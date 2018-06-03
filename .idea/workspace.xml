@@ -3,9 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="6c5587d5-5d1e-41a2-a3e5-49c8872b6423" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/weka/classifiers/LC/CRplus.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/weka/classifiers/LC/CRplus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/weka/classifiers/LC/KORAomega.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/weka/classifiers/LC/KORAomega.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/weka/classifiers/LC/omegas.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/weka/classifiers/LC/omegas.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/weka/classifiers/LC/omegasSet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/weka/classifiers/LC/omegasSet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/weka/core/SimilarityMeasure.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/weka/core/SimilarityMeasure.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/CRplus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/CRplus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/KORAomega.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/KORAomega.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/omegaSimilarity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/omegaSimilarity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/omegas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/omegas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/omegasSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/omegasSet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/weka/core/SimilarityMeasure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weka/core/SimilarityMeasure.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <ignored path="$PROJECT_DIR$/build/testcases/" />
@@ -22,26 +29,65 @@
       <file leaf-file-name="NormalizableDistance.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/weka/core/NormalizableDistance.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="813" column="3" lean-forward="true" selection-start-line="813" selection-start-column="3" selection-end-line="813" selection-end-column="11" />
+            <state relative-caret-position="-59">
+              <caret line="337" column="33" selection-start-line="337" selection-start-column="25" selection-end-line="337" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="KORAomega.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NearestNeighbourSearch.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/weka/core/neighboursearch/NearestNeighbourSearch.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="668" selection-start-line="668" selection-end-line="670" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="KORAomega.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/weka/classifiers/LC/KORAomega.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="930">
-              <caret line="292" column="91" lean-forward="true" selection-start-line="292" selection-start-column="91" selection-end-line="292" selection-end-column="91" />
+            <state relative-caret-position="120">
+              <caret line="268" column="42" lean-forward="true" selection-start-line="268" selection-start-column="42" selection-end-line="268" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1970#1971#0" expanded="true" />
-                <element signature="e#2005#2006#0" expanded="true" />
+                <element signature="e#1138#1139#0" expanded="true" />
+                <element signature="e#1173#1174#0" expanded="true" />
+                <element signature="e#1209#1210#0" expanded="true" />
+                <element signature="e#1240#1241#0" expanded="true" />
+                <element signature="e#1493#1494#0" expanded="true" />
+                <element signature="e#1528#1529#0" expanded="true" />
+                <element signature="e#1566#1567#0" expanded="true" />
+                <element signature="e#1597#1598#0" expanded="true" />
+                <element signature="e#2282#2283#0" expanded="true" />
+                <element signature="e#2308#2309#0" expanded="true" />
+                <element signature="e#2988#2989#0" expanded="true" />
+                <element signature="e#3020#3021#0" expanded="true" />
+                <element signature="e#4641#4642#0" expanded="true" />
+                <element signature="e#4676#4677#0" expanded="true" />
                 <element signature="e#3789#3800#0" expanded="true" />
                 <element signature="e#6325#6342#0" expanded="true" />
-                <element signature="e#10667#10668#0" expanded="true" />
-                <element signature="e#10715#10716#0" expanded="true" />
+                <element signature="e#14187#14188#0" expanded="true" />
+                <element signature="e#14235#14236#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CRplus.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/weka/classifiers/LC/CRplus.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2980">
+              <caret line="261" column="42" lean-forward="true" selection-start-line="261" selection-start-column="42" selection-end-line="261" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ClassifierPanel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/weka/gui/explorer/ClassifierPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="1897" selection-start-line="1897" selection-end-line="1897" />
             </state>
           </provider>
         </entry>
@@ -49,7 +95,7 @@
       <file leaf-file-name="omegaSimilarity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/weka/classifiers/LC/omegaSimilarity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
+            <state relative-caret-position="541">
               <caret line="56" column="19" selection-start-line="56" selection-start-column="19" selection-end-line="56" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -62,12 +108,43 @@
       <file leaf-file-name="omegas.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/weka/classifiers/LC/omegas.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="25" column="54" selection-start-line="25" selection-start-column="54" selection-end-line="25" selection-end-column="54" />
+            <state relative-caret-position="120">
+              <caret line="28" column="16" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="16" />
               <folding>
-                <element signature="e#166#167#0" expanded="true" />
-                <element signature="e#195#196#0" expanded="true" />
+                <element signature="e#216#217#0" expanded="true" />
+                <element signature="e#258#259#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="omegasSet.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/weka/classifiers/LC/omegasSet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="18" column="20" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="20" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#160#168#0" expanded="true" />
+                <element signature="e#265#279#0" expanded="true" />
+                <element signature="e#362#363#0" expanded="true" />
+                <element signature="e#385#386#0" expanded="true" />
+                <element signature="e#245#246#0" expanded="true" />
+                <element signature="e#267#268#0" expanded="true" />
+                <element signature="e#1477#1478#0" expanded="true" />
+                <element signature="e#1501#1502#0" expanded="true" />
+                <element signature="e#2728#2729#0" expanded="true" />
+                <element signature="e#2750#2751#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="thresholdSet.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/weka/classifiers/LC/thresholdSet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -75,8 +152,8 @@
       <file leaf-file-name="SimilarityMeasure.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/weka/core/SimilarityMeasure.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="190" column="28" selection-start-line="190" selection-start-column="28" selection-end-line="190" selection-end-column="28" />
+            <state relative-caret-position="136">
+              <caret line="108" column="74" lean-forward="true" selection-start-line="108" selection-start-column="74" selection-end-line="108" selection-end-column="74" />
             </state>
           </provider>
         </entry>
@@ -85,23 +162,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>distance</find>
-      <find>knn</find>
-      <find>search</find>
-      <find>m_distance</find>
-      <find>m_distanceFunction.</find>
-      <find>m_distanceFunction</find>
-      <find>m_Da</find>
-      <find>lista</find>
-      <find>instances</find>
-      <find>getRanges</find>
-      <find>print</find>
-      <find>distance()</find>
-      <find>omega</find>
-      <find>println</find>
-      <find>postProcessDis</find>
-      <find>distance(</find>
-      <find>KORA</find>
       <find>post</find>
       <find>m_train</find>
       <find>clases</find>
@@ -112,9 +172,26 @@
       <find>classInde</find>
       <find>options</find>
       <find>numOmegas</find>
-      <find>setac</find>
       <find>@</find>
+      <find>setac</find>
+      <find>esto pr</find>
+      <find>Clase.get</find>
+      <find>deltaPrim</find>
       <find>Ove</find>
+      <find>distanceF</find>
+      <find>function</find>
+      <find>.e</find>
+      <find>about</find>
+      <find>or simila</find>
+      <find>test</find>
+      <find>build</find>
+      <find>indice_omegas</find>
+      <find>system</find>
+      <find>omegasFile</find>
+      <find>//ko</find>
+      <find>//kora</find>
+      <find>set</find>
+      <find>sett</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -123,22 +200,22 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/CRplus.java" />
-        <option value="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/omegasSet.java" />
         <option value="$PROJECT_DIR$/src/main/java/weka/core/NormalizableDistance.java" />
-        <option value="$PROJECT_DIR$/src/main/java/weka/core/SimilarityMeasure.java" />
         <option value="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/omegaSimilarities.java" />
-        <option value="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/omegas.java" />
         <option value="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/omegaSimilarity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/omegasSet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/weka/core/SimilarityMeasure.java" />
+        <option value="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/omegas.java" />
         <option value="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/KORAomega.java" />
+        <option value="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/CRplus.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="59" />
-    <option name="y" value="16" />
-    <option name="width" value="1297" />
-    <option name="height" value="732" />
+    <option name="x" value="71" />
+    <option name="y" value="31" />
+    <option name="width" value="1295" />
+    <option name="height" value="724" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -309,12 +386,11 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="48" y="-11" width="1319" height="780" extended-state="6" />
-    <editor active="true" />
+    <frame x="49" y="-4" width="1317" height="772" extended-state="6" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49962035" weight="0.3298193" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49962035" weight="0.32680723" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
@@ -325,19 +401,19 @@
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22779043" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22779043" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3298193" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.44126505" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.42319277" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3298193" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -355,53 +431,53 @@
           <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="81" />
+      <option name="time" value="118" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
       <expression>
-        <expression-string>m_Train.get(0).valueSparse(0)</expression-string>
+        <expression-string>div3</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>m_Train.get(0)</expression-string>
+        <expression-string>div1[0]</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>m_Train.get(i1)</expression-string>
+        <expression-string>div1</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>m_Train</expression-string>
+        <expression-string>1</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>String[m_Train.numAttributes()](&quot;-&quot;)</expression-string>
+        <expression-string>numAttributes</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>String[] code = new String[m_Train.numAttributes()](&quot;-&quot;)</expression-string>
+        <expression-string>className+umbrales[1]</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>String[] code = new String[m_Train.numAttributes()];</expression-string>
+        <expression-string>umbrales[1]</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>m_Train.numAttributes()</expression-string>
+        <expression-string>umbrales</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>m_Train.get(0).numAttributes()</expression-string>
+        <expression-string>omegasClase.getThresholds().get(0).getThresholdSet().get(1)</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -431,8 +507,8 @@
         <state relative-caret-position="165">
           <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
           <folding>
-            <element signature="e#166#167#0" expanded="true" />
-            <element signature="e#195#196#0" expanded="true" />
+            <element signature="e#216#217#0" expanded="true" />
+            <element signature="e#258#259#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -462,12 +538,24 @@
           <caret line="151" column="42" lean-forward="true" selection-start-line="151" selection-start-column="42" selection-end-line="151" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1970#1971#0" expanded="true" />
-            <element signature="e#2005#2006#0" expanded="true" />
+            <element signature="e#1138#1139#0" expanded="true" />
+            <element signature="e#1173#1174#0" expanded="true" />
+            <element signature="e#1209#1210#0" expanded="true" />
+            <element signature="e#1240#1241#0" expanded="true" />
+            <element signature="e#1493#1494#0" expanded="true" />
+            <element signature="e#1528#1529#0" expanded="true" />
+            <element signature="e#1566#1567#0" expanded="true" />
+            <element signature="e#1597#1598#0" expanded="true" />
+            <element signature="e#2282#2283#0" expanded="true" />
+            <element signature="e#2308#2309#0" expanded="true" />
+            <element signature="e#2988#2989#0" expanded="true" />
+            <element signature="e#3020#3021#0" expanded="true" />
+            <element signature="e#4641#4642#0" expanded="true" />
+            <element signature="e#4676#4677#0" expanded="true" />
             <element signature="e#3789#3800#0" expanded="true" />
             <element signature="e#6325#6342#0" expanded="true" />
-            <element signature="e#10667#10668#0" expanded="true" />
-            <element signature="e#10715#10716#0" expanded="true" />
+            <element signature="e#14187#14188#0" expanded="true" />
+            <element signature="e#14235#14236#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -485,12 +573,24 @@
           <caret line="39" column="32" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1970#1971#0" expanded="true" />
-            <element signature="e#2005#2006#0" expanded="true" />
+            <element signature="e#1138#1139#0" expanded="true" />
+            <element signature="e#1173#1174#0" expanded="true" />
+            <element signature="e#1209#1210#0" expanded="true" />
+            <element signature="e#1240#1241#0" expanded="true" />
+            <element signature="e#1493#1494#0" expanded="true" />
+            <element signature="e#1528#1529#0" expanded="true" />
+            <element signature="e#1566#1567#0" expanded="true" />
+            <element signature="e#1597#1598#0" expanded="true" />
+            <element signature="e#2282#2283#0" expanded="true" />
+            <element signature="e#2308#2309#0" expanded="true" />
+            <element signature="e#2988#2989#0" expanded="true" />
+            <element signature="e#3020#3021#0" expanded="true" />
+            <element signature="e#4641#4642#0" expanded="true" />
+            <element signature="e#4676#4677#0" expanded="true" />
             <element signature="e#3789#3800#0" expanded="true" />
             <element signature="e#6325#6342#0" expanded="true" />
-            <element signature="e#10667#10668#0" expanded="true" />
-            <element signature="e#10715#10716#0" expanded="true" />
+            <element signature="e#14187#14188#0" expanded="true" />
+            <element signature="e#14235#14236#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -561,13 +661,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/weka/classifiers/LC/CRplus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="159" column="46" lean-forward="true" selection-start-line="159" selection-start-column="46" selection-end-line="159" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/weka/classifiers/lazy/IBk.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -578,29 +671,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/weka/core/neighboursearch/NearestNeighbourSearch.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-930">
-          <caret line="669" column="22" selection-start-line="669" selection-start-column="4" selection-end-line="669" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/weka/core/Range.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="188" selection-start-line="188" selection-end-line="188" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/weka/classifiers/LC/omegasSet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="22" column="10" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#245#246#0" expanded="true" />
-            <element signature="e#267#268#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -657,27 +731,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/weka/gui/explorer/ClassifierPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="1896" selection-start-line="1896" selection-end-line="1896" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/weka/classifiers/LC/omegas.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="25" column="54" selection-start-line="25" selection-start-column="54" selection-end-line="25" selection-end-column="54" />
-          <folding>
-            <element signature="e#166#167#0" expanded="true" />
-            <element signature="e#195#196#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/weka/classifiers/LC/omegaSimilarity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
+        <state relative-caret-position="541">
           <caret line="56" column="19" selection-start-line="56" selection-start-column="19" selection-end-line="56" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -686,33 +742,111 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/weka/core/SimilarityMeasure.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/weka/classifiers/LC/thresholdSet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="190" column="28" selection-start-line="190" selection-start-column="28" selection-end-line="190" selection-end-column="28" />
+        <state relative-caret-position="60">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/weka/core/NormalizableDistance.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="813" column="3" lean-forward="true" selection-start-line="813" selection-start-column="3" selection-end-line="813" selection-end-column="11" />
+        <state relative-caret-position="-59">
+          <caret line="337" column="33" selection-start-line="337" selection-start-column="25" selection-end-line="337" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/weka/core/neighboursearch/NearestNeighbourSearch.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="668" selection-start-line="668" selection-end-line="670" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/weka/core/SingleIndex.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="41" column="13" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/weka/core/SimilarityMeasure.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="108" column="74" lean-forward="true" selection-start-line="108" selection-start-column="74" selection-end-line="108" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/weka/gui/explorer/ClassifierPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="1897" selection-start-line="1897" selection-end-line="1897" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/weka/classifiers/LC/KORAomega.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="930">
-          <caret line="292" column="91" lean-forward="true" selection-start-line="292" selection-start-column="91" selection-end-line="292" selection-end-column="91" />
+        <state relative-caret-position="120">
+          <caret line="268" column="42" lean-forward="true" selection-start-line="268" selection-start-column="42" selection-end-line="268" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1970#1971#0" expanded="true" />
-            <element signature="e#2005#2006#0" expanded="true" />
+            <element signature="e#1138#1139#0" expanded="true" />
+            <element signature="e#1173#1174#0" expanded="true" />
+            <element signature="e#1209#1210#0" expanded="true" />
+            <element signature="e#1240#1241#0" expanded="true" />
+            <element signature="e#1493#1494#0" expanded="true" />
+            <element signature="e#1528#1529#0" expanded="true" />
+            <element signature="e#1566#1567#0" expanded="true" />
+            <element signature="e#1597#1598#0" expanded="true" />
+            <element signature="e#2282#2283#0" expanded="true" />
+            <element signature="e#2308#2309#0" expanded="true" />
+            <element signature="e#2988#2989#0" expanded="true" />
+            <element signature="e#3020#3021#0" expanded="true" />
+            <element signature="e#4641#4642#0" expanded="true" />
+            <element signature="e#4676#4677#0" expanded="true" />
             <element signature="e#3789#3800#0" expanded="true" />
             <element signature="e#6325#6342#0" expanded="true" />
-            <element signature="e#10667#10668#0" expanded="true" />
-            <element signature="e#10715#10716#0" expanded="true" />
+            <element signature="e#14187#14188#0" expanded="true" />
+            <element signature="e#14235#14236#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/weka/classifiers/LC/omegas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="28" column="16" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="16" />
+          <folding>
+            <element signature="e#216#217#0" expanded="true" />
+            <element signature="e#258#259#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/weka/classifiers/LC/omegasSet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="18" column="20" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#160#168#0" expanded="true" />
+            <element signature="e#265#279#0" expanded="true" />
+            <element signature="e#362#363#0" expanded="true" />
+            <element signature="e#385#386#0" expanded="true" />
+            <element signature="e#245#246#0" expanded="true" />
+            <element signature="e#267#268#0" expanded="true" />
+            <element signature="e#1477#1478#0" expanded="true" />
+            <element signature="e#1501#1502#0" expanded="true" />
+            <element signature="e#2728#2729#0" expanded="true" />
+            <element signature="e#2750#2751#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/weka/classifiers/LC/CRplus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2980">
+          <caret line="261" column="42" lean-forward="true" selection-start-line="261" selection-start-column="42" selection-end-line="261" selection-end-column="42" />
         </state>
       </provider>
     </entry>
