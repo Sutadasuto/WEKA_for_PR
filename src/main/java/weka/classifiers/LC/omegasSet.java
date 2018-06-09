@@ -3,11 +3,14 @@ package weka.classifiers.LC;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.io.Serializable;
 
 import weka.core.WekaException;
 
-public class omegasSet {
-	public ArrayList<omegas> omegaset = new ArrayList<omegas>();
+public class omegasSet implements Serializable {
+
+  private static final long serialVersionUID = -422874939059679971L;
+  public ArrayList<omegas> omegaset = new ArrayList<omegas>();
 	private  ArrayList<thresholdSet> thresholds = new ArrayList<thresholdSet>();
 
 	private String class_name;

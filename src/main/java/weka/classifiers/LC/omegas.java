@@ -2,8 +2,11 @@ package weka.classifiers.LC;
 
 
 import java.util.Arrays;
+import java.io.Serializable;
 
-public class omegas {
+public class omegas implements Serializable {
+
+  private static final long serialVersionUID = -2633840911017839735L;
   private int[] indice_omegas;
   private String string_omegas;
   //private String indice_omegas;
