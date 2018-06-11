@@ -8,7 +8,7 @@ import weka.core.TechnicalInformation.Field;
 import weka.core.TechnicalInformation.Type;
 import weka.core.neighboursearch.PerformanceStats;
 
-public class EuclideanOverlapMetric
+public class HVDM3
 extends NormalizableDistance
 implements Cloneable, TechnicalInformationHandler {
 
@@ -21,12 +21,16 @@ implements Cloneable, TechnicalInformationHandler {
 	
 	protected Hashtable<String,Integer> Nax;
 	
+	protected boolean equalWeights;
 	
-	public EuclideanOverlapMetric() {
+	protected double allWeights = 0;
+	
+	
+	public HVDM3() {
 		super();
 	}
 	
-	public EuclideanOverlapMetric(Instances data) {
+	public HVDM3(Instances data) {
 		super(data);
 	}
 
@@ -56,7 +60,7 @@ implements Cloneable, TechnicalInformationHandler {
 	   * @return 		the distance between the two given instances
 	   */
 	public double distance(Instance first, Instance second) {
-	  return Math.sqrt(distance(first, second, Double.POSITIVE_INFINITY) / this.m_AttributeIndices.m_RangeStrings.size());
+	  return Math.sqrt(distance(first, second, Double.POSITIVE_INFINITY) / (allWeights * this.m_AttributeIndices.m_RangeStrings.size()));
 	}
 	
 
@@ -118,6 +122,7 @@ implements Cloneable, TechnicalInformationHandler {
 	    int secondNumValues = second.numValues();
 	    int numAttributes = m_Data.numAttributes();
 	    int classIndex = m_Data.classIndex();
+	    double cWeight;
 
 	    validate();
 
@@ -158,18 +163,21 @@ implements Cloneable, TechnicalInformationHandler {
 	        diff = difference(firstI, first.valueSparse(p1), second.valueSparse(p2));
 	        p1++;
 	        p2++;
+	        cWeight = first.attribute(p1).weight();
 	      } else if (firstI > secondI) {
 	        diff = difference(secondI, 0, second.valueSparse(p2));
 	        p2++;
+	        cWeight = second.attribute(p2).weight();
 	      } else {
 	        diff = difference(firstI, first.valueSparse(p1), 0);
 	        p1++;
+	        cWeight = first.attribute(p1).weight();
 	      }
 	      if (stats != null) {
 	        stats.incrCoordCount();
 	      }
 
-	      distance = updateDistance(distance, diff);
+	      distance = cWeight * updateDistance(distance, diff);
 	      if (distance > cutOffValue) {
 	        return Double.POSITIVE_INFINITY;
 	      }
@@ -204,9 +212,9 @@ implements Cloneable, TechnicalInformationHandler {
 	    	double diff = 0;
 	    	Set<String> keys = Naxc.keySet();
 	    	for(String key: keys){
-	    		diff+=Math.abs(((double)Naxc.get(key).get(keyX)/(double)nax)-((double)Naxc.get(key).get(keyY)/(double)nay));
+	    		diff+=Math.pow(Math.abs(((double)Naxc.get(key).get(keyX)/(double)nax)-((double)Naxc.get(key).get(keyY)/(double)nay)), 2);
 	    	}
-	        return diff;
+	        return Math.sqrt(m_Data.numClasses() * diff);
 	      }
 
 	    case Attribute.NUMERIC:
@@ -310,6 +318,15 @@ implements Cloneable, TechnicalInformationHandler {
 		 	String cKey;
 		 	double cValue;
 		 	int classIndex = m_Data.m_ClassIndex;
+		 	equalWeights = m_Data.allAttributeWeightsIdentical();
+		 	if(equalWeights || m_Data.numAttributes()==0) {
+		 		allWeights = 1.0;
+		 	}
+		 	else {
+		 		for(int i = 0; i< m_Data.numAttributes(); i++) {
+		 			allWeights+=m_Data.attribute(i).weight();
+		 		}
+		 	}
 		 	for(int i = 0; i< m_Data.numInstances();i++){
 		 		cInstance = m_Data.get(i);
 		 		cKey = Double.toString(cInstance.valueSparse(classIndex));
@@ -341,4 +358,15 @@ implements Cloneable, TechnicalInformationHandler {
 		 	System.out.println(Naxc.get(Double.toString(cInstance.value(classIndex))).get(cInstance.attribute(2).name()+cInstance.valueSparse(2)));
 		 	System.out.println(Nax.get(cInstance.attribute(2).name()+Double.toString(cInstance.valueSparse(2))));
 		  }
+	  /**
+	   * Sets the instances.
+	   * 
+	   * @param insts the instances to use
+	   */
+	  @Override
+	  public void setInstances(Instances insts) {
+	    m_Data = insts;
+	    invalidate();
+	    initiate();
+	  }
 }
