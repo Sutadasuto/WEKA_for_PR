@@ -2,14 +2,9 @@ package weka.classifiers.LC;
 
 
 import java.util.Arrays;
-import java.io.Serializable;
 
-public class omegas implements Serializable {
-
-  private static final long serialVersionUID = -2633840911017839735L;
-  private int[] indice_omegas;
+public class omegas {
   private String string_omegas;
-  //private String indice_omegas;
 
   public void setOmegas(int[] indices) {
     string_omegas=indices.toString();
@@ -28,7 +23,7 @@ public class omegas implements Serializable {
     }
     return result;
   }
-
+  
   public int setOmegasFromFile(String indices,int range) {
     int result=-1;
     int response =testAttributeInRange(indices,range);
@@ -40,14 +35,12 @@ public class omegas implements Serializable {
     return result;
   }
 
-  //public int[] getOmegas() {
   public String getOmegas() {
       return string_omegas;
   }
 
   public int[] getOmegaIndices(){
     String[] numStr = string_omegas.split(",");
-    //System.out.println(numStr.toString());
     int[] auxArray = new int[numStr.length];
 
     for(int i =0; i<auxArray.length;i++)
@@ -55,7 +48,6 @@ public class omegas implements Serializable {
         auxArray[i]= Integer.parseInt(numStr[i]) - 1;
     }
     Arrays.sort(auxArray);
-    indice_omegas = auxArray;
-    return indice_omegas;
+    return auxArray;
   }
 }
