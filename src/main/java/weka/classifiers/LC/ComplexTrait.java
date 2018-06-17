@@ -12,29 +12,30 @@ public class ComplexTrait implements Serializable {
   private String classToAnalyze;
   private String[] values;
   private Instance equivalentInstance;
+  private Double weight;
 
 
   //private String indice_omegas;
 
   public void setOmega(String omegaToAnalyze) {
-      omega = omegaToAnalyze;
+    omega = omegaToAnalyze;
   }
   public String getOmega() {
-      return omega;
+    return omega;
   }
 
   public void setClass(String classOfInstance1) {
-      classToAnalyze = classOfInstance1;
+    classToAnalyze = classOfInstance1;
   }
   public String getAnalyzedClass() {
-      return classToAnalyze;
+    return classToAnalyze;
   }
 
   public void setValues(String[] code) {
-      values = code;
+    values = code;
   }
   public String[] getValues() {
-      return values;
+    return values;
   }
 
   public void setEquivalentInstance(Instance baseline){
@@ -44,4 +45,7 @@ public class ComplexTrait implements Serializable {
   public Instance getEquivalentInstance() {
     return equivalentInstance;
   }
+
+  public void setWeight(Double _weight) { weight = _weight; }
+  public double getWeight() { return weight; }
 }

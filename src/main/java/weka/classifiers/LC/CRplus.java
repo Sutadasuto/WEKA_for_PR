@@ -12,14 +12,14 @@ import java.util.Enumeration;
 import java.util.Vector;
 
 public class CRplus
-  extends AbstractClassifier
-  implements OptionHandler,
-    WeightedInstancesHandler, WeightedAttributesHandler, TechnicalInformationHandler{
+        extends AbstractClassifier
+        implements OptionHandler,
+        WeightedInstancesHandler, WeightedAttributesHandler, TechnicalInformationHandler{
 
   /**
    *
    */
-  static final long serialVersionUID = 2487520790733881279L;
+  static final long serialVersionUID = 1487520790733881279L;
 
   /** The training instances used for classification. */
   protected Instances m_Train;
@@ -38,8 +38,8 @@ public class CRplus
   /** the distance function used. */
   protected DistanceFunction m_SimilarityMeasure= new SimilarityMeasure();
 
-  private double m_PercentOfDeltaPrime=30.0;
-  private double m_PercentOfDelta=70.0;
+  private double m_PercentOfDeltaPrime=10.0;
+  private double m_PercentOfDelta=90.0;
 
   public void setPercentOfDeltaPrime(double _numTimes) {
     m_PercentOfDeltaPrime=_numTimes;
@@ -62,7 +62,7 @@ public class CRplus
             + "Uniform value ex: and default 30 % or indicate for each class in text file.\n";
   }
 
-  private double eta=1.0;
+  private double eta=10.0;
 
   public void setEta(double _eta){
     eta = _eta;
@@ -98,8 +98,8 @@ public class CRplus
 
 
   public String numOmegasTipText(){
-      return "Indicate the number of n omega parts, this is the defualt option if you do not specify"
-              + " a file path";
+    return "Indicate the number of n omega parts, this is the defualt option if you do not specify"
+            + " a file path";
   }
 
   /**
@@ -108,7 +108,7 @@ public class CRplus
    * @param omegasFilePath file path
    */
   public void setNumOmegas(int _num) {
-      numOmegas=_num;
+    numOmegas=_num;
   }
   /**
    * Get the paths to omegas
@@ -117,12 +117,11 @@ public class CRplus
    * @throws IOException
    */
   public int getNumOmegas() {
-      int result = numOmegas;
-      return result;
+    return numOmegas;
   }
 
   public String omegasFilePathTipText() {
-      return "Specifiy a file path who contains omega parts to initilizate the algorithm";
+    return "Specifiy a file path who contains omega parts to initilizate the algorithm";
   }
 
   /**
@@ -131,7 +130,7 @@ public class CRplus
    * @param omegasFilePath file path
    */
   public void setOmegasFilePath(String _filePath) {
-      omegasFilePath=_filePath;
+    omegasFilePath=_filePath;
 
   }
 
@@ -142,7 +141,7 @@ public class CRplus
    * @throws IOException
    */
   public String getOmegasFilePath() {
-     return omegasFilePath;
+    return omegasFilePath;
   }
   /**
    * Returns default capabilities of the classifier.
@@ -229,22 +228,8 @@ public class CRplus
   public void buildClassifier(Instances instances) throws Exception {
 
     getCapabilities().testWithFail(instances);
-    /*Desde aqui intento mostrar el flujo de como se extraen
-     * los indices del archivo y todo el flujo de esos datos
-     * puse todo esto aqui ya que de aqui se ejecuta
-     * espero poder lograr explicar bien
-     */
 
-
-    /* Esto primero es informacion que por el momento no se usa pero
-     * creo que se podra utilizar no le hagan mucho caso por ahora*/
     String clases = instances.classAttribute().toString();
-    int numAttributes = instances.numAttributes();
-    //System.out.println(clases);
-    String[] div = clases.split("\\{",2);
-    String[] classNames = div[1].split("\\}",2);
-    //System.out.println(div1[0]);
-
 
     instances = new Instances(instances);
     instances.deleteWithMissingClass();
@@ -282,6 +267,9 @@ public class CRplus
           continue;
         } else {
           num_lines+=1;
+          int numAttributes = instances.numAttributes();
+          String[] div = clases.split("\\{",2);
+          String[] classNames = div[1].split("\\}",2);
           /*como acordado cada linea pertenece a una clase
            * por lo que se crea las omegas partes */
           String[] div4 = cadena.split("\\[",2);
@@ -290,40 +278,29 @@ public class CRplus
           testAlreadyAdded(className,listaOSetClass);
           omegasSet set = new omegasSet();
           String[] umbrales = div4[1].split("\\]",2);
-          set.setTresholds(umbrales[0], 0); //KORA
-
+          set.setThresholds(umbrales[0], 0); //Kora
           set.setOmegasSetFromFile(className+umbrales[1],numAttributes);
           /*Se agrega a la lista, la lista tendra
            * tantos elementos como lineas del archivo
            * que corresponden a el numero de clases*/
           listaOSetClass.add(set);
-          if(num_lines>instances.numClasses()) {
-            System.out.println("sale");
-          }
         }
       }
     }else {
       //busco subconjuntos de n cuando no se especifican con el archivo
       System.out.println("Sera con n partes= "+numOmegas);
-      //supongamos que encuentro y uso los atributos 0,2,3 y 1,4
-      int[] omega_parte_1 = {0,2,3};
-      int[] omega_parte_2= {1,4};
-      //creo lista de array por que van a ser varios
-      ArrayList<int[]> omegas_encontradas =new ArrayList<int[]>();
-      //agrego las omegas partes a la lista
-      omegas_encontradas.add(omega_parte_1);
-      omegas_encontradas.add(omega_parte_2);
-      //creo mi conjunto de omega parte para la clase
-      //aqui es donde pienso usarlo lo que comento casi al
-      //inicio de este meteodo que no hagan caso
-      // ya que aho recupero los nombres de las clases
+
       omegasSet set = new omegasSet();
-      set.setOmegasClassName("A");
-      set.setOmegasSet(omegas_encontradas);
-      //todo el proceso de recuperacion es igual que
-      // en el if ya no lo quise copiar
-      //al final de cuantas no se hara en este orden
-      // es solo un jemplo de como meter y sacar los datos
+      set.setOmegasFromSize(classes[0], numOmegas, instances.classIndex());
+      String thres =  String.valueOf(m_PercentOfDelta)+","+ String.valueOf(m_PercentOfDeltaPrime);
+      set.setThresholds(thres, 0);
+      listaOSetClass.add(set);
+      for (int i=1;i<classes.length;i++) {
+        omegasSet set1 = new omegasSet();
+        set1.setThresholds(thres, 0);//Kora
+        set1.setOmegasFromString(classes[i], set.getIndicesString(), instances.classIndex());
+        listaOSetClass.add(set1);
+      }
     }
 
     // Para cada clase...
@@ -349,12 +326,15 @@ public class CRplus
       deltaPrime = (m_Train.numInstances() - sameClassInstances) * deltaPrime/100.0;
 
 
-            /*Se obtienen todas las omegas partes de esa clase
-     * recordemos que pueden ser n y de distinto tamaño*/
+      /*Se obtienen todas las omegas partes de esa clase
+       * recordemos que pueden ser n y de distinto tamaño*/
       ArrayList<omegas> sub_indices_omegas = omegasClase.getOmegasSet();
+      //para cada omega hay un peso
+      ArrayList<Double> omega_weights = omegasClase.getWeghts();
+
       ClassComplexTraits classComplexTraits;
 
-      classComplexTraits = getComplexTraits(m_Train, sub_indices_omegas, delta, deltaPrime, name_class);
+      classComplexTraits = getComplexTraits(m_Train, sub_indices_omegas, omega_weights, delta, deltaPrime, name_class);
 
       //Se calculan los restos de la clase
       Instances leftovers = new Instances(m_Train,0,1);
@@ -393,46 +373,49 @@ public class CRplus
         delta = delta*resizeFactor;
         deltaPrime = deltaPrime/resizeFactor;
 
-        classComplexTraits2 = getComplexTraits(leftovers, sub_indices_omegas, delta, deltaPrime, name_class);
+        if(deltaPrime <= delta) {
+          classComplexTraits2 = getComplexTraits(leftovers, sub_indices_omegas, omega_weights, delta, deltaPrime, name_class);
 
-        for(int i=0; i<classComplexTraits2.getSize(); i++) {
-          classComplexTraits.addComplexTrait(classComplexTraits2.getComplexTrait(i));
-        }
+          for (int i = 0; i < classComplexTraits2.getSize(); i++) {
+            classComplexTraits.addComplexTrait(classComplexTraits2.getComplexTrait(i));
+          }
 
-        //Se calculan los restos de la clase
-        Instances leftovers2 = new Instances(leftovers,0,leftovers.size());
-        leftovers = new Instances(leftovers,0,1);
-        leftovers.delete(0);
-        allObjects = true;
-        for(int i=0; i<m_Train.size(); i++){
-          if(m_Train.get(i).stringValue(m_Train.get(i).classIndex()).equals(name_class)){
-            ComplexTrait complexTrait;
-            String indices;
-            beta = 0;
-            for(int j=0; j<classComplexTraits.getSize(); j++){
-              if(beta < eta) {
-                complexTrait = classComplexTraits.getComplexTrait(j);
-                indices = complexTrait.getOmega();
-                m_SimilarityMeasure.setAttributeIndices(indices);
-                beta += m_SimilarityMeasure.distance(m_Train.get(i), complexTrait.getEquivalentInstance());
+          //Se calculan los restos de la clase
+          Instances leftovers2 = new Instances(leftovers, 0, leftovers.size());
+          leftovers = new Instances(leftovers, 0, 1);
+          leftovers.delete(0);
+          allObjects = true;
+          for (int i = 0; i < m_Train.size(); i++) {
+            if (m_Train.get(i).stringValue(m_Train.get(i).classIndex()).equals(name_class)) {
+              ComplexTrait complexTrait;
+              String indices;
+              beta = 0;
+              for (int j = 0; j < classComplexTraits.getSize(); j++) {
+                if (beta < eta) {
+                  complexTrait = classComplexTraits.getComplexTrait(j);
+                  indices = complexTrait.getOmega();
+                  m_SimilarityMeasure.setAttributeIndices(indices);
+                  beta += m_SimilarityMeasure.distance(m_Train.get(i), complexTrait.getEquivalentInstance());
+                } else {
+                  break;
+                }
               }
-              else{
-                break;
+              if (beta < eta) {
+                leftovers.add(m_Train.get(i));
+                allObjects = false;
               }
-            }
-            if(beta < eta){
+            } else {
               leftovers.add(m_Train.get(i));
-              allObjects = false;
             }
           }
-          else{
-            leftovers.add(m_Train.get(i));
-          }
+        }
+        else{
+          allObjects = true;
         }
       }
       model.add(classComplexTraits);
     }
-  int a = 0;
+    int a = 0;
   }
 
   private void sendException(String message) throws Exception{
@@ -505,7 +488,7 @@ public class CRplus
       for(int j=0; j<model.get(i).getSize(); j++){
         voter = model.get(i).getComplexTrait(j);
         m_SimilarityMeasure.setAttributeIndices(voter.getOmega());
-        accVotes += m_SimilarityMeasure.distance(instance, voter.getEquivalentInstance());
+        accVotes += voter.getWeight() * m_SimilarityMeasure.distance(instance, voter.getEquivalentInstance());
       }
       votes[index] = accVotes;
       electoralRoll += accVotes; //Esta es la suma de las similitudes con todos los rasgos complejos de todas las clases
@@ -519,8 +502,8 @@ public class CRplus
 
   @Override
   public TechnicalInformation getTechnicalInformation() {
-      // TODO Auto-generated method stub
-      return null;
+    // TODO Auto-generated method stub
+    return null;
   }
 
   /**
@@ -529,11 +512,11 @@ public class CRplus
    * @param argv the options
    */
   public static void main(String[] argv) {
-      runClassifier(new CRplus(), argv);
+    runClassifier(new CRplus(), argv);
   }
 
-  private ClassComplexTraits getComplexTraits(Instances objects, ArrayList<omegas> omegaSets, double delta,
-                                                   double deltaPrime, String classToAnalyze){
+  private ClassComplexTraits getComplexTraits(Instances objects, ArrayList<omegas> omegaSets, ArrayList<Double> weights,
+                                              double delta, double deltaPrime, String classToAnalyze){
 
     ClassComplexTraits complexTraits = new ClassComplexTraits();
     complexTraits.setClass(classToAnalyze);
@@ -541,10 +524,12 @@ public class CRplus
     double calculatedSimilarity;
     double positive;
     double negative;
+    double weight;
 
     //Para cada uno de estos subconjuntos...
     for(int y=0;y<omegaSets.size();y++)
     {
+      weight = weights.get(y);
       omegas subconjunto = omegaSets.get(y);
       /*lo devuelve en forma de array de int
        * esto por que los filter de atributos
@@ -622,6 +607,7 @@ public class CRplus
             complexTrait.setOmega(indices);
             complexTrait.setEquivalentInstance(objects.get(i1));
             complexTraits.addComplexTrait(complexTrait);
+            complexTrait.setWeight(weight);
           }
         }
       }
@@ -631,4 +617,3 @@ public class CRplus
   }
 
 }
-

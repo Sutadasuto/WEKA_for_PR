@@ -2,24 +2,70 @@ package weka.classifiers.LC;
 
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.io.Serializable;
 
 import weka.core.WekaException;
 
 public class omegasSet implements Serializable {
 
-  private static final long serialVersionUID = -422874939059679971L;
-  public ArrayList<omegas> omegaset = new ArrayList<omegas>();
+	private static final long serialVersionUID = -422874939059679971L;
+	public ArrayList<omegas> omegaset = new ArrayList<omegas>();
 	private  ArrayList<thresholdSet> thresholds = new ArrayList<thresholdSet>();
-
+	private String indices="";
 	private String class_name;
+	private ArrayList<Double> weights = new ArrayList<>();
+	private static final Double DEFAULT_WEIGHT =1.0;
 
 	public ArrayList<thresholdSet> getThresholds(){
 		return thresholds;
 	}
+	public ArrayList<Double> getWeghts(){
+		return weights;
+	}
+	public void setOmegasFromString(String _className,String _indices, int _range) throws Exception {
+		indices = _indices;
+		String aux_indices=_className+":"+_indices;
+		setOmegasSetFromFile(aux_indices,_range);
+	}
+	public String getIndicesString() {
+		return indices;
+	}
+	public void setOmegasFromSize(String _className,int _size, int _range) throws Exception {
+		if(_size<=_range) {
+			for(int i=1; i<_range;i++) {
+				ArrayList<Integer> root=new ArrayList<>();
+				root.add(i);
+				generateOmegasets(root,i,_size,1,_range);
+			}
+			String aux_indices=_className+":"+indices;
+			setOmegasSetFromFile(aux_indices,_range);
+		}else {
+			sendException("There is a out of range attribute in the Omegaset from file."
+							+ "\nClass Name: "+this.getOmegasClassName()+" Index of attibute: ");
+		}
+	}
 
-	public void setTresholds(String _tresh, int opc) {
+	private void generateOmegasets(ArrayList<Integer> _root, int _indice, int _size, int _profundidad, int _range) {
+		// TODO Auto-generated method stub
+		if(_profundidad==_size) {
+			String aux_indices=_root.toString().replaceAll("\\[", "");
+			aux_indices=aux_indices.toString().replaceAll("\\]", "");
+			aux_indices=aux_indices.toString().replaceAll(" ", "");
+			if(indices.length()==0) {
+				indices = aux_indices;
+			}else {
+				indices = indices+";"+aux_indices;
+			}
+		}else {
+			while(_indice<_range) {
+				_root.add(_indice+1);
+				generateOmegasets(_root,_indice+1,_size,_profundidad+1,_range);
+				_root.remove(_root.size()-1);
+				_indice+=1;
+			}
+		}
+	}
+	public void setThresholds(String _tresh, int opc) {
 		if(opc==1) { //CRplus
 			String[] div1 = _tresh.split(";",2);
 			String[] div2 = div1[0].split(",",2);
@@ -54,26 +100,23 @@ public class omegasSet implements Serializable {
 	public String getOmegasClassName() {
 		return class_name;
 	}
-	public void setOmegasSet(ArrayList<int[]> indices) {
-		for (int i=0;i<indices.size();i++) {
-			omegas n_omegas = new omegas();
-			n_omegas.setOmegas(indices.get(i));
-		}
-	}
-	private void sendException(String message) throws Exception{
-		Exception m_FailReason = new WekaException(message);
-		throw m_FailReason;
-	}
 	public void setOmegasSetFromFile(String indices,int range) throws Exception {
 		String[] div1 = indices.split("\\:",2);
 		this.setOmegasClassName(div1[0]);
-		//String[] div2 = div1[1].split("\\:");
-		//this.setNumOfTimes(div2[0]);
 		String[] div3 = div1[1].split(";");
 		for(int i=0;i<div3.length;i++) {
 			omegas n_omega= new omegas();
-			//System.out.println(div2[i]);
-			int response = n_omega.setOmegasFromFile(div3[i],range);
+			String[] div4 = div3[i].split(":");
+			String tempIndices="";
+			if(div4.length==2) {
+				Double weigth = Double.parseDouble(div4[0]);
+				weights.add(weigth);
+				tempIndices=div4[1];
+			}else {
+				tempIndices=div3[i];
+				weights.add(DEFAULT_WEIGHT);
+			}
+			int response = n_omega.setOmegasFromFile(tempIndices,range);
 			if(response==-1) {
 				omegaset.add(n_omega);
 			}else {
@@ -82,15 +125,13 @@ public class omegasSet implements Serializable {
 								+response);
 			}
 		}
-		for (int i=0; i<omegaset.size();i++) {
-			//System.out.println("Hi");
-			//System.out.println(omegaset.get(i).getOmegas());
-		}
-		//class_name=indices;
-		//System.out.println(indices);
 	}
 	public ArrayList<omegas> getOmegasSet() {
 		return omegaset;
+	}
+	private void sendException(String message) throws Exception{
+		Exception m_FailReason = new WekaException(message);
+		throw m_FailReason;
 	}
 
 }

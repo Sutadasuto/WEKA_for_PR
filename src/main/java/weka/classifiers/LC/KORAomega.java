@@ -38,8 +38,8 @@ public class KORAomega
   /** the distance function used. */
   protected DistanceFunction m_SimilarityMeasure= new SimilarityMeasure();
 
-  private double m_PercentOfDeltaPrime=30.0;
-  private double m_PercentOfDelta=70.0;
+  private double m_PercentOfDeltaPrime=10.0;
+  private double m_PercentOfDelta=90.0;
 
   public void setPercentOfDeltaPrime(double _numTimes) {
     m_PercentOfDeltaPrime=_numTimes;
@@ -62,7 +62,7 @@ public class KORAomega
             + "Uniform value ex: and default 30 % or indicate for each class in text file.\n";
   }
 
-  private double eta=1.0;
+  private double eta=10.0;
 
   public void setEta(double _eta){
     eta = _eta;
@@ -117,8 +117,7 @@ public class KORAomega
    * @throws IOException
    */
   public int getNumOmegas() {
-    int result = numOmegas;
-    return result;
+    return numOmegas;
   }
 
   public String omegasFilePathTipText() {
@@ -229,22 +228,8 @@ public class KORAomega
   public void buildClassifier(Instances instances) throws Exception {
 
     getCapabilities().testWithFail(instances);
-    /*Desde aqui intento mostrar el flujo de como se extraen
-     * los indices del archivo y todo el flujo de esos datos
-     * puse todo esto aqui ya que de aqui se ejecuta
-     * espero poder lograr explicar bien
-     */
 
-
-    /* Esto primero es informacion que por el momento no se usa pero
-     * creo que se podra utilizar no le hagan mucho caso por ahora*/
     String clases = instances.classAttribute().toString();
-    int numAttributes = instances.numAttributes();
-    //System.out.println(clases);
-    String[] div = clases.split("\\{",2);
-    String[] classNames = div[1].split("\\}",2);
-    //System.out.println(div1[0]);
-
 
     instances = new Instances(instances);
     instances.deleteWithMissingClass();
@@ -282,6 +267,9 @@ public class KORAomega
           continue;
         } else {
           num_lines+=1;
+          int numAttributes = instances.numAttributes();
+          String[] div = clases.split("\\{",2);
+          String[] classNames = div[1].split("\\}",2);
           /*como acordado cada linea pertenece a una clase
            * por lo que se crea las omegas partes */
           String[] div4 = cadena.split("\\[",2);
@@ -290,40 +278,29 @@ public class KORAomega
           testAlreadyAdded(className,listaOSetClass);
           omegasSet set = new omegasSet();
           String[] umbrales = div4[1].split("\\]",2);
-          set.setTresholds(umbrales[0], 0); //Kora
-
+          set.setThresholds(umbrales[0], 0); //Kora
           set.setOmegasSetFromFile(className+umbrales[1],numAttributes);
           /*Se agrega a la lista, la lista tendra
            * tantos elementos como lineas del archivo
            * que corresponden a el numero de clases*/
           listaOSetClass.add(set);
-          if(num_lines>instances.numClasses()) {
-            System.out.println("sale");
-          }
         }
       }
     }else {
       //busco subconjuntos de n cuando no se especifican con el archivo
       System.out.println("Sera con n partes= "+numOmegas);
-      //supongamos que encuentro y uso los atributos 0,2,3 y 1,4
-      int[] omega_parte_1 = {0,2,3};
-      int[] omega_parte_2= {1,4};
-      //creo lista de array por que van a ser varios
-      ArrayList<int[]> omegas_encontradas =new ArrayList<int[]>();
-      //agrego las omegas partes a la lista
-      omegas_encontradas.add(omega_parte_1);
-      omegas_encontradas.add(omega_parte_2);
-      //creo mi conjunto de omega parte para la clase
-      //aqui es donde pienso usarlo lo que comento casi al
-      //inicio de este meteodo que no hagan caso
-      // ya que aho recupero los nombres de las clases
+
       omegasSet set = new omegasSet();
-      set.setOmegasClassName("A");
-      set.setOmegasSet(omegas_encontradas);
-      //todo el proceso de recuperacion es igual que
-      // en el if ya no lo quise copiar
-      //al final de cuantas no se hara en este orden
-      // es solo un jemplo de como meter y sacar los datos
+      set.setOmegasFromSize(classes[0], numOmegas, instances.classIndex());
+      String thres =  String.valueOf(m_PercentOfDelta)+","+ String.valueOf(m_PercentOfDeltaPrime);
+      set.setThresholds(thres, 0);
+      listaOSetClass.add(set);
+      for (int i=1;i<classes.length;i++) {
+        omegasSet set1 = new omegasSet();
+        set1.setThresholds(thres, 0);//Kora
+        set1.setOmegasFromString(classes[i], set.getIndicesString(), instances.classIndex());
+        listaOSetClass.add(set1);
+      }
     }
 
     // Para cada clase...
@@ -352,9 +329,12 @@ public class KORAomega
       /*Se obtienen todas las omegas partes de esa clase
        * recordemos que pueden ser n y de distinto tamaño*/
       ArrayList<omegas> sub_indices_omegas = omegasClase.getOmegasSet();
+      //para cada omega hay un peso
+      ArrayList<Double> omega_weights = omegasClase.getWeghts();
+
       ClassComplexTraits classComplexTraits;
 
-      classComplexTraits = getComplexTraits(m_Train, sub_indices_omegas, delta, deltaPrime, name_class);
+      classComplexTraits = getComplexTraits(m_Train, sub_indices_omegas, omega_weights, delta, deltaPrime, name_class);
 
       //Se calculan los restos de la clase
       Instances leftovers = new Instances(m_Train,0,1);
@@ -393,7 +373,7 @@ public class KORAomega
         delta = delta*resizeFactor;
         deltaPrime = deltaPrime/resizeFactor;
 
-        classComplexTraits2 = getComplexTraits(leftovers, sub_indices_omegas, delta, deltaPrime, name_class);
+        classComplexTraits2 = getComplexTraits(leftovers, sub_indices_omegas, omega_weights,delta, deltaPrime, name_class);
 
         for(int i=0; i<classComplexTraits2.getSize(); i++) {
           classComplexTraits.addComplexTrait(classComplexTraits2.getComplexTrait(i));
@@ -505,7 +485,7 @@ public class KORAomega
       for(int j=0; j<model.get(i).getSize(); j++){
         voter = model.get(i).getComplexTrait(j);
         m_SimilarityMeasure.setAttributeIndices(voter.getOmega());
-        accVotes += m_SimilarityMeasure.distance(instance, voter.getEquivalentInstance());
+        accVotes += voter.getWeight() * m_SimilarityMeasure.distance(instance, voter.getEquivalentInstance());
       }
       votes[index] = accVotes;
       electoralRoll += accVotes; //Esta es la suma de las similitudes con todos los rasgos complejos de todas las clases
@@ -532,8 +512,8 @@ public class KORAomega
     runClassifier(new KORAomega(), argv);
   }
 
-  private ClassComplexTraits getComplexTraits(Instances objects, ArrayList<omegas> omegaSets, double delta,
-                                              double deltaPrime, String classToAnalyze){
+  private ClassComplexTraits getComplexTraits(Instances objects, ArrayList<omegas> omegaSets, ArrayList<Double> weights,
+                                              double delta, double deltaPrime, String classToAnalyze){
 
     ClassComplexTraits complexTraits = new ClassComplexTraits();
     complexTraits.setClass(classToAnalyze);
@@ -541,10 +521,12 @@ public class KORAomega
     double calculatedSimilarity;
     double positive;
     double negative;
+    double weight;
 
     //Para cada uno de estos subconjuntos...
     for(int y=0;y<omegaSets.size();y++)
     {
+      weight = weights.get(y);
       omegas subconjunto = omegaSets.get(y);
       /*lo devuelve en forma de array de int
        * esto por que los filter de atributos
@@ -622,6 +604,7 @@ public class KORAomega
             complexTrait.setOmega(indices);
             complexTrait.setEquivalentInstance(objects.get(i1));
             complexTraits.addComplexTrait(complexTrait);
+            complexTrait.setWeight(weight);
           }
         }
       }
@@ -631,4 +614,3 @@ public class KORAomega
   }
 
 }
-
