@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6c5587d5-5d1e-41a2-a3e5-49c8872b6423" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/weka/classifiers/LC/CRplus.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/weka/classifiers/LC/CRplus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/weka/classifiers/LC/ComplexTrait.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/weka/classifiers/LC/ComplexTrait.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/weka/classifiers/LC/KORAomega.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/weka/classifiers/LC/KORAomega.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/weka/classifiers/LC/omegasSet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/weka/classifiers/LC/omegasSet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/CRplus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/CRplus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/ComplexTrait.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/ComplexTrait.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/KORAomega.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/KORAomega.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/omegasSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weka/classifiers/LC/omegasSet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cscasdfafasdqafcsax" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <ignored path="$PROJECT_DIR$/build/testcases/" />
@@ -44,8 +37,8 @@
       <file leaf-file-name="CRplus.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/weka/classifiers/LC/CRplus.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="375" column="25" lean-forward="true" selection-start-line="375" selection-start-column="25" selection-end-line="375" selection-end-column="25" />
+            <state relative-caret-position="279">
+              <caret line="379" column="25" lean-forward="true" selection-start-line="379" selection-start-column="25" selection-end-line="379" selection-end-column="25" />
               <folding>
                 <element signature="e#7080#7091#0" expanded="true" />
               </folding>
@@ -827,8 +820,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/weka/classifiers/LC/CRplus.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="375" column="25" lean-forward="true" selection-start-line="375" selection-start-column="25" selection-end-line="375" selection-end-column="25" />
+        <state relative-caret-position="279">
+          <caret line="379" column="25" lean-forward="true" selection-start-line="379" selection-start-column="25" selection-end-line="379" selection-end-column="25" />
           <folding>
             <element signature="e#7080#7091#0" expanded="true" />
           </folding>

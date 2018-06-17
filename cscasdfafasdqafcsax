@@ -1,0 +1,23 @@
+[33me7a3038[m HEAD@{0}: commit: Classification takes single omegaset weight into consideration; CRplus is a variant of KORA where the algorithm stops if deltaPrime > delta
+[33m0cafc7a[m HEAD@{1}: commit (merge): dumb
+[33m3ffa14d[m HEAD@{2}: commit: Classification takes single omegaset weight into consideration. CRplus is a variant of KORA where the algorithm stops if deltaPrime > delta
+[33mb0ddfdd[m HEAD@{3}: reset: moving to b0ddfdd
+[33m2c49af1[m HEAD@{4}: revert: Revert "KORA classifier beta working. Classes in LC folder are serializable"
+[33mb0ddfdd[m HEAD@{5}: checkout: moving from master to b0ddfdd
+[33m1384cbd[m HEAD@{6}: pull origin master: Fast-forward
+[33mb0ddfdd[m HEAD@{7}: commit: KORA classifier beta working. Classes in LC folder are serializable
+[33m24ae089[m HEAD@{8}: pull origin master: Fast-forward
+[33m73d6b5b[m HEAD@{9}: commit: thresholdSet.java added
+[33mb5265db[m HEAD@{10}: commit: Comparation algorithm improved. Similarity measure can be chosen from GUI
+[33mab2812a[m HEAD@{11}: commit: Evaluation of omegasets added to KORAomega. omegaSimilarity.java modified to add extra features to the object
+[33mdf09427[m HEAD@{12}: pull origin master: Merge made by the 'recursive' strategy.
+[33mcce8596[m HEAD@{13}: commit: Evaluation of omegasets added to KORAomega. omegaSimilarity.java modified to add extra features to the object
+[33m5ce3c8a[m HEAD@{14}: commit: omegaSimilarity.java added. This class is used in KORAomega.java to calculate and store the similarities between pairs of instances
+[33mc481bd0[m HEAD@{15}: commit: Default Classifier is KORAomega. SimilarityMeasure.java normalizes according to the number of attributes compared. KORAomega.java calculates similarity between the first two instances of the data set, for all omega-sets
+[33m5a18e91[m HEAD@{16}: commit: CRplus added
+[33m941949c[m HEAD@{17}: commit: SimilarityMeasure.java added. KORAomega.java added
+[33m3aaf09b[m HEAD@{18}: commit: REbuild
+[33m84a8a11[m HEAD@{19}: commit: I did a mess
+[33m0d790df[m HEAD@{20}: commit: I did a mess. Uploading a new working compiled version
+[33md5f507c[m HEAD@{21}: commit (merge): REbuild
+[33mcef74a9[m HEAD@{22}: commit (initial): REbuild
