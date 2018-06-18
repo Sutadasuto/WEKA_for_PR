@@ -1,6 +1,7 @@
 package weka.core;
 
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Set;
 
@@ -206,13 +207,37 @@ implements Cloneable, TechnicalInformationHandler {
 	    	String attName = m_Data.attribute(index).name();
 	    	String keyX = attName+Double.toString(val1);
 	    	String keyY = attName+Double.toString(val2);
-	    	int nax = Nax.get(keyX);
-	    	int nay = Nax.get(keyY);
+	    	int nax, nay;
+	    	if(Nax.containsKey(keyX))
+	    		nax = Nax.get(keyX);
+	    	else
+	    		nax = 1;
+	    	if(Nax.containsKey(keyY))
+	    		nay = Nax.get(keyY);
+	    	else
+	    		nay = 1;
 	    	//int nClasses = m_Data.numClasses();
 	    	double diff = 0;
-	    	Set<String> keys = Naxc.keySet();
-	    	for(String key: keys){
-	    		diff+=Math.abs(((double)Naxc.get(key).get(keyX)/(double)nax)-((double)Naxc.get(key).get(keyY)/(double)nay));
+	    	Enumeration<String> keysX = Naxc.keys();
+	    	Enumeration<String> keysY = Naxc.keys();
+	    	String key1, key2;
+	    	double valueX, valueY;
+	    	while(keysX.hasMoreElements()){
+	    		key1 = keysX.nextElement();
+	    		key2 = keysY.nextElement();
+	    		if(Naxc.get(key1).containsKey(keyX)) {
+	    			valueX = (double)Naxc.get(key1).get(keyX);
+	    			//System.out.println("SI hay valores para la clase "+key1);
+	    		}
+	    		else {
+	    			valueX = 0;
+	    			//System.out.println("NO hay valores para la clase "+key1);
+	    		}
+	    		if(Naxc.get(key2).containsKey(keyY))
+	    			valueY = (double)Naxc.get(key2).get(keyY);
+	    		else
+	    			valueY = 0;
+	    		diff+=Math.abs((valueX/(double)nax)-(valueY/(double)nay));
 	    	}
 	        return diff;
 	      }
@@ -329,7 +354,7 @@ implements Cloneable, TechnicalInformationHandler {
 		 	}
 		 	for(int i = 0; i< m_Data.numInstances();i++){
 		 		cInstance = m_Data.get(i);
-		 		cKey = Double.toString(cInstance.valueSparse(classIndex));
+		 		cKey = cInstance.attribute(classIndex).name() + Double.toString(cInstance.valueSparse(classIndex));
 		 		if(!Naxc.containsKey(cKey))
 		 			Naxc.put(cKey, new Hashtable<String,Integer>());
 		 		for(int j = 0; j<m_Data.numAttributes();j++){
@@ -355,7 +380,7 @@ implements Cloneable, TechnicalInformationHandler {
 		 	cInstance = m_Data.get(0);
 		 	System.out.println(cInstance.attribute(0).name());
 		 	System.out.println(m_Data.numInstances());
-		 	System.out.println(Naxc.get(Double.toString(cInstance.value(classIndex))).get(cInstance.attribute(2).name()+cInstance.valueSparse(2)));
+		 	System.out.println(Naxc.get(cInstance.attribute(classIndex).name()+Double.toString(cInstance.value(classIndex))).get(cInstance.attribute(2).name()+cInstance.valueSparse(2)));
 		 	System.out.println(Nax.get(cInstance.attribute(2).name()+Double.toString(cInstance.valueSparse(2))));
 		  }
 	  /**
