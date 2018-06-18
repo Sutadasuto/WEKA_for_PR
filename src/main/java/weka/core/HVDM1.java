@@ -1,9 +1,7 @@
 package weka.core;
 
-import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Hashtable;
-import java.util.Set;
 
 import weka.core.TechnicalInformation.Field;
 import weka.core.TechnicalInformation.Type;
@@ -14,7 +12,7 @@ extends NormalizableDistance
 implements Cloneable, TechnicalInformationHandler {
 
 	/**
-	 * 
+	 * @author Jorge Madrid (jorgegus.93@gmail.com)
 	 */
 	private static final long serialVersionUID = 106860625836594739L;
 	
@@ -43,15 +41,25 @@ implements Cloneable, TechnicalInformationHandler {
 
 	@Override
 	public TechnicalInformation getTechnicalInformation() {
-		// TODO Auto-generated method stub
-		return null;
+		TechnicalInformation 	result;
+	    
+	    result = new TechnicalInformation(Type.ARTICLE);
+	    result.setValue(Field.AUTHOR, "Randall Wilson & Tony Martinez");
+	    result.setValue(Field.TITLE, "Improved Heterogeneous Distance Functions");
+	    result.setValue(Field.URL, "https://arxiv.org/pdf/cs/9701101.pdf");
+
+	    return result;
 	}
 
 	@Override
 	public String globalInfo() {
-		// TODO Auto-generated method stub
-		return "Heterogeneous Euclidian Overlap Metric"
-				+ getTechnicalInformation().toString();	
+		return 
+		        "Implements Heterogeneous Value Difference Metric (HVDM).\n"
+			  + "Similarity version\n\n"	
+		      + "For nominal attributes it uses the normalized Value Differen"
+		      + "ce Metric 1 (vdm1), based on absolute value\n\n"
+		      + "For more information, see:\n\n"
+		      + getTechnicalInformation().toString();
 	}
 	 /**
 	   * Calculates the distance between two instances.
@@ -61,7 +69,16 @@ implements Cloneable, TechnicalInformationHandler {
 	   * @return 		the distance between the two given instances
 	   */
 	public double distance(Instance first, Instance second) {
-	  return Math.sqrt(distance(first, second, Double.POSITIVE_INFINITY) / (allWeights * this.m_AttributeIndices.m_RangeStrings.size()));
+		double usedWeights = allWeights;
+		if(!m_Data.allAttributeWeightsIdentical()) {
+			for(int i = 0; i < m_Data.numAttributes();i++) {
+				if (!this.m_ActiveIndices[i]) {
+					usedWeights -= first.attribute(i).weight();
+				}
+			}
+		}
+		//System.out.println(m_Data.toString());
+	  return Math.sqrt(distance(first, second, Double.POSITIVE_INFINITY) / (usedWeights * this.m_AttributeIndices.m_RangeStrings.size()));
 	}
 	
 
@@ -376,12 +393,12 @@ implements Cloneable, TechnicalInformationHandler {
 		 			}
 		 		}
 		 	}
-		 	System.out.println("hola");
+		 	/*System.out.println("hola");
 		 	cInstance = m_Data.get(0);
 		 	System.out.println(cInstance.attribute(0).name());
 		 	System.out.println(m_Data.numInstances());
 		 	System.out.println(Naxc.get(cInstance.attribute(classIndex).name()+Double.toString(cInstance.value(classIndex))).get(cInstance.attribute(2).name()+cInstance.valueSparse(2)));
-		 	System.out.println(Nax.get(cInstance.attribute(2).name()+Double.toString(cInstance.valueSparse(2))));
+		 	System.out.println(Nax.get(cInstance.attribute(2).name()+Double.toString(cInstance.valueSparse(2))));*/
 		  }
 	  /**
 	   * Sets the instances.
