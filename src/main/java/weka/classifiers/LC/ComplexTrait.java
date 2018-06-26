@@ -13,7 +13,7 @@ public class ComplexTrait implements Serializable {
   private String[] values;
   private Instance equivalentInstance;
   private Double weight;
-
+  private Boolean isPositive=true;
 
   //private String indice_omegas;
 
@@ -48,4 +48,7 @@ public class ComplexTrait implements Serializable {
 
   public void setWeight(Double _weight) { weight = _weight; }
   public double getWeight() { return weight; }
+  
+  public void setIsPositive(Boolean _isPositive) {isPositive=_isPositive;}
+  public boolean getIsPositive() {return isPositive;}
 }
