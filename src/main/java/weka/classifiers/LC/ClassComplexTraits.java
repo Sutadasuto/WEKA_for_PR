@@ -8,6 +8,7 @@ public class ClassComplexTraits implements Serializable {
   private static final long serialVersionUID = 9078969117389410942L;
   ArrayList<ComplexTrait> complexTraits = new ArrayList<ComplexTrait>();
   private String classToAnalyze;
+  private boolean hasComplexTraits=true;
 
   public void setClass(String classOfComplexTraits) {
       classToAnalyze = classOfComplexTraits;
@@ -29,5 +30,13 @@ public class ClassComplexTraits implements Serializable {
 
   public ComplexTrait getComplexTrait(int index){
     return complexTraits.get(index);
+  }
+  
+  public void setHasComplexTraits(boolean _has) {
+	  hasComplexTraits=_has;
+  }
+  
+  public boolean getHasComplexTraits() {
+	  return hasComplexTraits;
   }
 }

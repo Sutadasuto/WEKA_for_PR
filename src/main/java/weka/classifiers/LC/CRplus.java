@@ -503,31 +503,97 @@ public class CRplus
       // En esta parte nos aseguramos de que las clases sean evualadas en el orden almacenado por Weka
       // (que puede diferir del orden del archivo de texto)
       int index = 0;
-      String setClass = model.get(i).getComplexTrait(0).getAnalyzedClass();
-      for(int j=0; j<classes.length; j++){
-        if(classes[j] == setClass){
-          index = j;
-          break;
-        }
-      }
-      // Se suman las similitudes de la instancia con todos los rasgos complejos de la clase a evaluar
-      accVotes = 0;
-      for(int j=0; j<model.get(i).getSize(); j++){
-        voter = model.get(i).getComplexTrait(j);
-        m_SimilarityMeasure.setAttributeIndices(voter.getOmega());
-        if(voter.getIsPositive()) {
-        		accVotes += voter.getWeight() * m_SimilarityMeasure.distance(instance, voter.getEquivalentInstance());
-        }else {
-        		accVotes -= voter.getWeight() * m_SimilarityMeasure.distance(instance, voter.getEquivalentInstance());
-        }
+      if(model.get(i).getHasComplexTraits()) {
+	      String setClass = model.get(i).getComplexTrait(0).getAnalyzedClass();
+	      for(int j=0; j<classes.length; j++){
+	        if(classes[j] == setClass){
+	          index = j;
+	          break;
+	        }
+	      }
+	      // Se suman las similitudes de la instancia con todos los rasgos complejos de la clase a evaluar
+	      accVotes = 0;
+	      for(int j=0; j<model.get(i).getSize(); j++){
+	        voter = model.get(i).getComplexTrait(j);
+	        m_SimilarityMeasure.setAttributeIndices(voter.getOmega());
+	        if(voter.getIsPositive()) {
+	        		accVotes += voter.getWeight() * m_SimilarityMeasure.distance(instance, voter.getEquivalentInstance());
+	        }else {
+	        		accVotes -= voter.getWeight() * m_SimilarityMeasure.distance(instance, voter.getEquivalentInstance());
+	        }
+	      }
+      }else {
+    	  	//int numero = (int) (Math.random() * numClasses);
+    	  	accVotes=0;
       }
       votes[index] = accVotes;
       electoralRoll += accVotes; //Esta es la suma de las similitudes con todos los rasgos complejos de todas las clases
     }
     // Al parecer para evaluar Weka pide probabilidades de todas las clases. Los votos se normalizan en el rango [0.1]
-    for(int i=0; i<votes.length; i++){
-      votes[i] = votes[i] / electoralRoll;
+
+    ArrayList<Integer> indicesMax=new ArrayList<Integer>();
+    
+    
+    		boolean iguales=true;
+    		
+	    	for(int i=0; i<votes.length-1; i++){
+	    		//double com = Math.max(maxVotes, votes[i]);
+	    		if(votes[i]!=votes[i+1]) {
+	    			iguales=false;
+	    			break;
+	    		}
+	    	}
+	    	if(iguales) { //escojo uno aleatorio
+	    		int numero = (int) (Math.random() * numClasses);
+	    		for(int i = 0; i < votes.length; i++)
+	    		{
+	    			if(i==numero) {
+	    				votes[i]=1;
+	    			}else {
+	    				votes[i]=0;
+	    			}
+	    		}
+	    		
+	    	}else { //busco el mayor o mayores
+	    		double max;
+	    		int indiceM=0;
+	    		max=votes[0];
+	    		indicesMax.add(0);
+	    		for(int i = 0; i < votes.length; i++)
+	    		{
+	    			if(max<votes[i])//es maximo
+	    			{
+	    				max=votes[i];
+	    				indicesMax.clear();
+	    				indicesMax.add(i);
+	    				
+	    			}else if(max==votes[i] && indiceM!=0) {
+	    				indicesMax.add(i);
+	    			}
+	    		} 	
+    if(indicesMax.size()>1) {//si hay algunos iguales
+    		int numero = (int) (Math.random() * indicesMax.size());
+    		int selected = indicesMax.get(numero);
+    		for(int i = 0; i < votes.length; i++)
+    		{
+    			if(i==selected) {
+    				votes[i]=1;
+    			}else {
+    				votes[i]=0;
+    			}
+    		}
+    }else {//solo hay un ganador
+	    	for(int i = 0; i < votes.length; i++)
+			{
+				if(i==indicesMax.get(0)) {
+					votes[i]=1;
+				}else {
+					votes[i]=0;
+				}
+			}
     }
+	    	}
+	    
     return votes;
   }
 
@@ -552,6 +618,7 @@ public class CRplus
 
     ClassComplexTraits complexTraits = new ClassComplexTraits();
     complexTraits.setClass(classToAnalyze);
+    complexTraits.setHasComplexTraits(false);
     boolean sameClass;
     double calculatedSimilarity;
     double positive;
@@ -635,6 +702,7 @@ public class CRplus
             complexTrait.setOmega(indices);
             complexTrait.setEquivalentInstance(objects.get(i1));
             complexTraits.addComplexTrait(complexTrait);
+            complexTraits.setHasComplexTraits(true);
             complexTrait.setWeight(weight);
           }else if(positive <= ethaPrime && negative >= etha){
               //Objeto equivalente a un rasgo complejo
@@ -666,6 +734,7 @@ public class CRplus
               complexTrait.setIsPositive(false);
               complexTrait.setEquivalentInstance(objects.get(i1));
               complexTraits.addComplexTrait(complexTrait);
+              complexTraits.setHasComplexTraits(true);
               complexTrait.setWeight(weight);
             }
         }
