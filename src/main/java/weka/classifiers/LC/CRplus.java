@@ -8,6 +8,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Enumeration;
 import java.util.Vector;
 
@@ -38,8 +39,8 @@ public class CRplus
   /** the distance function used. */
   protected DistanceFunction m_SimilarityMeasure= new SimilarityMeasure();
 
-  private double m_PercentOfDeltaPrime=50.0;
-  private double m_PercentOfDelta=50.0;
+  private double m_PercentOfDeltaPrime=30.0;
+  private double m_PercentOfDelta=60.0;
   private double m_PercentOfEthaPrime=5.0;
   private double m_PercentOfEtha=95.0;
 
@@ -65,53 +66,24 @@ public class CRplus
   }
   public void setPercentOfEthaPrime(double _numTimes) {
 	    m_PercentOfEthaPrime=_numTimes;
-	  }
-	  public double getPercentOfEthaPrime() {
-	    return m_PercentOfEthaPrime;
-	  }
-	  public String percentOfEthaPrimeTipText(){
-	    return "Delta prime: maximum number of times to appear outside the class."
-	            + "Uniform value ex: and default 70 % or indicate for each class in text file.\n";
-	  }
-	  public void setPercentOfEtha(double _numTimes) {
-	    m_PercentOfEtha=_numTimes;
-	  }
-	  public double getPercentOfEtha() {
-	    return m_PercentOfEtha;
-	  }
-	  public String percentOfEthaTipText(){
+  }
+  public double getPercentOfEthaPrime() {
+	  return m_PercentOfEthaPrime;
+  }
+  public String percentOfEthaPrimeTipText(){
+	  return "Delta prime: maximum number of times to appear outside the class."
+	            + "Uniform value ex: and default 95 % or indicate for each class in text file.\n";
+  }
+  public void setPercentOfEtha(double _numTimes) {
+	  m_PercentOfEtha=_numTimes;
+  }
+  public double getPercentOfEtha() {
+	   return m_PercentOfEtha;
+  }
+  public String percentOfEthaTipText(){
 	    return "Delta: minimum number of times to appear inside the class."
 	            + "Uniform value ex: and default 30 % or indicate for each class in text file.\n";
-	  }
-
-  private double eta=10.0;
-
-  public void setEta(double _eta){
-    eta = _eta;
   }
-
-  public double getEta(){
-    return eta;
-  }
-
-  public String EtaTipText(){
-    return "Similarity threshold to define class' leftovers";
-  }
-
-  private double resizeFactor=0.9;
-
-  public void setResizeFactor(double _resizeFactor){
-    resizeFactor = _resizeFactor;
-  }
-
-  public double getResizeFactor(){
-    return resizeFactor;
-  }
-
-  public String resizeFactorTipText(){
-    return "Resize factor for increasing and decreasing the delta and delta prime thresholds";
-  }
-
 
   /*variable file path of omega parts*/
   protected String omegasFilePath="";
@@ -178,7 +150,13 @@ public class CRplus
     newVector.add(new Option("\tSimlarity function to use.\n"
             + "\t(default: weka.core.SimilarityMeasure.java)", "A", 1,
             "-A <classname and options>"));
-
+    
+    newVector.add(new Option("\t Omega size"+ "\t(default: 3)","n",3,"-n <size>"));
+    newVector.add(new Option("\t Delta"+ "\t(default: 60)","D",60,"-D <num Times>"));
+    newVector.add(new Option("\t Delta Prime"+ "\t(default: 30)","P",30,"-P <num Times>"));
+    newVector.add(new Option("\t Etha"+ "\t(default: 95)","E",95,"-E <num Times>"));
+    newVector.add(new Option("\t Etha Prime"+ "\t(default: 5)","F",5,"-F <num Times>"));
+    newVector.addAll(Collections.list(super.listOptions()));
     return newVector.elements();
   }
 
@@ -198,6 +176,13 @@ public class CRplus
     } else {
       setSimilarityMeasure(new SimilarityMeasure());
     }
+    //Integer num = new Integer(Utils.getOption('n', options)).intValue();
+    setNumOmegas(new Integer(Utils.getOption('n', options)).intValue());
+    setPercentOfDelta(new Double(Utils.getOption('D', options)).doubleValue());
+    setPercentOfDeltaPrime(new Double(Utils.getOption('P', options)).doubleValue());
+    setPercentOfEtha(new Double(Utils.getOption('E', options)).doubleValue());
+    setPercentOfEthaPrime(new Double(Utils.getOption('F', options)).doubleValue());
+    super.setOptions(options);
   }
 
   @Override
@@ -209,7 +194,17 @@ public class CRplus
     result.add("-A");
     result.add((m_SimilarityMeasure.getClass().getName() + " " + Utils
             .joinOptions(m_SimilarityMeasure.getOptions())).trim());
-
+    result.add("-n");
+    result.add(""+numOmegas);
+    result.add("-D");
+    result.add(""+m_PercentOfDelta);
+    result.add("-P");
+    result.add(""+m_PercentOfDeltaPrime);
+    result.add("-E");
+    result.add(""+m_PercentOfEtha);
+    result.add("-F");
+    result.add(""+m_PercentOfEthaPrime);
+    Collections.addAll(result, super.getOptions());
     return result.toArray(new String[result.size()]);
   }
 
@@ -248,7 +243,7 @@ public class CRplus
 
   @Override
   public void buildClassifier(Instances instances) throws Exception {
-
+	  System.out.println("comienza");
     getCapabilities().testWithFail(instances);
 
     String clases = instances.classAttribute().toString();
@@ -312,8 +307,6 @@ public class CRplus
       }
     }else {
       //busco subconjuntos de n cuando no se especifican con el archivo
-      System.out.println("Sera con n partes= "+numOmegas);
-
       omegasSet set = new omegasSet();
       set.setOmegasFromSize(classes[0], numOmegas, instances.classIndex());
       String thres =  String.valueOf(m_PercentOfDelta)+","+ String.valueOf(m_PercentOfDeltaPrime);
@@ -363,83 +356,7 @@ public class CRplus
       ClassComplexTraits classComplexTraits;
 
       classComplexTraits = getComplexTraits(m_Train, sub_indices_omegas, omega_weights, delta, deltaPrime,etha, ethaPrime, name_class);
-/*
-      //Se calculan los restos de la clase
-      Instances leftovers = new Instances(m_Train,0,1);
-      leftovers.delete(0);
-      double beta;
-      boolean allObjects = true;
-      for(int i=0; i<m_Train.size(); i++){
-        if(m_Train.get(i).stringValue(m_Train.get(i).classIndex()).equals(name_class)){
-          ComplexTrait complexTrait;
-          String indices;
-          beta = 0;
-          for(int j=0; j<classComplexTraits.getSize(); j++){
-            if(beta < eta) {
-              complexTrait = classComplexTraits.getComplexTrait(j);
-              indices = complexTrait.getOmega();
-              m_SimilarityMeasure.setAttributeIndices(indices);
-              beta += m_SimilarityMeasure.distance(m_Train.get(i), complexTrait.getEquivalentInstance());
-            }
-            else{
-              break;
-            }
-          }
-          if(beta < eta){
-            leftovers.add(m_Train.get(i));
-            allObjects = false;
-          }
-        }
-        else{
-          leftovers.add(m_Train.get(i));
-        }
-      }
-      // Se calculan los rasgos complejos complementarios
-      ClassComplexTraits classComplexTraits2;
-      while(!allObjects){
-        delta = delta*resizeFactor;
-        deltaPrime = deltaPrime/resizeFactor;
 
-        if(deltaPrime <= delta) {
-          classComplexTraits2 = getComplexTraits(leftovers, sub_indices_omegas, omega_weights, delta, deltaPrime, name_class);
-
-          for (int i = 0; i < classComplexTraits2.getSize(); i++) {
-            classComplexTraits.addComplexTrait(classComplexTraits2.getComplexTrait(i));
-          }
-
-          //Se calculan los restos de la clase
-          Instances leftovers2 = new Instances(leftovers, 0, leftovers.size());
-          leftovers = new Instances(leftovers, 0, 1);
-          leftovers.delete(0);
-          allObjects = true;
-          for (int i = 0; i < m_Train.size(); i++) {
-            if (m_Train.get(i).stringValue(m_Train.get(i).classIndex()).equals(name_class)) {
-              ComplexTrait complexTrait;
-              String indices;
-              beta = 0;
-              for (int j = 0; j < classComplexTraits.getSize(); j++) {
-                if (beta < eta) {
-                  complexTrait = classComplexTraits.getComplexTrait(j);
-                  indices = complexTrait.getOmega();
-                  m_SimilarityMeasure.setAttributeIndices(indices);
-                  beta += m_SimilarityMeasure.distance(m_Train.get(i), complexTrait.getEquivalentInstance());
-                } else {
-                  break;
-                }
-              }
-              if (beta < eta) {
-                leftovers.add(m_Train.get(i));
-                allObjects = false;
-              }
-            } else {
-              leftovers.add(m_Train.get(i));
-            }
-          }
-        }
-        else{
-          allObjects = true;
-        }
-      }*/
       model.add(classComplexTraits);
     }
     int a = 0;
@@ -471,7 +388,7 @@ public class CRplus
     boolean finded = false;
     int c=0;
     while (c<classes.length && finded==false) {
-      //System.out.println(classes[c]+_className);
+      
       if(classes[c].equals(_className)) {
         finded = true;
       }
@@ -493,7 +410,7 @@ public class CRplus
   @Override
   public double[] distributionForInstance(Instance instance) throws Exception {
     int numClasses = model.size();
-
+    
     double[] votes = new double[numClasses];
     double accVotes;
     double electoralRoll = 0;
@@ -591,9 +508,8 @@ public class CRplus
 					votes[i]=0;
 				}
 			}
-    }
 	    	}
-	    
+    }
     return votes;
   }
 
@@ -674,6 +590,7 @@ public class CRplus
           }
          
           if(positive >= delta && negative <= deltaPrime){
+        	  System.out.println("encontro positivo");
             //Objeto equivalente a un rasgo complejo
             ComplexTrait complexTrait= new ComplexTrait();
             //Se guarda la clase de la instancia 1 (es decir, la clase para la cual queremos obtener rasgos)
@@ -705,6 +622,7 @@ public class CRplus
             complexTraits.setHasComplexTraits(true);
             complexTrait.setWeight(weight);
           }else if(positive <= ethaPrime && negative >= etha){
+        	  System.out.println("encontro negativo");
               //Objeto equivalente a un rasgo complejo
               ComplexTrait complexTrait= new ComplexTrait();
               //Se guarda la clase de la instancia 1 (es decir, la clase para la cual queremos obtener rasgos)
