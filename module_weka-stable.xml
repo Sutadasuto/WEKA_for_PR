@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_weka-stable" default="compile.module.weka-stable">
+  <dirname property="module.weka-stable.basedir" file="${ant.file.module_weka-stable}"/>
+  
+  <property name="module.jdk.home.weka-stable" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.weka-stable" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.weka-stable" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.weka-stable" value="-encoding UTF-8 -source 8 -target 1.8 ${compiler.args}"/>
+  
+  <property name="weka-stable.output.dir" value="${module.weka-stable.basedir}/build/classes"/>
+  <property name="weka-stable.testoutput.dir" value="${module.weka-stable.basedir}/build/testcases"/>
+  
+  <path id="weka-stable.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="weka-stable.module.production.classpath">
+    <path refid="${module.jdk.classpath.weka-stable}"/>
+    <path refid="library.maven:_nz.ac.waikato.cms.weka.thirdparty:java-cup-11b:2015.03.26.classpath"/>
+    <path refid="library.maven:_nz.ac.waikato.cms.weka.thirdparty:java-cup-11b-runtime:2015.03.26.classpath"/>
+    <path refid="library.maven:_nz.ac.waikato.cms.weka.thirdparty:bounce:0.18.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-compress:1.10.classpath"/>
+    <path refid="library.maven:_com.googlecode.matrix-toolkits-java:mtj:1.0.4.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_ref-osx-x86_64:natives:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:native_ref-java:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil:jniloader:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_ref-linux-x86_64:natives:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_ref-linux-i686:natives:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_ref-win-x86_64:natives:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_ref-win-i686:natives:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_ref-linux-armhf:natives:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_system-osx-x86_64:natives:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:native_system-java:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_system-linux-x86_64:natives:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_system-linux-i686:natives:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_system-linux-armhf:natives:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_system-win-x86_64:natives:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_system-win-i686:natives:1.1.classpath"/>
+    <path refid="library.maven:_net.sourceforge.f2j:arpack_combined_all:0.1.classpath"/>
+    <path refid="library.maven:_com.googlecode.netlib-java:netlib-java:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:core:1.1.classpath"/>
+  </path>
+  
+  <path id="weka-stable.runtime.production.module.classpath">
+    <pathelement location="${weka-stable.output.dir}"/>
+    <path refid="library.maven:_nz.ac.waikato.cms.weka.thirdparty:java-cup-11b:2015.03.26.classpath"/>
+    <path refid="library.maven:_nz.ac.waikato.cms.weka.thirdparty:java-cup-11b-runtime:2015.03.26.classpath"/>
+    <path refid="library.maven:_nz.ac.waikato.cms.weka.thirdparty:bounce:0.18.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-compress:1.10.classpath"/>
+    <path refid="library.maven:_com.googlecode.matrix-toolkits-java:mtj:1.0.4.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_ref-osx-x86_64:natives:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:native_ref-java:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil:jniloader:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_ref-linux-x86_64:natives:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_ref-linux-i686:natives:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_ref-win-x86_64:natives:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_ref-win-i686:natives:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_ref-linux-armhf:natives:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_system-osx-x86_64:natives:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:native_system-java:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_system-linux-x86_64:natives:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_system-linux-i686:natives:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_system-linux-armhf:natives:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_system-win-x86_64:natives:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_system-win-i686:natives:1.1.classpath"/>
+    <path refid="library.maven:_net.sourceforge.f2j:arpack_combined_all:0.1.classpath"/>
+    <path refid="library.maven:_com.googlecode.netlib-java:netlib-java:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:core:1.1.classpath"/>
+  </path>
+  
+  <path id="weka-stable.module.classpath">
+    <path refid="${module.jdk.classpath.weka-stable}"/>
+    <pathelement location="${weka-stable.output.dir}"/>
+    <path refid="library.maven:_junit:junit:3.8.2.classpath"/>
+    <path refid="library.maven:_nz.ac.waikato.cms.weka.thirdparty:java-cup-11b:2015.03.26.classpath"/>
+    <path refid="library.maven:_nz.ac.waikato.cms.weka.thirdparty:java-cup-11b-runtime:2015.03.26.classpath"/>
+    <path refid="library.maven:_nz.ac.waikato.cms.weka.thirdparty:bounce:0.18.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-compress:1.10.classpath"/>
+    <path refid="library.maven:_com.googlecode.matrix-toolkits-java:mtj:1.0.4.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_ref-osx-x86_64:natives:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:native_ref-java:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil:jniloader:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_ref-linux-x86_64:natives:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_ref-linux-i686:natives:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_ref-win-x86_64:natives:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_ref-win-i686:natives:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_ref-linux-armhf:natives:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_system-osx-x86_64:natives:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:native_system-java:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_system-linux-x86_64:natives:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_system-linux-i686:natives:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_system-linux-armhf:natives:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_system-win-x86_64:natives:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_system-win-i686:natives:1.1.classpath"/>
+    <path refid="library.maven:_net.sourceforge.f2j:arpack_combined_all:0.1.classpath"/>
+    <path refid="library.maven:_com.googlecode.netlib-java:netlib-java:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:core:1.1.classpath"/>
+  </path>
+  
+  <path id="weka-stable.runtime.module.classpath">
+    <pathelement location="${weka-stable.testoutput.dir}"/>
+    <pathelement location="${weka-stable.output.dir}"/>
+    <path refid="library.maven:_junit:junit:3.8.2.classpath"/>
+    <path refid="library.maven:_nz.ac.waikato.cms.weka.thirdparty:java-cup-11b:2015.03.26.classpath"/>
+    <path refid="library.maven:_nz.ac.waikato.cms.weka.thirdparty:java-cup-11b-runtime:2015.03.26.classpath"/>
+    <path refid="library.maven:_nz.ac.waikato.cms.weka.thirdparty:bounce:0.18.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-compress:1.10.classpath"/>
+    <path refid="library.maven:_com.googlecode.matrix-toolkits-java:mtj:1.0.4.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_ref-osx-x86_64:natives:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:native_ref-java:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil:jniloader:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_ref-linux-x86_64:natives:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_ref-linux-i686:natives:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_ref-win-x86_64:natives:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_ref-win-i686:natives:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_ref-linux-armhf:natives:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_system-osx-x86_64:natives:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:native_system-java:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_system-linux-x86_64:natives:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_system-linux-i686:natives:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_system-linux-armhf:natives:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_system-win-x86_64:natives:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:netlib-native_system-win-i686:natives:1.1.classpath"/>
+    <path refid="library.maven:_net.sourceforge.f2j:arpack_combined_all:0.1.classpath"/>
+    <path refid="library.maven:_com.googlecode.netlib-java:netlib-java:1.1.classpath"/>
+    <path refid="library.maven:_com.github.fommil.netlib:core:1.1.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.weka-stable">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.weka-stable">
+    <patternset refid="excluded.from.module.weka-stable"/>
+  </patternset>
+  
+  <path id="weka-stable.module.sourcepath">
+    <dirset dir="${module.weka-stable.basedir}">
+      <include name="src/main/java"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.weka-stable" depends="compile.module.weka-stable.production,compile.module.weka-stable.tests" description="Compile module weka-stable"/>
+  
+  <target name="compile.module.weka-stable.production" depends="register.custom.compilers" description="Compile module weka-stable; production classes">
+    <mkdir dir="${weka-stable.output.dir}"/>
+    <javac2 destdir="${weka-stable.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.weka-stable}/javac">
+      <compilerarg line="${compiler.args.weka-stable}"/>
+      <bootclasspath refid="weka-stable.module.bootclasspath"/>
+      <classpath refid="weka-stable.module.production.classpath"/>
+      <src refid="weka-stable.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.weka-stable"/>
+    </javac2>
+    
+    <copy todir="${weka-stable.output.dir}">
+      <fileset dir="${module.weka-stable.basedir}/src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.weka-stable.tests" depends="register.custom.compilers,compile.module.weka-stable.production" description="compile module weka-stable; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.weka-stable" description="cleanup module">
+    <delete dir="${weka-stable.output.dir}"/>
+    <delete dir="${weka-stable.testoutput.dir}"/>
+  </target>
+</project>
