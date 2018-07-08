@@ -475,7 +475,7 @@ public class KORAomega
       int index = 0;
       String setClass = model.get(i).getComplexTrait(0).getAnalyzedClass();
       for(int j=0; j<classes.length; j++){
-        if(classes[j] == setClass){
+        if(classes[j].equals(setClass)){
           index = j;
           break;
         }
